@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="Agrimanagr.WPF.UI.Views.Admin.Equipment.ListWeighingScales"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="700" DataContext="{Binding ListWeingScalesViewModel, Source={StaticResource Locator}}" Loaded="ListWeighScalesLoaded" KeyboardNavigation.TabNavigation="None">
+
+    <Grid Background="WhiteSmoke">
+        
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Label Content="Search device" Margin="5 2 2 2"  FontSize="13"/>
+                <TextBox Margin="2" Height="25" Width="200" VerticalAlignment="Center" FontSize="13" Name="txtSrch" TextChanged="txtSrch_TextChanged" />
+                
+            </StackPanel>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <Button Name="btnAdd" Click="btnAdd_Click" Grid.Row="6"  Content="Add" Width="100" Margin="5" Style="{StaticResource AgriButtonStyle}"/>
+            </StackPanel>
+            <ScrollViewer Grid.Row="2" Margin="2" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                <Grid >
+                    <DataGrid Grid.Row="3" Width="Auto" x:Name="WeighScaleDataGrid"  AutoGenerateColumns="False" ItemsSource="{Binding Path=WeighScaleList,Mode=TwoWay}" IsReadOnly="True"  Margin="0,5,0,5"  HorizontalAlignment="Stretch"
+                          HorizontalScrollBarVisibility="Auto"   VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto" EnableRowVirtualization="True" EnableColumnVirtualization="True"  FontWeight="Normal" RowDetailsVisibilityMode="Visible" SizeChanged="data_SizeChanged">
+
+                        <DataGrid.Columns>
+                        <DataGridTextColumn  Width="150" Binding="{Binding Id}" IsReadOnly="True" Visibility="Hidden"/>
+                        <DataGridTextColumn Header="Code" Width="150" Binding="{Binding Code}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Name" Width="Auto" Binding="{Binding Name}" IsReadOnly="True"  />
+                        <DataGridTextColumn Header="Port" Width="Auto" Binding="{Binding Port}" IsReadOnly="True"  />
+                        <DataGridTextColumn Header="Baud Rate" Width="Auto" Binding="{Binding BaudRate}" IsReadOnly="True"  />
+                        <DataGridTextColumn Header="Parity Bits" Width="Auto" Binding="{Binding Parity}" IsReadOnly="True"  />
+                            <DataGridTextColumn Binding="{Binding DataBits}" IsReadOnly="True" Header="Data Bits" Width="Auto" />
+                            <DataGridTextColumn Binding="{Binding Model}" IsReadOnly="True" Header="Model" Width="Auto" />
+                            <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" Header="Action" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Name="HlEdit" Margin="3,0,0,0">
+                                        <Hyperlink Name="hpEditScale" Click="hpEditWeighScale_Click" ><TextBlock Text="Edit"/></Hyperlink></TextBlock>
+
+                                            <TextBlock Name="HlDelete" Margin="3,0,0,0">
+                                        <Hyperlink Name="hpDeleteScale" Click="hpDeletWeighScale_Click"  ><TextBlock Text="Delete"/></Hyperlink>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                </Grid>
+            </ScrollViewer>
+            <Button x:Name="btnPrev" Grid.Column="0" Grid.Row="4" Margin="2" Width="80" Click="btnPrev_Click" HorizontalAlignment="Left" Grid.ColumnSpan="1" IsEnabled="{Binding Path=btnPrev, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Style="{StaticResource AgriButtonStyle}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
+                    <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/PrevPage.png" Stretch="Fill" Width="30" Margin="0"/>
+                    <TextBlock Text=" Prev  " FontSize="13" Margin="2"></TextBlock>
+                </StackPanel>
+            </Button>
+            <!--<Label x:Name="lblPaginationDetails" Content="{Binding Path=paginationString, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>-->
+            <TextBlock x:Name="lblPaginationDetails" Grid.Row="4" Height="27" HorizontalAlignment="Center" Text="{Binding Path=Message}" VerticalAlignment="Center" Width="250"  Grid.ColumnSpan="3" />
+            <Button x:Name="btnNext" Grid.Column="4" Grid.Row="4" Margin="2" Width="90" Click="btnNext_Click" HorizontalAlignment="Right" Grid.ColumnSpan="1" IsEnabled="{Binding Path=btnNext, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Style="{StaticResource AgriButtonStyle}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
+                    <TextBlock Text=" Next  " FontSize="13" Margin="2"></TextBlock>
+                    <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/NextPage.png" Stretch="Fill" Width="30" Margin="0"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+  
+</UserControl>

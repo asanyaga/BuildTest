@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Agrimanagr.WPF.UI.Views.Admin.Contacts.ContactListingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Control="clr-namespace:Agrimanagr.WPF.UI.Views.UtilityViews"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+             xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+             mc:Ignorable="d"   d:DesignWidth="1300" x:Name="controlContactsList" KeyboardNavigation.TabNavigation="None">
+    <UserControl.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+    </UserControl.Resources>
+    <Expander IsExpanded="True" x:Name="expContact" DockPanel.Dock="Top">
+        <Expander.Header>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Label Content=" Contacts " FontWeight="Bold" FontSize="14" VerticalAlignment="Center"/>
+                    <Button Name="btnAdd" Width="130" Height="30" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Style="{StaticResource AgriButtonStyle}" Command="{Binding Path=AddContactClickedCommand}" CommandParameter="{Binding ElementName=btnAdd}" Margin="50,3,0,3">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="1">
+                            <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/AddContainer.png" Stretch="Fill" Width="20" Margin="2"/>
+                            <TextBlock Text="Add Contact" FontSize="13" Margin="1"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,0" Visibility="{Binding ElementName=expContact, Path=IsExpanded, Converter={StaticResource VisibilityConverter}}">
+                    <Label Content="Search:" Margin="5 2 2 2"  FontSize="13" FontWeight="Bold"/>
+                    <TextBox Margin="2" Height="25" Width="200" VerticalAlignment="Center" FontSize="13" x:Name="txtSearch" Text="{Binding Path=SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <cmd:EventToCommand Command="{Binding Path=SearchCommand, Mode=OneWay}" CommandParameter="{Binding Text, ElementName=txtSearch}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                    <CheckBox Content="Show inactive" FontWeight="Bold" Command="{Binding Path=ToggleShowInactiveCommand}" CommandParameter="{Binding Path=IsChecked, ElementName=chkShowInactive}" FontSize="13" x:Name="chkShowInactive"  VerticalAlignment="Center" Margin="20,0,10,0"/>
+                </StackPanel>
+            </StackPanel>
+        </Expander.Header>
+        <DockPanel LastChildFill="True" x:Name="dockContactList">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" MaxWidth="{Binding ElementName=dockContactList, Path=ActualWidth}">
+                <DataGrid  AutoGenerateColumns="False" x:Name="dgContacts" ItemsSource="{Binding Path=ContactsList,UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Contact.Firstname}" Header="First Name" IsReadOnly="True" />
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Contact.Lastname}" Header="Last Name" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="colDOB" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Contact.DateOfBirth, StringFormat=\{0:d\}}" Header="Date Of Birth" IsReadOnly="True" />
+
+                        <DataGridTextColumn x:Name="colJobTitle" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Contact.WorkExtPhone}" Header="Work Phone" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="colPhone" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Contact.MobilePhone}" Header="Mobile Phone" IsReadOnly="True" />
+
+                        <DataGridTextColumn x:Name="colAddress" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Contact.PhysicalAddress}" Header="Physical Address" IsReadOnly="True" />
+                        <DataGridTextColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Contact.PostalAddress}" Header="Postal Address" IsReadOnly="True" />
+
+                        <DataGridTextColumn x:Name="colEmail" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Contact.Email}" Header="Email" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="colClass" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" 
+                    		Binding="{Binding Contact.ContactClassification}" Header="Classification" IsReadOnly="True" />
+
+                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Actions" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Name="HlEdit" Margin="3,0,0,0">
+                                            <Hyperlink Name="hpEditcontact" 
+                                                       Command="{Binding Path=DataContext.EditContactClickedCommand, ElementName=dgContacts}"
+                                                       CommandParameter="{Binding}">
+                                                <TextBlock Text="Edit"/>
+                                            </Hyperlink></TextBlock>
+
+                                        <TextBlock Name="HlDelete" Margin="3,0,0,0">
+                                            <Hyperlink Name="hpDeletecontact" 
+                                                       Command="{Binding Path=DataContext.DeleteContactClickedCommand,ElementName=dgContacts}"
+                                                       CommandParameter="{Binding}">
+                                                <TextBlock Text="Delete"/>
+                                            </Hyperlink>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </DockPanel>
+    </Expander>
+</UserControl>

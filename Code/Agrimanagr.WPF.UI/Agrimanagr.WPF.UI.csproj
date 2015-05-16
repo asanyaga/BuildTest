@@ -1,0 +1,1149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A9294876-9535-4BDF-9A34-71F68EA45508}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Agrimanagr.WPF.UI</RootNamespace>
+    <AssemblyName>Agrimanagr.WPF.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Agrimanagr icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF45, Version=4.2.30.23246, Culture=neutral, PublicKeyToken=0e27b6f8be9b2ef7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\net45\GalaSoft.MvvmLight.Extras.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF45, Version=4.2.30.23246, Culture=neutral, PublicKeyToken=eabbf6a5f5af5004, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\net45\GalaSoft.MvvmLight.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Reporting\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Reporting\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WPFToolkit.DataVisualization.3.5.50211.1\lib\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WarehouseReceipt.Client">
+      <HintPath>..\ReferencedAssemblies\WarehouseReceipt\WarehouseReceipt.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="WarehouseReceipt.Shared">
+      <HintPath>..\ReferencedAssemblies\WarehouseReceipt\WarehouseReceipt.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Views\Activities\ActivityDetailsPopUp.xaml.cs">
+      <DependentUpon>ActivityDetailsPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Activities\ActivityListing.xaml.cs">
+      <DependentUpon>ActivityListing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminHome.xaml.cs">
+      <DependentUpon>AdminHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminMenuControls\AdminMainMenu.xaml.cs">
+      <DependentUpon>AdminMainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminMenuControls\FarmActivitiesManagement.xaml.cs">
+      <DependentUpon>FarmActivitiesManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminMenuControls\MenuStoreManagement.xaml.cs">
+      <DependentUpon>MenuStoreManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminMenuControls\MenuAccountManagement.xaml.cs">
+      <DependentUpon>MenuAccountManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminMenuControls\MenuAssetManagement.xaml.cs">
+      <DependentUpon>MenuAssetManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminMenuControls\MenuCommodityManagement.xaml.cs">
+      <DependentUpon>MenuCommodityManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminMenuControls\MenuControlBase.cs" />
+    <Compile Include="Views\Admin\AdminMenuControls\MenuRouteManagement.xaml.cs">
+      <DependentUpon>MenuRouteManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminMenuControls\MenuUserManagement.xaml.cs">
+      <DependentUpon>MenuUserManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminMenuControls\WarehouseMenu.xaml.cs">
+      <DependentUpon>WarehouseMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Centres\EditCentre.xaml.cs">
+      <DependentUpon>EditCentre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Centres\ListCentres.xaml.cs">
+      <DependentUpon>ListCentres.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CommodityOwners\EditIndividualFarmer.xaml.cs">
+      <DependentUpon>EditIndividualFarmer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CommodityOwners\EditCommodityOwner.xaml.cs">
+      <DependentUpon>EditCommodityOwner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CommodityOwners\ListCommodityOwners.xaml.cs">
+      <DependentUpon>ListCommodityOwners.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CommodityProducers\EditCommodityProducer.xaml.cs">
+      <DependentUpon>EditCommodityProducer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CommodityProducers\ListCommodityProducers.xaml.cs">
+      <DependentUpon>ListCommodityProducers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CommoditySuppliers\EditCommodityOwnerModal.xaml.cs">
+      <DependentUpon>EditCommodityOwnerModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CommoditySuppliers\EditCommodityProducerModal.xaml.cs">
+      <DependentUpon>EditCommodityProducerModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CommoditySuppliers\EditCommoditySupplier.xaml.cs">
+      <DependentUpon>EditCommoditySupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CommoditySuppliers\FarmerOutletMapping.xaml.cs">
+      <DependentUpon>FarmerOutletMapping.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CommoditySuppliers\ListCommoditySuppliers.xaml.cs">
+      <DependentUpon>ListCommoditySuppliers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Contacts\ContactListingControl.xaml.cs">
+      <DependentUpon>ContactListingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Contacts\ListContacts.xaml.cs">
+      <DependentUpon>ListContacts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Containers\EditContainer.xaml.cs">
+      <DependentUpon>EditContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Containers\EditContainerType.xaml.cs">
+      <DependentUpon>EditContainerType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Containers\ListContainers.xaml.cs">
+      <DependentUpon>ListContainers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Containers\ListContainerTypes.xaml.cs">
+      <DependentUpon>ListContainerTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Equipment\EquipmentSetup\TEstUserControl1.xaml.cs">
+      <DependentUpon>TEstUserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Equipment\EquipmentSetup\WeighingScaleSetup.xaml.cs">
+      <DependentUpon>WeighingScaleSetup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Equipment\ListWeighingScales.xaml.cs">
+      <DependentUpon>ListWeighingScales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Contacts\AddUserContactsModal.xaml.cs">
+      <DependentUpon>AddUserContactsModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Farmactivities\Infections\EditInfection.xaml.cs">
+      <DependentUpon>EditInfection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Farmactivities\Infections\ListInfection.xaml.cs">
+      <DependentUpon>ListInfection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Farmactivities\Seasons\EditSeason.xaml.cs">
+      <DependentUpon>EditSeason.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Farmactivities\Seasons\ListSeasons.xaml.cs">
+      <DependentUpon>ListSeasons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Farmactivities\ServiceProviders\EditServiceProvider.xaml.cs">
+      <DependentUpon>EditServiceProvider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Farmactivities\ServiceProviders\ListServiceProviders.xaml.cs">
+      <DependentUpon>ListServiceProviders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Farmactivities\Services\EditServices.xaml.cs">
+      <DependentUpon>EditServices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Farmactivities\Services\ListServices.xaml.cs">
+      <DependentUpon>ListServices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Farmactivities\Shifts\EditShift.xaml.cs">
+      <DependentUpon>EditShift.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Farmactivities\Shifts\ListShifts.xaml.cs">
+      <DependentUpon>ListShifts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Owner\CommodityOwner.xaml.cs">
+      <DependentUpon>CommodityOwner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Producer\CommodityProducer.xaml.cs">
+      <DependentUpon>CommodityProducer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Producer\ListingMemberCommodityProducers.xaml.cs">
+      <DependentUpon>ListingMemberCommodityProducers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Routes\EditRoute.xaml.cs">
+      <DependentUpon>EditRoute.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Routes\ListRoutes.xaml.cs">
+      <DependentUpon>ListRoutes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Stores\EditStore.xaml.cs">
+      <DependentUpon>EditStore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Stores\ListStores.xaml.cs">
+      <DependentUpon>ListStores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\SupplierContacts\Contacts.xaml.cs">
+      <DependentUpon>Contacts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\SupplierContacts\ListingSupplierContacts.xaml.cs">
+      <DependentUpon>ListingSupplierContacts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Supplier\AddEditFarmer.xaml.cs">
+      <DependentUpon>AddEditFarmer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Owner\ListingMemberCommodityOwner.xaml.cs">
+      <DependentUpon>ListingMemberCommodityOwner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Supplier\ListOfSuppliers.xaml.cs">
+      <DependentUpon>ListOfSuppliers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Users\EditUser.xaml.cs">
+      <DependentUpon>EditUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Users\ListUsers.xaml.cs">
+      <DependentUpon>ListUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Vehicles\EditVehicle.xaml.cs">
+      <DependentUpon>EditVehicle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Vehicles\ListVehicles.xaml.cs">
+      <DependentUpon>ListVehicles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\WeighingScales\EditWeighingScale.xaml.cs">
+      <DependentUpon>EditWeighingScale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\WeighingScales\ListWeighingScales.xaml.cs">
+      <DependentUpon>ListWeighingScales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityPurchase\ListFarmers.xaml.cs">
+      <DependentUpon>ListFarmers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityReception\AwaitingReception.xaml.cs">
+      <DependentUpon>AwaitingReception.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityReception\AwaitingStorage.xaml.cs">
+      <DependentUpon>AwaitingStorage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityReception\CompletedAndStored.xaml.cs">
+      <DependentUpon>CompletedAndStored.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityReception\StoreCommodity.xaml.cs">
+      <DependentUpon>StoreCommodity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityReception\DocumentDetails.xaml.cs">
+      <DependentUpon>DocumentDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityReception\WeighAndReceivePopup.xaml.cs">
+      <DependentUpon>WeighAndReceivePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityRelease\ReleaseDocument.xaml.cs">
+      <DependentUpon>ReleaseDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InventoryTransfer\CommodityRelease.xaml.cs">
+      <DependentUpon>CommodityRelease.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InventoryTransfer\IntraStoreTransfer.xaml.cs">
+      <DependentUpon>IntraStoreTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InventoryTransfer\InventoryHome.xaml.cs">
+      <DependentUpon>InventoryHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InventoryTransfer\InventoryInStorage.xaml.cs">
+      <DependentUpon>InventoryInStorage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InventoryTransfer\InventoryLevel.xaml.cs">
+      <DependentUpon>InventoryLevel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InventoryTransfer\ToHqInventoryTransfer.xaml.cs">
+      <DependentUpon>ToHqInventoryTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginViews\ChangeUserPassword.xaml.cs">
+      <DependentUpon>ChangeUserPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReceiptView\ReceiptDocument.xaml.cs">
+      <DependentUpon>ReceiptDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\MainReport.xaml.cs">
+      <DependentUpon>MainReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ReportView.xaml.cs">
+      <DependentUpon>ReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\AgriDataViewer.xaml.cs">
+      <DependentUpon>AgriDataViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\AgriGeneralSettings.xaml.cs">
+      <DependentUpon>AgriGeneralSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\AgriSettingsMainPage.xaml.cs">
+      <DependentUpon>AgriSettingsMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\AgriSync.xaml.cs">
+      <DependentUpon>AgriSync.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\AgriSyncSettings.xaml.cs">
+      <DependentUpon>AgriSyncSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\AgriWeighScaleSettings.xaml.cs">
+      <DependentUpon>AgriWeighScaleSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityViews\AgriItemLookUpView.xaml.cs">
+      <DependentUpon>AgriItemLookUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityViews\AssignmentsButtonsControl.xaml.cs">
+      <DependentUpon>AssignmentsButtonsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityViews\Busy.xaml.cs">
+      <DependentUpon>Busy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityViews\ComboPopUp.xaml.cs">
+      <DependentUpon>ComboPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityViews\PagerControl.xaml.cs">
+      <DependentUpon>PagerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityViews\SaveCancelButtonsControl.xaml.cs">
+      <DependentUpon>SaveCancelButtonsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehousing\AddWarehouseEntryFormPage.xaml.cs">
+      <DependentUpon>AddWarehouseEntryFormPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehousing\EagcLogin.xaml.cs">
+      <DependentUpon>EagcLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehousing\WarehousedepositorFormPage.xaml.cs">
+      <DependentUpon>WarehousedepositorFormPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehousing\WarehousePrintNotes\GoodsReceivedNotes.xaml.cs">
+      <DependentUpon>GoodsReceivedNotes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehousing\WarehouseInventoryLevelsListingPage.xaml.cs">
+      <DependentUpon>WarehouseInventoryLevelsListingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehousing\WarehousePendingStorageListingPage.xaml.cs">
+      <DependentUpon>WarehousePendingStorageListingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehousing\WarehouseReceiptFormPage.xaml.cs">
+      <DependentUpon>WarehouseReceiptFormPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehousing\WarehouseStoreFormPage.xaml.cs">
+      <DependentUpon>WarehouseStoreFormPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehousing\WarehouseExitListingPage.xaml.cs">
+      <DependentUpon>WarehouseExitListingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehousing\WarehouseEntryListingPage.xaml.cs">
+      <DependentUpon>WarehouseEntryListingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehousing\WarehouseExitFormPage.xaml.cs">
+      <DependentUpon>WarehouseExitFormPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Assets\AdminMenuStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ReceiptDataGridStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\DataGridStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\TabStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\images\FormStyles\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Activities\ActivityDetailsPopUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Activities\ActivityListing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\AdminMenuControls\AdminMainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminMenuControls\FarmActivitiesManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminMenuControls\MenuStoreManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\AdminMenuControls\MenuAccountManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminMenuControls\MenuAssetManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminMenuControls\MenuCommodityManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminMenuControls\MenuRouteManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminMenuControls\MenuUserManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminMenuControls\WarehouseMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Centres\EditCentre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Centres\ListCentres.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CommodityOwners\EditIndividualFarmer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\CommodityOwners\EditCommodityOwner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CommodityOwners\ListCommodityOwners.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CommodityProducers\EditCommodityProducer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CommodityProducers\ListCommodityProducers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CommoditySuppliers\EditCommodityOwnerModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CommoditySuppliers\EditCommodityProducerModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CommoditySuppliers\EditCommoditySupplier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CommoditySuppliers\FarmerOutletMapping.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CommoditySuppliers\ListCommoditySuppliers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Contacts\ContactListingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Contacts\ListContacts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Containers\EditContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Containers\EditContainerType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Containers\ListContainers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Containers\ListContainerTypes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Equipment\EquipmentSetup\TEstUserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Equipment\EquipmentSetup\WeighingScaleSetup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Equipment\ListWeighingScales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Contacts\AddUserContactsModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Farmactivities\Infections\EditInfection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Farmactivities\Infections\ListInfection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Farmactivities\Seasons\EditSeason.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Farmactivities\Seasons\ListSeasons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Farmactivities\ServiceProviders\EditServiceProvider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Farmactivities\ServiceProviders\ListServiceProviders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Farmactivities\Services\EditServices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Farmactivities\Services\ListServices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Farmactivities\Shifts\EditShift.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Farmactivities\Shifts\ListShifts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Owner\CommodityOwner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Producer\CommodityProducer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Producer\ListingMemberCommodityProducers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Routes\EditRoute.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Routes\ListRoutes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Stores\EditStore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Stores\ListStores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\SupplierContacts\Contacts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\SupplierContacts\ListingSupplierContacts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Supplier\AddEditFarmer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Owner\ListingMemberCommodityOwner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Supplier\ListOfSuppliers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\Users\EditUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Users\ListUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Vehicles\EditVehicle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Vehicles\ListVehicles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\WeighingScales\EditWeighingScale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\WeighingScales\ListWeighingScales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityPurchase\ListFarmers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityReception\AwaitingReception.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityReception\AwaitingStorage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityReception\CommodityHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityPurchase\EditPurchase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityReception\BatchCommodity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityReception\CompletedAndStored.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityReception\StoreCommodity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CommodityReception\ListCommodityReception.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityReception\ReceptionSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityReception\DocumentDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityReception\WeighAndReceivePopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommodityRelease\ReleaseDocument.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InventoryTransfer\CommodityRelease.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InventoryTransfer\IntraStoreTransfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InventoryTransfer\InventoryHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InventoryTransfer\InventoryInStorage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InventoryTransfer\InventoryLevel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InventoryTransfer\ToHqInventoryTransfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginViews\AgriConfiguration.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LoginViews\ChangeUserPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LoginViews\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainViews\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\CommodityReception\CommodityHome.xaml.cs">
+      <DependentUpon>CommodityHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityPurchase\EditPurchase.xaml.cs">
+      <DependentUpon>EditPurchase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityReception\BatchCommodity.xaml.cs">
+      <DependentUpon>BatchCommodity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityReception\ListCommodityReception.xaml.cs">
+      <DependentUpon>ListCommodityReception.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommodityReception\ReceptionSummary.xaml.cs">
+      <DependentUpon>ReceptionSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginViews\AgriConfiguration.xaml.cs">
+      <DependentUpon>AgriConfiguration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginViews\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainViews\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\ReceiptView\ReceiptDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\MainReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\AgriDataViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\AgriGeneralSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\AgriSettingsMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\AgriSync.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\AgriSyncSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\AgriWeighScaleSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UtilityViews\AgriItemLookUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityViews\AssignmentsButtonsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityViews\Busy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityViews\ComboPopUp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UtilityViews\PagerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityViews\SaveCancelButtonsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Warehousing\AddWarehouseEntryFormPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Warehousing\EagcLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Warehousing\WarehousedepositorFormPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Warehousing\WarehousePrintNotes\GoodsReceivedNotes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Warehousing\WarehouseInventoryLevelsListingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Warehousing\WarehousePendingStorageListingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Warehousing\WarehouseReceiptFormPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Warehousing\WarehouseStoreFormPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Warehousing\WarehouseExitListingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Warehousing\WarehouseEntryListingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Warehousing\WarehouseExitFormPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distributor.Core.Data\Distributr.Core.Data.csproj">
+      <Project>{b9ee272b-6d02-47a5-b6f6-d96cb102404e}</Project>
+      <Name>Distributr.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributor.Core\Distributr.Core.csproj">
+      <Project>{900F434E-7D81-422B-B567-1564C79CEAB3}</Project>
+      <Name>Distributr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WPF.Lib.Data\Distributr.WPF.Lib.Data.csproj">
+      <Project>{8707481D-6E93-4F11-B778-68B5F55CF541}</Project>
+      <Name>Distributr.WPF.Lib.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WPF.Lib.Impl\Distributr.WPF.Lib.Impl.csproj">
+      <Project>{7fafa880-4e65-4d41-9229-493372af7188}</Project>
+      <Name>Distributr.WPF.Lib.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WPF.Lib.Services\Distributr.WPF.Lib.Services.csproj">
+      <Project>{c29f45a4-3a5b-41e4-9918-a0c1ebe926cc}</Project>
+      <Name>Distributr.WPF.Lib.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WPF.Lib\Distributr.WPF.Lib.csproj">
+      <Project>{D3D60175-1436-487B-98F0-1671FB5C37DC}</Project>
+      <Name>Distributr.WPF.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\images\AccountMG\" />
+    <Folder Include="Resources\images\CommodityMG\" />
+    <Folder Include="ViewsModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\AddContainer.png" />
+    <Resource Include="Resources\images\Agrimanagr icon.ico" />
+    <Resource Include="Resources\images\Agrimanagr icon.png" />
+    <Resource Include="Resources\images\agrmanagr-logo.png" />
+    <Resource Include="Resources\images\alertIcon.jpg" />
+    <Resource Include="Resources\images\AssetMG\256\Bank-Branch.png" />
+    <Resource Include="Resources\images\AssetMG\256\Bank.png" />
+    <Resource Include="Resources\images\AssetMG\256\Buying-Centre.png" />
+    <Resource Include="Resources\images\AssetMG\256\Co-operative.png" />
+    <Resource Include="Resources\images\AssetMG\256\Commodity-Type.png" />
+    <Resource Include="Resources\images\AssetMG\256\Commodity.png" />
+    <Resource Include="Resources\images\AssetMG\256\Contacts.png" />
+    <Resource Include="Resources\images\AssetMG\256\Container.png" />
+    <Resource Include="Resources\images\AssetMG\256\Farm.png" />
+    <Resource Include="Resources\images\AssetMG\256\Farmer.png" />
+    <Resource Include="Resources\images\AssetMG\256\Generic-Asset.png" />
+    <Resource Include="Resources\images\AssetMG\256\Grade.png" />
+    <Resource Include="Resources\images\AssetMG\256\Phone.png" />
+    <Resource Include="Resources\images\AssetMG\256\Printer-Setup.png" />
+    <Resource Include="Resources\images\AssetMG\256\Printer.png" />
+    <Resource Include="Resources\images\AssetMG\256\Role-Assignments.png" />
+    <Resource Include="Resources\images\AssetMG\256\Store-Ware-House.png" />
+    <Resource Include="Resources\images\AssetMG\256\Tare-Weight.png" />
+    <Resource Include="Resources\images\AssetMG\256\Targets.png" />
+    <Resource Include="Resources\images\AssetMG\256\Unity-of-Measure.png" />
+    <Resource Include="Resources\images\AssetMG\256\User.png" />
+    <Resource Include="Resources\images\AssetMG\256\Vehicle.png" />
+    <Resource Include="Resources\images\AssetMG\256\Weigh-Scale-Setup.png" />
+    <Resource Include="Resources\images\AssetMG\256\Weigh-Scale.png" />
+    <Resource Include="Resources\images\back.png" />
+    <Resource Include="Resources\images\backbtnall.png" />
+    <Resource Include="Resources\images\backbtnone.png" />
+    <Resource Include="Resources\images\bullet_arrow_down.png" />
+    <Resource Include="Resources\images\cancel.png" />
+    <Resource Include="Resources\images\changepassword.png" />
+    <Resource Include="Resources\images\cheque.png" />
+    <Resource Include="Resources\images\Confirm.png" />
+    <Resource Include="Resources\images\Dispatch.png" />
+    <Resource Include="Resources\images\farmer.png" />
+    <Resource Include="Resources\images\forwardbtn.png" />
+    <Resource Include="Resources\images\forwardbtnone.png" />
+    <Resource Include="Resources\images\fwd.png" />
+    <Resource Include="Resources\images\help.png" />
+    <Resource Include="Resources\images\icon.png" />
+    <Resource Include="Resources\images\incompleteDeliveries.png" />
+    <Resource Include="Resources\images\left.png" />
+    <Resource Include="Resources\images\left_arrow.png" />
+    <Resource Include="Resources\images\Milk.png" />
+    <Resource Include="Resources\images\NextPage.png" />
+    <Resource Include="Resources\images\Pendingdeliveries.png" />
+    <Resource Include="Resources\images\PrevPage.png" />
+    <Resource Include="Resources\images\purchases.png" />
+    <Resource Include="Resources\images\purchaseSummary.png" />
+    <Resource Include="Resources\images\received Deliveries.png" />
+    <Resource Include="Resources\images\Reception.png" />
+    <Resource Include="Resources\images\RegionMG\256\Create-Region.png" />
+    <Resource Include="Resources\images\right.png" />
+    <Resource Include="Resources\images\right_arrow.png" />
+    <Resource Include="Resources\images\RouteMG\256\Road-Type.png" />
+    <Resource Include="Resources\images\RouteMG\256\Route-Assigments.png" />
+    <Resource Include="Resources\images\RouteMG\256\Route.png" />
+    <Resource Include="Resources\images\stock_save.png" />
+    <Resource Include="Resources\images\store.png" />
+    <Resource Include="Resources\images\stores-Available.png" />
+    <Resource Include="Resources\images\Tradr, Agrimanagr logo.png" />
+    <Resource Include="Resources\images\TransportMG\256\Driver.png" />
+    <Resource Include="Resources\images\TransportMG\256\Service-Provider.png" />
+    <Resource Include="Resources\images\u529_original.png" />
+    <Resource Include="Resources\images\user.png" />
+    <Resource Include="Resources\images\VC logo n slogan.png" />
+    <Resource Include="Resources\images\virtualcity-logo.png" />
+    <Resource Include="Resources\images\weight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\bak4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\companyLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\farmers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\AdminMenu.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\receipt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\data.png" />
+    <Resource Include="Resources\images\settings.png" />
+    <Resource Include="Resources\images\sync.jpg" />
+    <Resource Include="Resources\images\sync2.jpg" />
+    <Resource Include="Resources\images\tools.png" />
+    <Resource Include="MVVMLight.Nuget.Readme.txt" />
+    <Resource Include="Resources\images\offline.png" />
+    <Resource Include="Resources\images\online.png" />
+    <Resource Include="Agrimanagr icon.ico" />
+    <Resource Include="Resources\images\dropdown.jpg" />
+    <Resource Include="Resources\images\dropdownnew.png" />
+    <Content Include="ScalePrinterAssetsDB.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

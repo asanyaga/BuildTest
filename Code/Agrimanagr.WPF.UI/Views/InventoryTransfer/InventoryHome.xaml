@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Agrimanagr.WPF.UI.Views.InventoryHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" DataContext="{Binding AgrimanagrMainPageViewModel, Source={StaticResource Locator}}">
+    <Grid>
+
+        <ContentControl   HorizontalContentAlignment="Stretch" Name="ctrlCommodity"   VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal" Background="White">
+                <TabControl Margin="330,0,0,0" Name="inventoryTab"  Style="{StaticResource tbcMain}" IsManipulationEnabled="False"
+                                    SelectionChanged="InventoryTransferTabChanged">
+                    <TabItem Style="{StaticResource tbHeaderMain}" Margin=" 5 0 0 0" Name="In_Storage_TabItem" >
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
+                                <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png" Stretch="Fill" Width="30" Margin="0"/>
+                                <TextBlock Text="1. In Storage" FontSize="13" Margin="2"></TextBlock>
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem Style="{StaticResource tbHeaderMain}" Margin=" 5 0 0 0" Name="Transfered_TabItem">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
+                                <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png" Stretch="Fill" Width="30" Margin="0"/>
+                                <TextBlock Text="2. Transfered" FontSize="13" Margin="2"></TextBlock>
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    
+                </TabControl>
+            </StackPanel>
+
+        </ContentControl>
+
+    </Grid>
+</UserControl>

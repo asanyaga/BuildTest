@@ -1,0 +1,207 @@
+﻿<Window x:Class="Agrimanagr.WPF.UI.Views.ReceiptView.ReceiptDocument"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:CommodityEntities="clr-namespace:Distributr.Core.Domain.Master.CommodityEntities;assembly=Distributr.Core"
+        mc:Ignorable="d"
+           d:DesignWidth="900" d:DesignHeight="800"
+           DataContext="{Binding AgrimanagrReceiptDocumentViewModel, Source={StaticResource Locator}}"
+        WindowStartupLocation="CenterScreen"
+          Unloaded="Window_Unloaded" Icon="../../Resources/images/receipt.png"
+          >
+    <ScrollViewer x:Name="svReceipt" >
+        <Grid x:Name="LayoutRoot" Width="830">
+            <StackPanel Margin="0,0,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,10" HorizontalAlignment="Right">
+                    <Button 
+                        Content="Print"
+                        HorizontalAlignment="Right" Margin="20,10,0,0"
+                        Name="PrintButton"                          
+                        Width="100"  Click="PrintButton_Click"/>
+                    <Button x:Name="btnBack" Content="Back" Margin="20,10,0,0" Width="100" Click="btnBack_Click" />
+                </StackPanel>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" >
+                    <Grid x:Name="gridPrintArea">
+                        <Grid x:Name="Header"  Margin="60,40,60,40">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1">
+                                <Label x:Name="lblOfficialReceipt" Content="OFFICIAL RECEIPT" FontWeight="Bold" FontSize="13.333" Grid.ColumnSpan="2" Margin="5,0,8,0"/>
+                            </Border>
+                            <Border Grid.Row="2" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1"  Margin="0,5,0,5">
+                                <TextBlock x:Name="txtRoyalMedia" Text="{Binding InvoiceRecipientCompanyName}" HorizontalAlignment="Left" TextWrapping="Wrap"  Margin="5,5,0,5" Width="411" />
+                            </Border>
+                            <Grid Grid.Column="0" Grid.Row="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition Height="29" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="lblFarmerId" Content="Farmer No." Grid.Column="0" Grid.Row="0"/>
+                                <TextBlock x:Name="txtId" Text="{Binding FamerNo}" Grid.Column="1" Grid.Row="0"/>
+                                <Label x:Name="lblName" Content="Name" Grid.Column="0" Grid.Row="1"/>
+                                <TextBlock x:Name="txtName" Text="{Binding FarmerName}" Grid.Column="1" Grid.Row="1"/>
+                                <Label Grid.Row="4" Grid.Column="0" x:Name="lblFax" Content="Fax No." />
+                                <TextBlock Grid.Row="4" Grid.Column="1" x:Name="txtFax" Text="{Binding FaxNo}"/>
+                                <Label Grid.Row="5" Grid.Column="0" x:Name="lblCellNo" Content="Cell" />
+                                <TextBlock Grid.Row="5" Grid.Column="1" x:Name="txtCellNo" Text="{Binding Cell}"/>
+                                <Label Grid.Row="6" Grid.Column="0" x:Name="lblVat" Content="VAT No" />
+                                <TextBlock Grid.Row="6" Grid.Column="1" x:Name="txtVat" Text="{Binding VatNo}"/>
+                                <Label Grid.Row="7" Grid.Column="0" x:Name="lblPinNo" Content="PIN No." />
+                                <TextBlock Grid.Row="7" Grid.Column="1" x:Name="txtPinNo" Text="{Binding PinNo}"/>
+                                <Label Grid.Row="8" Grid.Column="0" x:Name="lblEmailAdd" Content="Email" />
+                                <TextBlock Grid.Row="8" Grid.Column="1" x:Name="txtEmailAdd" Text="{Binding FarmerEmail}"/>
+                                <Label Grid.Row="9" Grid.Column="0" x:Name="lblWeb" Content="Website" />
+                                <TextBlock Grid.Row="9" Grid.Column="1" x:Name="txtWeb" Text="{Binding WebSite}"/>
+                                <Label Grid.Row="11" Grid.Column="0" x:Name="lblDeliveredBy" Content="Delivered By"/>
+                                <TextBlock Grid.Row="11" Grid.Column="1" x:Name="txtDeliveredBy" Text="{Binding DeliveredBy}"/>
+                            </Grid>
+                            <Grid Grid.Column="3" Grid.Row="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" x:Name="lblCompanyName" Content="Company Name" />
+                                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="txtCompanyName" Text="{Binding CompanyName}"/>
+                                <Label Grid.Row="1" Grid.Column="0" x:Name="lblAddress" Content="Hub Name" />
+                                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="txtAddress" Text="{Binding HubName}"/>
+
+                                <Label Grid.Row="4" Grid.Column="0" x:Name="lblFaxNo" Content="Fax No." />
+                                <TextBlock Grid.Row="4" Grid.Column="1" x:Name="txtFaxNo" Text="{Binding FaxNo}"/>
+                                <Label Grid.Row="5" Grid.Column="0" x:Name="lblCell" Content="Cell" />
+                                <TextBlock Grid.Row="5" Grid.Column="1" x:Name="txtCell" Text="{Binding Cell}"/>
+                                <Label Grid.Row="6" Grid.Column="0" x:Name="lblVatNo" Content="VAT No" />
+                                <TextBlock Grid.Row="6" Grid.Column="1" x:Name="txtVatNo" Text="{Binding VatNo}"/>
+                                <Label Grid.Row="7" Grid.Column="0" x:Name="lblPin" Content="PIN No." />
+                                <TextBlock Grid.Row="7" Grid.Column="1" x:Name="txtPin" Text="{Binding PinNo}"/>
+                                <Label Grid.Row="8" Grid.Column="0" x:Name="lblEmail" Content="Email" />
+                                <TextBlock Grid.Row="8" Grid.Column="1" x:Name="txtEmail" Text="{Binding CompanyEmail}"/>
+                                <Label Grid.Row="9" Grid.Column="0" x:Name="lblWebsite" Content="Website" />
+                                <TextBlock Grid.Row="9" Grid.Column="1" x:Name="txtWebsite" Text="{Binding WebSite}"/>
+                            </Grid>
+                            <Border  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1" Margin="0,5,100,5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="98*" />
+                                        <ColumnDefinition Width="165*" />
+                                        <ColumnDefinition Width="80*" />
+                                        <ColumnDefinition Width="74*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label x:Name="lblReceiptNo" Content="Receipt No:" Margin="5,0,6,0"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" x:Name="txtReceiptNo" Text="{Binding ReceiptNo}" Width="Auto"/>
+                                    <Label Grid.Row="0" Grid.Column="2" x:Name="lblReceiptDate" Content="Receipt Date:" />
+                                    <TextBlock Grid.Column="3" x:Name="txtReceiptDate" Text="{Binding ReceiptDate}" />
+                                    <Label Grid.Row="1" x:Name="lblInvoiceNo" Content="Invoice Ref. No:" Margin="5,0,6,0" Visibility="Collapsed"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" x:Name="txtInvoiceNo" Text="{Binding InvoiceNo}" Width="Auto" Visibility="Collapsed"/>
+                                    <Label Grid.Row="1" Grid.Column="2" x:Name="lblInvoiceDate" Content="Invoice Date:"  Visibility="Collapsed"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="3" x:Name="txtInvoiveDate" Text="{Binding InvoiceDate}" Visibility="Collapsed" />
+                                </Grid>
+                            </Border>
+                            <Border Grid.Row="5" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1" Margin="0,5,0,5">
+                                <TextBlock x:Name="txtWithThanks" Text="With Thanks. This is your Receipt. Please revert to the undersigned with any queries." TextAlignment="Center"/>
+                            </Border>
+                            <TextBlock Grid.Row="6" Grid.Column="0" x:Name="lblBeingReceiptFor" Text="Being Receipt for the following." FontWeight="Bold" TextAlignment="Center"/>
+                            <DataGrid Grid.Row="7" Grid.ColumnSpan="3" x:Name="dgReceiptLineItems" AutoGenerateColumns="False" ItemsSource="{Binding ReceiptLineItemsList}" VerticalAlignment="Top" Margin="0,5,0,0" Width="Auto">
+                                <DataGrid.Columns>
+                                   <DataGridTextColumn  CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Commodity" 
+                                                IsReadOnly="True" Width="2*"  Binding="{Binding Commodity.Name}" />
+                                    <DataGridTextColumn x:Name="colGrade" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Grade" 
+                                                IsReadOnly="True" Width="2*"   Binding="{Binding CommodityGrade.Name}" />
+                                    <DataGridTextColumn x:Name="colGross" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Gross&#x0a;Weight" 
+                                                IsReadOnly="True" Width="1.2*" Binding="{Binding GrossWeight, StringFormat=#\,0.00;(#\,0.00);0}" />
+                                    <DataGridTextColumn x:Name="colTareWeight" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Tare&#x0a;Weight" 
+                                                IsReadOnly="True" Width="1*"   Binding="{Binding TareWeight,StringFormat=#\,0.00;(#\,0.00);0}" />
+                                    <DataGridTextColumn x:Name="colBubbleSpace" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Bubble&#x0a;Space" 
+                                                IsReadOnly="True" Width="1*"  Binding="{Binding BubbleSpace,StringFormat=#\,0.00;(#\,0.00);0}" />
+                                    <DataGridTextColumn x:Name="colValue" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Net&#x0a;Weight" 
+                                                IsReadOnly="True" Width="1*" Binding="{Binding NetWeight, StringFormat=#\,0.00;(#\,0.00);0}" />
+                                    <DataGridTextColumn  CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Container No." 
+                                                IsReadOnly="True" Width="6*" MinWidth="120"  Binding="{Binding ContainerNo}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <Grid Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,20,0,20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="2" x:Name="lblTotalGross" Content="Total Weight" Margin="26,0,0,0"  HorizontalAlignment="Right"/>
+                                <!--, StringFormat=#\,0.00;(#\,0.00);0-->
+                                <TextBlock Grid.Row="2" Grid.Column="1" x:Name="txtTotalWeight" Text="{Binding TotalWeight,Mode=TwoWay}" Margin="81,0,10,0"  TextAlignment="Right" />
+                            </Grid>
+                            <StackPanel Grid.Row="9" Grid.Column="0" Orientation="Horizontal" Margin="0,20,0,0">
+                                <Label x:Name="lblServedBy" Content="You were served by:"/>
+                                <TextBlock x:Name="txtServedBy" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding ServedByUserName}" Width="100" />
+                            </StackPanel>
+                            <Label x:Name="lblWithThanksRegards" Grid.Row="9" Grid.Column="3"  Content="With Thanks and Kind Regards"  Margin="0,20,0,0"/>
+                            <StackPanel x:Name="spSignature" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,15,0,0">
+                                <Label x:Name="lblSignature" Content="Signature:"/>
+                                <TextBlock x:Name="txtSignature" Text="_______________________" Width="152" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,20,0,0">
+                                <Label x:Name="lblSignedDate" Content="Date:" Margin="0,0,0,0"/>
+                                <TextBlock x:Name="txtSignedDate" Text="__________________________" Width="180" Margin="5,0,0,0"/>
+                                <TextBlock x:Name="txtSignedBy" Text="__________________________________" Width="235" Margin="180,0,0,0"/>
+                            </StackPanel>
+                            <TextBlock x:Name="txtCompayNameLast" Grid.Row="12" Grid.Column="3" Text="{Binding CompanyName}" FontWeight="Bold" TextAlignment="Center" Margin="0,20,0,0"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>

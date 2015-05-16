@@ -1,0 +1,78 @@
+﻿<Page x:Class="Agrimanagr.WPF.UI.Views.CommodityPurchase.ListFarmers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:Admin="clr-namespace:Distributr.WPF.Lib.ViewModels.Admin;assembly=Distributr.WPF.Lib"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+      xmlns:Control="clr-namespace:Agrimanagr.WPF.UI.Views.UtilityViews" 
+      mc:Ignorable="d" DataContext="{Binding ListFarmersViewModel, Source={StaticResource Locator}}"
+      d:DesignWidth="1000" d:DesignHeight="300">
+    <!--<i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadListingPageCommand}" PassEventArgsToCommand="True" CommandParameter="{x:Static Admin:BooleanHelper.True}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>-->
+    <GroupBox DockPanel.Dock="Top" HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1" Background="WhiteSmoke" Padding=" 0" Height="auto">
+        <GroupBox.Header>
+            <Label x:Name="lblEdit" Content="{Binding Path=PageTitle}" FontWeight="Bold" FontSize="14" Foreground="#FF5C94F2"/>
+        </GroupBox.Header>
+        <DockPanel Margin="20 0 0 0" LastChildFill="True">
+            <Grid DockPanel.Dock="Top" Margin="0,5,0,0" Background="#CCCCCC">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Label Content="Filter by Account:"/>
+                    <ComboBox x:Name="cmbCommoditySupplierList" ItemsSource="{Binding Path=CommoditySuppliersList}"
+                      SelectedItem="{Binding Path=SelectedCommoditySupplier, Mode=TwoWay}"
+                      DisplayMemberPath="Name">
+                        <!--<i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <cmd:EventToCommand Command="{Binding Path=LoadListingPageCommand, Mode=OneWay}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>-->
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Label Content="Search:" Margin="5 2 2 2"  FontSize="13" FontWeight="Bold"/>
+                    <TextBox Margin="2" Height="25" Width="200" VerticalAlignment="Center" FontSize="13" x:Name="txtSearch" Text="{Binding Path=SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <!--<i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <cmd:EventToCommand Command="{Binding Path=SearchCommand, Mode=OneWay}" CommandParameter="{Binding Text, ElementName=txtSearch}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>-->
+                    </TextBox>
+                    <CheckBox Content="Show inactive" FontWeight="Bold" Command="{Binding Path=ToggleShowInactiveCommand}" CommandParameter="{Binding Path=IsChecked, ElementName=chkShowInactive}" FontSize="13" x:Name="chkShowInactive"  VerticalAlignment="Center" Margin="20,0,10,0"/>
+                </StackPanel>
+            </Grid>
+            <Control:PagerControl DockPanel.Dock="Bottom" />
+            <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                <DataGrid Grid.Row="1"  x:Name="FarmerDataGrid"  AutoGenerateColumns="False" ItemsSource="{Binding Path=FarmersList,Mode=TwoWay}" IsReadOnly="True"  Margin="0,5,0,5" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto" EnableRowVirtualization="True" EnableColumnVirtualization="True"  FontWeight="Normal" RowDetailsVisibilityMode="Visible"  SelectedItem="{Binding Path=SelectedFarmer, Mode=TwoWay}" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Code}" IsReadOnly="True" Header="Farmer No." Width="auto" />
+                        <DataGridTextColumn Binding="{Binding FullName}" IsReadOnly="True" Header="Farmer Name" Width="auto" />
+                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="auto" Header="Last Transaction" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Name="HlReceiveCommodity" Margin="3,0,0,0">
+                                        <Hyperlink Name="hpLastTransaction" Command="{Binding DataContext.ViewLastTransactionCommand,ElementName=FarmerDataGrid}" CommandParameter="{Binding}"><TextBlock Text="Show"/></Hyperlink></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="140" Header="Action" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock  Margin="3,0,0,0">
+                                        <Hyperlink Name="hpPurchase" Command="{Binding DataContext.PurchaseCommodityCommand,ElementName=FarmerDataGrid}" CommandParameter="{Binding}" ><TextBlock Text="Purchase"/></Hyperlink></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </DockPanel>
+    </GroupBox>
+</Page>

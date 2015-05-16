@@ -1,0 +1,79 @@
+﻿<Page x:Class="Agrimanagr.WPF.UI.Views.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:Converters="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      mc:Ignorable="d" Title="Agrimanagr Login" 
+        DataContext="{Binding LoginViewModel, Source={StaticResource Locator}}" MinHeight="750">
+    <Page.Resources>
+        <Converters:ReverseIsEnabledConverter x:Key="ReverseIsEnabledConverter" />
+    </Page.Resources>
+    <Page.Background>
+        <ImageBrush ImageSource="../../Resources/images/bak4.jpg"  Stretch="UniformToFill"/>
+    </Page.Background>
+
+    <Grid  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="0" Background="#F2F2F2" Padding="5"
+					CornerRadius="0 0 12 12" VerticalAlignment="Center"
+					HorizontalAlignment="Center">
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="Gray" Opacity="0.75"  ShadowDepth="5" />
+            </Border.BitmapEffect>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin=" 0" HorizontalAlignment="Center" Opacity=".5">
+
+                <Image Source="/Resources/images/companyLogo.png"/>
+
+            </StackPanel>
+        </Border>
+        <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="90"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+
+            </Grid.RowDefinitions>
+            <Label Content="User Name:" Foreground="White"/>
+            <TextBox Grid.Column="1" x:Name="txtUserName" ForceCursor="True" Focusable="True"  Margin="3" Width="194" Text="{Binding Path=Username, Mode=TwoWay}" TextChanged="txtUserName_TextChanged"/>
+            <Label Grid.Row="1" Content="Password:" Foreground="White"/>
+            <PasswordBox Margin="3" x:Name="txtPassword" Grid.Column="1"  Grid.Row="1" PasswordChanged="txtPassword_PasswordChanged"></PasswordBox>
+            <Label Grid.Row="2"  x:Name="lblServerUlr" Content="Server Url:" Foreground="White" />
+            <TextBox Grid.Row="2" x:Name="txtServerUrl" ForceCursor="True" Focusable="True" Grid.Column="1" Margin="3" Width="194" Text="{Binding Path=Url, Mode=TwoWay}" IsEnabled="{Binding Path=IsInitialized, Converter={StaticResource ReverseIsEnabledConverter}}" TextChanged="txtServerUrl_TextChanged"/>
+            <Label Grid.Row="3" x:Name="lblForgotPassword" Grid.ColumnSpan="3" Content="Forgot your password ?" HorizontalContentAlignment="Center" Foreground="White" Visibility="Hidden"/>
+            <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Style="{StaticResource AgriButtonStyle}" x:Name="btnLogin" Grid.Column="2" Grid.Row="2" Margin="2"  Width="90" Click="btnLogin_Click" IsDefault="True" >
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch"   Margin="0" >
+                        <Image Source="../../Resources/images/ok.png" Stretch="Fill" Width="30" Margin="0"/>
+                        <TextBlock Text=" Login " FontSize="13" Margin="1"></TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource AgriButtonStyle}" x:Name="btnCancel" Grid.Column="3" Grid.Row="2" Margin="2" Width="90" Click="btnCancel_Click" >
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch"  Margin="0">
+                        <Image Source="../../Resources/images/cancel.png" Stretch="Fill" Width="30" Margin="0"/>
+                       <TextBlock Text=" Cancel  " FontSize="13" Margin="2"></TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"  Name="TxtVersion" Text="Version No:" Foreground="Black" Margin="2,2,2,2"/>
+
+        </Grid>
+    </Grid>
+</Page>

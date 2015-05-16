@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="Agrimanagr.WPF.UI.Views.Admin.AdminMenuControls.AdminMainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:AdminMenuControls="clr-namespace:Agrimanagr.WPF.UI.Views.Admin.AdminMenuControls" mc:Ignorable="d" 
+             d:DesignHeight="516.418" d:DesignWidth="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="280" MinWidth="120" MaxWidth="280"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TabControl VerticalAlignment="Stretch" Width="280" Height="Auto" 
+                        TabStripPlacement="Bottom" Style="{DynamicResource OutlookTabControlStyle}" BorderBrush="#FF6593CF"
+                        HorizontalAlignment="Left" BorderThickness="1,1,1,0" Margin="0,1,0,-1">
+            <TabItem x:Name="TabItemAccountManagement" Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Margin="10, 0,10,0"  Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                        <TextBlock x:Name="TxtAccountManagement" Text="Account Management"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </TabItem.Header>
+                <ScrollViewer Margin="10,10,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <AdminMenuControls:MenuAccountManagement/>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem x:Name="TabItemUserManagement" Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Margin="10, 0,10,0"  Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                        <TextBlock x:Name="TxtUserManagement" Text="User Management"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </TabItem.Header>
+                <ScrollViewer Margin="10,10,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <AdminMenuControls:MenuUserManagement/>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}" Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Margin="10, 0,10,0"  Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                        <TextBlock x:Name="TxtCommodityManagement" Text="Commodity Management"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer Margin="10,10,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <AdminMenuControls:MenuCommodityManagement/>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Margin="10, 0,10,0"  Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                        <TextBlock x:Name="TxtAssetManagement" Text="Asset Management"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer Margin="10,10,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <AdminMenuControls:MenuAssetManagement/>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Margin="10, 0,10,0"  Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                        <TextBlock x:Name="TxtStoreManagement" Text="Store Management"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer Margin="10,10,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <AdminMenuControls:MenuStoreManagement/>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}" Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Margin="10, 0,10,0"  Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                        <TextBlock x:Name="TxtTransportManagement" Text="Transport Management"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer Margin="10,10,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <AdminMenuControls:MenuCommodityManagement/>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Margin="10, 0,10,0"  Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                        <TextBlock x:Name="TxtRouteManagement" Text="Route Management"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer Margin="10,10,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <AdminMenuControls:MenuRouteManagement/>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}" Visibility="Collapsed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Margin="10, 0,10,0"  Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                        <TextBlock x:Name="TxtRegionManagement" Text="Region Management"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer Margin="10,10,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <AdminMenuControls:MenuCommodityManagement/>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Margin="10, 0,10,0"  Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                        <TextBlock x:Name="farmActivitiesManagement" Text="Farm Activities Management"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer Margin="10,10,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <AdminMenuControls:FarmActivitiesManagement/>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+
+        <GridSplitter HorizontalAlignment="Right" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Column="1" ResizeBehavior="PreviousAndNext"
+                  Width="2.5" Background="#FFBCBCBC" />
+    </Grid>
+</UserControl>

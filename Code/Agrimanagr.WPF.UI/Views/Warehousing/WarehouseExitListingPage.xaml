@@ -1,0 +1,58 @@
+﻿<Page x:Class="Agrimanagr.WPF.UI.Views.Warehousing.WarehouseExitListingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+      xmlns:Control="clr-namespace:Agrimanagr.WPF.UI.Views.UtilityViews" mc:Ignorable="d" 
+      d:DesignHeight="437.143" d:DesignWidth="1011.429"
+	Title="WarehouseEntryListingPage" DataContext="{Binding WarehouseExitListingViewModel, Source={StaticResource Locator}}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadListingPageCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel Margin="20 0 0 0" LastChildFill="True">
+        <Control:PagerControl DockPanel.Dock="Bottom" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+
+            </Grid.RowDefinitions>
+            <DataGrid  Grid.Row="0" x:Name="dgList"  AutoGenerateColumns="False"
+                                                  ItemsSource="{Binding WarehouseEntryList,Mode=TwoWay}" IsReadOnly="True"  Margin="6,6,0,5"
+                                                   HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Auto"   VerticalAlignment="Stretch" 
+                                      VerticalScrollBarVisibility="Auto" FontWeight="Normal" RowDetailsVisibilityMode="Visible" Grid.RowSpan="3" 
+                   SelectedItem="{Binding Path=SelectedWarehouseListing, Mode=TwoWay}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=RowNumber}" Header="" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding DocumentReference}" IsReadOnly="True" Header="Document Ref" Width="auto" />
+                    <DataGridTextColumn Binding="{Binding CommodityOwner}" IsReadOnly="True" Header="Farmer" Width="auto" />
+                    <DataGridTextColumn Binding="{Binding Commodity}" IsReadOnly="True" Header="Commodity" Width="auto" />
+                    <DataGridTextColumn Binding="{Binding CommodityGrade}" IsReadOnly="True" Header="Grade" Width="auto" />
+                    <DataGridTextColumn Binding="{Binding InitialWeight}" IsReadOnly="True" Header="Weight At Entry(kg)" Width="auto" />
+                    <DataGridTextColumn Binding="{Binding FinalWeight}" IsReadOnly="True" Header="Weight At Exit(kg)" Width="auto" />
+                    <DataGridTextColumn Binding="{Binding CommodityWeight}" IsReadOnly="True" Header="Net Weight(kg)" Width="auto" />
+
+                    <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="140" Header="Action" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl>
+                                    <TextBlock Margin="5,0,0,0">
+                                        <Hyperlink x:Name="hlPrintExitNote" Command="{Binding Path=DataContext.PrintCommand, ElementName=dgList}"  >
+                                            <TextBlock x:Name="txtAddFarmer" Text="Print Note"></TextBlock>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding Id}" IsReadOnly="True" Header="Id" Visibility="Hidden" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+    </DockPanel>
+</Page>

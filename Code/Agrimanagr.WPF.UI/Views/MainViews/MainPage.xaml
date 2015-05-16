@@ -1,0 +1,224 @@
+﻿<Page x:Class="Agrimanagr.WPF.UI.Views.MainViews.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:settings="clr-namespace:Agrimanagr.WPF.UI.Views.Settings"
+      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      Title="Agrimanagr" mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700" >
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter" />
+    </Page.Resources>
+    <Grid  Background="{StaticResource HeaderBrush2}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Image Source="../../Resources/images/Tradr, Agrimanagr logo.png" Margin="2" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" />
+        <DockPanel Grid.Column="1" HorizontalAlignment="Right">
+            <StackPanel Grid.RowSpan="2" DockPanel.Dock="Left">
+                <Image x:Name="imgUserDisplay" Source="../../Resources\images\user.png" Margin="5"  Height="70" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right">
+                <Label Content="Welcome" Margin="5,0,0,0" Height="25" />
+                <Label x:Name="lblUserLogin" Grid.Column="2" Content="" Margin="10,0,0,0" Height="25"/>
+                <Label Foreground="#3399FF" Visibility="{Binding Path=IsLoggedIn, Converter={StaticResource VisibilityConverter}}" Height="25" Margin="10,0,0,0">
+                    <Hyperlink x:Name="hlkLogout" Command="{Binding LogoutCommand}" Click="hlkLogout_Click">
+                        (Logout)
+                    </Hyperlink>
+                </Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right">
+                <Label x:Name="lblCurrentDate" Content="Login Date: " Height="25" Margin="0,0,0,0"/>
+                <Label x:Name ="lblLoginDate" Content="" Margin="0,0,0,0" Height="25" />
+                <Label x:Name="lblBoxHubName" Content="Hub: " Margin="5,0,0,0" Height="25"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right">
+                <Image x:Name="imgStatus" Source="../../Resources/images/offline.png" Width="16" Height="16"/>
+                <Label x:Name="lblStatus" Content="Offline" Margin="5,0,0,0" Height="25" VerticalAlignment="Center"/>
+            </StackPanel>
+
+        </DockPanel>
+        <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  SelectedIndex="0"  Margin="0 0 0 0" HorizontalContentAlignment="Center"  Style="{StaticResource tbcMain}" IsManipulationEnabled="False" x:Name="tcMainPage" >
+            <TabItem x:Name="tbCommodity" Style="{StaticResource tbHeaderMain}" Margin=" 5 0 0 0" >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="90">
+                        <TextBlock Text="Commodity " Margin="2,0,2,2" FontSize="13" FontWeight="Black"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <DockPanel >
+                    <ContentControl HorizontalContentAlignment="Stretch" Name="ctrlCommodity"   VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    </ContentControl>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem x:Name="tbExt" Style="{StaticResource tbHeaderMain}" Margin="8 0 0 0" Visibility="Collapsed" >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                        <TextBlock TextWrapping="Wrap" Text="Extension Service" Width="90" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </TabItem.Header>
+                <ContentControl HorizontalContentAlignment="Stretch" Name="ctrlExt"   VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                </ContentControl>
+            </TabItem>
+            <TabItem x:Name="tbInv" Style="{StaticResource tbHeaderMain}" Margin="8 0 0 0" Visibility="Collapsed" >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="90" >
+                        <TextBlock  TextWrapping="Wrap" Text="Inventory Mgt." FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="90" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel >
+                    <ContentControl HorizontalContentAlignment="Stretch" Name="ctrlInv"   VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    </ContentControl>
+                </StackPanel>
+            </TabItem>
+            <TabItem x:Name="tbCash" Style="{StaticResource tbHeaderMain}" Margin="8 0 0 0" Visibility="Collapsed" >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="90" >
+                        <TextBlock  TextWrapping="Wrap" Text="Cash Mgt."  FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="90" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel >
+                    <ContentControl HorizontalContentAlignment="Stretch" Name="ctrlCash" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    </ContentControl>
+                </StackPanel>
+            </TabItem>
+            <TabItem x:Name="tbAdmin" Style="{StaticResource tbHeaderMain}"  Margin=" 8 0 0 0" >
+                <TabItem.Header>
+                    <TextBlock  TextWrapping="Wrap" Text="Admin" Width="60" FontSize="13" FontWeight="Black" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                </TabItem.Header>
+                <DockPanel >
+                    <Frame HorizontalContentAlignment="Stretch" Name="ctrlAdmin" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" Source="../Admin/AdminHome.xaml" VerticalAlignment="Stretch"  Navigating="ctrlAdmin_Navigating_1"></Frame>
+                </DockPanel >
+            </TabItem>
+            <TabItem x:Name="tbReports" Style="{StaticResource tbHeaderMain}"  Margin=" 8 0 0 0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Width="90">
+                        <TextBlock  TextWrapping="Wrap" Text=" Reports  " FontSize="13" FontWeight="Black" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <DockPanel >
+                    <ContentControl HorizontalContentAlignment="Stretch" Name="ctrlReports" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></ContentControl>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem x:Name="tbSettings" Style="{StaticResource tbHeaderMain}" Margin=" 8 0 0 0" >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" Height="30" Width="130">
+                        <TextBlock  TextWrapping="Wrap" Text="Settings and Syncing" FontSize="13" FontWeight="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <DockPanel >
+                    <!--<ContentControl HorizontalContentAlignment="Stretch" Name="ctrlSettings" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    </ContentControl>-->
+                    <TabControl  IsManipulationEnabled="False" x:Name="tcSettings" SelectionChanged="TcSettings_OnSelectionChanged" TabStripPlacement="Left" HorizontalContentAlignment="Left" >
+                        <TabControl.Resources>
+                            <!--<Style TargetType="TabPanel">
+                                <Setter Property="HorizontalAlignment" Value="Right"/>
+                            </Style>-->
+                            <Style TargetType="TabControl">
+                                <Setter Property="TabStripPlacement" Value="Left"></Setter>
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                            </Style>
+                            <Style TargetType="TabItem">
+                                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                            </Style>
+                        </TabControl.Resources>
+                        <TabItem x:Name="tbSync" Style="{StaticResource tbHeaderMain}" Margin=" 8 0 0 0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" Height="30" Width="150">
+                                    <Image Source="../../Resources/images/sync.jpg" Margin="0,0,5,0"></Image>
+                                    <TextBlock  TextWrapping="Wrap" Text="Master Data Sync" FontSize="13" FontWeight="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <DockPanel>
+                                    <settings:AgriSync Background="WhiteSmoke"/>
+                                </DockPanel>
+                            </TabItem.Content>
+                        </TabItem>
+                        <TabItem x:Name="tabSyncSettings" Style="{StaticResource tbHeaderMain}" Margin=" 8 0 0 0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" >
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" Height="30" Width="Auto">
+                                    <Image Source="../../Resources/images/sync2.jpg" Margin="0,0,5,0"></Image>
+                                    <TextBlock  TextWrapping="Wrap" Text="Sync Settings" FontSize="13" FontWeight="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <DockPanel>
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" Background="WhiteSmoke">
+                                        <ContentControl x:Name="ccSyncSettings"></ContentControl>
+                                    </ScrollViewer>
+                                </DockPanel>
+                            </TabItem.Content>
+                        </TabItem>
+                        <TabItem x:Name="tabGeneralSettings" Style="{StaticResource tbHeaderMain}" Margin=" 8 0 0 0" >
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" Height="30" Width="Auto">
+                                    <Image Source="../../Resources/images/settings.png" Margin="0,0,5,0"></Image>
+                                    <TextBlock  TextWrapping="Wrap" Text="General Settings" FontSize="13" FontWeight="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <DockPanel>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" Background="WhiteSmoke">
+                                    <ContentControl x:Name="ccGeneralSettings"></ContentControl>
+                                </ScrollViewer>
+                            </DockPanel>
+                        </TabItem>
+                        <TabItem x:Name="tbDataViewer" Style="{StaticResource tbHeaderMain}" Margin=" 8 0 0 0" >
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" Height="30" >
+                                    <Image Source="../../Resources/images/data.png" Margin="0,0,5,0"></Image>
+                                    <TextBlock  TextWrapping="Wrap" Text="Data Viewer" FontSize="13" FontWeight="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <DockPanel>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <settings:AgriDataViewer Background="WhiteSmoke"/>
+                                </ScrollViewer>
+                            </DockPanel>
+                        </TabItem>
+                    </TabControl>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"  Background="#ffffff">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="14"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Powered By:" Grid.Column="0" Grid.Row="0" Margin="10,0,0,0"/>
+            <Image x:Name="imgFooter" Grid.Row="1" Grid.RowSpan="3" Margin="10,0,0,0" HorizontalAlignment="Left" Source="/Agrimanagr.WPF.UI;component/Resources/images/virtualcity-logo.png"   />
+
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Product ::" x:Name="TxtProduct"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="Version ::" x:Name="TxtVersion"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="WebService ::" x:Name="TxtWebService"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="App Status ::" x:Name="TxtAppStatus"/>
+
+            <TextBlock Grid.Column="2" Text="Virtual Buiding Ring Road Kilimani" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Column="2" Grid.Row="1" Text="P.O. Box 76460 - 00508" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Column="2" Grid.Row="2" Text="+254-20-3873341/2191" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Column="2" Grid.Row="3" Text="info@virtualcity.co.ke" Foreground="#3399FF" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Column="2" Grid.Row="4" Text="2012, Virtual City Ltd. Agrimanagr" HorizontalAlignment="Left" Margin="22,0,0,0"/>
+        </Grid>
+
+    </Grid>
+</Page>

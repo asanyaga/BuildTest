@@ -1,0 +1,100 @@
+﻿<Page:PageBase x:Class="Agrimanagr.WPF.UI.Views.Admin.Producer.ListingMemberCommodityProducers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:Page="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity;assembly=Distributr.WPF.Lib"
+               xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+               xmlns:Control="clr-namespace:Agrimanagr.WPF.UI.Views.UtilityViews"
+               xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+               xmlns:Admin="clr-namespace:Distributr.WPF.Lib.ViewModels.Admin;assembly=Distributr.WPF.Lib"
+               mc:Ignorable="d"
+               d:DesignWidth="1000"
+	Title="Commodity Producer List" DataContext="{Binding MemberProducersViewModel,Source={StaticResource Locator}}" KeyboardNavigation.TabNavigation="None">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command="{Binding Path=LoadListingPageCommand}" PassEventArgsToCommand="True" CommandParameter="{x:Static Admin:BooleanHelper.True}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <GroupBox DockPanel.Dock="Top" HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1" Background="WhiteSmoke" Padding="0" Height="auto">
+        <GroupBox.Header>
+            <Label x:Name="lblHeader" Content="{Binding Path=PageTitle}" FontWeight="Bold" FontSize="14" Foreground="#FF5C94F2"/>
+        </GroupBox.Header>
+        <DockPanel Margin="20 0 0 0" LastChildFill="True">
+            <Grid DockPanel.Dock="Top" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button x:Name="btnAddProducer" Margin="2" Width="117" Style="{StaticResource AgriButtonStyle}" Command="{Binding AddProducerCommand}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
+                            <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/AddContainer.png" Stretch="Fill" Width="30" Height="25" Margin="0"/>
+                            <TextBlock Text="Add Farm" FontSize="13" Margin="2"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <Grid DockPanel.Dock="Top" Margin="0,5,0,0" Background="#CCCCCC">
+
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Label Content="Search:" Margin="5 2 2 2"  FontSize="13" FontWeight="Bold"/>
+                    <TextBox Margin="2" Height="25" Width="200" VerticalAlignment="Center" FontSize="13" x:Name="txtSearch" Text="{Binding Path=SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <cmd:EventToCommand Command="{Binding Path=SearchCommand, Mode=OneWay}" CommandParameter="{Binding Text, ElementName=txtSearch}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                    <CheckBox Content="Show inactive" FontWeight="Bold" Command="{Binding Path=ToggleShowInactiveCommand}" CommandParameter="{Binding Path=IsChecked, ElementName=chkShowInactive}" FontSize="13" x:Name="chkShowInactive"  VerticalAlignment="Center" Margin="20,0,10,0"/>
+                </StackPanel>
+            </Grid>
+            <Control:PagerControl DockPanel.Dock="Bottom"/>
+            <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                <DataGrid AutoGenerateColumns="False" x:Name="dgList" ItemsSource="{Binding Path=ListOfCommodityProducers}"  
+                          Margin="0,5,0,0" IsReadOnly="True"
+                          Height="Auto" VerticalScrollBarVisibility="Auto" 
+                          SelectedItem="{Binding Path=SelectedCommodityProducer, Mode=TwoWay}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=RowNumber}" Header="" IsReadOnly="True" />
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=Name}" Header="FarmName" IsReadOnly="True" />
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=Code}" Header="FarmCode" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="colRegistrationNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=RegNo}" Header="Registration Number" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="colAcerage" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=Acrage}" Header="Acerage" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="colPhysicalAddress" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=PhysicalAddress}" Header="Physical Address" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="colDescription" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=Description}" Header="Description" IsReadOnly="True" />
+                        
+                        <DataGridTemplateColumn x:Name="colManage" Header="Actions" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel x:Name="spManageRoute" Orientation="Horizontal">
+                                        <TextBlock Margin="5,0,0,0">
+                                        <Hyperlink x:Name="hlEdit" Command="{Binding Path=DataContext.EditSelectedCommand, ElementName=dgList}" CommandParameter="{Binding }" >
+                                            <TextBlock x:Name="txtEdit" Text="Edit"></TextBlock>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                        <TextBlock Margin="5,0,0,0">
+                                        <Hyperlink x:Name="hlDeactivate" Command="{Binding Path=DataContext.ActivateSelectedCommand, ElementName=dgList}" CommandParameter="{Binding}">
+                                            <TextBlock x:Name="txtDeactivate" Text="{Binding Action}"></TextBlock>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                        <TextBlock Margin="5,0,0,0">
+                                        <Hyperlink x:Name="hlDelete" Command="{Binding Path=DataContext.DeleteSelectedCommand, ElementName=dgList}" CommandParameter="{Binding}">
+                                            <TextBlock x:Name="txtDelete" Text="Delete"></TextBlock>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </DockPanel>
+    </GroupBox>
+
+    
+</Page:PageBase>

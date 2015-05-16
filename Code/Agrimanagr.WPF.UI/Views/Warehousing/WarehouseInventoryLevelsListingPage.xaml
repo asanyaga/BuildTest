@@ -1,0 +1,74 @@
+﻿<Page x:Class="Agrimanagr.WPF.UI.Views.Warehousing.WarehouseInventoryLevelsListingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+      xmlns:Control="clr-namespace:Agrimanagr.WPF.UI.Views.UtilityViews" mc:Ignorable="d" 
+      d:DesignHeight="437.143" d:DesignWidth="1011.429"
+	Title="WarehouseEntryListingPage" DataContext="{Binding WarehouseInventoryLevelsListingViewModel, Source={StaticResource Locator}}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadListingPageCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel Margin="20 0 0 0" LastChildFill="True">
+        <Grid DockPanel.Dock="Top" Margin="0,5,0,0" Background="#CCCCCC">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Label Content="Filter by Account:"/>
+                <StackPanel  Orientation="Horizontal" Grid.Row="1" Grid.Column="2" Margin="15,5,0,5" >
+                    <TextBox Width="200" Height="30" Text="{Binding SelectedCommoditySupplierName}"   IsReadOnly="True"/>
+                    <Button Margin="0,0,0,0" Command="{Binding CommoditySupplierChangedCommand}" Width="30" Height="30" Content="..." Style="{StaticResource AgriButtonStyle}">
+
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="400,0,0,0">
+                <Label Content="Filter by Store:"/>
+                <StackPanel  Orientation="Horizontal" Grid.Row="1" Grid.Column="2" Margin="15,5,0,5" >
+                    <TextBox Width="200" Height="30" Text="{Binding SelectedStoreName}"   IsReadOnly="True"/>
+                    <Button Margin="0,0,0,0" Command="{Binding StoreChangedCommand}" Width="30" Height="30" Content="..." Style="{StaticResource AgriButtonStyle}">
+
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="800,0,0,0">
+                <StackPanel  Orientation="Horizontal" Grid.Row="1" Grid.Column="2" Margin="15,5,0,5" >
+                    <Button Margin="0,0,0,0" Command="{Binding ClearCommand}" Width="50" Height="30" Content="Clear" Style="{StaticResource AgriButtonStyle}">
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Control:PagerControl DockPanel.Dock="Bottom" />
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+
+                </Grid.RowDefinitions>
+                <DataGrid  Grid.Row="0" x:Name="dgList"  AutoGenerateColumns="False"
+                                                  ItemsSource="{Binding WarehouseInventoryLevelsList,Mode=TwoWay}" IsReadOnly="True"  Margin="6,6,0,5"
+                                                   HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Auto"   VerticalAlignment="Stretch" 
+                                      VerticalScrollBarVisibility="Auto" FontWeight="Normal" RowDetailsVisibilityMode="Visible" Grid.RowSpan="3" 
+                   SelectedItem="{Binding Path=SelectedInventoryItem, Mode=TwoWay}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=RowNumber}" Header="" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding CommoditySupplier}" IsReadOnly="True" Header="Farmer" Width="auto" />
+                        <DataGridTextColumn Binding="{Binding Store}" IsReadOnly="True" Header="Store" Width="auto" />
+                        <DataGridTextColumn Binding="{Binding Commodity}" IsReadOnly="True" Header="Commodity" Width="auto" />
+                        <DataGridTextColumn Binding="{Binding CommodityGrade}" IsReadOnly="True" Header="Grade" Width="auto" />
+                        <DataGridTextColumn Binding="{Binding Balance}" IsReadOnly="True" Header="Inventory Balance"  Width="auto" />
+
+                        <DataGridTextColumn Binding="{Binding Id}" IsReadOnly="True" Header="Id" Visibility="Hidden" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
+   
+</Page>

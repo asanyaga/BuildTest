@@ -1,0 +1,12 @@
+﻿<Window x:Class="Agrimanagr.WPF.UI.Views.UtilityViews.Busy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="Busy" Height="124" Width="300">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel>
+        <Label Content="Please wait..." HorizontalAlignment="Center"/>
+            <Label x:Name="lblWatsUp" Content="Carrying out requested operation." HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>

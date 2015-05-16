@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <accountManagement>
+   <menuHeader Text="Supplier Details" Url="" Image="">
+      <menuItem Text="Add Supplier(Farmers)" Url="/views/admin/Supplier/AddEditFarmer.xaml" Image=""/>
+    <menuItem Text="List Suppliers(Farmers)" Url="/views/admin/Supplier/listOfsuppliers.xaml" Image=""/>
+    </menuHeader>
+    <menuHeader Text="Buying/Collection Centre" Url="" Image="">
+      <menuItem Text="List Buying/Collection Centres" Url="/views/admin/centres/listcentres.xaml" Image=""/>
+      <menuItem Text="Add New Buying/Collection Centre" Url="/views/admin/centres/editcentre.xaml" Image=""/>
+    </menuHeader>
+  </accountManagement>
+
+  <userManagement>
+    <menuHeader Text="Users" Image="">
+      <menuItem Text="List Users" Url="/Views/Admin/Users/ListUsers.xaml" Image=""/>
+      <menuItem Text="Add New User" Url="/Views/Admin/Users/EditUser.xaml" Image=""/>
+       <menuItem Text="Change User Password" Url="/Views/LoginViews/ChangeUserPassword.xaml" Image=""/>
+    </menuHeader>
+ 
+  </userManagement>
+
+  <menuFarmActivityManagement>
+    <menuHeader Text="Service Providers" Image="">
+      <menuItem Text="List" Url="/Views/Admin/Farmactivities/ServiceProviders/ListServiceProviders.xaml" Image=""/>
+      <menuItem Text="Add New Service Provider" Url="/Views/Admin/Farmactivities/ServiceProviders/EditServiceProvider.xaml" Image=""/>
+    </menuHeader>
+    <menuHeader Text="Services" Image="">
+      <menuItem Text="List Services" Url="/Views/Admin/Farmactivities/Services/ListServices.xaml" Image=""/>
+      <menuItem Text="Add New Service" Url="/Views/Admin/Farmactivities/Services/EditServices.xaml" Image=""/>
+    </menuHeader>
+    <menuHeader Text="Shifts" Image="">
+      <menuItem Text="List Shifts" Url="/Views/Admin/Farmactivities/Shifts/ListShifts.xaml" Image=""/>
+      <menuItem Text="Add New Shifts" Url="/Views/Admin/Farmactivities/Shifts/EditShift.xaml" Image=""/>
+    </menuHeader>
+    <menuHeader Text="Seasons" Image="">
+      <menuItem Text="List Seasons" Url="/Views/Admin/Farmactivities/Seasons/ListSeasons.xaml" Image=""/>
+      <menuItem Text="Add New Seasons" Url="/Views/Admin/Farmactivities/Seasons/EditSeason.xaml" Image=""/>
+    </menuHeader>
+    <menuHeader Text="Infections" Image="">
+      <menuItem Text="List Infections" Url="/Views/Admin/Farmactivities/Infections/ListInfection.xaml" Image=""/>
+      <menuItem Text="Add New Infections" Url="/Views/Admin/Farmactivities/Infections/EditInfection.xaml" Image=""/>
+    </menuHeader>
+  </menuFarmActivityManagement>
+  <commodityManagement>
+    <menuHeader Text="Commodity Type" Url="" Image="">
+      <menuItem Text="List Commodity Type" Url="/views/admin/commodity/listcommoditytypes.xaml" Image=""/>
+      <menuItem Text="Add New Commodity Type" Url="/views/admin/commodity/editcommoditytype.xaml" Image=""/>
+    </menuHeader>
+    <menuHeader Text="Commodity" Url="" Image="">
+      <menuItem Text="List Commodity" Url="/views/admin/commodity/listcommodities.xaml" Image=""/>
+      <menuItem Text="Add New Commodity" Url="/view/admin/commodity/aditcommodity.xaml" Image=""/>
+    </menuHeader>
+  </commodityManagement>
+  <routeManagement>
+    <menuHeader Text="Hub Routes" Image="">
+      <menuItem Text="List Hub Routes" Url="/views/admin/routes/listroutes.xaml" Image=""/>
+      <menuItem Text="Add New Hub Route" Url="/views/admin/routes/editroute.xaml" Image=""/>
+    </menuHeader>
+    <!--<menuHeader Text="Route Purchasing Clerk Assignments" Url="" Image="">
+      <menuItem Text="List Purchasing Clerk Assignments" Url="" Image=""/>
+      <menuItem Text="Add New Purchasing Clerk Assignment" Url="" Image=""/>
+    </menuHeader>-->
+  </routeManagement>
+  <assetManagement>
+    <menuHeader Text="Containers" Url="" Image="">
+      <menuItem Text="List Containers" Url="/views/admin/containers/listcontainers.xaml" Image=""/>
+      <menuItem Text="Add New Container" Url="/views/admin/containers/editcontainer.xaml" Image=""/>
+    </menuHeader>
+    <menuHeader Text="Container Types" Url="" Image="">
+      <menuItem Text="List Containers Types" Url="/views/admin/containers/listcontainertypes.xaml" Image=""/>
+      <!--<menuItem Text="Add New Container Types" Url="/views/admin/editcontainertype.xaml" Image=""/>-->
+    </menuHeader>
+    <menuHeader Text="Vehicles" Url="" Image="">
+      <menuItem Text="List Vehicles" Url="/views/admin/vehicles/listvehicles.xaml" Image=""/>
+      <menuItem Text="Add New Vehicle" Url="/views/admin/vehicles/editvehicle.xaml" Image=""/>
+    </menuHeader>
+    <menuHeader Text="Weigh Scale" Url="" Image="">
+      <menuItem Text="List Weighing Scales" Url="/Views/Admin/weighingscales/listweighingscales.xaml" Image=""/>
+      <menuItem Text="Add New Weighing Scale" Url="/Views/Admin/weighingscales/editweighingscale.xaml" 
+                Image="/Agrimanagr.WPF.UI;Resources/images/settings.png"/>
+    </menuHeader>
+    <!--<menuHeader Text="Mobile Printer" Url="" Image="">
+      <menuItem Text="List Mobile Printers" Url="" Image=""/>
+      <menuItem Text="Add New Mobile Printer" Url="" Image=""/>
+    </menuHeader>-->
+  </assetManagement>
+  <storeManagement>
+    <menuHeader Text="Hub Stores" Image="">
+      <menuItem Text="List Hub Stores" Url="/views/admin/stores/liststores.xaml" Image=""/>
+      <menuItem Text="Add New Hub Store" Url="/views/admin/stores/editstore.xaml" Image=""/>
+    </menuHeader>
+  </storeManagement>
+</menu>

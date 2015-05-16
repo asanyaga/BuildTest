@@ -1,0 +1,165 @@
+﻿<Window x:Class="Agrimanagr.WPF.UI.Views.CommodityReception.WeighAndReceivePopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Title="Weigh And Receive Delivery" Height="713.732" Width="1247.762" ResizeMode="NoResize" DataContext="{Binding WeighReceiveDeliveryViewModelPopUp,Source={StaticResource Locator}}">
+    <Grid>
+        <StackPanel Margin="0,30,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"  />
+                    <ColumnDefinition Width="auto"  />
+                    <ColumnDefinition Width="auto"  />
+                    <ColumnDefinition Width="auto"  />
+                    <ColumnDefinition Width="auto"  />
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+
+                </Grid.RowDefinitions>
+                <Label Margin="10,2,0,2" Grid.Row="0" Content="Delivery No."/>
+                <Label Margin="10,2,0,2" Grid.Row="1" Content="Date Received"/>
+                <Label Margin="10,2,0,2" Grid.Column="2" Grid.Row="1" Content="Vehicle No."/>
+                <Label Margin="10,2,0,2" Grid.Column="2" Grid.Row="0" Content="Delivered By"/>
+                <Label Margin="10,2,0,2" Grid.Column="4" Grid.Row="0" Content="No of Containers"/>
+                <TextBox IsReadOnly="True" Text="{Binding DeliveryBy,Mode=TwoWay}" Margin="10,2,0,2" Grid.Row="0" Grid.Column="3" Width="187" HorizontalAlignment="Left"/>
+                <TextBox IsReadOnly="True" Text="{Binding VehicleNo,Mode=TwoWay}" Margin="10,0,0,2" Grid.Row="1" Grid.Column="3" Width="187" HorizontalAlignment="Left" Height="26" VerticalAlignment="Bottom"/>
+                <TextBox IsReadOnly="True" Text="{Binding NoOfContainer,Mode=TwoWay}" Margin="10,0,0,2" Grid.Row="0" Grid.Column="5" Width="180" HorizontalAlignment="Left" Height="26" VerticalAlignment="Bottom"/>
+
+                <TextBox IsReadOnly="True" Text="{Binding DeliveryNo,Mode=TwoWay}" Margin="10,2,20,2" Grid.Row="0" Grid.Column="1" Width="180" HorizontalAlignment="Left"/>
+                <DatePicker Text="{Binding DateReceived}"  SelectedDate="{x:Static System:DateTime.Now}" DisplayDateStart="{x:Static System:DateTime.Now}" Margin="10,2,20,2" Grid.Row="1" Grid.Column="1" Width="180" HorizontalAlignment="Left"/>
+               <GroupBox Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" Grid.ColumnSpan="2" Header="Vehicle Mileage &amp; Time" FontWeight="Bold" Height="auto" Visibility="{Binding ShowVehiclMileageTracker}">
+                    <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left" Margin="10">
+                        <Label Content="Time In:" Margin="10 0 0 0"/>
+                        <DatePicker SelectedDate="{Binding VehicleArrivalDate,Mode=TwoWay}" Width="auto" Margin="10,0,0,0" DisplayDateEnd="{x:Static System:DateTime.Today}"/>
+                        <xctk:DateTimeUpDown MinWidth="80"  Format="Custom"  FormatString="hh:mm tt" Margin="0,0,0,0"  AllowDrop="True" Value="{Binding VehicleArrivalTime,Mode=TwoWay}"  />
+                        <Label Content="Mileage:" Margin="10 0 0 0"/>
+                        <TextBox  Text="{Binding VehicleMileage,Mode=TwoWay}" Margin="10 0 0 0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MinWidth="150" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Bottom"/>
+                        
+                    </StackPanel>
+                </GroupBox>
+              
+
+            </Grid>
+            <GroupBox Margin="20,5,20,0" Header="Weigh Detail" Height="auto">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"  />
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="30"/>
+                        
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Label Margin="10,2,0,2" Grid.Row="0" Content="Commodity" Grid.ColumnSpan="2"/>
+                    <Label Margin="10,2,0,2" Grid.Row="1" Grid.Column="5" Content="Container Type" Grid.ColumnSpan="2"/>
+                    <Label Margin="10,2,0,2" Grid.Row="0" Content="Grade" Grid.Column="3"/>
+                    <Label Margin="10,2,0,2" Grid.Row="3" Content="Weight" Grid.Column="5"/>
+                    <Label Margin="10,2,0,2" Grid.Row="0" Content="DeliveredWeight" Grid.Column="5"/>
+                    <Label Margin="10,2,0,2" Grid.Row="0" Content="RemainingWeight" Grid.Column="7"/>
+                    <Label Margin="0,2,0,2" Grid.Row="1" Content="Containers to Weigh" Grid.ColumnSpan="2"/>
+                    <Label Margin="10,2,0,2" Grid.Row="1" Content="Grade To" Grid.Column="3"/>
+                    <TextBlock Margin="10,2,0,2" Grid.Row="0" Text="{Binding DeliveredWeight,Mode=TwoWay}" Grid.Column="6"/>
+                    <TextBlock Margin="10,2,0,2" Grid.Row="0" Text="{Binding RemainingWeight,Mode=TwoWay}" Grid.Column="8"/>
+                    <TextBox MaxLength="4" Margin="20,2,0,2" Grid.Row="1" Text="{Binding ItemToWeigh,Mode=TwoWay}" Grid.Column="2">
+                       
+                    </TextBox>
+                    <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding CommodityLookUpList}"  SelectedItem="{Binding SelectedCommodity, Mode=TwoWay}" Margin="20,2,0,2" Grid.Row="0" Grid.Column="2">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged" >
+                                <cmd:EventToCommand Command="{Binding SelectedCommodityChangedCommand, Mode=TwoWay}"   />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                    <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding ContainerTypeLookUpList}" Grid.ColumnSpan="2"  SelectedItem="{Binding selectedCT, Mode=TwoWay}" Margin="10,2,0,2" Grid.Row="1" Grid.Column="6">
+                        <!--<i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged" >
+                                <cmd:EventToCommand Command="{Binding SelectedCommodityChangedCommand, Mode=TwoWay}"   />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>-->
+                    </ComboBox>
+                    <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding GradeLookUpList}"  SelectedItem="{Binding Grade, Mode=TwoWay}" Margin="20,2,0,2" Grid.Row="0" Grid.Column="4">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged" >
+                                <cmd:EventToCommand Command="{Binding SelectedGradeChangedCommand, Mode=TwoWay}"   />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                    <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding GradeLookUpList}"  SelectedItem="{Binding GradeTo, Mode=TwoWay}" Margin="20,4,0,0" Grid.Row="1" Grid.Column="4">
+                        
+                    </ComboBox>
+                    <TextBox MaxLength="16" Text="{Binding GrossWeight,Mode=TwoWay}" Margin="20,2,10,2" Grid.Row="3" Grid.Column="6" IsReadOnly="{Binding  MakeWeightextBoxReadOnly}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewTextInput" >
+                                <cmd:EventToCommand Command="{Binding ValidNumericInputCommand, Mode=TwoWay}"  PassEventArgsToCommand="True" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </TextBox>
+                    <Button HorizontalAlignment="Left" Margin="10,2,0,2" Grid.Row="3" Grid.Column="7" Content="Weigh"  Style="{StaticResource AgriButtonStyle}" Width="50" Command="{Binding WeighCommand}"/>
+                    <Button Command="{Binding AddWeightCommand,Mode=TwoWay}" HorizontalAlignment="Left" Width="100"  Margin="20,0,0,0" Grid.Row="3" Grid.Column="8" Content="Add"  Style="{StaticResource AgriButtonStyle}" />
+                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding LineItem,Mode=TwoWay}" Margin="0,20,0,0" Grid.Row="5" Grid.ColumnSpan="9" MinHeight="200" MaxHeight="200">
+                        <DataGrid.Background>
+                            <ImageBrush ImageSource="/Agrimanagr.WPF.UI;component/Resources/images/Reception.png" Opacity="0.03"/>
+                        </DataGrid.Background>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding BatchNumber,Mode=TwoWay}"  IsReadOnly="True" Header="BatchNo" Width="Auto" />
+                            <DataGridTextColumn Binding="{Binding Commodity.Name,Mode=TwoWay}" IsReadOnly="True" Header="Commodity" />
+                            <DataGridTextColumn Binding="{Binding GradeTo.Name,Mode=TwoWay}" IsReadOnly="True" Header="Grade" />
+                            <DataGridTextColumn Binding="{Binding DeliveredWeight,Mode=TwoWay,StringFormat={}{0:n2}}" IsReadOnly="True" Header="Delivered Weight" />
+                            <DataGridTextColumn Binding="{Binding TareWeight,Mode=TwoWay,StringFormat={}{0:n2}}" IsReadOnly="True" Header="Tare Weight" />
+                            <DataGridTextColumn Binding="{Binding Weight,Mode=TwoWay,StringFormat={}{0:n2}}" IsReadOnly="True" Header="Net Weight" />
+                            
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid Name="rgrid" AutoGenerateColumns="False" ItemsSource="{Binding ContainerLookUpList,Mode=TwoWay}" Margin="0,0,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="9" MinHeight="100" MaxHeight="150">
+                        <DataGrid.Background>
+                            <ImageBrush ImageSource="/Agrimanagr.WPF.UI;component/Resources/images/Reception.png" Opacity="0.03"/>
+                        </DataGrid.Background>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl>
+                                            <CheckBox IsEnabled="{Binding IsCheckable, Mode=TwoWay}" IsChecked="{Binding IsChecked, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Command="{Binding DataContext.ItemSelectionChangedCommand,ElementName=rgrid,Mode=TwoWay}" />
+                                           
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Binding="{Binding ContainerNo,Mode=TwoWay}"  IsReadOnly="True" Header="Container No." Width="Auto" />
+                            <DataGridTextColumn Binding="{Binding ContainerType.Name,Mode=TwoWay}" IsReadOnly="True" Header="Container" />
+                            <DataGridTextColumn Binding="{Binding Commodity.Name,Mode=TwoWay}" IsReadOnly="True" Header="Commodity" />
+                            <DataGridTextColumn Binding="{Binding CommodityGrade.Name,Mode=TwoWay}" IsReadOnly="True" Header="Grade" />
+                            <DataGridTextColumn Binding="{Binding Weight,Mode=TwoWay,StringFormat={}{0:n2}}" IsReadOnly="True" Header="Net Weight" />
+                            <DataGridTextColumn Binding="{Binding GrossWeight,Mode=TwoWay,StringFormat={}{0:n2}}" IsReadOnly="True" Header="Gross Weight" />
+                            
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </GroupBox>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Button Command="{Binding SaveWeightCommand,Mode=TwoWay}" Margin="20,0,0,0"  Style="{StaticResource AgriButtonStyle}" Height="30" Width="150" Content="Receive"/>
+              <Button Command="{Binding CancelCommand,Mode=TwoWay}" Margin="20,0,0,0"  Style="{StaticResource AgriButtonStyle}" Height="30" Width="150" Content="Cancel"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,188 @@
+﻿<UserControl x:Class="Agrimanagr.WPF.UI.Views.Settings.AgriGeneralSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="628" d:DesignWidth="815"
+                 DataContext="{Binding GeneralSettingsViewModel, Source={StaticResource Locator}}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style x:Key="GroupBox" TargetType="HeaderedContentControl">
+                <Setter Property="BorderBrush" Value="DodgerBlue" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Background" Value="White" />
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                <Setter Property="Padding" Value="4" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="HeaderedContentControl">
+                            <Grid Background="{TemplateBinding Background}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4"
+                                Margin="0,8,0,0" 
+                                Grid.RowSpan="2"  />
+                                <Label Background="{TemplateBinding Background}"
+                                 Content="{TemplateBinding Header}" 
+                                 ContentTemplate="{TemplateBinding HeaderTemplate}" 
+                                 HorizontalAlignment="Left" 
+                                 Margin="8,0,0,0" 
+                                 Grid.Row="0" />
+                                <ContentPresenter Content="{TemplateBinding Content}" 
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                          Margin="{TemplateBinding Padding}" 
+                                          Grid.Row="1" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Border BorderBrush="RoyalBlue" BorderThickness="1" Margin="28,33,18,0" CornerRadius="10">
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <HeaderedContentControl Grid.Row="0"  Header="Report Settings"  Style="{StaticResource  GroupBox}" Width="600" Margin="84,10,83,0">
+                        <StackPanel>
+                            <Grid Height="112">
+                                <Label Height="28" Content="ReportUrl:" Margin="10,8,0,76" Width="118"  HorizontalAlignment="Left" RenderTransformOrigin="0.543,-0.444" />
+
+                                <TextBox Height="28" TextWrapping="Wrap" Text="{Binding ReportUrl, Mode=TwoWay}" Width="350" Margin="126,10,116,74" />
+                                <Button Style="{StaticResource AgriButtonStyle}" Content="Save" Command="{Binding SaveReportUrlCommand}"  CommandParameter="{Binding ElementName=txtPassword}" Height="28" Width="50" Margin="511,74,31,10" />
+                                <Label Content="Username" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="73"/>
+                                <Label Content="Password" HorizontalAlignment="Left" Margin="267,40,0,0" VerticalAlignment="Top" Width="73"/>
+                                <PasswordBox x:Name="txtPassword" Height="28"  Margin="345,43,116,41"  />
+                                <Label Content="Folder" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="73"/>
+                                <TextBox Height="28" TextWrapping="Wrap" Text="{Binding ReportUsername, Mode=TwoWay}" Margin="126,43,335,41"  />
+                                <TextBox Height="28" TextWrapping="Wrap" Text="{Binding ReportFolder, Mode=TwoWay}" Margin="126,76,335,8"  />
+
+                            </Grid>
+                        </StackPanel>
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Grid.Row="1" Height="100"  Header="Payment Webservice Settings"  Style="{StaticResource  GroupBox}" Width="600" Margin="0,20,0,0">
+                        <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="50" >
+                            <Label Height="28" Content="Payment Web Service Url:" Margin="35,0,0,25" Width="140" HorizontalAlignment="Left" />
+                            <TextBox Height="28" TextWrapping="Wrap" Text="{Binding Path=PaymentWebServiceUrl, Mode=TwoWay}" Width="295" Margin="5,0,0,20" />
+                            <Button Content="Save" Command="{Binding Path=SavePaymentWebServiceUrlCommand}" Height="28" Width="50" Margin="5,0,0,20" Style="{StaticResource AgriButtonStyle}"/>
+                            <Button Content="About" Command="{Binding Path=AboutPgBridgeCommand}" Height="28" Width="50" Margin="5,0,0,20" Style="{StaticResource AgriButtonStyle}"/>
+                        </StackPanel>
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Grid.Row="2" Height="100"  Header="Listings Settings"  Style="{StaticResource  GroupBox}" Width="600" Margin="0,20,0,0">
+                        <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="50" >
+                            <Label Height="28" Content="Records To Load Per Page:" Margin="35,0,0,25" Width="150" HorizontalAlignment="Left" />
+                            <TextBox Height="28" x:Name="txtRecordsPerPage" TextWrapping="Wrap" Text="{Binding Path=RecordsPerPage, Mode=TwoWay}" Width="340" Margin="5,0,0,20" KeyDown="TextBox_KeyDown" TextAlignment="Center"/>
+                            <Button x:Name="btnSaveRecordsPerPage" Content="Save" Command="{Binding Path=SaveRecordsPerPageCommand}" Height="28" Width="50" Margin="5,0,0,20" Style="{StaticResource AgriButtonStyle}"/>
+                        </StackPanel>
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Grid.Row="3" Height="Auto"  Header="Distributor Info"  Style="{StaticResource  GroupBox}" Width="600" Margin="0,20,0,0">
+                        <Grid  Margin="0,0,0,0" Height="Auto" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Distributor Id:" Height="28" Width="140" HorizontalAlignment="Left"  Margin="35,5,0,0"/>
+                            <TextBox x:Name="txtDistributrId" Text="{Binding Path=DistributrId}" Width="Auto" IsReadOnly="True" Margin="180,5,20,0"/>
+                            <Label Grid.Row="1" Height="28" Content="Distributor Name:" Width="140" HorizontalAlignment="Left" Margin="35,5,0,0"/>
+                            <TextBox Grid.Row="1" x:Name="txtDistributrName" Text="{Binding Path=DistributrName}" Width="Auto" IsReadOnly="True" Margin="180,5,20,0"/>
+                            <Label Grid.Row="2" Content="Distributor Code:" Height="28" Width="140" HorizontalAlignment="Left" Margin="35,5,0,0"/>
+                            <TextBox Grid.Row="2" x:Name="txtDistributorCode" Text="{Binding Path=DistributorCode}" Width="Auto" IsReadOnly="True" Margin="180,5,20,0"/>
+                        </Grid>
+                    </HeaderedContentControl>
+                    
+
+                </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,80,0">
+                    <Button Content="Save All" Command="{Binding Path=SaveAllCommand}" Height="28" Width="103" Margin="0,10,0,0" HorizontalAlignment="Right"  Style="{StaticResource AgriButtonStyle}"/>
+                </StackPanel>
+                <!--<Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <HeaderedContentControl Grid.Row="0"  Header="Report Settings"  Style="{StaticResource GroupBox}" Width="600" Margin="84,10,83,0">
+                        <StackPanel>
+                            <Grid Height="112">
+                                <Label Height="28" Content="ReportUrl:" Margin="10,8,0,76" Width="118"  HorizontalAlignment="Left" RenderTransformOrigin="0.543,-0.444" />
+
+                                <TextBox Height="28" TextWrapping="Wrap" Text="{Binding ReportUrl, Mode=TwoWay}" Width="350" Margin="126,10,116,74" />
+                                <Button Style="{StaticResource AgriButtonStyle}" Content="Save" Command="{Binding SaveReportUrlCommand}"  CommandParameter="{Binding ElementName=txtPassword}" Height="28" Width="50" Margin="511,74,31,10" />
+                                <Label Content="Username" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="73"/>
+                                <Label Content="Password" HorizontalAlignment="Left" Margin="267,40,0,0" VerticalAlignment="Top" Width="73"/>
+                                <PasswordBox x:Name="txtPassword1" Height="28"  Margin="345,43,116,41"  />
+                                <Label Content="Folder" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="73"/>
+                                <TextBox Height="28" TextWrapping="Wrap" Text="{Binding ReportUsername, Mode=TwoWay}" Margin="126,43,335,41"  />
+                                <TextBox Height="28" TextWrapping="Wrap" Text="{Binding ReportFolder, Mode=TwoWay}" Margin="126,76,335,8"  />
+
+                            </Grid>
+                        </StackPanel>
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Grid.Row="1" Height="100"  Header="Payment Webservice Settings"  Style="{StaticResource GroupBox}" Width="600" Margin="0,20,0,0">
+                        <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="50" >
+                            <Label Height="28" Content="Payment Web Service Url:" Margin="35,0,0,25" Width="140" HorizontalAlignment="Left" />
+                            <TextBox Height="28" TextWrapping="Wrap" Text="{Binding PaymentWebServiceUrl, Mode=TwoWay}" Width="295" Margin="5,0,0,20" />
+                            <Button Content="Save" Command="{Binding SavePaymentWebServiceUrlCommand}" Height="28" Width="50" Margin="5,0,0,20" Style="{StaticResource AgriButtonStyle}"/>
+                            <Button Content="About" Command="{Binding AboutPgBridgeCommand}" Height="28" Width="50" Margin="5,0,0,20" Style="{StaticResource AgriButtonStyle}"/>
+                        </StackPanel>
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Grid.Row="2" Height="100"  Header="Listings Settings"  Style="{StaticResource GroupBox}" Width="600" Margin="0,20,0,0">
+                        <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="50" >
+                            <Label Height="28" Content="Records To Load Per Page:" Margin="35,0,0,25" Width="150" HorizontalAlignment="Left" />
+                            <TextBox Height="28" x:Name="txtRecordsPerPage1" TextWrapping="Wrap" Text="{Binding RecordsPerPage, Mode=TwoWay}" Width="340" Margin="5,0,0,20" KeyDown="TextBox_KeyDown" TextAlignment="Center"/>
+                            <Button x:Name="btnSaveRecordsPerPage1" Content="Save" Command="{Binding SaveRecordsPerPageCommand}" Height="28" Width="50" Margin="5,0,0,20" Style="{StaticResource AgriButtonStyle}"/>
+                        </StackPanel>
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Grid.Row="3" Height="Auto"  Header="Distributor Info"  Style="{StaticResource GroupBox}" Width="600" Margin="0,20,0,0">
+                        <Grid  Margin="0,0,0,0" Height="Auto" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Distributor Id:" Height="28" Width="140" HorizontalAlignment="Left"  Margin="35,5,0,0"/>
+                            <TextBox x:Name="txtDistributrId1" Text="{Binding DistributrId}" Width="Auto" IsReadOnly="True" Margin="180,5,20,0"/>
+                            <Label Grid.Row="1" Height="28" Content="Distributor Name:" Width="140" HorizontalAlignment="Left" Margin="35,5,0,0"/>
+                            <TextBox Grid.Row="1" x:Name="txtDistributrName1" Text="{Binding DistributrName}" Width="Auto" IsReadOnly="True" Margin="180,5,20,0"/>
+                            <Label Grid.Row="2" Content="Distributor Code:" Height="28" Width="140" HorizontalAlignment="Left" Margin="35,5,0,0"/>
+                            <TextBox Grid.Row="2" x:Name="txtDistributorCode1" Text="{Binding DistributorCode}" Width="Auto" IsReadOnly="True" Margin="180,5,20,0"/>
+                        </Grid>
+                    </HeaderedContentControl>
+
+
+                </Grid>-->
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</UserControl>

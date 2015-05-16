@@ -1,0 +1,51 @@
+﻿<Page x:Class="Agrimanagr.WPF.UI.Views.Admin.Vehicles.EditVehicle"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:UtilityViews="clr-namespace:Agrimanagr.WPF.UI.Views.UtilityViews"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45" mc:Ignorable="d" d:DesignWidth="1000"
+	Title="EditVehicle" DataContext="{Binding EditVehicleViewModel, Source={StaticResource Locator}}" x:Name="pageEdit" KeyboardNavigation.TabNavigation="None">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadPageCommand}" PassEventArgsToCommand="True" CommandParameter="{Binding ElementName=pageEdit}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <GroupBox DockPanel.Dock="Top" HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1" Background="WhiteSmoke" Padding=" 0" Height="auto">
+        <GroupBox.Header>
+            <Label Content="{Binding Path=PageTitle}" DockPanel.Dock="Top" Height="32" FontSize="14" Foreground="#FF5C94F2" FontWeight="Bold" />
+        </GroupBox.Header>
+        <DockPanel >
+            <UtilityViews:SaveCancelButtonsControl DockPanel.Dock="Bottom" Margin="0,20,0,0"/>
+            <Grid DockPanel.Dock="Top" Margin="20,10,0,0" Width="auto" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Name:" Margin="3"/>
+                <TextBox Grid.Column="1" Width="250" Text="{Binding Path=Vehicle.Name}"  Margin="10,3,3,3"/>
+                <Label Grid.Row="1" Content="Code:" Margin="3"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Vehicle.Code}" Width="250" Margin="10,3,3,3"/>
+                <Label Grid.Row="2" Content="Registration Number:" Margin="3"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Vehicle.EquipmentNumber}" Width="250" Margin="10,3,3,3"/>
+                <Label Grid.Row="3" Content="Make:" Margin="3"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=Vehicle.Make}" Width="250" Margin="10,3,3,3"/>
+                <Label Grid.Row="4" Content="Model:" Margin="3"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=Vehicle.Model}" Width="250" Margin="10,3,3,3"/>
+                <Label Grid.Row="5" Content="Description:" Margin="3"/>
+                <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=Vehicle.Description}" Width="250" Margin="10,3,3,3"/>
+            </Grid>
+        </DockPanel>
+    </GroupBox>
+</Page>

@@ -1,0 +1,59 @@
+﻿<Window x:Class="Agrimanagr.WPF.UI.Views.UtilityViews.ComboPopUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        MaxHeight="{Binding ElementName=gridMainContent, Path=ActualHeight}"
+        DataContext="{Binding ComboPopUpViewModel, Source={StaticResource Locator}}"
+        Title="ComboPopUp" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:FormBorderButtons="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.FormBorderButtons;assembly=Distributr.WPF.Lib"
+        FormBorderButtons:ControlBox.HasMinimizeButton="False" 
+        FormBorderButtons:ControlBox.HasMaximizeButton="False" 
+        WindowStartupLocation="CenterScreen"
+        d:DesignWidth="882" d:DesignHeight="320" 
+             mc:Ignorable="d" 
+        Width="400" MaxWidth="600" >
+
+    <StackPanel Height="500">
+        <Grid x:Name="LayoutRoot" Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal">
+                <Label x:Name="lblSearchBy" Content="Search By Code / Text:" Margin="10,0,0,0"/>
+                <TextBox x:Name="txtName" Text="{Binding Path=SearchText, Mode=TwoWay}" TextChanged="txtName_TextChanged" Width="150" Margin="10,0,0,0"/>
+            </StackPanel>
+            <DataGrid Grid.Row="1" x:Name="dgItems" ItemsSource="{Binding Path=DataGridItems}" Grid.Column="0" 
+                      Grid.ColumnSpan="2" Margin="0 10 0 0" MinHeight="200" Height="400"
+                      SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" 
+                      AutoGenerateColumns="False" CanUserSortColumns="True" 
+                      CanUserResizeColumns="True" CanUserAddRows="False" 
+                      PreviewMouseDoubleClick="OKButton_Click" 
+                      VerticalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Code}" IsReadOnly="True" Header="Code" Width="Auto"/>
+                    <DataGridTextColumn Binding="{Binding Name}" IsReadOnly="True" Header="Name" Width="100*" CanUserResize="True"/>
+                    <DataGridTemplateColumn Header="Select" Width="60" CanUserSort="False">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                <Hyperlink x:Name="hlSelect"  Click="OKButton_Click" >Select</Hyperlink>
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Style="{StaticResource AgriButtonStyle}" Grid.Row="2" Grid.Column="1" x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" />
+            <Button Style="{StaticResource AgriButtonStyle}" Grid.Row="2" Grid.Column="1" x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" />
+        </Grid>
+    </StackPanel>
+</Window>

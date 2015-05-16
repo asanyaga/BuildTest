@@ -1,0 +1,356 @@
+﻿<UserControl x:Class="Agrimanagr.WPF.UI.Views.CommodityPurchase.EditPurchase"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+             mc:Ignorable="d" DataContext="{Binding EditCommodityPurchaseViewModel, Source={StaticResource Locator}}" >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding EditPurchaseLoadedCommand}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid Background="#ffffff">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel DockPanel.Dock="Left" Grid.Column="0" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="275"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.ColumnSpan="3" Background="{StaticResource QuickLinksBrush}" Orientation="Horizontal" Margin="1 1 1 1">
+                    <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/farmer.png"  Height="30"  Margin=" 2"  Stretch="Fill"/>
+                    <Label Content="Farmer" Margin="0 0 0 0" Foreground="#FFF" FontWeight="Bold" FontSize="12"/>
+                    <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/bullet_arrow_down.png"  Height="30"  Margin=" 130 0 0 5"  Stretch="Fill"/>
+                </StackPanel>
+
+                <Border CornerRadius="5" Grid.Row="2" Grid.ColumnSpan="3" BorderThickness="1" BorderBrush="#797979"  Background="#949494" Margin="2 5 2 2">
+                    <StackPanel Orientation="Vertical" Margin="3">
+                        <Border CornerRadius="5" Grid.Row="2" Grid.ColumnSpan="3" BorderThickness="1" BorderBrush="#797979"  Background="#F2F2F2" Padding="4" Margin="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/farmer.png"  Height="65"  Margin=" 2"  Grid.RowSpan="3" Stretch="Fill"/>
+                                <Label x:Name="lblfarmerName" Grid.Column="1" Content="{Binding Farmer.FullName}" Margin="-1"  FontSize="12" Foreground="#38C2EA"/>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DockPanel>
+        <DockPanel Grid.Column="1">
+            <ScrollViewer   Margin="1"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Margin="5 0 0 0 ">
+                        <Grid.ColumnDefinitions>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="6">
+                            <Label Content="Transaction. No:" FontSize="14" FontWeight="Bold"/>
+                            <Label x:Name="lblTransaction" Grid.Column="1" Width="Auto" MinWidth="150" Margin="15,0,0,0" Content="{Binding Path=DocumentReference}" FontSize="14" />
+                            <Label Grid.Column="3" Content="Farmer:" FontSize="14" FontWeight="Bold" Margin="15,0,0,0"/>
+                            <Label x:Name="lblFarmer" Grid.Column="4" Content="{Binding Path=Farmer.FullName}" FontSize="14" Width="Auto" MinWidth="150"  Margin="15,0,0,0"/>
+                            <TextBlock Margin="5,0,0,0"  Visibility="Visible" Height="28">
+                                        <Label Content="Delivered By:" FontSize="13" Height="28" FontWeight="Bold"/> 
+                                        <TextBox x:Name="txtDeliveredBy" Height="28"  MinWidth="200" Margin="2,0,0,0" Text="{Binding DeliveredBy}"/>
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Grid.ColumnSpan="6" Grid.Row="1">
+                           
+                            <TextBlock Visibility="{Binding FarmVisibility}"> <!---->
+                                        <Label Grid.Row="1" Grid.Column="3" Content="Farm:" FontSize="14" FontWeight="Bold"/>
+                                        <ComboBox x:Name="cmbFarm"  Margin="2" Grid.Column="4" Grid.Row="1"  HorizontalAlignment="Left" DisplayMemberPath="Name"
+                                          ItemsSource="{Binding Path=FarmsList,Mode=TwoWay}"
+                                          SelectedItem="{Binding Path=SelectedFarm,Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True}" 
+                                          SelectedValuePath="Name" Height="26" Width="170" 
+                                                  StaysOpenOnEdit="False">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="DropDownOpened" >
+                                <cmd:EventToCommand Command="{Binding DropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=cmbFarm}" />
+                            </i:EventTrigger>
+                             </i:Interaction.Triggers>
+                                            
+                                                
+                                            
+                                        </ComboBox>
+                                    </TextBlock>
+                             <TextBlock  Visibility="{Binding CentreVisibility}"> <!---->
+                                        <Label Grid.Row="1" Grid.Column="3" Content="Centre:" FontSize="14" FontWeight="Bold"/>
+                                        <ComboBox x:Name="cmbCentre"  Margin="2" Grid.Column="4" Grid.Row="1"  HorizontalAlignment="Left" DisplayMemberPath="Name"
+                                          ItemsSource="{Binding Path=FarmCentresList,Mode=TwoWay}"
+                                          SelectedItem="{Binding Path=SelectedFarmCentre,Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True}" 
+                                          SelectedValuePath="Name" Height="26" Width="170" 
+                                                  StaysOpenOnEdit="False">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="DropDownOpened" >
+                                <cmd:EventToCommand Command="{Binding DropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=cmbCentre}" />
+                            </i:EventTrigger>
+                             </i:Interaction.Triggers>
+                                        </ComboBox>
+                            </TextBlock>
+                        </StackPanel>
+                            </Grid>
+                            <Border CornerRadius="0" Grid.Row="1"  BorderBrush="#797979" Margin="0" Padding="5,0,5,0" BorderThickness="1" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition Height="260"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <GroupBox Margin="-6,1,10,3"   Grid.Row="0" BorderBrush="#999999" BorderThickness="1"
+                                          Background="WhiteSmoke" Padding=" 0">
+                                        <GroupBox.Header>
+                                            <Label Content="Purchase Info" FontWeight="Bold" FontSize="14"/>
+                                        </GroupBox.Header>
+                                        <StackPanel>
+                                    <Grid Margin="5 0 0 0 ">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="250"/>
+                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <DockPanel Grid.ColumnSpan="4" Margin="0,5,0,0" MaxWidth="958" HorizontalAlignment="Left" x:Name="DockPanelCommodity">
+
+                                            <Label Grid.Row="0" Content="Commodity:" FontSize="13" FontWeight="Normal"  Visibility="{Binding CommodityVisibility}" Margin="0,0,0,0" Width="90" Height="28"/>
+                                            <ComboBox x:Name="cmbCommodity" HorizontalAlignment="Left"
+                                        				DisplayMemberPath="Name" ItemsSource="{Binding CommodityList,Mode=TwoWay}"
+                                        				SelectedItem="{Binding SelectedCommodity, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                        				SelectedValuePath="Name" Width="200" StaysOpenOnEdit="False" 
+                                        				Visibility="{Binding CommodityVisibility}" 
+                                        				Margin="15,0,0,0" Height="28">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="SelectionChanged" >
+                                                        <cmd:EventToCommand Command="{Binding CommoditySelectionChangedCommand}"/>
+                                                    </i:EventTrigger>
+                                                    <i:EventTrigger EventName="DropDownOpened" >
+                                                        <cmd:EventToCommand Command="{Binding DropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=cmbCommodity}" />
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </ComboBox>
+                                            <Label Grid.Row="1" Grid.Column="0" Content="Grade:" FontWeight="Normal" FontSize="13" Visibility="{Binding GradeVisibility}" Margin="20,0,0,0" Height="28" Width="80"/>
+                                            <ComboBox Grid.Row="1" Grid.Column="1" x:Name="cmbGrade" HorizontalAlignment="Left" DisplayMemberPath="Name"
+                                        				ItemsSource="{Binding GradeList,Mode=TwoWay}"
+                                        				SelectedItem="{Binding SelectedGrade, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                        				SelectedValuePath="Name" Width="170" StaysOpenOnEdit="False" Visibility="{Binding GradeVisibility}"
+                                        				  Margin="15,0,0,0" Height="28">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="DropDownOpened" >
+                                                        <cmd:EventToCommand Command="{Binding DropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=cmbGrade}" />
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </ComboBox>
+                                            <TextBlock Margin="20,0,0,0" HorizontalAlignment="Right"><InlineUIContainer>
+                                        					<Label Grid.Row="2" Content="Weighing Container:" FontSize="13" Height="28" FontWeight="Normal" Width="128"/>
+                                        				</InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                        					<ComboBox Grid.Row="2" Grid.Column="1"  x:Name="cmbWeighingContainer"
+                                        						HorizontalAlignment="Left" DisplayMemberPath="Name" ItemsSource="{Binding WeighingContainerList,Mode=TwoWay}"
+                                        						SelectedItem="{Binding SelectedWeighingContainer, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" SelectedValuePath="Name" Width="200" MinWidth="170" StaysOpenOnEdit="False"
+                                        						 Margin="15,0,0,0" Height="28">
+                                                                 <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="DropDownOpened" >
+                                <cmd:EventToCommand Command="{Binding DropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=cmbWeighingContainer}"/>
+                                </i:EventTrigger>
+                                 </i:Interaction.Triggers>
+                                                            </ComboBox>
+                                        				</InlineUIContainer></TextBlock>
+
+                                        </DockPanel>
+
+                                        <DockPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,5,0,0" Width="958" HorizontalAlignment="Left" Visibility="Collapsed">
+
+                                            <TextBlock x:Name="txtblkTransported" Width="300" Margin="20,0,0,0" HorizontalAlignment="Left"><InlineUIContainer>
+                                        					<Label Grid.Column="3" Content="Transporter:" FontSize="13" Width="80" FontWeight="Normal" />
+                                        				</InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                        					<ComboBox x:Name="cmbTransporter"  Margin="14,0,0,0" Grid.Column="4"  
+                                        						DisplayMemberPath="Name" ItemsSource="{Binding TransporterList}" Height="28" Width="170"
+                                        						SelectedItem="{Binding SelectedTransporter, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                                        						SelectedValuePath="Name" StaysOpenOnEdit="False" >
+                                                                 <i:Interaction.Triggers>
+                                                                    <i:EventTrigger EventName="DropDownOpened" >
+                                                                        <cmd:EventToCommand Command="{Binding DropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=cmbTransporter}" />
+                                                                    </i:EventTrigger>
+                                                                </i:Interaction.Triggers> 
+                                                            </ComboBox>
+                                        				</InlineUIContainer></TextBlock>
+                                        </DockPanel>
+                                        <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Margin="-2,9.6,0,0.8" Width="958" HorizontalAlignment="Left">
+                                            <TextBlock><InlineUIContainer>
+                                        					<Label Content="Weight:" FontWeight="Normal" FontSize="13" Height="28" Width="90" HorizontalAlignment="Left"/>
+                                        				</InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                        					<TextBox x:Name="txtWeight" Width="140" Height="28" Text="{Binding GrossWeight,UpdateSourceTrigger=PropertyChanged}"
+                                        						HorizontalAlignment="Left" Margin="70,0,0,0"  HorizontalContentAlignment="Right"/>
+                                        				</InlineUIContainer></TextBlock>
+                                            <Button Grid.Row="4" Grid.Column="2" x:Name="btnWeigh" BorderBrush="Transparent" BorderThickness="0"
+                                        				Background="Transparent" IsEnabled="True" Height="30" Style="{StaticResource AgriButtonStyle}" Command="{Binding WeighCommand}"  Margin="20,0,0,0" VerticalAlignment="Top" Width="100" HorizontalAlignment="Left">
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="1">
+                                                    <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/weight.png" Stretch="Fill" Width="20" Height="25" Margin="-2 -2 5 -2 "/>
+                                                    <TextBlock Text="Weigh" FontSize="13" Margin="1"/>
+                                                </StackPanel>
+                                            </Button>
+                                            <TextBlock Margin="20,0,0,0"  HorizontalAlignment="Right" Visibility="{Binding StorageContainerVisibility}"><InlineUIContainer>
+                                        					<Label Grid.Row="5"  Content="Storage Container:" Height="28" FontWeight="Normal" FontSize="13" Width="128"/>
+                                        				</InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                        					<ComboBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" x:Name="cmbStorageContainer" Margin="15,0,0,0"
+                                        						HorizontalAlignment="Left" DisplayMemberPath="Name" ItemsSource="{Binding StorageContainerList,Mode=TwoWay}"
+                                        						SelectedItem="{Binding SelectedStorageContainer, Mode=TwoWay, NotifyOnValidationError=True, 
+                                                                ValidatesOnExceptions=True}" 
+                                                                SelectedValuePath="Name" Width="200" Height="28" StaysOpenOnEdit="False">
+                                                                <i:Interaction.Triggers>
+                                                                    <i:EventTrigger EventName="DropDownOpened" >
+                                                                        <cmd:EventToCommand Command="{Binding DropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=cmbStorageContainer}" />
+                                                                    </i:EventTrigger>
+                                                                </i:Interaction.Triggers> 
+                                                                
+                                                            </ComboBox>
+                                        						
+                             
+                                        				</InlineUIContainer></TextBlock>
+                                        </DockPanel>
+                                        <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"  Width="956" HorizontalAlignment="Left" >
+                                            <TextBlock><InlineUIContainer>
+                                        					<Label Content="Net Weight:" FontWeight="Normal"  FontSize="13" Height="28" Width="90"/>
+                                        				</InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                        					<TextBox Grid.Row="6" Grid.Column="1"  Width="140" Height="28" Text="{Binding NetWeight}" IsReadOnly="True" HorizontalAlignment="Left" Margin="70,0,0,0" HorizontalContentAlignment="Right"/>
+                                        				</InlineUIContainer></TextBlock>
+                                            <TextBlock ><InlineUIContainer>
+                                        					<Label Grid.Row="6" Grid.Column="4" Content="Container No:" FontWeight="Normal"  FontSize="13" Height="28" Width="90" HorizontalAlignment="Right" Margin="0,0,0,0"/>
+                                        				
+                                        				</InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                        				
+                                        					<TextBox  Width="193" Height="28" Text="{Binding ContainerNo}" HorizontalAlignment="Left" Margin="10,0,0,0" HorizontalContentAlignment="Right"/>
+                                        				</InlineUIContainer></TextBlock>
+                                        </DockPanel>
+                                        <DockPanel Grid.Row="6" Grid.ColumnSpan="4" Margin="0,5,0,0" Width="958" HorizontalAlignment="Left">
+                                            <Button  Width="100" Height="30" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Style="{StaticResource AgriButtonStyle}" Command="{Binding AddLineItemCommand}" Margin="0,3,0,3" HorizontalAlignment="Left">
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="1">
+                                                    <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/AddContainer.png" Stretch="Fill" Width="20" Margin="2"/>
+                                                    <TextBlock Text="Add" FontSize="13" Margin="1"/>
+                                                </StackPanel>
+                                            </Button>
+                                            <Button  Width="100" Height="30" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Style="{StaticResource AgriButtonStyle}" Command="{Binding AddLineItemCommand}" Margin="0,3,0,3" HorizontalAlignment="Right">
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="1">
+                                                    <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/AddContainer.png" Stretch="Fill" Width="20" Margin="2"/>
+                                                    <TextBlock Text="Add" FontSize="13" Margin="1"/>
+                                                </StackPanel>
+                                            </Button>
+                                        </DockPanel>
+                                    </Grid>
+                                </StackPanel>
+                    </GroupBox>
+                    <GroupBox Margin="2"  Grid.Column="0" Grid.Row="1"   BorderBrush="#999999" BorderThickness="1"
+                                          Background="WhiteSmoke" Padding=" 0">
+                        <GroupBox.Header>
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="2" HorizontalAlignment="Left">
+                                <Label Content="Running Summary" Grid.Row="5" FontWeight="Bold" FontSize="14"/>
+                            </StackPanel>
+                        </GroupBox.Header>
+
+                        <DataGrid Grid.Row="1"  x:Name="RunningSummaryDataGrid"  AutoGenerateColumns="False"
+                                                  ItemsSource="{Binding Path=LineItems,Mode=TwoWay}" IsReadOnly="True"  Margin="6,6,0,5"
+                                                   HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Auto"   VerticalAlignment="Stretch" 
+                                      VerticalScrollBarVisibility="Auto" EnableRowVirtualization="True" EnableColumnVirtualization="True"  
+                                      FontWeight="Normal" RowDetailsVisibilityMode="Visible"  >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding ContainerType.Name}" IsReadOnly="True" Header="Container Id" Width="120" />
+                                <DataGridTextColumn Binding="{Binding Commodity.Name}" IsReadOnly="True" Header="Commodity" Width="150" />
+                                <DataGridTextColumn Binding="{Binding GrossWeight}" IsReadOnly="True" Header="Gross Weight(kg)" Width="100" />
+                                <DataGridTextColumn Binding="{Binding ContainerType.TareWeight}" IsReadOnly="True" Header="Tare Weight (Kg)" Width="100" />
+                                <DataGridTextColumn Binding="{Binding NetWeight}" IsReadOnly="True" Header="Net Weight (Kg)" Width="100" />
+                                <DataGridTextColumn Binding="{Binding CommodityGrade.Name}" IsReadOnly="True" Header="Grade" Width="100" />
+                                <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="140" Header="Action" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ItemsControl>
+                                                <TextBlock  Margin="3,0,0,0">
+                                        <Hyperlink  Command="{Binding DataContext.RemoveLineItemCommand,ElementName=RunningSummaryDataGrid}" CommandParameter="{Binding}"><TextBlock Text="Remove"/></Hyperlink></TextBlock>
+                                            </ItemsControl>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Binding="{Binding Id}" IsReadOnly="True" Header="Id" Visibility="Hidden" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </GroupBox>
+                    <Border CornerRadius="5" Grid.Row="3" Grid.RowSpan="2"  BorderThickness="1" BorderBrush="#797979"  Background="#F2F2F2" Padding="4" Margin="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Total Weight (Kgs)" FontWeight="Bold" FontSize="14" HorizontalAlignment="Right"/>
+                            <Label x:Name="txtTotalWeight" Grid.Column="1" Content="{Binding TotalWeight}" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left"/>
+                            <Button Height="30" Name="btnSave" Grid.Column="3" Grid.ColumnSpan="1" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" IsEnabled="True"  Margin="2 0 2 0" Style="{StaticResource AgriButtonStyle}"
+                                            Command="{Binding SaveTransactionCommand}">
+
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="1">
+                                    <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/stock_save.png" Stretch="Fill" Width="25" Margin="2"/>
+                                    <TextBlock Text=" Save Transaction" FontSize="13"  Margin="1"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button Height="30" Name="btnCancel" Grid.Column="6" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" IsEnabled="True"  Margin="0" Command="{Binding CancelPurchaseCommand}" Style="{StaticResource AgriButtonStyle}">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="1">
+                                    <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/cancel.png" Stretch="Fill" Width="25" Margin="2"/>
+                                    <TextBlock Text="  Cancel  " FontSize="13" Margin="1"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Border x:Name="brdProgress" Visibility="Hidden" Grid.Row="1" Grid.ColumnSpan="4">
+                                <StackPanel>
+                                    <Grid Margin="5">
+                                        <ProgressBar x:Name="prgProgress" Width="200" Height="25" Minimum="0" Maximum="1"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Grid   >
+                </Border>
+    </Grid>
+    </ScrollViewer>
+    </DockPanel>
+
+    </Grid>
+</UserControl>

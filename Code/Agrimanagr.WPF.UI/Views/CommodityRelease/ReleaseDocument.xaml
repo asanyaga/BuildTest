@@ -1,0 +1,203 @@
+﻿<Window x:Class="Agrimanagr.WPF.UI.Views.CommodityRelease.ReleaseDocument"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d ignore"
+        d:DesignWidth="900" d:DesignHeight="800"
+        DataContext="{Binding CommodityReleaseDocumentViewModel, Source={StaticResource Locator}}"
+        WindowStartupLocation="CenterScreen" Icon="../../Resources/images/receipt.png">
+
+    <ScrollViewer x:Name="svReceipt" >
+        <Grid x:Name="LayoutRoot" Width="830">
+            <StackPanel Margin="0,0,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,10" HorizontalAlignment="Right">
+                    <Button 
+                        Content="Print"
+                        HorizontalAlignment="Right" Margin="20,10,0,0"
+                        Name="PrintButton"                          
+                        Width="100"  Click="PrintButton_Click"/>
+                    <Button x:Name="btnBack" Content="Back" Margin="20,10,0,0" Width="100" Click="btnBack_Click" />
+                </StackPanel>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" >
+                    <Grid x:Name="gridPrintArea">
+                        <Grid x:Name="Header"  Margin="60,40,60,40">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="2" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1"  Margin="0,5,0,5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal"  HorizontalAlignment="Center">
+                                        <Label x:Name="lblFrom" Content="From"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" >
+                                        <Label x:Name="lblCoAddressTo" Content="Address :"/>
+                                        <TextBlock x:Name="txtCoAddressTo" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding RecepientAddress}" Width="auto" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
+                                        <Label x:Name="lblTo" Content="To"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" >
+                                        <Label x:Name="lblCoNameTo" Content="Company Name :"/>
+                                        <TextBlock x:Name="txtCoNameTo" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding RecepientCoName}" Width="100" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
+                                        <Label x:Name="lblNameTo" Content="Name :"/>
+                                        <TextBlock x:Name="txtNameTo" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding RecepientName}" Width="100" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" >
+                                        <Label x:Name="lblClerk" Content="Clerk :"/>
+                                        <TextBlock x:Name="txtClerk" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding Clerk}" Width="auto" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" >
+                                        <Label x:Name="lblCoNameFrom" Content="Company Name :"/>
+                                        <TextBlock x:Name="txtCoNameFrom" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding CompanyName}" Width="auto" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" >
+                                        <Label x:Name="lblCoAddressFrom" Content="Address :"/>
+                                        <TextBlock x:Name="txtCoAddressFrom" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding Address}" Width="auto" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal" >
+                                        <Label x:Name="lblStoreName" Content="Store Name :"/>
+                                        <TextBlock x:Name="txtStoreName" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding Store}" Width="auto" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" >
+                                        <Label x:Name="lblDate1" Content="Date :"/>
+                                        <TextBlock x:Name="txtDate1" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding Date}" Width="auto" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            <Grid Grid.Column="1" Grid.Row="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel  Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+                                    <TextBlock x:Name="txtCompany" Text="{Binding CompanyName}" VerticalAlignment="Center" FontWeight="Bold" FontSize="13.333"/>
+                                </StackPanel>
+                                <StackPanel  Grid.Row="1" Orientation="Horizontal">
+                                    <Label x:Name="lblCoAddress" Content="P.O. Box:" />
+                                    <TextBlock x:Name="txtAddress" Text="{Binding Address}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel  Grid.Row="2" Orientation="Horizontal">
+                                    <Label x:Name="lblTel" Content="Tel:" />
+                                    <TextBlock x:Name="txtTel" Text="{Binding Telephone}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <Border Grid.Row="3" BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2">
+                                    <Label x:Name="lblOfficialReceipt" Content="RELEASE ORDER" FontWeight="Bold" FontSize="13.333"
+                                           Margin="5,0,8,0"/>
+                                </Border>
+
+                            </Grid>
+
+                            <Border  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1" Margin="0,5,0,5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"  />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Orientation="Horizontal" >
+                                        <Label x:Name="lblReceiptNo" Content="Receipt No:" />
+                                        <TextBlock  x:Name="txtReceiptNo" Text="{Binding ReleaseNo}" Width="Auto" VerticalAlignment="Center" FontWeight="DemiBold"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" >
+                                        <Label  x:Name="lblReceiptDate" Content="Receipt Date:" />
+                                        <TextBlock  x:Name="txtReceiptDate" Text="{Binding Date}" Width="Auto" VerticalAlignment="Center" FontWeight="DemiBold"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            <Border Grid.Row="5" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1" Margin="0,5,0,5">
+                                <TextBlock x:Name="txtReleaseComment" Text="Please release the following goods." TextAlignment="Left"/>
+                            </Border>
+                            <DataGrid Grid.Row="7" Grid.ColumnSpan="3" x:Name="dgReceiptLineItems" AutoGenerateColumns="False" ItemsSource="{Binding ReleaseLineItemList}" VerticalAlignment="Top" Margin="0,5,0,0" Width="Auto">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn  CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Commodity" 
+                                                IsReadOnly="True" Width="auto"  Binding="{Binding Commodity}" />
+                                    <DataGridTextColumn x:Name="colGrade" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Grade" 
+                                                IsReadOnly="True" Width="Auto"   Binding="{Binding Grade}" />
+                                    <DataGridTextColumn x:Name="colValue" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Net Weight" 
+                                                IsReadOnly="True" Width="Auto" Binding="{Binding Weight, StringFormat=#\,0.00;(#\,0.00);0}" />
+                                    <DataGridTextColumn  CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Container No." 
+                                                IsReadOnly="True" Width="Auto" MinWidth="120"  Binding="{Binding ContainerNo}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Border Grid.Row="8" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1"  Margin="0,5,0,5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="0,5,0,0">
+                                        <Label x:Name="lblConsignee" Content="Consignee:"/>
+                                        <TextBlock x:Name="txtConsignee" VerticalAlignment="Center" FontWeight="DemiBold" Text="_______________________" Width="100" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Margin="0,5,0,0">
+                                        <Label x:Name="lblROSN" Content="RELEASE ORDER SERIAL NO.:"/>
+                                        <TextBlock x:Name="txtROSN" VerticalAlignment="Center" FontWeight="DemiBold" Text="_______________________" Width="100" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.ColumnSpan="1" Orientation="Horizontal" Margin="0,5,0,0">
+                                        <Label x:Name="lblSpecifications" Content="SPECIFICATIONS IN WORDS:"/>
+                                        <TextBlock x:Name="txtSpecifications" VerticalAlignment="Center" FontWeight="DemiBold" Text="" Width="auto" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.ColumnSpan="1" Orientation="Horizontal" Margin="0,5,0,0">
+                                        <Label x:Name="lblInstructions" Content="OTHER INSTRUCTIONS:"/>
+                                        <TextBlock x:Name="txtInstructions" VerticalAlignment="Center" FontWeight="DemiBold" Text="" Width="auto" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.ColumnSpan="1" Orientation="Horizontal" Margin="0,5,0,0">
+                                        <Label x:Name="lblSignatorySign" Content="AUTHORIZED SIGNATORY(DIRECTOR):"/>
+                                        <TextBlock x:Name="txtSignatorySign" VerticalAlignment="Center" FontWeight="DemiBold" Text="_______________________" Width="auto" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="5" Grid.ColumnSpan="1" Orientation="Horizontal" Margin="0,5,0,0">
+                                        <Label x:Name="lblSignatoryName" Content="SIGNATORY NAME:"/>
+                                        <TextBlock x:Name="txtSignatoryName" VerticalAlignment="Center" FontWeight="DemiBold" Text="_______________________" Width="auto" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>

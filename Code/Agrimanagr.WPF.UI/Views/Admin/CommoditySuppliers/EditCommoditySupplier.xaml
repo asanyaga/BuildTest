@@ -1,0 +1,235 @@
+﻿<Page:PageBase x:Class="Agrimanagr.WPF.UI.Views.Admin.CommoditySuppliers.EditCommoditySupplier"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:Page="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity;assembly=Distributr.WPF.Lib"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+               xmlns:Contacts="clr-namespace:Agrimanagr.WPF.UI.Views.Admin.Contacts"
+               xmlns:UtilityViews="clr-namespace:Agrimanagr.WPF.UI.Views.UtilityViews"
+               xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+               mc:Ignorable="d"  d:DesignWidth="1300"
+               DataContext="{Binding EditCommoditySupplierViewModel, Source={StaticResource Locator}}"
+	Title="EditCommoditySupplier" Background="White" x:Name="pageEdit" KeyboardNavigation.TabNavigation="None" KeyboardNavigation.IsTabStop="False">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadPageCommand}" PassEventArgsToCommand="True" CommandParameter="{Binding ElementName=pageEdit}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <GroupBox DockPanel.Dock="Top" HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1"
+                                          Background="WhiteSmoke" Padding=" 0" Height="auto">
+        <GroupBox.Header>
+            <Label x:Name="lblEditCentre" Content="{Binding Path=PageTitle}" FontWeight="Bold" FontSize="14" Foreground="#FF5C94F2"/>
+        </GroupBox.Header>
+        <DockPanel Margin="20,10,0,0" LastChildFill="True">
+            <UtilityViews:SaveCancelButtonsControl DockPanel.Dock="Bottom" Margin="-20 0 0 0"/>
+            <ScrollViewer x:Name="svMain" DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+                <DockPanel LastChildFill="True" DockPanel.Dock="Top" x:Name="dockMain">
+                    <Grid DockPanel.Dock="Top" Margin="0,10,20,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="300"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="Name:"></Label>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=CommoditySupplier.Name}"  Margin="3" Height="28"></TextBox>
+                        <Label Grid.Row="1" Content="Code:"></Label>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=CommoditySupplier.CostCentreCode}" Margin="3" Height="28"></TextBox>
+                        <Label Grid.Row="2" Content="Pin:"></Label>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=CommoditySupplier.PinNo}" Margin="3" Height="28"></TextBox>
+                        <Label Grid.Row="0" Grid.Column="2" Content="Bank Name:"></Label>
+                        <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding Path=CommoditySupplier.BankName}" Margin="3" Height="28"></TextBox>
+                        <Label Grid.Row="1" Grid.Column="2" Content="Bank Branch Name:"></Label>
+                        <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding Path=CommoditySupplier.BankBranchName}" Margin="3" Height="28"></TextBox>
+                        <Label Grid.Row="2" Grid.Column="2" Content="Commodity Supplier Type:"></Label>
+                        <ComboBox  Grid.Row="2" Grid.Column="3" Margin="5,2,0,2"
+                                                   ItemsSource="{Binding  Path=CommoditySupplierTypeList,Mode=OneWay}"
+                                                   SelectedItem="{Binding Path=SelectedCommoditySupplierType, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" >
+                        </ComboBox>
+                    </Grid>
+                    <Contacts:ContactListingControl DockPanel.Dock="Top" Margin="0 10 0 0" />
+                    <Expander DockPanel.Dock="Top" IsExpanded="True" x:Name="expCommodityOwners" Margin="0 10 0 0">
+                        <Expander.Header >
+                            <Grid Width="{Binding ElementName=svMain, Path=ActualWidth}" Margin="0 0 -100 0 " >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                                    <Label Content=" Farmers " FontWeight="Bold" FontSize="14" VerticalAlignment="Center" Margin="0,4" Width="74" />
+                                    <Button Name="btnAddCommodityOwner" Width="130" Height="30" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Style="{StaticResource AgriButtonStyle}" Command="{Binding Path=AddCommodityOwnerClickedCommand}" CommandParameter="{Binding ElementName=btnAddCommodityOwner}" Margin="50,3,0,3">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="1" >
+                                            <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/AddContainer.png" Stretch="Fill" Width="20" Margin="2" />
+                                            <TextBlock Text="Add Farmer" FontSize="13" Margin="1" ></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 100 0" Visibility="{Binding ElementName=expCommodityOwners, Path=IsExpanded, Converter={StaticResource VisibilityConverter}}">
+                                    <Label Content="Search:" Margin="5 2 2 2"  FontSize="13" FontWeight="Bold" IsTabStop="False"/>
+                                    <TextBox Margin="2" Height="25" Width="200" VerticalAlignment="Center" FontSize="13" x:Name="txtSearchCommodityOwner"  IsTabStop="False" > 
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="TextChanged">
+                                                <cmd:EventToCommand Command="{Binding Path=SearchCommodityOwnerCommand, Mode=OneWay}" CommandParameter="{Binding Text, ElementName=txtSearchCommodityOwner}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
+                                    <CheckBox Content="Show Inactive" FontWeight="Bold" FontSize="13" x:Name="chkShowInactiveCommodityOwner" Command="{Binding Path=ToggleShowInactiveCommodityOwnerCommand}" CommandParameter="{Binding Path=IsChecked, ElementName=chkShowInactiveCommodityOwner}" VerticalAlignment="Center" Margin="20,0,10,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Expander.Header>
+                        <DockPanel x:Name="dockCommodityOwners">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" IsTabStop="False" MaxWidth="{Binding ElementName=dockCommodityOwners, Path=ActualWidth}">
+                            <StackPanel >
+                                <DataGrid AutoGenerateColumns="False" x:Name="dgCommodityOwnerList" ItemsSource="{Binding Path=CommodityOwnersList}"  IsReadOnly="True" Height="Auto" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SelectedItem="{Binding Path=SelectedCommodityOwner, Mode=TwoWay}" IsTabStop="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=RowNumber}" Header="" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colCommodityOwnerName" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.FullName}" Header="Name" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colCommodityOwnerCode" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.Code}" Header="Code" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colIdNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.IdNo}" Header="ID No." IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colCommodityOwnerPin" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.PinNo}" Header="PIN No." IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colGendre" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.Gender}" Header="Gender" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colPhysicalAddress" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.PhysicalAddress}" Header="Physical Address" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colPostalAdd" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.PostalAddress}" Header="Postal Address" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colEmail" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.Email}" Header="Email" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colPhoneNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.PhoneNumber}" Header="Phone No." IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colBusinessNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.BusinessNumber}" Header="Business No." IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colFaxNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.FaxNumber}" Header="Fax No." IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colOfficeNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.OfficeNumber}" Header="Office No." IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colCommodityOwnerType" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityOwner.CommodityOwnerType.Name}" Header="Type of Farmer" IsReadOnly="True" />
+
+                                        <DataGridTemplateColumn x:Name="colCommodityOwnerManage" Header="Actions" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel x:Name="spManageRoute" Orientation="Horizontal">
+                                                        <TextBlock Margin="5,0,0,0">
+                                        <Hyperlink x:Name="hlEdit" Command="{Binding Path=DataContext.EditSelectedCommodityOwnerCommand, ElementName=dgCommodityOwnerList}" >
+                                            <TextBlock x:Name="txtEdit" Text="Edit"></TextBlock>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                                        <TextBlock Margin="5,0,0,0">
+                                        <Hyperlink x:Name="hlDeactivate" Command="{Binding Path=DataContext.ActivateSelectedCommodityOwnerCommand, ElementName=dgCommodityOwnerList}">
+                                            <TextBlock x:Name="txtDeactivate" Text="{Binding Path=HlkDeactivateContent}"></TextBlock> 
+                                        </Hyperlink>
+                                    </TextBlock>
+                                                        <TextBlock Margin="5,0,0,0">
+                                        <Hyperlink x:Name="hlDelete" Command="{Binding Path=DataContext.DeleteSelectedCommodityOwnerCommand, ElementName=dgCommodityOwnerList}">
+                                            <TextBlock x:Name="txtDelete" Text="Delete"/>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                            </ScrollViewer>
+                        </DockPanel>
+                    </Expander>
+                    <Expander DockPanel.Dock="Top" IsExpanded="True" x:Name="expCommodityProducer" Margin="0 10 0 0">
+                        <Expander.Header>
+                            <Grid Width="{Binding ElementName=svMain, Path=ActualWidth}" Margin="0 0 -100 0 ">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <Label Content=" Farms " FontWeight="Bold" FontSize="14" VerticalAlignment="Center" Margin="0,4" Width="74" IsTabStop="False"/>
+                                    <Button Name="btnAddCommodityProducer" Width="130" Height="30" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Style="{StaticResource AgriButtonStyle}" Command="{Binding Path=AddCommodityProducerClickedCommand}" CommandParameter="{Binding ElementName=btnAddCommodityProducer}" Margin="50,3,0,3" IsTabStop="False">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="1">
+                                            <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/AddContainer.png" Stretch="Fill" Width="20" Margin="2"/>
+                                            <TextBlock Text="Add Farm" FontSize="13" Margin="1" ></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 100 0" Visibility="{Binding ElementName=expCommodityProducer, Path=IsExpanded, Converter={StaticResource VisibilityConverter}}">
+                                    <Label Content="Search:" Margin="5 2 2 2"  FontSize="13" FontWeight="Bold" IsTabStop="False"/>
+                                    <TextBox Margin="2" Height="25" Width="200" VerticalAlignment="Center" FontSize="13" x:Name="txtSearchCommodityProducer"  IsTabStop="False" >
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="TextChanged">
+                                                <cmd:EventToCommand Command="{Binding Path=SearchCommodityProducerCommand, Mode=OneWay}" CommandParameter="{Binding Text, ElementName=txtSearchCommodityProducer}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
+                                    <CheckBox Content="Show Inactive" FontWeight="Bold" FontSize="13" x:Name="chkShowInactiveCommodityProducer" Command="{Binding Path=ToggleShowInactiveCommodityProducerCommand}" CommandParameter="{Binding Path=IsChecked, ElementName=chkShowInactiveCommodityProducer}" VerticalAlignment="Center" Margin="20,0,10,0" IsTabStop="False"/>
+                                </StackPanel>
+                            </Grid>
+                        </Expander.Header>
+                        <DockPanel x:Name="dockCommodityProducers">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" IsTabStop="False" MaxWidth="{Binding ElementName=dockCommodityProducers, Path=ActualWidth}">
+                            <StackPanel >
+                                <DataGrid AutoGenerateColumns="False" x:Name="dgCommodityProducersList" ItemsSource="{Binding Path=CommodityProducersList}" IsReadOnly="True" Height="Auto" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SelectedItem="{Binding Path=SelectedCommodityProducer, Mode=TwoWay}" IsTabStop="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=RowNumber}" Header="" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colCommodityProducerName" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityProducer.Name}" Header="Name" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colCommodityProducerCode" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityProducer.Code}" Header="Code" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colRegNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityProducer.RegNo}" Header="Registration No." IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colAcrage" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityProducer.Acrage}" Header="Acrage" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colCommodityProducerPin" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityProducer.PhysicalAddress}" Header="Physical Address" IsReadOnly="True" />
+                                        <DataGridTextColumn x:Name="colBankBranchName" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=CommodityProducer.Description}" Header="Description" IsReadOnly="True" />
+
+                                        <DataGridTemplateColumn x:Name="colManage" Header="Actions" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel x:Name="spManageRoute" Orientation="Horizontal">
+                                                        <!--<TextBlock Margin="20,0,0,0">
+                                        <Hyperlink x:Name="hlCentres" Command="{Binding Path=DataContext.ViewCommodityProducerCentresCommand, ElementName=dgCommodityProducersList}" >
+                                            <TextBlock x:Name="txtCentres" Text="Centres"></TextBlock>
+                                        </Hyperlink>
+                                    </TextBlock>-->
+                                                        <TextBlock Margin="25,0,0,0">
+                                        <Hyperlink x:Name="hlEdit" Command="{Binding Path=DataContext.EditSelectedCommodityProducerCommand, ElementName=dgCommodityProducersList}" >
+                                            <TextBlock x:Name="txtEdit" Text="Edit"></TextBlock>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                                        <TextBlock Margin="5,0,0,0">
+                                        <Hyperlink x:Name="hlDeactivate" Command="{Binding Path=DataContext.ActivateSelectedCommodityProducerCommand, ElementName=dgCommodityProducersList}">
+                                            <TextBlock x:Name="txtDeactivate" Text="{Binding Path=HlkDeactivateContent}"></TextBlock> 
+                                        </Hyperlink>
+                                    </TextBlock>
+                                                        <TextBlock Margin="5,0,0,0">
+                                        <Hyperlink x:Name="hlDelete" Command="{Binding Path=DataContext.DeleteSelectedCommodityProducerCommand, ElementName=dgCommodityProducersList}">
+                                            <TextBlock x:Name="txtDelete" Text="Delete"/>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                            </ScrollViewer>
+                        </DockPanel>
+                    </Expander>
+                </DockPanel>
+            </ScrollViewer>
+        </DockPanel>
+    </GroupBox>
+</Page:PageBase>

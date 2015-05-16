@@ -1,0 +1,62 @@
+﻿<Page x:Class="Agrimanagr.WPF.UI.Views.Activities.ActivityListing"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:Admin="clr-namespace:Distributr.WPF.Lib.ViewModels.Admin;assembly=Distributr.WPF.Lib"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45" mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="ActivityListing" DataContext="{Binding ActivityListingViewModel,Source={StaticResource Locator}}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command="{Binding Path=LoadListingPageCommand}"  PassEventArgsToCommand="True" CommandParameter="{x:Static Admin:BooleanHelper.True}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <TabControl Name="activitytabs" SelectedItem="{Binding SelectedTabItem,Mode=TwoWay}" ItemsSource="{Binding Path=ActivityTypesList, Mode=TwoWay}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <cmd:EventToCommand Command ="{Binding TabSelectionChangedCommand,Mode=OneWay}"  PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <DataGrid  AutoGenerateColumns="False"  Margin="0,5,0,0" VerticalAlignment="Stretch"  
+                               FontWeight="Normal" Height="auto" HorizontalAlignment="Stretch" 
+                               x:Name="activitylist"
+                               VerticalScrollBarVisibility="Auto"
+                               ItemsSource="{Binding DataContext.ActivityItemsList,Mode=TwoWay,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
+                               SelectedItem="{Binding DataContext.SelectedActivityItem,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn x:Name="colManage" Header="Document Reference" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel x:Name="spManageRoute" Orientation="Horizontal">
+                                            <ItemsControl>
+                                                <Hyperlink x:Name="hldetails" Click="hldetails_Click" Tag="{Binding }">
+                                                    <TextBlock x:Name="txtEdit" Text="{Binding ActivityReference}">
+                                                    </TextBlock>
+                                              </Hyperlink>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Binding="{Binding Producer}" IsReadOnly="True" Header="Farm" Width="auto" />
+                            <DataGridTextColumn Binding="{Binding FieldClerk}" IsReadOnly="True" Header="Field Clerk" Width="auto" />
+                            <DataGridTextColumn Binding="{Binding Season}" IsReadOnly="True" Header="Season" Width="auto" />
+                            <DataGridTextColumn Binding="{Binding Hub}" IsReadOnly="True" Header="Hub" Width="auto" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+        
+    </Grid>
+</Page>

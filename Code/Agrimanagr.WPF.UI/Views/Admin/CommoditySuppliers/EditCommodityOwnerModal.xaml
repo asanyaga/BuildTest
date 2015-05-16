@@ -1,0 +1,105 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:UtilityViews="clr-namespace:Agrimanagr.WPF.UI.Views.UtilityViews" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:FormBorderButtons="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.FormBorderButtons;assembly=Distributr.WPF.Lib"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" 
+    x:Class="Agrimanagr.WPF.UI.Views.Admin.CommoditySuppliers.EditCommodityOwnerModal"
+        DataContext="{Binding EditCommodityOwnerModalViewModel, Source={StaticResource Locator}}"
+        Title="{Binding PageTitle}"  KeyboardNavigation.TabNavigation="None"
+    d:DesignWidth="930" d:DesignHeight="490" WindowStartupLocation="CenterScreen"  >
+    <i:Interaction.Behaviors>
+        <FormBorderButtons:HideCloseButtonBehaiviour />
+    </i:Interaction.Behaviors>
+    <GroupBox DockPanel.Dock="Top" HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1" Background="WhiteSmoke" Padding=" 0" Height="auto">
+        <GroupBox.Header>
+            <Label x:Name="lblEdit" Content="{Binding PageTitle}" FontWeight="Bold" FontSize="14" Foreground="#FF5C94F2"/>
+        </GroupBox.Header>
+        <DockPanel Margin="20,0,0,0" LastChildFill="True">
+            <UtilityViews:SaveCancelButtonsControl Margin="-20 10 0 0" DockPanel.Dock="Bottom"/>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,10,20,0">
+                <Grid VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="260"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+
+                    <Label Grid.Row="0" Content="Sur Name:"/>
+                    <TextBox Grid.Column="1" Text="{Binding CommodityOwner.Surname}"  Margin="3" Height="28"/>
+                    <Label Grid.Row="1" Content="First Name:"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CommodityOwner.FirstName}" Margin="3" Height="28"/>
+                    <Label Grid.Row="2" Content="Last Name:"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CommodityOwner.LastName}" Margin="3" Height="28"/>
+                    <Label Grid.Row="3" Content="Code:"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CommodityOwner.Code}" Margin="3" Height="28"/>
+                    <Label Grid.Row="4" Content="ID Number:"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CommodityOwner.IdNo}" Margin="3" Height="28"/>
+                    <Label Grid.Row="5" Content="PIN Number:"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding CommodityOwner.PinNo}" Margin="3" Height="28"/>
+                    <Label Grid.Row="6" Content="Date Of Birth:"/>
+                    <DatePicker Grid.Row="6" Grid.Column="1" x:Name="dtDateOfBirth" DisplayDateEnd="{x:Static System:DateTime.Now}" SelectedDate="{Binding DateOfBirth, Mode=TwoWay}" Margin="3,3,0,3" HorizontalAlignment="Left" Width="254"  />
+                    <!--, StringFormat=\{0:d\}-->
+                    <Label Grid.Row="7" Content="Marital Status:"/>
+                    <ComboBox  Grid.Row="7" Grid.Column="1" Margin="3"
+                           ItemsSource="{Binding MaritalStatusList, Mode=OneWay}"
+                           SelectedItem="{Binding SelectedMaritalStatus, Mode=TwoWay}" Height="28" />
+                    <Label Grid.Row="8" Content="Type of Farmer:"/>
+                    <ComboBox  Grid.Row="8" Grid.Column="1" Margin="3"
+                           ItemsSource="{Binding CommodityOwnerTypesList, Mode=OneWay}"
+                           DisplayMemberPath="Name"
+                           SelectedItem="{Binding SelectedCommodityOwnerType, Mode=TwoWay}" Height="28" />
+                </Grid>
+                <Grid Margin="20,0,0,0" VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="260"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Content="Physical Address:"/>
+                    <TextBox Grid.Column="1" Text="{Binding CommodityOwner.PhysicalAddress}"  Margin="3" Height="28"/>
+                    <Label Grid.Row="1" Content="Postal Address:"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CommodityOwner.PostalAddress}" Margin="3" Height="28"/>
+                    <Label Grid.Row="2" Content="Email:"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CommodityOwner.Email}" Margin="3" Height="28"/>
+                    <Label Grid.Row="3" Content="Phone Number:"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CommodityOwner.PhoneNumber}" Margin="3" Height="28"/>
+                    <Label Grid.Row="4" Content="Business Number:"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CommodityOwner.BusinessNumber}" Margin="3" Height="28"/>
+                    <Label Grid.Row="5" Content="Fax Number:"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding CommodityOwner.FaxNumber}" Margin="3" Height="28"/>
+                    <Label Grid.Row="6" Content="Office Number:"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding CommodityOwner.OfficeNumber}" Margin="3" Height="28"/>
+                    <Label Grid.Row="7" Content="Description:"/>
+                    <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding CommodityOwner.Description}" Margin="3" Height="28"/>
+
+                </Grid>
+            </StackPanel>
+        </DockPanel>
+    </GroupBox>
+</Window>

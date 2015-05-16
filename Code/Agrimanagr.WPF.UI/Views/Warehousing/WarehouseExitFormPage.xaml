@@ -1,0 +1,84 @@
+﻿<Page x:Class="Agrimanagr.WPF.UI.Views.Warehousing.WarehouseExitFormPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:Control="clr-namespace:Agrimanagr.WPF.UI.Views.UtilityViews"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45" mc:Ignorable="d"
+	Title="WarehouseExitFormPage" Width="500" Height="530" DataContext="{Binding WarehouseExitViewModel, Source={StaticResource Locator}}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding WarehouseExitLoadPageCommand}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid Background="#ffffff">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="91*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Warehouse Exit" FontWeight="Bold" FontSize="15" Margin="0,0,-77,0"></Label>
+        <DockPanel Grid.Column="0" Grid.Row="1">
+            <Control:SaveCancelButtonsControl Margin="0,10,0,0" DockPanel.Dock="Bottom"/>
+            <StackPanel  DockPanel.Dock="Top">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label Name="lblDriver" Grid.Column="1" Grid.Row="0" Content="Delivered By :" ></Label>
+                    <TextBox Name="txtDriver" Grid.Column="2" Grid.Row="0" Margin="15,5,0,5"  Width="200" HorizontalAlignment="Left" Height="30" Text="{Binding DriverName}" IsEnabled="False"/>
+                    <Label Name="lblFarmer" Grid.Column="1" Grid.Row="1" Content="Farmer: " Margin="3,5" />
+                    <StackPanel  Orientation="Horizontal" Grid.Row="1" Grid.Column="2" Margin="15,5,0,5" >
+                        <TextBox Width="200" Height="30" Text="{Binding SelectedFarmerName }" IsEnabled="False" />
+                      
+                    </StackPanel>
+
+                    <Label Name="lblCommodity" Grid.Column="1" Grid.Row="2" Content="Commodity: " ></Label>
+                    <StackPanel  Orientation="Horizontal" Grid.Row="2" Grid.Column="2" Margin="15,5,0,5" >
+                        <TextBox Width="200" Height="30" Text="{Binding SelectedCommodity.Name }" IsEnabled="False" />
+                        
+                    </StackPanel>
+
+                    <Label Name="lblWeight" Grid.Column="1" Grid.Row="4" Content="Weight: *" ></Label>
+                    <TextBox Name="txtWeight" Grid.Column="2" Grid.Row="4" Margin="15,5,0,5" Height="30"  Width="200" HorizontalAlignment="Left" Text="{Binding Weight}" IsReadOnly="{Binding MakeWeightextBoxReadOnly}"/>
+                    <Button Grid.Row="4" Grid.Column="2" x:Name="btnWeigh" BorderBrush="Transparent" BorderThickness="0"
+                                        				Background="Transparent" IsEnabled="True" Height="30" Style="{StaticResource AgriButtonStyle}" Command="{Binding WeighCommand}" 
+                                                   Margin="220,10,0,0" VerticalAlignment="Top" Width="80" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock Text="Weigh" FontSize="13" Margin="1"/>
+                        </StackPanel>
+                    </Button>
+                    <Label Name="lblGrade" Grid.Column="1" Grid.Row="3" Content="Grade: " ></Label>
+                    <StackPanel  Orientation="Horizontal" Grid.Row="3" Grid.Column="2" Margin="15,5,0,5" >
+                        <TextBox Width="200" Height="30" Text="{Binding SelectedGrade.Name }" IsEnabled="False" />
+                       
+                    </StackPanel>
+
+
+                    <Label Name="lblRegNo" Grid.Column="1" Grid.Row="5" Content="Vehicle Registration No. :" ></Label>
+                    <TextBox Name="txtRegNo" Grid.Column="2" Grid.Row="5" Margin="15,5,0,5"  Width="200" HorizontalAlignment="Left" Height="30" Text="{Binding RegistrationNumber}" IsEnabled="False"/>
+                    <Label Name="lblNote" Grid.Column="1" Grid.Row="6" Content="Notes :" ></Label>
+                    <TextBox Name="txtNote" Grid.Column="2" Grid.Row="6" Margin="15,5,0,5"  Width="200" Height="90" HorizontalAlignment="Left"  Text="{Binding Notes}" IsEnabled="False" />
+                </Grid>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Page>
