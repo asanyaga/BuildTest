@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "ListFarmersFromServer";
+}
+
+<h2>List Farmers From Server</h2>
+
+<script type="text/javascript">
+
+    function getFarmers() {
+        var serverUrl = $('#url').val();
+        $.getJSON("api/distributorservices/getallfarmers?url=" + serverUrl,
+            function (data) {
+                var str = data.Name + ': ' + data.Price;
+                $('#product').text(str);
+            })
+            .fail(
+                function (jqXHR, textStatus, err) {
+                    $('#product').text('Error ' + err);
+                });
+    }
+</script>
+
+<div class="main-content">
+    <div id="action-link">
+        <input type="text" id="url" />
+        <input type="button" id="getFarmers" value="Get Farmers" onclick="getFarmers()" />
+    </div>
+
+    <table>
+        <tr>
+            <th>Full Name
+            </th>
+            <th>Code
+            </th>
+            <th>Factory Code
+            </th>
+            <th>Factory Web Service Url
+            </th>
+            <th>
+            </th>
+            <th>SubscriberId
+            </th>
+            <th>Currency
+            </th>
+            <th>AllowPartialPayment
+            </th>
+            <th>AllowOverPayment
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Code
+                </td>
+                <td>
+                    @item.Sid
+                </td>
+                <td>
+                    @item.SdpAppId
+                </td>
+                <td>
+                    @item.SdpPassword
+                </td>
+                <td>
+                    @item.SubscriberId
+                </td>
+                <td>
+                    @item.Currency
+                </td>
+                <td>
+                    @item.AllowPartialPayment
+                </td>
+                <td>
+                    @item.AllowOverPayment
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>

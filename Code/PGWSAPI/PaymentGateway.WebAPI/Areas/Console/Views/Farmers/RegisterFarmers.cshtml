@@ -1,0 +1,83 @@
+﻿@model IEnumerable<PaymentGateway.WSApi.Lib.Domain.FarmerSummary.FarmerSummary>
+@{
+    ViewBag.Title = "ListFarmersFromServer";
+}
+
+<h2>Registered Farmers</h2>
+
+
+
+    <div class="main-content">
+<div id="main-content-housing">
+
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+
+    @using (Html.BeginForm("GetFarmers", "Farmers"))
+    {
+        <div id="action-link">
+            <span class="text-box-cshtml">Server Url: @Html.TextBox("wsUrl")</span>
+            <input name="srch" type="submit" value="Register Farmers from Server" />
+            @*@Html.ActionLink("Register Farmers", "RegisterFarmerSelected", new { farmers = Model })*@
+        </div>    
+    }
+        <table id="farmers">
+            <tr>
+                <th>Full Name
+                </th>
+                <th>Code
+                </th>
+                <th>Factory Code
+                </th>
+                <th>Factory Web Service Url
+                </th>
+                <th style="display: none">Factory Id
+                </th>
+                <th style="display: none">Farmer Id
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @item.FullName
+                    </td>
+                    <td>
+                        @item.Code
+                    </td>
+                    <td>
+                        @item.FactoryCode
+                    </td>
+                    <td>
+                        @item.FactoryWSUrl
+                    </td>
+                    <td style="display: none">
+                        @item.FactoryId
+                    </td>
+                    <td style="display: none">
+                        @item.Id
+                    </td>
+                    @*<td>
+                        @Html.ActionLink("Register", "RegisterFarmerSelected", new { farmerId = item.Id })
+                    </td>*@
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

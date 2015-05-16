@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="812b384d06794b088a808aae6e41bc61" Name="Diagram1">
+        <EntityTypeShape EntityType="cokecommandroutingModel.tblDistributrCommand" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cokecommandroutingModel.tblRoutingCentre" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cokecommandroutingModel.tblRoutingStatu" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="cokecommandroutingModel.FK__tblRoutin__Distr__0519C6AF" ManuallyRouted="false" />
+        <AssociationConnector Association="cokecommandroutingModel.FK__tblRoutin__Distr__09DE7BCC" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

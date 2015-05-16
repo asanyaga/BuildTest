@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.WSApi", "PaymentGateway.WSApi\PaymentGateway.WSApi.csproj", "{132F8997-3048-4C25-923E-2DA2E044C00B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.WSApi.Lib", "PaymentGateway.WSApi.Lib\PaymentGateway.WSApi.Lib.csproj", "{93BFFFFD-89AB-49CC-9233-B313C0733D2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.WSApi.Lib.Data", "PaymentGateway.WSApi.Lib.Data\PaymentGateway.WSApi.Lib.Data.csproj", "{7B0AECCF-2068-4B8D-AAA0-6EA557967C2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{132F8997-3048-4C25-923E-2DA2E044C00B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{132F8997-3048-4C25-923E-2DA2E044C00B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{132F8997-3048-4C25-923E-2DA2E044C00B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{132F8997-3048-4C25-923E-2DA2E044C00B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93BFFFFD-89AB-49CC-9233-B313C0733D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93BFFFFD-89AB-49CC-9233-B313C0733D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93BFFFFD-89AB-49CC-9233-B313C0733D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93BFFFFD-89AB-49CC-9233-B313C0733D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B0AECCF-2068-4B8D-AAA0-6EA557967C2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B0AECCF-2068-4B8D-AAA0-6EA557967C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B0AECCF-2068-4B8D-AAA0-6EA557967C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B0AECCF-2068-4B8D-AAA0-6EA557967C2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,66 @@
+﻿@using PaymentGateway.WSApi.Lib.Paging;
+@model IPagedList<PaymentGateway.WSApi.Lib.Domain.MasterData.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="main-content">
+<div id="action-link">
+    @Html.ActionLink("Create New", "Create")
+</div>
+<table>
+    <tr>
+       
+        <th>
+            Username
+        </th>
+        <th>
+            FullName
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            PhoneNo
+        </th>
+        <th>
+            LastLogin
+        </th>        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @item.Username
+        </td>
+        <td>
+            @item.FullName
+        </td>
+        <td>
+            @item.Email
+        </td>
+        <td>
+            @item.PhoneNo
+        </td>
+        <td>
+            @String.Format("{0:g}", item.LastLogin)
+        </td>
+         <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+           
+           
+        </td>
+    </tr>
+}
+
+</table>
+<div class="pager">		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+</div>  
+</div>
+
+

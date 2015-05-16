@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93BFFFFD-89AB-49CC-9233-B313C0733D2A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PaymentGateway.WSApi.Lib</RootNamespace>
+    <AssemblyName>PaymentGateway.WSApi.Lib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Kemsa|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Kemsa\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.1.12217, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.1.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\FarmerSummary\FarmerSummary.cs" />
+    <Compile Include="Domain\MasterData\Client.cs" />
+    <Compile Include="Domain\MasterData\ClientMember.cs" />
+    <Compile Include="Domain\MasterData\MasterEntity.cs" />
+    <Compile Include="Domain\MasterData\ServiceProvider.cs" />
+    <Compile Include="Domain\MasterData\User.cs" />
+    <Compile Include="Domain\Notifications\Easy247Payment.cs" />
+    <Compile Include="Domain\Notifications\Eazy247Notification.cs" />
+    <Compile Include="Domain\Notifications\PgNotification.cs" />
+    <Compile Include="Domain\Notifications\SmscNotification.cs" />
+    <Compile Include="Domain\Notifications\SmscPaymentConfirmation.cs" />
+    <Compile Include="Domain\Payments\Client\ClientRequestResponseBase.cs" />
+    <Compile Include="Domain\Payments\Client\ClientRequestResponseType.cs" />
+    <Compile Include="Domain\Payments\Client\PaymentInstrument.cs" />
+    <Compile Include="Domain\Payments\Client\Request\PaymentNotificationRequest.cs" />
+    <Compile Include="Domain\Payments\Client\Request\PaymentQueryRequest.cs" />
+    <Compile Include="Domain\Payments\Client\Request\PaymentRequest.cs" />
+    <Compile Include="Domain\Payments\Client\Request\BuyGoodsNotificationRequest.cs" />
+    <Compile Include="Domain\Payments\Client\Request\PaymentInstrumentRequest.cs" />
+    <Compile Include="Domain\Payments\Client\Response\PaymentNotificationResponse.cs" />
+    <Compile Include="Domain\Payments\Client\Response\PaymentNotification.cs" />
+    <Compile Include="Domain\Payments\Client\Response\PaymentResponse.cs" />
+    <Compile Include="Domain\Payments\Client\Response\BuyGoodsNotificationResponse.cs" />
+    <Compile Include="Domain\Payments\Client\Response\PaymentInstrumentResponse.cs" />
+    <Compile Include="Domain\Payments\PaymentInstrumentType.cs" />
+    <Compile Include="Domain\Payments\SDP\SDPPaymentInstrument.cs" />
+    <Compile Include="Domain\Payments\SDP\Request\SDPPaymentNotificationRequest.cs" />
+    <Compile Include="Domain\Payments\SDP\Request\SDPPaymentQueryRequest.cs" />
+    <Compile Include="Domain\Payments\SDP\Request\SDPPaymentRequest.cs" />
+    <Compile Include="Domain\Payments\SDP\Request\SDPBuyGoodsNotificationRequest.cs" />
+    <Compile Include="Domain\Payments\SDP\Request\SDPPaymentInstrumentRequest.cs" />
+    <Compile Include="Domain\Payments\SDP\Response\SDPPaymentNotificationResponse.cs" />
+    <Compile Include="Domain\Payments\SDP\Response\SDPPaymentQueryResponse.cs" />
+    <Compile Include="Domain\Payments\SDP\Response\SDPPaymentResponse.cs" />
+    <Compile Include="Domain\Payments\SDP\Response\SDPPaymentInstrumentResponse.cs" />
+    <Compile Include="Domain\Payments\SDP\Response\ServerResponseBase.cs" />
+    <Compile Include="Domain\Payments\SDP\ServerRequestBase.cs" />
+    <Compile Include="Domain\Payments\Utility\AuditLog.cs" />
+    <Compile Include="Domain\ResultResponse\DestinationResponse.cs" />
+    <Compile Include="Domain\SMS\Client\DocSMS.cs" />
+    <Compile Include="Domain\SMS\Client\DocSMSResponse.cs" />
+    <Compile Include="Domain\SMS\SDP\SDPSMSRequest.cs" />
+    <Compile Include="Domain\SMS\SDP\SDPSMSResponse.cs" />
+    <Compile Include="HSenid\Domain\RequestMessage.cs" />
+    <Compile Include="IOC\StructuremapDependencyResolver.cs" />
+    <Compile Include="MessageResults\MessageResult.cs" />
+    <Compile Include="Paging\Impl\PagedList.cs" />
+    <Compile Include="Paging\IPagedList.cs" />
+    <Compile Include="Paging\Pager.cs" />
+    <Compile Include="Paging\PagerSettings.cs" />
+    <Compile Include="Paging\PagingExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\ReportBase.cs" />
+    <Compile Include="Report\Domain\ServiceProviderReport.cs" />
+    <Compile Include="Report\ReportCollective.cs" />
+    <Compile Include="Report\Services\IReportService.cs" />
+    <Compile Include="Repository\IRepositoryMaster.cs" />
+    <Compile Include="Repository\IRequestResponseRepository.cs" />
+    <Compile Include="Repository\ISmscNotificationRepository.cs" />
+    <Compile Include="Repository\MasterData\Clients\IClientRepository.cs" />
+    <Compile Include="Repository\MasterData\IBaseRepository.cs" />
+    <Compile Include="Repository\MasterData\IValidation.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\MasterData\ServiceProviders\IServiceProviderRepository.cs" />
+    <Compile Include="Repository\MasterData\Users\IUserRepository.cs" />
+    <Compile Include="Repository\Payments\Request\IPaymentRequestRepository.cs" />
+    <Compile Include="Repository\Payments\Response\IPaymentResponseRepository.cs" />
+    <Compile Include="Repository\Payments\Utility\IAuditLogRepository.cs" />
+    <Compile Include="Repository\SMS\IDocSMSRepository.cs" />
+    <Compile Include="Security\CustomIdentity.cs" />
+    <Compile Include="Security\CustomPrincipal.cs" />
+    <Compile Include="Security\Impl\SecurityService.cs" />
+    <Compile Include="Security\ISecurityService.cs" />
+    <Compile Include="Security\MD5Hash.cs" />
+    <Compile Include="Services\DistributrWSProxy\DistributorWebApiProxy.cs" />
+    <Compile Include="Services\DistributrWSProxy\IDistributorWebApiProxy.cs" />
+    <Compile Include="Services\Payment\IMessageSerializer.cs" />
+    <Compile Include="Services\Payment\IMessageValidation.cs" />
+    <Compile Include="Services\Payment\Impl\MessageSerializer.cs" />
+    <Compile Include="Services\Payment\Impl\MessageValidation.cs" />
+    <Compile Include="Services\Payment\Impl\ResolveMessageService.cs" />
+    <Compile Include="Services\Payment\Impl\SmsQueryResolverService.cs" />
+    <Compile Include="Services\Payment\IResolveMessageService.cs" />
+    <Compile Include="Services\Webservice\Impl\NotificationDeserialize.cs" />
+    <Compile Include="Services\Webservice\Impl\NotificationValidation.cs" />
+    <Compile Include="Services\Webservice\Impl\ResolveRequestService.cs" />
+    <Compile Include="Services\Webservice\INotificationDeserialize.cs" />
+    <Compile Include="Services\Webservice\INotificationValidation.cs" />
+    <Compile Include="Services\Webservice\IResolveRequestService.cs" />
+    <Compile Include="Util\Common.cs" />
+    <Compile Include="Util\JQueryAccordionMVC3.cs" />
+    <Compile Include="Util\Query.cs" />
+    <Compile Include="Util\SDPDateTimeConverter.cs" />
+    <Compile Include="Util\SdpHost.cs" />
+    <Compile Include="Validation\DomainValidationException.cs" />
+    <Compile Include="Validation\ValidationExtensions.cs" />
+    <Compile Include="Validation\ValidationResultInfo.cs" />
+    <Compile Include="Validation\ValidationSummary.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\PaymentGateway.WSApi.Lib.Report.Domain.ServiceProviderReport.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\RdlcFiles\ServiceProviderReport.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\ServiceProviders\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

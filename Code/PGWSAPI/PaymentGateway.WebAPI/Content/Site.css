@@ -1,0 +1,360 @@
+body
+{
+    font-size: 75%;
+    font-family: Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: White;
+    margin:0;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+fieldset 
+{
+    border:1px solid #ddd;
+    padding:0 1.4em 1.4em 1.4em;
+    margin:0 0 1.5em 0;
+}
+
+legend 
+{
+    color: #4B8CF7;
+    font-size: 0.8em;
+    font-weight: 700;
+}
+
+textarea 
+{
+    min-height: 75px;
+}
+
+.editor-label 
+{
+    margin: 1em 0 0 0;
+}
+
+.editor-field 
+{
+    margin:0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+.topbar
+{
+  border-bottom:1px solid gray;
+  height:60px; 
+  margin:0;
+  background-color:#ffffff;
+}
+.content
+{
+  
+   color:black;     
+   overflow:hidden;
+   padding: 0px;  
+   margin-top: 0px;
+   min-height:600px;
+}
+.main-content
+{
+  
+   color:black;     
+   overflow:hidden;
+   padding: 0px;  
+   margin:20px;
+}
+.main-content table
+{  
+   width:100%;
+   border-collapse: collapse;
+   margin-top:5px;
+   
+}
+.main-content th
+{  
+  background-color:#8DBDD8;
+  padding: 0 0 0 5px;
+  height:25px;
+  text-align:left;
+  font-style:normal;
+}
+.main-content td
+{  
+  padding: 0 0 0 5px;
+  height:20px;
+  text-align:left;
+  font-style:normal;
+  border-bottom:1px solid #8DBDD8
+}
+.leftmenu
+{
+   
+   color:red;      
+   border:1px solid gray;
+   overflow:hidden;   
+   min-height:600px;
+   background-color:#E0DCDE;
+   min-width:230px
+}
+.auditLog
+{
+  font-family:Courier New;
+  font-size:8.5;   
+}
+
+
+
+
+h2{color:#ffffff; margin:0px; padding:4px; font-size:14px;font-weight:normal; background-image:url(images/breadcrumb-bg.png); }
+h3{color:#ffffff; margin:0px; padding:4px; font-size:14px;font-weight:normal;}
+
+#accordion ul a
+{
+   background-color:#B7DBE9;/*#424142;*/
+   border-bottom: 1px solid #82BED4;
+   font-size:12px;  
+   display: block;
+   text-transform:capitalize;
+   color:#272727;
+   font-weight:normal;
+   text-decoration:none;
+   height:25px;  
+   padding-left:10px;
+}
+#accordion ul a:hover
+{
+   background-color:#CAE8F3;/*#8A043A;*/
+   font-size:12px;
+   border-bottom: 1px solid #82BED4;
+   display: block;
+   text-transform:capitalize;
+   color:#272727;
+   font-weight:normal;
+   text-decoration:none;  
+}
+
+
+
+
+.topmenubar
+{
+ 
+  height:41px;
+  width:100%;
+  margin:0;
+ background-color:#E5EAEC;
+ background-image:url(images/main-panel-bg.png);
+}
+
+#menu-heading
+{ 
+  
+  width:100%;
+  margin:0;
+ background-color:#E5EAEC;
+ background-image:url(images/quick-links-bg.png);
+ background-repeat:repeat-x;
+ padding-left:20px;
+font-size:14px;
+font-weight:normal;
+color:White;
+}
+
+
+/* Pager */
+.pager 
+{
+	margin:8px 3px;
+	padding:3px;
+}
+
+.pager .disabled 
+{
+	border:1px solid #ddd;
+	color:#999;
+	margin-top:4px;
+	padding:3px;
+	text-align:center;
+}
+
+.pager .current 
+{
+	background-color:#06c;
+	border:1px solid #009;
+	color:#fff;
+	font-weight:bold;
+	margin-top:4px;
+	padding:3px 5px;
+	text-align:center;
+}
+
+.pager span, .pager a
+{
+	margin: 4px 3px;
+}
+
+.pager a 
+{
+	border:1px solid #c0c0c0;
+	padding:3px 5px;
+	text-align:center;
+	text-decoration:none;
+}
+
+fieldset input[type="text"],select
+{
+    width:300px;
+    display:inline-block;  
+    border-width:1px;   
+    background-color:#FAEBF1;
+    height:20px;
+    font-size:12px;
+    font-weight:bold;
+    overflow:hidden;
+}
+fieldset input[type="password"]
+{
+    width:300px;
+    display:inline-block;  
+    border-width:1px;   
+    background-color:#FAEBF1;
+    height:20px;
+    font-size:12px;
+    font-weight:bold;
+    overflow:hidden;
+}
+#action-link a{
+    background-color: #4B8CF7;
+    border: 1px solid #4079D5;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 0.75em;
+    font-weight: 700;
+    margin-right: 10px;
+    padding: 8px 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    -moz-border-radius: 4px 4px 4px 4px;
+} 
+
+#action-link   input[type="submit"]{
+    background-color: #4B8CF7;
+    border: 1px solid #4079D5;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 0.75em;
+    font-weight: 700;
+    margin-right: 10px;
+    padding: 8px 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    -moz-border-radius: 4px 4px 4px 4px;
+    cursor: hand; cursor: pointer;
+    height: 30px;
+}
+
+#main-content-housing {
+    padding:10px
+}
+
+
+#action-link input[type="submit"]:hover {
+    background-color: #82BED4;
+    border: 1px solid #4079D5;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 0.75em;
+    font-weight: 700;
+    margin-right: 10px;
+    padding: 8px 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    -moz-border-radius: 4px 4px 4px 4px;
+    cursor: hand; cursor: pointer;
+}
+
+.login
+{
+  width: 300px ;
+  margin-left: auto ;
+  margin-right: auto ;
+  margin-top:150px;
+
+}
+iframe
+{
+    width:100%;
+    border:0;
+    min-height:600px; 
+}
+
+#report-filter
+{
+    background-color:#ced2d7;
+    width:100%;
+    border-collapse: collapse;
+    color:#1C421D;
+    font-size:12px;
+    
+}
+#report-filter td
+{
+    padding:0;  
+   
+}
+.data-table {
+   
+    width: 95%;
+   
+    border-spacing: 0px;
+    border-collapse: separate;
+    
+}
+    .data-table th {
+        text-align: left;
+        color: white;
+        background-color: #E5EAEC;
+        background-image: url(images/quick-links-bg.png);
+        background-repeat: repeat-x;
+        padding-left: 10px;
+        /*background-color: white*/
+    }
+    .data-table tr {
+        height: 30px;
+    }
+    .data-table td {
+        padding-left: 10px;
+          border-bottom: gainsboro 1px solid;
+    }

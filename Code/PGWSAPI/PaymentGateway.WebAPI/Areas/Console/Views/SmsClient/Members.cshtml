@@ -1,0 +1,64 @@
+﻿@using PaymentGateway.WSApi.Lib.Paging;
+
+@model IPagedList<PaymentGateway.WSApi.Lib.Domain.MasterData.ClientMember>
+@{
+    ViewBag.Title = "Members";
+}
+
+<h2>Members</h2>
+
+ 
+<div class="main-content">
+  
+    @using (Html.BeginForm("GetMembers", "SmsClient"))
+    {
+        <div id="action-link">
+              @Html.ActionLink("Back", "Index")
+            <input type="hidden" name="clientId" value="@ViewBag.ClientId"/>
+            <input name="srch" type="submit" value="Load members" />
+          
+        </div>    
+    }
+    <table class="data-table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Code
+            </th>
+            <th>
+                MemberType
+            </th>
+            <th>
+                Client
+            </th>
+        
+       
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemberType)
+                </td>
+       
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.Name)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="pager">		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+    </div>
+
+
+</div>

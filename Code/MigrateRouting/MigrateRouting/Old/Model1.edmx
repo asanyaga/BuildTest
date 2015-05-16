@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cokecommandroutingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="cokecommandroutingModelStoreContainer">
+          <EntitySet Name="tblDistributrCommand" EntityType="cokecommandroutingModel.Store.tblDistributrCommand" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblRoutingCentre" EntityType="cokecommandroutingModel.Store.tblRoutingCentre" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblRoutingStatus" EntityType="cokecommandroutingModel.Store.tblRoutingStatus" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__tblRoutin__Distr__0519C6AF" Association="cokecommandroutingModel.Store.FK__tblRoutin__Distr__0519C6AF">
+            <End Role="tblDistributrCommand" EntitySet="tblDistributrCommand" />
+            <End Role="tblRoutingCentre" EntitySet="tblRoutingCentre" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblRoutin__Distr__09DE7BCC" Association="cokecommandroutingModel.Store.FK__tblRoutin__Distr__09DE7BCC">
+            <End Role="tblDistributrCommand" EntitySet="tblDistributrCommand" />
+            <End Role="tblRoutingStatus" EntitySet="tblRoutingStatus" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblDistributrCommand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CommandId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DocumentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DocumentParentId" Type="uniqueidentifier" />
+          <Property Name="IsRetired" Type="bit" Nullable="false" />
+          <Property Name="DateCommandInserted" Type="datetime" Nullable="false" />
+          <Property Name="CommandGeneratedByCostCentreApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CommandGeneratedByUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CommandType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="JsonCommand" Type="nvarchar" Nullable="false" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="tblRoutingCentre">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DistributorCommandId" Type="bigint" Nullable="false" />
+          <Property Name="RoutingCostCentreId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Valid" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRoutingStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DistributorCommandId" Type="bigint" Nullable="false" />
+          <Property Name="DestinationCostCentreApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Delivered" Type="bit" Nullable="false" />
+          <Property Name="DateDelivered" Type="datetime" />
+          <Property Name="Executed" Type="bit" Nullable="false" />
+          <Property Name="DateExecuted" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__tblRoutin__Distr__0519C6AF">
+          <End Role="tblDistributrCommand" Type="cokecommandroutingModel.Store.tblDistributrCommand" Multiplicity="1" />
+          <End Role="tblRoutingCentre" Type="cokecommandroutingModel.Store.tblRoutingCentre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDistributrCommand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblRoutingCentre">
+              <PropertyRef Name="DistributorCommandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblRoutin__Distr__09DE7BCC">
+          <End Role="tblDistributrCommand" Type="cokecommandroutingModel.Store.tblDistributrCommand" Multiplicity="1" />
+          <End Role="tblRoutingStatus" Type="cokecommandroutingModel.Store.tblRoutingStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDistributrCommand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblRoutingStatus">
+              <PropertyRef Name="DistributorCommandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cokecommandroutingModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="cokecommandroutingEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tblDistributrCommands" EntityType="cokecommandroutingModel.tblDistributrCommand" />
+          <EntitySet Name="tblRoutingCentres" EntityType="cokecommandroutingModel.tblRoutingCentre" />
+          <EntitySet Name="tblRoutingStatus" EntityType="cokecommandroutingModel.tblRoutingStatu" />
+          <AssociationSet Name="FK__tblRoutin__Distr__0519C6AF" Association="cokecommandroutingModel.FK__tblRoutin__Distr__0519C6AF">
+            <End Role="tblDistributrCommand" EntitySet="tblDistributrCommands" />
+            <End Role="tblRoutingCentre" EntitySet="tblRoutingCentres" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblRoutin__Distr__09DE7BCC" Association="cokecommandroutingModel.FK__tblRoutin__Distr__09DE7BCC">
+            <End Role="tblDistributrCommand" EntitySet="tblDistributrCommands" />
+            <End Role="tblRoutingStatus" EntitySet="tblRoutingStatus" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblDistributrCommand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CommandId" Type="Guid" Nullable="false" />
+          <Property Name="DocumentId" Type="Guid" Nullable="false" />
+          <Property Name="DocumentParentId" Type="Guid" />
+          <Property Name="IsRetired" Type="Boolean" Nullable="false" />
+          <Property Name="DateCommandInserted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CommandGeneratedByCostCentreApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="CommandGeneratedByUserId" Type="Guid" Nullable="false" />
+          <Property Name="CommandType" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="JsonCommand" Type="String" Nullable="false" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tblRoutingCentres" Relationship="cokecommandroutingModel.FK__tblRoutin__Distr__0519C6AF" FromRole="tblDistributrCommand" ToRole="tblRoutingCentre" />
+          <NavigationProperty Name="tblRoutingStatus" Relationship="cokecommandroutingModel.FK__tblRoutin__Distr__09DE7BCC" FromRole="tblDistributrCommand" ToRole="tblRoutingStatus" />
+        </EntityType>
+        <EntityType Name="tblRoutingCentre">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DistributorCommandId" Type="Int64" Nullable="false" />
+          <Property Name="RoutingCostCentreId" Type="Guid" Nullable="false" />
+          <Property Name="Valid" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblDistributrCommand" Relationship="cokecommandroutingModel.FK__tblRoutin__Distr__0519C6AF" FromRole="tblRoutingCentre" ToRole="tblDistributrCommand" />
+        </EntityType>
+        <EntityType Name="tblRoutingStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DistributorCommandId" Type="Int64" Nullable="false" />
+          <Property Name="DestinationCostCentreApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="Delivered" Type="Boolean" Nullable="false" />
+          <Property Name="DateDelivered" Type="DateTime" Precision="3" />
+          <Property Name="Executed" Type="Boolean" Nullable="false" />
+          <Property Name="DateExecuted" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblDistributrCommand" Relationship="cokecommandroutingModel.FK__tblRoutin__Distr__09DE7BCC" FromRole="tblRoutingStatus" ToRole="tblDistributrCommand" />
+        </EntityType>
+        <Association Name="FK__tblRoutin__Distr__0519C6AF">
+          <End Role="tblDistributrCommand" Type="cokecommandroutingModel.tblDistributrCommand" Multiplicity="1" />
+          <End Role="tblRoutingCentre" Type="cokecommandroutingModel.tblRoutingCentre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDistributrCommand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblRoutingCentre">
+              <PropertyRef Name="DistributorCommandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblRoutin__Distr__09DE7BCC">
+          <End Role="tblDistributrCommand" Type="cokecommandroutingModel.tblDistributrCommand" Multiplicity="1" />
+          <End Role="tblRoutingStatus" Type="cokecommandroutingModel.tblRoutingStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDistributrCommand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblRoutingStatus">
+              <PropertyRef Name="DistributorCommandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cokecommandroutingModelStoreContainer" CdmEntityContainer="cokecommandroutingEntities">
+          <EntitySetMapping Name="tblDistributrCommands">
+            <EntityTypeMapping TypeName="cokecommandroutingModel.tblDistributrCommand">
+              <MappingFragment StoreEntitySet="tblDistributrCommand">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CommandId" ColumnName="CommandId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DocumentParentId" ColumnName="DocumentParentId" />
+                <ScalarProperty Name="IsRetired" ColumnName="IsRetired" />
+                <ScalarProperty Name="DateCommandInserted" ColumnName="DateCommandInserted" />
+                <ScalarProperty Name="CommandGeneratedByCostCentreApplicationId" ColumnName="CommandGeneratedByCostCentreApplicationId" />
+                <ScalarProperty Name="CommandGeneratedByUserId" ColumnName="CommandGeneratedByUserId" />
+                <ScalarProperty Name="CommandType" ColumnName="CommandType" />
+                <ScalarProperty Name="JsonCommand" ColumnName="JsonCommand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRoutingCentres">
+            <EntityTypeMapping TypeName="cokecommandroutingModel.tblRoutingCentre">
+              <MappingFragment StoreEntitySet="tblRoutingCentre">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DistributorCommandId" ColumnName="DistributorCommandId" />
+                <ScalarProperty Name="RoutingCostCentreId" ColumnName="RoutingCostCentreId" />
+                <ScalarProperty Name="Valid" ColumnName="Valid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRoutingStatus">
+            <EntityTypeMapping TypeName="cokecommandroutingModel.tblRoutingStatu">
+              <MappingFragment StoreEntitySet="tblRoutingStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DistributorCommandId" ColumnName="DistributorCommandId" />
+                <ScalarProperty Name="DestinationCostCentreApplicationId" ColumnName="DestinationCostCentreApplicationId" />
+                <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+                <ScalarProperty Name="DateDelivered" ColumnName="DateDelivered" />
+                <ScalarProperty Name="Executed" ColumnName="Executed" />
+                <ScalarProperty Name="DateExecuted" ColumnName="DateExecuted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

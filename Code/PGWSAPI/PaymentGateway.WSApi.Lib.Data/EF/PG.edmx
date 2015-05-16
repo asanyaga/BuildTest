@@ -1,0 +1,755 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="paymentgatewayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAuditLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DistributorCostCenterId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" />
+          <Property Name="Direction" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Module" Type="int" />
+        </EntityType>
+        <EntityType Name="tblClient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClientKeyWord" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClientUri" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="ApplicationId" Type="varchar" MaxLength="50" />
+          <Property Name="ApplicationPassword" Type="varchar" MaxLength="50" />
+          <Property Name="ExternalId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IM_DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="IM_DateLastUpdated" Type="datetime" Nullable="false" />
+          <Property Name="IM_Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblClientMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MemberType" Type="int" Nullable="false" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="ExternalId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IM_DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="IM_DateLastUpdated" Type="datetime" Nullable="false" />
+          <Property Name="IM_Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblFarmers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="FactoryCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FactoryId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FactoryUrl" Type="nvarchar(max)" />
+          <Property Name="IM_DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="IM_DateLastUpdated" Type="datetime" Nullable="false" />
+          <Property Name="IM_Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPaymentRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DistributorCostCenterId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TransactionRefId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SDPTransactionRefId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SDPReferenceId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubscriberName" Type="nvarchar" MaxLength="250" />
+          <Property Name="ReceiptNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="ClientRequestResponseTypeId" Type="int" />
+          <Property Name="ApplicationId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubscriberId" Type="nvarchar" MaxLength="100" />
+          <Property Name="PaymentInstrumentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountId" Type="nchar" MaxLength="50" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="TotalAmount" Type="float" />
+          <Property Name="BalanceDue" Type="float" />
+          <Property Name="MerchantBalance" Type="float" />
+          <Property Name="Currency" Type="nchar" MaxLength="25" />
+          <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusDetail" Type="nvarchar(max)" />
+          <Property Name="Extra" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime2" Precision="7" />
+          <Property Name="Time" Type="datetime2" Precision="7" />
+          <Property Name="TimeStamp" Type="datetime2" Precision="7" />
+          <Property Name="DateCreated" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPaymentResponse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DistributorCostCenterId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TransactionRefId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SDPTransactionRefId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SDPReferenceId" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="Currency" Type="nchar" MaxLength="10" />
+          <Property Name="StatusCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusDetail" Type="nvarchar(max)" />
+          <Property Name="ShortDescription" Type="nvarchar(max)" />
+          <Property Name="LongDescription" Type="nvarchar(max)" />
+          <Property Name="TimeStamp" Type="datetime2" Precision="7" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ClientRequestResponseTypeId" Type="int" />
+          <Property Name="SubscriberId" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tblRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReferenceId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MessageType" Type="int" Nullable="false" />
+          <Property Name="Payee" Type="nvarchar" MaxLength="100" />
+          <Property Name="Smsc_TillNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Smsc_PhoneNumber" Type="nvarchar" MaxLength="25" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRequestResponce">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReferenceId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MessageId" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusDetails" Type="nvarchar" MaxLength="500" />
+          <Property Name="Vesion" Type="nvarchar" MaxLength="10" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRequestResponceDestination">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResponseTimeStamp" Type="nvarchar" MaxLength="50" />
+          <Property Name="RequestResponceId" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="MessageId" Type="varchar" MaxLength="50" />
+          <Property Name="StatusCode" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDetails" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblServiceProvider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SDP_APP_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SDP_Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubscriberId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Currecy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AllowPartialPayment" Type="bit" Nullable="false" />
+          <Property Name="AllowOverPayment" Type="bit" Nullable="false" />
+          <Property Name="SPName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SPCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SPId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IM_DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="IM_DateUpdated" Type="datetime" Nullable="false" />
+          <Property Name="IM_IsActive" Type="bit" Nullable="false" />
+          <Property Name="SmsShortCode" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tblSms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DistributorCostCenterId" Type="uniqueidentifier" />
+          <Property Name="TransactionRefId" Type="nvarchar" MaxLength="100" />
+          <Property Name="ClientRequestResponseType" Type="int" />
+          <Property Name="DocumentId" Type="uniqueidentifier" />
+          <Property Name="DocumentType" Type="int" />
+          <Property Name="Recipients" Type="nvarchar(max)" />
+          <Property Name="SMSBody" Type="nvarchar" MaxLength="300" />
+          <Property Name="SmsStatus" Type="nchar" MaxLength="10" />
+          <Property Name="SdpRequestId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SdpDestinationResponses" Type="nvarchar(max)" />
+          <Property Name="SdpVersion" Type="nvarchar" MaxLength="50" />
+          <Property Name="SdpStatusCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="SdpStatusString" Type="nvarchar" MaxLength="250" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateLastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastLogin" Type="datetime" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="HasChangePassword" Type="bit" Nullable="false" />
+          <Property Name="IM_DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="IM_DateUpdated" Type="datetime" Nullable="false" />
+          <Property Name="IM_IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="ClientMember_Client_FK">
+          <End Role="tblClient" Type="Self.tblClient" Multiplicity="1" />
+          <End Role="tblClientMember" Type="Self.tblClientMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblClientMember">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblReques__Reque__300424B4">
+          <End Role="tblRequestResponce" Type="Self.tblRequestResponce" Multiplicity="1" />
+          <End Role="tblRequestResponceDestination" Type="Self.tblRequestResponceDestination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRequestResponce">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblRequestResponceDestination">
+              <PropertyRef Name="RequestResponceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="paymentgatewayModelStoreContainer">
+          <EntitySet Name="tblAuditLog" EntityType="Self.tblAuditLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblClient" EntityType="Self.tblClient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblClientMember" EntityType="Self.tblClientMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFarmers" EntityType="Self.tblFarmers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPaymentRequest" EntityType="Self.tblPaymentRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPaymentResponse" EntityType="Self.tblPaymentResponse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRequest" EntityType="Self.tblRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRequestResponce" EntityType="Self.tblRequestResponce" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRequestResponceDestination" EntityType="Self.tblRequestResponceDestination" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblServiceProvider" EntityType="Self.tblServiceProvider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSms" EntityType="Self.tblSms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="ClientMember_Client_FK" Association="Self.ClientMember_Client_FK">
+            <End Role="tblClient" EntitySet="tblClient" />
+            <End Role="tblClientMember" EntitySet="tblClientMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblReques__Reque__300424B4" Association="Self.FK__tblReques__Reque__300424B4">
+            <End Role="tblRequestResponce" EntitySet="tblRequestResponce" />
+            <End Role="tblRequestResponceDestination" EntitySet="tblRequestResponceDestination" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="paymentgatewayModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="paymentgatewayEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAuditLog" EntityType="paymentgatewayModel.tblAuditLog" />
+          <EntitySet Name="tblClient" EntityType="paymentgatewayModel.tblClient" />
+          <EntitySet Name="tblClientMember" EntityType="paymentgatewayModel.tblClientMember" />
+          <EntitySet Name="tblFarmers" EntityType="paymentgatewayModel.tblFarmers" />
+          <EntitySet Name="tblPaymentRequest" EntityType="paymentgatewayModel.tblPaymentRequest" />
+          <EntitySet Name="tblPaymentResponse" EntityType="paymentgatewayModel.tblPaymentResponse" />
+          <EntitySet Name="tblRequest" EntityType="paymentgatewayModel.tblRequest" />
+          <EntitySet Name="tblRequestResponce" EntityType="paymentgatewayModel.tblRequestResponce" />
+          <EntitySet Name="tblRequestResponceDestination" EntityType="paymentgatewayModel.tblRequestResponceDestination" />
+          <EntitySet Name="tblServiceProvider" EntityType="paymentgatewayModel.tblServiceProvider" />
+          <EntitySet Name="tblSms" EntityType="paymentgatewayModel.tblSms" />
+          <EntitySet Name="tblUser" EntityType="paymentgatewayModel.tblUser" />
+          <AssociationSet Name="ClientMember_Client_FK" Association="paymentgatewayModel.ClientMember_Client_FK">
+            <End Role="tblClient" EntitySet="tblClient" />
+            <End Role="tblClientMember" EntitySet="tblClientMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblReques__Reque__31EC6D26" Association="paymentgatewayModel.FK__tblReques__Reque__31EC6D26">
+            <End Role="tblRequestResponce" EntitySet="tblRequestResponce" />
+            <End Role="tblRequestResponceDestination" EntitySet="tblRequestResponceDestination" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblAuditLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DistributorCostCenterId" Type="Guid" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Type" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Direction" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Module" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblClient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ClientName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ClientKeyWord" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ClientUri" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ApplicationId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ApplicationPassword" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ExternalId" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IM_DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IM_DateLastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IM_Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblClientMember" Relationship="paymentgatewayModel.ClientMember_Client_FK" FromRole="tblClient" ToRole="tblClientMember" />
+        </EntityType>
+        <EntityType Name="tblClientMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MemberType" Type="Int32" Nullable="false" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="ExternalId" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IM_DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IM_DateLastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IM_Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblClient" Relationship="paymentgatewayModel.ClientMember_Client_FK" FromRole="tblClientMember" ToRole="tblClient" />
+        </EntityType>
+        <EntityType Name="tblFarmers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="FactoryCode" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FactoryId" Type="Guid" Nullable="false" />
+          <Property Name="FactoryUrl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IM_DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IM_DateLastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IM_Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPaymentRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DistributorCostCenterId" Type="Guid" Nullable="false" />
+          <Property Name="TransactionRefId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SDPTransactionRefId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SDPReferenceId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SubscriberName" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="ReceiptNumber" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ClientRequestResponseTypeId" Type="Int32" />
+          <Property Name="ApplicationId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SubscriberId" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="PaymentInstrumentName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AccountId" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="TotalAmount" Type="Double" />
+          <Property Name="BalanceDue" Type="Double" />
+          <Property Name="MerchantBalance" Type="Double" />
+          <Property Name="Currency" Type="String" MaxLength="25" Unicode="true" FixedLength="true" />
+          <Property Name="InvoiceNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StatusCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StatusDetail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Extra" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" Precision="7" />
+          <Property Name="Time" Type="DateTime" Precision="7" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="7" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="tblPaymentResponse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DistributorCostCenterId" Type="Guid" Nullable="false" />
+          <Property Name="TransactionRefId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SDPTransactionRefId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SDPReferenceId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BusinessNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="Currency" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="StatusCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StatusDetail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ShortDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LongDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="7" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ClientRequestResponseTypeId" Type="Int32" />
+          <Property Type="String" Name="SubscriberId" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ReferenceId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="MessageType" Type="Int32" Nullable="false" />
+          <Property Name="Payee" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Smsc_TillNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Smsc_PhoneNumber" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRequestResponce">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ReferenceId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MessageId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StatusCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StatusDetails" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Vesion" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tblRequestResponceDestination" Relationship="paymentgatewayModel.FK__tblReques__Reque__31EC6D26" FromRole="tblRequestResponce" ToRole="tblRequestResponceDestination" />
+        </EntityType>
+        <EntityType Name="tblRequestResponceDestination">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ResponseTimeStamp" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RequestResponceId" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MessageId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="StatusCode" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="StatusDetails" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblRequestResponce" Relationship="paymentgatewayModel.FK__tblReques__Reque__31EC6D26" FromRole="tblRequestResponceDestination" ToRole="tblRequestResponce" />
+        </EntityType>
+        <EntityType Name="tblServiceProvider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SDP_APP_ID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SDP_Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SubscriberId" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Currecy" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="AllowPartialPayment" Type="Boolean" Nullable="false" />
+          <Property Name="AllowOverPayment" Type="Boolean" Nullable="false" />
+          <Property Name="SPName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SPCode" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SPId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IM_DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IM_DateUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IM_IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="SmsShortCode" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblSms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DistributorCostCenterId" Type="Guid" />
+          <Property Name="TransactionRefId" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ClientRequestResponseType" Type="Int32" />
+          <Property Name="DocumentId" Type="Guid" />
+          <Property Name="DocumentType" Type="Int32" />
+          <Property Name="Recipients" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SMSBody" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="SmsStatus" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="SdpRequestId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SdpDestinationResponses" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SdpVersion" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SdpStatusCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SdpStatusString" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateLastUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PhoneNo" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="LastLogin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="HasChangePassword" Type="Boolean" Nullable="false" />
+          <Property Name="IM_DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IM_DateUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IM_IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="ClientMember_Client_FK">
+          <End Role="tblClient" Type="paymentgatewayModel.tblClient" Multiplicity="1" />
+          <End Role="tblClientMember" Type="paymentgatewayModel.tblClientMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblClientMember">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblReques__Reque__31EC6D26">
+          <End Role="tblRequestResponce" Type="paymentgatewayModel.tblRequestResponce" Multiplicity="1" />
+          <End Role="tblRequestResponceDestination" Type="paymentgatewayModel.tblRequestResponceDestination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRequestResponce">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblRequestResponceDestination">
+              <PropertyRef Name="RequestResponceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="paymentgatewayModelStoreContainer" CdmEntityContainer="paymentgatewayEntities">
+          <EntitySetMapping Name="tblAuditLog">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblAuditLog">
+              <MappingFragment StoreEntitySet="tblAuditLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DistributorCostCenterId" ColumnName="DistributorCostCenterId" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblClient">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblClient">
+              <MappingFragment StoreEntitySet="tblClient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ClientKeyWord" ColumnName="ClientKeyWord" />
+                <ScalarProperty Name="ClientUri" ColumnName="ClientUri" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="ApplicationPassword" ColumnName="ApplicationPassword" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="IM_DateCreated" ColumnName="IM_DateCreated" />
+                <ScalarProperty Name="IM_DateLastUpdated" ColumnName="IM_DateLastUpdated" />
+                <ScalarProperty Name="IM_Status" ColumnName="IM_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblClientMember">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblClientMember">
+              <MappingFragment StoreEntitySet="tblClientMember">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="MemberType" ColumnName="MemberType" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="IM_DateCreated" ColumnName="IM_DateCreated" />
+                <ScalarProperty Name="IM_DateLastUpdated" ColumnName="IM_DateLastUpdated" />
+                <ScalarProperty Name="IM_Status" ColumnName="IM_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFarmers">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblFarmers">
+              <MappingFragment StoreEntitySet="tblFarmers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="FactoryCode" ColumnName="FactoryCode" />
+                <ScalarProperty Name="FactoryId" ColumnName="FactoryId" />
+                <ScalarProperty Name="FactoryUrl" ColumnName="FactoryUrl" />
+                <ScalarProperty Name="IM_DateCreated" ColumnName="IM_DateCreated" />
+                <ScalarProperty Name="IM_DateLastUpdated" ColumnName="IM_DateLastUpdated" />
+                <ScalarProperty Name="IM_Status" ColumnName="IM_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPaymentRequest">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblPaymentRequest">
+              <MappingFragment StoreEntitySet="tblPaymentRequest">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DistributorCostCenterId" ColumnName="DistributorCostCenterId" />
+                <ScalarProperty Name="TransactionRefId" ColumnName="TransactionRefId" />
+                <ScalarProperty Name="SDPTransactionRefId" ColumnName="SDPTransactionRefId" />
+                <ScalarProperty Name="SDPReferenceId" ColumnName="SDPReferenceId" />
+                <ScalarProperty Name="SubscriberName" ColumnName="SubscriberName" />
+                <ScalarProperty Name="ReceiptNumber" ColumnName="ReceiptNumber" />
+                <ScalarProperty Name="ClientRequestResponseTypeId" ColumnName="ClientRequestResponseTypeId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+                <ScalarProperty Name="PaymentInstrumentName" ColumnName="PaymentInstrumentName" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="BalanceDue" ColumnName="BalanceDue" />
+                <ScalarProperty Name="MerchantBalance" ColumnName="MerchantBalance" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="StatusDetail" ColumnName="StatusDetail" />
+                <ScalarProperty Name="Extra" ColumnName="Extra" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPaymentResponse">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblPaymentResponse">
+              <MappingFragment StoreEntitySet="tblPaymentResponse">
+                <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DistributorCostCenterId" ColumnName="DistributorCostCenterId" />
+                <ScalarProperty Name="TransactionRefId" ColumnName="TransactionRefId" />
+                <ScalarProperty Name="SDPTransactionRefId" ColumnName="SDPTransactionRefId" />
+                <ScalarProperty Name="SDPReferenceId" ColumnName="SDPReferenceId" />
+                <ScalarProperty Name="BusinessNumber" ColumnName="BusinessNumber" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="StatusDetail" ColumnName="StatusDetail" />
+                <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+                <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ClientRequestResponseTypeId" ColumnName="ClientRequestResponseTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRequest">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblRequest">
+              <MappingFragment StoreEntitySet="tblRequest">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+                <ScalarProperty Name="Payee" ColumnName="Payee" />
+                <ScalarProperty Name="Smsc_TillNumber" ColumnName="Smsc_TillNumber" />
+                <ScalarProperty Name="Smsc_PhoneNumber" ColumnName="Smsc_PhoneNumber" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRequestResponce">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblRequestResponce">
+              <MappingFragment StoreEntitySet="tblRequestResponce">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="StatusDetails" ColumnName="StatusDetails" />
+                <ScalarProperty Name="Vesion" ColumnName="Vesion" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRequestResponceDestination">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblRequestResponceDestination">
+              <MappingFragment StoreEntitySet="tblRequestResponceDestination">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ResponseTimeStamp" ColumnName="ResponseTimeStamp" />
+                <ScalarProperty Name="RequestResponceId" ColumnName="RequestResponceId" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="StatusDetails" ColumnName="StatusDetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblServiceProvider">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblServiceProvider">
+              <MappingFragment StoreEntitySet="tblServiceProvider">
+                <ScalarProperty Name="SmsShortCode" ColumnName="SmsShortCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SDP_APP_ID" ColumnName="SDP_APP_ID" />
+                <ScalarProperty Name="SDP_Password" ColumnName="SDP_Password" />
+                <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+                <ScalarProperty Name="Currecy" ColumnName="Currecy" />
+                <ScalarProperty Name="AllowPartialPayment" ColumnName="AllowPartialPayment" />
+                <ScalarProperty Name="AllowOverPayment" ColumnName="AllowOverPayment" />
+                <ScalarProperty Name="SPName" ColumnName="SPName" />
+                <ScalarProperty Name="SPCode" ColumnName="SPCode" />
+                <ScalarProperty Name="SPId" ColumnName="SPId" />
+                <ScalarProperty Name="IM_DateCreated" ColumnName="IM_DateCreated" />
+                <ScalarProperty Name="IM_DateUpdated" ColumnName="IM_DateUpdated" />
+                <ScalarProperty Name="IM_IsActive" ColumnName="IM_IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSms">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblSms">
+              <MappingFragment StoreEntitySet="tblSms">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DistributorCostCenterId" ColumnName="DistributorCostCenterId" />
+                <ScalarProperty Name="TransactionRefId" ColumnName="TransactionRefId" />
+                <ScalarProperty Name="ClientRequestResponseType" ColumnName="ClientRequestResponseType" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+                <ScalarProperty Name="Recipients" ColumnName="Recipients" />
+                <ScalarProperty Name="SMSBody" ColumnName="SMSBody" />
+                <ScalarProperty Name="SmsStatus" ColumnName="SmsStatus" />
+                <ScalarProperty Name="SdpRequestId" ColumnName="SdpRequestId" />
+                <ScalarProperty Name="SdpDestinationResponses" ColumnName="SdpDestinationResponses" />
+                <ScalarProperty Name="SdpVersion" ColumnName="SdpVersion" />
+                <ScalarProperty Name="SdpStatusCode" ColumnName="SdpStatusCode" />
+                <ScalarProperty Name="SdpStatusString" ColumnName="SdpStatusString" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateLastUpdated" ColumnName="DateLastUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUser">
+            <EntityTypeMapping TypeName="paymentgatewayModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="HasChangePassword" ColumnName="HasChangePassword" />
+                <ScalarProperty Name="IM_DateCreated" ColumnName="IM_DateCreated" />
+                <ScalarProperty Name="IM_DateUpdated" ColumnName="IM_DateUpdated" />
+                <ScalarProperty Name="IM_IsActive" ColumnName="IM_IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

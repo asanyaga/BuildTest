@@ -1,0 +1,89 @@
+﻿
+@using PaymentGateway.WSApi.Lib.Paging;
+@model IPagedList<PaymentGateway.WSApi.Lib.Domain.MasterData.ServiceProvider>
+@{
+    ViewBag.Title = "List of Service Providers";
+}
+
+<h2>List of Service Providers</h2>
+
+<div class="main-content">
+<div id="action-link">
+    @Html.ActionLink("Create New", "Create")
+</div>
+<table>
+    <tr>
+       <th>
+            Name
+        </th>
+        <th>
+            Code
+        </th>
+        <th>
+            Sid
+        </th>
+        <th>
+            SdpAppId
+        </th>
+        <th>
+            SdpPassword
+        </th>
+        <th>
+            SubscriberId
+        </th>
+        <th>
+            Currency
+        </th>
+        <th>
+            AllowPartialPayment
+        </th>
+        <th>
+            AllowOverPayment
+        </th>
+       
+          <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+       
+         <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Code
+        </td>
+        <td>
+            @item.Sid
+        </td>
+        <td>
+            @item.SdpAppId
+        </td>
+        <td>
+            @item.SdpPassword
+        </td>
+        <td>
+            @item.SubscriberId
+        </td>
+        <td>
+            @item.Currency
+        </td>
+        <td>
+            @item.AllowPartialPayment
+        </td>
+        <td>
+            @item.AllowOverPayment
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+          
+        </td>
+        
+    </tr>
+}
+
+</table>
+
+</div>
+

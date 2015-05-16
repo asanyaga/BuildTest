@@ -1,0 +1,61 @@
+﻿@using PaymentGateway.WSApi.Lib.Paging;
+@model IPagedList<PaymentGateway.WSApi.Lib.Domain.Payments.Utility.AuditLog>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutConsole.cshtml";
+}
+
+<h2>Index</h2>
+<div class="main-content">
+
+<table class="auditLog">
+    <tr>
+        <th>
+            DistributorCostCenterId
+        </th>
+        <th>
+            DateCreated
+        </th>
+        <th>
+            Type
+        </th>
+        <th style="min-width:120px">
+            Direction
+        </th>
+        <th>
+            Description
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DistributorCostCenterId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+    </tr>
+}
+
+</table>
+<div class="pager">		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+</div>
+</div>
