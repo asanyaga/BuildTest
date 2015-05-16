@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{600739BB-605B-427F-9923-5EB48AB9B7EB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Integration.QuickBooks.WPF.UI</RootNamespace>
+    <AssemblyName>Integration.QuickBooks.WPF.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>quickbooksIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF45, Version=4.2.30.23246, Culture=neutral, PublicKeyToken=0e27b6f8be9b2ef7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MvvmLightLibs.4.2.30.0\lib\net45\GalaSoft.MvvmLight.Extras.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF45, Version=4.2.30.23246, Culture=neutral, PublicKeyToken=eabbf6a5f5af5004, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\MvvmLightLibs.4.2.30.0\lib\net45\GalaSoft.MvvmLight.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="StructureMap">
+      <HintPath>..\..\..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit">
+      <HintPath>..\..\..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit">
+      <HintPath>..\..\..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MvvmLightLibs.4.2.30.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit">
+      <HintPath>..\..\..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>..\..\..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
+      <HintPath>..\..\..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
+      <HintPath>..\..\..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010">
+      <HintPath>..\..\..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\..\..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\..\..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Views\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ActivityLogs.xaml.cs">
+      <DependentUpon>ActivityLogs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditAccountsPage.xaml.cs">
+      <DependentUpon>EditAccountsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemListControl.xaml.cs">
+      <DependentUpon>ItemListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListSalesPage.xaml.cs">
+      <DependentUpon>ListSalesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterData.xaml.cs">
+      <DependentUpon>MasterData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuickBookViews\ItemListControl.xaml.cs">
+      <DependentUpon>ItemListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuickBookViews\ListSalesPage.xaml.cs">
+      <DependentUpon>ListSalesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuickBookViews\ReturnsListControl.xaml.cs">
+      <DependentUpon>ReturnsListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReturnsListControl.xaml.cs">
+      <DependentUpon>ReturnsListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityControls\ActionsControl.xaml.cs">
+      <DependentUpon>ActionsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityControls\HeaderControl1.xaml.cs">
+      <DependentUpon>HeaderControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityControls\HeaderControl.xaml.cs">
+      <DependentUpon>HeaderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityControls\ImportActions.xaml.cs">
+      <DependentUpon>ImportActions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityControls\SaveCancelButtonsControl.xaml.cs">
+      <DependentUpon>SaveCancelButtonsControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Assets\AdminMenuStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\TabStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ActivityLogs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditAccountsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ItemListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListSalesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MasterData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QuickBookViews\ItemListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\QuickBookViews\ListSalesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\QuickBookViews\ReturnsListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReturnsListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityControls\ActionsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityControls\HeaderControl1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UtilityControls\HeaderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityControls\ImportActions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityControls\SaveCancelButtonsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Fakes Include="Fakes\Xceed.Wpf.Toolkit.fakes" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Distributr.WPF.Lib.Data\Distributr.WPF.Lib.Data.csproj">
+      <Project>{8707481d-6e93-4f11-b778-68b5f55cf541}</Project>
+      <Name>Distributr.WPF.Lib.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Distributr-Middleware.WPF.Lib\Distributr-Middleware.WPF.Lib.csproj">
+      <Project>{4ebe2130-cd9e-44ca-96d0-7ee3470db865}</Project>
+      <Name>Distributr-Middleware.WPF.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Integration.QuickBooks.Lib\Integration.QuickBooks.Lib.csproj">
+      <Project>{c80ebc1a-6040-4f1c-9070-89afb633d5c7}</Project>
+      <Name>Integration.QuickBooks.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\quickbooksimage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\AddContainer.png" />
+    <Resource Include="Resources\images\Agrimanagr icon.ico" />
+    <Resource Include="Resources\images\Agrimanagr icon.png" />
+    <Resource Include="Resources\images\agrmanagr-logo.png" />
+    <Resource Include="Resources\images\alertIcon.jpg" />
+    <Resource Include="Resources\images\back.png" />
+    <Resource Include="Resources\images\backbtnall.png" />
+    <Resource Include="Resources\images\backbtnone.png" />
+    <Resource Include="Resources\images\bak4.jpg" />
+    <Resource Include="Resources\images\bullet_arrow_down.png" />
+    <Resource Include="Resources\images\cancel.png" />
+    <Resource Include="Resources\images\changepassword.png" />
+    <Resource Include="Resources\images\cheque.png" />
+    <Resource Include="Resources\images\companyLogo.png" />
+    <Resource Include="Resources\images\Confirm.png" />
+    <Resource Include="Resources\images\data.png" />
+    <Resource Include="Resources\images\Dispatch.png" />
+    <Resource Include="Resources\images\farmer.png" />
+    <Resource Include="Resources\images\farmers.png" />
+    <Resource Include="Resources\images\forwardbtn.png" />
+    <Resource Include="Resources\images\forwardbtnone.png" />
+    <Resource Include="Resources\images\fwd.png" />
+    <Resource Include="Resources\images\help.png" />
+    <Resource Include="Resources\images\icon.png" />
+    <Resource Include="Resources\images\incompleteDeliveries.png" />
+    <Resource Include="Resources\images\left.png" />
+    <Resource Include="Resources\images\left_arrow.png" />
+    <Resource Include="Resources\images\Milk.png" />
+    <Resource Include="Resources\images\NextPage.png" />
+    <Resource Include="Resources\images\offline.png" />
+    <Resource Include="Resources\images\ok.png" />
+    <Resource Include="Resources\images\online.png" />
+    <Resource Include="Resources\images\Pendingdeliveries.png" />
+    <Resource Include="Resources\images\PrevPage.png" />
+    <Resource Include="Resources\images\print.png" />
+    <Resource Include="Resources\images\purchases.png" />
+    <Resource Include="Resources\images\purchaseSummary.png" />
+    <Resource Include="Resources\images\receipt.png" />
+    <Resource Include="Resources\images\received Deliveries.png" />
+    <Resource Include="Resources\images\Reception.png" />
+    <Resource Include="Resources\images\right.png" />
+    <Resource Include="Resources\images\right_arrow.png" />
+    <Resource Include="Resources\images\settings.png" />
+    <Resource Include="Resources\images\stock_save.png" />
+    <Resource Include="Resources\images\store.png" />
+    <Resource Include="Resources\images\stores-Available.png" />
+    <Resource Include="Resources\images\sync.jpg" />
+    <Resource Include="Resources\images\sync2.jpg" />
+    <Resource Include="Resources\images\tools.png" />
+    <Resource Include="Resources\images\Tradr, Agrimanagr logo.png" />
+    <Resource Include="Resources\images\u529_original.png" />
+    <Resource Include="Resources\images\user.png" />
+    <Resource Include="Resources\images\VC logo n slogan.png" />
+    <Resource Include="Resources\images\virtualcity-logo.png" />
+    <Resource Include="Resources\images\weight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\quickbooksIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="quickbooksIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

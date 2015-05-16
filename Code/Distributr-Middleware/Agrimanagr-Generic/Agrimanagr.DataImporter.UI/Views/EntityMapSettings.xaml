@@ -1,0 +1,73 @@
+﻿<Window x:Class="Agrimanagr.DataImporter.UI.Views.EntityMapSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:UtilityViews="clr-namespace:Agrimanagr.DataImporter.UI.Views.Utils"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+        Title="EntityMapSettings" DataContext="{Binding ImportSettingsViewModel, Source={StaticResource Locator}}" 
+        WindowStartupLocation="CenterOwner" WindowStyle="None"   MinHeight="390" Height="auto"
+        HorizontalAlignment="Center" ResizeMode="CanResize" Width="590">
+  
+    <GroupBox DockPanel.Dock="Top" HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1" Background="WhiteSmoke" Padding=" 0" Height="auto" Margin="0,0,2,2">
+        <GroupBox.Header>
+            <Label x:Name="lblEdit" Content="{Binding Path=PageTitle}" FontWeight="Bold" FontSize="14" Foreground="#FF5C94F2"/>
+        </GroupBox.Header>
+     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" MinHeight="281" />
+                    <RowDefinition Height="34"/>
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                    <Grid HorizontalAlignment="Stretch" Width="420">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="{Binding SelectedImportEntity.EntityName}" Foreground="#FF5C94F2" FontWeight="Bold" Height="auto" Margin="10 0 0 10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <DataGrid Grid.Row="1" DockPanel.Dock="Top" x:Name="dgEntityFields"  Width="auto" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" AutoGenerateColumns="False"
+                          ItemsSource="{Binding Path= EntityFieldsList,Mode=TwoWay}" IsReadOnly="True" HorizontalAlignment="Stretch" FontWeight="Normal" RowDetailsVisibilityMode="Visible" SelectedItem="{Binding SelectedImportEntityField}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=FieldIndex}" IsReadOnly="True" Header="Index" Width="auto" />
+                            <DataGridTextColumn Binding="{Binding Path=FieldName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Header="Name" Width="auto" CanUserReorder="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical"  HorizontalAlignment="Right" Grid.Column="1" Width="119">
+                <TextBlock Text="Set Fieled Index" Foreground="#FF5C94F2" FontWeight="Bold" Height="auto" />
+                <Button x:Name="btnTop" Content="Top" Width="60" Command="{Binding Path=MoveCommand}" CommandParameter="{Binding ElementName=btnTop}" Height="24" Margin="30,0,29,10" Style="{StaticResource AgriButtonStyle}"/>
+                <Button x:Name="btnUp" Content="Up" Width="60" Command="{Binding Path=MoveCommand}" CommandParameter="{Binding ElementName=btnUp}" Height="24" Margin="30,0,29,10" Style="{StaticResource AgriButtonStyle}"/>
+                <Button x:Name="btnDown" Content="Down" Width="60" Command="{Binding Path=MoveCommand}" CommandParameter="{Binding ElementName=btnDown}" Height="24" Margin="0,10,0,0" Style="{StaticResource AgriButtonStyle}"/>
+                <Button x:Name="btnBottom" Content="Bottom" Width="60" Command="{Binding Path=MoveCommand}" CommandParameter="{Binding ElementName=btnBottom}" Height="24" Margin="0,10,0,0" Style="{StaticResource AgriButtonStyle}"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Grid.Row="1"  Width="auto" Orientation="Horizontal">
+                <Grid Width="auto">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Height="auto" Name="btnSave" Grid.Column="0"  BorderBrush="Transparent" BorderThickness="0" Background="Transparent" IsEnabled="True"   Style="{StaticResource AgriButtonStyle}" Command="{Binding Path=SaveCommand}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="1">
+                            <Image Source="/Agrimanagr.DataImporter.UI;component/Resources/images/stock_save.png" Stretch="Fill" Width="25" Margin="2"/>
+                            <TextBlock Text=" Done " FontSize="13"  Margin="1"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Height="auto" Grid.Column="1"   BorderBrush="Transparent" BorderThickness="0" Background="Transparent" IsEnabled="True" Margin="15 0 0 0"  Command="{Binding Path=CancelCommand}" Style="{StaticResource AgriButtonStyle}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="1">
+                            <Image Source="/Resources/images/cancel.png" Stretch="Fill" Width="25" Margin="2"/>
+                            <TextBlock Text="  Cancel  " FontSize="13" Margin="1" Height="30"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Grid>
+       
+    </GroupBox>
+</Window>

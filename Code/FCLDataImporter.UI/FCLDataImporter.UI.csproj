@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C99EE4E-E049-4C24-8499-F318C99602BF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FCLDataImporter.UI</RootNamespace>
+    <AssemblyName>FCLDataImporter.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>distributrIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF45, Version=4.2.30.23246, Culture=neutral, PublicKeyToken=0e27b6f8be9b2ef7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\net45\GalaSoft.MvvmLight.Extras.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF45, Version=4.2.30.23246, Culture=neutral, PublicKeyToken=eabbf6a5f5af5004, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\net45\GalaSoft.MvvmLight.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Views\CommandUploadLogs.xaml.cs">
+      <DependentUpon>CommandUploadLogs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImportValidationResultPopUp.xaml.cs">
+      <DependentUpon>ImportValidationResultPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListDiscountGroups.xaml.cs">
+      <DependentUpon>ListDiscountGroups.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListExportOrders.xaml.cs">
+      <DependentUpon>ListExportOrders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListDistributorSalesmen.xaml.cs">
+      <DependentUpon>ListDistributorSalesmen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListImportOrders.xaml.cs">
+      <DependentUpon>ListImportOrders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListOutlets.xaml.cs">
+      <DependentUpon>ListOutlets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListProductPricing.xaml.cs">
+      <DependentUpon>ListProductPricing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListProducts.xaml.cs">
+      <DependentUpon>ListProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListShippingAddresses.xaml.cs">
+      <DependentUpon>ListShippingAddresses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShowWorkingFolderPopUp.xaml.cs">
+      <DependentUpon>ShowWorkingFolderPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityControls\ExportControl.xaml.cs">
+      <DependentUpon>ExportControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityControls\ProgressAndFilepath.xaml.cs">
+      <DependentUpon>ProgressAndFilepath.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityControls\ImportControl.xaml.cs">
+      <DependentUpon>ImportControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityControls\MasterDataImportHeader.xaml.cs">
+      <DependentUpon>MasterDataImportHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityControls\PagerControl.xaml.cs">
+      <DependentUpon>PagerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ValidationResultsPopUp.xaml.cs">
+      <DependentUpon>ValidationResultsPopUp.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Assets\AdminMenuStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\TabStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\CommandUploadLogs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ImportValidationResultPopUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListDiscountGroups.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListExportOrders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListDistributorSalesmen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListImportOrders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListOutlets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListProductPricing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListShippingAddresses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowWorkingFolderPopUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityControls\ExportControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityControls\ProgressAndFilepath.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityControls\ImportControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityControls\MasterDataImportHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityControls\PagerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ValidationResultsPopUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distributor.Core\Distributr.Core.csproj">
+      <Project>{900f434e-7d81-422b-b567-1564c79ceab3}</Project>
+      <Name>Distributr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.DataImporter.Lib\Distributr.DataImporter.Lib.csproj">
+      <Project>{75e8bc25-fff8-4a1c-abb3-b9f150931336}</Project>
+      <Name>Distributr.DataImporter.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WPF.Lib\Distributr.WPF.Lib.csproj">
+      <Project>{d3d60175-1436-487b-98f0-1671fb5c37dc}</Project>
+      <Name>Distributr.WPF.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cancel.png" />
+    <Resource Include="Resources\Images\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\distributrIcon.ico" />
+    <Resource Include="Resources\Images\dispatch.jpg" />
+    <Resource Include="Resources\Images\distributr-logo-kemsa.png" />
+    <Resource Include="Resources\Images\distributr-logo.png" />
+    <Resource Include="Resources\Images\distributrIcon.png" />
+    <Resource Include="Resources\Images\info.png" />
+    <Resource Include="Resources\Images\MenuIcons\adim.png" />
+    <Resource Include="Resources\Images\MenuIcons\admin1.jpg" />
+    <Resource Include="Resources\Images\MenuIcons\administrator.jpg" />
+    <Resource Include="Resources\Images\MenuIcons\admin_main.png" />
+    <Resource Include="Resources\Images\MenuIcons\archive.jpg" />
+    <Resource Include="Resources\Images\MenuIcons\b2buser.png" />
+    <Resource Include="Resources\Images\MenuIcons\build.jpg" />
+    <Resource Include="Resources\Images\MenuIcons\close-over.png" />
+    <Resource Include="Resources\Images\MenuIcons\close-up.png" />
+    <Resource Include="Resources\Images\MenuIcons\data.png" />
+    <Resource Include="Resources\Images\MenuIcons\data_web.png" />
+    <Resource Include="Resources\Images\MenuIcons\download.png" />
+    <Resource Include="Resources\Images\MenuIcons\edit.png" />
+    <Resource Include="Resources\Images\MenuIcons\fullback.png" />
+    <Resource Include="Resources\Images\MenuIcons\home.png" />
+    <Resource Include="Resources\Images\MenuIcons\list2.png" />
+    <Resource Include="Resources\Images\MenuIcons\logout.png" />
+    <Resource Include="Resources\Images\MenuIcons\minimize-over.png" />
+    <Resource Include="Resources\Images\MenuIcons\minimize-up.png" />
+    <Resource Include="Resources\Images\MenuIcons\payroll_main.png" />
+    <Resource Include="Resources\Images\MenuIcons\print.png" />
+    <Resource Include="Resources\Images\MenuIcons\process.png" />
+    <Resource Include="Resources\Images\MenuIcons\settings.png" />
+    <Resource Include="Resources\Images\MenuIcons\start.png" />
+    <Resource Include="Resources\Images\MenuIcons\sync.jpg" />
+    <Resource Include="Resources\Images\MenuIcons\sync2.jpg" />
+    <Resource Include="Resources\Images\MenuIcons\tools.png" />
+    <Resource Include="Resources\Images\MenuIcons\vendors.png" />
+    <Resource Include="Resources\Images\OFFLINE.ICO" />
+    <Resource Include="Resources\Images\offline.png" />
+    <Resource Include="Resources\Images\ONLINE.ICO" />
+    <Resource Include="Resources\Images\online.png" />
+    <Resource Include="Resources\Images\order.jpg" />
+    <Resource Include="Resources\Images\payment.jpg" />
+    <Resource Include="Resources\Images\po.jpg" />
+    <Resource Include="Resources\Images\pos.jpg" />
+    <Resource Include="Resources\Images\report.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\bak4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="distributrIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="distributrIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

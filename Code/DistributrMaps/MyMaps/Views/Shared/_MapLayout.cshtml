@@ -1,0 +1,38 @@
+﻿<title>@ViewBag.Title</title>
+@Scripts.Render("~/bundles/modernizr")
+<link href="~/Content/map.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Scripts/map/jquery-ui.css" />
+<script src="~/Scripts/map/jquery/jquery.js"></script>
+<script src="~/Scripts/map/jquery-ui.js"></script>
+<script src="~/Scripts/map/jquery.center.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIqo3xjFiGxgMGAmtXwYybpyvaqkiQZQY&sensor=false&v=3.exp&libraries=visualization">
+</script>
+<script src="~/Scripts/map/maps.js"></script>
+<!-- deviation maps-->
+<script src="~/Scripts/map/dev_fpr.js"></script>
+<script src="~/Scripts/map/dev_rns.js"></script>
+<script src="~/Scripts/map/dev_tvm.js"></script>
+<script src="~/Scripts/map/dev_zs.js"></script>
+<script src="~/Scripts/map/map_outlets.js"></script>
+<script src="~/Scripts/map/user_key.js"></script>
+<script src="~/Scripts/map/heat_map_ui.js"></script>
+
+<link rel="stylesheet" type="text/css" href="~/Scripts/map/pure-min.css" />
+
+
+ <div id="body">
+            @RenderSection("featured", required: false)
+           
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+
+<script>
+    window.distributr_maps_baseurl = '@Url.Content("~/")'
+</script>
+
+
+
+
+

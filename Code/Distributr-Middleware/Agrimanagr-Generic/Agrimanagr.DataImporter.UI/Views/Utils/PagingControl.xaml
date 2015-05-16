@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Agrimanagr.DataImporter.UI.Views.Utils.PagingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Admin="clr-namespace:Distributr.WPF.Lib.ViewModels.Admin;assembly=Distributr.WPF.Lib"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+             mc:Ignorable="d" d:DesignWidth="800" Height="38">
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button x:Name="btnFirst" Margin="2" Width="80" IsEnabled="{Binding Path=FirstPageButtonIsEnabled, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Style="{StaticResource AgriButtonStyle}" Command="{Binding Path=GoToPageCommand}" CommandParameter="{x:Static Admin:PageDestinations.First}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
+                    <Image Source="/Resources/images/PrevPage.png" Stretch="Fill" Width="30" Margin="0"/>
+                    <TextBlock Text=" First  " FontSize="13" Margin="2"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnPrev" Margin="2" Width="80" IsEnabled="{Binding Path=PrevPageButtonIsEnabled, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Style="{StaticResource AgriButtonStyle}" Command="{Binding Path=GoToPageCommand}" CommandParameter="{x:Static Admin:PageDestinations.Previous}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
+                    <Image Source="/Resources/images/PrevPage.png" Stretch="Fill" Width="30" Margin="0"/>
+                    <TextBlock Text=" Prev  " FontSize="13" Margin="2"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="2">
+            <TextBlock x:Name="txtPaginationDetails" Text="{Binding Path=PagenationDetails}" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cmbPageSizes" ItemsSource="{Binding Path=PageSizes}" SelectedIndex="0" Margin="10,0,0,0">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <cmd:EventToCommand Command ="{Binding Path=ComboPageSizesSelectionChangedCommand}" PassEventArgsToCommand="True" CommandParameter="{Binding ElementName=cmbPageSizes, Path=SelectedItem}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="btnNext" Margin="2" Width="80" IsEnabled="{Binding Path=NextPageButtonIsEnabled, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Style="{StaticResource AgriButtonStyle}" Command="{Binding Path=GoToPageCommand}" CommandParameter="{x:Static Admin:PageDestinations.Next}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
+                    <TextBlock Text=" Next  " FontSize="13" Margin="2"></TextBlock>
+                    <Image Source="/Resources/images/NextPage.png" Stretch="Fill" Width="30" Margin="0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnLast" Margin="2" Width="82" IsEnabled="{Binding Path=LastPageButtonIsEnabled, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Style="{StaticResource AgriButtonStyle}" Command="{Binding Path=GoToPageCommand}" CommandParameter="{x:Static Admin:PageDestinations.Last}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
+                    <TextBlock Text=" Last  " FontSize="13" Margin="2"></TextBlock>
+                    <Image Source="/Resources/images/NextPage.png" Stretch="Fill" Width="30" Margin="0"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,154 @@
+﻿
+html, body {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+	background-image: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* IE7 Fix */
+* html #container {
+    display: table;
+    height: 100%
+}
+
+/* Opera Fix */
+body:before {
+    content: "";
+    height: 100%;
+    float: left;
+    width: 0;
+    margin-top: -32767px;
+}
+
+div#container {
+	height: 100%;
+	height: auto !important;
+	min-height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+div#main {
+	overflow: auto;
+	border: 1px solid #CCC;
+}
+
+div#header {
+    height: 100px;
+    background: #ba6f19;
+    border-bottom: 1px solid #000;
+    padding: 20px;
+}
+
+div#body {
+    overflow: hidden;
+    height: 100%;
+}
+
+div#map-canvas {
+    margin: 0px 0px 0px 300px;
+    padding: 20px;
+}
+
+div#left-sidebar {
+	width: 260px;
+	float: left;
+	padding: 20px;
+	background-color: #EBEBEB;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #A6A6A6;
+    overflow:auto;
+}
+
+div#footer {
+    background: #ba6f19;
+    border-top: 1px solid #000;
+    
+    position: relative;
+    height: 100px;
+    margin-top: -101px;
+    clear: both;
+}
+
+div#footer p {
+    padding: 20px;
+    margin: 0px;
+}       
+#info-list {
+    position: absolute;
+    top: 35px;
+    right: 80px;
+    float:right;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border:none;
+    margin:0px;
+    padding:0px;
+}
+#spin {
+    position: fixed;
+    bottom: 10px;
+    left: 320px;
+    z-index: 7;
+}
+#TopBar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:60px;
+    background-color:rgba(248, 245, 245, 0.66);
+}
+.radio{
+    margin: 4px;
+}
+#user-key {
+    z-index: 6;
+    position: fixed;
+    bottom: 10px;
+    left: 320px;
+    background-color: #EBEBEB;
+    padding: 0px 15px 20px 15px;
+	border: 2px solid #A6A6A6;
+}
+#user-key ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+#user-key ul li{
+    clear:both;
+    margin: 5px;
+}
+.key-content{
+    width: 20px;
+    height: 20px;
+    float:left;
+    margin: 0px 5px;
+}
+.ui-red{
+    background-color:#ff0000;
+}
+.ui-orange{
+    background-color:#ffbb00;
+}
+.ui-grey{
+    background-color:#808080;
+}
+.ui-green{
+    background-color:#06b01e;
+}
+.ui-blue{
+    background-color:#5e68b6;
+}
+.ui-black{
+    background-color:#000000;
+}

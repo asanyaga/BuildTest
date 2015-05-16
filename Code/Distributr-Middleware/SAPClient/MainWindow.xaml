@@ -1,0 +1,67 @@
+﻿<Window x:Class="SAPClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d ignore"
+       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+     DataContext="{Binding MainWindowVM, Source={StaticResource Locator}}"
+         MaxWidth="685" MaxHeight="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <DockPanel LastChildFill="True">
+        <ToolBar DockPanel.Dock="Top">
+            <Menu IsMainMenu="True" Visibility="Collapsed" >
+                <MenuItem Header="_Generate Masterdata Files" Command="{Binding Path=LoadMenuItemCommand}" CommandParameter="{Binding ElementName=sap}" x:Name="sap">
+                 </MenuItem>
+            </Menu>
+            <Separator/>
+            <Menu IsMainMenu="True"  Visibility="Collapsed">
+                <MenuItem Header="_Transactions" >
+                    <MenuItem Header="_Orders To SAP" Command="{Binding Path=LoadMenuItemCommand}" CommandParameter="{Binding ElementName=ordes}" x:Name="ordes">
+
+                    </MenuItem>
+                    <MenuItem Header="_Sales To SAP" Command="{Binding Path=LoadMenuItemCommand}" CommandParameter="{Binding ElementName=sales}" x:Name="sales">
+
+                    </MenuItem>
+                    <MenuItem Header="_Inventory To Distributr" Command="{Binding Path=LoadMenuItemCommand}" CommandParameter="{Binding ElementName=inventory}" x:Name="inventory">
+
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <Separator/>
+          <Menu IsMainMenu="True">
+                <MenuItem Header="_Settings" Command="{Binding Path=LoadMenuItemCommand}" CommandParameter="{Binding ElementName=settings}" x:Name="settings">
+                </MenuItem>
+            </Menu>
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_Sync" Command="{Binding Path=LoadMenuItemCommand}" CommandParameter="{Binding ElementName=Sync}" x:Name="Sync">
+                </MenuItem>
+            </Menu>
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_Help" >
+                    <MenuItem.Icon>
+                        <Image />
+                    </MenuItem.Icon>
+                    <MenuItem Header="About" Command="{Binding Path=AboutCommand}">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </ToolBar>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <GridSplitter HorizontalAlignment="Right" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Column="2" ResizeBehavior="PreviousAndNext"
+                  Width="2" Background="#FFBCBCBC" />
+            <Frame MinHeight="200" Grid.Column="3" Margin="0,0,0,0" x:Name="ContentFrame"  Source="\Views\Sync.xaml"  NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </DockPanel>
+</Window>

@@ -1,0 +1,72 @@
+﻿<Page x:Class="Integration.QuickBooks.WPF.UI.Views.QuickBookViews.ListSalesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+      xmlns:Control="clr-namespace:Integration.QuickBooks.WPF.UI.Views.UtilityControls"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
+      xmlns:Views="clr-namespace:Integration.QuickBooks.WPF.UI.Views" mc:Ignorable="d" d:DesignWidth="1300" x:Name="sales"
+      Title="ListSalesPage" DataContext="{Binding Path=QbListTransactionsNewViewModel, Source={StaticResource QBViewModelLocator}}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadPageCommand}" PassEventArgsToCommand="True" CommandParameter="{Binding ElementName=sales}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <GroupBox DockPanel.Dock="Top" HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1" Background="WhiteSmoke" Padding=" 0" Height="auto">
+        <GroupBox.Header>
+            <Label x:Name="lblEdit" Content="{Binding Path=PageTitle}" FontWeight="Bold" FontSize="14" Foreground="#FF5C94F2"/>
+        </GroupBox.Header>
+        <DockPanel LastChildFill="True" Margin="20,0,0,0" >
+            <Control:HeaderControl DockPanel.Dock="Top" />
+            <TabControl VerticalAlignment="Stretch" Width="auto" Height="Auto"  HorizontalAlignment="Stretch" BorderBrush="#FF6593CF"
+                         BorderThickness="1,1,1,0" Margin="5" x:Name="tcMainPage">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <cmd:EventToCommand Command="{Binding DataContext.TabSelectionChangedCommand, ElementName=tcMainPage}" PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+              <TabItem x:Name="TabOrders" Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Margin="10, 0,10,0"  Source="/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                            <TextBlock Text="Closed Orders"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Views:ItemListControl x:Name="listOrders"/>
+                </TabItem>
+                <TabItem x:Name="TabSales" Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}" >
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Margin="10, 0,10,0"  Source="/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                            <TextBlock x:Name="TxtSales" Text="Closed Sales"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Views:ItemListControl x:Name="listSales"/>
+                </TabItem>
+
+                <TabItem x:Name="TabReturns" Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}" >
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Margin="10, 0,10,0"  Source="/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                            <TextBlock x:Name="TxtReturns" Text="Return Inventory"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Views:ReturnsListControl x:Name="listReturns"/>
+                </TabItem>
+        
+
+                <TabItem Visibility="Collapsed" x:Name="Activitylogs" Height="30" Style="{DynamicResource OutlookTabItemStyle}" Background="{DynamicResource OutlookButtonBackground}" Foreground="{DynamicResource OutlookButtonForeground}">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Margin="10, 0,10,0"  Source="/Resources/images/Agrimanagr icon.png"  Height="25" HorizontalAlignment="Center" />
+                            <TextBlock  Text="Activity logs"  Margin="2,0,2,2" FontSize="13" FontWeight="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Views:ActivityLogs/>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </GroupBox>
+</Page>

@@ -1,0 +1,115 @@
+﻿<Window x:Class="FCLDataImporter.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.ignore.com" 
+        xmlns:Control="clr-namespace:FCLDataImporter.UI.Views.UtilityControls"
+        mc:Ignorable="d ignore"   WindowStartupLocation="CenterScreen" 
+        Title="{Binding TitleWithVesion}"   MinHeight="400" Width="auto" Height="auto"
+       DataContext="{Binding Path=FclMainWindowViewModel, Source={StaticResource Locator}}"
+       Icon="/Resources/images/distributrIcon.ico"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <DockPanel LastChildFill="True" >
+        <ToolBar DockPanel.Dock="Top">
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_Import" >
+                    <MenuItem.Icon>
+                        <Image />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Master data">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Products" Command="{Binding Path=FclImportCommand}" CommandParameter="{Binding ElementName=products}" x:Name="products"/>
+                        <MenuItem Header="_Salesmen" Command="{Binding Path=FclImportCommand}" CommandParameter="{Binding ElementName=salesmen}" x:Name="salesmen"/>
+                        <MenuItem Header="_Outlets" Command="{Binding Path=FclImportCommand}" CommandParameter="{Binding ElementName=outlets}" x:Name="outlets"/>
+                        <MenuItem Header="_Shipping Addresses" Command="{Binding Path=FclImportCommand}" CommandParameter="{Binding ElementName=shiptoAddress}" x:Name="shiptoAddress"/>
+                        <MenuItem Header="_Product Pricing" Command="{Binding Path=FclImportCommand}" CommandParameter="{Binding ElementName=productPricing}" x:Name="productPricing"/>
+                        <MenuItem Header="_Discount Group" Command="{Binding Path=FclImportCommand}" CommandParameter="{Binding ElementName=discountGroup}" x:Name="discountGroup"/>
+                       </MenuItem>
+                    <MenuItem Header="_Transactions">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_StockLine" Command="{Binding Path=FclImportCommand}" CommandParameter="{Binding ElementName=stockline}" x:Name="stockline"/>
+                      </MenuItem>
+                    <MenuItem Header="_Exit" Command="{Binding Path=ExitCommand}">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem >
+            </Menu>
+            <Separator/>
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_Export" >
+                    <MenuItem.Icon>
+                        <Image />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Orders" Command="{Binding Path=ExportCommand}" CommandParameter="{Binding ElementName=ordersexport}" x:Name="ordersexport"/>
+                    <MenuItem Header="Exit" Command="{Binding Path=ExitCommand}">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <Separator/>
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_Settings" >
+                    <MenuItem.Icon>
+                        <Image />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Working Folder" Command="{Binding Path=SettingsCommand}">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Sync" Command="{Binding Path=SyncCommand}">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Exit" Command="{Binding Path=ExitCommand}">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <Separator/>
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_Help" >
+                    <MenuItem.Icon>
+                        <Image />
+                    </MenuItem.Icon>
+                    <MenuItem Header="Exit" Command="{Binding Path=ExitCommand}">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                
+            </Menu>
+        </ToolBar>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20.757" MaxWidth="280"/>
+                <ColumnDefinition Width="auto"/>
+               <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="auto" Width="955" CornerRadius="5" Grid.ColumnSpan="3" Margin="10,0,0,0">
+                <Frame MinHeight="400" Grid.Column="3" Margin="0,0,25,0" x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" Source="\Views\HomePage.xaml"  NavigationUIVisibility="Hidden"/>
+            </Border>
+            <Border Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch" CornerRadius="5" Margin="10,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Stretch">
+                    <Control:ProgressAndFilepath MinWidth="570" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="90,0,0,10" Width="849" />
+                </StackPanel>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application x:Class="Agrimanagr.DataImporter.UI.App" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:IoC="clr-namespace:Agrimanagr.DataImporter.Lib.IoC;assembly=Agrimanagr.DataImporter.Lib"
+             StartupUri="Views\Login.xaml" 
+             mc:Ignorable="d">
+  <Application.Resources>
+        <ResourceDictionary>
+            <IoC:ViewModelLocator x:Key="Locator" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Assets/Styles.xaml" />
+                <ResourceDictionary Source="Assets/TabStyles.xaml" />
+               <ResourceDictionary Source="Assets/AdminMenuStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

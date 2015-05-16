@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<SAPSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Password>Blu3k3y</Password>
+  <UserName>manager</UserName>
+  <Dbusrname>sa</Dbusrname>
+  <DbPassword>Password2011!</DbPassword>
+  <CompanyName>SBK_TEST_ONLY</CompanyName>
+  <Servertype>dst_MSSQL2008</Servertype>
+  <ServerName>192.168.1.3\sql2008</ServerName>
+</SAPSettings>
+
+<?xml version="1.0"?>
+<SAPSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Password>manager</Password>
+  <UserName>manager</UserName>
+  <Dbusrname>sa</Dbusrname>
+  <DbPassword>1234</DbPassword>
+  <CompanyName>SBODemoGB</CompanyName>
+  <Servertype>dst_MSSQL2008</Servertype>
+  <ServerName>sap-pc</ServerName>
+</SAPSettings>

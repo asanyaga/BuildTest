@@ -1,0 +1,34 @@
+﻿<Window x:Class="Agrimanagr.DataImporter.UI.Views.Utils.QuickSetPropertyIndexDefinition"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Quick SetPropertyIndex Definition"
+        DataContext="{Binding ImportSettingsViewModel, Source={StaticResource Locator}}"
+        MaxHeight="305" MaxWidth="455" WindowStartupLocation="CenterOwner" WindowStyle="None">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="759*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border x:Name="Frame" Width="Auto" Height="Auto" Grid.ColumnSpan="2">
+
+            <StackPanel Orientation="Vertical" Width="Auto">
+
+                <Border Width="Auto" Height="Auto" BorderBrush="Blue" BorderThickness="0.5" Background="#FF54A7E2">
+                 
+                    <StackPanel Orientation="Horizontal" Width="Auto" >
+                        <Label x:Name="lblEntity" Content="Entity:" FontSize="12" FontWeight="Bold" Foreground="White" Margin="5,0,5,0" Width="50"/>
+                        <ComboBox x:Name="cmbEntityFieldsList" Margin="5,0,5,0" MinWidth="200" Width="Auto"
+                                  ItemsSource="{Binding Path=EntityFieldsList, Mode=TwoWay}"
+                                  SelectedItem="{Binding Path=SelectedImportEntityField, Mode=TwoWay}"
+                                  DisplayMemberPath="Name">
+                        </ComboBox>
+                        <!--<TextBox x:Name="txtPriority" Text="{Binding Path=OutletPriorityToSet}" Width="50" Margin="5,0,5,0" KeyDown="txtPriority_KeyDown" TextChanged="txtPriority_TextChanged"/>
+                        <Button x:Name="btnOk" Content="OK" Width="40" Margin="5,0,5,0" Foreground="White" FontSize="12" FontWeight="Bold" Command="{Binding Path=QuickSetPriorityCommand}" Click="OKButton_Click"/>
+                        <Button x:Name="btnCancel" Content="Cancel" Width="50" Margin="5,0,5,0" Foreground="White" FontSize="12" FontWeight="Bold" Click="CancelButton_Click"/>-->
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<SAPSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Password>towfiq</Password>
+  <UserName>manager</UserName>
+  <Dbusrname>sa</Dbusrname>
+  <DbPassword>P@ssw0rd</DbPassword>
+  <CompanyName>SL_TEST_DB</CompanyName>
+  <Servertype>dst_MSSQL2008</Servertype>
+  <ServerName>192.168.0.2</ServerName>
+</SAPSettings>

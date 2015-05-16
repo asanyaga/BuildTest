@@ -1,0 +1,107 @@
+﻿<Page x:Class="Sage.Integrations.UI.Views.Settings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45" mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="662.687"
+	Title="App Settings" DataContext="{Binding SapSettingsViewModel, Source={StaticResource Locator}}">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadPageCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <GroupBox DockPanel.Dock="Top" HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1" Background="WhiteSmoke" Padding=" 0" Height="auto" Width="auto" Margin="10,9,19,0" >
+        <GroupBox.Header>
+            <Label Content="SAP Settings" FontWeight="Bold" FontSize="14" Foreground="#FF5C94F2"/>
+        </GroupBox.Header>
+      <DockPanel LastChildFill="True" Margin="20,0,0,0" >
+          <Grid DockPanel.Dock="Top" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                    <GroupBox  HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1" Background="WhiteSmoke" Padding=" 0" Height="auto" Width="auto" Margin="10,9,19,0" >
+                        <GroupBox.Header>
+                            <Label Content="User Settings" FontWeight="Bold" FontSize="14" Foreground="#FF5C94F2"/>
+                        </GroupBox.Header>
+                        <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="User Name:"/>
+                            <TextBox Grid.Column="1" x:Name="txtUserName" ForceCursor="True" Focusable="True"  Margin="3" Width="auto" Text="{Binding Path=Username, Mode=TwoWay}"/>
+                            <Label Grid.Row="1" Content="Password:" />
+                            <PasswordBox Margin="3" x:Name="txtPassword" Grid.Column="1"  Grid.Row="1" PasswordChanged="txtPassword_PasswordChanged"></PasswordBox>
+                        <Label Grid.Row="2"   Content="Server Name:"  />
+                        <TextBox Grid.Row="2" ForceCursor="True" Focusable="True" Grid.Column="1" Margin="3" Width="auto" Text="{Binding Path=ServerName, Mode=TwoWay}"/>
+                        <Label Grid.Row="3"   Content="User Not Trusted:"  />
+                            <CheckBox Grid.Row="3" IsEnabled="False" IsChecked="True" Grid.Column="1"  VerticalAlignment="Center" Margin="10 0 0 0"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Grid.Column="1" HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1" Background="WhiteSmoke" Padding=" 0" Height="auto" Width="auto" Margin="10,9,19,0" >
+                        <GroupBox.Header>
+                            <Label Content="DB Settings" FontWeight="Bold" FontSize="14" Foreground="#FF5C94F2"/>
+                        </GroupBox.Header>
+                        <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="User Name:"/>
+                        <TextBox Grid.Column="1"  ForceCursor="True" Focusable="True"  Margin="3" Width="auto" Text="{Binding Path=DbUsername, Mode=TwoWay}"/>
+                            <Label Grid.Row="1" Content="Password:" />
+                            <PasswordBox Margin="3" x:Name="dbPassword" Grid.Column="1"  Grid.Row="1" PasswordChanged="txtPassword_PasswordChanged"></PasswordBox>
+                            <Label Grid.Row="2"   Content="Company DB Name:"  />
+                        <TextBox Grid.Row="2" ForceCursor="True" Focusable="True" Grid.Column="1" Margin="3" Width="auto" Text="{Binding Path=CompanyDbName, Mode=TwoWay}"/>
+                            <Label Grid.Row="3"   Content="DbServerType:"  />
+                            <ComboBox  Grid.Row="3" Grid.Column="1" Margin="3"
+								ItemsSource="{Binding DbServerTypeList}"
+								SelectedItem="{Binding DbServerType, Mode=TwoWay}" Height="28" />
+                        </Grid>
+                    </GroupBox>
+
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="2"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30">
+            <Button  x:Name="btnLogin" Grid.Column="2" Grid.Row="2" Margin="2"  Width="90"  IsDefault="True" Command="{Binding SaveSettingsCommand}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch"   Margin="0" >
+                    <Image Source="..\Resources\sync2.jpg" Stretch="Fill" Width="30" Margin="0"/>
+                    <TextBlock Text=" Save " FontSize="13" Margin="1"></TextBlock>
+                </StackPanel>
+            </Button>
+                    <Button  x:Name="btnCancel" Grid.Column="3" Grid.Row="2" Margin="20 0 0 0" Width="auto" Command="{Binding CloseCommand}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch"  Margin="0" >
+                    <Image Source="..\Resources\cancel.png" Stretch="Fill" Width="30" Margin="0"/>
+                    <TextBlock Text=" Close " FontSize="13" Margin="2"></TextBlock>
+                </StackPanel>
+            </Button>
+                    <Button   Grid.Column="2" Grid.Row="2" Margin="20 0 0 0 "  Width="auto"  Command="{Binding TestSettingsCommand}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch"   Margin="0" >
+                          <TextBlock Text=" Test Settings " FontSize="13" Margin="1"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        
+        </DockPanel>
+    </GroupBox>
+</Page>

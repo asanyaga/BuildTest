@@ -1,0 +1,49 @@
+﻿<Window x:Class="Distributr_Middleware.WPF.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.ignore.com"
+         DataContext="{Binding MiddlewareMainWindowViewModel, Source={StaticResource Locator}}"
+         MaxWidth="685" MaxHeight="800" WindowStartupLocation="CenterScreen"
+        Icon="distributrIcon.ico">
+
+
+    <DockPanel LastChildFill="True">
+        <ToolBar DockPanel.Dock="Top">
+            <Menu IsMainMenu="True" >
+                <MenuItem Header="_Master Data" Command="{Binding Path=LoadMenuItemCommand}" CommandParameter="{Binding ElementName=Masterdata}" x:Name="Masterdata">
+                </MenuItem>
+            </Menu>
+            <Separator/>
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_Settings" Command="{Binding Path=LoadMenuItemCommand}" CommandParameter="{Binding ElementName=settings}" x:Name="settings">
+                </MenuItem>
+            </Menu>
+            <Menu IsMainMenu="True">
+                    <MenuItem Header="_Help" >
+                        <MenuItem.Icon>
+                            <Image />
+                        </MenuItem.Icon>
+                        <MenuItem Header="About" Command="{Binding Path=AboutCommand}">
+                            <MenuItem.Icon>
+                                <Image></Image>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+            </Menu>
+        </ToolBar>
+       
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <GridSplitter HorizontalAlignment="Right" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Column="2" ResizeBehavior="PreviousAndNext"
+                  Width="2" Background="#FFBCBCBC" />
+            <Frame MinHeight="400" Grid.Column="3" Margin="0,0,0,0" x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" Source="\Views\MasterData.xaml"  NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </DockPanel>
+</Window>

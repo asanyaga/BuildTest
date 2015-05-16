@@ -1,0 +1,127 @@
+﻿@{
+    ViewBag.Title = "Salesman Movement";
+    Layout = "~/views/Shared/_MapLayout.cshtml";
+}
+
+<div id="container">
+
+    <div id="main">
+      <div id="body">
+          <div id="left-sidebar">
+              <a>
+                  <span class="ui-icon ui-icon-plusthick"></span>
+              </a>
+              <form class="pure-form pure-form-stacked">
+                  <fieldset>
+                      <legend>Map Info</legend>
+                      <input class="radio" checked="checked"  type="radio" name="btnMapType" value="routes">Route Maps
+                      <input class="radio" type="radio" name="btnMapType" value="heat">Heat Maps
+                  </fieldset>
+                  <fieldset>
+                      <legend>Map Type</legend>
+
+                      <select id="btnMap">
+                          <option value="default">Sales & Orders</option>
+                          <option value="dev_FPR">Deviation (From Planned Route)</option>
+                          <option value="dev_TVM">Deviation (Target Value Missed)</option>
+                          <option value="dev_RNS">Non Productive</option>
+                          <option value="dev_ZS">Zero Sales</option>
+                          <!-- <option value="map_outlets">Competitor Outlets</option> -->
+                      </select>
+                  </fieldset>
+                  <fieldset>
+                      <legend>Filters</legend>
+
+                      <div class="filters" id="filter-d">
+                          <label for="txtFromDate">Start Date</label>
+                          <input id="txtFromDate">
+
+                          <label for="txtToDate">End Date</label>
+                          <input id="txtToDate">
+                      </div>
+
+                      <div class="filters" id="filter-cd">
+                      </div>
+
+                      <div class="filters" id="filter-a">
+                      </div>
+
+                      <div class="filters" id="filter-cb">
+                          <label for="ckhPoly" class="pure-checkbox">
+                              <input id="ckhPoly" type="checkbox"> Show Route
+                          </label>
+
+                          <label for="ckhMarkers" class="pure-checkbox">
+                              <input id="ckhMarkers" type="checkbox"> Show Markers
+                          </label>
+                          <!--
+                          <label for="ckhSales" class="pure-checkbox">
+                              <input id="ckhSales" type="checkbox"> Show Sales
+                          </label>
+                          -->
+                      </div>
+                        <div id="map_outlets_options">
+                            <label for="ckhClickToAdd" class="pure-checkbox">
+                                <input id="ckhClickToAdd" type="checkbox"> Enable Saving
+                            </label>
+                            <label for="chkDisplayLocal" class="pure-checkbox">
+                                <input id="chkDisplayLocal" type="checkbox"> Display Sales
+                            </label>
+                            <h3>Competitors</h3>
+                            <table id="map_outlets_table">
+                                <thead>
+                                    <tr>
+                                        <td></td>
+                                        <td>Competitor</td>
+                                        <td>Outlet #</td>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+
+                            </table>
+                        </div>
+                    </fieldset>
+            </form>
+              <label for="ckhShowKey" class="pure-checkbox">
+                  <input id="ckhShowKey" type="checkbox" checked="checked"> Show Key
+              </label>
+            </div>
+            
+            <div id="map-canvas">
+              <p>Error!</p>
+            </div>
+          <img id="spin" src="@Url.Content("~/images/FhHRx.gif")" />
+
+          <div id="user-key">
+              <p>Map Key</p>
+              <ul>
+                  <li><div class="key-content ui-orange"></div> Start Point</li>
+                  <li><div class="key-content ui-grey"></div> End Point</li>
+                  <li><div class="key-content ui-green"></div> Sale / Order Planned</li>
+                  <li><div class="key-content ui-blue"></div> Sale / Order Unplanned (Deviations)</li>
+                  <li><div class="key-content ui-red"></div> Unproductive</li>
+                  <li><div class="key-content ui-black"></div> Zero Sales</li>
+              </ul>
+          </div>
+         </div>
+            <div id="info-list">
+                <table id ="transactions"  class="pure-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Doc Date Issused</th>
+                            <th>Outlet</th>
+                            <th>Saleman</th>
+                            <th>Sale Amount</th>
+                            <th>Sale Discount</th>
+                            <th>Product Discount</th>
+                        </tr>
+                    </thead>
+			       <tbody>
+                    </tbody>
+
+                </table>
+            </div>
+
+    </div>
+</div>
