@@ -1,0 +1,29 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.RouteViewModel.AdminRouteViewModel
+
+@{
+    ViewBag.Title = "DetailsRoutes";
+}
+
+<h2>DetailsRoutes</h2>
+
+<fieldset>
+    <legend>AdminRouteViewModel</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <div class="display-label">Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code)
+    </div>
+    <div class="display-label">Hub Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HubName)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditRoute", new { id=Model.Id}) |
+    @Html.ActionLink("Back to List", "ListRoutes")
+</p>

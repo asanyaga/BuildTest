@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Produce Purchase summary";
+}
+
+<h2 id="breadcrumb-holder">
+	Dashboard &nbsp; &gt; &nbsp;	
+	<span class="bc-example">
+        @*@Html.ActionLink("Reports", "Reports", new { area = "", controller = "Home" })*@ 
+        Reports
+        &nbsp; &gt; &nbsp;
+		Produce Purchase Transaction Details
+	</span> 
+</h2>
+<div id="main-content-report">
+@using Distributr.HQ.Lib.Util
+<div>
+<iframe src="@Html.MyResource("Reports/Agrimanagr/ProducePurchase/ProducePurchaseTransactionDetails.aspx")@ViewBag.Parameters" ></iframe>
+</div>
+</div>
+
+

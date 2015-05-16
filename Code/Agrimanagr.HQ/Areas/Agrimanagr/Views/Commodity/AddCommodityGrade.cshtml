@@ -1,0 +1,64 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Agrimanagr.CommodityViewModel.CommodityGradeViewModel
+
+@{
+    ViewBag.Title = "AddCommodityGrade";
+}
+<h2 id="breadcrumb-holder">Commodity Grades &gt;&gt; Add Grade</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div id="main-content-housing">
+    @using (Html.BeginForm())
+    {
+        if (!Html.ViewData.ModelState.IsValid)
+        {
+        <div class="notice-notification">
+            @Html.ValidationSummary()
+        </div>
+        }  
+        <div id="primary-controls">
+            <fieldset>
+                <legend>Add CommodityGrade </legend>
+                <table class="detail-arrange">
+                    <tr>
+                        <td style="padding-top: 12px;">
+                            <strong>@Html.LabelFor(model => model.Name)</strong>
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;">
+                            <strong>@Html.LabelFor(model => model.Code)</strong>
+                        </td>
+                        <td>@Html.EditorFor(model => model.Code)
+                            @Html.ValidationMessageFor(model => model.Code)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;">
+                            <strong>@Html.LabelFor(model => model.Description)</strong>
+                        </td>
+                        <td>@Html.EditorFor(model => model.Description)
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </td>
+                    </tr>
+                </table>
+                @Html.HiddenFor(model => model.CommodityId)
+                @Html.ValidationMessageFor(model => model.CommodityId)
+                <fieldset class="actions">
+                    <legend>Actions</legend>
+                    <input name="Create" type="submit" value="Save" class="button-style-one" />
+                    <input name="Create" type="reset" value="Clear" class="button-style-one" id="clear" />
+
+                </fieldset>
+            </fieldset>
+        </div>
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Back to List","List","Commodity")
+</div>

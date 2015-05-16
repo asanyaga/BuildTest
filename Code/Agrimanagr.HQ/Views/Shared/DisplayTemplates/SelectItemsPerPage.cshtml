@@ -1,0 +1,6 @@
+﻿@using Distributr.HQ.Lib.ViewModels
+@using Distributr.HQ.Lib.ViewModels.Agrimanagr.CentreViewModels
+@model Distributr.HQ.Lib.ViewModels.Agrimanagr.CentreViewModels.CentreViewModel
+
+<strong>Select Per Page</strong>
+@Html.DropDownListFor(model => model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })

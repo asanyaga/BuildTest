@@ -1,0 +1,65 @@
+@{
+    Layout = null;
+}
+@using Distributr.HQ.Lib.Helper
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    
+     @Styles.Render("~/Content/css")
+     @Scripts.Render("~/bundles/jquery")
+     @Scripts.Render("~/bundles/agrimanagrscripts")
+     @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="container">
+
+        <div id="header">
+            <h1 id="distributr-logo"><a href="@Url.Content("~/")"><span class="img-replace">Agrimanagr</span></a></h1>
+            @*<h1 id="distributr-logo"><a href="@Url.Content("~/Account/LogOn")"><span class="img-replace">Distributr</span></a></h1>*@
+            @*<img width="389" height="55" src="@Html.GetLogo()" />*@
+            <p id="logged-in-as">
+            </p>
+        </div>
+        <!-- end of div#header -->
+
+    </div>
+
+    <div id="content-container">
+        @RenderBody()
+    </div>
+    <!-- end of div#content-container -->
+
+    <div id="footer">
+        <div id="powered-by">
+            <p>Powered By</p>
+            <div id="virtual-city-logo">
+                <a target="_blank" href="http://www.virtualcity.co.ke"><span class="img-replace">Virtual City Ltd | Innovation Lives Here</span></a>
+            </div>
+            <!-- end of virtual-city-logo -->
+        </div>
+        <!-- end of div#powered-by -->
+
+        <div id="contact-virtualcity">
+            <p>Virtual Building, Ring Road, Kilimani</p>
+            <p>P.O. Box 76460-00508</p>
+            <p>+254-20-3873341/2191</p>
+            <p><a href="mailto:info@virtualcity.co.ke">info@virtualcity.co.ke</a></p>
+            <p id="copyright-info">&copy; 2011, <a href="http://www.virtualcity.co.ke" target="_blank">Virtual City Ltd</a> Distributr&trade;</p>
+        </div>
+        <!-- end of div#contact-virtualcity -->
+
+        <br class="clear-all" />
+    </div>
+    <!-- end of div#footer -->
+
+    </div><!-- end of div#container -->
+
+</body>
+</html>
+
+

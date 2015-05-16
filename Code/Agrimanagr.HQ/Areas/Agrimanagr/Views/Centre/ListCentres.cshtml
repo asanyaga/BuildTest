@@ -1,0 +1,164 @@
+﻿@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@using Distributr.HQ.Lib.ViewModels.Agrimanagr.CentreViewModels
+@model Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Agrimanagr.CentreViewModels.CentreViewModel>
+
+@{
+    ViewBag.Title = "ListCentres";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string searchText = ViewBag.srchParam;
+}
+
+<h2 id="breadcrumb-holder">Global Settings &gt; Collection / Buying Centres </h2>
+<div id="main-content-housing">
+    <div id="primary-controls">
+    </div>
+
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+
+
+    @using (Html.BeginForm("ListCentres", "Centre"))
+    {
+        <fieldset>
+            <legend> Search Centres</legend>
+            <div class="criteria-div">
+                            	
+                <span class="text-box-cshtml">@Html.TextBox("searchText",searchText)</span>
+                <input name="srch" type="button" value="Search" class="button-style-one"  id="search"/>
+                <input name="srch" type="submit" value="Clear" class="button-style-one" id="clear"/>
+            </div>
+         
+            <div class="show-inactive">Show Inactive @Html.CheckBox("show_inactive", showInactive)
+                <script type="text/javascript">
+
+
+                    $("#show_inactive").change(function (e) {
+
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+                    });
+                    
+                    $('#search').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&srchParam=" + $('#searchText').val();
+
+                    });
+                    $('#clear').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + $('#searchText').val("");
+
+                    });
+                </script>
+            </div>  
+            <br class="clear-all" />
+        </fieldset>        
+    }
+
+
+    <fieldset class="actions">
+        <legend>Actions</legend>
+        <div class="button-style-two-cshtml">
+           
+            @Html.ActionLink("Add Centre", "CreateCentre")
+        </div>
+    </fieldset>
+
+    <div class="table-container">
+        <table id="tablesorter-demo" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Code
+                    </th>
+     
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Center Type
+                    </th>
+                    <th>
+                        Hub
+                    </th>
+                    <th>
+                        Route
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model) {
+                <tr>
+       
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CentreTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SelectedHubName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SelectedRouteName)
+                    </td>
+                    <td>
+                        @{
+                            if (item.IsActive == true)
+                            {   <text> @Html.ActionLink("Edit", "EditCentre", new { id = item.Id })  </text>
+                                <text>|</text>
+                                <text>
+                                    @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id},
+                                                     new { onclick = "return confirm('Are you sure you want to deactivate asset for "+ item.Name + "')" })
+                                </text>
+                                <text>|</text>
+                                <text>
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                                                     new { onclick = "return confirm('Are you sure you want to delete asset for " + item.Name + "')" })
+                                </text>
+                            }
+                            else
+                            {
+                                <text>
+                                    @Html.ActionLink("Activate", "Activate", new { id = item.Id },
+                                                     new { onclick = "return confirm('Are you sure you want to activate asset for " + item.Name + "')" })
+                                </text>
+                
+                                <text>|</text>
+                                <text>
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                                                     new { onclick = "return confirm('Are you sure you want to delete asset for " + item.Name + "')" })
+                                </text>
+                     
+                            }
+                        }
+                    </td>
+                </tr>
+   
+            }
+
+        </table>
+        <div class="pager">
+            @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new {showInactive , srchParam = searchText})
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+        </div>
+    </div>
+</div>
+
+
+

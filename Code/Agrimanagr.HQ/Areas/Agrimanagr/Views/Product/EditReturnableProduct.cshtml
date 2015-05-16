@@ -1,0 +1,184 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.EditReturnableProductViewModelOut
+
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = "ReturnableProduct";//Model.Title;
+ 
+}
+<h2 id="breadcrumb-holder">Products &amp; Pricing &gt; <span class="bc-example">@Html.ActionLink("View Products", "Index")</span> &gt; Returnable Product</h2>
+
+<div id="main-content-housing">
+
+
+<script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#BrandId").change(function (e) {
+            var brandId = $("#BrandId option:selected").val();
+            var urlB = '@Url.Action("SubBrands")';
+
+            cascadingdropdown();
+        });
+    });
+    function cascadingdropdown() {
+        
+        var brandId = $("#BrandId option:selected").val();
+        // window.alert(" call cascading dropdown for iddepartment = " + countryId);
+        var urlemp = '@Url.Action("SubBrands")';
+        
+        var selects = $('#Flavour');
+        $.ajax({
+            type: "POST",
+            url: urlemp,
+            data: { brandId: brandId },
+            success: function (returndata) {
+                if (returndata.ok) {
+
+
+                    selects.append($('<option></option>').val('0').html('-----Select Sub Brand-----'));
+                    selects.empty();
+                    $.each(returndata.data, function (index, itemData) {
+
+                        //                        
+                        selects.append($('<option></option>').val(itemData.Id).html(itemData.Name));
+
+
+                    });
+                    selects.show('slow');
+                }
+                else {
+                    window.alert(' error : ' + returndata.message);
+                }
+
+            }
+        }
+        );
+
+    }
+</script>
+@if (ViewBag.msg != null)
+{ 
+    <div class="notice-notification">
+@ViewBag.msg
+ @Html.ValidationSummary(true)
+</div>
+}
+@using (Html.BeginForm())
+{
+   
+
+   
+         @Html.HiddenFor(model => model.Id) 
+        <div id="primary-controls">
+    <fieldset>
+    <legend>Returnable Product</legend>
+      
+          <table class="detail-arrange">
+       <tr><td style="padding-top:12px;"><strong>ProductCode
+       </strong></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductCode)
+            @Html.ValidationMessageFor(model => model.ProductCode)
+        </div></td></tr>
+        <tr><td style="padding-top:12px;"><strong>Description
+       </strong></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div></td></tr>
+                <tr><td style="padding-top:12px;"><strong>
+            @Html.LabelFor(model => model.Capacity)
+        </strong></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Capacity)
+            
+
+    @Html.ValidationMessageFor(model => model.Capacity)
+        </div></td></tr>
+
+               <tr><td style="padding-top:12px;"><strong>
+            Brand
+        </strong></td><td>
+         <div class="editor-field">
+              @Html.DropDownListFor(model => model.BrandId, new SelectList(ViewBag.BrandsList, "Key", "Value"), "-----Select Brand-----")
+               @Html.ValidationMessageFor(model => model.BrandId)
+        </div></td>
+</tr>
+               <tr><td style="padding-top:12px;"><strong>
+           Sub Brand
+       </strong></td><td>
+         <div class="editor-field">
+            @*  @Html.DropDownListFor(model => model.FlavourID, new SelectList(ViewBag.FlavoursList, "Key", "Value"), "-----Select Sub Brand-----")*@
+            @if (Model.BrandId == null)
+            {
+            <select id="FlavourID" style="display:block" name="FlavourID" > <option value="0">---Select Brand First---</option></select>
+            }
+            else
+            {
+            @Html.DropDownListFor(model => model.FlavourID, Model.SubBrand, "-----Select Brand First-----")
+            }
+               @Html.ValidationMessageFor(model => model.FlavourID)
+        </div></td>
+</tr>
+<tr><td style="padding-top:12px;"><strong>
+            Packaging Type
+        </strong></td><td>
+         <div class="editor-field">
+              @Html.DropDownListFor(model => model.PackagingTypeId, new SelectList(ViewBag.PackTypeList, "Key", "Value"), "-----Select Packaging Type-----") 
+               @Html.ValidationMessageFor(model => model.PackagingTypeId)
+        </div></td>
+        </tr>
+        <tr><td style="padding-top:12px;"><strong>
+            Packaging
+        </strong></td><td>
+         <div class="editor-field">
+              @Html.DropDownListFor(model => model.PackagingId, new SelectList(ViewBag.PackagingsList, "Key", "Value"), "-----Select Packaging-----")
+  
+               @Html.ValidationMessageFor(model => model.PackagingId)
+        </div></td></tr>
+        <tr><td style="padding-top:12px;"><strong>
+            ReturnableType
+        </strong></td><td>
+        <div class="editor-field">
+      
+            @Html.DropDownListFor(model => model.ReturnableType, new SelectList(ViewBag.ReturnableTypeList, "Key", "Value"), "----Select Returnable Type-----")
+          @Html.ValidationMessageFor(model => model.ReturnableType)
+        </div></td>
+</tr>
+       <tr><td style="padding-top:12px;"><strong>
+            Returnable Product
+       </strong></td><td>
+        <div class="editor-field">
+       
+    
+@Html.DropDownListFor(model => model.ReturnableProductId, new SelectList(ViewBag.RetReturnableProductList, "Key", "Value"), "----Select Returnable Product-----")   
+          @Html.ValidationMessageFor(model => model.ReturnableProductId)
+        </div></td>
+</tr>
+    <tr><td style="padding-top:12px;"><strong>
+           Vat Class
+        </strong></td><td>
+         <div class="editor-field">
+           
+              @Html.DropDownListFor(model => model.VatClassId, Model.VatClass, "-----Select Vat Class-----")
+               @Html.ValidationMessageFor(model => model.VatClassId)
+        </div></td></tr>
+        <tr><td style="padding-top:12px;"><strong>ExFactory Price</strong></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ExFactoryPrice)
+            @Html.ValidationMessageFor(model => model.ExFactoryPrice)
+        </div></td></tr>
+        </table>
+        </fieldset>
+        <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            <input name="Create" type="submit" value="Clear" class="button-style-one"/>
+            
+
+        </fieldset>
+ </div><!-- end of div#primary-controls -->
+}
+</div>

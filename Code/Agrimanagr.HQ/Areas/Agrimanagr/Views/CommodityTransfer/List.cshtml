@@ -1,0 +1,58 @@
+﻿@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@model Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Agrimanagr.CommodityTransferViewModel.CommodityTransferViewModel>
+
+@{
+    ViewBag.Title = "Commodity Transfer";
+}
+
+<h2>List</h2>
+
+<div class="table-container">
+    <table width="800px" id="tablesorter-demo" class="tablesorter">
+        <thead>
+            <tr>
+                <th>
+                    From
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Weight
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HubName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransferDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight)
+                </td>
+                <td>
+                <text>
+                    @Html.ActionLink("View", "List", "CommodityTransferDetails", new {id = item.Id}, null)
+                </text>
+                
+                <text>|</text>
+                <text>
+                    @Html.ActionLink("Approve", "MoveToStore", new {noteId = item.Id}, null)
+                </text>
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="pager">		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>
+</div>

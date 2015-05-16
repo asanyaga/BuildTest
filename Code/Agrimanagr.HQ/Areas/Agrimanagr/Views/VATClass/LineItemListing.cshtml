@@ -1,0 +1,65 @@
+﻿@using Distributr.Core.Domain.Master
+@using Distributr.HQ.Lib.Helper
+@using Distributr.Core.Domain.Master.ProductEntities
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@model IPagedList<VATClass.VATClassItem>
+
+@{
+    ViewBag.Title = @Html.GetText("hq.vatrate.listing.title");
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+}
+<h2 id="breadcrumb-holder">Global Settings &nbsp;&gt; @Html.GetText("hq.vatrate.breadcrumb") &gt; 
+    @Html.GetText("hq.vatrate.listing.breadcrumb")</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">@Html.GetText("hq.vatrate.listing.heading")</h2>
+    <div id="primary-controls"></div>
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    <fieldset class="actions">
+        <legend>Actions</legend>
+        <div class="button-style-two-cshtml">@Html.ActionLink(Html.GetText("hq.vatrate.listing.add"), "LineItems",new{id=ViewBag.VATClassId})</div>
+    </fieldset>
+    
+    <div class="table-container">
+        <table id="tablesorter-demo" class="tablesorter">
+            <thead>
+                <tr>
+                    
+                    <th>
+                        @Html.GetText("hq.vatrate.rate")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.vatrate.effectivedate")
+                    </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EffectiveDate)
+                        </td>
+                       
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="pager">
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new { showInactive })
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+    </div>
+</div>

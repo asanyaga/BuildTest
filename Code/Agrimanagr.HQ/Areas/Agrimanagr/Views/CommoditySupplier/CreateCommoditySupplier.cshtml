@@ -1,0 +1,440 @@
+﻿
+@using Distributr.HQ.Lib.Helper
+@*@model Distributr.WSAPI.Lib.DTOModels.AgrimanagrDTO.CommodityDTOs.CommoditySupplierDTO*@
+@model Distributr.HQ.Lib.ViewModels.Agrimanagr.CostCentreViewModel.CommoditySupplierViewModel
+@{
+    ViewBag.Title = Html.GetText("hq.commoditySupplier.form.title.add");
+}
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $(".date").datepicker({ dateFormat: 'dd/mm/yy' });
+    });
+</script>*@
+<h2 id="breadcrumb-holder">Global Settings &gt;<span class="bc-example">
+    @Html.ActionLink(Html.GetText("hq.commoditySupplier.form.breadcrumb.view"), "ListCommoditySuppliers")</span> &gt;
+    @Html.GetText("hq.commoditySupplier.form.breadcrumb.add")</h2>
+<div id="main-content-housing">
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div id="primary-controls">
+            <fieldset>
+                <legend>@Html.GetText("hq.commoditySupplier.form.details.add")</legend>
+                <table class="detail-arrange">
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.AccountName") *</strong></td>
+                        <td style="border-color: black; border-style:double">
+                            @Html.HiddenFor(model => model.CommoditySupplierId)
+                            @Html.TextBoxFor(model => model.Name, new { @id = "Name",style="width:300px" })
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </td>
+                    
+                        <td style="padding-top: 12px; margin: 10px;"><strong>@Html.GetText("hq.commoditySupplier.CostCentreCode") *</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.CostCentreCode, new {style="width:300px"})
+                            @Html.ValidationMessageFor(model => model.CostCentreCode)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.AccountNo, new { style = "width:300px" }) *</strong></td>@*@Html.GetText("hq.commoditySupplier.AccountNo")*@
+                        <td>
+                            @Html.TextBoxFor(model => model.AccountNo, new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.AccountNo)
+                        </td>
+                    
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.PinNo, new { style = "width:300px" })</strong></td>@*@Html.GetText("hq.commoditySupplier.PinNo")*@
+                        <td>
+                            @Html.TextBoxFor(model => model.PinNo, new {style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.PinNo)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.BankName") *</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.BankId, new SelectList(ViewBag.Banks, "Key", "Value"), "----Select Bank ----", new { style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.BankId)
+                        </td>
+                    
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.BankBranchName") *</strong></td>
+                        <td>
+                            @if (Model.BankBranchId != Guid.Empty)
+                            {
+                                @Html.DropDownListFor(model => model.BankBranchId, new SelectList(ViewBag.BankBranches, "Key", "Value"), "----Select Branch ----", new { style = "width:300px" })
+                          
+                                @Html.ValidationMessageFor(model => model.BankBranchId)
+                            }
+                            else
+                            {
+                                @Html.DropDownListFor(n => n.BankBranchId, new SelectList(Enumerable.Empty<SelectListItem>(), "Id", "Name"), "---Select Branch---", new { id = "cmbBankBranch", style = "width:300px" })
+                                @Html.ValidationMessageFor(model => model.BankBranchId) 
+                            }
+                          
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.CommoditySupplierType")</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.CommoditySupplierType, new SelectList(ViewBag.CommoditySupplierTypeList, "Key", "Value"), "----Select Commodity supplier type----",new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.CommoditySupplierType)
+                        </td>
+                    
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.ParentCostCentreId") *</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.ParentCostCentreId, new SelectList(ViewBag.ParentCostCentreList, "Key", "Value"), "----Select parent Costcenter----",new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.ParentCostCentreId)
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>@Html.GetText("hq.commodityOwner.form.details.add")</legend>
+                <table class="detail-arrange">
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.OwnerCode) *</strong></td>
+                        <td>
+                            @Html.HiddenFor(model => model.CommodityOwnerId)
+                            @Html.TextBoxFor(model => model.OwnerCode,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.OwnerCode)
+                        </td>
+                    
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.Surname") *</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Surname,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.Surname)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.FirstName") *</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.FirstName,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.FirstName)
+                        </td>
+                    
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.MiddleName")</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.LastName,new {  style = "width:300px" })
+                            @*@Html.ValidationMessageFor(model => model.LastName)*@
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.IdNo") *</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.IdNo, new { style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.IdNo)
+                        </td>
+                   
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model=>model.OwnerPinNo) *</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.OwnerPinNo,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.OwnerPinNo)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.PhysicalAddress")</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.PhysicalAddress,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.PhysicalAddress)
+                        </td>
+                    
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.PostalAddress")</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.PostalAddress,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.PostalAddress)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.Email")</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Email,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </td>
+                   
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.PhoneNumber") *</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.PhoneNumber,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.PhoneNumber)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.BusinessNumber")</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.BusinessNumber,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.BusinessNumber)
+                        </td>
+                   
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.FaxNumber")</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.FaxNumber,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.FaxNumber)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.OfficeNumber")</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.OfficeNumber,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.OfficeNumber)
+                        </td>
+                    
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.Description")</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Description,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.DateOfBirth")</strong></td>
+                        @*  <td>
+                            @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "pickDate" })
+                            @Html.ValidationMessageFor(model => model.DateOfBirth)
+                        </td>*@
+                        <td>
+                            @Html.TextBox("DateOfBirth", String.Format("{0: dd/MMM/yyyy}", Model.DateOfBirth), new { @id = "datepicker", style = "width:270px" })
+                            @Html.ValidationMessageFor(model => model.DateOfBirth)
+                        </td>
+                    
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.Gender")</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.Gender, new SelectList(ViewBag.GenderList, "Key", "Value"), "----Select Gender----",new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.Gender)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.MaritalStatus")</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.MaritalStatus, new SelectList(ViewBag.MaritalStatusList, "Key", "Value"), new { style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.MaritalStatus)
+                        </td>
+                    
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commodityOwner.CommodityOwnerType") *</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.CommodityOwnerType, new SelectList(ViewBag.CommodityOwnerTypeList, "Key", "Value"), "----Select Owner type----",new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.CommodityOwnerType)
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Commodity Producer</legend>
+                <table class="detail-arrange">
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.FarmCode, new { style = "width:300px" }) *</strong></td>
+                        <td>
+                            @Html.HiddenFor(model => model.CommodityProducerId, new { @id = "farmerId" })
+                            @Html.TextBoxFor(model => model.FarmCode,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.FarmCode)
+                        </td>
+                    
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.Acrage, new { style = "width:300px" }) *</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Acrage,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.Acrage)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.FarmName, new { style = "width:300px" }) *</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.FarmName,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.FarmName)
+                        </td>
+                   
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.RegNo,new {  style = "width:300px" }) *</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.RegNo,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.RegNo)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.PhysicalAddress,new {  style = "width:300px" })</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.FarmPhysicalAddress,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.FarmPhysicalAddress)
+                        </td>
+                   
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.Description, new { style = "width:300px" })</strong></td>
+                        <td>
+                            @Html.TextBoxFor(model => model.FarmDescription,new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.FarmDescription)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.SelectedCentreId) *</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.SelectedCentreId, new SelectList(ViewBag.UnassignedCentresList, "Key", "Value"), "----Select Center----",new {  style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.SelectedCentreId)
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            
+            @*<div>
+      <fieldset class="actions">
+        <legend>Assign centre</legend>
+        <table class="detail-arrange">
+            <tr>
+                <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.SelectedCentreId)</strong></td>
+                <td>
+                     @Html.DropDownListFor(model => model.SelectedCentreId, new SelectList(ViewBag.UnassignedCentresList, "Key", "Value"), "----Select Owner type----")
+                </td>
+                <td> <input name="Create" type="submit" value="Assign Center" formaction="AssignCentre" class="button-style-one" /> </td>
+
+            </tr>
+        </table>
+
+        @*<div class="table-container">
+            <table class="tablesorter">
+                <thead>
+                    <tr>
+                        <th>Centre Name</th>
+                        <th>Centre Code</th>
+                        <th>Centre Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.AssignedFarmCentres)//Model.AssignedFarmCentres)
+                    {
+                        <tr>
+                            @Html.HiddenFor(n => item.Id)
+                            <td>@Html.DisplayFor(n => item.Name)</td>
+                            <td>@Html.DisplayFor(n => item.Code)</td>
+                            <td>@Html.DisplayFor(n => item.CenterType.Name)</td>
+                            <td>
+                                @Html.ActionLink("Remove", "UnAssignCentre", new {model= Model,centerId = item.Id })@*, farmId = Model.CommodityProducerId})
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <table>
+                <tr>
+
+                </tr>
+            </table>
+        </div>
+    </fieldset>
+        </div>*@
+            <fieldset class="actions">
+                <legend>Actions</legend>
+                <input name="Create" type="submit" value="Save" class="button-style-one" />
+                <input name="Create" type="reset" value="Clear" class="button-style-one" />
+
+
+            </fieldset>
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    
+    $("#BankId").change(function () {
+        debugger;
+        var bankId = $(this).val();
+         
+        $.getJSON('LoadBankBranch', { bankId: bankId },
+            function (myData) {
+                var select = $("#cmbBankBranch");
+                select.empty();
+                $.each(myData, function (index, itemData) {
+                    select.append($('<option/>', {
+                        value: itemData.Value,
+                        text: itemData.Text
+                    }));
+                });
+            });
+    });
+
+    var today = new Date();
+    $(function (e) {
+        $("#datepicker").datepicker({
+            dateFormat: "dd/mm/yy",
+            changeMonth: true,
+            buttonImage: "/Content/images/cal.gif",
+            showOn: "both",
+            inline: true,
+            showStatus: true,
+            highlightWeek: true,
+            showAnim: 'scale',
+            changeYear: true,
+            yearRange: '1950:2100'
+        });
+        $("#datepicker").datepicker('setDate', today);
+    });
+    @* 
+    $("#ddlFarmerRegion").change(function () {
+        var selectedRegion = $(this).val();
+        var farmerId = $("#farmerId").val();
+        if (selectedRegion != null && selectedRegion != '') {
+            $.getJSON('@Url.Action("GetRegionCentres")', { regionId: selectedRegion, farmerId: farmerId }, function (getcentres) {
+                var ddlFarmerCentres = $("#ddlFarmerCentres");
+                ddlFarmerCentres.empty();
+                $.each(getcentres, function (index, centre) {
+                    ddlFarmerCentres.append($('<option/>', {
+                        value: centre.Value,
+                        text: centre.Text
+                    }));
+                });
+            });
+        }
+    })*@
+
+    $("#assign").click(function () {
+        debugger;
+        @*var centerId = $("#ddlFarmerCentres").val();
+        var bankId = $("#BankId").val();
+        $.ajax({
+            url: '@Url.Action("AssignCenter")',
+            type: 'GET',
+            data: { centerId: centerId, bankId: bankId },
+            success:function() {
+                alert('Success');
+            }
+        });*@
+        var centerId = $("#ddlFarmerCentres").val();
+        var bankId = $("#BankId").val();
+        $.getJSON('AssignCenter', { centerId: centerId, bankId: bankId },
+           function (myData) {
+               var table = $(".tablesorter");
+               $.each(myData, function (index, itemData) {
+                   table.append($('<tr/>', {
+                       value: itemData.Value,
+                       text: itemData.Text
+                   }));
+               });
+           });
+   
+    });
+
+    $("#ddlFarmerRegion").change(function() {
+        var selectedRegion = $(this).val();
+        var farmerId = $("#farmerId").val();
+        if (selectedRegion != null && selectedRegion != '') {
+            $.getJSON('@Url.Action("GetRegionCentres")', { regionId: selectedRegion, farmerId: farmerId }, function(getcentres) {
+                var ddlFarmerCentres = $("#ddlFarmerCentres");
+                ddlFarmerCentres.empty();
+                $.each(getcentres, function(index, centre) {
+                    ddlFarmerCentres.append($('<option/>', {
+                        value: centre.Value,
+                        text: centre.Text
+                    }));
+                });
+            });
+        }
+    });
+</script>

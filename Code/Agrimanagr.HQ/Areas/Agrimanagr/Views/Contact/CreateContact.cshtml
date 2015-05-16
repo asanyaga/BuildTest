@@ -1,0 +1,318 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Contact.ContactViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.contact.form.title.add");
+}
+<script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function (e) {
+        $("#dobdatepicker").datepicker({
+            dateFormat: "dd/mm/yy",
+            changeMonth: true,
+            buttonImage: "/Content/images/cal.gif",
+            showOn: "both",
+            inline: true,
+            showStatus: true,
+            highlightWeek: true,
+            showAnim: 'scale',
+            changeYear: true,
+            yearRange: '-90:-18',
+        });
+    });
+    @*$(function () {
+        $('.dobdatepicker').datepicker({
+            showStatus: true,
+            highlightWeek: true,
+            showAnim: 'scale',
+            firstDay: 6,
+            changeMonth: true,
+            changeYear: true,
+            gotoCurrent: true,
+            yearRange: '-120:+10',
+            dateFormat: 'dd/mm/yy',
+            constrainInput: true,
+            minDate: "-120Y",
+            maxDate: 0,
+            buttonImage: '@Url.Content("~/Content/Images/cal.gif")',
+            buttonImageOnly: true,
+            showOn: "button",
+            showOptions: {
+                origin: ['top', 'left']
+            },
+            onSelect: function () {
+
+            }
+        });
+        $('#dobdatepicker').datepicker();
+    });*@
+      
+</script>
+	<h2 id="breadcrumb-holder">Global Settings &nbsp; &gt;&nbsp;
+    <span class="bc-example">
+    @Html.ActionLink(Html.GetText("hq.contact.form.breadcrumb.view"), "ListContacts", new { CostCentre = @Model.CostCentre, CostCentreName = @Model.CostCentreName, ContactFor = @Model.ContactFor })</span> &gt; 
+    &nbsp; @Html.GetText("hq.contact.listing.add")</h2>
+
+<div id="main-content-housing">
+
+@*<div>
+    @Html.ActionLink("View Contacts", "/ListContacts", new { CostCentre =Model.CostCentre })
+</div>*@
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $(window).unload(function () {
+            var firstName = $("#txt_name").attr('value');
+            if (firstName.toString() == "") {
+                var exit = confirm("Are you sure you want to exit without\nCreating contact!");
+                if (exit) {
+                    window.location = '@Url.Action("/ListContacts")';
+                }
+                else {
+                    window.location = '@Url.Action("/CreateContact")';
+                }
+            }
+            else {
+
+            }
+
+            $(':radio[name=ContactFor]').change(function () {
+                var selected = $(this).val();
+                alert("Selected" + selected);
+            }).change();
+        });
+
+        $("#ContactOwner").change(function (e) {
+            var CostCentreID = $("#ContactOwner option:selected").val();
+            var urlB = '@Url.Action("LoadCostCentreAndUsers")';
+           
+            cascadingdropdown();
+
+        });
+
+    });
+
+    function cascadingdropdown() {
+        var CostCentreID = $("#ContactOwner option:selected").val();
+        // window.alert(" call cascading dropdown for iddepartment = " + countryId);
+        var urlemp = '@Url.Action("LoadCostCentreAndUsers")';
+        var selects = $('#CostCentre');
+        $.ajax({
+            type: "POST",
+            url: urlemp,
+            data: { CostCentreID: CostCentreID },
+            success: function (returndata) {
+                if (returndata.ok) {
+
+
+                    selects.append($('<option></option>').val('0').html('-----Select Contact Owner-----'));
+                    selects.empty();
+                    $.each(returndata.data, function (index, itemData) {
+
+                        //                        
+                        selects.append($('<option></option>').val(itemData.Id).html(itemData.Name));
+
+
+                    });
+                    selects.show('slow');
+                }
+                else {
+                    window.alert(' error : ' + returndata.message);
+                }
+
+            }
+        });
+
+    }
+</script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div id="primary-controls">
+    <fieldset>
+    <legend>@Html.GetText("hq.contact.contacts")</legend>
+                            
+								
+							
+					
+        <table class="detail-arrange">
+        @if (Model.CostCentre == Guid.Empty)
+        {
+             <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.contownertyp")
+        </strong></td><td>
+         
+            @Html.DropDownListFor(model => model.ContactOwner, new SelectList(ViewBag.ContactOwnerList, "Key", "Value"), "-----Select Contact Owner Type-----", new { style = "height:25px;width:410px" })
+            @Html.ValidationMessageFor(model => model.ContactOwner)
+       
+</td></tr>
+                <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.contowner")
+        </strong></td><td>
+        <select id="CostCentre" style="display:block;height:25px;width:410px" name="CostCentre" > <option value="0">---Select Contact Owner Type First---</option></select>
+            
+
+       
+</td></tr>
+        }
+        else
+        {
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.contactfor"):
+        </strong></td><td>@Model.CostCentreName
+        
+          
+       
+</td></tr>
+        }
+            <tr>
+                <td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.conttype")</strong></td>
+                <td>
+                    <div class="editor-field">
+                        @*
+                    @Html.DropDownList("ClassificationType", Model.ClassificationList)*@
+                        @* @Html.DropDownList("ClassificationType", new SelectList(ViewBag.contactTypeList, "Key", "Value"), "-----Select Classification-----")*@
+                        @Html.DropDownListFor(model => model.ContactTypeId, new SelectList(ViewBag.ContactTypeList, "Key", "Value"), "-----Select Contact Type-----", new { style = "height:25px;width:410px" })
+                    </div>
+                </td>
+            </tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.fname")
+        </strong></td><td>
+         
+            @* @Html.EditorFor(model => model.Firstname, new { @class = "txt_name" })*@
+          @* @Html.TextBox("Firstname",Html.Encode(Model.Firstname), new { name = "Firstname" })*@
+            <input name="Firstname"  id="txt_name" value="" style="height:25px;width: 410px"/>
+            @Html.ValidationMessage("Firstname")
+           @* @Html.ValidationMessageFor(model => model.Firstname)*@
+       
+</td></tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.lname")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.Lastname, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.Lastname)
+       
+</td></tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.dob")
+        </strong></td><td>
+        
+            @*@Html.TextBox("DateofBirth", Model.DateofBirth, new { @id = "dobdatepicker" })*@
+            @Html.TextBox("DateofBirth", String.Format("{0: dd/MMM/yyyy}", Model.DateofBirth), new { @id = "dobdatepicker", style = "height:25px;width:410px"  })
+            @Html.ValidationMessageFor(model => model.DateofBirth)
+       
+</td></tr>
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.mstatus")
+        </strong></td><td>
+        
+            @Html.DropDownListFor(model => model.MaritalStatusId, new SelectList(ViewBag.MaritalStatusList, "Key", "Value"), "-----Select Marital Status-----", new { style = "height:25px;width:410px" })
+            @Html.ValidationMessageFor(model => model.MaritalStatusId)
+       
+</td></tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.spname")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.SpouseName, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.SpouseName)
+       
+</td></tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.company")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.Company, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.Company)
+       
+</td></tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.jobtitle")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.JobTitle, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.JobTitle)
+       
+</td></tr>
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.mophone")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.MobilePhone)
+            @Html.ValidationMessageFor(model => model.MobilePhone)
+      
+</td></tr>
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.bizphone")</strong></td><td>
+        
+            @Html.EditorFor(model => model.BusinessPhone)
+            @Html.ValidationMessageFor(model => model.BusinessPhone)
+       
+</td></tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.homephone")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.HomePhone, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.HomePhone)
+       
+</td></tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.wextphone")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.WorkExtPhone, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.WorkExtPhone)
+       
+</td></tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.email")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.Email, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.Email)
+       
+</td></tr>
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.fax")</strong></td><td>
+        
+            @Html.EditorFor(model => model.Fax)
+            @Html.ValidationMessageFor(model => model.Fax)
+        
+</td></tr>
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.physicaladdr")</strong></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhysicalAddress)
+            @Html.ValidationMessageFor(model => model.PhysicalAddress)
+        </div>
+</td></tr>
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.postaladdr")</strong></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PostalAddress)
+            @Html.ValidationMessageFor(model => model.PostalAddress)
+        </div>
+</td></tr>
+
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.hometown")</strong></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HomeTown)
+            @Html.ValidationMessageFor(model => model.HomeTown)
+        </div>
+</td></tr>
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.city")</strong></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City)
+        </div></td></tr>
+        <tr><td style="padding-top:12px;"><strong>Children Names</strong></td><td>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.ChildrenNames, new { style = "width:410px" })
+            @Html.ValidationMessageFor(model => model.ChildrenNames)
+        </div></td></tr>
+       
+              
+
+      </table>
+    </fieldset>
+    <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            <input name="Create" type="reset" value="Clear" class="button-style-one"/>
+            
+
+        </fieldset>
+        </div>
+}
+
+</div>
+

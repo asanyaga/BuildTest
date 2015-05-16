@@ -1,0 +1,100 @@
+﻿@model Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Agrimanagr.CostCentreViewModel.CommodityOwnerViewModel>
+
+@{
+    ViewBag.Title = "DetailsFarmer";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+}
+
+<fieldset>
+    <legend>CommodityOwner</legend>
+
+    <div class="display-label">Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code)
+    </div>
+
+    <div class="display-label">Surname</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Surname)
+    </div>
+
+    <div class="display-label">FirstName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">LastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">IdNo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdNo)
+    </div>
+
+    <div class="display-label">PinNo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PinNo)
+    </div>
+
+    <div class="display-label">PhysicalAddress</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhysicalAddress)
+    </div>
+
+    <div class="display-label">PostalAddress</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostalAddress)
+    </div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">PhoneNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneNumber)
+    </div>
+
+    <div class="display-label">BusinessNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BusinessNumber)
+    </div>
+
+    <div class="display-label">FaxNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FaxNumber)
+    </div>
+
+    <div class="display-label">OfficeNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OfficeNumber)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">DateOfBirth</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfBirth)
+    </div>
+
+    <div class="display-label">_DateCreated</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model._DateCreated)
+    </div>
+
+    <div class="display-label">_DateLastUpdated</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model._DateLastUpdated)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditFarmer", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

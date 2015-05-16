@@ -1,0 +1,148 @@
+﻿
+@using Distributr.HQ.Lib.Helper
+@model Agrimanagr.HQ.Areas.Agrimanagr.ViewModels.ServiceProviderViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+    @Html.ActionLink(Html.GetText("hq.serviceprovider.form.breadcrumb.view"), "Index")</span> &gt; 
+    @Html.GetText("hq.serviceprovider.form.breadcrumb.edit")</h2>
+
+<div id="main-content-housing">
+    @using (Html.BeginForm())
+    {
+         @Html.ValidationSummary(true)
+        <div id="primary-controls">
+            <fieldset>
+                <legend>@Html.GetText("hq.serviceprovider.form.details.edit")</legend>
+                <table class="detail-arrange">
+                    @Html.HiddenFor(model => model.MasterId)
+                     @Html.HiddenFor(model => model.StatusId)
+                     @Html.HiddenFor(model => model.DateCreated)
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.serviceprovider.Name ")*</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.serviceprovider.Code")*</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.Code)
+                            @Html.ValidationMessageFor(model => model.Code)
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.serviceprovider.AccountName")</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.AccountName)
+                            @Html.ValidationMessageFor(model => model.AccountName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.serviceprovider.AccountNumber")</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.AccountNumber)
+                            @Html.ValidationMessageFor(model => model.AccountNumber)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.serviceprovider.IdNo ")*</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.IdNo)
+                            @Html.ValidationMessageFor(model => model.IdNo)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.serviceprovider.PinNo")*</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.PinNo)
+                            @Html.ValidationMessageFor(model => model.PinNo)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.serviceprovider.MobileNumber") *</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.MobileNumber)
+                            @Html.ValidationMessageFor(model => model.MobileNumber)
+                        </td>
+                    </tr>
+                     <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.serviceprovider.Description")</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.Description)
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.serviceprovider.Gender") *</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.GenderId, new SelectList(ViewBag.GenderList , "Key", "Value"), "----Select Gender ----")
+                            @Html.ValidationMessageFor(model => model.GenderId)
+                        </td>
+                    </tr>
+                    
+                     <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.serviceprovider.Bank") *</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.BankId, new SelectList(ViewBag.Banks , "Key", "Value"), "----Select Bank ----")
+                            @Html.ValidationMessageFor(model => model.BankId)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.serviceprovider.BankBranch") *</strong></td>
+                        <td>
+                            @if(Model.BankBranchId !=Guid.Empty)
+                            {
+                                   @Html.DropDownListFor(model => model.BankBranchId, new SelectList(ViewBag.BankBranches ,"Key", "Value"), "----Select Branch ----")
+                          
+                            @Html.ValidationMessageFor(model => model.BankBranchId)
+                            }else
+                            {
+                                 @Html.DropDownListFor(n=>n.BankBranchId,new SelectList(Enumerable.Empty<SelectListItem>() ,"Id","Name"),"---Select Branch---",new {id="cmbBankBranch"})
+                            @Html.ValidationMessageFor(model => model.BankBranchId) 
+                            }
+                          
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+             <fieldset class="actions">
+                <legend>Actions</legend>
+                 <input name="Create" id="buttonId"  type="submit" value="Save" class="button-style-one" />
+                 <input name="Cancel" type="reset" value="Cancel" class="button-style-one" id="cancel"/>
+            </fieldset>
+            </div>
+    }
+    </div>
+
+<script type="text/javascript">
+   
+    $("#BankId").change(function () {
+        debugger;
+        var bankId = $(this).val();
+          
+        $.getJSON('GetBankBranches', { bankId: bankId },
+            function (myData) {
+                var select = $("#cmbBankBranch");
+                select.empty();
+                $.each(myData, function (index, itemData) {
+                    select.append($('<option/>', {
+                        value: itemData.Value,
+                        text: itemData.Text
+                    }));
+                });
+            });
+    });
+    
+   
+        $('#cancel').click(function () {
+           
+            window.location = "Index";
+        });
+</script>
+

@@ -1,0 +1,46 @@
+﻿@using Distributr.HQ.Lib.ViewModels.Agrimanagr.InventoryViewModel;
+@{
+    ViewBag.Title = "ListInventoryLevels";
+}
+@model List<InventoryLevelHQViewModel>
+
+<h2>ListInventoryLevels</h2>
+
+<div class="table-container">
+    <table width="800px" id="tablesorter-demo" class="tablesorter">
+        <thead>
+            <tr>
+                <th>
+                    Warehouse
+                </th>
+                <th>
+                    Commodity
+                </th>
+                <th>
+                    Grade
+                </th>
+                <th>
+                    Balance
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Warehouse.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Commodity.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

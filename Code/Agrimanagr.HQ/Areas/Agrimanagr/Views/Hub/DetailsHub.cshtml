@@ -1,0 +1,55 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Agrimanagr.CostCentreViewModel.HubViewModel
+
+@{
+    ViewBag.Title = "DetailsHub";
+}
+
+<h2>Hub Details</h2>
+
+<fieldset>
+    <legend>Hub</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">CostCentreCode</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CostCentreCode)
+    </div>
+
+    <div class="display-label">RegionId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegionId)
+    </div>
+
+    <div class="display-label">VatRegistrationNo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VatRegistrationNo)
+    </div>
+
+    <div class="display-label">Longitude</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Longitude)
+    </div>
+
+    <div class="display-label">Latitude</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Latitude)
+    </div>
+
+    <div class="display-label">ParentCostCentreId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ParentCostCentreId)
+    </div>
+
+    <div class="display-label">CostCentreType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CostCentreType)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditHub", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "ListHubs")
+</p>

@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteReports.master.cs" Inherits="Agrimanagr.HQ.Reports.SiteReports" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<title></title>
+	<%=SquishIt.Framework.Bundle.Css()
+             .Add("~/Reports/styles/jquery.datepick.css")
+			 .ForceRelease()
+			 .Render("~/Content/styles/Combined2_#.css")
+	%>
+	<%=SquishIt.Framework.Bundle.JavaScript()
+			 .Add("~/Content/js/jquery-1.4.2.min.js")
+			 .Add("~/Reports/scripts/jquery-1.4.2.min.js")
+			 .Add("~/Reports/scripts/jquery.datepick.js")
+			 .ForceRelease()
+			 .Render("~/Content/js/Combined2_#.js")
+	%>
+	<style type="text/css">
+        .button-style-two,.button-style-two-cshtml a 
+        {
+			font-size:.75em;
+			display:inline-block;
+			background-color:#496FE2;
+			color:#fff;
+			border-radius:2px;
+			-webkit-border-radius:2px;
+			font-family:Arial, Helvetica, sans-serif;
+			text-transform: capitalize;
+			font-weight:700;
+			border:1px solid #4079d5;
+			margin-right:10px;
+			text-decoration:none;
+			padding:4px 8px;
+		}
+		.label-short
+        {
+            font-size: small;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight:700;
+			width: 300px;
+        }
+        .label-long
+        {
+            font-size: small;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight:700;
+			width: 150px;
+        }
+        .textbox-short 
+        {
+        	Width: 150px;
+            Height: 16px;
+        }
+        td.short 
+        {
+        	width: 300px;
+        }
+        td.long 
+        {
+        	width: 300px;
+        }
+        .dropdown-short
+        {
+        	width: 150px;
+        }
+        .dropdown-long 
+        {
+            width: 300px;
+        }        
+	</style>
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body>
+	<form id="form1" runat="server">
+	<asp:ScriptManager ID="ScriptManager1" runat="server">
+	</asp:ScriptManager>
+	<div>
+		<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+		</asp:ContentPlaceHolder>
+	</div>
+	</form>
+</body>
+</html>

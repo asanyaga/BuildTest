@@ -1,0 +1,200 @@
+﻿@using Agrimanagr.HQ.Models
+@using Distributr.HQ.Lib.Helper
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        
+        <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.css")" rel="stylesheet" />
+
+        @Styles.Render("~/Content/css")
+         @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/agrimanagrscripts")
+       
+
+    </head>
+    <body>
+
+        <div id="container">
+
+            <div id="header">
+                <h1 id="distributr-logo"><a href="@Url.Content("~/Agrimanagr")"><span class="img-replace">@Html.GetText("app.agrimanagr.name")</span></a></h1>
+                <p id="logged-in-as">
+                    logged In As <strong>@ViewBag.logged</strong>
+                    <a href="@Url.Content("~/account/logoff")">@Html.GetText("app.agrimanagr.hq.logout")</a>
+
+                </p>
+            </div>
+            <!-- end of div#header -->
+            <div id="main-panel">
+                <ul id="nav2">
+                    <li><a href="@Url.Content("~/Agrimanagr")" id="dashboard-btn"><span class="img-replace">@Html.GetText("hq.dboard")</span></a></li>
+                </ul>
+                <!-- BEGIN Menu -->
+                <div style="position: absolute; right: 5px;">
+                    <ul id="nav">
+                        <li><a href="#" id="global-settings"><span class="img-replace">@Html.GetText("hq.gsettings")</span></a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Content("~/Agrimanagr/Country/ListCountry")">@Html.GetText("hq.countries")</a>
+                                </li>
+                                <li><a href="#">@Html.GetText("hq.regions")</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Agrimanagr/Region/ListRegion")">@Html.GetText("hq.region")</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">@Html.GetText("hq.hub") </a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Agrimanagr/Hub/ListHubs")">@Html.GetText("hq.hubs")</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">@Html.GetText("hq.buyingcentres")</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Agrimanagr/Centre/ListCentres")">@Html.GetText("hq.buyingcentremgnt")</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">@Html.GetText("hq.commoditysuppliermgnt")</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Agrimanagr/CommoditySupplier/ListCommoditySuppliers")">@Html.GetText("hq.commoditysuppliermgnt")</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">@Html.GetText("hq.routes")</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Agrimanagr/Route/ListRoutes")">@Html.GetText("hq.routemgnt")</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">@Html.GetText("hq.banks")</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Agrimanagr/Bank/ListBanks")">@Html.GetText("hq.bankmgnt")</a></li>
+                                        <li><a href="@Url.Content("~/Agrimanagr/BankBranch/ListBankBranches")">@Html.GetText("hq.bankbranchmgnt")</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">@Html.GetText("hq.contacts")</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Agrimanagr/Contact/ListContacts")">@Html.GetText("hq.contacts")</a></li>
+                                        <li><a href="@Url.Content("~/Agrimanagr/ContactType/ListContactTypes")">@Html.GetText("hq.contacttypes")</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="@Url.Content("~/Agrimanagr/Settings/Settings")">@Html.GetText("hq.settings")</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#" id="account-btn"><span class="img-replace">@Html.GetText("hq.account")</span></a>
+                            <ul>
+                                <li><a href="#">@Html.GetText("hq.manageusers")</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Agrimanagr/Account/ListAllUsers")">@Html.GetText("hq.managehqusers")</a></li>
+                                        <li><a href="@Url.Content("~/Agrimanagr/AgriUser/ListAgriUsers")">@Html.GetText("hq.managehubusers")</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="@Url.Content("~/Account/ChangePassword")">Change Password</a></li>
+                                <li><a href="@Url.Content("~/Agrimanagr/AgriUserGroup/List")">@Html.GetText("hq.usrgrp.breadcrumb")</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" id="help-btn"><span class="img-replace">@Html.GetText("hq.account")</span></a></li>
+                    </ul>
+                </div>
+                <!-- END Menu -->
+            </div>
+            <!-- end of div#main-panel -->
+            <div id="content-container">
+                <table cellpadding="0" cellspacing="0" id="main-layout-container">
+                    <tr>
+                        <td id="sidebar">
+                            <div id="sidebar-wrapper">
+                                <h2 id="main-menu-header">@Html.GetText("hq.mainmenu")</h2>
+                                <div id="firstpane" class="menu_list">
+                                    <!--Code for menu starts here-->
+                                    <p class="menu_head"><span class="icons products"></span>@Html.GetText("hq.commodities")</p>
+                                    <div class="menu_body">
+                                        <a href="@Url.Content("~/Agrimanagr/CommodityType/ListCommodityTypes")">@Html.GetText("hq.commoditypes")</a>
+                                        <a href="@Url.Content("~/Agrimanagr/Commodity/List")">@Html.GetText("hq.commodities")</a>
+                                        <a href="@Url.Content("~/Agrimanagr/CommodityOwnerType/ListCommodityOwnerTypes")">@Html.GetText("hq.commodity.commodityownertypes")</a>
+                                    </div>
+                                    <p class="menu_head"><span class="icons products"></span>@Html.GetText("hq.assets")</p>
+                                    <div class="menu_body">
+                                        <a href="@Url.Content("~/Agrimanagr/SourcingContainer/ListContainers")">@Html.GetText("hq.containers")</a>
+                                        <a href="@Url.Content("~/Agrimanagr/ContainerType/ListContainerTypes")">@Html.GetText("hq.containertypes")</a>
+                                        <a href="@Url.Content("~/Agrimanagr/Printer/ListPrinters")">@Html.GetText("hq.printers")</a>
+                                        <a href="@Url.Content("~/Agrimanagr/WeighScale/ListWeighScales")">@Html.GetText("hq.weighscales")</a>
+                                        <a href="@Url.Content("~/Agrimanagr/Vehicle/ListVehicles")">@Html.GetText("hq.vehicles")</a>
+                                    </div>
+                                    <p class="menu_head"><span class="icons reports"></span>@Html.GetText("hq.reports")</p>
+                                    <div class="menu_body">
+                                        <a href="@Url.Content("~/AgrimanagrRpt/ReportsDashboard")">@Html.GetText("hq.reports.dashboard")</a>
+                                        @*                                        <a href="@Url.Content("~/AgrimanagrRpt/ProducePurchase")">Produce Purchase</a>*@
+                                    </div>
+                                    <p class="menu_head"><span class="icons products"></span>Commodity Transfer</p>
+                                    <div class="menu_body">
+                                        <a href="@Url.Content("~/Agrimanagr/CommodityTransfer/List")">Commodity Transfer</a>
+                                        <a href="@Url.Content("~/Agrimanagr/CommodityTransfer/Release")">Commodity Release</a>
+                                    </div>
+                                    
+                                    <p class="menu_head"><span class="icons products"></span>@Html.GetText("hq.product.productpricing")</p>
+                                    <div class="menu_body">
+                                         <a href="@Url.Content("~/Agrimanagr/Supplier/Index")">@Html.GetText("hq.supplier")</a> 
+                                         <a href="@Url.Content("~/Agrimanagr/ProductBrand/Index")">@Html.GetText("hq.productbrand")</a> 
+                                         <a href="@Url.Content("~/Agrimanagr/ProductFlavour/Index")">@Html.GetText("hq.productflavour")</a> 
+                                         <a href="@Url.Content("~/Agrimanagr/ProductType/Index")">@Html.GetText("hq.producttype")</a> 
+                                         <a href="@Url.Content("~/Agrimanagr/Product/Index")">@Html.GetText("hq.product")</a> 
+                                         <a href="@Url.Content("~/Agrimanagr/ProductPackaging/Index")">@Html.GetText("hq.productpackaging")</a> 
+                                         <a href="@Url.Content("~/Agrimanagr/ProductPackagingType/Index")">@Html.GetText("hq.productpackagingtype")</a> 
+                                         <a href="@Url.Content("~/Agrimanagr/VATClass/Index")">@Html.GetText("hq.vatclass")</a> 
+                         
+                                    </div>
+
+                                    <p class="menu_head"><span class="icons products"></span>@Html.GetText("hq.farmactivities")</p>
+                                    <div class="menu_body">
+                                        <a href="@Url.Content("~/Agrimanagr/ActivityType/Index")">@Html.GetText("hq.farmactivities.activitytype")</a>
+                                        <a href="@Url.Content("~/Agrimanagr/ServiceProvider/Index")">@Html.GetText("hq.farmactivities.serviceproviders")</a>
+                                        <a href="@Url.Content("~/Agrimanagr/CommodityProducerService/Index")">@Html.GetText("hq.farmactivities.commodityproducerservices")</a>
+                                        <a href="@Url.Content("~/Agrimanagr/Season/Index")">@Html.GetText("hq.farmactivities.seasons")</a>
+                                        <a href="@Url.Content("~/Agrimanagr/Shift/Index")">@Html.GetText("hq.farmactivities.shifts")</a>
+                                        <a href="@Url.Content("~/Agrimanagr/Infection/Index")">@Html.GetText("hq.farmactivities.infections")</a>
+                                    </div>
+
+                                    @**@
+                                </div>
+                                <!--Code for menu ends here-->
+                            </div>
+                            <!-- end of div#sidebar-wrapper -->
+                        </td>
+                        <!-- end of div#sidebar -->
+                        <td style="height: 900px;" id="main-content-section">
+                            @RenderBody()
+                            <div style="min-height: 200px; display: block;">
+                            </div>
+                            <!-- end of div#main-content-housing -->
+                        </td>
+                        <!-- end of div#main-content-section -->
+                    </tr>
+                </table>
+                <!-- end of table#main-layout-container -->
+            </div>
+        </div>
+        <!-- end of div#content-container -->
+        <div id="footer">
+            <div style="position: absolute; right: 5px;">@Html.GetVersion()</div>
+            <div id="powered-by">
+                <p>@Html.GetText("hq.footer.declaration")</p>
+                <div id="virtual-city-logo">
+                    <a target="_blank" href="http://www.virtualcity.co.ke"><span class="img-replace">@Html.GetText("hq.footer.company")</span></a>
+                </div>
+                <!-- end of virtual-city-logo -->
+            </div>
+            <!-- end of div#powered-by -->
+        </div>
+        <!-- end of div#footer -->
+        <!-- </div> end of div#container -->
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Styles.Render("~/Content/themes/base/css")
+    </body>
+</html>
+

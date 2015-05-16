@@ -1,0 +1,60 @@
+﻿@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Agrimanagr.CommodityTransferViewModel.CommodityTransferDetailsViewModel>
+
+@{
+    ViewBag.Title = Model != null ? Model.FirstOrDefault().HubName : "No Transfer"; ;
+}
+
+<h2>@ViewBag.Title</h2>
+<fieldset class="actions">
+    <legend>Actions</legend>
+   
+        <div class="button-style-two-cshtml">
+         @{
+             if (Model != null)
+             {
+                 @Html.ActionLink("Approve", "MoveToStore", "CommodityTransfer", new {noteId = Model.First().Id}, null)
+             }
+         }
+        </div>
+</fieldset>
+<div class="table-container">
+    <table width="800px" id="tablesorter-demo" class="tablesorter">
+        <thead>
+            <tr>
+                <th>
+                    Commodity Name
+                </th>
+                <th>
+                    Grade Name
+                </th>
+                <th>
+                    Weight
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommodityName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommodityGradeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight)
+                </td>
+        
+            </tr>
+        }
+
+    </table>
+<div class="pager">		
+    @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+    Items per page:
+    @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>
+</div>

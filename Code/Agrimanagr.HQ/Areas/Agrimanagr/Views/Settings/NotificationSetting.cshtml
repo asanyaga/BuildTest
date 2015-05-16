@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "NotificationSetting";
+}
+
+
+@model Distributr.HQ.Lib.ViewModels.Agrimanagr.SettingsViewModel.NotificationSettingsAgriViewModel
+@{
+    ViewBag.Title = "NotificationSetting";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<h2 id="breadcrumb-holder">Global Settings &gt; Notification Settings
+</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">Notification Settings</h2>
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset style="float: left; width: 500px" >
+            <legend>Notifications  Setting </legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SmtpHost)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SmtpHost)
+                @Html.ValidationMessageFor(model => model.SmtpHost)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SmtpPort)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SmtpPort)
+                @Html.ValidationMessageFor(model => model.SmtpPort)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SmtpCompanyEmail)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SmtpCompanyEmail)
+                @Html.ValidationMessageFor(model => model.SmtpCompanyEmail)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SmtpUsername)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SmtpUsername)
+                @Html.ValidationMessageFor(model => model.SmtpUsername)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SmtpPassword)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(model => model.SmtpPassword)
+                @Html.ValidationMessageFor(model => model.SmtpPassword)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SmsUri)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SmsUri)
+                @Html.ValidationMessageFor(model => model.SmsUri)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SendEmail)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.SendEmail)
+                @Html.ValidationMessageFor(model => model.SendEmail)
+            </div>
+             <div class="editor-label">
+                @Html.LabelFor(model => model.SendSms)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.SendSms)
+                @Html.ValidationMessageFor(model => model.SendSms)
+            </div>
+            @* <p>
+                <input type="submit" value="Save" />
+            </p>*@
+        </fieldset>
+        <fieldset style="float: right; width: 300px">
+            <legend>Allow</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.AllowPurchase)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.AllowPurchase)
+                @Html.ValidationMessageFor(model => model.AllowPurchase)
+            </div>
+            
+        </fieldset>
+        <br style="clear: both"/>
+        <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Submit" type="submit" value="Save" class="button-style-one" />
+        </fieldset>
+    }
+</div>
+
+

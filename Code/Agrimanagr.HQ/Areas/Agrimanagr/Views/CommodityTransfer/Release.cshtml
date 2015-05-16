@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Release";
+}
+
+<div ng-app="CommodityReleaseApp">
+    <script src="@Url.Content("~/JS/angular.js")"></script>
+    <script src="@Url.Content("~/JS/angular-route.js")"></script>
+    <script src="@Url.Content("~/JS/angular-resource.js")"></script>
+    <script src="@Url.Content("~/JS/release.js")"></script>
+
+    <script src="@Url.Content("~/Content/bootstrap/js/bootstrap.js")"></script>
+
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap-theme.css")" rel="stylesheet" />
+
+    <script type="text/ng-template" id="release.html">
+        <div>
+            {{message}}
+        </div>
+        <div class="panel panel-default" style="margin: 0 5%">
+            <div class="panel-heading">Commodity Release</div>
+            <div class="panel-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon">Store</span>
+                                <select class="form-control" ng-model="store" ng-change="storeChanged()" ng-options="store.Name for store in stores">
+                                    <option value="">---Select Store---</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon">Commodity</span>
+                                <select class="form-control" ng-change="commodityChanged()" ng-disabled="store == 0" ng-options="commodity.Name for commodity in commodities" ng-model="commodity">
+                                    <option value="">---Select Commodity---</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon">Grade</span>
+                                <select class="form-control" ng-change="gradeChanged()" ng-disabled="commodity == 0" ng-model="grade" ng-options="grade.Name for grade in grades">
+                                    <option value="">---Select Grade---</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="item in lineItems" style="height : 40px">
+                                <div class="col-sm-1"><input type="checkbox" ng-model="item.IsSelected" /></div>
+                                <div class="col-md-5">{{item.BatchNo}}</div>
+                                <div class="col-sm-2">{{item.Commodity.Name}}</div>
+                                <div class="col-sm-3">{{item.Grade.Name}}</div>
+                                <div class="col-sm-1">{{item.Weight}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="row" ng-show="lineItemsStatus">
+                        <div class="col-lg-2 col-lg-offset-2">
+                            <div class="btn-group">
+                                <button class="btn btn-default" ng-click="release()">Release</button>
+                                <button class="btn btn-danger">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <div data-ng-view="">
+
+    </div>
+</div>

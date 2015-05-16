@@ -1,0 +1,96 @@
+﻿@using Distributr.HQ.Lib.Helper
+@model Distributr.HQ.Lib.ViewModels.Agrimanagr.CostCentreViewModel.HubViewModel
+@{
+    ViewBag.Title = Html.GetText("hq.hub.form.title.edit");
+    var save = Html.GetText("hq.hub.form.action.save");
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<h2 id="breadcrumb-holder">@Html.GetText("hq.gsettings") &gt;  <span class="bc-example">
+    @Html.ActionLink(Html.GetText("hq.hub.form.breadcrumb.view"), "ListHubs")</span> &gt; 
+    @Html.GetText("hq.hub.form.breadcrumb.edit")</h2>
+
+<div id="main-content-housing">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div id="primary-controls">
+            <fieldset>
+                <legend>@Html.GetText("hq.hub.form.details.edit")</legend>
+                <table class="detail-arrange">
+                    @Html.HiddenFor(model => model.Id)
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.Name)</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.CostCentreCode)</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.CostCentreCode)
+                            @Html.ValidationMessageFor(model => model.CostCentreCode)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.RegionId)</strong></td>
+                            @if (Model.CanEditHubRegion)
+                            {
+                                <td>
+                                    @Html.DropDownListFor(model => model.RegionId, new SelectList(ViewBag.RegionList, "Key", "Value"), "----Select Region----")
+                                    @Html.ValidationMessageFor(model => model.RegionId)
+                                </td>
+                            }
+                            else
+                            {
+                                @Html.HiddenFor(model => model.RegionId);
+                                <td style="padding-top: 12px;"><strong>@Html.TextBoxFor(model => model.RegionName, new {@readonly=true})</strong></td>
+                            }
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.VatRegistrationNo)</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.VatRegistrationNo)
+                            @Html.ValidationMessageFor(model => model.VatRegistrationNo)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.Longitude)</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.Longitude)
+                            @Html.ValidationMessageFor(model => model.Longitude)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.Latitude)</strong></td>
+                    
+                        <td>
+                            @Html.EditorFor(model => model.Latitude)
+                            @Html.ValidationMessageFor(model => model.Latitude)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.LabelFor(model => model.ParentCostCentreId)</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.ParentCostCentreId, new SelectList(ViewBag.ParentCostCentreList, "Key", "Value"),Html.GetText("hq.hub.form.selectparentccprompt") )
+                            @Html.ValidationMessageFor(model => model.ParentCostCentreId)
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset class="actions">
+                <legend>Actions</legend>
+                <input name="Create" type="submit" value=save class="button-style-one"/>
+            </fieldset>
+            </div>
+            
+            }
+        </div>

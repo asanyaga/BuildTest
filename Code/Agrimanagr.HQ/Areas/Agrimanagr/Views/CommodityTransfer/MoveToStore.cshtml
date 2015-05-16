@@ -1,0 +1,97 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Agrimanagr.CommodityTransferViewModel.CommodityTransferStoreAssignmentViewModel
+
+@{
+    ViewBag.Title = "Move Commodity Inventory To Store";
+}
+
+
+<h2 id="breadcrumb-holder">Transfer &gt;<span class="bc-example">
+    @Html.ActionLink("Commodity Transfer List", "List")</span>&gt; Assign Store</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<div id="main-content-housing">
+    @using (Html.BeginForm())
+    {
+        if (!Html.ViewData.ModelState.IsValid)
+        {
+        <div class="notice-notification">
+            @Html.ValidationSummary()
+        </div>
+        }
+        
+        <div id="primary-controls">
+            <fieldset>
+                <legend>Assign Store</legend>
+                <table class="detail-arrange">
+                    @Html.HiddenFor(model => model.Id)
+                    <tr>
+                        <td style="padding-top: 12px;">
+                            <strong>@Html.LabelFor(model => model.StoreId)</strong>
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.StoreId, new SelectList(ViewBag.CommodityTypeList as System.Collections.IEnumerable, "Key", "Value"),
+                                                  "----------------- Select Store ---------------------"
+                                 )
+                            @Html.ValidationMessageFor(model => model.StoreId)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;">
+                            <strong>@Html.LabelFor(model => model.Note.HubName)</strong>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Note.HubName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;">
+                            <strong>@Html.LabelFor(model => model.Note.TransferDate)</strong>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model =>  model.Note.TransferDate)
+                        </td>
+                    </tr>
+                    
+                </table>
+                
+            </fieldset>
+            <fieldset>
+                <legend>Items</legend>
+                <table id="tablesorter-demo" class="tablesorter">
+                    <tr>
+                        <td style="padding-top: 12px; padding-right: 2px">
+                            <strong> Commodity Name</strong>
+                        </td>
+                        <td style="padding-top: 12px; padding-right: 2px">
+                            <strong>Grade Name</strong>
+                        </td>
+                        <td style="padding-top: 12px; padding-right: 2px">
+                            <strong>Weight</strong>
+                        </td>
+                    </tr>
+                    @foreach(var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CommodityName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CommodityGradeName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Weight)
+                            </td>
+                        </tr>
+                    }
+                             
+                </table>
+            </fieldset>
+            
+            <fieldset class="actions">
+                <legend>Actions</legend>
+                <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            </fieldset>
+        </div>
+    }
+</div>

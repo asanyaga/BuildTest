@@ -1,0 +1,142 @@
+﻿@using Distributr.HQ.Lib.Helper
+<h2 id="breadcrumb-holder">Dashboard <span class="bc-example-intro"></span></h2>
+<div id="main-content-housing">
+    <div id="homepage-dashboard">
+        <fieldset>
+            <legend>@Html.GetText("hq.dashboard.container")</legend>
+            <div class="home-item">
+                <span class="icons global"></span>
+                <h2 class="dash-headers ">@Html.GetText("hq.globalsettings")</h2>
+                <ul>
+                    <li><a href="@Url.Content("~/Agrimanagr/Country/ListCountry")">@Html.GetText("hq.globalsettings.countries")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Region/ListRegion")">@Html.GetText("hq.globalsettings.regions")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Hub/ListHubs")">@Html.GetText("hq.globalsettings.hubs")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Store/ListStores")">@Html.GetText("hq.globalsettings.stores")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/CommoditySupplier/ListCommoditySuppliers")">@Html.GetText("hq.globalsettings.commoditysuppliers")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/CentreType/ListCentreTypes")">@Html.GetText("hq.globalsettings.centretypes")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Centre/ListCentres")">@Html.GetText("hq.globalsettings.buyingcentremngt")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Route/ListRoutes")">@Html.GetText("hq.globalsettings.routesmngt")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Bank/ListBanks")">@Html.GetText("hq.globalsettings.bankmngt")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/BankBranch/ListBankBranches")">@Html.GetText("hq.globalsettings.bankbranchmngt")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Settings/Settings")">@Html.GetText("hq.globalsettings.settings")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Settings/ReportSetting")">@Html.GetText("hq.globalsettings.reportsettings")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Settings/notificationSetting")">Notification Settings</a></li>
+                </ul>
+            </div>
+            <div class="home-item">
+                <span class="icons products"></span>
+                <h2 class="dash-headers ">@Html.GetText("hq.commodity")</h2>
+                <ul>
+                    <li><a href="@Url.Content("~/Agrimanagr/CommodityType/ListCommodityTypes")">@Html.GetText("hq.commodity.commoditype")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Commodity/List")">@Html.GetText("hq.commodity.commodities")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/CommodityOwnerType/ListCommodityOwnerTypes")">@Html.GetText("hq.commodity.commodityownertypes")</a></li>
+                </ul>
+                <span class="icons products"></span>
+                <h2 class="dash-headers ">@Html.GetText("hq.asset")</h2>
+                <ul>
+                    <li><a href="@Url.Content("~/Agrimanagr/SourcingContainer/ListContainers")">@Html.GetText("hq.asset.containers")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/ContainerType/ListContainerTypes")">@Html.GetText("hq.asset.containertypes")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Printer/ListPrinters")">@Html.GetText("hq.asset.printers")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/WeighScale/ListWeighScales")">@Html.GetText("hq.asset.weighscales")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Vehicle/ListVehicles")">@Html.GetText("hq.asset.vehicles")</a></li>
+                </ul>
+                <span class="icons products"></span>
+                <h2 class="dash-headers ">@Html.GetText("hq.product.productpricing")</h2>
+                <ul>
+                    
+                    <li><a href="@Url.Content("~/Agrimanagr/Supplier/Index")">@Html.GetText("hq.supplier")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/ProductBrand/Index")">@Html.GetText("hq.productbrand")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/ProductFlavour/Index")">@Html.GetText("hq.productflavour")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/ProductType/Index")">@Html.GetText("hq.producttype")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Product/Index")">@Html.GetText("hq.product")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/ProductPackaging/Index")">@Html.GetText("hq.productpackaging")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/ProductPackagingType/Index")">@Html.GetText("hq.productpackagingtype")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/VATClass/Index")">@Html.GetText("hq.vatclass")</a></li>
+                </ul>
+
+                <span class="icons products"></span>
+                <h2 class="dash-headers ">@Html.GetText("hq.farmactivities")</h2>
+                <ul>
+                    <li><a href="@Url.Content("~/Agrimanagr/ActivityType/Index")">@Html.GetText("hq.farmactivities.activitytype")</a></li>
+                   
+                    <li><a href="@Url.Content("~/Agrimanagr/ServiceProvider/Index")">@Html.GetText("hq.farmactivities.serviceproviders")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/CommodityProducerService/Index")">@Html.GetText("hq.farmactivities.commodityproducerservices")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Season/Index")">@Html.GetText("hq.farmactivities.seasons")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Shift/Index")">@Html.GetText("hq.farmactivities.shifts")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/Infection/Index")">@Html.GetText("hq.farmactivities.infections")</a></li>
+                </ul>
+            </div>
+            <!-- end of div.home-item -->
+            <div class="home-item">
+                <span class="icons system"></span>
+                <h2 class="dash-headers ">@Html.GetText("hq.systemngt")</h2>
+                <ul>
+                    <li><a href="@Url.Content("~/Agrimanagr/Account/ListAllUsers")">@Html.GetText("hq.systemngt.managehqusers")</a></li>
+                    <li><a href="@Url.Content("~/Agrimanagr/AgriUser/ListAgriUsers")">@Html.GetText("hq.systemngt.managehubusers")</a></li>
+                </ul>
+            </div>
+            <br class="clear-left" />
+        </fieldset>
+        @*   
+                                 <fieldset>
+                            <legend>Reports</legend>
+                           <div class="home-item">
+                            <span class="icons orders"></span><h2 class="dash-headers ">Orders</h2>
+                                    <ul>
+                                    	<li><a href="@Url.Content("~/Reports/Order/OrdersSummary.aspx")">Orders Summary</a></li>
+                                        <li><a href="@Url.Content("~/Reports/OrdersBrand.aspx")">Orders By Brand</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Order/Orders.aspx")">Orders By Distributor</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Order/OrderFlavor.aspx")">Orders By Sub-Brand</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Order/OrderPackaging.aspx")">Orders By Packaging</a></li>
+                                    </ul>
+                                </div><!-- end of div.home-item -->
+                                
+                                <div class="home-item">
+                                  <span class="icons outstanding-bal"></span><h2 class="dash-headers ">Sales</h2>
+                                	
+                                    <ul>
+                                    
+                                    	<li><a href="@Url.Content("~/Reports/Sales/SalesSummary.aspx")">Sales Summary</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Sales/SalesBrand.aspx")">Sales By Brand</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Sales/Sales.aspx")">Sales By Distributor</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Sales/SalesFlavour.aspx")">Sales By Sub-Brand</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Sales/SalesPackaging.aspx")">Sales By Packaging</a></li>
+                                    </ul>
+                                </div><!-- end of div.home-item -->
+                                <div class="home-item">
+                                  <span class="icons reports"></span><h2 class="dash-headers ">Inventory</h2>
+                                	
+                                    <ul>
+                                   
+                                    	<li><a href="@Url.Content("~/Reports/Stock/StockSummary.aspx")">Stock Summary</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Stock/StockBrand.aspx")">Stock By Brand</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Stock/StockDistributor.aspx")">Stock By Distributor</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Stock/StockFlavor.aspx")">Stock By Sub-Brand</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Stock/StockPackaging.aspx")">Stock By Packaging</a></li>
+                                    
+                                     <li><a href="@Url.Content("~/PullMasterData/ViewCommoditiesReport")">ViewCommoditiesReport</a></li>
+                                                                        
+                                     <!--
+                                        <li><a href="@Url.Content("~/Reports/Location/Country")">Country</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Location/Areas")">Area</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Location/Districts")">Districts</a></li>
+                                        <li><a href="@Url.Content("~/Reports/Location/Divisions")">Divisions</a></li>                                       
+                                       
+                                        <li><a href="@Url.Content("~/Reports/CostCentre/FarmersDeliveries")">Farmers Deliveries</a></li>
+                                        <li><a href="@Url.Content("~/Reports/CostCentre/FarmersProduction")">Farmers Production</a></li>
+                                        <li><a href="@Url.Content("~/Reports/CostCentre/FarmersAnalysis")">Farmers Analysis</a></li>
+                                        <li><a href="@Url.Content("~/Reports/CostCentre/FarmersRegistrationAnalysis")">Farmers Registration Analysis</a></li>
+                                        <li><a href="@Url.Content("~/Reports/CostCentre/FarmersListing ")">Farmers Listing </a></li>
+                                        <li><a href="@Url.Content("~/Reports/CostCentre/FarmersYield ")">Farmers Yield </a></li>
+                                        <li><a href="@Url.Content("~/Reports/CostCentre/NewFarmers ")">New Farmers</a></li>
+                                        <li><a href="@Url.Content("~/Reports/CostCentre/DailyTotals ")">Daily Totals</a></li>
+                                         <li><a href="@Url.Content("~/Reports/CostCentre/BuyingCentreProductionProductivity ")">Buying Centre Production Productivity</a></li>
+                                        
+                                  -->
+                                    </ul>
+                                    </div>
+                            </fieldset>*@
+    </div>
+    <!-- end of div#homepage-dashboard -->
+</div>
+

@@ -1,0 +1,55 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Agrimanagr.CostCentreViewModel.CommodityProducerViewModel
+
+@{
+    ViewBag.Title = "DetailsCommodityProducer";
+}
+
+<h2>Commodity Producer Details</h2>
+
+<fieldset>
+    <legend>Commodity Producer</legend>
+
+    <div class="display-label">Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code)
+    </div>
+
+    <div class="display-label">Acrage</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Acrage)
+    </div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">RegNo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegNo)
+    </div>
+
+    <div class="display-label">RegionId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegionId)
+    </div>
+
+    <div class="display-label">PhysicalAddress</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhysicalAddress)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">CommoditySupplierId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CommoditySupplierId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditCommodityProducer", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "ListCommodityProducers")
+</p>

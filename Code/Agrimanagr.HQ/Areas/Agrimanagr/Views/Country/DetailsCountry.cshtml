@@ -1,0 +1,22 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CostCenter.CountryViewModel
+
+@{
+    ViewBag.Title = "DetailsCountry";
+}
+
+<h2>DetailsCountry</h2>
+
+<fieldset>
+    <legend>CountryViewModel</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">isActive</div>
+    <div class="display-field">@Model.isActive</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditCountry", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "ListCountry")
+</p>
+

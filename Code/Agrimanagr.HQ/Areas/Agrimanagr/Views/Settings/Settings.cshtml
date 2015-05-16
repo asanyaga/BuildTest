@@ -1,0 +1,172 @@
+﻿@using System.Web.UI.WebControls
+@model Distributr.HQ.Lib.ViewModels.Agrimanagr.SettingsViewModel.AgrimanagrSettingsViewModel
+
+@{
+    ViewBag.Title = "Settings Details";
+}
+
+<h2 id="breadcrumb-holder">
+Global Settings &gt; Settings
+</h2>
+<div id="main-content-housing">
+<h2 class="page-header">
+        Settings Details</h2>
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <div id="primary-control">
+<fieldset>
+<legend>Settings</legend>
+<table class="detail-arrange">
+    <tr><td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.CompanyName)</strong></td>
+        <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.CompanyName)</span> 
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.CompanyName)</span> 
+        </td>
+    </tr>
+<tr>
+    <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.CompanyDetails)</strong></td>
+    <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.CompanyDetails)</span> 
+        <span class="inline-error">  @Html.ValidationMessageFor(model => model.CompanyDetails)</span> 
+    </td>
+</tr>
+<tr>
+    <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.ShowDispatchPage)</strong></td>
+    <td><span  class="text-box-cshtml" style=""> @Html.EditorFor(model => model.ShowDispatchPage)</span> 
+        <span class="inline-error">  @Html.ValidationMessageFor(model => model.ShowDispatchPage)</span> 
+    </td>
+</tr>
+<tr>
+    <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.ShowServiceProvderOnPurchase)</strong></td>
+    <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.ShowServiceProvderOnPurchase)</span> 
+        <span class="inline-error">  @Html.ValidationMessageFor(model => model.ShowServiceProvderOnPurchase)</span> 
+    </td>
+</tr>
+<tr>
+    <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.ShowDeliveryDetails)</strong></td>
+    <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.ShowDeliveryDetails)</span> 
+        <span class="inline-error">  @Html.ValidationMessageFor(model => model.ShowDeliveryDetails)</span> 
+    </td>
+</tr>
+<tr>
+    <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.ShowLoadingDetails)</strong></td>
+    <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.ShowLoadingDetails)</span> 
+        <span class="inline-error">  @Html.ValidationMessageFor(model => model.ShowLoadingDetails)</span> 
+    </td>
+</tr>
+<tr>
+    <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.Traceable)</strong></td>
+    <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.Traceable)</span> 
+        <span class="inline-error">  @Html.ValidationMessageFor(model => model.Traceable)</span> 
+    </td>
+</tr>
+<tr>
+    <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.ShowDeliveredBy)</strong></td>
+    <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.ShowDeliveredBy)</span> 
+        <span class="inline-error">  @Html.ValidationMessageFor(model => model.ShowDeliveredBy)</span> 
+    </td>
+</tr>
+
+ <tr>
+    <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.WeighingContainerForStorage)</strong></td>
+    <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.WeighingContainerForStorage)</span> 
+        <span class="inline-error">  @Html.ValidationMessageFor(model => model.WeighingContainerForStorage)</span> 
+    </td>
+</tr>       
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.EnforceNoOfContainers)</strong></td>
+        <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.EnforceNoOfContainers)</span> 
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.EnforceNoOfContainers)</span> 
+        </td>
+    </tr>  
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.EnforceWeighingOnReception)</strong></td>
+        <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.EnforceWeighingOnReception)</span> 
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.EnforceWeighingOnReception)</span> 
+        </td>
+    </tr> 
+    <tr>
+    <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.NotificationOnWeighing)</strong></td>
+    <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.NotificationOnWeighing)</span> 
+        <span class="inline-error">  @Html.ValidationMessageFor(model => model.NotificationOnWeighing)</span> 
+    </td>
+</tr>    
+<tr>
+    <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.LoadBatches)</strong></td>
+    <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.LoadBatches)</span> 
+        <span class="inline-error">  @Html.ValidationMessageFor(model => model.LoadBatches)</span> 
+    </td>
+</tr> 
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.SetPurchasingClerkAsDriver)</strong></td>
+        <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.SetPurchasingClerkAsDriver)</span> 
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.SetPurchasingClerkAsDriver)</span> 
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.AllowManualEntryOfWeight)</strong></td>
+        <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.AllowManualEntryOfWeight)</span> 
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.AllowManualEntryOfWeight)</span> 
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.ShowCumulativeWeightsOnReceipts)</strong></td>
+        <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.ShowCumulativeWeightsOnReceipts)</span> 
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.ShowCumulativeWeightsOnReceipts)</span> 
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.EnforceVehicleMileageAndTime)</strong></td>
+        <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.EnforceVehicleMileageAndTime)</span> 
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.EnforceVehicleMileageAndTime)</span> 
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.EnforceGps)</strong></td>
+        <td>
+            <span class="text-box-cshtml"> @Html.EditorFor(model => model.EnforceGps)</span>
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.EnforceGps)</span>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.RestrictPurchaseFromSubsequentCentres)</strong></td>
+        <td>
+            <span class="text-box-cshtml"> @Html.EditorFor(model => model.RestrictPurchaseFromSubsequentCentres)</span>
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.RestrictPurchaseFromSubsequentCentres)</span>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.EnforcePasswordChange)</strong></td>
+        <td>
+            <span class="text-box-cshtml"> @Html.EditorFor(model => model.EnforcePasswordChange)</span>
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.EnforcePasswordChange)</span>
+        </td>
+    </tr>
+    
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.EnforceTransactionalWeightLimit)</strong></td>
+        <td>
+            <span class="text-box-cshtml"> @Html.EditorFor(model => model.EnforceTransactionalWeightLimit)</span>
+            <span class="text-box-cshtml smalltext"> @Html.Label("Min")</span>
+            <span class="text-box-cshtml small" style="max-width: 5px"> @Html.EditorFor(model => model.MinimumWeightLimit)</span>
+            <span class="text-box-cshtml smalltext"> @Html.Label("Max")</span>
+            <span class="text-box-cshtml small" style="max-width: 5px"> @Html.EditorFor(model => model.MaximumWeightLimit)</span>
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.EnforceTransactionalWeightLimit)</span>
+        </td>
+    </tr>
+</table><!-- end of detail-arrange -->
+        </fieldset>
+   <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            <input name="Create" type="reset" value="Clear" class="button-style-one"/>
+    </fieldset>
+ </div><!-- end of div#pr-->
+ }
+</div>

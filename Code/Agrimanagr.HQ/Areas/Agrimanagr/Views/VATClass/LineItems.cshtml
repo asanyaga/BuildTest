@@ -1,0 +1,55 @@
+﻿@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels.Admin.CostCenter
+@model VATClassViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+    @Html.ActionLink(Html.GetText("hq.vatrate.form.breadcrumb.view"), "Index")</span> &gt; 
+    @Html.GetText("hq.vatrate.form.breadcrumb.edit")</h2>
+
+<div id="main-content-housing">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div id="primary-controls">
+            <fieldset>
+                <legend>@Html.GetText("hq.vatrate.form.details.edit")</legend>
+                <table class="detail-arrange">
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model=>model.Name)
+                    @Html.HiddenFor(model=>model.VatClass)
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.vatrate.rate")</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.Rate)
+                            @Html.ValidationMessageFor(model => model.Rate)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.vatrate.effectivedate")</strong></td>
+                        <td>
+                            @Html.TextBox("EffectiveDate", Model.EffectiveDate.HasValue?Model.EffectiveDate.Value.ToString("MM/dd/yyyy"):DateTime.Now.ToString("MM/dd/yyyy"), new { @Id = "effectivedate" })
+                            @Html.ValidationMessageFor(model => model.EffectiveDate)
+                        </td>
+                    </tr>
+                    
+                </table>
+            </fieldset>
+             <fieldset class="actions">
+                <legend>Actions</legend>
+                 <input name="Create" id="buttonId" onclick="javascript: onSubmitButtonClick(); return true;" type="submit" value="Save" class="button-style-one" />
+                 <input name="Clear" type="reset" value="Clear" class="button-style-one"/>
+            </fieldset>
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    $(function() {
+        $('#effectivedate').datepicker();
+    });
+</script>
+

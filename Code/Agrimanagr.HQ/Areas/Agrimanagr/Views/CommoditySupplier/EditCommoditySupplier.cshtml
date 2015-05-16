@@ -1,0 +1,170 @@
+﻿@using Distributr.HQ.Lib.Helper
+@model Distributr.Core.MasterDataDTO.DTOModels.AgrimanagrDTO.CommodityDTOs.CommoditySupplierDTO
+@{
+    ViewBag.Title = Html.GetText("hq.commoditySupplier.form.title.edit");
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".date").datepicker({ dateFormat: 'dd/mm/yy' });
+    });
+</script>
+<h2 id="breadcrumb-holder">
+    GLOBAL SETTINGS &gt;  <span class="bc-example">
+        @Html.ActionLink(Html.GetText("hq.commoditySupplier.form.breadcrumb.view"), "ListCommoditySuppliers")
+    </span> &gt;
+    @Html.GetText("hq.commoditySupplier.form.breadcrumb.edit")
+</h2>
+
+<div id="main-content-housing">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div id="primary-controls">
+            <fieldset>
+                <legend>@Html.GetText("hq.asset.form.details.edit")</legend>
+                <table class="detail-arrange">
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.name") :</strong></td>
+                        <td>
+                            @Html.HiddenFor(model=>model.MasterId)
+                            @Html.EditorFor(model => model.Name, new { @id = "Name" })
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.CostCentreCode") :</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.CostCentreCode, new { @id = "Name" })
+                            @Html.ValidationMessageFor(model => model.CostCentreCode)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.AccountNo") :</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.AccountNo, new { @id = "Name" })
+                            @Html.ValidationMessageFor(model => model.AccountNo)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.PinNo") :</strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.PinNo, new { @id = "Name" })
+                            @Html.ValidationMessageFor(model => model.PinNo)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.BankName")</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.BankId, new SelectList(ViewBag.Banks, "Key", "Value"), "----Select Bank ----")
+                            @Html.ValidationMessageFor(model => model.BankId)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.BankBranchName")</strong></td>
+                        <td>
+                            @if (Model.BankBranchId != Guid.Empty)
+                            {
+                                @Html.DropDownListFor(model => model.BankBranchId, new SelectList(ViewBag.BankBranches, "Key", "Value"), "----Select Branch ----", new { id = "cmbBankBranch" })
+
+                                @Html.ValidationMessageFor(model => model.BankBranchId)
+                            }
+                            else
+                            {
+                                @Html.DropDownListFor(n => n.BankBranchId, new SelectList(Enumerable.Empty<SelectListItem>(), "Id", "Name"), "---Select Branch---", new { id = "cmbBankBranch" })
+                                @Html.ValidationMessageFor(model => model.BankBranchId)
+                            }
+
+                        </td>
+                    </tr>
+                    @* <tr>
+                            <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.BankName") :</strong></td>
+                            <td>
+                                @Html.EditorFor(model => model.BankName, new { @id = "Name" })
+                                @Html.ValidationMessageFor(model => model.BankName)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.BankBranchName") :</strong></td>
+                            <td>
+                                @Html.EditorFor(model => model.BankBranchName, new { @id = "Name" })
+                                @Html.ValidationMessageFor(model => model.BankBranchName)
+                            </td>
+                        </tr>*@
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.ParentCostCentreId")</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.ParentCostCentreId, new SelectList(ViewBag.ParentCostCentreList, "Key", "Value"), "----Select parent Costcenter----")
+                            @Html.ValidationMessageFor(model => model.ParentCostCentreId)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.CommoditySupplierType")</strong></td>
+                        <td>
+                            @Html.DropDownListFor(model => model.CommoditySupplierTypeId, new SelectList(ViewBag.CommoditySupplierTypeList, "Key", "Value"), "----Select Commodity supplier type----")
+                            @Html.ValidationMessageFor(model => model.CommoditySupplierTypeId)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.commoditySupplier.JoinDate") </strong></td>
+                        <td>
+                            @Html.EditorFor(model => model.JoinDate, new { @class = "date" })
+                            @Html.ValidationMessageFor(model => model.JoinDate)
+                        </td>
+                    </tr>
+                </table>
+
+            </fieldset>
+            <fieldset class="actions">
+                <legend>Actions</legend>
+                <input name="Create" type="submit" value="Save" class="button-style-one" />
+            </fieldset>
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+
+    $("#BankId").change(function () {
+        debugger;
+        var bankId = $(this).val();
+
+        $.getJSON('@Url.Action("LoadBankBranch")', { bankId: bankId },
+            function (myData) {
+                var select = $("#cmbBankBranch");
+                select.empty();
+                $.each(myData, function (index, itemData) {
+                    select.append($('<option/>', {
+                        value: itemData.Value,
+                        text: itemData.Text
+                    }));
+                });
+            });
+    });
+
+    //$("#BankId").change(function () {
+    //    debugger;
+    //    var bankId = $(this).val();
+
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "CommoditySupplier/LoadBankBranch",
+    //        data:{bankId:bankId},
+    //        contentType: "application/json; charset=utf-8",
+    //        dataType:"json",
+    //        success:function (myData) {
+    //            var select = $("#cmbBankBranch");
+    //            select.empty();
+    //            $.each(myData, function (index, itemData) {
+    //                select.append($('<option/>', {
+    //                    value: itemData.Value,
+    //                    text: itemData.Text
+    //                }));
+    //            });
+    //        }
+    //    });
+   // });
+</script>

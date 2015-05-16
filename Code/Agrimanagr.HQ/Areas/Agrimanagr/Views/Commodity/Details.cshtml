@@ -1,0 +1,50 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Agrimanagr.CommodityViewModel.CommodityViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CommodityViewModel</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">CommodityTypeId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CommodityTypeId)
+    </div>
+
+    <div class="display-label">CommodityTypeName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CommodityTypeName)
+    </div>
+
+    <div class="display-label">Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">CommodityGradeName</div>
+    
+    <div class="display-label">Active</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Active)
+    </div>
+
+    <div class="display-label">CurrentPage</div>
+   
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,160 @@
+﻿@using Distributr.Core.Domain.Master
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@model IPagedList<Distributr.Core.Domain.Master.FarmActivities.Season>
+
+@{
+    ViewBag.Title = @Html.GetText("hq.season.listing.title");
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string season = ViewBag.srchParam;
+}
+<h2 id="breadcrumb-holder">Global Settings &nbsp;&gt; @Html.GetText("hq.season.breadcrumb") &gt; 
+    @Html.GetText("hq.season.listing.breadcrumb")</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">@Html.GetText("hq.season.listing.heading")</h2>
+    <div id="primary-controls"></div>
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    @using (Html.BeginForm("Index"))
+    {
+
+        <fieldset>
+            <legend>@Html.GetText("hq.season.listing.search")</legend>
+            <div class="criteria-div">
+
+            <span class="text-box-cshtml">@Html.TextBox("season", season)</span>
+                     @*<input name="srchparam" type="text" id="srchParam" />*@
+                <input name="srch" type="button" value="Search" class="button-style-one" id="search"/>
+                <input name="srch" type="submit" value="Clear" class="button-style-one" id="clear"/>
+               
+            </div>
+
+            <div class="show-inactive">
+                Show Inactive  <input name="showInactive" type="checkbox" id="show_inactive" checked=@ViewBag.showInactive/>
+                <script type="text/javascript">
+
+                    $("#show_inactive").change(function (e) {
+
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+                        
+                    });
+                    
+                    $('#search').click(function () {
+                        //window.location =  "Index?showInactive=" + $('#show_inactive').is(':checked') + "&srchParam=" + $('#srchParam').val();
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&srchParam=" + $('#season').val();
+                    });
+                    $('#clear').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + $('#season').val("");
+
+                    });
+                   
+                   
+                </script>
+            </div>
+            <br class="clear-all" />
+        </fieldset>
+    }
+
+    <fieldset class="actions">
+        <legend>Actions</legend>
+        <div class="button-style-two-cshtml">@Html.ActionLink(Html.GetText("hq.season.listing.add"), "Edit")</div>
+    </fieldset>
+    
+    <div class="table-container">
+        <table id="tablesorter-demo" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.GetText("hq.season.code")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.season.name")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.season.commodityproducer")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.season.startdate")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.season.enddate")
+                    </th>
+                    
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @(item.CommodityProducer != null ? Html.DisplayFor(modelItem => item.CommodityProducer.Name) : Html.Display(" "))
+                          
+                        </td>
+                        <td>
+                             @item.StartDate.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.EndDate.ToString("dd/MM/yyyy")
+                        </td>
+                        
+                        
+
+                        <td>
+                            @{
+                    if (item._Status == EntityStatus.Active)
+                    {
+                       <text> @Html.ActionLink("Edit","Edit", new { id = item.Id })  </text>
+                                <text>|</text>
+                                <text>
+                                @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id },
+                                                     new { onclick = "return confirm('Are you sure you want to deactivate Season " + item.Name + "')" })
+                                </text>
+                                <text>|</text>
+                                <text>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                                                     new { onclick = "return confirm('Are you sure you want to delete Season  " + item.Name + "')" })
+                                </text>
+                    }
+                    else
+                    {
+                                <text>
+                                @Html.ActionLink("Activate", "Activate", new { id = item.Id },
+                                                     new { onclick = "return confirm('Are you sure you want to activate Season " + item.Name + "')" })
+                                </text>
+                
+                                <text>|</text>
+                                <text>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                                                     new { onclick = "return confirm('Are you sure you want to delete Season " + item.Name + "')" })
+                                </text>
+                     
+                    }
+                            }
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="pager">
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new { showInactive, srchParam = season })
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+    </div>
+</div>
+

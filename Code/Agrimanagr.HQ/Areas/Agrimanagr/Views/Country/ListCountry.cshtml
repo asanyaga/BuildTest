@@ -1,0 +1,129 @@
+﻿@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.CostCenter.CountryViewModel>
+@{
+    ViewBag.Title = Html.GetText("hq.country.listing.title");
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+   /* var search = @Html.GetText("hq.country.listing.textbox.search");
+    var clear = @Html.GetText("hq.country.listing.textbox.clear");*/
+    string searchText = ViewBag.srchparam;
+}
+<h2 id="breadcrumb-holder">
+    @Html.GetText("hq.gsettings") &gt; @Html.GetText("hq.country.listing.breadcrumb")</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">@Html.GetText("hq.country.listing.heading")</h2>
+    <div id="primary-controls">
+    </div>
+    <!-- end of div#primary-controls -->
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    @using (Html.BeginForm("ListCountry", "Country"))
+    {
+        
+        <fieldset>
+            <legend>@Html.GetText("hq.country.listing.search")</legend>
+            <div class="criteria-div">
+                <span class="text-box-cshtml">@Html.TextBox("srchparam", searchText)</span>
+                <input name="srch" type="button"id="search" value=search class="button-style-one" />
+                <input name="srch" type="submit" value=clear class="button-style-one" id="clear" />
+            </div>
+            <div class="show-inactive">
+                @* @Html.GetText("hq.country.listing.showinactive") @Html.CheckBox("show_inactive", showInactive)*@
+                 Show Inactive @Html.CheckBox("show_inactive", showInactive)
+                <script type="text/javascript">
+
+                    $("#show_inactive").change(function (e) {
+
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+                    });
+
+                    $('#search').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&srchparam=" + $('#srchparam').val();
+
+                    });
+                    $('#clear').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + $('#srchparam').val("");
+
+                    });
+
+
+
+                </script>
+            </div>
+            <br class="clear-all" />
+        </fieldset>
+    }
+    <fieldset class="actions">
+        <legend>@Html.GetText("hq.country.listing.actions")</legend>
+        <div class="button-style-two-cshtml">@Html.ActionLink(Html.GetText("hq.country.listing.add"), "CreateCountry")</div>
+    </fieldset>
+    <div class="table-container">
+        <table width="800px" id="tablesorter-demo" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.GetText("hq.region.country")
+                    </th>
+                    <th>@Html.GetText("hq.region.countrycode")
+                    </th>
+                    <th>@Html.GetText("hq.region.currency")
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>@item.Code
+                        </td>
+                        <td>@item.Currency
+                        </td>
+                        <td>
+                            @{
+                    if (item.isActive == true)
+                    {   <text>@Html.ActionLink(Html.GetText("hq.country.edit"), "EditCountry", new { id = item.id })</text>
+                                <text>|</text>
+                        
+                                @Html.ActionLink(Html.GetText("hq.country.deactivate"), "Deactivate", new { id = item.id },
+                        new { onclick = "return confirm('Are you sure you want to deactivate " + item.Name + "?')" })
+						<text>|</text>
+
+								@Html.ActionLink(Html.GetText("hq.country.delete"), "Delete", new { id = item.id },
+						new { onclick = "return confirm('Are you sure you want to delete " + item.Name + "?')" })
+
+					}
+					else
+					{
+                                <text>@Html.ActionLink(Html.GetText("hq.country.activate"), "Activate", new { id = item.id, name = item.Name })</text>
+                                <text>|</text>
+
+								@Html.ActionLink(Html.GetText("hq.country.delete"), "Delete", new { id = item.id },
+                        new { onclick = "return confirm('Are you sure you want to delete " + item.Name + "?')" })
+                                
+                    }                            
+					
+					}
+                        </td>
+                    </tr>
+                }</tbody>
+        </table>
+        <br />
+        <div class="pager">
+            @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new {showInactive, srchparam=searchText })
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+        </div>
+    </div>
+</div>

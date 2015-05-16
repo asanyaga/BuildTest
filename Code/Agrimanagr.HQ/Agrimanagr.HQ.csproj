@@ -1,0 +1,836 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D6832D16-16B4-457B-824E-0E3B2910CD3F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Agrimanagr.HQ</RootNamespace>
+    <AssemblyName>Agrimanagr.HQ</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EasyNetQ">
+      <HintPath>..\packages\EasyNetQ.0.9.2.65\lib\net40\EasyNetQ.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Reporting\11\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Reporting\11\Microsoft.ReportViewer.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SquishIt.Framework, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\SquishIt\SquishIt.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\ApiCommodityTransferController.cs" />
+    <Compile Include="API\BaseApiController.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\AgrimanagrRpt\AgrimanagrRptAreaRegistration.cs" />
+    <Compile Include="Areas\AgrimanagrRpt\Controllers\ProducePurchaseController.cs" />
+    <Compile Include="Areas\AgrimanagrRpt\Controllers\ReportsDashboardController.cs" />
+    <Compile Include="Areas\Agrimanagr\AgrimanagrAreaRegistration.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\AgriUserGroupController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\FarmActivities\ActivityController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\FarmActivities\ActivityTypeController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\AgriMainController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\AgriUserController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\BankBranchController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\BankController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CentreControllers\CentreController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CentreControllers\CentreTypeController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CentreControllers\StoreController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CommodityController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CommodityOwnerController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CommodityOwnerTypeController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CommodityProducerController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CommoditySupplierController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CommodityTransferController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CommodityTransferDetailsController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CommodityTypeController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\Contact\ContactController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\Contact\ContactTypeController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\CountryController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\EquipmentControllers\ContainerTypeController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\EquipmentControllers\VehicleController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\EquipmentControllers\WeighScaleController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\FarmActivities\BaseController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\FarmActivities\CommodityProducerServiceController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\FarmActivities\InfectionController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\FarmActivities\SeasonController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\FarmActivities\ServiceProviderController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\FarmActivities\ShiftController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\InventoryController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\PrinterController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\EquipmentControllers\SourcingContainerController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\HubController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\Products\ProductBrandController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\Products\ProductFlavourController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\Products\ProductPackagingController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\Products\ProductPackagingTypeController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\Products\ProductTypeController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\Products\ProductController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\Products\SupplierController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\Products\VATClassController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\RegionController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\RouteController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\Settings\SettingsController.cs" />
+    <Compile Include="Areas\Agrimanagr\Controllers\TestController.cs" />
+    <Compile Include="Areas\Agrimanagr\ViewModels\InfectionViewModel.cs" />
+    <Compile Include="Areas\Agrimanagr\ViewModels\ProductBrandViewModel.cs" />
+    <Compile Include="Areas\Agrimanagr\ViewModels\ProductFlavourViewModel.cs" />
+    <Compile Include="Areas\Agrimanagr\ViewModels\SeasonViewModel.cs" />
+    <Compile Include="Areas\Agrimanagr\ViewModels\ServiceProviderViewModel.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgrimanagrReportServerCredentials.cs" />
+    <Compile Include="Models\AgriWebHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\ReportWebForm.aspx.cs">
+      <DependentUpon>ReportWebForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportWebForm.aspx.designer.cs">
+      <DependentUpon>ReportWebForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SiteReports.Master.cs">
+      <DependentUpon>SiteReports.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\SiteReports.Master.designer.cs">
+      <DependentUpon>SiteReports.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Agrimanager\images\arrow_down.gif" />
+    <Content Include="Content\Agrimanager\images\arrow_down_over.gif" />
+    <Content Include="Content\Agrimanager\images\arrow_right.gif" />
+    <Content Include="Content\Agrimanager\images\arrow_right_over.gif" />
+    <Content Include="Content\Agrimanager\images\breadcrumb-bg.png" />
+    <Content Include="Content\Agrimanager\images\buttons\account-over.png" />
+    <Content Include="Content\Agrimanager\images\buttons\account-up.png" />
+    <Content Include="Content\Agrimanager\images\buttons\buttons.png" />
+    <Content Include="Content\Agrimanager\images\buttons\close.gif" />
+    <Content Include="Content\Agrimanager\images\buttons\dashboard-over.png" />
+    <Content Include="Content\Agrimanager\images\buttons\dashboard-up.png" />
+    <Content Include="Content\Agrimanager\images\buttons\global-settings-over.png" />
+    <Content Include="Content\Agrimanager\images\buttons\global-settings-up.png" />
+    <Content Include="Content\Agrimanager\images\buttons\help-over.png" />
+    <Content Include="Content\Agrimanager\images\buttons\help-up.png" />
+    <Content Include="Content\Agrimanager\images\buttons\input-btn-over.png" />
+    <Content Include="Content\Agrimanager\images\buttons\input-btn-up.png" />
+    <Content Include="Content\Agrimanager\images\buttons\open.gif" />
+    <Content Include="Content\Agrimanager\images\cal.gif" />
+    <Content Include="Content\Agrimanager\images\distributr-logo.png" />
+    <Content Include="Content\Agrimanager\images\down.png" />
+    <Content Include="Content\Agrimanager\images\header-bg.png" />
+    <Content Include="Content\Agrimanager\images\icons.png" />
+    <Content Include="Content\Agrimanager\images\icons\books.png" />
+    <Content Include="Content\Agrimanager\images\icons\deliveries-pending.png" />
+    <Content Include="Content\Agrimanager\images\icons\deliveries.png" />
+    <Content Include="Content\Agrimanager\images\icons\global - Copy.png" />
+    <Content Include="Content\Agrimanager\images\icons\global.png" />
+    <Content Include="Content\Agrimanager\images\icons\icons.png" />
+    <Content Include="Content\Agrimanager\images\icons\orders-pending.png" />
+    <Content Include="Content\Agrimanager\images\icons\orders.png" />
+    <Content Include="Content\Agrimanager\images\icons\outstanding-bal.png" />
+    <Content Include="Content\Agrimanager\images\icons\products.png" />
+    <Content Include="Content\Agrimanager\images\icons\reports.png" />
+    <Content Include="Content\Agrimanager\images\icons\sprite.png" />
+    <Content Include="Content\Agrimanager\images\icons\system.png" />
+    <Content Include="Content\Agrimanager\images\images_home.png" />
+    <Content Include="Content\Agrimanager\images\left.png" />
+    <Content Include="Content\Agrimanager\images\main-menu-bg.png" />
+    <Content Include="Content\Agrimanager\images\main-panel-bg.png" />
+    <Content Include="Content\Agrimanager\images\mainHeader.png" />
+    <Content Include="Content\Agrimanager\images\quick-links-bg.png" />
+    <Content Include="Content\Agrimanager\images\result.png" />
+    <Content Include="Content\Agrimanager\images\sprite.png" />
+    <Content Include="Content\Agrimanager\images\sprite_home.png" />
+    <Content Include="Content\Agrimanager\images\sprite_home2.png" />
+    <Content Include="Content\Agrimanager\images\table\asc.gif" />
+    <Content Include="Content\Agrimanager\images\table\bg.gif" />
+    <Content Include="Content\Agrimanager\images\table\desc.gif" />
+    <Content Include="Content\Agrimanager\images\virtualcity-logo.png" />
+    <Content Include="Content\Agrimanager\jquery.ui.datepicker.css" />
+    <Content Include="Content\Agrimanager\js\combined_2E06260116CE62E19463B57AA5B64C20.js" />
+    <Content Include="Content\Agrimanager\js\combined_C31F823A5D68D3A1BC5BA5A8FDAC7331.js" />
+    <Content Include="Content\Agrimanager\js\eye.js" />
+    <Content Include="Content\Agrimanager\js\g.bar.js" />
+    <Content Include="Content\Agrimanager\js\g.pie.js" />
+    <Content Include="Content\Agrimanager\js\g.raphael.js" />
+    <Content Include="Content\Agrimanager\js\jit-yc.js" />
+    <Content Include="Content\Agrimanager\js\jquery-1.4.1.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery-1.4.2.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery-1.4.4.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery-1.6.2.min.js" />
+    <Content Include="Content\Agrimanager\js\Jquery-1.6.js" />
+    <Content Include="Content\Agrimanager\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery.datepick.js" />
+    <Content Include="Content\Agrimanager\js\jquery.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery.tablesorter.js" />
+    <Content Include="Content\Agrimanager\js\jquery.validate.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\Agrimanager\js\layout.js" />
+    <Content Include="Content\Agrimanager\js\main-menu-drop-down.js" />
+    <Content Include="Content\Agrimanager\js\MenuMatic_0.68.3.js" />
+    <Content Include="Content\Agrimanager\js\raphael.js" />
+    <Content Include="Content\Agrimanager\js\tablesort.js" />
+    <Content Include="Content\Agrimanager\js\tabs.js" />
+    <Content Include="Content\Agrimanager\js\Agricustomscripts.js" />
+    <Content Include="Content\Agrimanager\js\utils.js" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\jquery-ui-1.8.22.custom.css" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\js\jquery-ui-1.8.22.custom.min.js" />
+    <Content Include="Content\Agrimanager\Site.css" />
+    <Content Include="Content\Agrimanager\styles\combined_0B4B9C8246EA5A00AC6DBCE8B0D564BD.css" />
+    <Content Include="Content\Agrimanager\styles\combined_14D05DDC43541708CDF56C6B0EBED30E.css" />
+    <Content Include="Content\Agrimanager\styles\combined_2B9B112467C3ED6756B26D99CEC6A8C6.css" />
+    <Content Include="Content\Agrimanager\styles\combined_3F1CA920CA5734332F810949284EEF28.css" />
+    <Content Include="Content\Agrimanager\styles\combined_46668D7937C182F39DB236951F8B57CD.css" />
+    <Content Include="Content\Agrimanager\styles\combined_47A6BCC2F92A3B9932A11019F2D53C86.css" />
+    <Content Include="Content\Agrimanager\styles\combined_4F56A78E8E27E0EF19D299BF9C7BBF87.css" />
+    <Content Include="Content\Agrimanager\styles\combined_53807D69B4FF9A3FC3EEAC96AFA0951E.css" />
+    <Content Include="Content\Agrimanager\styles\combined_5A30AD080FE55E1B9DFEDA606312EA2F.css" />
+    <Content Include="Content\Agrimanager\styles\combined_63746685C2ACC8D6FB4B7AF1CE3217D8.css" />
+    <Content Include="Content\Agrimanager\styles\combined_64E82CB52843678651978674B67E2F97.css" />
+    <Content Include="Content\Agrimanager\styles\combined_65889DE75BDCB88AA8292A1917516B92.css" />
+    <Content Include="Content\Agrimanager\styles\combined_7521C6296BA80E1A10CC1A66A4AEBC1D.css" />
+    <Content Include="Content\Agrimanager\styles\combined_7A49329CAB24A1729F3189A0BC96D162.css" />
+    <Content Include="Content\Agrimanager\styles\combined_8AC9114DA4B5F616196043E52BE0C585.css" />
+    <Content Include="Content\Agrimanager\styles\combined_8CF5ED3E571777BD02963BD0AAF61043.css" />
+    <Content Include="Content\Agrimanager\styles\combined_A3DDCF7C2AC9EB12638B4BD0CAE13C53.css" />
+    <Content Include="Content\Agrimanager\styles\combined_AE24583497359E7F1783088AC261BA51.css" />
+    <Content Include="Content\Agrimanager\styles\combined_B286B47A2337D0D91BACD9A59593D87B.css" />
+    <Content Include="Content\Agrimanager\styles\combined_D90A59E83A22CEBE7BA14E3AC985EE68.css" />
+    <Content Include="Content\Agrimanager\styles\combined_E440AFEADBE0FF5AB41FB673681267F3.css" />
+    <Content Include="Content\Agrimanager\styles\combined_E90FC6E36551868945C91D0E30BB2A53.css" />
+    <Content Include="Content\Agrimanager\styles\combined_FB53668CC54F0E08D9F77864B66EC2E4.css" />
+    <Content Include="Content\Agrimanager\styles\css\AreaChart.css" />
+    <Content Include="Content\Agrimanager\styles\css\BarChart.css" />
+    <Content Include="Content\Agrimanager\styles\css\base.css" />
+    <Content Include="Content\Agrimanager\styles\css\col1.png" />
+    <Content Include="Content\Agrimanager\styles\css\col2.png" />
+    <Content Include="Content\Agrimanager\styles\css\ForceDirected.css" />
+    <Content Include="Content\Agrimanager\styles\css\ForceDirected3D.css" />
+    <Content Include="Content\Agrimanager\styles\css\gradient.png" />
+    <Content Include="Content\Agrimanager\styles\css\HeatMap.css" />
+    <Content Include="Content\Agrimanager\styles\css\Hypertree.css" />
+    <Content Include="Content\Agrimanager\styles\css\Icicle.css" />
+    <Content Include="Content\Agrimanager\styles\css\Other.css" />
+    <Content Include="Content\Agrimanager\styles\css\PieChart.css" />
+    <Content Include="Content\Agrimanager\styles\css\RGraph.css" />
+    <Content Include="Content\Agrimanager\styles\css\Spacetree.css" />
+    <Content Include="Content\Agrimanager\styles\css\Sunburst.css" />
+    <Content Include="Content\Agrimanager\styles\css\TimeGraph.css" />
+    <Content Include="Content\Agrimanager\styles\css\Treemap.css" />
+    <Content Include="Content\Agrimanager\styles\datepicker.css" />
+    <Content Include="Content\Agrimanager\styles\demo-print.css" />
+    <Content Include="Content\Agrimanager\styles\demo.css" />
+    <Content Include="Content\Agrimanager\styles\jquery.datepick.css" />
+    <Content Include="Content\Agrimanager\styles\layout.css" />
+    <Content Include="Content\Agrimanager\styles\main-menu.css" />
+    <Content Include="Content\Agrimanager\styles\main.css" />
+    <Content Include="Content\Agrimanager\styles\MenuMatic.css" />
+    <Content Include="Content\Agrimanager\styles\reset.css" />
+    <Content Include="Content\Agrimanager\styles\Site.css" />
+    <Content Include="Content\Agrimanager\styles\style.css" />
+    <Content Include="Content\Agrimanager\styles\tables.css" />
+    <Content Include="Content\Agrimanager\styles\tabs.css" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Agrimanager\themes\base\jquery-ui.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap\js\npm.js" />
+    <Content Include="Content\images\arrow_down.gif" />
+    <Content Include="Content\images\arrow_down_over.gif" />
+    <Content Include="Content\images\arrow_right.gif" />
+    <Content Include="Content\images\arrow_right_over.gif" />
+    <Content Include="Content\images\breadcrumb-bg.png" />
+    <Content Include="Content\images\buttons\account-over.png" />
+    <Content Include="Content\images\buttons\account-up.png" />
+    <Content Include="Content\images\buttons\buttons.png" />
+    <Content Include="Content\images\buttons\close.gif" />
+    <Content Include="Content\images\buttons\dashboard-over.png" />
+    <Content Include="Content\images\buttons\dashboard-up.png" />
+    <Content Include="Content\images\buttons\global-settings-over.png" />
+    <Content Include="Content\images\buttons\global-settings-up.png" />
+    <Content Include="Content\images\buttons\help-over.png" />
+    <Content Include="Content\images\buttons\help-up.png" />
+    <Content Include="Content\images\buttons\input-btn-over.png" />
+    <Content Include="Content\images\buttons\input-btn-up.png" />
+    <Content Include="Content\images\buttons\open.gif" />
+    <Content Include="Content\images\cal.gif" />
+    <Content Include="Content\images\distributr-logo-kemsa.png" />
+    <Content Include="Content\images\distributr-logo.png" />
+    <Content Include="Content\images\down.png" />
+    <Content Include="Content\images\header-bg.png" />
+    <Content Include="Content\images\icons\books.png" />
+    <Content Include="Content\images\icons\deliveries-pending.png" />
+    <Content Include="Content\images\icons\deliveries.png" />
+    <Content Include="Content\images\icons\global.png" />
+    <Content Include="Content\images\icons\icons.png" />
+    <Content Include="Content\images\icons\orders-pending.png" />
+    <Content Include="Content\images\icons\orders.png" />
+    <Content Include="Content\images\icons\outstanding-bal.png" />
+    <Content Include="Content\images\icons\products.png" />
+    <Content Include="Content\images\icons\reports.png" />
+    <Content Include="Content\images\icons\sprite.png" />
+    <Content Include="Content\images\icons\system.png" />
+    <Content Include="Content\images\images_home.png" />
+    <Content Include="Content\images\left.png" />
+    <Content Include="Content\images\main-menu-bg.png" />
+    <Content Include="Content\images\main-panel-bg.png" />
+    <Content Include="Content\images\quick-links-bg.png" />
+    <Content Include="Content\images\result.png" />
+    <Content Include="Content\images\sprite.png" />
+    <Content Include="Content\images\table\asc.gif" />
+    <Content Include="Content\images\table\bg.gif" />
+    <Content Include="Content\images\table\desc.gif" />
+    <Content Include="Content\images\virtualcity-logo.png" />
+    <Content Include="Content\js\jquery-1.4.2.min.js" />
+    <Content Include="Content\styles\datepicker.css" />
+    <Content Include="Content\styles\jquery.datepick.css" />
+    <Content Include="Content\styles\layout.css" />
+    <Content Include="Content\styles\main-menu.css" />
+    <Content Include="Content\styles\MenuMatic.css" />
+    <Content Include="Content\styles\reset.css" />
+    <Content Include="Content\styles\Site.css" />
+    <Content Include="Content\styles\style.css" />
+    <Content Include="Content\styles\tables.css" />
+    <Content Include="Content\styles\tabs.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Areas\Agrimanagr\Views\Web.config" />
+    <Content Include="Areas\Agrimanagr\Views\Test\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Store\CreateStore.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Store\EditStore.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Store\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Store\ListStores.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Region\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Hub\CreateHub.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Hub\DetailsHub.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Hub\EditHub.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Hub\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Hub\ListHubs.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityType\CreateCommodityType.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityType\DetailsCommodityType.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityType\EditCommodityType.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityType\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityType\ListCommodityTypes.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommoditySupplier\CreateCommoditySupplier.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommoditySupplier\DetailsCommoditySupplier.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommoditySupplier\EditCommoditySupplier.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommoditySupplier\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommoditySupplier\ListCommoditySuppliers.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityProducer\CreateCommodityProducer.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityProducer\DetailsCommodityProducer.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityProducer\EditCommodityProducer.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityProducer\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityProducer\ListCommodityProducers.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityOwnerType\Create.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityOwnerType\Details.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityOwnerType\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityOwnerType\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityOwnerType\ListCommodityOwnerTypes.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityOwner\CreateFarmer.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityOwner\DetailsFarmer.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityOwner\EditFarmer.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityOwner\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityOwner\ListFarmers.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Commodity\AddCommodityGrade.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Commodity\Create.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Commodity\Details.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Commodity\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Commodity\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Commodity\List.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Commodity\ListGrades.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CentreType\CreateCentreType.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CentreType\EditCentreType.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CentreType\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CentreType\ListCentreTypes.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Centre\CreateCentre.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Centre\EditCentre.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Centre\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Centre\ListCentres.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\AgriUser\CreateAgriUser.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\AgriUser\EditAgriUser.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\AgriUser\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\AgriUser\ListAgriUsers.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\AgriMain\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\AgrimanagrRpt\Views\Web.config" />
+    <Content Include="Areas\AgrimanagrRpt\Views\ProducePurchase\Index.cshtml" />
+    <Content Include="Areas\AgrimanagrRpt\Views\ProducePurchase\ProducePurchaseByBuyingCenter.cshtml" />
+    <Content Include="Areas\AgrimanagrRpt\Views\ProducePurchase\ProducePurchaseByFarmer.cshtml" />
+    <Content Include="Areas\AgrimanagrRpt\Views\ProducePurchase\ProducePurchaseSummary.cshtml" />
+    <Content Include="Areas\AgrimanagrRpt\Views\_ViewStart.cshtml" />
+    <Content Include="JS\angular-resource.js" />
+    <Content Include="JS\angular-route.js" />
+    <Content Include="JS\angular.js" />
+    <Content Include="JS\release.js" />
+    <Content Include="Reports\ReportWebForm.aspx" />
+    <Content Include="Reports\scripts\jquery-1.4.2.min.js" />
+    <Content Include="Reports\scripts\jquery.datepick.js" />
+    <Content Include="Reports\SiteReports.Master" />
+    <Content Include="Areas\Agrimanagr\Views\Bank\BankDetails.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Bank\CreateBank.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Bank\EditBank.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Bank\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Bank\ListBanks.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\BankBranch\CreateBankBranch.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\BankBranch\EditBankBranch.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\BankBranch\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\BankBranch\ListBankBranches.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Route\CreateRoute.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Route\DetailsRoutes.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Route\EditRoute.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Route\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Route\ListRoutes.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Region\CreateRegion.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\Agrimanagr\Views\Region\DetailsRegion.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Region\EditRegion.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Region\ListRegion.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\SourcingContainer\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\SourcingContainer\ListContainers.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\SourcingContainer\DetailsContainers.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\SourcingContainer\EditContainer.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\SourcingContainer\CreateContainer.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Printer\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Printer\ListPrinters.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Printer\CreatePrinter.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Printer\EditPrinter.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\WeighScale\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\WeighScale\ListWeighScales.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\WeighScale\CreateWeighScale.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\WeighScale\EditWeighScale.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Commodity\EditGrade.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\Agrimanagr\Views\Country\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Country\ListCountry.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Country\DetailsCountry.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Country\EditCountry.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Country\CreateCountry.cshtml" />
+    <Content Include="Areas\AgrimanagrRpt\Views\ProducePurchase\ProducePurchaseTransactionDetails.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Contact\ContactDetails.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Contact\CreateContact.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Contact\EditContact.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Contact\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Contact\ListContacts.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ContactType\AddContactType.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ContactType\EditContactType.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ContactType\ListContactTypes.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\AgriUser\AssignRoles.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ContainerType\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ContainerType\ListContainerTypes.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ContainerType\CreateContainerType.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ContainerType\EditContainerType.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Vehicle\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Vehicle\ListVehicles.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Vehicle\CreateVehicle.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Settings\Settings.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Settings\ReportSetting.cshtml" />
+    <Content Include="Areas\AgrimanagrRpt\Views\ReportsDashboard\Index.cshtml" />
+    <Content Include="Areas\AgrimanagrRpt\Views\ReportsDashboard\ReportView.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Settings\NotificationSetting.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityTransfer\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityTransfer\List.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityTransferDetails\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityTransferDetails\List.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityTransfer\MoveToStore.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ServiceProvider\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ServiceProvider\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\Agrimanagr\Views\CommodityProducerService\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityProducerService\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Infection\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Infection\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Shift\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Shift\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Season\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Season\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ActivityType\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ActivityType\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Supplier\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Supplier\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ProductType\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ProductType\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ProductBrand\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ProductBrand\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ProductFlavour\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ProductFlavour\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ProductPackaging\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ProductPackaging\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ProductPackagingType\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\ProductPackagingType\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\VATClass\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\VATClass\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\VATClass\LineItems.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\VATClass\LineItemListing.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Product\CreateSaleProduct.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Product\EditSaleProduct.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Product\CreateReturnableProduct.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Product\CreateConsolidatedProduct.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Product\EditReturnableProduct.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Product\EditConsolidatedProduct.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Contact\ListSupplierContacts.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\Inventory\ListInventoryLevels.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\CommodityTransfer\Release.cshtml" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Agrimanagr\Views\AgriUserGroup\List.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\AgriUserGroup\CreateGroup.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\AgriUserGroup\Edit.cshtml" />
+    <Content Include="Areas\Agrimanagr\Views\AgriUserGroup\Assign.cshtml" />
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Reports\styles\jquery.datepick.css" />
+    <Content Include="Reports\styles\style.css" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\EditHqUsers.cshtml" />
+    <Content Include="Views\Account\ImportUsers.cshtml" />
+    <Content Include="Views\Account\ListAllUsers.cshtml" />
+    <Content Include="Views\Account\LogOn - Copy %282%29.cshtml" />
+    <Content Include="Views\Account\LogOn - Copy.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Permission.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetDistributorUserPassword.cshtml" />
+    <Content Include="Views\Account\ResetHqUserPassword.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout_Agrimanagr.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Account\RegisterCompany.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SelectItemsPerPage.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SelectItemsPerPage.cshtml" />
+    <Content Include="Views\Shared\UnauthorizedAccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\AgrimanagrRpt\Models\" />
+    <Folder Include="Areas\AgrimanagrRpt\Views\Shared\" />
+    <Folder Include="Areas\Agrimanagr\Models\" />
+    <Folder Include="Areas\Agrimanagr\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distributor.Core.Data\Distributr.Core.Data.csproj">
+      <Project>{b9ee272b-6d02-47a5-b6f6-d96cb102404e}</Project>
+      <Name>Distributr.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributor.Core\Distributr.Core.csproj">
+      <Project>{900f434e-7d81-422b-b567-1564c79ceab3}</Project>
+      <Name>Distributr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributor.HQ.Lib\Distributr.HQ.Lib.csproj">
+      <Project>{d2999a44-eac9-4f84-bb28-f268e254536d}</Project>
+      <Name>Distributr.HQ.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WSAPI.Lib\Distributr.WSAPI.Lib.csproj">
+      <Project>{7271f6b1-35f0-4c0a-a4cb-3f10d426e37f}</Project>
+      <Name>Distributr.WSAPI.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WSAPI.Server\Distributr.WSAPI.Server.csproj">
+      <Project>{40ff958b-ee1d-42ba-8678-02b6bd61ae41}</Project>
+      <Name>Distributr.WSAPI.Server</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>35253</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:7517/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

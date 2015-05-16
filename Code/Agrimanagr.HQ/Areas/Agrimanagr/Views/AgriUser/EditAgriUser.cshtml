@@ -1,0 +1,91 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Agrimanagr.CostCentreViewModel.AgriUserViewModel
+
+@{
+    ViewBag.Title = "EditPurchaseClerk";
+}
+
+<h2 id="breadcrumb-holder">Users&nbsp;&gt; &gt; Edit User</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div id="main-content-housing">
+    @using (Html.BeginForm())
+    {
+        if (!Html.ViewData.ModelState.IsValid)
+        {
+        <div class="notice-notification">
+            @Html.ValidationSummary()
+        </div>
+        } 
+        <fieldset>
+            <legend>Edit User</legend>
+
+            @Html.HiddenFor(model => model.Id)
+            <div id="primary-controls">
+                <table class="detail-arrange">
+                    <tr>
+                        @Html.HiddenFor(model=>model.Password)
+                        <td style="padding-top: 12px;">
+                            <strong>@Html.LabelFor(model => model.Username)</strong>
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Username)
+                            @Html.ValidationMessageFor(model => model.Username)
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td style="padding-top: 12px;">
+                            <strong>@Html.LabelFor(model => model.CostCentre)</strong>
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.CostCentre,
+                                  new SelectList(ViewBag.CostCentreList, "Key", "Value"))
+
+                            @Html.ValidationMessageFor(model => model.CostCentre)
+                        </td>
+                    </tr>
+                    <tr>
+                        @Html.HiddenFor(model => model.UserType)
+                        @Html.ValidationMessageFor(model => model.UserType)
+                        <td style="padding-top: 12px;">
+                            <strong>@Html.LabelFor(model => model.PIN)</strong>
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.PIN)
+                            @Html.ValidationMessageFor(model => model.PIN)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;">
+                            <strong>@Html.LabelFor(model => model.Mobile)</strong>
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Mobile)
+                            @Html.ValidationMessageFor(model => model.Mobile)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;">
+                            <strong>@Html.LabelFor(model => model.CostCentreCode)</strong>
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.CostCentreCode)
+                            @Html.ValidationMessageFor(model => model.CostCentreCode)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <fieldset class="actions">
+                <legend>Actions</legend>
+                <input name="Create" type="submit" value="Save" class="button-style-one" />
+                <input name="Create" type="reset" value="Clear" class="button-style-one" />
+            </fieldset>
+        </fieldset>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "ListAgriUsers")
+    </div>
+</div>

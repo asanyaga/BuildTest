@@ -1,0 +1,174 @@
+﻿@using Distributr.Core.Domain.Master
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@model Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Agrimanagr.EquipmentViewModel.SourcingContainerViewModel>
+@{
+    ViewBag.Title = "ListContainers";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string searchText = ViewBag.srchParam;
+}
+
+<h2 id="breadcrumb-holder">Global Settings &nbsp;&gt; @Html.GetText("hq.container.breadcrumb") &gt; 
+    @Html.GetText("hq.container.listing.breadcrumb")</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">@Html.GetText("hq.container.listing.heading")</h2>
+
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    @using (Html.BeginForm("ListContainers", "SourcingContainer"))
+    {
+
+        <fieldset>
+            <legend>@Html.GetText("hq.container.listing.search")</legend>
+            <div class="criteria-div">
+
+                <span class="text-box-cshtml">@Html.TextBox("searchText",searchText)</span>
+                <input name="srch" type="button" value="Search" class="button-style-one" id="search" />
+                <input name="srch" type="submit" value="Clear" class="button-style-one" id ="clear" />
+            </div>
+
+            <div class="show-inactive">
+                Show Inactive @Html.CheckBox("show_inactive", showInactive)
+                <script type="text/javascript">
+
+
+                    $("#show_inactive").change(function (e) {
+
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+                    });
+
+                    $('#search').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&srchParam=" + $('#searchText').val();
+
+                    });
+
+                    $('#clear').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + $('#searchText').val("");
+
+                    });
+
+
+                </script>
+            </div>
+            <br class="clear-all" />
+        </fieldset>        
+    }
+    <fieldset class="actions">
+        <legend>Actions</legend>
+        <div class="button-style-two-cshtml">@Html.ActionLink(Html.GetText("hq.container.listing.add"), "CreateContainer")</div>
+    </fieldset>
+    <div class="table-container">
+        <table id="tablesorter-demo" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>@Html.GetText("hq.container.Name")
+                    </th>
+                    <th>@Html.GetText("hq.container.Code")
+                    </th>
+                    <th>@Html.GetText("hq.container.EquipmentNumber")
+                    </th>
+                    <th>@Html.GetText("hq.container.ContainerType")
+                    </th>
+                    <th>@Html.GetText("hq.container.Make")
+                    </th>
+                    <th>@Html.GetText("hq.container.CostCentre")
+                    </th>
+                    <th>@Html.GetText("hq.container.action")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                       <td>
+                            @Html.DisplayFor(modelItem => item.EquipmentNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContainerTypeName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Make)
+                        </td>
+                        
+                       <td>
+                            @Html.DisplayFor(modelItem => item.CostCentreName)
+                        </td>
+                        
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.VatRegistrationNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Longitude)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Latitude)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ParentCostCentreId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CostCentreType)
+                        </td>*@
+                        <td>
+                            @{
+                                if (item.IsActive == (int)EntityStatus.Active)
+                                {   <text> @Html.ActionLink("Edit", "EditContainer", new { id = item.Id })  </text>
+                                    <text>|</text>
+                                    <text>
+                                        @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id },
+                                                         new { onclick = "return confirm('Are you sure you want to deactivate container for " + item.Name + "')" })
+                                    </text>
+                                    <text>|</text>
+                                    <text>
+                                        @Html.ActionLink("Delete", "DeleteContainer", new { id = item.Id },
+                                                         new { onclick = "return confirm('Are you sure you want to delete container for " + item.Name + "')" })
+                                    </text>
+                                }
+                                else
+                                {
+                                    <text>
+                                        @Html.ActionLink("Activate", "Activate", new { id = item.Id },
+                                                         new { onclick = "return confirm('Are you sure you want to activate container for " + item.Name + "')" })
+                                    </text>
+                
+                                    <text>|</text>
+                                    <text>
+                                        @Html.ActionLink("Delete", "DeleteContainer", new { id = item.Id },
+                                                         new { onclick = "return confirm('Are you sure you want to delete container for " + item.Name + "')" })
+                                    </text>
+                     
+                                }
+                            }
+
+
+
+
+                            @* @Html.ActionLink("Edit", "EditHub", new { id = item.Id }) |
+                @Html.ActionLink("Details", "DetailsHub", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteHub", new { id = item.Id })*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="pager">		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new {showInactive , srchParam = searchText})
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>
+</div>

@@ -1,0 +1,223 @@
+﻿@using Distributr.Core.Domain.Master
+@using Distributr.Core.Domain.Master.CostCentreEntities
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@model Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Agrimanagr.CostCentreViewModel.CommodityOwnerViewModel>
+
+@{
+    ViewBag.Title = "ListFarmers";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+}
+<h2 id="breadcrumb-holder">Global Settings &nbsp;&gt; @Html.GetText("hq.commodityOwner.breadcrumb") &gt; 
+    @Html.GetText("hq.commodityOwner.listing.breadcrumb")</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">@Html.GetText("hq.commodityOwner.listing.heading")</h2>
+
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    @using (Html.BeginForm("ListFarmers", "CommodityOwner", new { CommoditySupplierId = ViewBag.CommoditySupplierId }))
+    {
+
+        <fieldset>
+            <legend>@Html.GetText("hq.commodityOwner.listing.search")</legend>
+            <div class="criteria-div">
+                <span class="text-box-cshtml">@Html.TextBox("srchParam")</span>
+                <input name="srch" type="button" value="Search" class="button-style-one" id="search"/>
+                <input name="srch" type="submit" value="Clear" class="button-style-one" id="clear" />
+            </div>
+
+            <div class="show-inactive">
+                Show Inactive @Html.CheckBox("show_inactive", showInactive)
+                <script type="text/javascript">
+                    
+                    
+                    $("#show_inactive").change(function (e) {
+
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked') + "&CommoditySupplierId=@ViewBag.CommoditySupplierId";
+
+                    });
+                    $('#search').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&srchParam=" + $('#srchParam').val();
+
+                    });
+
+                    $('#clear').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + $('#srchParam').val("");
+
+                    });
+
+                   
+                </script>
+            </div>
+            <br class="clear-all" />
+        </fieldset>        
+    }
+@if (ViewBag.CommoditySupplierType != null && ViewBag.CommoditySupplierType == CommoditySupplierType.Cooperative)
+{
+    <fieldset class="actions">
+        <legend>Actions</legend>
+        <div class="button-style-two-cshtml">@Html.ActionLink(Html.GetText("hq.commodityOwner.listing.add"), "CreateFarmer", new {CommoditySupplierId = ViewBag.CommoditySupplierId}, new {id = "AddLink"})</div>
+    </fieldset>
+}
+    <div class="table-container">
+        <table id="tablesorter-demo" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.GetText("hq.commodityOwner.Code")
+
+                    </th>
+                    @*<th>
+                    Surname
+                </th>*@
+                    <th>
+                        @Html.GetText("hq.commodityOwner.FirstName")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.commodityOwner.LastName")
+                    </th>
+                    @*<th>
+                    IdNo
+                </th>
+                <th>
+                    PinNo
+                </th>
+                <th>
+                    PhysicalAddress
+                </th>
+                <th>
+                    PostalAddress
+                </th>
+                <th>
+                    Email
+                </th>*@
+                    <th>
+                        @Html.GetText("hq.commodityOwner.PhoneNumber")
+                    </th>
+                    @*<th>
+                    BusinessNumber
+                </th>
+                <th>
+                    FaxNumber
+                </th>
+                <th>
+                    OfficeNumber
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    DateOfBirth
+                </th>*@
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        @* <td>
+                        @Html.DisplayFor(modelItem => item.Surname)
+                    </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        @*<td>
+                        @Html.DisplayFor(modelItem => item.IdNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PinNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhysicalAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostalAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        @*<td>
+                        @Html.DisplayFor(modelItem => item.BusinessNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaxNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OfficeNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfBirth)
+                    </td>*@
+                        <td>
+                            @{
+                                if (item.IsActive == (int)EntityStatus.Active)
+                                {   <text> @Html.ActionLink("Edit", "EditFarmer", new { id = item.Id, CommoditySupplierId = ViewBag.CommoditySupplierId })  </text>
+                                    <text>|</text>
+                                    <text>
+                                        @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id, CommoditySupplierId = ViewBag.CommoditySupplierId },
+                                                          new { onclick = "return confirm('Are you sure you want to deactivate Commodity Owner " + item.FirstName + "')" })
+                                    </text>
+                                    <text>|</text>
+                                    <text>
+                                        @Html.ActionLink("Delete", "DeleteFarmer", new { id = item.Id, CommoditySupplierId = ViewBag.CommoditySupplierId },
+                                                          new { onclick = "return confirm('Are you sure you want to delete Commodity Owner " + item.FirstName + "')" })
+                                    </text>
+                                }
+                                else
+                                {
+                                    <text>
+                                        @Html.ActionLink("Activate", "Activate", new { id = item.Id, CommoditySupplierId = ViewBag.CommoditySupplierId },
+                                                          new { onclick = "return confirm('Are you sure you want to activate Commodity Owner " + item.FirstName + "')" })
+                                    </text>
+                
+                                    <text>|</text>
+                                    <text>
+                                        @Html.ActionLink("Delete", "DeleteFarmer", new { id = item.Id, CommoditySupplierId = ViewBag.CommoditySupplierId },
+                                                          new { onclick = "return confirm('Are you sure you want to delete Commodity Owner " + item.FirstName + "')" })
+                                    </text>
+                     
+                                }
+                            }
+                            @* @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="pager">
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new { ViewBag.CommoditySupplierId, showInactive })
+        Items per page:
+        @Html.DropDownListFor(n => Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlLFItemsPerPage" })
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $("#ddlLFItemsPerPage").change(function (e) {
+        var url = window.location.href.substring(0, window.location.href.indexOf('?')) + "?CommoditySupplierId=" +'@ViewBag.CommoditySupplierId' + "&itemsperpage=" + $(this).val() + "&showInactive=" + $("#show_inactive").is(':checked');
+        window.location = url;
+    });
+});
+</script>
