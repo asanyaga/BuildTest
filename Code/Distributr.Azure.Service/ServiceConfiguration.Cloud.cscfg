@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="Distributr.Azure.Service" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="Distributr.Azure.CommandWorkerRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=vctestdiagnostics;AccountKey=1MYtalsFq7TRQhC+FZLdGpcaite6YurNA5cVRRwjYNecvZEzvTonwLXGzDQAyoES9TiKFQtqrkBZQhTdNOUWEg==" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=testvcstorage;AccountKey=qfd6WfAiNp33RLWesKakZkfpdydjF8X2HQ1f5iZzhd/Fenc9RWOPdu71gst8xLdR9R3RKUoYRqm4UhBfsfmDKg==" />
+      <Setting name="cokeconnectionstring" value="metadata=res://*/EF.CokeData.csdl|res://*/EF.CokeData.ssdl|res://*/EF.CokeData.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=tcp:ro9aey8be2.database.windows.net,1433;initial catalog=vctest1db;persist security info=True;user id=tonytest@ro9aey8be2;password=Doggie01;multipleactiveresultsets=True;App=EntityFramework&quot;" />
+      <Setting name="MongoRoutingConnectionString" value="mongodb://localhost/commandrouting?safe=true" />
+      <Setting name="MongoAuditingConnectionString" value="mongodb://localhost/AuditDB?safe=true" />
+    </ConfigurationSettings>
+    <Certificates></Certificates>
+  </Role>
+</ServiceConfiguration>
