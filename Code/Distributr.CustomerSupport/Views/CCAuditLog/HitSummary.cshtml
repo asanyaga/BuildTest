@@ -1,0 +1,41 @@
+﻿@model Distributr.CustomerSupport.Code.CCAudit.CCAuditHitSummaryViewModel 
+@{
+    ViewBag.Title = "HitSummary";
+}
+<style>
+  
+  
+
+</style>
+
+<h2>Hit Summary for @Model.CostCentre for @Model.Date.ToShortDateString() </h2>
+Total Hits : @Model.TotalHits
+<h3>Call Type Breakdown @Html.ActionLink("View All Log", "HitSummary", new{date=Model.Date.ToShortDateString(),costcentre=Model.CostCentreId,selectedaction="All" }, new{@class="btn btn-primary"}) </h3>
+<div class="row">
+    <div class="span6">
+        <table class="table table-bordered table-condensed">
+            <tr><th>Type</th><th>No Hits</th><th></th></tr>
+            @foreach(var item in Model.HitSummaryByAction)
+            {
+                <tr><td>@item.ActionName</td><td>@item.NoHits</td><td>@Html.ActionLink("View Log", "HitSummary", new{date=Model.Date.ToShortDateString(),costcentre=Model.CostCentreId,selectedaction=item.ActionName }, new{@class="btn btn-info btn-tiny"})</td></tr>
+            }
+        </table>
+        </div>
+</div>
+<br/><br/>
+@if (!string.IsNullOrWhiteSpace(Model.SelectedAction))
+{
+    <h3>Hit Log for @Model.SelectedAction </h3>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr><th>Time</th><th>Action</th> <th>Info</th><th>Result</th> </tr></thead>
+        <tbody>
+            @foreach(var item in Model.ItemsByAction)
+            {
+                <tr><td>@item.DateInsert</td><td>@item.Action</td> <td>@item.Info</td><td>@item.Result</td></tr>
+            }
+        </tbody>
+    </table>
+}
+
+ 

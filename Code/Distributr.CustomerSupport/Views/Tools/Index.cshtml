@@ -1,0 +1,66 @@
+﻿<form method="POST" action="@Url.Action("Retire")" data-retire-ajax="true">
+    Document Parent Id: &nbsp;<input id="docParentIdRet" class="span4" type="text"/>&nbsp;&nbsp;
+    <input type="submit" value="Archive" class="btn btn-primary"/>
+    @*    <input type="submit" value="Un-Archive" class="btn btn-primary"/>*@
+</form>
+<form method="POST" action="@Url.Action("UnRetire")" data-unretire-ajax="true">
+    Document Parent Id: &nbsp;<input id="docParentIdUnRet" class="span4 guidInput" type="text"/>&nbsp;&nbsp;
+    <input type="submit" value="UnArchive" class="btn btn-primary"/>
+@*    <input type="submit" value="Un-Archive" class="btn btn-primary"/>*@
+</form>
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $("form[data-retire-ajax='true']").submit(function () {
+                var $form = $(this);
+                var options = {
+                    url: $form.attr("action"),
+                    type: $form.attr("method"),
+                    data: { docParentId: $("#docParentIdRet").val() }
+                };
+                $.ajax(options).done(function (resp) {
+                    if (resp.ok) {
+                        if (resp.data && resp.data.archived)
+                            window.alert("Request Processed");
+                    }
+                    else {
+                        if (resp.message) {
+                            window.alert(resp.message);
+                        } else {
+                            window.alert("Sorry an error occured");
+                        }
+                    }
+                }).fail(function () {
+                    window.alert("Sorry an error occured");
+                });
+                return false;
+            });
+            $("form[data-unretire-ajax='true']").submit(function () {
+                var $form = $(this);
+                var options = {
+                    url: $form.attr("action"),
+                    type: $form.attr("method"),
+                    data: { docParentId: $("#docParentIdUnRet").val() }
+                };
+                $.ajax(options).done(function (resp) {
+                    if (resp.ok) {
+                        if (resp.data && resp.data.unarchived)
+                            window.alert("Request Processed");
+                    }
+                    else {
+                        if (resp.message) {
+                            window.alert(resp.message);
+                        } else {
+                            window.alert("Sorry an error occured");
+                        }
+                    }
+                }).fail(function () {
+                    window.alert("Sorry an error occured");
+                });
+                return false;
+            });
+        })
+    </Script>
+}
+

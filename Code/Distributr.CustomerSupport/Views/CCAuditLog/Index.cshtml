@@ -1,0 +1,34 @@
+﻿@model Distributr.CustomerSupport.Code.CCAudit.CCAuditSummaryViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Daily Hits Summary</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Date:  @Html.TextBoxFor(n => n.Date)
+        <input type="submit" value="Select" class="btn btn-primary"/>
+       
+    </p>
+}
+<table class="table  table-bordered table-condensed">
+    <tr><th>Name</th><th>Type</th><th>No Hits</th><th></th></tr>
+    @foreach (var item in Model.Items)
+    {
+        <tr><td>@item.CCName</td><td>@item.CCType</td><td>@item.NoHits</td><td>@Html.ActionLink("Summary", "hitsummary",new{date=Model.Date, costcentre=item.CCId},new{@class="btn btn-small btn-info"})</td></tr>
+    }
+</table>
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $("#Date").datepicker();
+            $("#Date").datepicker("option", "dateFormat", "dd-M-yy");
+            $("#Date").val("@Model.Date");
+        });
+</script>
+}
+

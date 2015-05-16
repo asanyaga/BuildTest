@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "ReQueue";
+}
+
+<h2>ReQueue</h2>
+<form>
+    <input type="hidden" name="post" value="post"/>
+    <table>
+        <tr><td>UnQueued Command Count :</td><td>@ViewBag.count</td></tr>
+
+        <tr><td></td><td><input type="submit" value="ReQueue Commands"/></td></tr>
+    </table>
+</form>

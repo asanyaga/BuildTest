@@ -1,0 +1,27 @@
+﻿@model Distributr.CustomerSupport.Code.CCRouting.CCRoutingSummaryViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Command Routing Summary (Last 30 Days) </h2>
+<table class="table table-condensed">
+    <tr>
+        <th>CostCentre </th>
+        <th>Total</th>
+        <th>Valid</th>
+        <th>Retired</th>
+        <th>Delivered</th>
+    </tr>
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td> @Html.ActionLink( item.CostCentre , "Detail", new{costcentreid=item.DestinationCostCentreId})   </td>
+            <td>@item.TotalCount</td>
+            <td>@item.ValidCount</td>
+            <td>@item.RetiredCount</td>
+            <td>
+                @item.DeliveredCount
+            </td>
+        </tr>
+    }
+</table>

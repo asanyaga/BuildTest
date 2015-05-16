@@ -1,0 +1,72 @@
+﻿@model Distributr.CustomerSupport.Code.CCAudit.CCCommandAuditViewModel
+<form method="GET" action="@Url.Action("CommandRouting")" data-ajax="true" data-target="#commandList">
+    <fieldset>
+        <legend>Filter</legend>
+        <table>
+            <tr>
+                <td>
+                    Date:  @Html.TextBoxFor(n => n.Date)
+                </td>
+                <td>
+                    &nbsp;Cost Centre: &nbsp;@Html.DropDownListFor(model => model.CostCentreId, new SelectList(ViewBag.CostCentres, "Key", "Value"))
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="View" class="btn btn-primary"/>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+@Html.Partial("_CommandRoutingList", Model)
+@section scripts
+{
+    <script>
+        $(function() {
+            $("#Date").datepicker();
+            $("#Date").datepicker("option", "dateFormat", "dd-M-yy");
+            $("#Date").val("@Model.Date");
+            $("form[data-ajax='true']").submit(function () {
+                var $form = $(this);
+                var params = {
+                    costCentreId: $("#CostCentreId option:selected").val(),
+                    date: $("#Date").val(),
+                };
+                var options = {
+                    url: $form.attr("action"),
+                    type: $form.attr("method"),
+                    data: params
+                };
+                $.ajax(options).done(function (html) {
+                    var $target = $($form.attr("data-target"));
+                    $target.replaceWith(html);
+                }).fail(function () {
+                    window.alert('Error');
+                });
+                return false;
+            });
+            $(".container").on("click", ".pager a", function () {
+                var $a = $(this);
+                var data = {
+                    costCentreId: $("#CostCentreId option:selected").val(),
+                    date: $("#Date").val(),
+                };
+                var options = {
+                    url: $a.attr("href"),
+                    data: data,
+                    type: "get"
+                };
+                $.ajax(options).done(function (html) {
+                    var target = $a.parents("div.pager").attr("data-target");
+                    $(target).replaceWith(html);
+                }).fail(function () {
+                    window.alert('Error');
+                });
+
+                return false;
+            });
+
+        })
+    </script>
+}

@@ -1,0 +1,35 @@
+﻿@using Distributr.CustomerSupport.Paging
+@model Distributr.CustomerSupport.Code.CCAudit.CCCommandAuditGroupViewModel
+<div id="commandList">
+    <table id="" class="table table-bordered table-condensed">
+        <thead>
+            <tr><th>Document-Type</th><th>DocumentId</th><th>No. Of Commands</th><th>Date Inserted</th><th>Date Delivered</th></tr>
+        </thead>
+        <tbody>
+            @if (Model.AuditGroupItems != null)
+            {
+                foreach (var item in Model.AuditGroupItems)
+                {
+                    <tr>
+                        <td>@item.DocumentType</td> 
+                        <td>@item.DocumentId</td>
+                        <td>@item.NoOfCommands</td>
+                        <td>@item.DateInserted</td>
+                        <td>@item.DateInserted</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    @if (Model.AuditGroupItems != null && Model.AuditGroupItems.Any())
+    {
+        <div class="pager" data-target="#commandList">
+            @Html.Pager(
+                Model.PageSize,
+                Model.PageNumber,
+                Model.TotalItemCount)
+            Items per page:
+            @Html.DropDownListFor(n => Model.PageSize, Paginator.ItemsPerPageList, new {@id = "ddlItemsPerPage", @class = "span1"})
+        </div>
+    }
+</div>

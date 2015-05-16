@@ -1,0 +1,99 @@
+﻿@model Distributr.CustomerSupport.Code.CCAudit.CCCommandAuditGroupViewModel
+<form method="GET" action="@Url.Action("CommandAudit")" data-ajax="true" data-target="#commandList">
+    <fieldset>
+        <legend>Audit</legend>
+        <table>
+            <tr>
+                <td>
+                    Cost Centre: &nbsp;@Html.DropDownListFor(model => model.CostCentreId, new SelectList(ViewBag.CostCentres, "Key", "Value"))
+                </td>
+                <td>
+                    &nbsp;&nbsp;Application Id: &nbsp;
+                    <select id="ApplicationId" name="Application"><option value="0">---Select Application Id---</option></select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="View" class="btn btn-primary"/>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+@Html.Partial("_CommandAuditList", Model)
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $("#ddlItemsPerPage").live("change", function (e) {
+                //window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?itemsperpage=" + $(this).val();
+            });
+            $("#CostCentreId").change(function () {
+                (function () {
+                    var costCentreId = $("#CostCentreId option:selected").val(),
+                        url = '@Url.Action("Applications")';
+                    var $applicationIds = $('#ApplicationId');
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: { costCentreId: costCentreId },
+                        success: function (response) {
+                            if (response.ok) {
+                                $applicationIds.empty();
+                                $applicationIds.append($('<option></option>').val('0').html('---Select Application Id---'));
+                                $.each(response.data, function (i, item) {
+                                    $applicationIds.append($('<option></option>').val(item.id).html(item.id + ' ('+ item.status + ')'));
+                                });
+                                $applicationIds.show('slow');
+                            } else {
+                                window.alert('error: ' + response.message);
+                            }
+                        }
+                    });
+                })();
+            });
+            $("form[data-ajax='true']").submit(function () {
+                var $form = $(this);
+                var params = {
+                    costCentreId: $("#CostCentreId option:selected").val(),
+                    costCentreAppId: $("#ApplicationId option:selected").val(),
+                    status: $("#CommandProcessingStatus option:selected").val(),
+                    itemsPerPage: $("#ddlItemsPerPage option:selected").val()
+                };
+                var options = {
+                    url: $form.attr("action"),
+                    type: $form.attr("method"),
+                    data: params
+                };
+                $.ajax(options).done(function(html) {
+                    var $target = $($form.attr("data-target"));
+                    $target.replaceWith(html);
+                }).fail(function () {
+                    window.alert('Error');
+                });
+                return false;
+            });
+            $(".container").on("click", ".pager a", function () {
+                var $a = $(this);
+                var data = {
+                    costCentreId: $("#CostCentreId option:selected").val(),
+                    costCentreAppId: $("#ApplicationId option:selected").val(),
+                    status: $("#CommandProcessingStatus option:selected").val()
+                };
+                var options = {
+                    url: $a.attr("href"),
+                    data: data,
+                    type: "get"
+                };
+                $.ajax(options).done(function (html) {
+                    var target = $a.parents("div.pager").attr("data-target");
+                    $(target).replaceWith(html);
+                }).fail(function () {
+                    window.alert('Error');
+                });
+
+                return false;
+            });
+        });
+</script>
+}

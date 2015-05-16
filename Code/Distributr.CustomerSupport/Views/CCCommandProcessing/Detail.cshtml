@@ -1,0 +1,188 @@
+﻿@model Distributr.CustomerSupport.Code.CCCommandProcessing.CCCommandProcessingDetailViewModel
+@{
+    ViewBag.Title = "Detail";
+}
+
+@functions {
+string RowClass(string status)
+{
+    string val = "";
+    switch (status.ToLower())
+    {
+        case "onqueue":
+            val = "info";
+            break;
+        case "markedforretry":
+            val = "warning";
+            break;
+        case "complete":
+            val = "success";
+            break;
+        case "failed":
+            val = "error";
+            break;
+    }
+
+    return val;
+}
+}
+
+
+<style>
+    .smalltext {
+        font-size: 0.7em !important;
+    }
+    .smalltext1 {
+        font-size: 0.8em !important;
+    }
+    .modal {
+        width: 700px !important;
+    }
+    .offset1{ margin-left:  40px !important;}
+    #myModal .modal-body { max-height: 750px;}
+</style>
+<h2>Cost Centre Command Processing</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        Date:  @Html.TextBoxFor(n => n.ShortDate)
+        <input type="submit" value="Select" class="btn btn-primary"/>
+        @Html.HiddenFor(x => x.CostCentreId)
+       
+    </p>
+}
+
+<table class="table table-condensed">
+    <tr>
+        <th>Command Type</th><th>Status</th><th>Retries</th> <th>Document</th><th>Parent Doc</th><th>Json</th></tr>   
+    @foreach (var item in Model.Items)
+    {
+        <tr class="@RowClass(item.Status)">
+            <td>@item.CommandType</td>
+            <td>@item.Status</td>
+            <td>@item.RetryCounter</td>
+            <td class="smalltext">
+                   <a href="#" class="showdoc">@item.DocumentId</a> 
+                
+            </td>
+            <td class="smalltext"> <a href="#" class="showdoc">@item.ParentDocumentId</a></td>
+            <td>
+                <a  href="#" class="poptable btn-info">View Json </a>
+                <div class="jsondiv" >
+                    <code class='prettyprint'>
+                        @Html.Raw( @item.JsonCommand)
+                    </code>
+                            
+                </div>
+            </td>
+        </tr>
+    }
+    
+</table>
+
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Show Document</h3>
+      <a class="showalldetail" href="#">Show All Detail</a>
+  </div>
+  <div class="modal-body">
+    
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function() {
+            $("#ShortDate").datepicker();
+            $("#ShortDate").datepicker("option", "dateFormat", "dd/mm/yy");
+            $("#ShortDate").val("@Model.ShortDate");
+
+            $(".jsondiv").hide();
+            $(".poptable").click(function() {
+                $(this).next().toggle();
+            });
+
+            prettyPrint();
+            $("#myModal").on('shown', function() {
+                $('.defaulthide').hide();
+                $('.showdetail').click(function () {
+                    $(this).next().next().toggle();
+                });
+                $('.showalldetail').click(function () {
+                    $('.defaulthide').toggle();
+                });
+            });
+            $(".showdoc").click(function() {
+                var docid = $(this).text();
+                 //$.get('/api/showdocument?documentid=' + docid, function(data) {
+                $.getJSON('@Url.Action("ShowDocument","api")', { documentid: docid }, function (data) {
+                    var str = "";
+                    var doc = eval('(' + data.Document + ')');
+                    str = showDoc(doc);
+                    $(".modal-body").html("<code class='prettypring smalltext1' >" + str + "</code>");
+                    //$(".modal-body").html( + JSON.stringify(data, null, 4) + "</code>" ) ;
+                });
+                prettyPrint();
+                $('#myModal').modal('show');
+
+            });
+
+        });
+
+        function showDoc(doc) {
+            var str = "";
+            str += displayObject(doc, -1);
+            return str;
+
+        }
+
+        function displayObject(o, offset) {
+
+            var str = "";
+            for (var p in o) {
+                if (!_.isObject(o[p])) {
+                    str += displayProperty(p, o);
+                }
+            }
+
+            for (var p in o) {
+                if (!_.isArray(o[p]) && _.isObject(o[p])) {
+                    str += "--- Begin Obj --> " + p + " --- <a class='showdetail' href='#'>Show/Hide</a>  <br />";
+                    str += "<div class='offset1 defaulthide'>";
+                    str += displayObject(o[p]);
+                    str += "</div>";
+                    str += "--- End Obj --> " + p + " ---<br />";
+                }
+            }
+            for (var p in o) {
+                if (_.isArray(o[p])) {
+                    str += "--- Begin LI --> " + p + " --- <a class='showdetail' href='#'>Show/Hide</a> <br />";
+                    str += "<div class='offset1 defaulthide'>";
+                    str += displayArray(o[p]);
+                    str += "</div>";
+                    str += "--- End LI --> " + p + " ---<br />";
+                }
+            }
+            return str;
+        }
+
+        function displayProperty(p, o) {
+            return p + " : '" + o[p] + "'<br />";
+        }
+
+        function displayArray(lis) {
+            var str = "";
+            _.each(lis, function(item) {
+                str += displayObject(item);
+            });
+            return str;
+        }
+
+    </script>
+}

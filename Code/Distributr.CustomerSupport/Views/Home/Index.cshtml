@@ -1,0 +1,30 @@
+﻿@model Distributr.CustomerSupport.Code.Summary.OverallHitSummary
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Daily Hits Summary</h2>
+
+<div id="chart_div" style="width: 1200px; height: 500px;"></div>
+
+@section scripts
+{
+     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(
+        @* @Html.Raw(Model.HitSummaryForGoogleGraphs)*@
+        );
+
+        var options = {
+          title: 'Hits for last 15 days',
+          hAxis: {title: 'Date', titleTextStyle: {color: 'red'}}
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+}

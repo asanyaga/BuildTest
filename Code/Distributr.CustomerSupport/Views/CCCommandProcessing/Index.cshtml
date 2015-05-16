@@ -1,0 +1,60 @@
+﻿@model Distributr.CustomerSupport.Code.CCCommandProcessing.CCCommandProcessingSummaryViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .smalltext {
+        font-size: 0.7em !important;
+    }
+</style>
+<h2>Command Processing Summary (Last 60 Days)</h2>
+<table class="table">
+    <tr><th>Cost Centre</th><th>Type</th><th>(T)otal </th><th>(O)n Queue</th><th>(B)Begin</th><th>(R)etry</th><th>(C)omplete</th><th>(F)ailed</th><th>Breakdown by CCAppId</th></tr>
+    @foreach (var item in Model.GetSummary())
+    {
+        <tr>
+            <td>@Html.ActionLink(item.CCName,"Detail", new {costcentreid=item.CCId})  </td>
+            <td>@item.CCType</td>
+            <td>@item.TotalCommands</td>
+            <td>@item.CommandsOnQueue</td>
+            <td>@item.SubscriberProcessBegin</td>
+            <td>@item.MarkedForRetry</td>
+            <td>@item.Complete</td>
+            <td>@item.Failed</td>
+            <td>
+                @*<a href="#" id="example" class="btn btn-danger" rel="popover" data-content="It's so simple to create a tooltop for my website!" data-original-title="Twitter Bootstrap Popover">hover for popover</a>*@
+                <a  href="#" class="poptable btn-info">CCAPPId Breakdown  </a>
+                <table class="table-condensed ccapptable smalltext">
+                    <tr><th>CCAppId</th><th>Active</th><th>T</th><th>O</th><th>B</th><th>R</th><th>C</th><th>F</th></tr>
+                    @foreach (var x in item.Items)
+                    {
+                        <tr>
+                            <td>@x.CCAppId</td>
+                            <td>@x.CCAppActive</td>
+                            <td>@x.TotalCommands</td>
+                            <td>@x.CommandsOnQueue</td>
+                            <td>@x.SubscriberProcessBegin</td>
+                            <td>@x.MarkedForRetry</td>
+                            <td>@x.Complete</td>
+                            <td>@x.Failed</td>
+
+                        </tr>
+                    }    
+                </table>
+                 
+            </td>
+        </tr>
+    }
+</table>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $(".ccapptable").hide();
+            $(".poptable").click(function () {
+                $(this).next().toggle();
+            });
+        });
+    </script>
+}
