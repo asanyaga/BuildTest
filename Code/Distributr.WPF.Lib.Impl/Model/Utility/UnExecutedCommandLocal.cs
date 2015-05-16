@@ -1,6 +1,8 @@
 ﻿using System;
-using Sqo;
-using Sqo.Attributes;
+using System.ComponentModel.DataAnnotations;
+
+//using Sqo;
+//using Sqo.Attributes;
 
 namespace Distributr.WPF.Lib.Impl.Model.Utility
 {

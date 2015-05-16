@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
-using NUnit.Framework;
 using Newtonsoft.Json.Linq;
 using PaymentGateway.WSApi.Lib.Domain.Payments.Client;
 using PaymentGateway.WSApi.Lib.Domain.Payments.Client.Request;

@@ -1,4 +1,4 @@
-﻿using Sqo;
+﻿//sing Sqo;
 
 namespace Distributr.WPF.Lib.Impl.Model.Utility
 {

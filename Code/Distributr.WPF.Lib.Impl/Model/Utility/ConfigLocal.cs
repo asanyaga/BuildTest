@@ -1,7 +1,7 @@
 ﻿using System;
 using Distributr.Core;
 using Distributr.Core.Domain.Master;
-using Sqo;
+//using Sqo;
 
 namespace Distributr.WPF.Lib.Impl.Model.Utility
 {
