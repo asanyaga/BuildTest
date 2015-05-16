@@ -1,0 +1,24 @@
+﻿<html>
+    <head>
+        <title>CommandControllerFixture</title>
+    </head>
+    <body>
+        <form method="post" action="../Command/Process"><!-- enctype="multipart/form-data"-->
+            <label for="commandType">commandType</label>
+            <input name="commandType" type="text" value="CreateOrder"/>
+
+            <label for="jsoncommand">jsoncommand</label>
+            <!-- <input name="jsoncommand" type="file" /> -->
+            
+            <textarea name="jsoncommand" rows="10" cols="140">
+                {"CommandId":"21EC2020-3AEA-1069-A2DD-18002B3030a8", "DocumentId":"21EC2020-3AEA-1069-A2DD-08002B30309c", "DocumentRecipientCostCentreId":130, "CommandGeneratedByCostCentreId":130, "CostCentreApplicationCommandSequenceId":1, "DocumentIssuerUserId":112, "DocumentIssuerCostCentreId":130, "DocumentIssuedOnBehalfOfUserId":130, "CommandGeneratedByCostCentreApplicationId":130, "CommandGeneratedByUserId":112, "DocumentReference":"1", "IssuedOnBehalfOfCostCentreId":130, "DocumentReference":"1"}
+            </textarea>
+            <p>sample JSON:<br />
+                AddOrderLineItem                {"CommandId":"21EC2020-3AEA-1069-A2DD-18002B3030a8", "DocumentId":"21EC2020-3AEA-1069-A2DD-08002B30309c", "DocumentRecipientCostCentreId":130, "CommandGeneratedByCostCentreId":130, "CostCentreApplicationCommandSequenceId":1, "DocumentIssuerUserId":112, "DocumentIssuerCostCentreId":130, "DocumentIssuedOnBehalfOfUserId":130, "CommandGeneratedByCostCentreApplicationId":130, "CommandGeneratedByUserId":112, "DocumentReference":"1", "IssuedOnBehalfOfCostCentreId":130, "DocumentReference":"1", "LineItemSequenceNo":1, "LineItemVatValue":10, "ValueLineItem":2, "Qty":2, "ProductId":174}
+                <br /><br />CreateOrder                     {"CommandId":"21EC2020-3AEA-1069-A2DD-18002B3030a8", "DocumentId":"21EC2020-3AEA-1069-A2DD-08002B30309c", "DocumentRecipientCostCentreId":130, "CommandGeneratedByCostCentreId":130, "CostCentreApplicationCommandSequenceId":1, "DocumentIssuerUserId":112, "DocumentIssuerCostCentreId":130, "DocumentIssuedOnBehalfOfUserId":130, "CommandGeneratedByCostCentreApplicationId":130, "CommandGeneratedByUserId":112, "DocumentReference":"1", "IssuedOnBehalfOfCostCentreId":130, "DocumentReference":"1"}
+            
+            </p>
+            <input type="submit" />
+        </form>
+    </body>
+</html>

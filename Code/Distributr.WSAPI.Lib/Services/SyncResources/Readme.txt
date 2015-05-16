@@ -1,0 +1,1 @@
+﻿Used by the syncing libraries in this module to create more efficient queries

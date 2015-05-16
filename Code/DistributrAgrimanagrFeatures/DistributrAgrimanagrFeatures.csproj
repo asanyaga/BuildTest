@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DC098509-A863-43FF-851E-0223359B0976}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DistributrAgrimanagrFeatures</RootNamespace>
+    <AssemblyName>DistributrAgrimanagrFeatures</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin">
+      <HintPath>..\packages\Autofac.Owin.3.1.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\packages\Autofac.WebApi2.3.4.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi.Owin">
+      <HintPath>..\packages\Autofac.WebApi2.Owin.3.2.0\lib\net45\Autofac.Integration.WebApi.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.2.0.2\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Hosting.3.0.1\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Testing">
+      <HintPath>..\packages\Microsoft.Owin.Testing.3.0.1\lib\net45\Microsoft.Owin.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Bson.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Tracing">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Tracing.5.2.3\lib\net45\System.Web.Http.Tracing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\RebuildDB\RebuildDB.cs">
+      <Link>Helpers\DB\RebuildDB.cs</Link>
+    </Compile>
+    <Compile Include="DocumentFeatures\CN\CreditNote.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreditNote.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentFeatures\CN\CreditNoteLocalSteps.cs" />
+    <Compile Include="DocumentFeatures\CN\CreditNoteServerSteps.cs" />
+    <Compile Include="DocumentFeatures\DN\DispatchNote.feature.cs" />
+    <Compile Include="DocumentFeatures\DN\DispatchNoteLocalSteps.cs" />
+    <Compile Include="DocumentFeatures\DN\DispatchNoteServerSteps.cs" />
+    <Compile Include="DocumentFeatures\DocumentIntegrationHooks.cs" />
+    <Compile Include="DocumentFeatures\IAN\IANLocalSteps.cs" />
+    <Compile Include="DocumentFeatures\IAN\IANServerSteps.cs" />
+    <Compile Include="DocumentFeatures\IAN\InventoryAdjustmentNote.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryAdjustmentNote.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentFeatures\Inv\Invoice.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Invoice.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentFeatures\Inv\InvoiceLocalSteps.cs" />
+    <Compile Include="DocumentFeatures\Inv\InvoiceServerSteps.cs" />
+    <Compile Include="DocumentFeatures\ITN\InventoryTransferNote.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryTransferNote.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentFeatures\ITN\InventoryTransferNoteLocalSteps.cs" />
+    <Compile Include="DocumentFeatures\ITN\InventoryTransferNoteToServerSteps.cs" />
+    <Compile Include="DocumentFeatures\PN\PaymentNote.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymentNote.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentFeatures\PN\PaymentNoteLocalSteps.cs" />
+    <Compile Include="DocumentFeatures\PO\PurchaseOrder.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PurchaseOrder.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentFeatures\PO\PurchaseOrderLocalSteps.cs" />
+    <Compile Include="DocumentFeatures\PO\PurchaseOrderServerSteps.cs" />
+    <Compile Include="DocumentFeatures\RN\ReceiptNote.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReceiptNote.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentFeatures\RN\ReceiptNoteLocalSteps.cs" />
+    <Compile Include="DocumentFeatures\RN\ReceiptNoteServerSteps.cs" />
+    <Compile Include="DocumentFeatures\Sale\Sale.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sale.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentFeatures\SPO\StockistPurchaseOrder.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockistPurchaseOrder.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentFeatures\SPO\StockistPurchaseOrderLocalSteps.cs" />
+    <Compile Include="DocumentFeatures\SPO\StockistPurchaseOrderServerSteps.cs" />
+    <Compile Include="DocumentSetup.cs" />
+    <Compile Include="Helpers\DB\ConfigurationMigrationTest.cs" />
+    <Compile Include="Helpers\DB\DbSetupHelper.cs" />
+    <Compile Include="Helpers\DB\DB_TestingHelper.cs" />
+    <Compile Include="Helpers\DB\DefaultDbTestingHelper.cs" />
+    <Compile Include="Helpers\DB\DistributrLocalContextTest.cs" />
+    <Compile Include="Helpers\Initialise\InitializationHelper.cs" />
+    <Compile Include="Helpers\IOC\IoCHelper.cs" />
+    <Compile Include="Helpers\IOC\RunCommandOnRequestInHostedEnvironmentAutofac.cs" />
+    <Compile Include="Helpers\IOC\StartupServerAutofac.cs" />
+    <Compile Include="Helpers\MasterData\MasterDataHelper.cs" />
+    <Compile Include="Helpers\MasterData\TestHelper.cs" />
+    <Compile Include="Helpers\SFSteps\StepHelper.cs" />
+    <Compile Include="Helpers\TestTracing\TracingHelper.cs" />
+    <Compile Include="MasterData\HubSetup\AppInitCCAppIdSteps.cs" />
+    <Compile Include="MasterData\HubSetup\CanSyncSteps.cs" />
+    <Compile Include="MasterData\HubSetup\ConfigWebServiceUrlSteps.cs" />
+    <Compile Include="MasterData\HubSetup\InitialLoginSteps.cs" />
+    <Compile Include="MasterData\HubSetup\SyncMasterData.cs" />
+    <Compile Include="MasterData\MasterDataIntegrationHooks.cs" />
+    <Compile Include="MasterData\HubSetup\HubSetup.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HubSetup.feature</DependentUpon>
+    </Compile>
+    <Compile Include="MasterData\HubSetup\HubSetupSteps.cs" />
+    <Compile Include="DocumentFeatures\PN\PaymentNoteServerSteps.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ActivityTypeRepositoryFixtures\ActivityTypeRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\AssetRepositoriesFixtures\AssetCartegoryRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\AssetRepositoriesFixtures\AssetRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\AssetRepositoriesFixtures\AssetStatusRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\AssetRepositoriesFixtures\AssetTypeRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\BankRepositoryFixtures\BankBranchRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\BankRepositoryFixtures\BankRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CentreRepositoryFixtures\CentreRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CentreRepositoryFixtures\CentreTypeRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ChannelPackagingRepositoryFixtures\ChannelPackagingRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CommodityOwnerRepositoryFixtures\CommodityOwnerRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CommodityOwnerRepositoryFixtures\CommodityOwnerTypeRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CommodityRepositoryFixtures\CommodityRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CommodityRepositoryFixtures\CommodityTypeRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CompetitorRepositoryFixture\CompetitorProductRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CompetitorRepositoryFixture\CompetitorRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ContactRepositories\ContactRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ContactRepositories\ContactTypeRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CostCentreRepositoryFixtures\CommoditySupplierRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CostCentreRepositoryFixtures\CostCentreRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CostCentreRepositoryFixtures\CountryRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CostCentreRepositoryFixtures\DistributrSalesmanRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CostCentreRepositoryFixtures\DistrictRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CostCentreRepositoryFixtures\HubRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CostCentreRepositoryFixtures\ProvinceRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CostCentreRepositoryFixtures\RegionRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\CostCentreRepositoryFixtures\TerritoryRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\DistributorRepositoryFixture\DistributorRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\DistributorRepositoryFixture\DistributorSalesmanRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\DistributorTarget\TargetItemFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\DistributorTarget\TargetPeriodRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\DistributorTarget\TargetRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\EquipmentRepositoryFixtures\ContainerTypeRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\EquipmentRepositoryFixtures\EquipmentRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\EquipmentRepositoryFixtures\VehicleRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\FinancialRepositoryFixtures\AccountRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\FinancialRepositoryFixtures\AccountTransactionRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\InfectionRepositoryFixture\InfectionRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\InitializeIocHelper.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\InventoryRepositoryFixture\InventoryRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\Market AuditRepositoryFixtures\MarketAuditRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\Market AuditRepositoryFixtures\OutletAuditRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\MasterDataAllocationRepositoryFixtures\MasterDataAllocationRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\OrderRepositoryFixtures\OrderRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\OutletRepositoryFixtures\OutletCartegoryRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\OutletRepositoryFixtures\OutletRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\OutletRepositoryFixtures\OutletTypeRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\OutletVisitReasonType\OutletVisitReasonTypeRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProducerRepositoryFixture\ProducerRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\CertainValueCertainProductDiscountRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\CustomerDiscountRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\DiscountGroupRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\FreeOfChargeDiscountRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\PricingRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\ProductBrandRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\ProductDiscountGroupRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\ProductDiscountRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\ProductFlavourRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\ProductPackagingRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\ProductPackagingTypeRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\ProductPricingTierRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\ProductRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\ProductTypeRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ProductRepositoryFixtures\PromotionDiscountRepositoryFixture.cs" />
+    <Compile Include="RepositoryFixtures\MasterData\ReorderLevelRepositoryFixtures\ReorderLevelRepositoryFixture.cs" />
+    <Compile Include="Temp\SimpleInMemoryInitialize.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="DocumentFeatures\CN\CreditNote.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreditNote.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\DN\DispatchNote.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DispatchNote1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\IAN\InventoryAdjustmentNote.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>InventoryAdjustmentNote.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\Inv\Invoice.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Invoice.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\ITN\InventoryTransferNote.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>InventoryTransferNote.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\PN\PaymentNote.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PaymentNote.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\PO\PurchaseOrder.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PurchaseOrder.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\RN\ReceiptNote.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ReceiptNote.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\Sale\Sale.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Sale.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\SPO\StockistPurchaseOrder.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StockistPurchaseOrder.feature.cs</LastGenOutput>
+    </None>
+    <None Include="MasterData\HubSetup\HubSetup.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>HubSetup.feature.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distributor.Core.Data\Distributr.Core.Data.csproj">
+      <Project>{b9ee272b-6d02-47a5-b6f6-d96cb102404e}</Project>
+      <Name>Distributr.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributor.Core\Distributr.Core.csproj">
+      <Project>{900f434e-7d81-422b-b567-1564c79ceab3}</Project>
+      <Name>Distributr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.MongoDB\Distributr.MongoDB.csproj">
+      <Project>{8267BAA6-73D1-4DBB-B70A-6C7BFFCD66AC}</Project>
+      <Name>Distributr.MongoDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WebApi.Common\Distributr.WebApi.Common.csproj">
+      <Project>{4179EC92-F163-4031-A8E5-DDFD8CDAC878}</Project>
+      <Name>Distributr.WebApi.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WPF.Lib.Data\Distributr.WPF.Lib.Data.csproj">
+      <Project>{8707481d-6e93-4f11-b778-68b5f55cf541}</Project>
+      <Name>Distributr.WPF.Lib.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WPF.Lib.Impl\Distributr.WPF.Lib.Impl.csproj">
+      <Project>{7FAFA880-4E65-4D41-9229-493372AF7188}</Project>
+      <Name>Distributr.WPF.Lib.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WPF.Lib.Services\Distributr.WPF.Lib.Services.csproj">
+      <Project>{C29F45A4-3A5B-41E4-9918-A0C1EBE926CC}</Project>
+      <Name>Distributr.WPF.Lib.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WPF.Lib\Distributr.WPF.Lib.csproj">
+      <Project>{D3D60175-1436-487B-98F0-1671FB5C37DC}</Project>
+      <Name>Distributr.WPF.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WSAPI.Lib\Distributr.WSAPI.Lib.csproj">
+      <Project>{7271F6B1-35F0-4C0A-A4CB-3F10D426E37F}</Project>
+      <Name>Distributr.WSAPI.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WSAPI.Server\Distributr.WSAPI.Server.csproj">
+      <Project>{40FF958B-EE1D-42BA-8678-02B6BD61AE41}</Project>
+      <Name>Distributr.WSAPI.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Testing\Distributr.DatabaseSetup\Distributr.DatabaseSetup.csproj">
+      <Project>{bd174f35-5450-49ac-9e93-97dc957a1b63}</Project>
+      <Name>Distributr.DatabaseSetup</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="MasterData\Readme.txt" />
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

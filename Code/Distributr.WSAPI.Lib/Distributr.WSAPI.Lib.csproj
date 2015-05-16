@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7271F6B1-35F0-4C0A-A4CB-3F10D426E37F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Distributr.WSAPI.Lib</RootNamespace>
+    <AssemblyName>Distributr.WSAPI.Lib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'dev|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\dev\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Kemsa|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Kemsa\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.2.2.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Distributr.Import.Entities">
+      <HintPath>..\ReferencedAssemblies\Integration.Imports\Distributr.Import.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyNetQ, Version=0.9.2.65, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EasyNetQ.0.9.2.65\lib\net40\EasyNetQ.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.10.0.62, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.10.0.62, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=3.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RabbitMQ.Client.3.0.0\lib\net30\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Integrations\DistributrIntegrationService.cs" />
+    <Compile Include="Integrations\IDistributorsImportService.cs" />
+    <Compile Include="Integrations\InventoryWorkflows\WsInventoryAdjustmentWorflow.cs" />
+    <Compile Include="Integrations\MasterData\Exports\IMasterDataExportService.cs" />
+    <Compile Include="Integrations\MasterData\Exports\MasterDataExportService.cs" />
+    <Compile Include="Integrations\MasterData\IBankBranchImportService.cs" />
+    <Compile Include="Integrations\MasterData\IBankImportService.cs" />
+    <Compile Include="Integrations\MasterData\ICertainValueCertainProductDiscountImportService.cs" />
+    <Compile Include="Integrations\MasterData\IChannelPackagingImportService.cs" />
+    <Compile Include="Integrations\MasterData\ICommodityImportService.cs" />
+    <Compile Include="Integrations\MasterData\ICommodityOwnerImportService.cs" />
+    <Compile Include="Integrations\MasterData\ICommodityOwnerTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\ICommoditySupplierImportService.cs" />
+    <Compile Include="Integrations\MasterData\ICommodityTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\IContactTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\IDiscountGroupImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\BankBranchImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\BankImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\CertainValueCertainProductDiscountImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\ChannelPackagingImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\CommodityImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\CommodityOwnerImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\CommodityOwnerTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\CommoditySupplierImportServic.cs" />
+    <Compile Include="Integrations\MasterData\Impl\CommodityTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\ContactTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\DiscountGroupImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\DistributorsImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\DistrictImportService.cs" />
+    <Compile Include="Integrations\MasterData\IAreaImportService.cs" />
+    <Compile Include="Integrations\MasterData\IAssetCategoryImportService.cs" />
+    <Compile Include="Integrations\MasterData\ICountryImportService.cs" />
+    <Compile Include="Integrations\MasterData\IDistrictImportService.cs" />
+    <Compile Include="Integrations\MasterData\IImportMasterDataService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\AreaImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\AssetCategoryImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\CountryImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\OutletCategoryImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\OutletImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\OutletTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\PricingImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\PricingTierImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\ProductBrandImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\ProductFlavourImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\ProductGroupDiscountImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\ProductImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\ProductPackagingImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\ProductPackagingTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\ProductTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\PromotionDiscountImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\ProvinceImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\RegionImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\RouteImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\SalesmanImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\SaleValueDiscountImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\ShiptoAddressesImportServic.cs" />
+    <Compile Include="Integrations\MasterData\Impl\SupplierImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\TerritoryImportService.cs" />
+    <Compile Include="Integrations\MasterData\Impl\VatClassImportService.cs" />
+    <Compile Include="Integrations\MasterData\IOutletCategoryImportService.cs" />
+    <Compile Include="Integrations\MasterData\IOutletImportService.cs" />
+    <Compile Include="Integrations\MasterData\IOutletTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\IPricingImportService.cs" />
+    <Compile Include="Integrations\MasterData\IPricingTierImportService.cs" />
+    <Compile Include="Integrations\MasterData\IProductBrandImportService.cs" />
+    <Compile Include="Integrations\MasterData\IProductFlavourImportService.cs" />
+    <Compile Include="Integrations\MasterData\IProductGroupDiscountImportService.cs" />
+    <Compile Include="Integrations\MasterData\IProductImportService.cs" />
+    <Compile Include="Integrations\MasterData\IProductPackagingImportService.cs" />
+    <Compile Include="Integrations\MasterData\IProductPackagingTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\IProductTypeImportService.cs" />
+    <Compile Include="Integrations\MasterData\IPromotionDiscountImportService.cs" />
+    <Compile Include="Integrations\MasterData\IProvinceImportService.cs" />
+    <Compile Include="Integrations\MasterData\IRegionImportService.cs" />
+    <Compile Include="Integrations\MasterData\IRouteImportService.cs" />
+    <Compile Include="Integrations\MasterData\ISalesmanImportService.cs" />
+    <Compile Include="Integrations\MasterData\ISaleValueDiscountImportService.cs" />
+    <Compile Include="Integrations\MasterData\IShiptoAddressesImportService.cs" />
+    <Compile Include="Integrations\MasterData\ISupplierImportService.cs" />
+    <Compile Include="Integrations\MasterData\ITerritoryImportService.cs" />
+    <Compile Include="Integrations\MasterData\IVatClassImportService.cs" />
+    <Compile Include="Integrations\Transactions\Impl\InventoryTransferService.cs" />
+    <Compile Include="Integrations\Transactions\Impl\QuickBooksTransactionsDownloadService.cs" />
+    <Compile Include="Integrations\Transactions\Impl\SageTransactionsExportService.cs" />
+    <Compile Include="Integrations\Transactions\Impl\SapTransactionsService.cs" />
+    <Compile Include="Integrations\Transactions\InventoryTransferService.cs" />
+    <Compile Include="Integrations\Transactions\ISageTransactionsExportService.cs" />
+    <Compile Include="IOC\StructuremapDependencyResolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResponseBuilders\CommandRouter\CommandEnvelopeRouterResponseBuilder.cs" />
+    <Compile Include="ResponseBuilders\CommandRouter\CommandRouterOnRequestResponseBuilder.cs" />
+    <Compile Include="ResponseBuilders\CommandRouter\CommandRouterResponseBuilder.cs" />
+    <Compile Include="ResponseBuilders\CommandRouter\ICommandEnvelopeRouterResponseBuilder.cs" />
+    <Compile Include="ResponseBuilders\CommandRouter\ICommandRouterResponseBuilder.cs" />
+    <Compile Include="ResponseBuilders\MasterData\IPullMasterDataResponseBuilder.cs" />
+    <Compile Include="ResponseBuilders\MasterData\PullMasterDataResponseBuilder.cs" />
+    <Compile Include="Retire\RetireDocumentCommandHandler.cs" />
+    <Compile Include="Services\AgrimanagrImports\ICommodityImporterService.cs" />
+    <Compile Include="Services\AgrimanagrImports\ICommodityOwnerImporterService.cs" />
+    <Compile Include="Services\AgrimanagrImports\ICommodityOwnerTypeImporterService.cs" />
+    <Compile Include="Services\AgrimanagrImports\ICommoditySupplierImporterService.cs" />
+    <Compile Include="Services\AgrimanagrImports\ICommodityTypeImporterService.cs" />
+    <Compile Include="Services\AgrimanagrImports\Impl\CommodityImporterService.cs" />
+    <Compile Include="Services\AgrimanagrImports\Impl\CommodityOwnerImporterService.cs" />
+    <Compile Include="Services\AgrimanagrImports\Impl\CommodityOwnerTypeImporterService.cs" />
+    <Compile Include="Services\AgrimanagrImports\Impl\CommoditySupplierImporterService.cs" />
+    <Compile Include="Services\AgrimanagrImports\Impl\CommodityTypeImporterService.cs" />
+    <Compile Include="Services\Bus\BusMessage.cs" />
+    <Compile Include="Services\Bus\EasyNetQ\BusBuilder.cs" />
+    <Compile Include="Services\Bus\EasyNetQ\EasyNetQBusPublisher.cs" />
+    <Compile Include="Services\Bus\EasyNetQ\EasyNetQLogger.cs" />
+    <Compile Include="Services\Bus\IBusPublisher.cs" />
+    <Compile Include="Services\Bus\IBusSubscriber.cs" />
+    <Compile Include="Services\Bus\Impl\BusSubscriber.cs" />
+    <Compile Include="Services\Bus\Impl\RunCommandOnRequestInHostedEnvironment.cs" />
+    <Compile Include="Services\Bus\Impl\StubbedBusPublisher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\Bus\Impl\SubscriberCommandExecutionGuard.cs" />
+    <Compile Include="Services\Bus\Impl\SubscriberMessageHandler.cs" />
+    <Compile Include="Services\Bus\Impl\SubscriberSystemMessageHandler.cs" />
+    <Compile Include="Services\Bus\IRunCommandOnRequestInHostedEnvironment.cs" />
+    <Compile Include="Services\Bus\ISubscriberCommandExecutionGuard.cs" />
+    <Compile Include="Services\Bus\ISubscriberMessageHandler.cs" />
+    <Compile Include="Services\Bus\ISubscriberSystemMessageHander.cs" />
+    <Compile Include="Services\Bus\SignalCompleteMessage.cs" />
+    <Compile Include="Services\CommandAudit\CommandEnvelopeProcessingAudit.cs" />
+    <Compile Include="Services\CommandAudit\CommandProcessingAuditGroup.cs" />
+    <Compile Include="Services\CommandAudit\CommandProcessingAudit.cs" />
+    <Compile Include="Services\CommandAudit\CommandProcessingAuditSummaryDTO.cs" />
+    <Compile Include="Services\CommandAudit\ICommandProcessingAuditRepository.cs" />
+    <Compile Include="Services\CommandAudit\INotificationProcessingAuditRepository.cs" />
+    <Compile Include="Services\CommandAudit\NotificationProcessingAudit.cs" />
+    <Compile Include="Services\CostCentreApplications\ICostCentreApplicationService.cs" />
+    <Compile Include="Services\CostCentreApplications\Impl\CostCentreApplicationService.cs" />
+    <Compile Include="Integrations\IDistributrIntegrationService.cs" />
+    <Compile Include="Services\Imports\IAreaImporterService.cs" />
+    <Compile Include="Services\Imports\IBankBranchImporterService.cs" />
+    <Compile Include="Services\Imports\IBankImporterService.cs" />
+    <Compile Include="Services\Imports\IBaseImporterService.cs" />
+    <Compile Include="Services\Imports\ICountryImporterService.cs" />
+    <Compile Include="Services\Imports\IDiscountGroupImporterService.cs" />
+    <Compile Include="Services\Imports\IDistributorImporterService.cs" />
+    <Compile Include="Services\Imports\IDistributorSalesmanImporterService.cs" />
+    <Compile Include="Services\Imports\IInventoryImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\AreaImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\BankBranchImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\BankImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\CountryImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\BaseImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\DiscountGroupImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\DistributorImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\DistributorSalesmanImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\InventoryImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\OutletCategoryImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\OutletImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\OutletTypeImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\PricingTierImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\ProductDiscountGroupImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\ProductDiscountImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\ProductFlavourImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\ProductPackagingImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\ProductPackagingTypeImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\ProductTypeImporterService.cs" />
+    <Compile Include="Services\Imports\IOutletCategoryImporterService.cs" />
+    <Compile Include="Services\Imports\IOutletImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\PricingImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\ProductBrandImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\RegionImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\RouteImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\SaleProductImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\SupplierImporterService.cs" />
+    <Compile Include="Services\Imports\Impl\VATClassImporterService.cs" />
+    <Compile Include="Services\Imports\IOutletTypeImporterService.cs" />
+    <Compile Include="Services\Imports\IPricingImporterService.cs" />
+    <Compile Include="Services\Imports\IPricingTierImporterService.cs" />
+    <Compile Include="Services\Imports\IProductBrandImporterService.cs" />
+    <Compile Include="Services\Imports\IProductDiscountGroupImporterService.cs" />
+    <Compile Include="Services\Imports\IProductDiscountImporterService.cs" />
+    <Compile Include="Services\Imports\IProductFlavourImporterService.cs" />
+    <Compile Include="Services\Imports\IProductPackagingImporterService.cs" />
+    <Compile Include="Services\Imports\IProductPackagingTypeImporterService.cs" />
+    <Compile Include="Services\Imports\IProductTypeImporterService.cs" />
+    <Compile Include="Services\Imports\IRegionImporterService.cs" />
+    <Compile Include="Services\Imports\IRouteImporterService.cs" />
+    <Compile Include="Services\Imports\ISaleProductImporterService.cs" />
+    <Compile Include="Services\Imports\ISupplierImporterService.cs" />
+    <Compile Include="Services\Imports\IVATClassImporterService.cs" />
+    <Compile Include="Services\MasterData\HandleMasterData.cs" />
+    <Compile Include="Services\MasterData\IHandleMasterData.cs" />
+    <Compile Include="Services\MasterData\IPublishMasterData.cs" />
+    <Compile Include="Services\MasterData\PublishMasterData.cs" />
+    <Compile Include="Services\Resolver\IMasterDataEntityResolver.cs" />
+    <Compile Include="Services\Resolver\Impl\MasterDataEntityResolver.cs" />
+    <Compile Include="Services\Routing\CCComandRoutingItem.cs" />
+    <Compile Include="Services\Routing\CommandEnvelopeRouteOnRequestCostcentre.cs" />
+    <Compile Include="Services\Routing\CommandEnvelopeRoutingStatus.cs" />
+    <Compile Include="Services\Routing\Old\CommandRouteItem.cs" />
+    <Compile Include="Services\Routing\CommandRouteOnRequest.cs" />
+    <Compile Include="Services\Routing\Old\CommandRouteOnRequestCostcentre.cs" />
+    <Compile Include="Services\Routing\Old\CommandRoutingStatus.cs" />
+    <Compile Include="Services\Routing\CostCentreRouteOnRequestDetail.cs" />
+    <Compile Include="Services\Routing\ICommandEnvelopeRouteOnRequestCostcentreRepository.cs" />
+    <Compile Include="Services\Routing\Old\ICommandRoutingOnRequestRepository.cs" />
+    <Compile Include="Services\Routing\Old\ICommandRoutingOnRequestResolver.cs" />
+    <Compile Include="Services\Routing\Old\ICommandRoutingResolver.cs" />
+    <Compile Include="Services\Routing\Old\ICommandRoutingRepository.cs" />
+    <Compile Include="Services\Routing\Old\Implementation\CommandRoutingOnRequestResolver.cs" />
+    <Compile Include="Services\Routing\Old\Implementation\CommandRoutingResolver.cs" />
+    <Compile Include="Services\SyncResources\SyncResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyncResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Sync\IMasterDataZipperService.cs" />
+    <Compile Include="Services\Sync\Impl\ISyncSalesmanSupplierMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\MasterDataZipperService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncActivityTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncChannelPackagingMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCommodityProducerCentreMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncInfectionsMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncInventoryService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncOutletVisitReasonsTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncPaymentsService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncSalesmanSupplierMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncSeasonMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncServiceProviderMasterdataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncServicesMasterdataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncShiftMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncUnderBankingService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncVehicleMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncSourcingContainerMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncWeighScaleMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncPrinterMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncContainerTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncActivityTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncChannelPackagingMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncInfectionsMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncOutletVisitReasonsTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncPaymentsService.cs" />
+    <Compile Include="Services\Sync\ISyncSeasonMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncServiceProviderMasterdataService.cs" />
+    <Compile Include="Services\Sync\ISyncServicesMasterdataService.cs" />
+    <Compile Include="Services\Sync\ISyncShiftMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncUnderBankingService.cs" />
+    <Compile Include="Services\Sync\ISyncVehicleMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCommodityProducerCentreMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncSourcingContainerMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncWeighScaleMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncPrinterMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncContainerTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCentreMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCentreTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncDistributorSalesmanMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncMasterDataBase.cs" />
+    <Compile Include="Services\Sync\Impl\SyncRouteCentreMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncUserMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncRouteCentreMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncUserMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCommodityMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCommodityOwnerMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCommodityOwnerTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCommodityProducerMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCommoditySupplierMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCommodityTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncFieldClerkMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncHubMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncStoreMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCentreMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCentreTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCommodityMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCommodityOwnerMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCommodityOwnerTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCommodityProducerMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCommoditySupplierMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCommodityTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncRetireSettingMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncRouteCostCentreMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncRouteRegionAllocationMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncSettingMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncSocioEconomicStatusMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncTargetPeriodMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncProvinceMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncProductPackagingMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncProducerMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncProductFlavourMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncAreaMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncAssetCategoryMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncAssetMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncAssetStatusMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncAssetTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncBankBranchMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncBankMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCompetitorMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCompetitorProductMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncContactMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncContactTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCountryMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncDistributorMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncDistributorPendingDispatchWarehouseService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncDistrictMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncOutletCategoryMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncOutletPriorityMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncOutletTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncOutletVisitDayMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncPricingTierMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncProductBrandMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncProductPackagingTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncProductTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncRegionMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncReorderLevelMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncRouteMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncSalesmanRouteMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncSupplierMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncTargetItemMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncTargetMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncTerritoryMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncUserGroupMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncUserGroupRoleMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncVatClassMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncFieldClerkMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncHubMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncOutletVisitDayMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncAreaMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncAssetCategoryMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncAssetMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncAssetStatusMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncAssetTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncBankBranchMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncBankMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCompetitorMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCompetitorProductMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncContactMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncContactTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCountryMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncDistributorMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncDistributorPendingDispatchWarehouseService.cs" />
+    <Compile Include="Services\Sync\ISyncDistributorSalesmanMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncDistrictMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncOutletCategoryMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncOutletPriorityMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncOutletTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncPricingTierMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncProducerMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncProductBrandMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncProductFlavourMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncProductPackagingMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncProductPackagingTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncProductTypeMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncProvinceMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncRegionMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncReorderLevelMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncRetireSettingMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncRouteCostCentreMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncRouteRegionAllocationMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncSalesmanRouteMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncSettingMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncSocioEconomicStatusMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncStoreMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncTargetItemMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncTargetMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncTargetPeriodMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncTerritoryMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncUserGroupMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncUserGroupRoleMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncVatClassMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncConsolidatedProductMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncReturnableProductMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncSaleProductMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncConsolidatedProductMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncRouteMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncSaleProductMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncReturnableProductMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncFreeOfChargeDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncPromotionDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncSaleValueDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncCvcpDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncFreeOfChargeDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncPromotionDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncSaleValueDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncCvcpDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncProductDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncOutletMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncProductGroupDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncDiscountGroupMasterDataService.cs" />
+    <Compile Include="Services\Sync\Impl\SyncPricingMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncDiscountGroupMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncOutletMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncPricingMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncProductDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncProductGroupDiscountMasterDataService.cs" />
+    <Compile Include="Services\Sync\ISyncSupplierMasterDataService.cs" />
+    <Compile Include="Services\Sync\SyncQueryStringsUtil.cs" />
+    <Compile Include="Services\WCFServices\ServiceContracts\DistributorServices.cs" />
+    <Compile Include="Services\WCFServices\ServiceContracts\IDistributorServices.cs" />
+    <Compile Include="Services\WebService\MasterDataDTODeserialization\IMasterDataDTODeserialize.cs" />
+    <Compile Include="Services\WebService\MasterDataDTODeserialization\IMasterDataDTOValidation.cs" />
+    <Compile Include="Services\WebService\MasterDataDTODeserialization\Impl\MasterDataDTODeserialize.cs" />
+    <Compile Include="Services\WebService\MasterDataDTODeserialization\Impl\MasterDataDTOValidation.cs" />
+    <Compile Include="System\Impl\QAddRetryCommandHandler.cs" />
+    <Compile Include="System\Impl\ReRouteDocumentCommandHandler.cs" />
+    <Compile Include="System\IQAddRetryCommandHandler.cs" />
+    <Compile Include="System\SystemCommandType.cs" />
+    <Compile Include="System\Utility\CCAudit\CCAuditItem.cs" />
+    <Compile Include="System\Utility\ICCAuditRepository.cs" />
+    <Compile Include="System\Utility\QAddRetryCommand.cs" />
+    <Compile Include="System\Utility\QHealth.cs" />
+    <Compile Include="System\Utility\QUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distributor.Core.Data\Distributr.Core.Data.csproj">
+      <Project>{B9EE272B-6D02-47A5-B6F6-D96CB102404E}</Project>
+      <Name>Distributr.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributor.Core\Distributr.Core.csproj">
+      <Project>{900F434E-7D81-422B-B567-1564C79CEAB3}</Project>
+      <Name>Distributr.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Services\SyncResources\Texture1.dds" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Services\SyncResources\SyncResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SyncResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Integrations\Readme.txt" />
+    <Content Include="Services\AgrimanagrImports\Readme.txt" />
+    <Content Include="Services\Imports\Readme.txt" />
+    <Content Include="Services\SyncResources\DHubInventory.sql" />
+    <Content Include="Services\SyncResources\DHubPayments.sql" />
+    <Content Include="Services\SyncResources\Readme.txt" />
+    <Content Include="Services\SyncResources\Target.sql" />
+    <Content Include="Services\SyncResources\DHubGroupProdcutDiscount.sql" />
+    <Content Include="Services\SyncResources\MobileUsers.sql" />
+    <Content Include="Services\SyncResources\DHubOutletVisit.sql" />
+    <Content Include="Services\SyncResources\DHubOutlet.sql" />
+    <Content Include="Services\SyncResources\DHubUsers.sql" />
+    <Content Include="Services\SyncResources\DHubContact.sql" />
+    <Content Include="Services\SyncResources\SalesmanContact.sql" />
+    <Content Include="Services\SyncResources\SalesmanOutlet.sql" />
+    <Content Include="Services\Sync\Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\WebService\CommandDeserialization\Impl\" />
+    <Folder Include="Services\WebService\CommandValidation\Implementation\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
