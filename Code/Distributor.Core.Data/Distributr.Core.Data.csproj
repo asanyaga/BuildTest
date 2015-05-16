@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B9EE272B-6D02-47A5-B6F6-D96CB102404E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Distributr.Core.Data</RootNamespace>
+    <AssemblyName>Distributr.Core.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'dev|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\dev\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Kemsa|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Kemsa\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'dev|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\dev\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Kemsa|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Kemsa\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\PGWSAPI\PaymentGateway.WSApi\bin\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Appfabric\Microsoft.ApplicationServer.Caching.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Appfabric\Microsoft.ApplicationServer.Caching.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandHandlers\ActivityDocumentHandlers\AddActivityInfectionLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ActivityDocumentHandlers\AddActivityInputLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ActivityDocumentHandlers\AddActivityProduceLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ActivityDocumentHandlers\AddActivityServiceLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ActivityDocumentHandlers\ConfirmActivityCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ActivityDocumentHandlers\CreateActivityCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\AdjustmentNotes\AddInventoryAdjustmentNoteLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\AdjustmentNotes\ConfirmInventoryAdjustmentNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\AdjustmentNotes\CreateInventoryAdjustmentNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\BaseCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\CreateInventorySerialsCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\CreditNotes\AddCreditNoteLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\CreditNotes\ConfirmCreditNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\CreditNotes\CreateCreditNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\DisbursementNotes\AddDisbursementNoteLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\DisbursementNotes\ConfirmDisbursementNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\DisbursementNotes\CreateDisbursementNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\DispatchNotes\AddDispatchNoteLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\DispatchNotes\ConfirmDispatchNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\DispatchNotes\CreateDispatchNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\InventoryReceivedNotes\AddInventoryReceivedNoteLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\InventoryReceivedNotes\ConfirmInventoryReceivedNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\InventoryReceivedNotes\CreateInventoryReceivedNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\InventoryTransferNotes\AddInventoryTransferNoteLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\InventoryTransferNotes\ConfirmInventoryTransferNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\InventoryTransferNotes\CreateInventoryTransferNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Invoices\AddInvoiceLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Invoices\CloseInvoiceCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Invoices\ConfirmInvoiceCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Invoices\CreateInvoiceCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\AddExternalDocRefCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\AddOrderLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\AddOrderPaymentInfoCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\ApproveOrderCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\ApproveOrderLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\BackOrderCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\ChangeOrderLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\CloseOrderCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\ConfirmOrderCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\CreateOrderCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\OrderDispatchedToPhoneCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\OrderPendingDispatchCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\RejectOrderCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Orders\RemoveOrderLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\OutletDocuments\CreateOutletVisitNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\PN\AddPaymentNoteLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\PN\ConfirmPaymentNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\PN\CreatePaymentNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Receipts\AddReceiptLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Receipts\ConfirmReceiptCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Receipts\ConfirmReceiptLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Receipts\CreateReceiptCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\Recollections\CreateCommodityDeliveryCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\ReturnsNotes\AddReturnsNoteLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\ReturnsNotes\CloseReturnsNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\ReturnsNotes\ConfirmReturnsNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DocumentCommandHandlers\ReturnsNotes\CreateReturnsNoteCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\BaseCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommoditityReleaseCommandHandlers\AddCommodityReleaseLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommoditityReleaseCommandHandlers\ConfirmCommodityReleaseCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommoditityReleaseCommandHandlers\CreateCommodityReleaseCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommoditityPurchaseCommandHandlers\AddCommodityPurchaseLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommoditityPurchaseCommandHandlers\ConfirmCommodityPurchaseCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommoditityPurchaseCommandHandlers\CreateCommodityPurchaseCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommoditityStorageCommandHandlers\AddCommodityStorageLineItemCommandHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommoditityStorageCommandHandlers\ConfirmCommodityStorageCommandHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommoditityStorageCommandHandlers\CreateCommodityStorageCommandHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommoditityStorageCommandHandlers\TransferedCommodityStorageCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityDeliveryCommandHandlers\AddCommodityDeliveryLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityDeliveryCommandHandlers\ConfirmCommodityDeliveryCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityDeliveryCommandHandlers\ReceivedDeliveryCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityDeliveryCommandHandlers\StoredReceivedDeliveryLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityDeliveryCommandHandlers\WeighedAddCommodityDeliveryLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityDeliveryCommandHandlers\CreateCommodityDeliveryCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityReceptionCommandHandlers\AddCommodityReceptionLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityReceptionCommandHandlers\ConfirmCommodityReceptionCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityReceptionCommandHandlers\CreateCommodityReceptionCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityReceptionCommandHandlers\StoredCommodityReceptionLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityTransferCommandHandlers\AddCommodityTransferLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityTransferCommandHandlers\ApproveCommodityTransferCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityTransferCommandHandlers\ConfirmCommodityTransferCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityTransferCommandHandlers\CreateCommodityTransferCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityWarehouseStorageCommandHandlers\AddCommodityWarehouseStorageLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityWarehouseStorageCommandHandlers\GenerateReceiptCommodityWarehouseStorageCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityWarehouseStorageCommandHandlers\ConfirmCommodityWarehouseStorageCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityWarehouseStorageCommandHandlers\ApproveCommodityWarehouseStorageCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityWarehouseStorageCommandHandlers\StoreCommodityWarehouseStorageCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityWarehouseStorageCommandHandlers\CreateCommodityWarehouseStorageCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\CommodityWarehouseStorageCommandHandlers\UpdateCommodityWarehouseStorageLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\ReceivedDeliveryCommandHandlers\AddReceivedDeliveryLineItemCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\ReceivedDeliveryCommandHandlers\ConfirmReceivedDeliveryCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SourcingDocumentCommandHandlers\ReceivedDeliveryCommandHandlers\CreateReceivedDeliveryCommandHandler.cs" />
+    <Compile Include="CoreResourceHelper.cs" />
+    <Compile Include="EF\CokeData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CokeData.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CokeDataContext.cs" />
+    <Compile Include="IOC\DataRegistry.cs" />
+    <Compile Include="IOC\DefaultCommandHandlers.cs" />
+    <Compile Include="IOC\LoggerRegistry.cs" />
+    <Compile Include="MappingExtensions\MapToDomain.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RepositoryMasterBase.cs" />
+    <Compile Include="Repository\CompetitorManagement\CompetitorProductsRepository.cs" />
+    <Compile Include="Repository\CompetitorManagement\CompetitorRepository.cs" />
+    <Compile Include="Repository\Financials\AccountRepository.cs" />
+    <Compile Include="Repository\Financials\PaymentTrackerRepository.cs" />
+    <Compile Include="Repository\InventoryRepository\InventoryRepository.cs" />
+    <Compile Include="Repository\Financials\AccountTransactionRepository.cs" />
+    <Compile Include="Repository\InventoryRepository\InventorySerialsRepository.cs" />
+    <Compile Include="Repository\InventoryRepository\InventoryTransactionRepository.cs" />
+    <Compile Include="Repository\InventoryRepository\SourcingInventoryRepository.cs" />
+    <Compile Include="Repository\Map\MapCordinateRepository.cs" />
+    <Compile Include="Repository\MasterData\Agrimanagr\ActivityRepository.cs" />
+    <Compile Include="Repository\MasterData\Agrimanagr\ActivityTypeRepository.cs" />
+    <Compile Include="Repository\MasterData\Agrimanagr\InfectionRepository.cs" />
+    <Compile Include="Repository\MasterData\Agrimanagr\SeasonRepository.cs" />
+    <Compile Include="Repository\MasterData\Agrimanagr\ServiceProviderRepository.cs" />
+    <Compile Include="Repository\MasterData\Agrimanagr\ServiceRepository.cs" />
+    <Compile Include="Repository\MasterData\Agrimanagr\ShiftRepository.cs" />
+    <Compile Include="Repository\MasterData\AssetRepositories\AssetCategoryRepository.cs" />
+    <Compile Include="Repository\MasterData\AssetRepositories\AssetStatusRepository.cs" />
+    <Compile Include="Repository\MasterData\AssetRepositories\DistributrFileRepository.cs" />
+    <Compile Include="Repository\MasterData\BankRepositories\BankBranchRepository.cs" />
+    <Compile Include="Repository\MasterData\BankRepositories\BankRepository.cs" />
+    <Compile Include="Repository\MasterData\CentreRepositories\CentreRepository.cs" />
+    <Compile Include="Repository\MasterData\CentreRepositories\CentreTypeRepository.cs" />
+    <Compile Include="Repository\MasterData\ChannelPackagings\ChannelPackagingRepository.cs" />
+    <Compile Include="Repository\MasterData\ClientMasterDataTrackerRepository.cs" />
+    <Compile Include="Repository\MasterData\AssetRepositories\AssetRepository.cs" />
+    <Compile Include="Repository\MasterData\AssetRepositories\AssetTypeRepository.cs" />
+    <Compile Include="Repository\MasterData\CommodityRepositories\CommodityRepository.cs" />
+    <Compile Include="Repository\MasterData\CommodityOwnerrepositories\CommodityOwnerRepository.cs" />
+    <Compile Include="Repository\MasterData\CommodityRepositories\CommodityTypeRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\AreaRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\CommodityOwnerTypeRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\CommodityProducerRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\CommoditySupplierRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\ContactRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\ContactTypeRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\CostCentreApplicationRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\CostCentreRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\CountryRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\DistributorPendingDispatchWarehouseRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\DistributorRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\DistributorSalesmanRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\DistrictRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\PurchasingClerkRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\HubRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\MaritalStatusRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\OutletCategoryRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\OutletPriorityRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\OutletRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\OutletTypeRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\OutletVisitDayRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\ProducerRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\ProvincesRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\PurchasingClerkRouteRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\RegionRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\RouteRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\SalesmanRouteRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\SalesmanSupplierRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\SocioEconomicStatusRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\StoreRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\TerritoryRepository.cs" />
+    <Compile Include="Repository\MasterData\CostCentreRepositories\TransporterRepository.cs" />
+    <Compile Include="Repository\MasterData\DistributorTargetRepositories\TargetItemRepository.cs" />
+    <Compile Include="Repository\MasterData\DistributorTargetRepositories\TargetPeriodRepository.cs" />
+    <Compile Include="Repository\MasterData\DistributorTargetRepositories\TargetRepository.cs" />
+    <Compile Include="Repository\MasterData\EquipmentRepository\ContainerTypeRepository.cs" />
+    <Compile Include="Repository\MasterData\EquipmentRepository\EquipmentRepository.cs" />
+    <Compile Include="Repository\MasterData\EquipmentRepository\VehicleRepository.cs" />
+    <Compile Include="Repository\MasterData\MarketAuditRepositories\MarketAuditRepository.cs" />
+    <Compile Include="Repository\MasterData\MarketAuditRepositories\OutletAuditRepository.cs" />
+    <Compile Include="Repository\MasterData\MasterDataAllocationRepositories\MasterDataAllocationRepository.cs" />
+    <Compile Include="Repository\MasterData\MasterDataEnvelopeBuilder.cs" />
+    <Compile Include="Repository\MasterData\MasterDataTrackerBaseRepository.cs" />
+    <Compile Include="Repository\MasterData\OutletVisitReasonsTypeRepositories\OutletVisitReasonsTypeRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\CertainValueCertainProductDiscountRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ContainmentRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\CustomerDiscountRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\DiscountGroupRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\FreeOfChargeDiscountRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\PromotionDiscountRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ProductBrandRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ProductDiscountRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ProductDomainType.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ProductFlavourRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ProductDiscountGroupRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ProductPackagingRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ProductPackagingTypeRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ProductPricingRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ProductPricingTierRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ProductRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ProductTypeRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ReturnablesRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\SaleValueDiscountRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\ShellsRepository.cs" />
+    <Compile Include="Repository\MasterData\ProductRepositories\VATClassRepository.cs" />
+    <Compile Include="Repository\MasterData\SettingsRepositories\RetireDocumentSettingRepository.cs" />
+    <Compile Include="Repository\MasterData\SettingsRepositories\SettingsRepository.cs" />
+    <Compile Include="Repository\MasterData\SuppliersRepositories\SupplierRepository.cs" />
+    <Compile Include="Repository\MasterData\UserRepository\UserGroupRepository.cs" />
+    <Compile Include="Repository\MasterData\UserRepository\UserGroupRolesRepository.cs" />
+    <Compile Include="Repository\MasterData\UserRepository\UserRepository.cs" />
+    <Compile Include="Repository\PG\PgRepositoryHelper.cs" />
+    <Compile Include="Repository\RepositoryMasterBase.cs" />
+    <Compile Include="Repository\Transactional\DocumentHelper.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\OutletMainOrderRepository.cs" />
+    <Compile Include="Repository\Transactional\RecollectionRepositories\ReCollectionRepository.cs" />
+    <Compile Include="Repository\Transactional\SourcingDocumentRepositories\CommodityReleaseRepository.cs" />
+    <Compile Include="Repository\Transactional\SourcingDocumentRepositories\CommodityTransferRepository.cs" />
+    <Compile Include="Repository\Transactional\SourcingDocumentRepositories\CommodityWarehouseStorageRepository.cs" />
+    <Compile Include="Repository\Transactional\SourcingDocumentRepositories\CommoditySupplierInventoryRepository.cs" />
+    <Compile Include="Repository\Transactional\ThirdPartyIntegrationRepository\ReturnInventoryExportDocumentRepository.cs" />
+    <Compile Include="Repository\Transactional\ThirdPartyIntegrationRepository\ExportImportAuditRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\CreditNoteRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\GenericDocumentRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\InvoiceRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\MainOrderRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\PaymentNoteRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\IntegrationDocumentRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\ReceiptRepository.cs" />
+    <Compile Include="Repository\Transactional\ReOrderLevelRepository\ReOrderLevelRepository.cs" />
+    <Compile Include="Repository\Transactional\AuditLogRepositories\AuditLogRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\DisbursementNoteRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\DispatchNoteRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\DocumentRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\InventoryAdjustmentNoteRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\InventoryReceivedNoteRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\InventoryTransferNoteRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\LossRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\OrderRepository.cs" />
+    <Compile Include="Repository\Transactional\DocumentRepositories\ReturnsNoteRepository.cs" />
+    <Compile Include="Repository\Transactional\SourcingDocumentRepositories\CommodityPurchaseRepository.cs" />
+    <Compile Include="Repository\Transactional\SourcingDocumentRepositories\CommodityReceptionRepository.cs" />
+    <Compile Include="Repository\Transactional\SourcingDocumentRepositories\CommodityStorageRepository.cs" />
+    <Compile Include="Repository\Transactional\SourcingDocumentRepositories\CommodityDeliveryRepository.cs" />
+    <Compile Include="Repository\Transactional\SourcingDocumentRepositories\GenericSourceDocumentRepository.cs" />
+    <Compile Include="Repository\Transactional\SourcingDocumentRepositories\ReceivedDeliveryRepository.cs" />
+    <Compile Include="Repository\Transactional\SourcingDocumentRepositories\SourcingDocumentRepository.cs" />
+    <Compile Include="Repository\Transactional\ThirdPartyIntegrationRepository\InvoiceExportDocumentRepository.cs" />
+    <Compile Include="Repository\Transactional\ThirdPartyIntegrationRepository\OrderExportDocumentRepository.cs" />
+    <Compile Include="Repository\Transactional\ThirdPartyIntegrationRepository\ReceiptExportDocumentRepository.cs" />
+    <Compile Include="Repository\Transactional\ThirdPartyIntegrationRepository\TransactionsSummary.cs" />
+    <Compile Include="Repository\Util\DropdownRepository.cs" />
+    <Compile Include="Resources\IntegrationResources\IntegrationResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntegrationResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\MainOrderResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainOrderResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Others\OtherResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtherResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\OutletOrders\OutletOrdersResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OutletOrdersResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Script\DistributrDataHelper.cs" />
+    <Compile Include="Utility\ApplicationSetup.cs" />
+    <Compile Include="Utility\Caching\AppFabricCacheProvider.cs" />
+    <Compile Include="Utility\Caching\DefaultCacheProvider.cs" />
+    <Compile Include="Utility\Caching\IMasterDataCachingInvalidator.cs" />
+    <Compile Include="Utility\Caching\IVCacheProvider.cs" />
+    <Compile Include="Utility\Caching\MasterDataCachingInvalidator.cs" />
+    <Compile Include="Utility\CommandDeserialization\CommandDeserialize.cs" />
+    <Compile Include="Utility\MasterDataUsage.cs" />
+    <Compile Include="Utility\ValidationExtensions.cs" />
+    <Compile Include="Utility\Validation\CommandValidate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distributor.Core\Distributr.Core.csproj">
+      <Project>{900F434E-7D81-422B-B567-1564C79CEAB3}</Project>
+      <Name>Distributr.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="EF\CokeData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CokeData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Distributr.Core.Data.EF.cokeIIEntities.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommandHandlers\DocumentCommandHandlers\Retire\" />
+    <Folder Include="Repository\MasterData\Util\" />
+    <Folder Include="Repository\ReOrderLevelRepository\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log4net.xml" />
+    <Content Include="Resources\Others\GetNextDocRef.sql" />
+    <Content Include="Resources\IntegrationResources\SaleOrderPendingExport.sql">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </Content>
+    <Content Include="Resources\OrdersAndSalesPendingExportQuerySQL.txt" />
+    <Content Include="Resources\Order\PaidAmount.sql" />
+    <Content Include="Resources\Order\PendingApproval.sql" />
+    <Content Include="Resources\Order\PendingDispatch.sql" />
+    <Content Include="Resources\Order\Outstanding.sql" />
+    <Content Include="Resources\OutletOrders\DispatchedOutletOrders.sql" />
+    <Content Include="Resources\OutletOrders\RejectedOutletOrders.sql" />
+    <Content Include="Resources\OutletOrders\OutstandingOutletOrders.sql" />
+    <Content Include="Resources\OutletOrders\OutletOrdersPendingDispatch.sql" />
+    <Content Include="Resources\OutletOrders\OutletOrders.sql" />
+    <Content Include="Resources\OutletOrders\OutletOrdersPendingApproval.sql" />
+    <EmbeddedResource Include="Script\Tables\20150514\AddNewDefaultAgriRolesToHqAdmin.sql" />
+    <EmbeddedResource Include="Resources\Others\OtherResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OtherResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\Tables\20150515\addTblDocumentReference.sql" />
+    <EmbeddedResource Include="Script\Tables\20150511\addpasschange.sql" />
+    <EmbeddedResource Include="Script\Tables\20150331\addInitialquantity.sql" />
+    <EmbeddedResource Include="Script\Tables\AlterRegionNameSize.sql" />
+    <EmbeddedResource Include="Script\Indexes\10002.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\Tables\20141002\goodreceivenote.sql" />
+    <EmbeddedResource Include="Resources\IntegrationResources\IntegrationResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>IntegrationResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\Tables\20140826\updateproductdiscount.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\Tables\20140811\updateiventoryImporthub.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\Tables\20140811\updateiventoryImport.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\Tables\20140808\salesmansupplier.sql" />
+    <EmbeddedResource Include="Script\Tables\20140808\inventoryimports.sql" />
+    <EmbeddedResource Include="Script\Tables\20140808\addusersupplierid.sql" />
+    <EmbeddedResource Include="Script\Tables\20140728\SCInventory.Sql" />
+    <EmbeddedResource Include="Resources\OutletOrders\OutletOrdersResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OutletOrdersResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\Tables\20140717\10001.sql" />
+    <EmbeddedResource Include="Script\Tables\10003.sql" />
+    <EmbeddedResource Include="Script\Tables\10002.sql" />
+    <EmbeddedResource Include="Script\Tables\10001.sql" />
+    <EmbeddedResource Include="Resources\MainOrderResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MainOrderResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\Tables\10000.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\Indexes\10000.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

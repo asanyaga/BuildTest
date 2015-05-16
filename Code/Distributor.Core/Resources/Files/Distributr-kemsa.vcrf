@@ -1,0 +1,3796 @@
+﻿# application detail
+app.hq.name=Distributr HQ
+app.sl.name=Distributr Silverlight
+
+# Agrimanagr app detail
+app.agrimanagr.name=Agrimanagr
+app.agrimanagr.hq.logout=Logout
+
+# outlet form Details
+outlet.name=name;
+outlet.heading=Outlet Form
+outlet.title=Outlet Form
+outlet.code=Code
+
+# Master data
+# Asset Model
+hq.asset.astname = Asset Name 
+hq.asset.name = Name
+hq.asset.astcode = Asset Code
+hq.asset.code = Code
+hq.asset.desc = Description
+hq.asset.serial = Serial Number  	
+hq.asset.astno = Asset Number  	
+hq.asset.capacity = Capacity  	
+hq.asset.aststatus = Asset Status  	
+hq.asset.asttype = Asset Type 	
+hq.asset.astcategory = Asset Category
+hq.asset.action = Actions
+hq.asset.validation.error = Asset Entity Not valid, Check
+hq.assetcat.validation.error = Asset Category Not Valid
+hq.asset.breadcrumb = Asset Management
+
+# Asset Listing
+hq.asset.listing.title = Assets
+hq.asset.listing.heading = Asset Listing 
+hq.asset.listing.breadcrumb = Assets
+hq.asset.listing.add = Add Asset
+hq.asset.listing.search = Search For Asset
+
+# Asset Form 
+hq.asset.form.breadcrumb.view = View Assets
+
+# New Asset 
+hq.asset.form.title.add = CreateAsset
+hq.asset.form.breadcrumb.add = Add Asset
+hq.asset.form.details.add = Asset Details
+
+# Edit Asset 
+hq.asset.form.title.edit = EditAsset
+hq.asset.form.breadcrumb.edit = Edit Asset
+hq.asset.form.details.edit = Asset
+
+# Transporter Model
+hq.transporter.Name = Name 
+hq.transporter.DriverName = Driver Name
+hq.transporter.VehicleRegistrationNo = Vehicle Registration Number
+hq.transporter.CostCentreId = CostCentre
+hq.transporter.CostCentreType = CostCentre Type
+hq.transporter.ParentCostCentre = Parent Cost Centre
+hq.transporter.action = Actions
+hq.transporter.breadcrumb = Transporter Management
+
+# Transporter Listing
+hq.transporter.listing.title = Transporters
+hq.transporter.listing.heading = Transporter Listing 
+hq.transporter.listing.breadcrumb = Transporters
+hq.transporter.listing.add = Add Transporter
+hq.transporter.listing.search = Search For Transporter
+
+# Transporter Form 
+hq.transporter.form.breadcrumb.view = View Transporters
+
+# New Transporter 
+hq.transporter.form.title.add = CreateTransporter
+hq.transporter.form.breadcrumb.add = Add Transporter
+hq.transporter.form.details.add = Transporter Details
+
+# Edit Transporter 
+hq.transporter.form.title.edit = EditTransporter
+hq.transporter.form.breadcrumb.edit = Edit Transporter
+hq.transporter.form.details.edit = Transporter
+
+# Container Model
+hq.container.Name = Name 
+hq.container.Make = Make 
+hq.container.Code = Code
+hq.container.Model = Model 
+hq.container.EquipmentType = Equipment Type
+hq.container.ContainerType = Container Type  
+hq.container.Description = Description
+hq.container.CostCentre = Hub
+hq.container.EquipmentNumber = Equipment Number
+hq.container.LoadCariage = Weight
+hq.container.TareWeight = TareWeight
+hq.container.Weight = Weight
+hq.container.Length = Length 
+hq.container.Width = Width
+hq.container.Height = Height
+hq.container.BubbleSpace = BubbleSpace
+hq.container.Volume = Volume
+hq.container.FreezerTemp = Freezer Temparature
+hq.container.CommodityId = Commodity
+hq.container.Commodity = Commodity
+hq.container.CommodityGrade = Commodity Grade
+
+hq.container.action = Actions
+hq.container.breadcrumb = Container Management
+
+# Container Listing
+hq.container.listing.title = Containers
+hq.container.listing.heading = Container Listing 
+hq.container.listing.breadcrumb = Containers
+hq.container.listing.add = Add Container
+hq.container.listing.search = Search For Container
+
+# Container Form 
+hq.container.form.breadcrumb.view = View Container
+
+# New Container 
+hq.container.form.title.add = CreateContainer
+hq.container.form.breadcrumb.add = Add Container
+hq.container.form.details.add = Container Details
+
+# Edit Container 
+hq.container.form.title.edit = EditContainer
+hq.container.form.breadcrumb.edit = Edit Container
+hq.container.form.details.edit = Container
+
+# Printer Model
+hq.printer.Name = Name 
+hq.printer.Make = Make 
+hq.printer.Code = Code
+hq.printer.Model = Model 
+hq.printer.EquipmentType = Equipment Type 
+hq.printer.Description = Description
+hq.printer.CostCentre = Hub
+hq.printer.EquipmentNumber = Equipment Number
+
+hq.printer.action = Actions
+hq.printer.breadcrumb = Printer Management
+
+# Printer Listing
+hq.printer.listing.title = Printers
+hq.printer.listing.heading = Printer Listing 
+hq.printer.listing.breadcrumb = Printers
+hq.printer.listing.add = Add Printer
+hq.printer.listing.search = Search For Printer
+
+# Printer Form 
+hq.printer.form.breadcrumb.view = View Printer
+
+# New Printer 
+hq.printer.form.title.add = CreatePrinter
+hq.printer.form.breadcrumb.add = Add Printer
+hq.printer.form.details.add = Printer Details
+
+# Edit Printer 
+hq.printer.form.title.edit = EditPrinter
+hq.printer.form.breadcrumb.edit = Edit Printer
+hq.printer.form.details.edit = Printer
+
+# WeighScale Model
+hq.weighScale.Name = Name 
+hq.weighScale.Make = Make 
+hq.weighScale.Code = Code
+hq.weighScale.Model = Model 
+hq.weighScale.EquipmentType = Equipment Type 
+hq.weighScale.Description = Description
+hq.weighScale.CostCentre = Hub
+hq.weighScale.EquipmentNumber = Equipment Number
+hq.weighScale.action = Actions
+hq.weighScale.breadcrumb = Weigh Scale Management
+
+# WeighScale Listing
+hq.weighScale.listing.title = WeighScales
+hq.weighScale.listing.heading = Weigh Scale Listing 
+hq.weighScale.listing.breadcrumb = Weigh Scales
+hq.weighScale.listing.add = Add Weigh Scale
+hq.weighScale.listing.search = Search For Weigh Scale
+
+# WeighScale Form 
+hq.weighScale.form.breadcrumb.view = View Weigh Scale
+
+# New WeighScale 
+hq.weighScale.form.title.add = CreateWeighScale
+hq.weighScale.form.breadcrumb.add = Add Weigh Scale
+hq.weighScale.form.details.add = Weigh Scale Details
+
+# Edit WeighScale 
+hq.weighScale.form.title.edit = EditWeighScale
+hq.weighScale.form.breadcrumb.edit = Edit Weigh Scale
+hq.weighScale.form.details.edit = Weigh Scale
+
+# Master Data Allocation
+MasterDataAllocation.validation.error = Invalid data
+
+# Route Model
+hq.route.Name = Name 
+hq.route.Code = Code
+hq.route.Distributor = Distributor
+hq.route.DistributorId = Distributor
+hq.route.action = Actions
+hq.route.HubName = Hub Name
+hq.route.breadcrumb = Route Management
+
+# Route Listing
+hq.route.listing.title = Routes
+hq.route.listing.heading = Route Listing 
+hq.route.listing.breadcrumb = Routes
+hq.route.listing.add = Add Route
+hq.route.listing.search = Search For Route
+
+# Route Form 
+hq.route.form.breadcrumb.view = View Routes
+
+# New Route 
+hq.route.form.title.add = CreateRoute
+hq.route.form.breadcrumb.add = Add Route
+hq.route.form.details.add = Route Details
+
+# Edit Route 
+hq.route.form.title.edit = EditRoute
+hq.route.form.breadcrumb.edit = Edit Route
+hq.route.form.details.edit = Route
+
+# CommodityType Model
+hq.commodityType.Name = Name 
+hq.commodityType.Code = Code
+hq.commodityType.Description = Description
+hq.commodityType.RegionId = Region
+hq.commodityType.action = Actions
+hq.commodityType.breadcrumb = Commodity Type Management
+
+# CommodityType Listing
+hq.commodityType.listing.title = Commodity Types
+hq.commodityType.listing.heading = Commodity Type Listing 
+hq.commodityType.listing.breadcrumb = Commodity Types
+hq.commodityType.listing.add = Add Commodity Type
+hq.commodityType.listing.search = Search For Commodity Type
+
+# CommodityType Form 
+hq.commodityType.form.breadcrumb.view = Commodity Types
+
+# New CommodityType 
+hq.commodityType.form.title.add = CreateCommodityType
+hq.commodityType.form.breadcrumb.add = Add Commodity Type
+hq.commodityType.form.details.add = Commodity Type Details
+
+# Edit CommodityType 
+hq.commodityType.form.title.edit = EditCommodityType
+hq.commodityType.form.breadcrumb.edit = Edit Commodity Type
+hq.commodityType.form.details.edit = Commodity Type
+
+# CentreType Model
+hq.centreType.Name = Name 
+hq.centreType.Code = Code
+hq.centreType.Description = Description
+hq.centreType.action = Actions
+hq.centreType.breadcrumb = Centre Type Management
+
+# CentreType Listing
+hq.centreType.listing.title = Centre Types
+hq.centreType.listing.heading = Centre Type Listing 
+hq.centreType.listing.breadcrumb = Centre Types
+hq.centreType.listing.add = Add Centre Type
+hq.centreType.listing.search = Search For Centre Type
+
+# CentreType Form 
+hq.centreType.form.breadcrumb.view = Centre Types
+
+# New CentreType 
+hq.centreType.form.title.add = CreateCentreType
+hq.centreType.form.breadcrumb.add = Add Centre Type
+hq.centreType.form.details.add = Centre Type Details
+
+# Edit CentreType 
+hq.centreType.form.title.edit = EditCentreType
+hq.centreType.form.breadcrumb.edit = Edit Centre Type
+hq.centreType.form.details.edit = Centre Type
+
+# Store Model
+hq.store.Name = Name 
+hq.store.Code = Code
+hq.store.Longitude = Longitude
+hq.store.Latitude = Latitude
+hq.store.VatRegistrationNo = VAT Registration Number
+hq.store.ParentCostCentreId = Parent CostCentre
+hq.store.CostCentreType = CostCentre Type
+hq.store.action = Actions
+hq.store.breadcrumb = Store Management
+
+# Store Listing
+hq.store.listing.title = Stores
+hq.store.listing.heading = Store Listing 
+hq.store.listing.breadcrumb = Stores
+hq.store.listing.add = Add Store
+hq.store.listing.search = Search For Store
+hq.store.listing.textbox.search = Search
+hq.store.listing.textbox.clear = Clear
+hq.store.listing.actions = Actions
+hq.store.listing.action.edit = Edit
+hq.store.listing.action.deactivate = Deactivate
+hq.store.listing.action.delete = Delete
+hq.store.listing.action.activate = Activate
+
+# Store Form 
+hq.store.form.breadcrumb.view = View Stores
+
+# New Store 
+hq.store.form.title.add = CreateStore
+hq.store.form.breadcrumb.add = Add Store
+hq.store.form.details.add = Store Details
+
+# Edit Store 
+hq.store.form.title.edit = EditStore
+hq.store.form.breadcrumb.edit = Edit Store
+hq.store.form.details.edit = Store
+
+
+# CommodityProducer Model
+hq.commodityProducer.Code = Code 
+hq.commodityProducer.Name = Name
+hq.commodityProducer.Acrage = Acreage
+hq.commodityProducer.RegNo = Registration Number
+hq.commodityProducer.RegionId = Region  	
+hq.commodityProducer.PhysicalAddress = Physical Address  	
+hq.commodityProducer.Description = Description  	
+hq.commodityProducer.CommoditySupplierId = Commodity Supplier 
+hq.commodityProducer.breadcrumb = Commodity Supplier Management
+
+# CommodityProducer Listing
+hq.commodityProducer.listing.title = Farmers
+hq.commodityProducer.listing.heading = Farmer Listing 
+hq.commodityProducer.listing.breadcrumb = Farmers
+hq.commodityProducer.listing.add = Add Farmer
+hq.commodityProducer.listing.search = Search For Farmer
+
+# CommodityProducer Form 
+hq.commodityProducer.form.breadcrumb.view = View Farmers
+
+# New CommodityProducer 
+hq.commodityProducer.form.title.add = CreateFarmer
+hq.commodityProducer.form.breadcrumb.add = Add Farmer
+hq.commodityProducer.form.details.add = Farmer Details
+
+# Edit CommodityProducer 
+hq.commodityProducer.form.title.edit = EditFarmer
+hq.commodityProducer.form.breadcrumb.edit = Edit Farmer
+hq.commodityProducer.form.details.edit = Farmer
+
+
+#Asset Category Listing
+hq.assetcat.listing.title = ListAssetCategories
+hq.assetcat.listing.heading = Asset Category Listing 
+hq.assetcat.listing.breadcrumb = Asset Categories
+hq.assetcat.listing.add = Add Asset Category
+hq.assetcat.listing.search = Search For Asset Category
+
+# Asset Category Form 
+hq.assetcat.form.breadcrumb.view = View Asset Categories
+
+# New Asset Category 
+hq.assetcat.form.title.add = CreateAssetCategory
+hq.assetcat.form.breadcrumb.add = Add New Asset Category
+hq.assetcat.form.details.add = Asset Category Details
+
+# Edit Asset Category 
+hq.assetcat.form.title.edit = EditAssetCategory
+hq.assetcat.form.breadcrumb.edit = Edit Asset Category
+hq.assetcat.form.details.edit = Asset Category
+
+# Asset Type Listing
+hq.assettype.listing.title = ListAssetTypes
+hq.assettype.listing.heading = Asset Type Listing 
+hq.assettype.listing.breadcrumb = Asset Types
+hq.assettype.listing.add = Add Asset Type
+hq.assettype.listing.search = Search For Asset Type
+
+# Asset Type Form 
+hq.assettype.form.breadcrumb.view = View Asset Types
+
+# New Asset Type 
+hq.assettype.form.title.add = CreateAssetType
+hq.assettype.form.breadcrumb.add = Add New Asset Type
+hq.assettype.form.details.add = Asset Type Details
+
+# Edit Asset Type 
+hq.assettype.form.title.edit = EditAssetType
+hq.assettype.form.breadcrumb.edit = Edit Asset Type
+hq.assettype.form.details.edit = Asset Type
+
+# Asset Status Listing
+hq.assetstatus.listing.title = ListAssetStatus 
+hq.assetstatus.listing.heading = Asset Status Listing 
+hq.assetstatus.listing.breadcrumb = Asset Status
+hq.assetstatus.listing.add = Add Asset Status
+hq.assetstatus.listing.search = Search For Asset Status
+
+# Asset Status Form 
+hq.assetstatus.form.breadcrumb.view = View Asset Status
+
+# New Asset Status 
+hq.assetstatus.form.title.add = CreateAssetStatus
+hq.assetstatus.form.breadcrumb.add = Add New Asset Status
+hq.assetstatus.form.details.add = Asset Status
+
+# Edit Asset Status 
+hq.assetstatus.form.title.edit = EditAssetStatus
+hq.assetstatus.form.breadcrumb.edit = Edit Asset Status
+hq.assetstatus.form.details.edit = Asset Status
+
+## Hub
+hq.hub.breadcrumb = Hub Management
+# Hub Listing
+hq.hub.listing.title = ListHubs
+hq.hub.listing.heading = Hub Listing 
+hq.hub.listing.breadcrumb = Hubs
+hq.hub.listing.add = Add Hub
+hq.hub.listing.search = Search For Hub
+hq.hub.listing.edit = Edit
+hq.hub.listing.deactivate = Deactivate
+hq.hub.listing.delete = Delete
+hq.hub.listing.activate = Activate
+hq.hub.listing.textbox.search = Search
+hq.hub.listing.textbox.clear = Clear
+
+# Hub Form 
+hq.hub.form.breadcrumb.view = View Hubs
+
+# New Hub 
+hq.hub.form.title.add = CreateHub
+hq.hub.form.breadcrumb.add = Add Hub
+hq.hub.form.details.add = Hub Details
+hq.hub.form.selectregionprompt = ----Select Region----
+hq.hub.form.selectparentccprompt = ----Select Parent cost center----
+hq.hub.form.action.save = Save
+hq.hub.form.action.clear = Clear
+
+
+# Edit Hub 
+hq.hub.form.title.edit = EditHub
+hq.hub.form.breadcrumb.edit = Edit Hub
+hq.hub.form.details.edit = Hub
+hq.hub.form.action.save = Save
+hq.hub.form.selectparentccprompt = ----Select Parent cost center----
+
+## CommodityOwner
+hq.commodityOwner.Code = Code 
+hq.commodityOwner.Surname = Surname
+hq.commodityOwner.FirstName = First Name
+hq.commodityOwner.LastName = Last Name
+hq.commodityOwner.IdNo = Identification Number
+hq.commodityOwner.PinNo = Pin Number  	
+hq.commodityOwner.Gender = Gender  	
+hq.commodityOwner.PhysicalAddress = Physical Address  	
+hq.commodityOwner.PostalAddress = Postal Address  	
+hq.commodityOwner.Email = Email 	
+hq.commodityOwner.PhoneNumber = Phone Number
+hq.commodityOwner.BusinessNumber = Business Number
+hq.commodityOwner.FaxNumber = Fax Number
+hq.commodityOwner.OfficeNumber = Office Number
+hq.commodityOwner.Description = Description
+hq.commodityOwner.DateOfBirth = Date of Birth
+hq.commodityOwner.MaritalStatus = Marital Status
+hq.commodityOwner.CommodityOwnerType = Commodity Owner Type
+hq.commodityOwner.CommoditySupplier = Commodity Supplier
+
+hq.commodityOwner.breadcrumb = Farmer Management
+# CommodityOwner Listing
+hq.commodityOwner.listing.title = Farmers
+hq.commodityOwner.listing.heading = Farmer Listing 
+hq.commodityOwner.listing.breadcrumb = Farmers
+hq.commodityOwner.listing.add = Add Farmer
+hq.commodityOwner.listing.search = Search For Farmer
+
+# CommodityOwner Form 
+hq.commodityOwner.form.breadcrumb.view = View Farmers
+
+# New CommodityOwner 
+hq.commodityOwner.form.title.add = CreateFarmer
+hq.commodityOwner.form.breadcrumb.add = Add Farmer
+hq.commodityOwner.form.details.add = Farmer Details
+
+# Edit CommodityOwner 
+hq.commodityOwner.form.title.edit = EditFarmer
+hq.commodityOwner.form.breadcrumb.edit = Edit Farmer
+hq.commodityOwner.form.details.edit = Farmer
+
+## CommoditySupplier Model
+hq.commoditySupplier.name = Name
+hq.commoditySupplier.CostCentreCode =Code
+hq.commoditySupplier.CommoditySupplierType = Commodity Supplier Type
+hq.commoditySupplier.JoinDate = Join Date
+hq.commoditySupplier.AccountNo = Account Number  	
+hq.commoditySupplier.PinNo = Pin Number  	
+hq.commoditySupplier.BankName = Bank Name  	
+hq.commoditySupplier.BankBranchName = Bank Branch Name  	
+hq.commoditySupplier.ParentCostCentreId = Hub
+hq.commoditySupplier.CostCentreType = CostCentre Type
+
+# commoditySupplier Listing
+hq.commoditySupplier.listing.title = Commodity suppliers
+hq.commoditySupplier.listing.heading = Commodity supplier listing 
+hq.commoditySupplier.listing.breadcrumb = Commodity suppliers
+hq.commoditySupplier.listing.add = Add Commodity supplier
+hq.commoditySupplier.listing.search = Search For Commodity supplier
+
+# commoditySupplier Form 
+hq.commoditySupplier.form.breadcrumb.view = View Commodity suppliers
+
+# New CommoditySupplier 
+hq.commoditySupplier.form.title.add = CreateCommoditySupplier
+hq.commoditySupplier.form.breadcrumb.add = Add Commodity supplier
+hq.commoditySupplier.form.details.add = Commodity supplier details
+
+# Edit CommoditySupplier 
+hq.commoditySupplier.form.title.edit = EditCommoditySupplier
+hq.commoditySupplier.form.breadcrumb.edit = Edit Commodity supplier
+hq.commoditySupplier.form.details.edit = Commodity supplier
+
+## Brand  
+hq.brand.code = Code
+hq.brand.name = Name
+hq.brand.description = Description
+hq.brand.supplier = Supplier
+hq.brand.validation.error = Product brand not valid
+hq.brand.validation.dupname = Duplicate Name found
+hq.brand.validation.dupcode = Duplicate Name found
+
+# Brand listing
+hq.brand.listing.title = Brand Listing 
+hq.brand.listing.heading = Brand Listing 
+hq.brand.listing.breadcrumb = Brands
+hq.brand.listing.add = Add Brand
+hq.brand.listing.search = Search For Brand
+
+# Brand Form 
+hq.brand.form.supplier = Supplier:
+hq.brand.form.code = Brand Code:
+hq.brand.form.name = Brand Name:
+hq.brand.form.description = Description:
+hq.brand.form.breadcrumb.view = View Brands
+
+# New Brand 
+hq.brand.form.title.add = CreateProductBrand
+hq.brand.form.breadcrumb.add = Add New Brand
+hq.brand.form.details.add = Brand Details
+
+# Edit Brand 
+hq.brand.form.title.edit = EditProductBrand
+hq.brand.form.breadcrumb.edit = Edit Brand
+hq.brand.form.details.edit = Edit Brand
+
+## Sub-Brand  
+hq.subbrand.brand = Brand
+hq.subbrand.code = Sub Brand Code
+hq.subbrand.name = Sub Brand Name
+hq.subbrand.description = Sub Brand Description
+hq.subbrand.validation.error = Failed to save, invalid Product Flavor
+hq.subbrand.validation.dupname = Failed: Product Flavour name is duplicate
+hq.subbrand.validation.dupcode = Failed: Product Flavour code is duplcate
+
+# Sub Brand Listing
+hq.subbrand.listing.title = ListProductFlavours 
+hq.subbrand.listing.heading = Sub Brand Listing
+hq.subbrand.listing.breadcrumb = Sub Brands
+hq.subbrand.listing.add = Add SubBrand
+hq.subbrand.listing.search = Search For SubBrand 
+
+# Sub-Brand Form 
+hq.subbrand.form.brand = Brand
+hq.subbrand.form.code = Sub Brands Code
+hq.subbrand.form.name = Sub Brands Name
+hq.subbrand.form.description = Sub Brands Description
+hq.subbrand.form.breadcrumb.view = View Sub Brands
+
+# New Sub-Brand 
+hq.subbrand.form.title.add = CreateFlavour
+hq.subbrand.form.breadcrumb.add = Add Sub Brand
+hq.subbrand.form.details.add = Add Sub Brand
+
+# Edit Sub-Brand 
+hq.subbrand.form.title.edit = EditProductFlavour
+hq.subbrand.form.breadcrumb.edit = Edit Sub Brand
+hq.subbrand.form.details.edit = Edit Sub Brand
+
+## Outlet Category
+hq.outletcats = Client Categories
+hq.outletcat.name = Name
+hq.outletcat.breadcrumb = Client Categories
+hq.outletcat.validation.error = Outlet Category Entity Not valid
+hq.outletcat.validation.dupname = Duplicate Name found
+
+# Outlet Category Listing
+hq.outletcat.listing.title = ListClientCategories
+hq.outletcat.listing.heading = Client Category Listing
+hq.outletcat.listing.breadcrumb = Client Category
+hq.outletcat.listing.add = Add Client Category
+hq.outletcat.listing.search = Search For Client Category
+hq.outletcat.listing.import = Import Client Category
+
+# Outlet Category Form
+hq.outletcat.form.name = Client Category:
+hq.outletcat.form.breadcrumb.view = View Client Categories
+
+# New Outlet Category
+hq.outletcat.form.title.add = CreateClientCategory
+hq.outletcat.form.breadcrumb.add = Add New Client Category
+hq.outletcat.form.details.add = Client Category Details
+
+# Edit Outlet Category
+hq.outletcat.form.title.edit = EditClientCategory
+hq.outletcat.form.breadcrumb.edit = Edit Client Category
+hq.outletcat.form.details.edit = Client Category Details
+
+## Outlet Type
+hq.outlettypes = Client Types
+hq.outlettype.name = Name
+hq.outlettype.breadcrumb = Clients
+hq.outlettype.validation.error = Outlet Type Entity Not valid
+hq.outletcat.validation.dupname = Duplicate Name found
+
+# Outlet Type Listing
+hq.outlettype.listing.title = ListClientTypes
+hq.outlettype.listing.heading = Client Type Listing
+hq.outlettype.listing.breadcrumb = Client Type
+hq.outlettype.listing.add = Add Client Type
+hq.outlettype.listing.search = Search For Client Type
+
+# Outlet Type Form
+hq.outlettype.form.name = Client Type :
+hq.outlettype.form.breadcrumb.view = View Client Types
+
+# New Outlet Type
+hq.outlettype.form.title.add = CreateClientType
+hq.outlettype.form.breadcrumb.add = Add New Client Type
+hq.outlettype.form.details.add = Client Type Details
+
+# Edit Outlet Type
+hq.outlettype.form.title.edit = EditClientType
+hq.outlettype.form.breadcrumb.edit = Edit Client Type
+hq.outlettype.form.details.edit = Client Type Details
+
+## Outlet 
+hq.outlet.name = Client Name
+hq.outlet.code = Client Code
+hq.outlet.tier = Tier
+hq.outlet.discountgroup = Discount Group
+hq.outlet.contacts = Contacts
+hq.outlet.distributor = Distributor
+hq.outlet.breadcrumb = Client Management
+hq.outlet.validation.error = Outlet Entity Not valid
+
+# Outlet Listing
+hq.outlet.listing.title = ListClients
+hq.outlet.listing.heading = Clients Listing
+hq.outlet.listing.breadcrumb = Clients 
+hq.outlet.listing.add = Add Client 
+hq.outlet.listing.filter = Filter By Health Facility
+hq.outlet.listing.search = Search For Client 
+
+# Outlet Form
+hq.outlet.form.code = Client Code:
+hq.outlet.form.name = Client Name:
+hq.outlet.form.outlettype = Client Type:
+hq.outlet.form.outletcat = Client Category:
+hq.outlet.form.discountgroup = Discount Group:
+hq.outlet.form.route = Route:
+hq.outlet.form.distributor = Health Facility:
+hq.outlet.form.vat = VAT Class:
+hq.outlet.form.pricing = Pricing Tier:
+hq.outlet.form.breadcrumb.view = View Clients
+
+# New Outlet 
+hq.outlet.form.title.add = CreateClient
+hq.outlet.form.breadcrumb.add = Add New Client
+hq.outlet.form.details.add = Client Details
+
+# Edit Outlet 
+hq.outlet.form.title.edit = EditClient
+hq.outlet.form.breadcrumb.edit = Edit Client 
+hq.outlet.form.details.edit = Client Details
+
+## Distributor Management
+hq.distmgt = Health Facility Management
+hq.dist = Health Facility
+hq.dist.name = Name
+hq.dist.code = Code
+hq.dist.owner = Owner
+hq.dist.region = Region
+hq.dist.asm = DRHN
+hq.dist.salesrep = DRHC
+hq.dist.surveyor = Surveyor
+hq.dist.account = Account No.
+hq.dist.vatregno = Vat Registration No.
+hq.dist.pin = PIN
+hq.dist.paybillno = Paybill No.
+hq.dist.merchantno = Merchant No.
+hq.dist.breadcrumb = Health Facility Management
+hq.dist.validation.error = Distributor Entity Not valid
+
+# Distributor Listing
+hq.dist.listing.title = List Health Facilities
+hq.dist.listing.heading = Health Facility Listing
+hq.dist.listing.breadcrumb = Health Facility
+hq.dist.listing.add = Add Health Facility
+hq.dist.listing.search = Search For Health Facility
+
+# Distributor Form
+hq.dist.form.name = Name
+hq.dist.form.code = Code
+hq.dist.form.owner = Owner
+hq.dist.form.region = Region
+hq.dist.form.asm = ASM
+hq.dist.form.salesrep = Sales Rep.
+hq.dist.form.surveyor = Surveyor
+hq.dist.form.account = Account No.
+hq.dist.form.vatregno = Vat Registration No.
+hq.dist.form.pin = PIN
+hq.dist.form.paybillno = Pay Bill Number
+hq.dist.form.merchantno = Merchant Number
+hq.dist.form.breadcrumb.view = View Health Facilities
+
+# New Distributor
+hq.dist.form.title.add = CreateHealthFacility
+hq.dist.form.breadcrumb.add = Add Health Facility
+hq.dist.form.details.add = Health Facility
+
+# Edit Distributor
+hq.dist.form.title.edit = EditHealthFacility
+hq.dist.form.breadcrumb.edit = Edit Health Facility
+hq.dist.form.details.edit = Health Facility
+
+## Distributor Users
+hq.distuser.code = Code
+hq.distuser.username = Username
+hq.distuser.costcentre = Cost Centre
+hq.distuser.pin = PIN
+hq.distuser.usertype = UserType
+hq.distuser.mobile = Mobile
+hq.distuser.tillnumber = Till Number
+hq.distuser.breadcrumb = Health Facility In- Charge Management
+
+# Distributor User Listing
+hq.distuser.listing.heading = User Listing
+hq.distuser.listing.title = List Of Users
+hq.distuser.listing.filter = Filter User
+hq.distuser.listing.search = Search For User
+hq.distuser.listing.add = Add User
+hq.distuser.listing.breadcrumb = Users
+
+# Distributor User Form
+hq.distuser.form.code = Code
+hq.distuser.form.username = Username
+hq.distuser.form.costcentre = Cost Centre
+hq.distuser.form.password = Password
+hq.distuser.form.pin = PIN
+hq.distuser.form.usertype = UserType
+hq.distuser.form.mobile = Mobile
+hq.distuser.form.tillnumber = Till Number
+hq.distuser.form.breadcrumb.view = View Users
+
+# New Distributor User
+hq.distuser.form.title.add = Create A New User
+hq.distuser.form.breadcrumb.add = Add User
+hq.distuser.form.details.add = User
+
+# Edit Disributor User
+hq.distuser.form.title.edit = Edit User
+hq.distuser.form.breadcrumb.edit = Edit User
+hq.distuser.form.details.edit = User
+
+# Assign Roles to Distributor User
+hq.distuser.form.title.assign = Assign Roles
+hq.distuser.form.breadcrumb.assign = Assign Roles
+hq.distuser.form.details.assign = Group
+hq.distuser.form.group = Group
+
+## Distributor Orders
+hq.orders.issuedbehalf = Issued On Behalf Of
+hq.orders.status = Status
+hq.orders.netamount = Net Amount
+hq.orders.vatamount = VAT Amount
+hq.orders.grossamount = Gross Amount
+hq.orders.docref = Doc Ref
+hq.orders.breadcrumb = Health Facility Orders
+
+# Distributor Order Listing
+hq.orders.listing.title = ListAllHealthFacilityOrders
+hq.orders.listing.breadcrumb = List All Health Facility Orders
+hq.orders.listing.heading = Orders Listing
+hq.orders.listing.distributor = Distributr
+hq.orders.listing.search = Search For Order
+
+## Hq Users
+hq.user.username = Username
+hq.user.usertype = User Type
+hq.user.breadcrumb = Account
+hq.user.validation.dupusername = Sorry Username exists
+hq.user.validation.invusergroup = Failed to save invalid UserGroupRoles"
+hq.user.validation.duprole = Role is already assigned
+hq.user.validation.dupgroup = Group Already Exists
+
+# Hq User Listing
+hq.user.listing.breadcrumb = Manage Users 
+hq.user.listing.title = ListAllUsers
+hq.user.listing.search = Search For User
+hq.user.listing.add = Add User
+hq.user.listing.heading = Users Listing
+
+# Hq User Form
+hq.user.form.breadcrumb.edit = Edit Health Facility User
+hq.user.form.title.edit = EditHealthFacilityUsers
+hq.user.form.details.edit = Edit User
+hq.user.form.breadcrumb.view = View Users
+hq.user.form.producer = Organization
+hq.user.form.username = Username
+hq.user.form.password = Password
+hq.user.form.pin = PIN
+hq.user.form.mobile = Mobile
+hq.user.form.usertype = User Type
+
+## Packaging 
+hq.packaging.name = Packaging
+hq.packaging.description = Description
+hq.packaging.validation.error = Packaging Entity Not valid
+
+# Packaging Listing 
+hq.packaging.listing.title = ListProductPackaging
+hq.packaging.listing.heading = Packaging Listing
+hq.packaging.listing.breadcrumb = Packaging
+hq.packaging.listing.add = Add Packaging
+hq.packaging.listing.search = Search For Packaging
+
+# Packaging Form 
+hq.packaging.form.name = Name
+hq.packaging.form.description = Description
+hq.packaging.form.breadcrumb.view = View Packaging
+
+# New Packaging 
+hq.packaging.form.title.add = CreateProductPackaging
+hq.packaging.form.breadcrumb.add = Add Packaging
+hq.packaging.form.details.add = Add Packaging
+
+# Edit Packaging 
+hq.packaging.form.title.edit = EditProductPackaging
+hq.packaging.form.breadcrumb.edit = Edit Packaging
+hq.packaging.form.details.edit = Edit Packaging
+
+## Packaging Type 
+hq.packagingtype.name = Packaging Name
+hq.packagingtype.description = Description
+hq.packagingtype.validation.error = Packaging Type Entity Not valid
+hq.packagingtype.validation.dupname = Duplicate Name found
+
+# Packaging Type Listing
+hq.packagingtype.listing.title = ListProductPackagingType
+hq.packagingtype.listing.heading = Packaging Type Listing
+hq.packagingtype.listing.breadcrumb = Packaging Type
+hq.packagingtype.listing.add = Add Packaging Type
+hq.packagingtype.listing.search = Search For Packaging Type
+
+# Packaging Type Form
+hq.packagingtype.form.name = Name
+hq.packagingtype.form.description = Description
+hq.packagingtype.form.breadcrumb.view = View Packaging Type
+
+# New Packaging Type
+hq.packagingtype.form.title.add = CreateProductPackagingType
+hq.packagingtype.form.breadcrumb.add = Add Packaging Type
+hq.packagingtype.form.details.add = Packaging Type
+
+# Edit Packaging Type
+hq.packagingtype.form.title.edit = EditProductPackagingType
+hq.packagingtype.form.breadcrumb.edit = Edit Packaging Type
+hq.packagingtype.form.details.edit = Packaging Type
+
+## Product 
+hq.product.code = Code
+hq.product.description = Products
+hq.product.brand = Brands
+hq.product.subbrand = Sub Brand
+hq.product.packaging = Packaging
+hq.product.category = Product Category
+hq.product.vat = VAT
+hq.product.validation.error = Product Entity Not valid
+hq.product.validation.dupname = Duplicate Name found
+hq.product.validation.dupcode = Duplicate Code found
+
+# Product Listing
+hq.product.listing.title = ListProducts
+hq.product.listing.heading = Product Listing
+hq.product.listing.breadcrumb = Products
+hq.product.listing.add.sale = Add Sale Product
+hq.product.listing.add.returnable = Add Returnable Product
+hq.product.listing.add.consolidated = Add Consolidated Product
+hq.product.listing.search = Search For Product
+
+# Product Form
+hq.product.form.code = Product Code
+hq.product.form.brand = Brand
+hq.product.form.subbrand = Sub Brand
+hq.product.form.packagingtype = Packaging Type
+hq.product.form.packaging = Packaging
+hq.product.form.producttype = Product Type
+hq.product.form.returnable = Returnable Product
+hq.product.form.returnabletype = Returnable Type
+hq.product.form.vat = Vat Class
+hq.product.form.description = Description
+hq.product.form.exfactoryprice = ExFactory Price
+hq.product.form.Capacity = Capacity
+hq.product.form.quantity = Quantity
+hq.product.form.product = Product
+
+# New Sale Product
+hq.product.sale.title.add = CreateSaleProduct
+hq.product.sale.breadcrumb.add = Add Sale Product
+hq.product.sale.details.add = Sale Product
+
+# Edit Sale Product
+hq.product.sale.title.edit = EditSaleProduct
+hq.product.sale.breadcrumb.edit = Edit Sale Product
+hq.product.sale.details.edit = Sale Product
+
+# New Returnable Product
+hq.product.returnable.title.add = CreateReturnableProduct
+hq.product.returnable.breadcrumb.add = Add Returnable Product
+hq.product.returnable.details.add = ReturnableProduct
+
+# Edit Returnable Product
+hq.product.returnable.title.edit = EditReturnableProduct
+hq.product.returnable.breadcrumb.edit = Edit ReturnableProduct
+hq.product.returnable.details.edit = Returnable Product
+
+# New Consolidated Product
+hq.product.consolidated.title.add = CreateConsolidatedProduct
+hq.product.consolidated.breadcrumb.add = Add Consolidated Product
+hq.product.consolidated.details.add = Consolidated Product
+
+# Edit Consolidated Product
+hq.product.consolidated.title.edit = EditConsolidatedProduct
+hq.product.consolidated.breadcrumb.edit = Edit Consolidated Product
+hq.product.consolidated.details.edit = Consolidated Product
+
+# Regions
+hq.region.breadcrumb = Regions
+hq.region.name = Name
+hq.region.description = Description
+hq.region.country = Country
+hq.region.region = Region
+hq.region.validation.error = Failed to save invalid region
+hq.region.validation.dupname = Duplicate Name found
+
+# Region Listing
+hq.region.listing.title = ListRegion
+hq.region.listing.heading = Regions Listing
+hq.region.listing.breadcrumb = Region
+hq.region.listing.add = Add Region
+hq.region.listing.search = Search For Region
+
+# Region Form
+hq.region.form.breadcrumb = View Regions
+
+# New Region
+hq.region.form.title.add = CreateRegion
+hq.region.form.breadcrumb.add = Add New Region
+hq.region.form.details.add = Region
+
+# Edit Region
+hq.region.form.title.edit = EditRegion
+hq.region.form.breadcrumb.edit = Edit Region
+hq.region.form.details.edit = Region
+
+# Suppliers
+hq.supplier.breadcrumb = Suppliers
+hq.supplier.name = Name
+hq.supplier.description = Description
+hq.supplier.code = Code
+hq.supplier.validation.error = Failed to validate Supplier
+hq.supplier.validation.dupsupplier = Duplicate supplier name found
+
+# supplier Listing
+hq.supplier.listing.title = ListSuppliers
+hq.supplier.listing.heading = Suppliers Listing
+hq.supplier.listing.breadcrumb = Suppliers
+hq.supplier.listing.add = Add Supplier
+hq.supplier.listing.search = Search For Supplier
+
+# Supplier Form
+hq.supplier.form.breadcrumb.view = View Suppliers
+
+# New Supplier
+hq.supplier.form.title.add = CreateSupplier
+hq.supplier.form.breadcrumb.add = Add Supplier
+hq.supplier.form.details.add = Supplier
+
+# Edit Supplier
+hq.supplier.form.title.edit = EditSupplier
+hq.supplier.form.breadcrumb.edit = Edit Supplier
+hq.supplier.form.details.edit = Supplier
+
+# Targets
+hq.targets.breadcrumb = Distributor Targets
+hq.targets.targetmonth = Target Month
+hq.targets.target = Target
+hq.targets.distributor = Distributor
+hq.targets.period = Target Period
+hq.targets.value = Target Value
+hq.targets.quantity = Quantity
+hq.targets.amount = Amount
+hq.targets.validation.error = Target Entity Not valid
+hq.targets.validation.dupperiod = Duplicate found, DistributorPeriod exists
+
+# Targets Listing
+hq.targets.listing.title = ListTargets
+hq.targets.listing.heading = Targets Listing
+hq.targets.listing.breadcrumb = Distributor Targets
+hq.targets.listing.add = Add Distributor Target
+hq.targets.listing.search = Search For Target
+
+# Target Form
+hq.targets.form.breadcrumb.view = View Distributor Targets
+
+# New Target
+hq.targets.form.title.add = CreateTarget
+hq.targets.form.breadcrumb.add = Add Target
+hq.targets.form.details.add = Target
+
+# Edit Target
+hq.targets.form.title.edit = EditTarget
+hq.targets.form.breadcrumb.edit = Edit Target
+hq.targets.form.details.edit = Target
+
+# ReOrder Level
+hq.reorder.breadcrumb = Reorder Level
+hq.reorder.product = Product
+hq.reorder.distributor = Distributor
+hq.reorder.level = Re-Order Level
+hq.reorder.quantity = Quantity
+hq.reorder.validation.error = Failed to validate ReOrderlevel
+
+# Reorder Level Listing
+hq.reorder.listing.title = ListReorderLevels
+hq.reorder.listing.heading = Reorder Level Listing
+hq.reorder.listing.breadcrumb = List Reorder Levels
+hq.reorder.listing.add = Add Product Reorder Level
+hq.reorder.listing.search = Search For Reorder Level
+
+# Reorder Form
+hq.reorder.form.breadcrumb.view = View Product Reorder Level 
+
+# New ReOrder
+hq.reorder.form.title.add = CreateReorderLevel
+hq.reorder.form.breadcrumb.add = Add New ReorderLevel
+hq.reorder.form.details.add = Reorder Level Details
+
+# Edit Reorder
+hq.reorder.form.title.edit = EditReorderLevel
+hq.reorder.form.breadcrumb.edit = Edit Reorder Level
+hq.reorder.form.details.edit = Reorder Level Details
+
+# Banks
+hq.bank.breadcrumb = Bank Management
+hq.bank.name = Name
+hq.bank.bank = Bank
+hq.bank.description = Description
+hq.bank.code = Code
+hq.bank.validation.error = Bank Entity Not valid
+hq.bank.validation.dupname = Duplicate Name found
+
+# Bank Listing
+hq.bank.listing.title = ListBanks
+hq.bank.listing.heading = Bank Listing
+hq.bank.listing.breadcrumb = Bank
+hq.bank.listing.add = Add Bank
+hq.bank.listing.search = Search For Bank
+
+# Bank Form
+hq.bank.form.breadcrumb.view = View Banks
+
+# New Bank
+hq.bank.form.title.add = CreateBank
+hq.bank.form.breadcrumb.add = Add New Bank
+hq.bank.form.details.add = Bank Details
+
+# Edit Bank
+hq.bank.form.title.edit = EditBank
+hq.bank.form.breadcrumb.edit = Edit Bank
+hq.bank.form.details.edit = Bank Details
+
+# Bank Branch
+hq.bbranch.breadcrumb = Bank Management
+hq.bbranch.name = Bank Branch
+hq.bbranch.description = Description
+hq.bbranch.code = Code
+hq.bbranch.bank = Bank
+hq.bbranch.validation.error = Bank Branch Not valid
+hq.bbranch.validation.dupname = Duplicate Name found
+
+# Bank Branch Listing
+hq.bbranch.listing.title = ListBankBranches
+hq.bbranch.listing.heading = Bank Branch Listing
+hq.bbranch.listing.breadcrumb = Bank Branch
+hq.bbranch.listing.add = Add Bank Branch
+hq.bbranch.listing.search = Search For Bank Branch
+
+# Bank Branch Form
+hq.bankbranch.form.breadcrumb.view = View Bank Branches
+
+# New Bank Branch
+hq.bbranch.form.title.add = CreateBankBranch
+hq.bbranch.form.breadcrumb.add = Add New Bank Branch
+hq.bbranch.form.details.add = Bank Branch Details
+
+# Edit Bank Branch
+hq.bbranch.form.title.edit = EditBankBranch
+hq.bbranch.form.breadcrumb.edit = Edit Bank Branch
+hq.bbranch.form.details.edit = Bank Branch Details
+
+# Channel Packs
+hq.cpack.title = ListChannelPacks
+hq.cpack.breadcrumb = Channel Packs
+hq.cpack.listing = Channel Packs
+hq.cpack.name = Name
+hq.cpack.description = Description
+hq.cpack.code = Code
+
+# Pricing Tier
+hq.ptier.breadcrumb = Product & Pricing
+hq.ptier.name = Tier Name
+hq.ptier.description = Tier Description
+hq.ptier.code = Tier Code
+hq.ptier.validation.error = Pricing Tier Item Not Valid
+hq.ptier.validation.dupname = Duplicate Name Found
+hq.ptier.validation.dupcode = Duplicate Code Found
+
+# Pricing Tier Listing
+hq.ptier.listing.title = ListProductPricingTiers
+hq.ptier.listing.heading = Pricing Tiers Listing
+hq.ptier.listing.breadcrumb = Pricing Tiers
+hq.ptier.listing.add = Add Pricing Tier
+hq.ptier.listing.search = Search For Pricing Tier
+
+# Pricing Tier Form
+hq.ptier.form.breadcrumb.view = View Pricing Tiers
+
+# New Pricing Tier
+hq.ptier.form.title.add = CreateProductPricingTier
+hq.ptier.form.breadcrumb.add = Add Pricing Tier
+hq.ptier.form.details.add = Pricing Tier
+
+# Edit Pricing Tier
+hq.ptier.form.title.edit = EditProductPricingTier
+hq.ptier.form.breadcrumb.edit = Edit Pricing Tier
+hq.ptier.form.details.edit = Pricing Tier
+
+# Pricing
+hq.pricing.breadcrumb = Suppliers
+hq.pricing.name = Name
+hq.pricing.description = Description
+hq.pricing.code = Code
+hq.pricing.validation.error = Pricing Entity Not valid
+hq.pricing.validation.dupprod = Product Duplicate found
+
+# Pricing Listing
+hq.pricing.listing.title = ListSuppliers
+hq.pricing.listing.heading = Suppliers Listing
+hq.pricing.listing.breadcrumb = Suppliers
+hq.pricing.listing.add = Add Supplier
+hq.pricing.listing.search = Search For Supplier
+
+# Pricing Form
+hq.pricing.form.breadcrumb.view = View Suppliers
+
+# New Pricing
+hq.pricing.form.title.add = CreateSupplier
+hq.pricing.form.breadcrumb.add = Add Supplier
+hq.pricing.form.details.add = Supplier
+
+# Edit Pricing
+hq.pricing.form.title.edit = EditSupplier
+hq.pricing.form.breadcrumb.edit = Edit Supplier
+hq.pricing.form.details.edit = Supplier
+
+# Contact
+hq.contact.breadcrumb = Distributor Management
+hq.contact.code = Code
+hq.contact.desc = Description
+hq.contact.name = Name
+hq.contact.dob = Date Of Birth
+hq.contact.mstatus = Marital Status
+hq.contact.jobtitle = Job Title
+hq.contact.company = Company
+hq.contact.contact = Contact
+hq.contact.status = Status
+hq.contact.contacts = Contacts
+hq.contact.contactfor = Contacts For
+hq.contact.address  = Address
+hq.contact.phone = Phone
+hq.contact.email = Email
+hq.contact.contownertyp = Contact Owner Type
+hq.contact.contowner = Contact Owner
+hq.contact.fname = First Name
+hq.contact.lname = Last Name
+hq.contact.dob = Date of Birth
+hq.contact.mstatus = Marital Status
+hq.contact.spname = Spouse Name
+hq.contact.mophone = Mobile Phone
+hq.contact.bizphone = Business Phone
+hq.contact.homephone = Home Phone
+hq.contact.wextphone = Work Extension Phone
+hq.contact.email = Email
+hq.contact.fax = Fax
+hq.contact.physicaladdr = Physical Address
+hq.contact.postaladdr = Postal Address
+hq.contact.hometown = Home Town
+hq.contact.city = City
+hq.contact.conttype = Contact Type
+
+# Contact Listing
+hq.contact.listing.title = ListContacts
+hq.contact.listing.heading = Contact Listing
+hq.contact.listing.breadcrumb = Contacts
+hq.contact.listing.add = Add Contact
+hq.contact.listing.search = Search For Contact
+hq.contact.listing.filter = Filter Contacts
+hq.contact.listing.searchlbl = Showing Contacts For
+
+# Contact Form
+hq.contact.form.breadcrumb.view = View Contacts
+
+# New Contact
+hq.contact.form.title.add = CreateContact
+hq.contact.form.breadcrumb.add = Add Contact
+hq.contact.form.details.add = Contact
+
+# Edit Contact
+hq.contact.form.title.edit = EditContact
+hq.contact.form.breadcrumb.edit = Edit Contact
+hq.contact.form.details.edit = Contact
+
+# Contact Type Listing
+hq.conttype.listing.title = ListContactTypes
+hq.conttype.listing.heading = Contact Types Listing
+hq.conttype.listing.breadcrumb = Contact Types
+hq.conttype.listing.add = Add Contact Type
+hq.conttype.listing.search = Search For Contact Type
+hq.conttype.listing.filter = Filter Contacts
+hq.conttype.listing.searchlbl = Showing Contacts For
+
+# Contact Type Form
+hq.conttype.form.breadcrumb.view = View Contact Types
+
+# New Contact Type
+hq.conttype.form.title.add = CreateContactType
+hq.conttype.form.breadcrumb.add = Add New Contact Type
+hq.conttype.form.details.add = Contact Type
+
+# Edit Contact Type
+hq.conttype.form.title.edit = EditContactType
+hq.conttype.form.breadcrumb.edit = Edit Contact Type
+hq.conttype.form.details.edit = Contact Type
+
+# Marital Status
+# Listing
+hq.mstatus.listing.title = ListMaritalStatus
+hq.mstatus.listing.heading = Marital Status Listing
+hq.mstatus.listing.breadcrumb = Marital Status
+hq.mstatus.listing.add = Add Marital Status
+hq.mstatus.listing.search = Search For Marital Status
+
+# Form
+hq.mstatus.form.breadcrumb.view = View Marital Status
+
+# New 
+hq.mstatus.form.title.add = CreateMaritalStatus
+hq.mstatus.form.breadcrumb.add = Add New Marital Status
+hq.mstatus.form.details.add = Marital Status
+
+# Edit 
+hq.mstatus.form.title.edit = EditMaritalStatus
+hq.mstatus.form.breadcrumb.edit = Edit Marital Status
+hq.mstatus.form.details.edit = Marital Status
+
+#Regions
+hq.regions = Regions
+hq.region.countryreg = Country Region
+hq.region.countryname = Country Name
+hq.region.countrycode = Country Code
+hq.region.currency = Currency
+hq.region.province = Province
+hq.region.country = Country 
+hq.region.district = District
+hq.region.districtname = District Name
+hq.region.desc = Description
+hq.region.breadcrumb = Regions
+
+
+# Country Region Listing
+hq.countryreg.listing.title = ListTerritory
+hq.countryreg.listing.heading = Country Region Listing
+hq.countryreg.listing.breadcrumb = Country Region
+hq.countryreg.listing.add = Add Country Region
+hq.countryreg.listing.search = Search For Country Region
+
+# Country Region Form
+hq.countryreg.form.breadcrumb.view = View Country Regions
+
+# New Country Region 
+hq.countryreg.form.title.add = CreateTerritory
+hq.countryreg.form.breadcrumb.add = Add New Country Region
+hq.countryreg.form.details.add = Country Region Details
+
+# Edit Country Region 
+hq.countryreg.form.title.edit = EditTerritory
+hq.countryreg.form.breadcrumb.edit = Edit Country Region
+hq.countryreg.form.details.edit = Country Region Details
+
+# Country Listing
+hq.country.listing.title = ListCountries
+hq.country.listing.heading = Country Listing
+hq.country.listing.breadcrumb = Countries
+hq.country.listing.add = Add Country
+hq.country.listing.search = Search For Country
+hq.country.listing.textbox.search = Search
+hq.country.listing.textbox.clear = Clear
+hq.country.listing.actions = Actions
+hq.country.listing.showinactive = Show Inactive
+
+# Country Form
+hq.country.form.breadcrumb.view = View Countries
+
+# New Country
+hq.country.form.title.add = CreateCountry
+hq.country.form.breadcrumb.add = Add New Country
+hq.country.form.details.add = Country Details
+hq.country.form.action.save = Save
+hq.country.form.action.clear = Clear
+hq.country.form.actions = Actions
+
+# Edit Country
+hq.country.edit = Edit
+hq.country.form.title.edit = EditCountry
+hq.country.form.breadcrumb.edit = Edit Country
+hq.country.form.details.edit = Country Details
+hq.country.form.edit.save = Save
+hq.country.form.actions = Actions
+
+# Deactivate Country
+hq.country.deactivate = Deactivate
+
+# Delete Country
+hq.country.delete = Delete
+
+# Activate Country
+hq.country.activate = Activate
+
+# Province Listing
+hq.province.listing.title = ListProvinces
+hq.province.listing.heading = Province Listing
+hq.province.listing.breadcrumb = Provinces
+hq.province.listing.add = Add Province
+hq.province.listing.search = Search For Province
+
+# Province Form
+hq.province.form.breadcrumb.view = View Provinces
+
+# New Province
+hq.province.form.title.add = CreateProvince
+hq.province.form.breadcrumb.add = Add New Province
+hq.province.form.details.add = Province Details
+
+# Edit Province
+hq.province.form.title.edit = EditProvince
+hq.province.form.breadcrumb.edit = Edit Province
+hq.province.form.details.edit = Province Details
+
+# Region Listing
+hq.region.listing.title = ListRegions
+hq.region.listing.heading = Regions Listing
+hq.region.listing.breadcrumb = Regions
+hq.region.listing.add = Add Region
+hq.region.listing.search = Search For Region
+hq.region.listing.filter = Filter Regions
+hq.region.listing.edit = Edit
+hq.region.listing.deactivate = Deactivate
+hq.region.listing.delete = Delete
+hq.region.listing.activate = Activate
+hq.region.listing.textbox.search = Search
+hq.region.listing.textbox.clear = Clear
+hq.region.listing.showinactive = Show Inactive
+hq.region.listing.actions = Actions
+
+# Region Form
+hq.region.form.breadcrumb.view = View Regions
+
+# New Region
+hq.region.form.title.add = CreateRegion
+hq.region.form.breadcrumb.add = Add Region
+hq.region.form.details.add = Region Details 
+hq.region.form.action.save = Save
+hq.region.form.action.clear = Clear
+hq.region.form.selectcountryprompt = -----Select Country-----
+hq.region.form.actions = Actions
+
+# Edit Region
+hq.region.form.title.edit = EditRegion
+hq.region.form.breadcrumb.edit = Edit Region
+hq.region.form.details.edit = Region Details
+hq.region.form.edit.selectprompt = -----Select Country-----
+hq.region.form.edit.action.save = Save
+
+# District Listing
+hq.district.listing.title = ListDistricts
+hq.district.listing.heading = District Listing
+hq.district.listing.breadcrumb = Districts
+hq.district.listing.add = Add District
+hq.district.listing.search = Search For District
+
+# District Form
+hq.district.form.breadcrumb.view = View Districts
+
+# New District
+hq.district.form.title.add = CreateDistrict
+hq.district.form.breadcrumb.add = Add New District
+hq.district.form.details.add = District Details
+
+# Edit District
+hq.district.form.title.edit = EditDistrict
+hq.district.form.breadcrumb.edit = Edit District
+hq.district.form.details.edit = District Details
+
+# Competitor
+hq.comptor.prodname = Product Name
+hq.comptor.proddesc = Product Description
+hq.comptor.name = Name
+hq.comptor.cname = Competitor Name
+hq.comptor.brand = Brand
+hq.comptor.subbrand = Sub Brand
+hq.comptor.pactype = Packaging Type
+hq.comptor.prodcat = Product Category
+hq.comptor.pac = Packaging
+hq.comptor.cpname = Competitor Product Name
+hq.comptor.prodtype = Product Type
+hq.comptor.phyaddr = Physical address
+hq.comptor.postaladdr = Postal address
+hq.comptor.tel = Telephone
+hq.comptor.cperson = Contact Person
+hq.comptor.city = City
+hq.comptor.longitude = Longitude
+hq.comptor.latitude = Latitude
+
+# Competitor Listing
+hq.comptor.listing.title = ListCompetitors
+hq.comptor.listing.heading = Competitor Listing
+hq.comptor.listing.breadcrumb = Competitors
+hq.comptor.listing.add = Add Competitor
+hq.comptor.listing.search = Search For Competitor
+
+
+# Competitor Form
+hq.comptor.form.breadcrumb.view = View Competitors
+
+# New Competitor
+hq.comptor.form.title.add = CreateCompetitor
+hq.comptor.form.breadcrumb.add = Add New Competitor
+hq.comptor.form.details.add = Competitor Details
+
+# Edit Competitor
+hq.comptor.form.title.edit = EditCompetitor
+hq.comptor.form.breadcrumb.edit = Edit Competitor
+hq.comptor.form.details.edit = Competitor Details
+
+# Competitor Product Listing
+hq.comptorprod.breadcrumb = Competitor Management
+hq.comptorprod.listing.title = ListCompetitorProducts
+hq.comptorprod.listing.heading = Competitor Product Listing
+hq.comptorprod.listing.breadcrumb = Competitor Products
+hq.comptorprod.listing.add = Add Competitor Product
+hq.comptorprod.listing.search = Search For Competitor Product
+
+# Competitor Product Form
+hq.comptorprod.form.breadcrumb.view = View Districts
+
+# New Competitor Product 
+hq.comptorprod.form.title.add = CreateProduct
+hq.comptorprod.form.breadcrumb.add = Add New Competitor Product
+hq.comptorprod.form.details.add = Competitor Product Details
+
+# Edit Competitor Product 
+hq.comptorprod.form.title.edit = EditDistrict
+hq.comptorprod.form.breadcrumb.edit = Edit District
+hq.comptorprod.form.details.edit = District Details
+
+# Discount
+hq.disc.tiername = Tier Name
+hq.disc.tierid = Tier Id
+hq.disc.salevalue = Sale Value
+hq.disc.discrate = Discount Rate
+hq.disc.name = Name
+hq.disc.code = Code
+hq.disc.value = Value
+hq.disc.saleval = Sale Value
+hq.disc.product = Product
+hq.disc.quantity = Quantity
+hq.disc.edate = Effective Date
+hq.disc.code = Code
+hq.disc.initialval = Initial Value
+hq.disc.tier = Tier
+hq.disc.rate = Rate
+hq.disc.freeprod = Free Product
+hq.disc.salequantity = Sale Quantity
+hq.disc.saleprodquantity = Sale Product Quantity
+hq.disc.freequantity = Free Quantity
+hq.disc.freeprodquantity = Free Product Quantity
+hq.disc.saleprodquantity = Sale Product Quantity
+hq.disc.prodname = Product Name
+hq.disc.pricingtier = Pricing Tier
+hq.disc.discgrp = Discount Group
+hq.disc.prodname = Product Name
+hq.disc.validation.error = Discount Entity Not valid
+
+# Sale Value Discount
+# Sale Value Discount Listing
+hq.svdisc.listing.title = ListSaleValueDiscounts
+hq.svdisc.listing.heading = Sale Value Discount Listing
+hq.svdisc.listing.breadcrumb = Sale Value Discount
+hq.svdisc.listing.add = Add Sale Value Discount
+hq.svdisc.listing.search = Search For Tier
+
+# New Sale Value Discount
+hq.svdisc.form.title.add = CreateSaleValueDiscount
+hq.svdisc.form.breadcrumb.add = Add Sale Value Discount
+hq.svdisc.form.details.add = Sale Value Discount
+hq.svdisc.form.breadcrumb.view = View Sale Value Discounts
+
+# Edit Sale Value Discount
+hq.svdisc.form.title.edit = EditSaleValueDiscount
+hq.svdisc.form.breadcrumb.edit = Edit Sale Value Discount
+hq.svdisc.form.details.edit = Sale Value Discount
+
+# Sale Value Discount-Items Listing
+hq.svdiscitm.listing.title = SaleValueDiscountItems
+hq.svdiscitm.listing.breadcrumb = Sale Value Discount Items
+hq.svdiscitm.listing.breadcrumb.view = View Sale Value Discounts
+hq.svdiscitm.listing.add = Add Sale Value Discount Item
+
+# New Sale Value Discount Item
+hq.svdiscitm.form.title = CreateSaleValueDiscountItem
+hq.svdiscitm.form.breadcrumb = Create Sale Value Discount Item
+hq.svdiscitm.form.breadcrumb.view = View Sale Value Discount Items
+hq.svdiscitm.form.details = Sale Value Discount Item
+
+# Free of Charge Discount Listing
+hq.foc.listing.title = ListFOCDiscount
+hq.foc.listing.heading = Free Of Charge Listing
+hq.foc.listing.breadcrumb = Free Of Charge Products
+hq.foc.listing.filter = Select Brand
+hq.foc.listing.search = Search For Free Of Charge Product
+
+# Discount Group Listing
+hq.dgroup.listing.title = ListDiscountGroups
+hq.dgroup.listing.heading = Discount Group Listing
+hq.dgroup.listing.breadcrumb = Discount Group
+hq.dgroup.listing.add = Add Discount Group
+hq.dgroup.listing.search = Search For Discount Group
+
+# Discount Group form
+hq.dgroup.form.breadcrumb.view = View Discount Groups
+
+# New Discount Group
+hq.dgroup.form.title.add = CreateDiscountGroup
+hq.dgroup.form.breadcrumb.add = Add Discount Group
+hq.dgroup.form.details.add = Group Discount
+
+# Edit Discount Group
+hq.dgroup.form.title.edit = EditDiscountGroup
+hq.dgroup.form.breadcrumb.edit = Edit Discount Group
+hq.dgroup.form.details.edit = Group Discount
+
+# Product  Discount Group Listing
+hq.pdgroup.listing.title = ListProductGroupDiscounts
+hq.pdgroup.listing.heading = Product Group Discounts
+hq.pdgroup.listing.breadcrumb = Discount Groups
+hq.pdgroup.listing.add = Add Product
+hq.pdgroup.listing.search = Search 
+
+# Product Discount Group form
+hq.pdgroup.form.breadcrumb.view = View Discount Groups
+
+# New Product Discount Group Group
+hq.pdgroup.form.title.add = CreateProductGroupDiscount
+hq.pdgroup.form.breadcrumb.add = Add Group Discount
+hq.pdgroup.form.details.add = Product Group Discount
+
+# Product Group Discount Item 
+hq.pdgroupitm.breadcrumb.view = View Product Group Discounts
+hq.pdgroupitm.listing.title = ListProductGroupDiscountItems
+hq.pdgroupitm.listing.add = Add Product Line Item
+hq.pdgroupitm.listing.breadcrumb = Product Group Discount Items
+
+# New Product Group Discount Item
+hq.pdgroupitm.form.title.add = CreateProductGroupDiscountItems
+hq.pdgroupitm.form.breadcrumb.add = Product Group Discount Items
+hq.pdgroupitm.form.breadcrumb.view = View Discount Items
+hq.pdgroupitm.form.details.add = Product Group Discount Item
+
+# Promotion Discount Listing
+hq.promodisc.listing.title = ListPromotionDiscounts
+hq.promodisc.listing.heading = Promotion Discount Listing
+hq.promodisc.listing.breadcrumb = Promotion Discount
+hq.promodisc.listing.add = Add Promotion Discount
+hq.promodisc.listing.search = Search For Promotion Discount
+hq.promodisc.breadcrumb.view = View Promotion Discounts
+
+# New Promotion Discount
+hq.promodisc.form.title.add = CreatePromotionDiscount
+hq.promodisc.form.breadcrumb.add = Add Promotion Discount
+hq.promodisc.form.details.add = Promotion Discount
+
+# Edit Promotion Discount
+hq.promodisc.form.title.edit = EditPromotionDiscount
+hq.promodisc.form.breadcrumb.edit = Edit Promotion Discount
+hq.promodisc.form.details.edit = Promotion Discount
+
+# Promotion Discount-Items Listing 
+hq.promodiscitm.listing.title = ListPromotionDiscountItems
+hq.promodiscitm.listing.breadcrumb = Promotion Product
+hq.promodiscitm.listing.add = Add Free Promotion Product
+hq.promodiscitm.breadcrumb.view = View Promotion Discounts
+
+# Promotion Discount-Item Form
+hq.promodiscitm.form.title.add = CreatePromotionDiscountItem
+hq.promodiscitm.form.breadcrumb.add = Add Promotion Items
+hq.promodiscitm.form.details.add = Promotion Items
+
+# Product Discount Listing
+hq.proddisc.listing.title = ListDiscounts
+hq.proddisc.listing.heading = Product Discount Listing
+hq.proddisc.listing.breadcrumb = Product Discount
+hq.proddisc.listing.add = Add Product Discount
+hq.proddisc.listing.search = Search For Product Discount
+
+hq.proddisc.form.breadcrumb.view = View Product Discounts
+
+# New Product Discount
+hq.proddisc.form.title.add = CreateProductDiscount
+hq.proddisc.form.breadcrumb.add = Add New Product Discount
+hq.proddisc.form.details.add = Product Discount
+
+# Edit Product Discount
+hq.proddisc.form.title.edit =  EditProductDiscount
+hq.proddisc.form.breadcrumb.edit =  Edit Product Discount
+hq.proddisc.form.details.edit = Product Discount
+
+# Product Discount-Items Listing 
+hq.proddiscitm.listing.title = ListDiscountItems
+hq.proddiscitm.listing.heading = Discount Item Listing
+hq.proddiscitm.listing.breadcrumb = Discount Items
+hq.proddiscitm.listing.add = Change Product Discount Rate
+
+# Product Items
+hq.proddiscitm.form.title.add = CreateDiscountItems
+hq.proddiscitm.form.breadcrumb.add = Create Product Discount Item
+hq.proddiscitm.form.breadcrumb.view = View Product Discount Items
+hq.proddiscitm.form.details.add = Product Discount Item
+
+# Certain Value Certain Product Discount Listing
+hq.cvcp.listing.title = ListCertainValueCertainProduct
+hq.cvcp.listing.heading = Certain Value Certain Product Discount Listing
+hq.cvcp.listing.breadcrumb = Certain Value Certain Product Discount 
+hq.cvcp.listing.add = Add Discount
+hq.cvcp.listing.search = Search Discount
+
+# CVCP form
+hq.cvcp.form.breadcrumb.view = View Certain Value Certain Product
+
+# New CVCP
+hq.cvcp.form.title.add = CreateCertainValueCertainProduct
+hq.cvcp.form.breadcrumb.add = Add Certain Value Certain Product
+hq.cvcp.form.details.add = Certain Value Certain Product
+
+# Edit CVCP
+hq.cvcp.form.title.edit = EditCertainValueCertainProduct
+hq.cvcp.form.breadcrumb.edit = Edit CertainValueCertainProduct
+hq.cvcp.form.details.edit = CertainValueCertainProduct
+
+# CVCP Item 
+hq.cvcpitm.breadcrumb = View Discount Item
+hq.cvcpitm.listing.add = Add New Item
+hq.cvcpitm.listing.breadcrumb = Certain Value Certain Product Discount Items
+
+# New CVCP Item
+hq.cvcpitm.form.title.add = CreateCertainValueCertainProductItem
+hq.cvcpitm.form.breadcrumb.add = Add Certain Value Certain Product
+hq.cvcpitm.form.details.add = Certain Value Certain Product Item
+
+hq.disc.validation.dupdiscount = Duplicate discount found.
+hq.discitm.validation.dupdiscount = Duplicate discount item found.
+hq.discitm.validation.dupdiscndate = Discount Value and Effective date Exist in the system
+
+hq.cvcpitm.validation.error = Failed to validate certain value certain product discount item
+hq.cvcp.validation.error = Failed to validate certain value certain product discount
+hq.cvcp.validation.dupdiscount = Duplicate discount found. 
+
+hq.pdgroup.validation.error = Failed to validate product group discount
+hq.pdgroup.validation.dupdiscount = Duplicate discount found.
+
+hq.saleval.validation.error = Failed to validate sale value discount
+hq.salevalitm.validation.error = Failed to validate sale value discount item
+hq.saleval.validation.dupdisctier = Sale value discount is already set for the selected tier.
+hq.saleval.validation.dupdiscount = Duplicate discount found.
+
+hq.promodisc.validation.error = Failed to validate promotion discount
+hq.promodisc.validation.dupdiscount = Duplicate discount found.
+
+#User Group
+hq.usrgrp.name = Name
+hq.usrgrp.grpname = Group Name
+hq.usrgrp.desc = Description
+hq.usrgrp.asnrole = Assign Role
+hq.usrgrp.breadcrumb = Manage Groups
+
+hq.usrgrp.breadcrumb.view = View Groups
+hq.usrgrp.breadcrumb.add = Add Group
+hq.usrgrp.breadcrumb.edit = Edit Group
+hq.usrgrp.breadcrumb.asnrole = Assign Role
+
+#Assign Usr grp
+hq.usrgrp.asn.title = Assign
+
+#Usr Grp listing
+hq.usrgrp.listing.add = Add Group
+hq.usrgrp.listing.heading = Group Listing
+hq.usrgrp.listing.search = Search For Group
+hq.usrgrp.listing.title = List
+
+# Create Usr Grp
+hq.usrgrp.form.title.add = CreateGroup
+hq.usrgrp.form.breadcrumb.add = Add Group
+hq.usrgrp.form.details.add = User Groups
+
+# Edit Usr Grp
+hq.usrgrp.form.title.edit = EditGroup
+hq.usrgrp.form.breadcrumb.edit = Edit Group
+hq.usrgrp.form.details.edit = User Groups
+
+Group Listing
+#Password
+hq.pwd.usrname = Username	
+hq.pwd.distr = Distributor
+hq.pwd.oldpwd = Old Password
+hq.pwd.newpwd = New Password
+hq.pwd.confpwd = Confirm Password
+hq.pwd.resetpwd = Reset Password
+
+#Change pwd
+hq.changepwd.title = ChangePassword
+hq.changepwd.breadcrumb = Change Password
+hq.changepwd.heading = Change Password
+hq.changepwd.pgraph1 = Use the form below to change your password. 
+hq.changepwd.line1 = New passwords are required to be a minimum of
+hq.changepwd.line2 = characters in length.
+hq.changepwd.details = Change Password
+hq.changepwd.validation.error = Password change was unsuccessful. Please correct the errors and try again.
+
+#Reset Dist pwd
+hq.resetdistrpwd.title = ResetDistributorUserPassword
+hq.resetdistrpwd.breadcrumb = Reset Distributor User Password
+hq.resetdistrpwd.heading = Reset Distributor User Password
+hq.resetdistrpwd.resetpwd = Reset Password
+hq.resetdistrpwd.filter = Filter By Distributor
+hq.resetdistrpwd.search = Search For User
+
+#Reset Hq pwd
+hq.resethqpwd.title = ResetHqUserPassword
+hq.resethqpwd.breadcrumb = Reset Hq User Password
+hq.resethqpwd.heading = Hq User Passwords Listing
+hq.resethqpwd.resetpwd = Reset Password
+hq.resethqpwd.search = Search For User
+
+# Dashboard
+hq.dboard = Dashboard
+hq.mgt = Management
+hq.comptormgt = Competitor Management
+hq.distmgt = Distributor Management
+hq.sysmgt = System Management
+hq.settings = Settings
+hq.retiresetting = Retire Settings
+hq.gsettings = Global Settings
+hq.comptormgt = Competitor Management
+hq.suppliers = Suppliers
+hq.targets = Targets
+hq.regions = Regions
+hq.svdisc = Sale Value Discounts
+hq.foc = Free of Charge Discounts
+hq.dgroup = Discounts Groups
+hq.promodisc = Promotion Discounts
+hq.proddisc = Product Discounts
+hq.pdgrp = Product Discounts
+hq.cvcp = Certain Value Certain Product
+hq.bankmgt = Bank Management
+hq.bbranchmgt = BankBranch Management
+hq.cpacs = Channel Packs
+hq.settings = Settings
+hq.prodandpricing Products And Pricing
+hq.pac = Packaging
+hq.pactypes Packaging Types
+hq.prods = Products
+hq.pricing = Pricing
+hq.ptier = Pricing Tier
+hq.prodtype = Product Type
+hq.sysmgt = System Management
+hq.managegrps = Manage Groups
+hq.managehqusrs = Manage HQ Users
+hq.managedistusrs = Manage Distributor Users
+hq.changepwd = Change Password
+hq.resetdistusrpwd = Reset Distributor User Password
+hq.resethqusrpwd = Reset Hq User Password
+hq.orders = Orders
+hq.distorders = Distributor Orders
+hq.orders = Orders
+hq.rpts = Reports
+hq.vatrates = VAT rates
+hq.reorderlvl = Re-Order Level
+hq.assets = Assets
+hq.brands = Brands  
+hq.subbrands = SubBrands
+hq.outlets = Outlets
+hq.targets = Targets
+hq.reports = Reports
+hq.prodpricing = Products And Pricing
+hq.inventory = Inventory
+hq.countries = Countries
+hq.region = Region
+hq.hub = Hub
+hq.hubs = Hubs
+hq.regions = Regions
+hq.buyingcentres = Collection/Buying Centres
+hq.buyingcentremgnt = Collection/Buying centre Management
+hq.commoditysuppliermgnt = Commodity Supplier Management
+hq.routes = Routes
+hq.routemgnt = Route Management
+hq.banks = Banks
+hq.bankmgnt = Bank Management
+hq.bankbranchmgnt = Bank Branch Management
+hq.contacts = Contacts
+hq.contacttypes = Contact Types
+hq.settings = Settings
+hq.account = Account
+hq.manageusers = Manage Users
+hq.managehqusers = Manage HQ Users
+hq.managehubusers = Manage Hub Users
+hq.account = Account
+hq.mainmenu = Main Menu
+hq.commodities = Commodities
+hq.commoditypes = Commodity Types
+hq.assets = Assets
+hq.containers = Containers
+hq.containertypes = Container Types
+hq.printers = Printers
+hq.weighscales = Weigh Scales
+hq.stores = Stores
+hq.vehicles = Vehicles
+hq.reports = Reports
+hq.reports.dashboard =Reports Dashboard
+hq.footer.declaration = Powered By
+hq.footer.company = Virtual City Ltd | Innovation Lives Here
+hq.footer.version = Version No:1.0.0.34
+hq.dashboard.container = Management  &amp; Settings
+
+
+# Agrimanagr Globalsettings
+hq.globalsettings = Global Settings
+hq.globalsettings.countries = Countries
+hq.globalsettings.regions = Regions
+hq.globalsettings.hubs = Hubs
+hq.globalsettings.stores = Stores
+hq.globalsettings.regions = Regions
+hq.globalsettings.commoditysuppliers = Commodity Suppliers
+hq.globalsettings.centretypes = Centre Types
+hq.globalsettings.buyingcentremngt = Collection/Buying centre Management
+hq.globalsettings.routesmngt = Routes Management
+hq.globalsettings.bankmngt = Bank Management
+hq.globalsettings.bankbranchmngt = Bank Branch Management
+hq.globalsettings.settings = Settings
+hq.globalsettings.reportsettings = Report Settings
+
+#Agrimanagr Commodity
+hq.commodity = Commodity
+hq.commodity.commoditype = Commodity Type
+hq.commodity.commodities = Commodities
+hq.commodity.commodityownertypes = Commodity Owner Types
+
+#Agrimanagr Assets
+hq.asset = Assets
+hq.asset.containers = Containers
+hq.asset.containertypes = Container Types
+hq.asset.printers = Printers
+hq.asset.weighscales = Weigh Scales
+hq.asset.vehicles = Vehicles
+
+#Agrimanagr System Management
+hq.systemngt = System Management
+hq.systemngt.managehqusers = Manage HQ Users
+hq.systemngt.managehubusers = Manage Hub Users
+
+## HQ view Models Valiadations
+### view model validation
+# Asset
+hq.vm.asset.name.required=Name  is a Required Field!
+hq.vm.asset.code.required=Code is a Required Field!
+hq.vm.asset.serial.required=Serial Number is a Required Field!
+hq.vm.asset.assetno.required=Asset Number is a Required Field!
+hq.vm.asset.capacity.required=Capacity is a Required Field!
+hq.vm.asset.status.required=	Asset Status is a Required Field!
+hq.vm.asset.type.required= Asset type is a Required Field!
+hq.vm.asset.category.required=Asset Category is a Required Field!
+
+# Brand VM
+hq.vm.brand.code = Product Brand Code Is Required
+hq.vm.brand.name = Product Brand Name  Is Required
+hq.vm.brand.supplier = Supplier Id Is Required
+
+# Sub Brand VM
+hq.vm.subbrand.code = Code is required
+hq.vm.subbrand.name = Name is required
+
+# Outlet VM
+hq.vm.outlet.code = Outlet code is a Required field!
+hq.vm.outlet.name = Outlet is a Required field!
+hq.vm.outlet.outlettype = Outlet Type is a Required field!
+hq.vm.outlet.outletcat = Outlet Category is a Required field!
+hq.vm.outlet.route = Route is a Required field!
+
+# Distributor VM
+hq.vm.dist.name = Name is required
+hq.vm.dist.code = Distributor Code Is Required
+hq.vm.dist.owner = Owner is required
+hq.vm.dist.region = Region is required
+hq.vm.dist.account = Account Number is required
+hq.vm.dist.vatregno = VAT Registration Number is required
+hq.vm.dist.pin = PIN is required
+hq.vm.dist.isactive = IsActive is required
+
+# HQ and Distributer User VM
+hq.vm.user.username = Username is required
+hq.vm.user.costcentre = Cost Center is required
+hq.vm.user.password = Password is required
+hq.vm.user.usertype = User type is required
+
+#Packaging
+hq.vm.packaging.pacname = Please enter name
+hq.vm.packaging.pacdesc = Please enter description
+hq.vm.packaging.desc = Description  is a Required Field
+hq.vm.packaging.name = Name is a Required Field
+
+#Product 
+hq.vm.product.prod = Select a product.
+hq.vm.product.initialval = Initial Value is required
+hq.vm.product.quantity = Quantity is required
+hq.vm.product.typename = Product Type Name Is Required
+
+#Pricing 
+hq.vm.pricing.name = Enter Name
+hq.vm.pricing.code = Tier Code Is Required
+hq.vm.pricing.desc = Tier Description is required
+hq.vm.pricing.tier = Tier is required
+hq.vm.pricing.xfacprice = Exfactory price is required
+hq.vm.pricing.product = Product is required
+hq.vm.pricing.edate = Effective date is required
+hq.vm.pricing.sprice = Selling price is required
+
+#Region
+ 
+#Country 
+hq.vm.country.name = Country Name is required
+hq.vm.country.code = Country Code is required
+
+#District 
+hq.vm.district.name = Name is required
+hq.vm.district.province = Province is required
+
+#Territory 
+hq.vm.territory.name = Territory  Name is required
+
+#Province
+hq.vm.province.name = Name is required
+hq.vm.province.code = Country is required
+
+#Supplier 
+hq.vm.supplier.name = Supplier Name is required
+
+#Competitor 
+hq.vm.competitor.name = Competitor Name is required
+
+#VatRate 
+hq.vm.vat.vatclass = VatClass  is required
+hq.vm.vat.rate = Rate is Required
+hq.vm.vat.name = Name is required
+
+#Targets 
+hq.vm.targets.name = Name is a Required Field
+hq.vm.targets.amount = Enter target amount
+
+#ReOrderLevel 
+hq.vm.reorder.dist = Please select distributor
+hq.vm.reorder.prod = Please select product
+hq.vm.reorder.level = Please enter re-ordel level
+
+#Disc 
+hq.vm.disc.grpname = Group Name is Required
+hq.vm.disc.grpcode = Group Code is Required
+hq.vm.disc.tier = Tier is required
+hq.vm.disc.product = Product is required
+hq.vm.disc.prodname = Select a product
+hq.vm.disc.initialval = Initial Value is required
+hq.vm.disc.quantity = Quantity is required
+
+#Bank 
+hq.vm.bank.bankname = Bank Name is a Required Field
+hq.vm.bank.bank = Bank is a Required Field
+hq.vm.bank.desc = Description  is a Required Field
+hq.vm.bank.name = Name is a Required Field
+hq.vm.bank.code = Code is a Required Field
+
+#Settings
+
+## HQ Reports
+# User Report
+hq.rpt.user.username=Username jh
+hq.rpt.user.title=User and address  REPORT
+hq.rpt.user.address=Address
+
+## Sales
+hq.rpt.sales.salesman = Service Provider
+hq.rpt.sales.distributor = Health Facility
+hq.rpt.sales.salesref = Dispense Reference
+hq.rpt.sales.salesstatus = Dispense Status
+hq.rpt.sales.distorsales = Health Facility
+hq.rpt.sales.brand = Category Name
+hq.rpt.sales.subbrand = Sub Category
+hq.rpt.sales.packaging = Packaging Name
+hq.rpt.sales.packaging = Packaging Name
+hq.rpt.sales.title = Dispenses
+
+# SalesSummary 
+hq.rpt.salessummary.heading = DISPENSES SUMMARY REPORT
+hq.rpt.salessummary.title =Dispenses Summary
+
+# Sales Summary SubReport
+hq.rpt.salessummarysub.heading = DISPENSES SUBREPORT
+hq.rpt.salessummarysub.title = Dispenses SubReport
+
+# Sales By Brand
+hq.rpt.salesbrand.ddown = Category:
+hq.rpt.salesbrand.heading = DISPENSES BY CATEGORY REPORT
+hq.rpt.salesbrand.title = Dispenses By Category
+
+# Sales By Distributor
+hq.rpt.salesdist.ddown = Health Facility:
+hq.rpt.salesdist.heading = DISPENSES BY HEALTH FACILITY REPORT
+hq.rpt.salesdist.title = Dispenses By Health Facility
+
+# Sales By SubBrand
+hq.rpt.salessubbrand.ddown = Sub Category:
+hq.rpt.salessubbrand.heading = DISPENSES BY SUBCATEGORY REPORT
+hq.rpt.salessubbrand.title = Dispenses By Sub Category 
+
+# Sales By Packaging
+hq.rpt.packaging.ddown = Packaging:
+hq.rpt.packaging.heading = DISPENSES BY PRODUCT PACKAGING REPORT
+hq.rpt.packaging.title = Dispenses By Product Packaging
+
+# Sales By Product
+hq.rpt.salesproduct.ddown = PRODUCT:
+hq.rpt.salesproduct.heading = DISPENSES BY PRODUCT REPORT
+hq.rpt.salesproduct.title = Dispenses By Product 
+
+## Orders
+hq.rpt.orders.salesman = Service Provider
+hq.rpt.orders.distributor = Health Facility
+hq.rpt.orders.salesref = Orders Reference
+hq.rpt.orders.salesstatus = Orders Status
+hq.rpt.orders.distorsales = Health Facility
+hq.rpt.orders.brand = Category Name
+hq.rpt.orders.subbrand = Sub Category
+hq.rpt.orders.packaging = Packaging Name
+hq.rpt.orders.title = Orders
+
+# OrdersSummary 
+hq.rpt.orderssummary.heading = ORDERS SUMMARY REPORT
+hq.rpt.orderssummary.title = Orders Summary
+
+# Orders Summary SubReport
+hq.rpt.orderssummarysub.heading = ORDERS SUBREPORT
+hq.rpt.orderssummarysub.title = Orders SubReport
+
+# Orders By Brand
+hq.rpt.ordersbrand.ddown = Category:
+hq.rpt.ordersbrand.heading = ORDERS BY CATEGORY REPORT
+hq.rpt.ordersbrand.title = Orders By Category
+
+# Orders By Distributor
+hq.rpt.ordersdist.ddown = Health Facility:
+hq.rpt.ordersdist.heading1 = ORDERS BY HEALTH FACILITY REPORT
+hq.rpt.ordersdist.heading2 = ORDERS BY SERVICE PROVIDER REPORT
+hq.rpt.ordersdist.title = Orders By Health Facility  
+
+# Orders By SubBrand
+hq.rpt.orderssubbrand.ddown = Sub Category:
+hq.rpt.orderssubbrand.heading = ORDERS BY SUBCATEGORY REPORT
+hq.rpt.orderssubbrand.title = Orders By Sub Category
+
+# Orders By Packaging
+hq.rpt.orderspackaging.ddown = Packaging:
+hq.rpt.orderspackaging.heading = ORDERS BY PRODUCT PACKAGING REPORT
+hq.rpt.orderspackaging.title = Orders By Product Packaging
+
+# Orders By Product
+hq.rpt.ordersproduct.ddown = PRODUCT:
+hq.rpt.ordersproduct.heading = ORDERS BY PRODUCT REPORT
+hq.rpt.ordersproduct.title = Orders By Product 
+
+# Inventory 
+hq.rpt.stock.salesman = Service Provider
+hq.rpt.stock.distributor = Health Facility
+hq.rpt.stock.salesref = Dispense Reference
+hq.rpt.stock.salesstatus = Dispense Status
+hq.rpt.stock.distorsales = HealthFacility/ServiceProvider
+hq.rpt.stock.brand = Category
+hq.rpt.stock.id = Stock Id
+hq.rpt.stock.product =  Category Name
+hq.rpt.stock.products = Category
+hq.rpt.stock.quantity = Stock Quantity
+hq.rpt.stock.packaging = Packaging
+hq.rpt.stock.desc = Description
+hq.rpt.stock.subbrand = Sub Category
+hq.rpt.stock.docref = Document Reference
+hq.rpt.stock.title = Inventory
+
+# Stock Summary
+hq.rpt.stocks.heading = STOCK SUMMARY REPORT
+hq.rpt.stocks.title = Stock Summary
+
+# Stock By Distributor
+hq.rpt.stockdist.ddown = Health Facility:
+hq.rpt.stockdist.heading = STOCK BY HEALTH FACILITY REPORT
+hq.rpt.stockdist.title = Stock By Health Facility
+
+# Stock By Brand
+hq.rpt.stockbrand.ddown = Category:
+hq.rpt.stockbrand.heading = STOCK BY CATEGORY REPORT
+hq.rpt.stockbrand.title = Stock By Category 
+
+# Stock By SubBrand
+hq.rpt.stocksub.ddown = Sub Category:
+hq.rpt.stocksub.heading = STOCK BY SUBCATEGORY REPORT
+hq.rpt.stocksub.title = Stock By Sub Category
+
+# Stock By Packaging
+hq.rpt.stockpac.ddown = Packaging:
+hq.rpt.stockpac.heading = STOCK BY PACKAGING REPORT
+hq.rpt.stockpac.title = Stock By Packaging
+
+# Stock Return
+hq.rpt.stockret.ddown = Stock Return
+hq.rpt.stockret.heading = STOCK RETURNS REPORT
+hq.rpt.stockret.title = Stock Returns
+
+# Stock Reorder
+hq.rpt.stockreorder.title = Reorder Level
+
+#Stock Analysis Report
+hq.rpt.stockdata.title = Data Report
+
+# Business
+hq.rpt.biz.salesman = Service Provider
+hq.rpt.biz.distributor = Health Facility
+hq.rpt.biz.brand = Category 
+hq.rpt.biz.sellingprice = Selling Price 
+hq.rpt.biz.salescontrib = Dispenses Contribution 
+hq.rpt.biz.exfac = Ex Factory Dispense Contribution
+hq.rpt.biz.gross = Gross Sale 
+hq.rpt.biz.title = Financial
+
+# Gross Profit By Distributor
+hq.rpt.bizpft.ddown = Health Facility
+hq.rpt.bizpft.heading = GROSS PROFIT REPORT
+hq.rpt.bizpft.title = Gross Profit by Health Facility
+
+# Sales By Tier
+hq.rpt.biztier.ddown = Dispenses by tier
+hq.rpt.biztier.heading = DISPENSES BY TIER REPORT
+hq.rpt.biztier.title = Dispenses By Tier
+
+# Inventory Receipt
+hq.rpt.invrec.salesman = Service Provider
+hq.rpt.invrec.distributor = Health Facility
+hq.rpt.invrec.brand = Category Name
+hq.rpt.invrec.subbrand = Sub Category
+hq.rpt.invrec.packaging = Product Packaging
+hq.rpt.invrec.title = Inventory Receipt
+
+# Inventory Receipt By Brand
+hq.rpt.invrecbrand.ddown = Category:
+hq.rpt.invrecbrand.heading = INVENTORY RECEIPT BY CATEGORY REPORT
+hq.rpt.invrecbrand.title = Inventory Receipt By Category
+
+# Inventory Receipt By Distributor	
+hq.rpt.invrecdist.ddown = Health Facility:
+hq.rpt.invrecdist.heading =  INVENTORY RECEIPT BY HEALTH FACILITY REPORT
+hq.rpt.invrecdist.title =  Inventory Receipt By Health Facility
+
+# Inventory Receipt By SubBrand
+hq.rpt.invrecflav.ddown = Sub Category:
+hq.rpt.invrecflav.heading = INVENTORY BY SUBCATEGORY REPORT
+hq.rpt.invrecflav.title = Inventory Receipt By Sub Category
+
+# Inventory Receipt By Packaging
+hq.rpt.invrecpac.ddown = Packaging:
+hq.rpt.invrecpac.heading = INVENTORY RECEIPT BY PACKAGING REPORT
+hq.rpt.invrecpac.title = Inventory Receipt By Packaging
+
+
+#Outlets
+hq.rpt.outlet.salesman = Service Provider
+hq.rpt.outlet.distributor = Health Facility
+hq.rpt.outlet.outletname = Client Name
+hq.rpt.outlet.outlettype = Client Type
+hq.rpt.outlet.outletcat = Client Category
+hq.rpt.outlet.outlettier = Client Tier
+hq.rpt.outlet.title = Client
+
+# Deactivated Outlets
+hq.rpt.outletdeac.ddown = Health Facility:
+hq.rpt.outletdeac.heading = DEACTIVATED CLIENTS REPORT
+hq.rpt.outletdeac.title = Deactivated Clients
+
+# New Outlets
+hq.rpt.outletnew.ddown = Health Facility:
+hq.rpt.outletnew.heading = NEW CLIENTS REPORT
+hq.rpt.outletnew.title = New Clients 
+
+# New Outlet By Channel
+hq.rpt.outletch.ddown = Clients by channel
+hq.rpt.outletch.heading = CLIENTS BY CHANNEL REPORT
+hq.rpt.outletch.title = Clients By Channel 
+
+# Outlet Category
+hq.rpt.outletcat.ddown = Client Category:
+hq.rpt.outletcat.heading = CLIENTS BY CATEGORY REPORT
+hq.rpt.outletcat.title = Clients By Category 
+
+# Outlet Per Distributor
+hq.rpt.outletdist.ddown = Health Facility:
+hq.rpt.outletdist.heading = CLIENTS BY  HEALTH FACILITY REPORT
+hq.rpt.outletdist.title = Clients By Health Facility 
+
+# Outlet Per Tier
+hq.rpt.outlettier.ddown = Client Tier:
+hq.rpt.outlettier.heading = CLIENTS BY TIER REPORT
+hq.rpt.outlettier.title = Clients By Tier
+
+# Data Report
+hq.rpt.data.lblprovince = Province
+hq.rpt.data.lbldistrict = District
+hq.rpt.data.lbldistributor = Full SDP Name
+hq.rpt.data.lbloutletcategory = Facility Type
+hq.rpt.data.lbloutlettype = Agency
+hq.rpt.data.heading = DATA REPORT
+hq.rpt.data.title = Data Report
+hq.rpt.data.lblDistributorNo = SDP No.
+
+##Silverlight
+#SL.Login
+#login details
+sl.login.password=Password
+sl.login.username=User name 
+sl.login.heading=login
+
+#SL.Create Sales
+sl.pos.pagetitle.new = Create New Sale
+sl.pos.pagetitle.edit = Edit Sale
+sl.createSale.saleid_lbl = Sales ID:
+sl.createSale.date_lbl = Date:
+sl.createSale.salesman_lbl = Service Provider:
+sl.createSale.route_lbl = Route:
+sl.createSale.outlet_lbl = Facility:
+sl.createSale.status_lbl = Status:
+sl.createSale.totalProductDiscount_lbl = Total Product Discount:
+sl.createSale.totalNet_lbl = Total Net:
+sl.createSale.totalVat_lbl = Total VAT:
+sl.createSale.saleValue_lbl = Sale Value:
+sl.createSale.returnablesValue_lbl = Returnables Value:
+sl.createSale.saleDiscount_lbl = Sale Discount:
+sl.createSale.totalGross_lbl = Total Gross:
+sl.createSale.amountPaid_lbl = Amount Paid:
+
+sl.pos.newsale_btn = New Sale
+sl.createSale.addProduct_btn = Add Product
+sl.createSale.receiveReturnables_btn = Receive Returnables
+sl.createSale.receivePayments_btn = Receive Payments
+sl.createSale.completeSale_btn = Complete Sale
+sl.createSale.saveAndContinueLater_btn = Save And Continue Later
+sl.createSale.saleSummary_btn = Sale Summary
+sl.createSale.viewInvoice_btn = View Invoice
+sl.createSale.viewReceipt_btn = View Receipt
+sl.pos.cancel_btn = Cancel Sale
+sl.pos.back_btn = Sale Summary
+
+sl.pos.selectsalesman = --Please Select Service Provider--
+sl.pos.selectroute = --Please Select A Route--
+sl.pos.selectoutlet = --Please Select An Facility--
+sl.pos.selectreceipt = --Select A Receipt To View--
+
+sl.pos.messagebox.caption = Distributr: Point of Sale
+sl.pos.receivereturnables.messagebox.noreturnables = There are no returnables to receive either because returnables for all line items have been received or there are no line items with returnables.
+sl.pos.receivepayments.messagebox.alreadypaid = Payment already made in full
+sl.pos.receivepayments.messagebox.grossamountiszero = Gross amount should be greater than zero
+sl.pos.removepayment.messagebox.prompt = Are you sure you want to remove this payment information?
+
+#SL POS Payment Summary
+sl.pos.payment.grid.col.paymenttype = Payment Type
+sl.pos.payment.grid.col.amount = Amount
+sl.pos.payment.grid.col.confirmed = Confirmed
+sl.pos.payment.grid.col.edit.confirm = Confirm
+sl.pos.payment.grid.col.edit.remove = Remove
+
+#SL POS LineItems Summary
+sl.pos.lineitems.grid.col.product = Product
+sl.pos.lineitems.grid.col.qty = Qty
+sl.pos.lineitems.grid.col.unitPrice = Unit Price
+sl.pos.lineitems.grid.col.unitVat = Unit VAT
+sl.pos.lineitems.grid.col.unitDisc = Unit Disc
+sl.pos.lineitems.grid.col.total = Total
+sl.pos.lineitems.grid.col.producttype = Product Type
+sl.pos.lineitems.grid.col.edit = Edit
+sl.pos.lineitems.grid.col.delete = Delete 
+sl.pos.save.nolineitems.messagebox = The sale must have at least 1 line item.
+sl.pos.save.prompt = Save sale
+sl.pos.saved.success.part1 = Sale
+sl.pos.saved.success.part2 = was successfully saved
+sl.pos.completesale.messagebox.prompt = Complete sale
+sl.pos.completesale.success.messagebox = was successfully saved
+sl.pos.completesale.messagebox.nolineitems = The sale must have at least 1 line item.
+sl.pos.completesale.messagebox.notReceivedReturnables = Are you sure you want to complete sales without receiving returnables.
+sl.pos.completesale.messagebox.notReceivedPayment = Are you sure you want to complete sales without receiving payment.
+sl.pos.completesale.messagebox.issuechange = Please Issue change of KES
+sl.pos.cancel.messagebox = Cancel Transaction? This sale will be deleted!
+sl.pos.navigateaway.messagebox.part1 = Are you sure you want to move away from this page without completing the Sale?
+sl.pos.navigateaway.messagebox.part2 = Unsaved changes will be lost
+
+sl.pos.validation.selectsalesman = Select salesman.
+sl.pos.validation.selectroute = Select route.
+sl.pos.validation.selectoutlet = Select outlet.
+
+#SL Add Line Items Modal
+sl.pos.addlineitem.modal.title = Add Product(s) To Order
+sl.pos.editlineitem.modal.title = Edit Product of Order
+sl.pos.addlineitem.modal.pendingQty = Pending Qty
+sl.pos.addlineitem.modal.sellfreeofcharge = Sell Free Of Charge Products
+sl.pos.addlineitem.modal.product = Product
+sl.pos.addlineitem.modal.sellby = Sell By
+sl.pos.addlineitem.modal.sellby.units = Units
+sl.pos.addlineitem.modal.sellby.bulk = Cartons/Crates
+sl.pos.addlineitem.modal.availableInv = Available Inventory
+sl.pos.addlineitem.modal.required = Required Quantity
+sl.pos.addlineitem.modal.unitvat = Unit VAT
+sl.pos.addlineitem.modal.unitprice = Unit Price
+sl.pos.addlineitem.modal.totalnet = Total Net
+sl.pos.addlineitem.modal.totalvat = Total VAT
+sl.pos.addlineitem.modal.totalgross = Total Gross Price
+sl.pos.addlineitem.modal.viewAdded = View Added Products
+
+sl.pos.addlineitem.modal.ok.message.caption = Distributr: Line Items Modal
+sl.pos.addlineitem.modal.ok.message.propmt = This will close the window. Do you want to proceed?
+sl.pos.addlineitem.modal.message.productnotselected = Select a product in product dropdown list.
+sl.pos.addlineitem.modal.message.quantityzero = Quantity should not be zero or empty.
+sl.pos.addlineitem.modal.message.sellMoreThanAvailable = Sorry, you cannot sell more than the available inventory.
+sl.pos.addlineitem.modal.message.receiveMoreThanRequired = Sorry, you cannot receive more than required returnables for this sale.
+sl.pos.addlineitem.modal.message.unsaved = Unsaved changes will be lost.
+sl.pos.addlineitem.modal.message.valueTooLarge = Value was too large.
+
+#SL.Sales Summary
+sl.listPosSales.completeSalesTab = Complete Issues
+sl.listPosSales.incompleteTab = Incomplete Issues
+sl.listPosSales.backOrdersTab = Back Orders
+sl.listPosSales.lostSalesTab = Unfilled Orders
+sl.listPosSales.outstandingTab = Outstanding Payments
+
+sl.listPosSales.searchBy_lbl = Search By Sale Reference:
+sl.listPosSales.search_btn = Search
+sl.listPosSales.clear_btn = Clear
+sl.listPosSales.addNewSale_btn = New Sale
+
+#Sales Summary Complete Sales Tab
+sl.listPosSales.completeSales.grid.col.saleNumber = Sale Number
+sl.listPosSales.completeSales.grid.col.saleDate = Sale Date
+sl.listPosSales.completeSales.grid.col.status = Status
+sl.listPosSales.completeSales.grid.col.netAmt = Net Amt
+sl.listPosSales.completeSales.grid.col.vatAmt = VAT Amt
+sl.listPosSales.completeSales.grid.col.grossTotal = Gross Total
+sl.listPosSales.completeSales.grid.col.view_lnk = View
+
+#Sales Summary Incomplete Sales Tab
+sl.listPosSales.incompleteSales.grid.col.saleNumber = Sale Number
+sl.listPosSales.incompleteSales.grid.col.saleDate = Sale Date
+sl.listPosSales.incompleteSales.grid.col.status = Status
+sl.listPosSales.incompleteSales.grid.col.netAmt = Net Amt
+sl.listPosSales.incompleteSales.grid.col.vatAmt = VAT Amt
+sl.listPosSales.incompleteSales.grid.col.grossTotal = Gross Total
+sl.listPosSales.incompleteSales.grid.col.view_lnk = View
+
+#Sales Summary Back Orders Tab
+sl.listPosSales.backOrders.grid.col.saleNumber = Sale Number
+sl.listPosSales.backOrders.grid.col.saleDate = Sale Date
+sl.listPosSales.backOrders.grid.col.status = Status
+sl.listPosSales.backOrders.grid.col.netAmt = Net Amt
+sl.listPosSales.backOrders.grid.col.vatAmt = VAT Amt
+sl.listPosSales.backOrders.grid.col.grossTotal = Gross Total
+sl.listPosSales.backOrders.grid.col.view_lnk = View
+
+#Sales Summary Lost/Unfilled Orders Tab
+sl.listPosSales.unfilledOrders.grid.col.saleNumber = Sale Number
+sl.listPosSales.unfilledOrders.grid.col.saleDate = Sale Date
+sl.listPosSales.unfilledOrders.grid.col.status = Status
+sl.listPosSales.unfilledOrders.grid.col.netAmt = Net Amt
+sl.listPosSales.unfilledOrders.grid.col.vatAmt = VAT Amt
+sl.listPosSales.unfilledOrders.grid.col.grossTotal = Gross Total
+sl.listPosSales.unfilledOrders.grid.col.view_lnk = View
+
+#Sales Summary Outstanding Payments Tab
+sl.listPosSales.outstandingPayments.grid.col.saleNumber = Sale Number
+sl.listPosSales.outstandingPayments.grid.col.saleDate = Sale Date
+sl.listPosSales.outstandingPayments.grid.col.status = Status
+sl.listPosSales.outstandingPayments.grid.col.netAmt = Net Amt
+sl.listPosSales.outstandingPayments.grid.col.vatAmt = VAT Amt
+sl.listPosSales.outstandingPayments.grid.col.grossTotal = Gross Total
+sl.listPosSales.outstandingPayments.grid.col.amountPaid = Amt Paid
+sl.listPosSales.outstandingPayments.grid.col.outstandingAmount = Outstanding Amount
+sl.listPosSales.outstandingPayments.grid.col.view_lnk = View
+sl.listPosSales.outstandingPayments.grid.col.receivePayments_lnk = Receive Payments
+
+#SL.Create Order
+sl.createOrder.title.new = Create Outlet Order
+sl.createOrder.title.edit.part1 = Viewing Order
+sl.createOrder.title.edit.part2 = Details
+sl.createOrder.saleid_lbl = Order ID:
+sl.createOrder.date_lbl = Date:
+sl.createOrder.salesman_lbl = Salesman:
+sl.createOrder.route_lbl = Route:
+sl.createOrder.outlet_lbl = Outlet:
+sl.createOrder.status_lbl = Status:
+sl.createOrder.totalProductDiscount_lbl = Total Product Discount:
+sl.createOrder.totalNet_lbl = Total Net:
+sl.createOrder.totalVat_lbl = Total VAT:
+sl.createOrder.saleValue_lbl = Sale Value:
+sl.createOrder.returnablesValue_lbl = Returnables Value:
+sl.createOrder.saleDiscount_lbl = Sale Discount:
+sl.createOrder.totalGross_lbl = Total Gross:
+sl.createOrder.amountPaid_lbl = Amount Paid:
+
+sl.createOrder.addProduct_btn = Add Product
+sl.createOrder.saveAndContinueLater_btn = Save And Continue Later
+sl.createOrder.completeSale_btn = Confirm Order
+sl.createOrder.cancelOrder = Cancel Order
+sl.createOrder.cancel = Cancel
+sl.createOrder.back = Back
+sl.createOrder.viewList = View List
+
+sl.createOrder.navigateAway.messagebox.prompt.caption = Distributr: Confirm Navigating Away
+sl.createOrder.navigateAway.messagebox.prompt.part1 = Are you sure you want to move away from this page without completing the order?
+sl.createOrder.navigateAway.messagebox.prompt.part2 = Unsaved changes will be lost
+sl.createOrder.cancel.messagebox = Are you sure you want to cancel this order process? Unsaved changes will be lost."
+sl.createOrder.confirm.messagebox.nolineItems.caption = Distributr: Confirm Order
+sl.createOrder.confirm.messagebox.nolineItems = The order must have at least 1 line item.
+sl.createOrder.confirm.messagebox = Confirm order
+
+sl.createOrder.postconfirm.messagebox.text1 = Order
+sl.createOrder.postconfirm.messagebox.text2 = on behalf of
+sl.createOrder.postconfirm.messagebox.text3 = was successfully confirmed.
+sl.createOrder.save.messagebox.text3 = was successfully saved.
+sl.createOrder.save.messagebox.options.approveOrders = Approve Orders.
+sl.createOrder.save.messagebox.options.ordersSummary = Orders Summary
+sl.createOrder.postconfirm.messagebox.options.newOrder = New Order
+sl.createOrder.postconfirm.messagebox.options.home = Home Page
+sl.createOrder.postconfirm.messagebox.options.viewList = View List
+sl.createOrder.lineitemmodal.edit.title = Edit Product Quantity
+
+#SL Line Items Grid
+sl.createOrder.grid.col.product = Product
+sl.createOrder.grid.col.qty = Qty
+sl.createOrder.grid.col.unitprice = Unit Price
+sl.createOrder.grid.col.unitdiscount = Unit Disc
+sl.createOrder.grid.col.netamount = Total Amt
+sl.createOrder.grid.col.unitvat = Unit VAT
+sl.createOrder.grid.col.totalvat = Total VAT
+sl.createOrder.grid.col.grossamount = Gross Amount
+sl.createOrder.grid.col.producttype = Product Type
+sl.createOrder.grid.col.edit.edit = Edit
+sl.createOrder.grid.col.edit.delete = Delete
+
+#SL Approve Salesman Order
+sl.approveOrder.back = Back
+
+#When Processing Order
+sl.approveOrder.approveOrder.title = Approve Order
+sl.approveOrder.approve = Approve
+sl.approveOrder.reject = Reject
+sl.approveOrder.back.messageBox.confirmMessage.part1 = Are you sure you want to move away from this page without completing the order processing?
+sl.approveOrder.back.messageBox.confirmMessage.part2 = Unsaved changes will be lost.
+sl.approveOrder.back.messageBox.caption = Distributr: Confirm Navigating Away
+sl.approveOrder.approve.messagebox.createBackOrderAndApprove_btn = Create Back Order And Approve
+sl.approveOrder.approve.messagebox.back_btn = Back
+sl.approveOrder.approve.messageBox.required = Required:
+sl.approveOrder.approve.messageBox.available = Availabe:
+sl.approveOrder.approve.messageBox.propmt = Do you want to approve order
+sl.approveOrder.approve.messageBox.caption = Distributr: Confirm Action.
+sl.approveOrder.approve.messageBox.nolineItemMessage = The order must have at least 1 line item.
+sl.approveOrder.approve.messageBox.unsatiableOrder.message.part1 = Order cannot be fulfilled.
+sl.approveOrder.approve.messageBox.unsatiableOrder.message.part2 = The available inventory cannot satisfy the following order item(s)
+sl.approveOrder.approve.messageBox.unsatiableOrder.message.part3 = Select an option to proceed.
+sl.approveOrder.approve.messageBox.unsatiableOrder.title.part1 = Distributr: Approve Order
+sl.approveOrder.approve.messageBox.unsatiableOrder.title.part2 = on behalf of
+sl.approveOrder.approve.messageBox.approved.message.part1 = Order
+sl.approveOrder.approve.messageBox.approved.message.part2 = on behalf of
+sl.approveOrder.approve.messageBox.approved.message.part3 = was successfully approved.
+sl.approveOrder.approve.messageBox.approved.caption = Distributr: Approve Order On Behalf of Salesman
+sl.approveOrder.approve.completed.messageBox.gotoDispatch = Go To Dispatch
+sl.approveOrder.approve.completed.messageBox.processBO = Process Back Orders
+sl.approveOrder.approve.completed.messageBox.pendingList = Pending Approval List
+sl.approveOrder.lineItems.delete.messageBox.text = Are sure you want to delete the following product(s)
+sl.approveOrder.lineItems.delete.messageBox.productDetails1 = of
+sl.approveOrder.lineItems.delete.messageBox.productDetails2 = will be deleted
+sl.approveOrder.lineItems.delete.messageBox.title = Delete Order Line Items
+
+#Reject order
+sl.approveOrder.reject.messageBox.message.part1 = Are you sure you want to reject order
+sl.approveOrder.reject.messageBox.message.part2 = If yes please enter the reason for rejecting the order.
+sl.approveOrder.reject.messageBox.message.title = Reject Order
+sl.approveOrder.rejected.messageBox.message.part1 = Order
+sl.approveOrder.rejected.messageBox.message.part2 = on behalf of
+sl.approveOrder.rejected.messageBox.message.part3 = was successfully rejected.
+sl.approveOrder.rejected.messageBox.message.title = Distributr: Reject Order On Behalf of Salesman
+sl.approveOrder.receivedReturnablesLegend = Received Returnables.
+sl.approveOrder.processBackOrder = Process Back Order
+
+#When Viewing the Approved Order
+sl.approveOrder.viewOrder.title = Viewing Details Of Order
+sl.approveOrder.viewInvoice = View Invoice
+sl.approveOrder.viewReceipt = View Receipts
+sl.approveOrder.receipts_lbl = Receipts
+sl.approveOrder.selectReceipt = --Select Receipt To View--
+
+#When Processing Back Order
+sl.approveOrder.approveBackOrder.title = Approve Or Reject Back Order
+sl.approveOrder.bo.messageBox.rejectBackOrder_btn = Reject Back Order
+sl.approveOrder.bo.approve.messageBox.propmt = Do you want to approve the back order for order
+sl.approveOrder.bo.approve.messageBox.propmt2 = NOTE: To dispatch the back order go to dispatch orders module.
+sl.approveOrder.bo.approve.messageBox.approved.message.part1 = Back Order for order
+sl.approveOrder.bo.approve.messageBox.approved.message.part2 = on behalf of
+sl.approveOrder.bo.approve.messageBox.approved.message.part3 = was successfully approved.
+sl.approveOrder.bo.approve.messageBox.approved.caption = Distributr: Approve Back Order
+
+#Reject Back Order
+sl.approveOrder.bo.reject.messageBox.message.part1 = Are you sure you want to reject back order of order
+sl.approveOrder.bo.reject.messageBox.message.part2 = Note: A lost sale equivalent to the back order will be created.
+sl.approveOrder.bo.rejected.messageBox.message.part1 = Back order in the order
+sl.approveOrder.bo.rejected.messageBox.message.part2 = on behalf of
+sl.approveOrder.bo.rejected.messageBox.message.part3 = was successfully rejected and lost sale created.
+sl.approveOrder.bo.rejected.messageBox.message.title = Distributr: Reject Back Order fo Order on Behalf of Salesman
+
+#When Viewing Back Order
+sl.approveOrder.viewBackOrder.approve_btn = Approve Back Order
+sl.approveOrder.viewBackOrder.reject_btn = Reject Back Order
+sl.approveOrder.viewBackOrder.title = Viewing Back Order For Order 
+
+#When Viewing Dispatched Order
+sl.approveOrder.viewDispatchedOrder.title = Viewing Dispatched Items For Order
+
+#When Viewing Delivered Order
+sl.approveOrder.viewDeliveredOrder.title = Viewing Delivered Items For Order
+
+#When Viewing Lost Sale Order
+sl.approveOrder.viewLostSale.title = Viewing Lost Sale For Order
+
+#When Viewing Rejected Order
+sl.approveOrder.rejectReason = Reject Reason
+
+#SL Add/Edit Order Line Items Modal
+sl.order.addlineitem.modal.title = Add Product to Order on Behalf of
+sl.order.editlineitem.modal.title = Edit Product to Order on Behalf of
+sl.order.addlineitem.modal.sellFreeofCharge = Sell Free Of Charge Products
+sl.order.addlineitems.modal.product = Product
+sl.order.addlineitems.modal.requiredQty = Required Quantity
+sl.order.addlineitems.modal.sellByOptions = Sell By
+sl.order.addlineitems.modal.unitVat = Unit VAT Amount
+sl.order.addlineitems.modal.unitPrice = Unit Price Amount
+sl.order.addlineitems.modal.totalNet = Total Net Amount
+sl.order.addlineitems.modal.totalVat = Total VAT Amount
+sl.order.addlineitems.modal.totalGross = Total Gross Price
+sl.order.addlineitems.modal.selectProduct = --Please Select A Product--
+sl.order.addlineitems.modal.addProduct = Add Product
+sl.order.addlineitems.modal.done = Done
+sl.order.addlineitems.modal.cancel = Cancel
+sl.order.addlineitems.modal.options.unit = Units
+sl.order.addlineitems.modal.options.bulk = Cartons/Cases
+
+sl.order.addlineitem.modal.messageBox.valueTooLarge = Value was too large.
+sl.order.addlineitem.modal.messageBox.caption = Distribut: Order Module
+sl.order.addlineitem.modal.messageBox.productNotSelectedErrorMsg = Select a product in the products dropdown list.
+sl.order.addlineitem.modal.messageBox.zeroQtyErrorMsg = Quantity should not be zero or empty.
+sl.order.addlineitem.modal.messageBox.errorCatpion = Distributr: Add Order Line Items
+sl.order.addlineitem.modal.messageBox.confirmMsg = Are you sure you want to insert added products
+sl.order.addlineitem.modal.messageBox.confirmCaption = Distributr: Confirm Order
+sl.order.addlineitem.modal.messageBox.cancelMsg = Unsaved changes will be lost.
+sl.order.addlineitem.modal.messageBox.cancelCaption = Distributr: Cancel Add Products
+
+#SL Ammend Order Line Items Modal
+sl.order.ammendlineitems.modal.ok = OK
+sl.order.ammendlineitems.modal.available =  = Available Quantity:
+sl.order.ammendlineitems.modal.approve = Quantity To Approve:
+sl.order.ammendlineitems.modal.backorder = Back Order Quantity:
+sl.order.ammendlineitems.modal.lostsale = Lost Sale Quantity:
+
+#SL Approve Salesman Order Line Items Grid 
+sl.approveOrder.lineItemsGrid.product = Product
+sl.approveOrder.lineItemsGrid.required = Required
+sl.approveOrder.lineItemsGrid.approve = Approved
+sl.approveOrder.lineItemsGrid.available = Available
+sl.approveOrder.lineItemsGrid.unitPrice = Unit Price
+sl.approveOrder.lineItemsGrid.netAmt = Net Amt
+sl.approveOrder.lineItemsGrid.unitDiscount = Unit Disc
+sl.approveOrder.lineItemsGrid.unitVAT = Unit VAT
+sl.approveOrder.lineItemsGrid.totalVAT = TotalVAT
+sl.approveOrder.lineItemsGrid.grossAmount = Gross Amount
+sl.approveOrder.lineItemsGrid.backOrder = Back Order
+sl.approveOrder.lineItemsGrid.lostSale = Lost Sale
+sl.approveOrder.lineItemsGrid.productType = Product Type
+sl.approveOrder.lineItemsGrid.editLineItem = Edit
+sl.approveOrder.lineItemsGrid.deleteLineItem = Delete
+
+#SL Approve Salesman Back Order Line Items Grid
+sl.approveBackOrder.lineItemsGrid.rejectBackOrderItem = Reject
+
+#SL Order Summary
+sl.orderSummary.Title.pendingApproval = List Of Orders Awaiting Approval
+sl.orderSummary.Title.pendingDispatch = List of Orders Pending Dispatch
+sl.orderSummary.Title.dispatched = List of Dispatched Orders
+sl.orderSummary.Title.incomplete = List of Incomplete Orders
+sl.orderSummary.Title.delivered = List of Delivered Orders
+sl.orderSummary.Title.outstandingPayment = List of Outstanding Payments
+sl.orderSummary.Title.fullyPaid = List of Fully Paid Deliveries
+sl.orderSummary.Title.backOrders = List of Orders With Back Order
+sl.orderSummary.Title.lostSales = List of Lost Sales
+sl.orderSummary.Title.rejected = List of Rejected Orders
+sl.orderSummary.searchby_lbl = Search (Order Ref/Salesman/Status/Any Date Part):
+sl.orderSummary.search_btn = Search
+sl.orderSummary.clear_btn = Clear
+sl.orderSummary.addOrder_btn = Add Order
+sl.orderSummary.dispatch_btn = Dispatch
+
+#SL Order Summary Pending Approval Tab
+sl.orderSummary.pendingApproval.tab = Pending Approval
+sl.ordersSummary.pendingApproval.grid.col.orderRef = Order Ref
+sl.ordersSummary.pendingApproval.grid.col.dateRequired = Required
+sl.ordersSummary.pendingApproval.grid.col.salesman = Salesman
+sl.ordersSummary.pendingApproval.grid.col.status = Status
+sl.ordersSummary.pendingApproval.grid.col.netAmount = Net Amt
+sl.ordersSummary.pendingApproval.grid.col.totalVat = Total VAT
+sl.ordersSummary.pendingApproval.grid.col.grossAmount = Gross Amt
+sl.ordersSummary.pendingApproval.grid.col.amountPaid = Amt Paid
+sl.ordersSummary.pendingApproval.grid.col.outstandingAmount = Outstanding Amt
+sl.ordersSummary.pendingApproval.grid.col.view = View
+sl.ordersSummary.pendingApproval.grid.col.process = Process
+
+#SL Order Summary Pending Dispatch Tab
+sl.orderSummary.pendingDispatch.tab = Pending Dispatch
+sl.ordersSummary.pendingDispatch.grid.col.orderRef = Order Ref
+sl.ordersSummary.pendingDispatch.grid.col.dateRequired = Required
+sl.ordersSummary.pendingDispatch.grid.col.salesman = Salesman
+sl.ordersSummary.pendingDispatch.grid.col.status = Status
+sl.ordersSummary.pendingDispatch.grid.col.netAmount = Net Amt
+sl.ordersSummary.pendingDispatch.grid.col.totalVat = Total VAT
+sl.ordersSummary.pendingDispatch.grid.col.grossAmount = Gross Amt
+sl.ordersSummary.pendingDispatch.grid.col.amountPaid = Amt Paid
+sl.ordersSummary.pendingDispatch.grid.col.outstandingAmount = Outstanding Amt
+sl.ordersSummary.pendingDispatch.grid.col.view = View
+sl.ordersSummary.pendingDispatch.grid.col.processBackOrder = Process Back Order
+
+#SL Order Summary Dispatched Tab
+sl.orderSummary.dispatched.tab = Dispatched
+sl.ordersSummary.dispatched.grid.col.orderRef = Order Ref
+sl.ordersSummary.dispatched.grid.col.dateRequired = Required
+sl.ordersSummary.dispatched.grid.col.salesman = Salesman
+sl.ordersSummary.dispatched.grid.col.status = Status
+sl.ordersSummary.dispatched.grid.col.netAmount = Net Amt
+sl.ordersSummary.dispatched.grid.col.totalVat = Total VAT
+sl.ordersSummary.dispatched.grid.col.grossAmount = Gross Amt
+sl.ordersSummary.dispatched.grid.col.amountPaid = Amt Paid
+sl.ordersSummary.dispatched.grid.col.outstandingAmount = Outstanding Amt
+sl.ordersSummary.dispatched.grid.col.view = View
+
+#SL Order Summary Incomplete Tab
+sl.orderSummary.incomplete.tab = Incomplete
+sl.ordersSummary.incomplete.grid.col.orderRef = Order Ref
+sl.ordersSummary.incomplete.grid.col.dateRequired = Required
+sl.ordersSummary.incomplete.grid.col.salesman = Salesman
+sl.ordersSummary.incomplete.grid.col.status = Status
+sl.ordersSummary.incomplete.grid.col.netAmount = Net Amt
+sl.ordersSummary.incomplete.grid.col.totalVat = Total VAT
+sl.ordersSummary.incomplete.grid.col.grossAmount = Gross Amt
+sl.ordersSummary.incomplete.grid.col.amountPaid = Amt Paid
+sl.ordersSummary.incomplete.grid.col.outstandingAmount = Outstanding Amt
+sl.ordersSummary.incomplete.grid.col.view = View
+sl.ordersSummary.incomplete.grid.col.confirm = Confirm
+
+#SL Order Summary Delivered Tab
+sl.orderSummary.delivered.tab = Delivered
+sl.ordersSummary.delivered.grid.col.orderRef = Order Ref
+sl.ordersSummary.delivered.grid.col.dateRequired = Required
+sl.ordersSummary.delivered.grid.col.salesman = Salesman
+sl.ordersSummary.delivered.grid.col.status = Status
+sl.ordersSummary.delivered.grid.col.netAmount = Net Amt
+sl.ordersSummary.delivered.grid.col.totalVat = Total VAT
+sl.ordersSummary.delivered.grid.col.grossAmount = Gross Amt
+sl.ordersSummary.delivered.grid.col.amountPaid = Amt Paid
+sl.ordersSummary.delivered.grid.col.outstandingAmount = Outstanding Amt
+sl.ordersSummary.delivered.grid.col.view = View
+
+#SL Order Summary Outstanding Payment Tab
+sl.orderSummary.outstandingPayment.tab = Outstanding Payment
+sl.ordersSummary.outstandingPayment.grid.col.orderRef = Order Ref
+sl.ordersSummary.outstandingPayment.grid.col.dateRequired = Required
+sl.ordersSummary.outstandingPayment.grid.col.salesman = Salesman
+sl.ordersSummary.outstandingPayment.grid.col.status = Status
+sl.ordersSummary.outstandingPayment.grid.col.netAmount = Net Amt
+sl.ordersSummary.outstandingPayment.grid.col.totalVat = Total VAT
+sl.ordersSummary.outstandingPayment.grid.col.grossAmount = Gross Amt
+sl.ordersSummary.outstandingPayment.grid.col.amountPaid = Amt Paid
+sl.ordersSummary.outstandingPayment.grid.col.outstandingAmount = Outstanding Amt
+sl.ordersSummary.outstandingPayment.grid.col.view = View
+sl.ordersSummary.outstandingPayment.grid.col.receivePayment = Receive Payment
+
+#SL Order Summary Fully Paid Deliveries Tab
+sl.orderSummary.fullyPaid.tab = Fully Paid
+sl.ordersSummary.fullyPaid.grid.col.orderRef = Order Ref
+sl.ordersSummary.fullyPaid.grid.col.dateRequired = Required
+sl.ordersSummary.fullyPaid.grid.col.salesman = Salesman
+sl.ordersSummary.fullyPaid.grid.col.status = Status
+sl.ordersSummary.fullyPaid.grid.col.netAmount = Net Amt
+sl.ordersSummary.fullyPaid.grid.col.totalVat = Total VAT
+sl.ordersSummary.fullyPaid.grid.col.grossAmount = Gross Amt
+sl.ordersSummary.fullyPaid.grid.col.amountPaid = Amt Paid
+sl.ordersSummary.fullyPaid.grid.col.outstandingAmount = Outstanding Amt
+sl.ordersSummary.fullyPaid.grid.col.view = View
+
+#SL Order Summary Back Orders Tab
+sl.orderSummary.backOrders.tab = Back Orders
+sl.ordersSummary.backOrders.grid.col.orderRef = Order Ref
+sl.ordersSummary.backOrders.grid.col.dateRequired = Required
+sl.ordersSummary.backOrders.grid.col.salesman = Salesman
+sl.ordersSummary.backOrders.grid.col.status = Status
+sl.ordersSummary.backOrders.grid.col.netAmount = Net Amt
+sl.ordersSummary.backOrders.grid.col.totalVat = Total VAT
+sl.ordersSummary.backOrders.grid.col.grossAmount = Gross Amt
+sl.ordersSummary.backOrders.grid.col.amountPaid = Amt Paid
+sl.ordersSummary.backOrders.grid.col.outstandingAmount = Outstanding Amt
+sl.ordersSummary.backOrders.grid.col.view = View
+sl.ordersSummary.backOrders.grid.col.processBackOrders = Process Back Order
+
+#SL Order Summary Lost Sales Tab
+sl.orderSummary.lostSales.tab = Lost Sales
+sl.ordersSummary.lostSales.grid.col.orderRef = Order Ref
+sl.ordersSummary.lostSales.grid.col.dateRequired = Required
+sl.ordersSummary.lostSales.grid.col.salesman = Salesman
+sl.ordersSummary.lostSales.grid.col.status = Status
+sl.ordersSummary.lostSales.grid.col.netAmount = Net Amt
+sl.ordersSummary.lostSales.grid.col.totalVat = Total VAT
+sl.ordersSummary.lostSales.grid.col.grossAmount = Gross Amt
+sl.ordersSummary.lostSales.grid.col.amountPaid = Amt Paid
+sl.ordersSummary.lostSales.grid.col.outstandingAmount = Outstanding Amt
+sl.ordersSummary.lostSales.grid.col.view = View
+
+#SL Order Summary Rejected Tab
+sl.orderSummary.rejected.tab = Rejected
+sl.ordersSummary.rejected.grid.col.orderRef = Order Ref
+sl.ordersSummary.rejected.grid.col.dateRequired = Required
+sl.ordersSummary.rejected.grid.col.salesman = Salesman
+sl.ordersSummary.rejected.grid.col.status = Status
+sl.ordersSummary.rejected.grid.col.netAmount = Net Amt
+sl.ordersSummary.rejected.grid.col.totalVat = Total VAT
+sl.ordersSummary.rejected.grid.col.grossAmount = Gross Amt
+sl.ordersSummary.rejected.grid.col.amountPaid = Amt Paid
+sl.ordersSummary.rejected.grid.col.outstandingAmount = Outstanding Amt
+sl.ordersSummary.rejected.grid.col.view = View
+
+#SL Order Summary Dispatched Tab
+sl.orderSummary.dispatched.tab = Dispatched
+
+#SL Order Summary Incomplete Tab
+sl.orderSummary.incomplete.tab = Incomplete
+
+#SL Order Summary Delivered Tab
+sl.orderSummary.delivered.tab = Delivered
+
+#SL Order Summary Outstanding Payments Tab
+sl.orderSummary.outstandingPayments.tab = Outstanding Payments
+
+#SL Order Summary Fully Paid Tab
+sl.orderSummary.fullyPaid.tab = Fully Paid Orders
+
+#SL Order Summary backOrders Tab
+sl.orderSummary.backOrders.tab = Back Orders
+
+#SL Order Summary lostSales Tab
+sl.orderSummary.lostSales.tab = Lost Sales
+
+#SL Order Summary Rejected Tab
+sl.orderSummary.rejected.tab = Rejected
+
+#SL Dispatch Orders
+sl.dispatchOrders.route = Route:
+sl.dispatchOrders.salesman_lbl = Service Provider:
+sl.dispatchorders.salesman.default = --Please Select Service Provider--
+sl.dispatchorders.route.default = --Please Select A Route--
+sl.dispatchorders.selectall = Select All
+sl.dispatchOrders.grid.col.orderref = Order Ref
+sl.dispatchOrders.grid.col.required = Required
+sl.dispatchOrders.grid.col.salesman = Service Provider
+sl.dispatchOrders.grid.col.status = Status
+sl.dispatchOrders.grid.col.net = Net
+sl.dispatchOrders.grid.col.vat = Vat
+sl.dispatchOrders.grid.col.gross = Gross
+sl.dispatchOrders.grid.col.select = Select
+sl.dispatchOrders.legend = Partially dispatched order.
+sl.dispatchOrders.dispatch = Dispatch
+sl.dispatchOrders.back = Back
+sl.dispatchOrders.dispatch.ordernotselected.messagebox.prompt = You have not selected any order to dispatch.
+sl.dispatchOrders.dispatch.messagebox.prompt = Dispatch selected orders?
+sl.dispatchOrders.dispatch.messagebox.caption = Distributr: Dispatch Orders
+sl.dispatchOrders.dispatch.sucess.messagebox.text = order(s) were dispatched successfully.
+sl.dispatchOrders.dispatch.sucess.messagebox.option.continue = Continue Dispatching Orders
+sl.dispatchOrders.dispatch.sucess.messagebox.option.approve = Approve Orders
+sl.dispatchOrders.dispatch.sucess.messagebox.option.view = View Dispatched Orders
+sl.dispatchOrders.dispatch.error.messagebox.text1 = Orders were not successfully dispatched.
+sl.dispatchOrders.dispatch.error.messagebox.text2 = Error details
+sl.dispatchOrders.dispatch.fail.messagebox.text1 = The following
+sl.dispatchOrders.dispatch.fail.messagebox.text2 = orders could not be dispatched because insuficient inventory on all of the order items.
+sl.dispatchOrders.summary.fulfilled = The following orders have been fulfilled and can be dispatched.
+sl.dispatchOrders.summary.havebackorder = The following orders have back order.
+sl.dispatchOrders.summary.canbeProcessedandDelivered = The following orders can be processed and delivered.
+sl.dispatchOrders.summary.cannotbeFulfilled = The following orders cannot be fulfilled.
+sl.dispatchOrders.summary.canbePartiallDispatched = The following orders can be partially dispatched.
+
+sl.dispatchOrders.dispatchoptions.title = Distributr: Dispatch Options
+sl.dispatchOrders.dispatchoptions.summarytitle = Orders Summary
+sl.dispatchOrders.dispatchoptions.options.title = Select An Option To Dispatch
+
+sl.dispatchOrders.dispatchoptions.options.dispatchfulfilled = Dispatch Fulfilled.
+sl.dispatchOrders.dispatchoptions.options.dispatchfulfilledandunfulfilled = Dispatch Fulfilled And Dispatch Unfulfilled Partially.
+sl.dispatchOrders.dispatchoptions.options.processfulfillableanddispatchall = Process Fulfillable And Dispatch All Fulifilled Orders.
+sl.dispatchOrders.dispatchoptions.options.processanddispatchall = Process Fulfillable And Dispatch All Dispatchable Orders.
+
+sl.dispatchOrders.dispatchoptions.options.option1.info = Dispatches only those orders which have been fulfilled.
+sl.dispatchOrders.dispatchoptions.options.option2.info = Dispatches the fulfilled orders and dispatches unfulfilled orders partially without processing them.
+sl.dispatchOrders.dispatchoptions.options.option3.info = Processes fulfillable back orders and dispatches them together with other already fulfilled orders.
+sl.dispatchOrders.dispatchoptions.options.option4.info = Processes back orders. Dispatches fulfilled orders, processed back orders and partiall dispatches unprocessed back orders.
+
+sl.dispatchOrders.dispatchoptions.selectoption = Please select an option to proceed with dispath.
+sl.dispatchOrders.dispatchoptions.ok = OK
+sl.dispatchOrders.dispatchoptions.cancel = Cancel
+sl.dispatchOrders.dispatchoptions.options
+
+#SL Payments Modal
+sl.payment.title = Distributr: Payment Module
+sl.payment.amountToPay = Amount To Pay:
+sl.payment.cash = Cash:
+sl.payment.credit = Credit:
+sl.payment.distributorSubscriberNo = Distributor Subscriber No:
+sl.payment.mMoneyOption = M-Money Option:
+sl.payment.mMoneyAmount = M-Money Amount:
+sl.payment.accountNo = Distributor Account No.:
+sl.payment.accountNo.mobileno = Distributor Mobile No.:
+sl.payment.mobileNo = mobile no:
+sl.payment.tillno = Till No:
+sl.payment.transRefno = Transaction Reference No.:
+sl.payment.subscriberNo = Outlet Subcriber No.:
+sl.payment.subscriberNo.mobile = mobile no:
+sl.payment.subscriberNo.username = user name:
+sl.payment.sms.part1 = SMS To Subscriber:
+sl.payment.sms.part2 = (Optional. Max. 40 Chars):
+sl.payment.chequeAmount = Cheque Amount:
+sl.payment.chequenumber = Cheque Number:
+sl.payment.bank = Bank:
+sl.payment.branch = Branch:
+sl.payment.amountPaid = Amount Paid:
+sl.payment.change = Change:
+sl.payment.getPaymentInst = Get Payment Instruments
+sl.payment.sendPaymentReq = Send Payment Request
+sl.payment.getPaymentNotification = Get Payment Notification
+sl.payment.seePaymentresponse = See Payment Response
+sl.payment.seePaymentNotification = See Payment Notification
+sl.payment.clear = Clear
+sl.payment.ok = OK
+sl.payment.clearall = Clear All
+sl.payment.cancel = Cancel
+
+sl.payment.selectMmoney = --Select Payment Instrument--
+sl.payment.selectBank = --Select Bank--
+sl.payment.selectBankBranch = --Select Bank Branch--
+
+sl.payment.cancel.prompt = Are you sure you want to cancel?
+sl.payment.cancel.errorprompt = Error! Distributr: Payment Module
+
+sl.payment.validate.chequeNo = Enter the Cheque number
+sl.payment.validate.bankbranch = Specify a bank Branch.
+sl.payment.validate.cheqnumbercount = Cheque number should be less than 15 characters.
+sl.payment.validate.paymentRequestPending = Payment request has not been made for the MMoney payment entered.
+sl.payment.validate.paymentRequestPending.option = Click OK to continue, Cancel to make payment request.
+sl.payment.validate.cancelmmoney = Please note that information on MMoney will be lost.
+sl.payment.validate.cancelmmoney.option = Click OK if you wish continue, Cancel to make payment request
+sl.payment.validate.mmoneyNotConfirmed = M-Money payment has not been confirmed yet.
+sl.payment.validate.mmoneyNotConfirmed.cancel = Please click 'Cancel' then 'Get Notification' to confirm payment.
+sl.payment.validate.mmoneyNotConfirmed.ok = If payment cannot be confirmed until later click OK to continue.
+sl.payment.validate.hasClientPaid = Has the client/subscriber made the payment on their mobile phone?
+sl.payment.validate.hasClientPaid.yes = If YES click OK other wise click cancel.
+sl.payment.validate.hasClientPaid.no = If NO, the payment details you have entered will not be saved.
+sl.payment.validate.accountNolength = Please make sure you have entered the correct mobile phone number with the correct country code.
+sl.payment.validate.subscriberNolength = Please make sure you have entered the correct mobile phone number with the correct country code.
+sl.payment.validate.accountNoEmpty.part1 = Please enter the account number.
+sl.payment.validate.accountNoEmpty.part2 = For M-Pesa, this can be the subscribers mobile number.
+sl.payment.validate.accountNoEmpty.part3 = For any other payment instrument, this can be an account number.
+sl.payment.validate.subscriberNoEmpty = Please enter the subscriber's mobile number.
+sl.payment.validate.mmoneyAmountZero = Enter the amount to pay before continuing.
+
+##SL Payments Notification
+sl.payment.notifitcation.pending = Specified payment is still pending. Please check again later.
+sl.payment.notification.notconfirmed = Payment not confirmed due to outstanding balance of
+sl.payment.notifitcation.response.paymentDetails = Payment Details:
+sl.payment.notifitcation.response.paymentStatus = Payment Status:
+sl.payment.notifitcation.response.amountPaid = Amount Paid:
+sl.payment.notifitcation.response.balanceDue = Balance Due:
+sl.payment.notifitcation.response.totalAmount = Total Amount:
+sl.payment.notifitcation.response.currency = Currency:
+sl.payment.notifitcation.response.timeStamp = Time Stamp:
+sl.payment.notifitcation.response.reference = Reference Id:
+sl.payment.notifitcation.fetcherror = Unable to retrieve payment notification response. Please try again later or pay with any other means other than M-Money
+sl.payment.notifitcation.desc.inpaymentof = In payment of
+sl.payment.notifitcation.desc.bysubscriber = by subscriber
+sl.payment.notifitcation.desc.toaccount = to account
+sl.payment.notifitcation.desc.paymentreference = Payment reference:
+sl.payment.notifitcation.desc.tobank = to bank
+sl.payment.notifitcation.desc.chequenumber = cheque number
+
+##SL Payments Buy Goods Notification
+sl.payment.bgnotifitcation.response.paymentStatus = Payment Status:
+sl.payment.bgnotifitcation.response.amountPaid = Amount Paid:
+sl.payment.bgnotifitcation.response.receiptNumber = Receipt Number:
+sl.payment.bgnotifitcation.response.date = Date:
+sl.payment.bgnotifitcation.response.time = Time:
+sl.payment.bgnotifitcation.response.currency = Currency:
+sl.payment.bgnotifitcation.response.paidTo = Paid To Subscriber:
+sl.payment.bgnotifitcation.response.merchantBal = Merchant Balance:
+sl.payment.bgnotifitcation.desc.tillnumber = Buy Goods Till
+
+##SL Payments Payment Request
+sl.payment.paymentrequest.fetcherror = Unable to retrieve payment request response. Please try again later or pay with any other means other than M-Money.
+
+##SL Payments Payment Request
+sl.payment.paymentrequest.messagebox.promt.prompt = Do you want to send a request to make a payment with the following details?
+sl.payment.paymentrequest.messagebox.promt.payby = Pay by:
+sl.payment.paymentrequest.messagebox.promt.amount = Amount
+sl.payment.paymentrequest.messagebox.promt.orderNo = Order No:
+sl.payment.paymentrequest.messagebox.promt.invoiceNo = Invoice No:
+sl.payment.paymentrequest.messagebox.promt.currency = Currency
+sl.payment.paymentrequest.messagebox.promt.accountId = Pay to Account/Mobile No:
+sl.payment.paymentrequest.messagebox.promt.subscriberId = Payer's Account/Mobile No:
+
+sl.payment.paymentresponse.message.amountDue = Amount due:
+sl.payment.paymentresponse.message.businessnumber = Business Number:
+sl.payment.paymentresponse.message.accountnumber = Account Number:
+sl.payment.paymentresponse.message.timestamp = Time Stamp:
+sl.payment.paymentresponse.message.statuscode = Status Code:
+sl.payment.paymentresponse.message.statusdetail = Status Detail:
+
+##SL Payments Payment Instrument
+sl.payment.paymentinstrument.fetcherror =The payment instrument list is currently unavailable. Please try again later or pay with any other means other than M-Money.
+
+#SL Receipt Document
+sl.receipt.receiptlist.default = --Select Receipt To View--
+sl.receipt.viewreceipt = View Receipt
+sl.receipt.viewinvoice = View Invoice
+sl.receipt.print = Print
+sl.receipt.back = Back
+sl.receipt.companyname = Company Name
+sl.receipt.address = Address
+sl.receipt.physicaladdress = Physical Address
+sl.receipt.telno = Tel. No.
+sl.receipt.faxno = Fax No.
+sl.receipt.cell = Cell
+sl.receipt.vatno = VAT No.
+sl.receipt.pinno = PIN No.
+sl.receipt.email = Email
+sl.receipt.website = Web Site
+sl.receipt.officialreceipt = OFFICIAL RECEIPT
+sl.receipt.receiptno = Receipt No:
+sl.receipt.invoicerefno = Invoice Ref. No:
+sl.receipt.receiptdate = Receipt Date:
+sl.receipt.invoicedate = Invoice Date:
+sl.receipt.withthanks = With Thanks. This is your Receipt. Please revert to the undersigned with any queries.
+sl.receipt.beingreceiptfor = Being receipt for the following:
+sl.receipt.payments.grid.col.paymentmode = Pay Mode
+sl.receipt.payments.grid.col.reference = Reference
+sl.receipt.payments.grid.col.description = Description
+sl.receipt.payments.grid.col.amount = Amount
+sl.receipt.totalgross = Total KES Incl. VAT
+sl.receipt.servedby = You were served by:
+sl.receipt.withthanksandregards = With Thanks and Kind Regards
+sl.receipt.signature = Signature:
+sl.receipt.date = Date:
+
+#SL Invoice
+sl.invoice.receiptlist.default = --Select Receipt To View--
+sl.invoice.viewreceipt = View Receipt
+sl.invoice.print = Print
+sl.invoice.back = Back
+sl.invoice.companyname = Company Name
+sl.invoice.address = Address
+sl.invoice.physicaladd = Physical Address
+sl.invoice.telno = Tel. No.
+sl.invoice.faxno = Fax No.
+sl.invoice.cell = Cell
+sl.invoice.vatno = VAT No.
+sl.invoice.pinno = PIN No.
+sl.invoice.email = Email.
+sl.invoice.website = Website
+sl.invoice.saleinvoice = Sales - Invoice
+sl.invoice.invoiceno = Invoice No:
+sl.invoice.invoicedate = Invoice Date:
+sl.invoice.withthanks = With Thanks. This is your Invoice. Please revert to the undersigned with any queries.
+sl.invoice.totalnet = Total KES Excl. VAT:
+sl.invoice.totalvat = Total VAT:
+sl.invoice.salediscount = Sale Discount:
+sl.invoice.totalgross = Total KES Incl. VAT:
+sl.invoice.deductions = Invoice Deductions
+sl.invoice.totaldeductions = Total Invoice Deductions:
+sl.invoice.invoicesubbalance = Invoice Sub Balance:
+sl.invoice.paymentinfo = Payment Information
+sl.invoice.totalamountpaid = Total Amount Paid KES:
+sl.invoice.invoicebalance = Invoice Balance:
+sl.invoice.withthanksandregards = With Thanks and Kind Regards
+sl.invoice.creditterms = Credit Terms:
+sl.invoice.chequepayableto = Cheque Payable To:
+sl.invoice.preparedby = Prepared By:
+sl.invoice.preparedby.date = Date:
+sl.invoice.preparedby.signature = Signature:
+sl.invoice.approvedby = Approved By:
+sl.invoice.approvedby.date = Date:
+sl.invoice.approvedby.signature = Signature:
+sl.invoice.invoicelineitems.grid.col.description = Description
+sl.invoice.invoicelineitems.grid.col.qty = Quantity
+sl.invoice.invoicelineitems.grid.col.unitprice = Unit Price
+sl.invoice.invoicelineitems.grid.col.productdiscount = Product Discount
+sl.invoice.invoicelineitems.grid.col.amount = Amount
+sl.invoice.cn.grid.col.cnref = Credit Note Ref
+sl.invoice.cn.grid.col.itemdesc = Item Desc
+sl.invoice.cn.grid.col.qty = Quantity
+sl.invoice.cn.grid.col.unitprice = Unit Price (Inc. VAT)
+sl.invoice.cn.grid.col.amount = Amount
+sl.invoice.receipt.grid.col.reference = Receipt Reference
+sl.invoice.receipt.grid.col.date = Receipt Date
+sl.invoice.receipt.grid.col.paid = Amount Paid
+
+#SL Issue Inventory
+sl.issueInventory.salesman_lbl = Service Provider
+sl.issueInventory.titlepage=Inventory Transfer 
+sl.issueInventory.salesman=Salesman 
+sl.issueInventory.edit.grid.col.product=Product 
+sl.issueInventory.edit.grid.col.issuequantity=Issue Quantity
+
+#SL Isssue Credit Note Invoice List
+sl.creditnote.invoicelist.invoicenumber = Invoice Number
+sl.creditnote.invoicelist.search = Search
+sl.creditnote.invoicelist.grid.col.header.invoiceref = Invoice Ref
+sl.creditnote.invoicelist.grid.col.header.totalnet = Total Net
+sl.creditnote.invoicelist.grid.col.header.totalvat = Total VAT
+sl.creditnote.invoicelist.grid.col.header.totalgross = Total Gross
+sl.creditnote.invoicelist.grid.col.issue.text = Issue Credit Note
+sl.creditnote.invoicelist.grid.col.view.text = View Invoice
+
+#SL Isssue Credit Note Add Credit Note
+sl.creditnote.addcn.invoiceref = Invoice Reference:
+sl.creditnote.addcn.invoiceno = Invoice Number:
+sl.creditnote.addcn.invoiceamount = Invoice Amount:
+sl.creditnote.addcn.prevcnamount = Previous Credit Note Amount
+sl.creditnote.addcn.cnamount = Credit Note Amount
+sl.creditnote.addcn.grid.col.header.product = Product
+sl.creditnote.addcn.grid.col.header.qty = Quantity
+sl.creditnote.addcn.grid.col.header.unitprice = Unit Price
+sl.creditnote.addcn.grid.col.header.totalprice = Total Price
+sl.creditnote.addcn.grid.col.header.reason = Reason
+sl.creditnote.addcn.grid.col.edit = Edit
+sl.creditnote.addcn.grid.col.delete = Delete
+sl.creditnote.addcn.addproduct = Add Product
+sl.creditnote.addcn.confirm = Confirm Credit Note
+sl.creditnote.addcn.cancel = Cancel
+
+#SL Home Page
+sl.home.purchase = Purchase Order
+sl.home.order = Make Order
+sl.home.pos_lbl = Point Of Service Delivery
+sl.home.dispatch = Dispatch Order
+sl.home.outstanding = Outstanding Payments
+sl.home.reports = Reports
+
+#SL Vertical Menu
+##SL POS V. Menu
+sl.verticalMenu.pos.menuhead = PSD
+sl.verticalMenu.POS.menu.createsale = Create Outlet Sale
+sl.verticalMenu.POS.menu.salesSummary = Sale Summary
+
+##SL Orders V. Menu
+sl.verticalmenu.orders.menuhead = Orders
+sl.verticalmenu.orders.menu.create = Create Order
+sl.verticalmenu.orders.menu.summary = Orders Summary
+sl.verticalmenu.orders.menu.dispatch = Dispatch Orders
+
+##SL Purchasing V. Menu
+sl.verticalmenu.purchasing.menuhead = Purchasing
+sl.verticalmenu.purchasing.menu.create = Create Purchase Order
+sl.verticalmenu.purchasing.menu.summary = Purchase Order Summary
+
+##SL Inventory V.Menu
+sl.verticalmenu.inventory.menuhead = Inventory
+sl.verticalmenu.inventory.menu.adjust = Adjust Product Inventory
+sl.verticalmenu.inventory.menu.receiveinv = Receive Inventory
+sl.verticalmenu.inventory.menu.issue = Issue Inventory
+sl.verticalmenu.inventory.menu.receiveret = Receive Returnables
+sl.verticalmenu.inventory.menu.dispatch = Dispatch Products
+sl.verticalmenu.inventory.menu.reconcile = Reconcile Generic Returnables
+sl.verticalmenu.inventory.menu.returns = Returns List
+sl.verticalmenu.inventory.menu.stocktake = Stock Take
+
+#SL Payments V. Menu
+sl.verticalmenu.payments.menuhead = Payments
+sl.verticalmenu.payments.menu.outstanding = Outstanding Payments
+sl.verticalmenu.payments.menu.issuecn = Issue Credit Notes
+sl.verticalmenu.payments.menu.issuecn.listinvoices = List Invoices
+sl.verticalmenu.payments.menu.issuecn.create = Create Credit Note
+
+#SL Reports V. Menu
+sl.verticalmenu.reports.menuhead = Reports
+sl.verticalmenu.reports.menu.reports = Reports Menu
+sl.verticalmenu.reports.menu.orders = Orders Reports
+sl.verticalmenu.reports.menu.financial = Financial Reports
+sl.verticalmenu.reports.menu.invlevel = View Inventory Level
+sl.verticalmenu.reports.menu.invissues = View Inventory Issues
+sl.verticalmenu.reports.menu.invadj = View Inventory Adjustment Reports
+sl.verticalmenu.reports.menu.stocktake = View Stock Take Reports
+sl.verticalmenu.reports.menu.log = Audit Log
+
+
+#SL Sync V. Menu
+sl.verticalmenu.sync.menu.archive=Archive
+sl.verticalmenu.sync.menuhead = Sync & Settings
+sl.verticalmenu.sync.menu.appsettings = App Settings
+sl.verticalmenu.sync.menu.dataviewer = Data Viewer
+sl.verticalmenu.sync.menu.sync = Sync
+sl.verticalmenu.sync.menu.test2 = Test 2
+sl.verticalmenu.sync.menu.testpage = Test Page
+sl.verticalmenu.sync.menu.settings = Settings
+
+#SL Main Page
+sl.main.loggedinas = Logged in as
+sl.main.motloggedin = not logged in
+sl.main.online = Online
+sl.main.offline = Offline
+
+#SL Reports
+##SL Reports Menu
+sl.reportsMenu.salesReports_tab = Dispense Reports
+sl.reportsMenu.salesReports.salesSummary = Dispense Summary
+sl.reportsMenu.salesReports.salesByBrand = Dispense By Brand
+sl.reportsMenu.salesReports.salesBySalesman = Dispense By Salesman
+
+sl.reportsMenu.ordersReports_tab = Orders Reports
+sl.reportsMenu.orderReports.ordersSummary = Orders Summary
+sl.reportsMenu.orderReports.ordersByBrand = Orders By Brand
+sl.reportsMenu.orderReports.ordersSalesman = Orders By Salesman
+
+sl.reportsMenu.inventoryReports_tab = Inventory Reports
+sl.reportsMenu.inventoryReports.stockSummary = Stock Summary
+sl.reportsMenu.inventoryReports.stockByBrand = Stocks By Brand
+sl.reportsMenu.inventoryReports.stockBySalesman = Stocks By Service Provider
+
+sl.reportsMenu.viewReport_btn = View Report
+
+##SL View Inventory Issues
+sl.viewInventoryTransfers.title_lbl = Inventory Transfer Report
+sl.viewInventoryTransfers.startDate_lbl = Start Date
+sl.viewInventoryTransfers.endDate_lbl = End Date
+sl.viewInventoryTransfers.salesmen_lbl = Service Providers
+sl.viewInventoryTransfers.runReport_btn = Run Report
+
+##SL View Inventory Adjustment Reports
+sl.viewAdjustmentReports.title_lbl = Inventory Adjustment Reports
+sl.viewAdjustmentReports.startDate_lbl = Start Date
+sl.viewAdjustmentReports.endDate_lbl = End Date
+sl.viewAdjustmentReports.runReport_btn = Run Report
+
+#Contacts
+sl.contacts.edit.title.new = Create New Contact
+sl.contacts.edit.title.edit = Edit Contact
+sl.contacts.edit.contactOwnerType = Contact Owner Type:
+sl.contacts.edit.contactOwner = Contact Owner:
+sl.contacts.edit.firstName = First Name:
+sl.contacts.edit.lastName = Last Name:
+sl.contacts.edit.dob = Date Of Birth:
+sl.contacts.edit.maritalStatus = Marital Status:
+sl.contacts.edit.spouseName = Spouse Name:
+sl.contacts.edit.company = Company:
+sl.contacts.edit.jobTitle = Job Title:
+sl.contacts.edit.mobileNo = Mobile Number:
+sl.contacts.edit.businessPhone = Business Phone:
+sl.contacts.edit.homeNo = Home Number:
+sl.contacts.edit.workExtensionPhone = Work Extension Phone:
+sl.contacts.edit.email = Email:
+sl.contacts.edit.fax = Fax:
+sl.contacts.edit.physicalAdd = Physical Address:
+sl.contacts.edit.postalAdd = Postal Address:
+sl.contacts.edit.homeTown = Home Town:
+sl.contacts.edit.city = City:
+sl.contacts.edit.childrenNames = Childrens Names:
+sl.contacts.edit.contactType = Contact Type:
+sl.contacts.edit.contactClass = Contact Classification:
+sl.contacts.edit.contactClass.primary = Primary Contact:
+sl.contacts.edit.contactClass.secondary = Secondary:
+sl.contacts.edit.contactOwnerType.default = --Select Contact Owner Type--
+sl.contacts.edit.contactOwner.default = --Select Contact Owner--
+sl.contacts.edit.maritalStatus.default = --Select Marital Status--
+sl.contacts.edit.contactType.default = --Select Contact Type--
+sl.contacts.edit.save = Save
+sl.contacts.edit.cancel = Cancel
+sl.contacts.edit.cancel.messagebox.propmt = Are you sure you want to move away from this page? "Unsaved changes will be lost.
+sl.contacts.edit.navigateaway.messagebox.caption = !Distributr: Confirm Navigating Away
+sl.contacts.edit.validate.firstname = First name is required.
+sl.contacts.edit.validate.lastname = Last name is required.
+sl.contacts.edit.validate.contactowner = Contact owner is required.
+sl.contacts.edit.validate.mobile = Mobile phone number is required.
+sl.contacts.edit.validate.contact0wner = Select Contact Owner
+sl.contacts.list.add = Add
+
+sl.contacts.list.name = Name
+sl.contacts.list.dob = Date Of Birth
+sl.contacts.list.maritalstatus = Marital Status
+sl.contacts.list.jobtitle = Job Title
+sl.contacts.list.company = Company
+sl.contacts.list.address = Address
+sl.contacts.list.phone = Phone
+sl.contacts.list.email = Email
+sl.contacts.list.class = Classification
+sl.contacts.list.link.edit = Edit
+sl.contacts.list.link.deactivate = Deactivate
+
+#SL Outlet
+sl.outlet.edit.new.title = Create New Outlet
+sl.outlet.edit.editing.title = Edit Outlet
+sl.outlet.edit.name = Name:
+sl.outlet.edit.code = Code:
+sl.outlet.edit.route = Route:
+sl.outlet.edit.category = Outlet Category:
+sl.outlet.edit.type = Outlet Type:
+sl.outlet.edit.pricingtier = Product Pricing Tier:
+sl.outlet.edit.vatclass = VAT Class:
+sl.outlet.edit.discgroup = Discount Group:
+sl.outlet.edit.lat = Latitude:
+sl.outlet.edit.long = Longitude:
+sl.outlet.edit.approved = Approved:
+sl.outlet.edit.save = Save
+sl.outlet.edit.cancel = Cancel
+sl.outlet.edit.back = Back
+
+sl.outlet.edit.route.default = --Please Select A Route--
+sl.outlet.edit.category.default = --Please Select Category--
+sl.outlet.edit.type.default = --Please Select Outlet Type--
+sl.outlet.edit.tier.default = --Please Select Product Pricing Tier--
+sl.outlet.edit.vatclass.default = --NONE--
+sl.outlet.edit.discgp = --NONE--
+
+sl.outlet.edit.validation.route = Select a route.
+sl.outlet.edit.validation.category = Select outlet category.
+sl.outlet.edit.validation.type = Select outlet type.
+sl.outlet.edit.validation.pricingtier = Select product pricing tier.
+
+sl.outlet.edit.approve.messagebox.propmt = Are you sure you want to approve this outlet?
+sl.outlet.edit.approve.messagebox.text = Distributr: Approve Outlet
+sl.outlet.edit.cancel.messagebox.propmt = Unsaved changes will be lost. Cancel creating/editing outlet anyway?
+sl.outlet.edit.cancel.messagebox.text = !Distributr: Cancel Creating Outlet
+sl.outlet.edit.navigateaway.messagebox.propmt = Are you sure you want to move away from this page? "Unsaved changes will be lost.
+sl.outlet.edit.navigateaway.messagebox.caption = !Distributr: Confirm Navigating Away
+
+#SL Outlets Listing
+sl.listOutlet.title = List Outlet
+sl.outlets.list.loadall = Load All
+sl.outlets.list.loadapproved = Load Approved
+sl.outlets.list.loadunapproved = Load Unapproved
+sl.outlets.list.selectall = Select All Unapproved
+sl.outlets.list.approve = Approve
+sl.outlets.list.add = Add
+sl.outlets.list.name = Name
+sl.outlets.list.code = Code
+sl.outlets.list.route = Route Name
+sl.outlets.list.category = Category
+sl.outlets.list.type = Outlet Type
+sl.outlets.list.tier = Pricing Tier
+sl.outlets.list.vat = VAT Class
+sl.outlets.list.discgp = Discount Group
+sl.outlets.list.lat = Latitude
+sl.outlets.list.long = Longitude
+sl.outlets.list.approved = Approved
+sl.outlets.list.edit = Edit
+sl.outlets.list.deactivate = Deactivate
+sl.outlets.list.activate = Activate
+sl.outlets.list.delete = Delete
+
+#SL Outlet Targets
+sl.target.route = Route:
+sl.target.outlet = Facility:
+sl.target.outletTargetSummary = Facility Target Summary
+sl.target.period = Period:
+sl.target.from = From:
+sl.target.to = To:
+sl.target.setTargetAs = Set Target As:
+sl.target.qty = Quantity:
+sl.target.amount = Amount:
+sl.target.target = Target:
+sl.target.addNew = Add New
+sl.target.save = Save
+sl.target.cancel = Cancel
+sl.target.grid.col.target = Target
+sl.target.grid.col.targetAs = Target Set As
+sl.target.grid.col.period = Period
+sl.target.grid.col.from = From
+sl.target.grid.col.to = To
+sl.target.grid.col.edit = Edit
+sl.target.grid.col.deactivate = Deactivate
+sl.target.grid.col.activate = Activate
+sl.target.grid.col.delete = Delete
+sl.target.defaultroute = --Please Select Route--
+sl.target.defaultoutlet = --Please Select Outlet--
+sl.target.defaulttagerperiod = --Please Select Target Period--
+sl.target.validation.selectroute = Select route.
+sl.target.validation.selectoutelt = Select outlet
+sl.target.validation.selecttargetperiod = Select target period
+sl.target.cancel.messagebox.text = Are you sure you want to cancel and lose any unsaved changes?
+sl.target.cancel.messagebox.caption = Distributr: Set Outlet Targets
+sl.target.summary.daily = Daily Target
+sl.target.summary.monthly = Monthly Target
+sl.target.summary.yearly = Yearly Target
+sl.target.deactivate.messagebox.text = Are you sure you want to deactivate the selected target?
+sl.target.deactivate.messagebox.caption = Distributr: Deactivate Outlet Targets
+sl.target.deactivate.success.messagebox.text = Target was successfully deactivated.
+sl.target.deactivate.succedd.messagebox.caption = Distributr: Set Outlet Target
+sl.target.deactivate.failed.messagebox.text = Target deactivation failed.
+
+#SL Outlet Priority
+sl.outletPriority.title = Set Facility Priority
+sl.outletPriority.route = Select Route:
+sl.outletPriority.route.default = --Please Select Route--
+sl.outletPriority.effectivedate = Effective Date:
+sl.outletPriority.grid.col.outlet = Outlet Name
+sl.outletPriority.grid.col.priority = Outlet Priority
+sl.outletPriority.top = Top
+sl.outletPriority.up = Up
+sl.outletPriority.down = Down
+sl.outletPriority.bottom = Bottom
+sl.outletPriority.quickset = Quick Set
+sl.outletPriority.save = Save
+sl.outletPriority.cancel = Cancel
+sl.outletPriority.quickset.title = Set Priority Of Selected Outlet
+sl.outletPriority.quickset.outlet = Outlet:
+sl.outletPriority.quickset.outlet.default = --Please Select Outlet--
+sl.outletPriority.quickset.ok = OK
+sl.outletPriority.quickset.cancel = Cancel
+
+#SL Reorder Level
+sl.reorderlevel.title = Product Reorder Levels for
+sl.reorderlevel.message.level = Reorder Level
+sl.reorderlevel.message.available = Available Inv
+sl.reorderlevel.message.caption = 
+sl.reorderlevel.grid.col.prodcode = Product Code
+sl.reorderlevel.grid.col.proname = Product Name
+sl.reorderlevel.grid.col.reorderlevel = Reorder Level
+sl.reorderlevel.grid.col.available = Available
+
+#SL Outlet Visit Days
+sl.outletVisitDay.route = Route:
+sl.outletVisitDay.outlet = Outlet:
+sl.outletVisitDay.effectiveDate = Effective Date:
+sl.outletVisitDay.grid.col.Name = Name
+sl.outletVisitDay.grid.col.isvisitday = Is Visit Day
+sl.outletVisitDay.save = Save
+sl.outletVisitDay.cancel = Cancel
+
+#SL Edit Route
+sl.route.title.new = Create New Route
+sl.route.title.edit = Edit Route
+sl.route.title.view = View Route
+sl.route.code = Code:
+sl.route.name = Name:
+sl.route.save = Save
+sl.route.cancel = Cancel
+sl.route.back = Back
+sl.route.cancel.messagebox.prompt = Unsaved changes will be lost. Cancel creating route anyway?
+sl.route.cancel.messagebox.caption = Distributr: Create Route
+
+sl.routes.list.add = Add
+sl.routes.list.title = List Routes
+sl.routes.list.grid.col.code = Route Code
+sl.routes.list.grid.col.name = Route Name
+sl.routes.list.grid.col.edit = Edit
+sl.routes.list.grid.col.deactivate = Deactivate
+
+#SL Edit Salesman Routes
+sl.userRoutes.user_lbl = Service Provider
+sl.userroute.add = Add Route
+sl.userroute.confirm = Confirm Route Assignment
+sl.userroute.salesman.default = --Select Salesman--
+sl.userroute.grid.col.route = Route Name
+sl.userroute.grid.col.salesman = Salesman Name
+sl.userroute.grid.col.deactivate = Deactivate
+sl.userroute.grid.col.activate = Activate
+sl.userroute.grid.col.delete = Delete
+sl.userroute.cancel.messagebox.prompt = Are you sure you want to move away from this page? Unsaved changes will be lost.
+sl.userroute.cancel.messagebox.caption = !Distributr: Confirm Navigating Away
+sl.userroute.modal.title = Add Route To A Salesman
+sl.userroute.modal.route = Route
+sl.userroute.modal.ok = OK
+sl.userroute.modal.cancel = Cancel
+
+#SL Change Password
+sl.changepwd.old = Old Password
+sl.changepwd.new = New Password
+sl.changepwd.confirm = Confirm Password
+sl.changepwd.save = Save
+sl.changepwd.cancel = Cancel
+
+#SL Edit User
+sl.user.edit.new = Create New User
+sl.user.edit.edit = Edit User
+sl.user.edit.name = Name:
+sl.user.edit.code = Code:
+sl.user.edit.pin = PIN:
+sl.user.edit.mobile = Mobile Number:
+sl.user.edit.type = User Type:
+sl.user.edit.till = Till Number:
+sl.user.edit.save = Save
+sl.user.edit.cancel = Cancel
+sl.user.edit.back = Back
+sl.user.edit.cancel.messagebox.prompt = Unsaved changes will be lost. Cancel creating user anyway?
+sl.user.edit.cancel.messagebox.caption = Distributr: Create User
+sl.user.edit.validate.code = For user of type DistributorSalesman, ensure to enter the code.
+sl.user.edit.validate.usertype = Select user type.
+
+#SL List Users
+sl.users.list.title = List Of Users
+sl.users.add = Add
+sl.users.grid.col.name = User Name
+sl.users.grid.col.code = Cost Centre Code
+sl.users.grid.col.costcentre = Cost Centre
+sl.users.grid.col.pin = PIN
+sl.users.grid.col.till = Till Number
+sl.users.grid.col.type = User Type
+sl.users.grid.col.mobile = Mobile
+sl.users.grid.col.edit = Edit
+sl.users.grid.col.deactivate = Deactivate
+sl.users.grid.col.activate = Activate
+sl.users.grid.col.resetpwd = Reset Password
+sl.users.grid.col.delete = Delete
+sl.users.resetpwd.messagebox.prompt = Are you sure you want to reset this user's password?
+sl.users.resetpwd.messagebox.caption = !Distributr: Confirm Reset Password
+sl.users.deactivate.messagebox.prompt = Are you sure you want to deactivate this user?
+sl.users.deactivate.messagebox.caption = !Distributr: Confirm Deactivation
+sl.users.deactivate.info.messagebox.part1 = User usage info.
+sl.users.deactivate.info.messagebox.part2 = Do you want to continue deactivation?
+sl.users.deactivate.info.messagebox.caption = !Distributr: Deactivate Used User
+sl.users.deactivate.info.hasinventory.messagebox.text = has inventory and therefore cannot be deactivated unless the invetory is returned.
+sl.users.deactivate.info.hasinventory.messagebox.caption = !Distributr: Cannot Deactivate User
+sl.users.activate.messagebox.prompt = Are you sure you want to activate this user?
+sl.users.activate.messagebox.caption = !Distributr: Confirm Activation
+sl.users.activate.info.messagebox.part1 = User usage info.
+sl.users.activate.info.messagebox.part2 = Do you want to continue activation?
+sl.users.activate.info.messagebox.caption = !Distributr: Activate Used User
+sl.users.activate.info.hasinventory.messagebox.text = has inventory and therefore cannot be deactivated unless the invetory is returned.
+sl.users.activate.info.hasinventory.messagebox.caption = !Distributr: Cannot Deactivate User
+sl.users.delete.messagebox.prompt = Are you sure you want to delete this user?
+sl.users.delete.messagebox.caption = !Distributr: Confirm Deletion
+sl.users.delete.info.messagebox.part1 = User usage info.
+sl.users.delete.info.messagebox.part2 = Do you want to continue deletion?
+sl.users.delete.info.messagebox.caption = !Distributr: Delete Used User
+sl.users.delete.info.hasinventory.messagebox.text = has inventory and therefore cannot be delete unless the invetory is returned.
+sl.users.delete.info.hasinventory.messagebox.caption = !Distributr: Cannot Delete User
+
+##SL Adit Log
+sl.auditLog.title_lbl = Audit log Reports
+sl.auditLog.startDate_lbl = Start Date
+sl.auditLog.endDate_lbl = End Date
+sl.auditLog.users_lbl = End Date
+sl.auditLog.searchByModule_lbl = Search By Module
+sl.auditLog.search_btn = Search
+sl.auditLog.clear_btn = Clear
+sl.auditLog.runReport_btn = Run Report
+
+#SL Admin Horizontal Menu
+sl.admin.routesAdmin_mnu = Routes Admin
+sl.admin.outletsAdmin_mnu = Facility Admin
+sl.admin.usersAdmin_mnu = Users Admin
+sl.admin.salesmanAdmin_mnu = Service Providers Admin
+sl.admin.contacts_mnu = Contacts
+sl.admin.outletVisitDay_mnu = Facility Visit Days(s)
+sl.admin.outletPrioritization_mnu = Facility Prioritization
+sl.admin.outletTargets_mnu = Facility Targets
+sl.admin.reorderLevel_mnu = Reorder Levels
+
+#SL Sync Horizontal Menu
+sl.hmenu.sync.menuheader = Sync
+sl.hmenu.sync.menu.upload = Upload
+sl.hmenu.sync.menu.download = Download
+sl.hmenu.sync.menu.syncall = Sync All
+
+#SL Account Horizontal Menu
+sl.hmenu.account.menuheader = Account
+sl.hmenu.account.menu.changepwd = Change Password
+sl.hmenu.account.menu.logout = Log Out
+
+#SL Quick Links
+sl.quicklinks.header = QUICK LINKS
+sl.quicklinks.pendingapproval = Orders Pending Approval
+sl.quicklinks.pendingdispatch = Orders Pending Dispatch
+sl.quicklinks.backorders = Back Orders
+sl.quicklinks.approvedpurchaseorders = Approved Purchase Orders
+sl.quicklinks.outstandingpayments = Outstanding Payments
+
+#SL Bread Crumbs
+sl.crumbs.home = Distributr Home
+sl.crumbs.admin = Administration
+sl.crumbs.routes = Routes
+sl.crumbs.routes.create = Create or Edit Route
+sl.crumbs.listroutes = List Routes
+sl.crumbs.outlets = Facilities
+sl.crumbs.outlets.create = Create or Edit Facility
+sl.crumbs.listoutlets = List Facilities
+sl.crumbs.editoutlettargets = Edit Outlet Targets
+sl.crumbs.contacts = Contacts
+sl.crumbs.contacts.create = Create or Edit Contact
+sl.crumbs.listcontacts = List Contacts
+sl.crumbs.users = Users
+sl.crumbs.users.create = Create or Edit User
+sl.crumbs.users.changepwd = Change User Password
+sl.crumbs.listusers = List Users
+sl.crumbs.userroutes = User Routes
+sl.crumbs.outletvisitdays = Facility Visit Days
+sl.crumbs.outletprioritization = Facility Prioritization
+sl.crumbs.outlettargets = Facilities Targets
+sl.crumbs.reorderlevel = Distributor Reorder Levels
+sl.crumbs.pos = POS
+sl.crumbs.pos.create = Create or Edit Facility Sale
+sl.crumbs.pos.summary = Sale Summary
+sl.crumbs.order = Orders
+sl.crumbs.order.create = Create or Edit Order
+sl.crumbs.order.approved = Order Details
+sl.crumbs.order.summary = Orders Summary
+sl.crumbs.dispatch = Dispatch Orders
+sl.crumbs.purchasing = Purchasing
+sl.crumbs.purchasing.create = Create or Edit Purchase Order
+sl.crumbs.purchasing.summary = Purchase Order Summary
+sl.crumbs.inventory = Inventory
+sl.crumbs.inventory.adjust = Adjust Product Inventory
+sl.crumbs.inventory.receiveinv = Receive Inventory
+sl.crumbs.inventory.issueinv = Issues Inventory
+sl.crumbs.inventory.receiveret = Receive Returnables
+sl.crumbs.inventory.dispatchprods = Dispatch Products
+sl.crumbs.inventory.reconcilereturnables = Reconcile Returnables
+sl.crumbs.inventory.returnslist = Returns List
+sl.crumbs.payments = Payments
+sl.crumbs.payments.outstanding = Outstanding Payments
+sl.crumbs.payments.issuecn = Issue Credit Notes
+sl.crumbs.reports = Reports
+sl.crumbs.reports.menu = Reports Menu
+sl.crumbs.reports.orders = Orders Reports
+sl.crumbs.reports.financial = Fincancial Reports
+sl.crumbs.reports.invlevel = Inventory Levels
+sl.crumbs.reports.invissues = Inventory Issues
+sl.crumbs.reports.invadj = Inventory Adjustment Report
+sl.crumbs.reports.stocktake = Stock Take Report
+sl.crumbs.reports.log = Audit Log
+sl.crumbs.syncandsettings = Sync & Settings
+sl.crumbs.syncmenu = Sync Menu
+sl.crumbs.sync.home = home
+sl.crumbs.sync.test = Test
+sl.crumbs.sync.settings = Settings
+sl.crumbs.receipt = Receipt
+sl.crumbs.invoice = Invoice
+
+#sl Purchase order
+sl.po.form.grid.col.productname=Product
+sl.po.form.orderId=Order ID
+sl.po.form.orderdate=Order Date
+sl.po.form.status=Status
+sl.po.form.totalnet=Total Net
+sl.po.form.totalvat=Total Vat
+sl.po.form.totalgross=Total Gross
+sl.po.name=Purchase Order
+sl.po.form.grid.col.quantity=Qty
+sl.po.form.grid.col.unitprice=Unit Price
+sl.po.form.grid.col.vat=Vat
+sl.po.form.grid.col.totalprice=Total Price
+sl.verticalMenu.purchasing=Purchasing
+sl.verticalMenu.po.menuitem.form=Create Purchase Order
+sl.verticalMenu.po.menuitem.summary=Purchase Order Summary
+
+#sl Purchase order summary
+sl.po.summary.name=Purchase Order Summary 
+sl.po.summary.search.orderref=Purchase Order Ref 
+sl.po.summary.tab.incomplete.name=In Complete 
+sl.po.summary.tab.pendingapproval.name=Pending Approval 
+sl.po.summary.tab.approved.name=Approved 
+sl.po.summary.tab.rejected.name=Rejected 
+sl.po.summary.incomplete.grid.col.refno=Refernce no 
+sl.po.summary.incomplete.grid.col.required=Required 
+sl.po.summary.incomplete.grid.col.issuedby=Issued By 
+sl.po.summary.incomplete.grid.col.status=Status 
+sl.po.summary.incomplete.grid.col.netamount=Net Amount 
+sl.po.summary.incomplete.grid.col.vatamount=VAT Amount 
+sl.po.summary.incomplete.grid.col.grossamount=Gross Amount 
+
+sl.po.summary.pa.grid.col.refno=Refernce no 
+sl.po.summary.pa.grid.col.required=Required 
+sl.po.summary.pa.grid.col.issuedby=Issued By 
+sl.po.summary.pa.grid.col.status=Status 
+sl.po.summary.pa.grid.col.netamount=Net Amount 
+sl.po.summary.pa.grid.col.vatamount=VAT Amount 
+sl.po.summary.pa.grid.col.grossamount=Gross Amount 
+
+sl.po.summary.approved.grid.col.refno=Refernce no 
+sl.po.summary.approved.grid.col.required=Required 
+sl.po.summary.approved.grid.col.issuedby=Issued By 
+sl.po.summary.approved.grid.col.status=Status 
+sl.po.summary.approved.grid.col.netamount=Net Amount 
+sl.po.summary.approved.grid.col.vatamount=VAT Amount 
+sl.po.summary.approved.grid.col.grossamount=Gross Amount 
+
+sl.po.summary.rejected.grid.col.refno=Refernce no 
+sl.po.summary.rejected.grid.col.required=Required 
+sl.po.summary.rejected.grid.col.issuedby=Issued By 
+sl.po.summary.rejected.grid.col.status=Status 
+sl.po.summary.rejected.grid.col.netamount=Net Amount 
+sl.po.summary.rejected.grid.col.vatamount=VAT Amount 
+sl.po.summary.rejected.grid.col.grossamount=Gross Amount 
+
+# sl purchase order modal
+sl.po.popmodal.product=Product 
+sl.po.popmodal.qty=Qty 
+sl.po.popmodal.unitprice=Unit Price 
+sl.po.popmodal.vatamount=VAT 
+sl.po.popmodal.totalprice=Total Price 
+sl.po.popmodal.orderby=Order by 
+
+# sl Inventory
+#sl Inventory adjustment
+sl.inventory.adjust.title=Inventory Adjustment 
+sl.inventory.adjust.grid.col.product=Product 
+sl.inventory.adjust.grid.col.actual=Actual 
+sl.inventory.adjust.grid.col.expected=Expected 
+sl.inventory.adjust.grid.col.variance=Variance 
+sl.inventory.adjust.grid.col.reason=Reason 
+
+#sl Inventory Stock take
+sl.inventory.stocktake.title=Stock Take 
+
+#sl Popup modal
+sl.inventory.adjust.modal.product=Product 
+sl.inventory.adjust.modal.expected=Expected 
+sl.inventory.adjust.modal.variance=Variance 
+sl.inventory.adjust.modal.reason=Reason 
+sl.inventory.adjust.modal.actual=Actual 
+
+
+# sl Inventory
+#sl Inventory receive
+sl.inventory.receive.grid.col.docref=Doc Ref 
+sl.inventory.receive.grid.col.datereceived=Date Received 
+sl.inventory.receive.grid.col.orderref=Purchase order Ref 
+sl.inventory.receive.grid.col.loadno=Load No. 
+sl.inventory.receive.grid.col.user=User 
+sl.inventory.receive.grid.col.total=Total 
+sl.inventory.receive.title=Goods Receive note (GRN) 
+sl.inventory.receive.search=Search By Doc Ref, Order Ref, User: 
+
+#sl inventory receive select 
+sl.inventory.receive.select.title=Receive inventory
+sl.inventory.receive.select.grid.col.orderref=Order Reference
+sl.inventory.receive.select.grid.col.orderdate=Order Date
+sl.inventory.receive.select.grid.col.ordervalue=Order Value
+sl.inventory.receive.select.grid.col.action=Select Order
+
+#sl inventory receive edit
+ sl.inventory.receive.edit.title=Receive Purchase Order
+ sl.inventory.receive.edit.docref=Doc Reference
+ sl.inventory.receive.edit.orderref=Order Reference(s)
+ sl.inventory.receive.edit.loadno=Load No.
+ sl.inventory.receive.edit.datelastreceived=Date Received
+ sl.inventory.receive.edit.user=user
+ sl.inventory.receive.edit.totalcost=Total Cost
+ sl.inventory.receive.edit.grid.col.product=Product(s)
+ sl.inventory.receive.edit.grid.col.receivedqty=Received Quantity
+ sl.inventory.receive.edit.grid.col.expectedqty=Expected Quantity
+ sl.inventory.receive.edit.grid.col.unitcost=Unit Cost
+ sl.inventory.receive.edit.grid.col.totalcost=Total Cost
+ sl.inventory.receive.edit.grid.col.breakbulk=Break Bulk
+
+ #sl inventory receive pop modal
+sl.inventory.receive.modal.title= Good Receive Note > Add Product 
+sl.inventory.receive.modal.product=Product
+sl.inventory.receive.modal.quantity=Quantity
+sl.inventory.receive.modal.expectedqty=Expected Quantity
+sl.inventory.receive.modal.unitprice=Unit Price
+sl.inventory.receive.modal.totalcost=Total Cost
+sl.inventory.receive.modal.reason=Reason
+
+
+
+
+#sl inventory issue pop modal
+sl.inventory.issue.modal.title=Add Product 
+sl.inventory.issue.modal.product=Product 
+sl.inventory.issue.modal.availableqty=Available Quantity 
+sl.inventory.issue.modal.issuesqty=Issue Inventory Quantity 
+
+
+#sl inventory receive returnable
+sl.inventory.receive.returnable.datereceived=Date Received 
+sl.inventory.receive.returnable.outlet=Outlet 
+sl.inventory.receive.returnable.grid.col.product=Product 
+sl.inventory.receive.returnable.grid.col.quantity=Quantity 
+sl.inventory.receive.returnable.grid.col.unitprice=Unit Price 
+sl.inventory.receive.returnable.grid.col.totalamount=Total Amount 
+sl.inventory.receive.returnable.title= Receiving returnables 
+sl.inventory.receive.returnable.select.outlet=--Please Select An Outlet--
+
+
+#sl inventory receive returnable modal 
+sl.inventory.receive.returnable.modal.title=Add Retunable
+sl.inventory.receive.returnable.modal.product=Product 
+sl.inventory.receive.returnable.modal.quantity=Quantity 
+
+
+#sl inventory dispatch product
+sl.inventory.dispatch.title=Dispatch Product 
+sl.inventory.dispatch.grid.col.product=Product 
+sl.inventory.dispatch.grid.col.reason=Reason 
+sl.inventory.dispatch.grid.col.quantity=Quantity 
+sl.inventory.dispatch.grid.col.producttype=Product Type 
+sl.inventory.dispatch.grid.col.otherreason=Other Reason 
+
+#sl inventory dispatch product modal
+sl.inventory.dispatch.modal.title=Add/Edit Product 
+sl.inventory.dispatch.modal.product=Product 
+sl.inventory.dispatch.modal.available=Available
+sl.inventory.dispatch.modal.quantity=Quantity
+sl.inventory.dispatch.modal.reason=Reason
+sl.inventory.dispatch.modal.otherreason= Other Reason
+
+
+#sl returns notes list
+sl.returns.title=View Salesman Returns 
+sl.returns.tab.incomplete=Incomplete Returns 
+sl.returns.tab.closed=Closed Returns 
+sl.returns.incomplete.grid.col.returndate=Return Date 
+sl.returns.incomplete.grid.col.saleman=Returning Salesman 
+sl.returns.closed.grid.col.returndate=Return Date 
+sl.returns.closed.grid.col.saleman=Returning Salesman 
+
+
+#sl returns notes recieve
+sl.returns.receive.salesman= Salesman 
+sl.returns.receive.returndate= Returns Date 
+sl.returns.receive.grid.col.returntype=Return type 
+sl.returns.receive.grid.col.item=Product/Payment 
+sl.returns.receive.grid.col.expected=Returns Quantity/Value 
+sl.returns.receive.grid.col.actual=Actual Quantity/Value 
+sl.returns.receive.btn.save= Save
+sl.returns.receive.btn.confirm=Confirm
+sl.returns.receive.btn.cancel=Cancel

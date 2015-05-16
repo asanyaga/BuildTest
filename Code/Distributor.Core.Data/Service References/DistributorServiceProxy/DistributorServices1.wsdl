@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:50759/DistributorServices.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:50759/DistributorServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50759/DistributorServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Distributr.WSAPI.Lib.Services.WCFServices.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:50759/DistributorServices.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:50759/DistributorServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Distributr.Core.Domain.Master.UserEntities" />
+      <xsd:import schemaLocation="http://localhost:50759/DistributorServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Distributr.Core.Domain.Master.CostCentreEntities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="DistributorServices_ListDistributorOutlets_InputMessage">
+    <wsdl:part name="parameters" element="ListDistributorOutlets" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ListDistributorOutlets_OutputMessage">
+    <wsdl:part name="parameters" element="ListDistributorOutletsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewOutlet_InputMessage">
+    <wsdl:part name="parameters" element="AddNewOutlet" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewOutlet_OutputMessage">
+    <wsdl:part name="parameters" element="AddNewOutletResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateExistingOutlet_InputMessage">
+    <wsdl:part name="parameters" element="UpdateExistingOutlet" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateExistingOutlet_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateExistingOutletResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ApproveOutlet_InputMessage">
+    <wsdl:part name="parameters" element="ApproveOutlet" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ApproveOutlet_OutputMessage">
+    <wsdl:part name="parameters" element="ApproveOutletResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_MakeOutletInactive_InputMessage">
+    <wsdl:part name="parameters" element="MakeOutletInactive" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_MakeOutletInactive_OutputMessage">
+    <wsdl:part name="parameters" element="MakeOutletInactiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ActivateOutlet_InputMessage">
+    <wsdl:part name="parameters" element="ActivateOutlet" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ActivateOutlet_OutputMessage">
+    <wsdl:part name="parameters" element="ActivateOutletResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteOutlet_InputMessage">
+    <wsdl:part name="parameters" element="DeleteOutlet" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteOutlet_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteOutletResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ListDistributorRoutes_InputMessage">
+    <wsdl:part name="parameters" element="ListDistributorRoutes" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ListDistributorRoutes_OutputMessage">
+    <wsdl:part name="parameters" element="ListDistributorRoutesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewRoute_InputMessage">
+    <wsdl:part name="parameters" element="AddNewRoute" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewRoute_OutputMessage">
+    <wsdl:part name="parameters" element="AddNewRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateExistingRoute_InputMessage">
+    <wsdl:part name="parameters" element="UpdateExistingRoute" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateExistingRoute_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateExistingRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_MakeRouteInactive_InputMessage">
+    <wsdl:part name="parameters" element="MakeRouteInactive" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_MakeRouteInactive_OutputMessage">
+    <wsdl:part name="parameters" element="MakeRouteInactiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteRoute_InputMessage">
+    <wsdl:part name="parameters" element="DeleteRoute" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteRoute_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ActivateRoute_InputMessage">
+    <wsdl:part name="parameters" element="ActivateRoute" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ActivateRoute_OutputMessage">
+    <wsdl:part name="parameters" element="ActivateRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ListDistributorUsers_InputMessage">
+    <wsdl:part name="parameters" element="ListDistributorUsers" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ListDistributorUsers_OutputMessage">
+    <wsdl:part name="parameters" element="ListDistributorUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewUser_InputMessage">
+    <wsdl:part name="parameters" element="AddNewUser" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewUser_OutputMessage">
+    <wsdl:part name="parameters" element="AddNewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateExistingUser_InputMessage">
+    <wsdl:part name="parameters" element="UpdateExistingUser" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateExistingUser_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateExistingUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_MakeUserInactive_InputMessage">
+    <wsdl:part name="parameters" element="MakeUserInactive" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_MakeUserInactive_OutputMessage">
+    <wsdl:part name="parameters" element="MakeUserInactiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ActivateUser_InputMessage">
+    <wsdl:part name="parameters" element="ActivateUser" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ActivateUser_OutputMessage">
+    <wsdl:part name="parameters" element="ActivateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UserLoging_InputMessage">
+    <wsdl:part name="parameters" element="UserLoging" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UserLoging_OutputMessage">
+    <wsdl:part name="parameters" element="UserLogingResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewDistributorSalesman_InputMessage">
+    <wsdl:part name="parameters" element="AddNewDistributorSalesman" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewDistributorSalesman_OutputMessage">
+    <wsdl:part name="parameters" element="AddNewDistributorSalesmanResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewDistributorUserAndDistributorSalesmanCC_InputMessage">
+    <wsdl:part name="parameters" element="AddNewDistributorUserAndDistributorSalesmanCC" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewDistributorUserAndDistributorSalesmanCC_OutputMessage">
+    <wsdl:part name="parameters" element="AddNewDistributorUserAndDistributorSalesmanCCResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateExistingDistributorSalesman_InputMessage">
+    <wsdl:part name="parameters" element="UpdateExistingDistributorSalesman" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateExistingDistributorSalesman_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateExistingDistributorSalesmanResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateExistingDistributorSalesmanRoutes_InputMessage">
+    <wsdl:part name="parameters" element="UpdateExistingDistributorSalesmanRoutes" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateExistingDistributorSalesmanRoutes_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateExistingDistributorSalesmanRoutesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_MakeDistributorSalesmanInactive_InputMessage">
+    <wsdl:part name="parameters" element="MakeDistributorSalesmanInactive" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_MakeDistributorSalesmanInactive_OutputMessage">
+    <wsdl:part name="parameters" element="MakeDistributorSalesmanInactiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ActivateDistributorSalesmanCc_InputMessage">
+    <wsdl:part name="parameters" element="ActivateDistributorSalesmanCc" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ActivateDistributorSalesmanCc_OutputMessage">
+    <wsdl:part name="parameters" element="ActivateDistributorSalesmanCcResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteDistributorSalesman_InputMessage">
+    <wsdl:part name="parameters" element="DeleteDistributorSalesman" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteDistributorSalesman_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteDistributorSalesmanResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_MakeDistributorSalesmanRouteInactive_InputMessage">
+    <wsdl:part name="parameters" element="MakeDistributorSalesmanRouteInactive" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_MakeDistributorSalesmanRouteInactive_OutputMessage">
+    <wsdl:part name="parameters" element="MakeDistributorSalesmanRouteInactiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ActivateDistributorSalesmanRoute_InputMessage">
+    <wsdl:part name="parameters" element="ActivateDistributorSalesmanRoute" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ActivateDistributorSalesmanRoute_OutputMessage">
+    <wsdl:part name="parameters" element="ActivateDistributorSalesmanRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteDistributorSalesmanRoute_InputMessage">
+    <wsdl:part name="parameters" element="DeleteDistributorSalesmanRoute" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteDistributorSalesmanRoute_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteDistributorSalesmanRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ListContacts_InputMessage">
+    <wsdl:part name="parameters" element="ListContacts" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ListContacts_OutputMessage">
+    <wsdl:part name="parameters" element="ListContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewContact_InputMessage">
+    <wsdl:part name="parameters" element="AddNewContact" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewContact_OutputMessage">
+    <wsdl:part name="parameters" element="AddNewContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateContact_InputMessage">
+    <wsdl:part name="parameters" element="UpdateContact" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateContact_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeactivateContact_InputMessage">
+    <wsdl:part name="parameters" element="DeactivateContact" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeactivateContact_OutputMessage">
+    <wsdl:part name="parameters" element="DeactivateContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteContact_InputMessage">
+    <wsdl:part name="parameters" element="DeleteContact" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_DeleteContact_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ListBanks_InputMessage">
+    <wsdl:part name="parameters" element="ListBanks" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ListBanks_OutputMessage">
+    <wsdl:part name="parameters" element="ListBanksResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewBank_InputMessage">
+    <wsdl:part name="parameters" element="AddNewBank" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewBank_OutputMessage">
+    <wsdl:part name="parameters" element="AddNewBankResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateBannk_InputMessage">
+    <wsdl:part name="parameters" element="UpdateBannk" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateBannk_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateBannkResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ListBankBranches_InputMessage">
+    <wsdl:part name="parameters" element="ListBankBranches" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_ListBankBranches_OutputMessage">
+    <wsdl:part name="parameters" element="ListBankBranchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewBankBranch_InputMessage">
+    <wsdl:part name="parameters" element="AddNewBankBranch" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_AddNewBankBranch_OutputMessage">
+    <wsdl:part name="parameters" element="AddNewBankBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateBankBranch_InputMessage">
+    <wsdl:part name="parameters" element="UpdateBankBranch" />
+  </wsdl:message>
+  <wsdl:message name="DistributorServices_UpdateBankBranch_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateBankBranchResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DistributorServices">
+    <wsdl:operation name="ListDistributorOutlets">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ListDistributorOutlets" message="DistributorServices_ListDistributorOutlets_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ListDistributorOutletsResponse" message="DistributorServices_ListDistributorOutlets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewOutlet">
+      <wsdl:input wsaw:Action="urn:DistributorServices/AddNewOutlet" message="DistributorServices_AddNewOutlet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/AddNewOutletResponse" message="DistributorServices_AddNewOutlet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistingOutlet">
+      <wsdl:input wsaw:Action="urn:DistributorServices/UpdateExistingOutlet" message="DistributorServices_UpdateExistingOutlet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/UpdateExistingOutletResponse" message="DistributorServices_UpdateExistingOutlet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveOutlet">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ApproveOutlet" message="DistributorServices_ApproveOutlet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ApproveOutletResponse" message="DistributorServices_ApproveOutlet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeOutletInactive">
+      <wsdl:input wsaw:Action="urn:DistributorServices/MakeOutletInactive" message="DistributorServices_MakeOutletInactive_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/MakeOutletInactiveResponse" message="DistributorServices_MakeOutletInactive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateOutlet">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ActivateOutlet" message="DistributorServices_ActivateOutlet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ActivateOutletResponse" message="DistributorServices_ActivateOutlet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOutlet">
+      <wsdl:input wsaw:Action="urn:DistributorServices/DeleteOutlet" message="DistributorServices_DeleteOutlet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/DeleteOutletResponse" message="DistributorServices_DeleteOutlet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListDistributorRoutes">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ListDistributorRoutes" message="DistributorServices_ListDistributorRoutes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ListDistributorRoutesResponse" message="DistributorServices_ListDistributorRoutes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewRoute">
+      <wsdl:input wsaw:Action="urn:DistributorServices/AddNewRoute" message="DistributorServices_AddNewRoute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/AddNewRouteResponse" message="DistributorServices_AddNewRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistingRoute">
+      <wsdl:input wsaw:Action="urn:DistributorServices/UpdateExistingRoute" message="DistributorServices_UpdateExistingRoute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/UpdateExistingRouteResponse" message="DistributorServices_UpdateExistingRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeRouteInactive">
+      <wsdl:input wsaw:Action="urn:DistributorServices/MakeRouteInactive" message="DistributorServices_MakeRouteInactive_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/MakeRouteInactiveResponse" message="DistributorServices_MakeRouteInactive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRoute">
+      <wsdl:input wsaw:Action="urn:DistributorServices/DeleteRoute" message="DistributorServices_DeleteRoute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/DeleteRouteResponse" message="DistributorServices_DeleteRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateRoute">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ActivateRoute" message="DistributorServices_ActivateRoute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ActivateRouteResponse" message="DistributorServices_ActivateRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListDistributorUsers">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ListDistributorUsers" message="DistributorServices_ListDistributorUsers_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ListDistributorUsersResponse" message="DistributorServices_ListDistributorUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <wsdl:input wsaw:Action="urn:DistributorServices/AddNewUser" message="DistributorServices_AddNewUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/AddNewUserResponse" message="DistributorServices_AddNewUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistingUser">
+      <wsdl:input wsaw:Action="urn:DistributorServices/UpdateExistingUser" message="DistributorServices_UpdateExistingUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/UpdateExistingUserResponse" message="DistributorServices_UpdateExistingUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeUserInactive">
+      <wsdl:input wsaw:Action="urn:DistributorServices/MakeUserInactive" message="DistributorServices_MakeUserInactive_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/MakeUserInactiveResponse" message="DistributorServices_MakeUserInactive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateUser">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ActivateUser" message="DistributorServices_ActivateUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ActivateUserResponse" message="DistributorServices_ActivateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="urn:DistributorServices/DeleteUser" message="DistributorServices_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/DeleteUserResponse" message="DistributorServices_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLoging">
+      <wsdl:input wsaw:Action="urn:DistributorServices/UserLoging" message="DistributorServices_UserLoging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/UserLogingResponse" message="DistributorServices_UserLoging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewDistributorSalesman">
+      <wsdl:input wsaw:Action="urn:DistributorServices/AddNewDistributorSalesman" message="DistributorServices_AddNewDistributorSalesman_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/AddNewDistributorSalesmanResponse" message="DistributorServices_AddNewDistributorSalesman_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewDistributorUserAndDistributorSalesmanCC">
+      <wsdl:input wsaw:Action="urn:DistributorServices/AddNewDistributorUserAndDistributorSalesmanCC" message="DistributorServices_AddNewDistributorUserAndDistributorSalesmanCC_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/AddNewDistributorUserAndDistributorSalesmanCCResponse" message="DistributorServices_AddNewDistributorUserAndDistributorSalesmanCC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistingDistributorSalesman">
+      <wsdl:input wsaw:Action="urn:DistributorServices/UpdateExistingDistributorSalesman" message="DistributorServices_UpdateExistingDistributorSalesman_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/UpdateExistingDistributorSalesmanResponse" message="DistributorServices_UpdateExistingDistributorSalesman_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistingDistributorSalesmanRoutes">
+      <wsdl:input wsaw:Action="urn:DistributorServices/UpdateExistingDistributorSalesmanRoutes" message="DistributorServices_UpdateExistingDistributorSalesmanRoutes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/UpdateExistingDistributorSalesmanRoutesResponse" message="DistributorServices_UpdateExistingDistributorSalesmanRoutes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeDistributorSalesmanInactive">
+      <wsdl:input wsaw:Action="urn:DistributorServices/MakeDistributorSalesmanInactive" message="DistributorServices_MakeDistributorSalesmanInactive_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/MakeDistributorSalesmanInactiveResponse" message="DistributorServices_MakeDistributorSalesmanInactive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateDistributorSalesmanCc">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ActivateDistributorSalesmanCc" message="DistributorServices_ActivateDistributorSalesmanCc_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ActivateDistributorSalesmanCcResponse" message="DistributorServices_ActivateDistributorSalesmanCc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDistributorSalesman">
+      <wsdl:input wsaw:Action="urn:DistributorServices/DeleteDistributorSalesman" message="DistributorServices_DeleteDistributorSalesman_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/DeleteDistributorSalesmanResponse" message="DistributorServices_DeleteDistributorSalesman_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeDistributorSalesmanRouteInactive">
+      <wsdl:input wsaw:Action="urn:DistributorServices/MakeDistributorSalesmanRouteInactive" message="DistributorServices_MakeDistributorSalesmanRouteInactive_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/MakeDistributorSalesmanRouteInactiveResponse" message="DistributorServices_MakeDistributorSalesmanRouteInactive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateDistributorSalesmanRoute">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ActivateDistributorSalesmanRoute" message="DistributorServices_ActivateDistributorSalesmanRoute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ActivateDistributorSalesmanRouteResponse" message="DistributorServices_ActivateDistributorSalesmanRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDistributorSalesmanRoute">
+      <wsdl:input wsaw:Action="urn:DistributorServices/DeleteDistributorSalesmanRoute" message="DistributorServices_DeleteDistributorSalesmanRoute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/DeleteDistributorSalesmanRouteResponse" message="DistributorServices_DeleteDistributorSalesmanRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListContacts">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ListContacts" message="DistributorServices_ListContacts_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ListContactsResponse" message="DistributorServices_ListContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewContact">
+      <wsdl:input wsaw:Action="urn:DistributorServices/AddNewContact" message="DistributorServices_AddNewContact_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/AddNewContactResponse" message="DistributorServices_AddNewContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContact">
+      <wsdl:input wsaw:Action="urn:DistributorServices/UpdateContact" message="DistributorServices_UpdateContact_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/UpdateContactResponse" message="DistributorServices_UpdateContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateContact">
+      <wsdl:input wsaw:Action="urn:DistributorServices/DeactivateContact" message="DistributorServices_DeactivateContact_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/DeactivateContactResponse" message="DistributorServices_DeactivateContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input wsaw:Action="urn:DistributorServices/DeleteContact" message="DistributorServices_DeleteContact_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/DeleteContactResponse" message="DistributorServices_DeleteContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListBanks">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ListBanks" message="DistributorServices_ListBanks_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ListBanksResponse" message="DistributorServices_ListBanks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBank">
+      <wsdl:input wsaw:Action="urn:DistributorServices/AddNewBank" message="DistributorServices_AddNewBank_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/AddNewBankResponse" message="DistributorServices_AddNewBank_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBannk">
+      <wsdl:input wsaw:Action="urn:DistributorServices/UpdateBannk" message="DistributorServices_UpdateBannk_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/UpdateBannkResponse" message="DistributorServices_UpdateBannk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListBankBranches">
+      <wsdl:input wsaw:Action="urn:DistributorServices/ListBankBranches" message="DistributorServices_ListBankBranches_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/ListBankBranchesResponse" message="DistributorServices_ListBankBranches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBankBranch">
+      <wsdl:input wsaw:Action="urn:DistributorServices/AddNewBankBranch" message="DistributorServices_AddNewBankBranch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/AddNewBankBranchResponse" message="DistributorServices_AddNewBankBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankBranch">
+      <wsdl:input wsaw:Action="urn:DistributorServices/UpdateBankBranch" message="DistributorServices_UpdateBankBranch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DistributorServices/UpdateBankBranchResponse" message="DistributorServices_UpdateBankBranch_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

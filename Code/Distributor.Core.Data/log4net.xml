@@ -1,0 +1,99 @@
+﻿<?xml version="1.0"?>
+<log4net>
+  <appender name="UdpAppender" type="log4net.Appender.UdpAppender">
+    <remoteAddress value="127.0.0.1" />
+    <remotePort value="8080" />
+    <layout type="log4net.Layout.XmlLayoutSchemaLog4j">
+      <locationInfo value="true" />
+    </layout>
+  </appender>
+  
+  <appender name="FileAppender" type="log4net.Appender.FileAppender">
+    <param name="File" value="..\logs\log-file.txt" />
+    <param name="AppendToFile" value="true" />
+    <layout type="log4net.Layout.PatternLayout">
+      <param name="ConversionPattern" value="%d [%t] %-5p %c [%x] - %m%n" />
+    </layout>
+  </appender>
+  
+  <appender name="SmtpAppender" type="log4net.Appender.SmtpAppender,log4net">
+    <to value="tech-support@my-domain.com" />
+    <from value="logger@my-domain.com" />
+    <subject value="WOWO log message" />
+    <smtpHost value="mail.my-domain.com" />
+    <bufferSize value="20" />
+    <lossy value="false" />
+    <threshold value="DEBUG" />
+    <!--   <filter type="log4net.Filter.LevelRangeFilter">
+      <levelMin value="DEBUG" />
+      <levelMax value="FATAL" />
+    </filter> -->
+    <evaluator type="log4net.Core.LevelEvaluator,log4net">
+      <threshold value="ERROR" />
+    </evaluator>
+    <layout type="log4net.Layout.PatternLayout,log4net">
+      <conversionPattern value="%property{log4net:HostName} :: %level :: 
+        %message %newlineLogger: %logger%newlineThread: %thread%newlineDate: 
+        %date%newlineNDC: %property{NDC}%newline%newline" />
+    </layout>
+  </appender>
+  
+  <appender name="RollingFileAppender" type="log4net.Appender.RollingFileAppender">
+    <file value="..\\Logs\\CurrentLog" />
+    <appendToFile value="true" />
+    <rollingStyle value="Size" />
+    <maxSizeRollBackups value="10" />
+    <maximumFileSize value="10000" />
+    <staticLogFileName value="true" />
+    <!-- Alternatively, roll on date -->
+    <!-- <rollingStyle value="Date" /> -->
+    <!-- <datePattern value="yyyyMMdd" /> -->
+    <filter type="log4net.Filter.LevelRangeFilter">
+      <acceptOnMatch value="true" />
+      <levelMin value="INFO" />
+      <levelMax value="FATAL" />
+    </filter>
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%-5level %date [%thread] %-22.22c{1} - %m%n" />
+    </layout>
+  </appender>
+
+  <appender name="LogFileAppender" type="log4net.Appender.FileAppender">
+    <file value="log-file.txt" />
+    <!-- Example using environment variables in params -->
+    <!-- <file value="${TMP}\log-file.txt" /> -->
+    <appendToFile value="true" />
+    <layout type="log4net.Layout.PatternLayout">
+      <header value="[Your Header text here]" />
+      <footer value="[Your Footer text here]" />
+      <conversionPattern value="%date [%thread] %-5level %logger [%ndc] 
+                 &lt;%property{auth}&gt; - %message%newline" />
+    </layout>
+    <!-- Alternate layout using XML            
+    <layout type="log4net.Layout.XMLLayout" /> -->
+  </appender>
+
+  <appender name="ConsoleAppender" type="log4net.Appender.ConsoleAppender">
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %-5level %logger - %message%newline" />
+    </layout>
+  </appender>
+
+  <appender name="EventLogAppender" type="log4net.Appender.EventLogAppender" >
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %-5level %logger
+                         [%property{NDC}] - %message%newline" />
+    </layout>
+  </appender>
+  
+  <root>
+    <!-- OFF, FATAL, ERROR, WARN, DEBUG, INFO, ALL -->
+    <level value="ALL"/>"
+    <!-- <appender-ref ref="SmtpAppender"/>
+    <appender-ref ref="FileAppender"/>
+    <appender-ref ref="UdpAppender" />
+    <appender-ref ref="LogFileAppender" />
+    <appender-ref ref="RollingFileAppender" /> -->
+    <appender-ref ref="ConsoleAppender" />        
+  </root>
+</log4net>

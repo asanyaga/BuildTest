@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D2999A44-EAC9-4F84-BB28-F268E254536D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Distributr.HQ.Lib</RootNamespace>
+    <AssemblyName>Distributr.HQ.Lib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'dev|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\dev\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Kemsa|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Kemsa\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;KEMSA</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Reporting\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib">
+      <HintPath>..\ReferencedAssemblies\MvcContrib\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Distributor.Core\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SquishIt.Framework">
+      <HintPath>..\ReferencedAssemblies\squishit\SquishIt.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTO\BaseDTO.cs" />
+    <Compile Include="DTO\CommodityDTO.cs" />
+    <Compile Include="DTO\GradeDTO.cs" />
+    <Compile Include="DTO\LineItemDTO.cs" />
+    <Compile Include="DTO\StoreDTO.cs" />
+    <Compile Include="Helper\DateRangeAttribute.cs" />
+    <Compile Include="Helper\EnumHelper.cs" />
+    <Compile Include="Helper\LocalizedRequiredAttribute.cs" />
+    <Compile Include="Helper\RequiredIfAttribute.cs" />
+    <Compile Include="Helper\ResourceHelper.cs" />
+    <Compile Include="IOC\StructuremapDependencyResolver.cs" />
+    <Compile Include="IOC\ViewModelBuilderRegistry.cs" />
+    <Compile Include="Paging\Impl\PagedList.cs" />
+    <Compile Include="Paging\IPagedList.cs" />
+    <Compile Include="Paging\Pager.cs" />
+    <Compile Include="Paging\PagingExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\CustomAuthorize.cs" />
+    <Compile Include="Security\AgriCustomAuthorizeAttribute.cs" />
+    <Compile Include="Service\ICommodityTransferService.cs" />
+    <Compile Include="Service\IDiscountProcessorService.cs" />
+    <Compile Include="Service\Impl\CommodityTransferService.cs" />
+    <Compile Include="Service\Impl\DiscountProcessorService.cs" />
+    <Compile Include="Util\Common.cs" />
+    <Compile Include="Util\ExportHelper.cs" />
+    <Compile Include="Util\ReportConection.cs" />
+    <Compile Include="Validation\DateOfBirthAttribute.cs" />
+    <Compile Include="Validation\DateOfBirthValidatorAttribute .cs" />
+    <Compile Include="Validation\ValidationSummary.cs" />
+    <Compile Include="ViewModelBuilders\Admin\ApplicationSetupViewModelBuilders\ApplicationSetupViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\ApplicationSetupViewModelBuilders\IApplicationSetupViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\AssetViewModelBuilders\IAssetCategoryViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\AssetViewModelBuilders\IAssetStatusViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\AssetViewModelBuilders\IAssetTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\AssetViewModelBuilders\IAssetViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\AssetViewModelBuilders\Impl\AssetCategoryViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\AssetViewModelBuilders\Impl\AssetStatusViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\AssetViewModelBuilders\Impl\AssetTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\AssetViewModelBuilders\Impl\AssetViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\BankViewModelBuilders\IBankBranchViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\BankViewModelBuilders\IBankViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\BankViewModelBuilders\Impl\BankBranchViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\BankViewModelBuilders\Impl\BankViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\ChannelPackagingsViewModelBuilders\IChannelPackagingViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\ChannelPackagingsViewModelBuilders\Impl\ChannelPackagingViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CompetitorViewModelBuilders\ICompetitorProductsViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CompetitorViewModelBuilders\ICompetitorViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CompetitorViewModelBuilders\Impl\CompetitorProductsViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CompetitorViewModelBuilders\Impl\CompetitorViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Contacts\ContactTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Contacts\ContactViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Contacts\IContactTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Contacts\IContactViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CoolerViewModelBuilders\ICoolerTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CoolerViewModelBuilders\ICoolerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CoolerViewModelBuilders\Impl\CoolerTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CoolerViewModelBuilders\Impl\CoolerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\IAddPricingLineItemsViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\ICostCentreViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\IAreaViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\ICountryViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\ICreateVatClassViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\IDistrictViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\IEditVatClassViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\IListVatClassViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\AddPricingLineItemsViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\AreaViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\CostCentreViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\CountryViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\CreateVatClassViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\DistrictViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\EditVatClassViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\ListVatClassViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\ProvinceViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\RegionViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\TerritoryViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\TransporterViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\VatClassLineItemViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\VATClassViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\IProvinceViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\IRegionViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\ITerritoryViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\ITransporterViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\OutletCategoryViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\OutletTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\Impl\SocioEconomicStatusViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\IOutletCategoryViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\IOutletTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\ISocioEconomicStatusViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\IVatClassLineItemViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\CostCenter\IVATClassViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Discounts\Impl\ProductDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Discounts\IProductDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\MaritalStatusViewModelBuilders\IMaritalStatusViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\MaritalStatusViewModelBuilders\MaritalStatusViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\MarketAuditViewModelBuilders\IMarketAuditViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\MarketAuditViewModelBuilders\Impl\MarketAuditViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\MarketAuditViewModelBuilders\Impl\OutletAuditViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\MarketAuditViewModelBuilders\IOutletAuditViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Orders\Impl\PurchaseOrderViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Orders\IPurchaseOrderViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Orders\IApproveOrderViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Orders\IListOrdersViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Orders\Impl\ApproveOrderViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Orders\Impl\ListOrdersContainerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Orders\Impl\ListOrdersViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Outlets\IOutletViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Outlets\OutletViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Distributors\DistributorViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Distributors\IDistributorViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\OutletVisitReasonsTypeViewModelBuilders\IOutletVisitReasonsTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\OutletVisitReasonsTypeViewModelBuilders\OutletVisitReasonsTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\ProducerModelBuilder\AdminProducerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\ProducerModelBuilder\IAdminProducerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\ProducerModelBuilder\IProducerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\ProducerModelBuilder\ProducerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IAdminProductPackagingTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IAdminProductViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\ICertainValueCertainProductDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\ICustomerDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IDiscountGroupViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IEditProductPricingViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IFreeOfChargeDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\FreeOfChargeDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\ZProductDiscountViewModelBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModelBuilders\Admin\Products\IPromotionDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\AdminProductPackagingTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\AdminProductPackagingViewModelbuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\AdminProductTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\AdminProductViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\CertainValueCertainProductDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\CustomerDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\DiscountGroupViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\EditProductPricingViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\PromotionDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\ProductBrandViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\ProductFlavoursViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\ProductGroupDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\ProductPricingTierViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\ProductPricingViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\ProductViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\ReturnablesViewModelBuilders.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\SaleValueDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\Impl\ShellsViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IProductBrandViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\ZIProductDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IProductFlavoursViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IProductGroupDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IProductPackagingViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IProductPricingTierViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IProductPricingViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IProductTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IProductViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IReturnablesViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\ISaleValueDiscountViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Products\IShellsViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\ReOrderLevelViewModelBuilders\Impl\ReOrderLevelViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\ReOrderLevelViewModelBuilders\IReOrderLevelViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\RouteViewBuilder\Impl\AdminRouteViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\RouteViewBuilder\IAdminRouteViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\SettingsViewBuilder\Impl\RetireSettingViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\SettingsViewBuilder\Impl\SettingsViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\SettingsViewBuilder\IRetireSettingViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\SettingsViewBuilder\ISettingsViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\SuppliersViewModelBuilders\ISupplierViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\SuppliersViewModelBuilders\Impl\SupplierViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Transaction\AuditLogViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Transaction\HQCountClass.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Transaction\HQMailerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Transaction\IAuditLogViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\Transaction\IHQMailerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\UserModelBuilder\Impl\UserGroupRoleVeiwModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\UserModelBuilder\Impl\UserGroupVeiwModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\UserModelBuilder\IUserGroupRoleVeiwModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\UserModelBuilder\IUserTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\UserModelBuilder\IUserViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\UserModelBuilder\IUserGroupVeiwModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\UserModelBuilder\Impl\UserTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Admin\UserModelBuilder\Impl\UserViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CentreViewModelBuilders\ICentreTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CentreViewModelBuilders\ICentreViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CentreViewModelBuilders\Impl\CentreTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CentreViewModelBuilders\Impl\CentreViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CommodityTransferViewModelBuilders\ICommodityTransferDetailViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CommodityTransferViewModelBuilders\ICommodityTransferStoreAssignmentViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CommodityTransferViewModelBuilders\Impl\CommodityTransferDetailViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CommodityTransferViewModelBuilders\ICommodityTransferViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CommodityTransferViewModelBuilders\Impl\CommodityTransferStoreAssignmentViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CommodityTransferViewModelBuilders\Impl\CommodityTransferViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CommodityViewModelBuilders\Impl\CommodityViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CommodityViewModelBuilders\ICommodityViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\AgriUserViewModelBuilders\IAgriUserViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\ICommodityOwnerTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\ICommodityOwnerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\ICommodityProducerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\ICommoditySupplierViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\IHubViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\AgriUserViewModelBuilders\Impl\AgriUserViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\Impl\CommodityOwnerTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\Impl\CommodityOwnerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\Impl\CommodityProducerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CommodityViewModelBuilders\Impl\CommodityTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CommodityViewModelBuilders\ICommodityTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\Impl\CommoditySupplierViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\Impl\HubViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\Impl\StoreViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\CostCentreViewModelBuilders\IStoreViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\EquipmentViewModelBuilders\IContainerTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\EquipmentViewModelBuilders\Impl\ContainerTypeViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\EquipmentViewModelBuilders\Impl\VehicleViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\EquipmentViewModelBuilders\IVehicleViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\EquipmentViewModelBuilders\Impl\WeighScaleViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\EquipmentViewModelBuilders\ISourcingContainerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\EquipmentViewModelBuilders\Impl\SourcingContainerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\EquipmentViewModelBuilders\IWeighScaleViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\InventoryViewModelBuilders\Impl\InventoryViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\InventoryViewModelBuilders\IInventoryViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\PrinterViewModelBuilders\Impl\PrinterViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\PrinterViewModelBuilders\IPrinterViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\SettingsViewModelBuilder\IAgrimanagrSettingsViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\SettingsViewModelBuilder\Impl\AgrimanagrSettingsViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\SourcingContainerViewModelBuilders\ISourcingContainerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\Agrimanagr\SourcingContainerViewModelBuilders\Impl\SourcingContainerViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\DistributorTargetsViewModelBuilders\Impl\TargetPeriodViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\DistributorTargetsViewModelBuilders\Impl\TargetViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\DistributorTargetsViewModelBuilders\ITargetPeriodViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\DistributorTargetsViewModelBuilders\ITargetViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\IAdminRegionViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\IProductPackagingSummaryViewBuilder.cs" />
+    <Compile Include="ViewModelBuilders\ProductPackagingSummaryClient.cs" />
+    <Compile Include="ViewModelBuilders\ProductPackagingSummaryViewBuilder.cs" />
+    <Compile Include="ViewModels\AccountModels.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\AdminRegionViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ApplicationSetupViewModel\ApplicationSetupViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AssetViewModel\AssetCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AssetViewModel\AssetStatusViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AssetViewModel\AssetTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AssetViewModel\AssetViewModel.cs" />
+    <Compile Include="ViewModels\Admin\BankViewModels\BankBranchViewModel.cs" />
+    <Compile Include="ViewModels\Admin\BankViewModels\BankViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ChannelPackagingsViewModels\ChannelPackagingViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CommodityViewModel\CommodityTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CompetitorViewModel\CompetitorProductsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CompetitorViewModel\CompetitorViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Contact\ContactTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Contact\ContactViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CoolerViewModel\CoolerTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CoolerViewModel\CoolerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\AreaViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\CommodityProducerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\CostCentreViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\CountryViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\CreateVatClassViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\DistrictViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\EditVatClassViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\ListVatClassViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\OutletSalesmanViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\OutletTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\ProvinceViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\RegionViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\TerritoryViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\TransporterViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\OutletCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\SocioEconomicStatusViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\VatClassLineItemViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CostCenter\VATClassViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Discounts\ProductDiscountViewModel.cs" />
+    <Compile Include="ViewModels\Admin\DistributorTargetsViewModel\TargetPeriodViewModel.cs" />
+    <Compile Include="ViewModels\Admin\DistributorTargetsViewModel\TargetViewModel.cs" />
+    <Compile Include="ViewModels\Admin\MaritalStatusViewModels\MaritalStatusViewModel.cs" />
+    <Compile Include="ViewModels\Admin\MarketAuditViewModels\MarketAuditViewModel.cs" />
+    <Compile Include="ViewModels\Admin\MarketAuditViewModels\OutletAuditViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Orders\ApproveOrderViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Orders\PurchaseOrderViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Orders\OrderAddLineItemViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Orders\OrderEditLineItemViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Orders\OrderViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Outlets\OutletViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Distributors\DistributorViewModel.cs" />
+    <Compile Include="ViewModels\Admin\OutletVisitReasonsTypeViewModels\OutletVisitReasonsTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ProducerViewModel\AdminProducerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ProducerViewModel\ProducerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\AddPricingLineItemsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\AddProductDiscountItemsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\AdminProductPackagingTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\CertainValueCertainProductDiscountViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\CustomerDiscountItemsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\CustomerDiscountViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\DiscountGroupViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\EditProductPricingViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\FreeOfChargeDiscountViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\GenericProductViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\PromotionDiscountViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\ProductDiscountItemsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\ProductDiscountViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\ProductDiscountGroupViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\ProductPricingTierViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\ProductPricingViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\ProductsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\ProductViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\ReturnablesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\SaleValueDiscountViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\ShellsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ReOrderLevelViewModel\ReOrderLevelViewModel.cs" />
+    <Compile Include="ViewModels\Admin\RouteViewModel\AdminRouteViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\ProductBrandViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\AdminProductPackagingViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\AdminProductTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Product\AdminProductViewModels.cs" />
+    <Compile Include="ViewModels\Admin\Product\ProductFlavoursViewModel.cs" />
+    <Compile Include="ViewModels\Admin\SettingsViewModel\RetireSettingViewModel.cs" />
+    <Compile Include="ViewModels\Admin\SettingsViewModel\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\SuppliersViewModel\SupplierViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Transactional\AuditLogViewModel.cs" />
+    <Compile Include="ViewModels\Admin\User\ManageUsersHQViewModel.cs" />
+    <Compile Include="ViewModels\Admin\User\UserGroupRoleVeiwModel.cs" />
+    <Compile Include="ViewModels\Admin\User\UserGroupVeiwModel.cs" />
+    <Compile Include="ViewModels\Admin\User\UserTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\User\UserViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CentreViewModels\CentreTypeViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CentreViewModels\CentreViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CommodityTransferViewModel\CommodityTransferDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CommodityTransferViewModel\CommodityTransferViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CommodityViewModel\CommodityGradeViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CommodityViewModel\CommodityViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CostCentreViewModel\AgrimanagrUserViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CostCentreViewModel\AgriUserViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CostCentreViewModel\CommodityOwnerTypeViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CommodityViewModel\CommodityTypeViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CostCentreViewModel\CommodityOwnerViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CostCentreViewModel\CommodityProducerViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CostCentreViewModel\CommoditySupplierListingViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CostCentreViewModel\CommoditySupplierViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CostCentreViewModel\CountryViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CostCentreViewModel\HubViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\CostCentreViewModel\StoreViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\EquipmentViewModel\ContainerTypeViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\EquipmentViewModel\PrinterViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\EquipmentViewModel\SourcingContainerViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\EquipmentViewModel\VehicleViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\EquipmentViewModel\WeighScaleViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\InventoryViewModel\InventoryLevelHQViewModel.cs" />
+    <Compile Include="ViewModels\Agrimanagr\SettingsViewModel\AgrimanagrSettingsViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Workflows\CommodityRelease\CommodityReleaseHQWFManager.cs" />
+    <Compile Include="Workflows\CommodityStorage\CommodityStorageHQWFManager.cs" />
+    <Compile Include="Workflows\CommodityTransfer\CommodityTransferHqWorkFlow.cs" />
+    <Compile Include="Workflows\PurchaseOrder\PurchaseOrderHqWorkflow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distributor.Core.Data\Distributr.Core.Data.csproj">
+      <Project>{B9EE272B-6D02-47A5-B6F6-D96CB102404E}</Project>
+      <Name>Distributr.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributor.Core\Distributr.Core.csproj">
+      <Project>{900F434E-7D81-422B-B567-1564C79CEAB3}</Project>
+      <Name>Distributr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WSAPI.Lib\Distributr.WSAPI.Lib.csproj">
+      <Project>{7271F6B1-35F0-4C0A-A4CB-3F10D426E37F}</Project>
+      <Name>Distributr.WSAPI.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModelBuilders\ReportManager\" />
+    <Folder Include="ViewModels\Admin\Pagination\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Distributr.HQ.Lib.Reports.SampleReport.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.Agrimanagr.ProducePurchase.ProducePurchaseReportItems.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.CloseofdayReport.CloseOfDayReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.DataReports.DataReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.DiscountReports.DiscountReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.FinancialReports.Sales_GrossProfit.FinnancialReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.InventoryReceiptReport.IInventoryReceipt.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.InventoryReceiptReport.InventoryReceivedItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.InventoryReports.CostCentreInventoryReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.OutletReports.IOutletReport.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.OutletReports.OutletReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.ProductCatalogReports.ProductCatalogReportItems.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.RegionalSalesReport.RegionalSalesReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.ReorderLevelReport.ReorderLevelReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.ReturnNoteReports.Impl.ReturnNoteReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.ReturnNoteReports.IReturnNoteReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.ReturnNoteReports.ReturnNoteItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesAndGrossProfitReport.SalesGrossProfitReportItems.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.CostCenterSalesReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.ICostCenterSalesReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.InvoiceReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.IPaymentReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.ISalesReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.OrderReportLineItem+OrderLineItems.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.OrderReportLineItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.PaymentReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.ReceiptLineItems.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.ReceiptReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.SalesReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.SaleValueDiscountReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.SalesReport.ZeroSalesReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.StockMovementReports.StockMovementReportItems.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.StockReports.CostCenterStockReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.StockReports.ICostCenterStockReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.StockReports.Impl.CostCentreStockReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.StockReports.StockReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.StockTakeReports.IStockTakeReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.StockTakeReports.StockTakeReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.StockTakeReports.StockTakeReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.TargetReports.ITargetReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.TargetReports.TargetReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.TransactionalReports.CostCenterTransactionTransactionReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.TransactionalReports.CostCentreItems.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.TransactionalReports.CostCentreTransactionReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.TransactionalReports.DocumentLineItems.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.TransactionalReports.ICostCenterTransactionReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.TransactionalReports.IOrdersReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.TransactionalReports.IPurchaseReportService.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.TransactionalReports.OrdersReportItem.datasource" />
+    <None Include="Properties\DataSources\Distributr.Reports.TransactionalReports.PurchasesReportItem.datasource" />
+    <None Include="Properties\DataSources\System.Data.SqlTypes.SqlDouble.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

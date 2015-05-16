@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Distributr.WSAPI.Lib.Services.WCFServices.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Distributr.WSAPI.Lib.Services.WCFServices.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50759/DistributorServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:50759/DistributorServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Distributr.Core.Domain.Master.UserEntities" />
+  <xs:import schemaLocation="http://localhost:50759/DistributorServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Distributr.Core.Domain.Master.CostCentreEntities" />
+  <xs:complexType name="ArrayOfOutletItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OutletItem" nillable="true" type="tns:OutletItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOutletItem" nillable="true" type="tns:ArrayOfOutletItem" />
+  <xs:complexType name="OutletItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CostCentreItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsApproved" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OutletCategoryMasterId" type="ser:guid" />
+          <xs:element minOccurs="0" name="OutletDiscountGroupMasterId" type="ser:guid" />
+          <xs:element minOccurs="0" name="OutletProductPricingTierMasterId" type="ser:guid" />
+          <xs:element minOccurs="0" name="OutletTypeMasterId" type="ser:guid" />
+          <xs:element minOccurs="0" name="OutletVATClassMasterId" type="ser:guid" />
+          <xs:element minOccurs="0" name="RouteMasterId" type="ser:guid" />
+          <xs:element minOccurs="0" name="outLetCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OutletItem" nillable="true" type="tns:OutletItem" />
+  <xs:complexType name="CostCentreItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MasterBaseItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CostCentreTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParentCostCentreId" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CostCentreItem" nillable="true" type="tns:CostCentreItem" />
+  <xs:complexType name="MasterBaseItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateLastUpdated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MasterId" type="ser:guid" />
+      <xs:element minOccurs="0" name="StatusId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MasterBaseItem" nillable="true" type="tns:MasterBaseItem" />
+  <xs:complexType name="ArrayOfRouteItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RouteItem" nillable="true" type="tns:RouteItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRouteItem" nillable="true" type="tns:ArrayOfRouteItem" />
+  <xs:complexType name="RouteItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MasterBaseItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DistributorId" type="ser:guid" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RouteItem" nillable="true" type="tns:RouteItem" />
+  <xs:complexType name="ArrayOfUserItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserItem" nillable="true" type="tns:UserItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserItem" nillable="true" type="tns:ArrayOfUserItem" />
+  <xs:complexType name="UserItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MasterBaseItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CostCenterID" type="ser:guid" />
+          <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PIN" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TillNumber" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Distributr.Core.Domain.Master.UserEntities" minOccurs="0" name="UserRoles" nillable="true" type="q1:ArrayOfUserRole" />
+          <xs:element minOccurs="0" name="UserType" type="xs:int" />
+          <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserItem" nillable="true" type="tns:UserItem" />
+  <xs:complexType name="DistributorSalesmanItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CostCentreItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CostCentreCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RouteMasterId" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DistributorSalesmanItem" nillable="true" type="tns:DistributorSalesmanItem" />
+  <xs:complexType name="ArrayOfDistributorSalesmanRouteItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DistributorSalesmanRouteItem" nillable="true" type="tns:DistributorSalesmanRouteItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDistributorSalesmanRouteItem" nillable="true" type="tns:ArrayOfDistributorSalesmanRouteItem" />
+  <xs:complexType name="DistributorSalesmanRouteItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MasterBaseItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CostCentreMasterId" type="ser:guid" />
+          <xs:element minOccurs="0" name="RouteMasterId" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DistributorSalesmanRouteItem" nillable="true" type="tns:DistributorSalesmanRouteItem" />
+  <xs:complexType name="ArrayOfContactItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactItem" nillable="true" type="tns:ContactItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContactItem" nillable="true" type="tns:ArrayOfContactItem" />
+  <xs:complexType name="ContactItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MasterBaseItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BusinessPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ChildrenNames" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactClassification" type="xs:int" />
+          <xs:element minOccurs="0" name="ContactOwnerMasterId" type="ser:guid" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Distributr.Core.Domain.Master.CostCentreEntities" minOccurs="0" name="ContactOwnerType" type="q2:ContactOwnerType" />
+          <xs:element minOccurs="0" name="ContactTypeMasterId" type="ser:guid" />
+          <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HomePhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HomeTown" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsNew" type="xs:boolean" />
+          <xs:element minOccurs="0" name="JobTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Lastname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaritalStatusMasterId" type="ser:guid" />
+          <xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhysicalAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostalAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpouseName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkExtPhone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContactItem" nillable="true" type="tns:ContactItem" />
+  <xs:complexType name="ArrayOfBankItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BankItem" nillable="true" type="tns:BankItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBankItem" nillable="true" type="tns:ArrayOfBankItem" />
+  <xs:complexType name="BankItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MasterBaseItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BankItem" nillable="true" type="tns:BankItem" />
+  <xs:complexType name="ArrayOfBankBranchItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BankBranchItem" nillable="true" type="tns:BankBranchItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBankBranchItem" nillable="true" type="tns:ArrayOfBankBranchItem" />
+  <xs:complexType name="BankBranchItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MasterBaseItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Bank" nillable="true" type="tns:BankItem" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BankBranchItem" nillable="true" type="tns:BankBranchItem" />
+</xs:schema>

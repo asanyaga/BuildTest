@@ -1,0 +1,8 @@
+﻿IF NOT EXISTS( SELECT * FROM INFORMATION_SCHEMA.COLUMNS  WHERE TABLE_NAME = 'tblDocument' AND  COLUMN_NAME = 'StockistId')
+BEGIN
+  ALTER TABLE tblDocument    ADD [StockistId] uniqueidentifier  NULL;
+END
+IF NOT EXISTS( SELECT * FROM INFORMATION_SCHEMA.COLUMNS  WHERE TABLE_NAME = 'tblDocument' AND  COLUMN_NAME = 'VisitId')
+BEGIN
+  ALTER TABLE tblDocument    ADD [VisitId] uniqueidentifier  NULL;
+END

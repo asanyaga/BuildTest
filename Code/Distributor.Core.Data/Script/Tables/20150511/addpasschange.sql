@@ -1,0 +1,4 @@
+﻿IF NOT EXISTS( SELECT * FROM INFORMATION_SCHEMA.COLUMNS  WHERE TABLE_NAME = 'tblUsers' AND  COLUMN_NAME = 'PassChange')
+BEGIN 
+  Alter TABLE tblUsers ADD [PassChange] int default 0
+END
