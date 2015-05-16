@@ -1,0 +1,25 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.ReceiveReturnable.AddReturnableModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:FormBorderButtons="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.FormBorderButtons;assembly=Distributr.WPF.Lib"
+        Width="403.282" Height="304" 
+                     DataContext="{Binding RecieveReturnableLineItemViewModel, Source={StaticResource Locator}}"
+           Title="Add Returnable Modal" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <i:Interaction.Behaviors>
+        <FormBorderButtons:HideCloseButtonBehaiviour />
+    </i:Interaction.Behaviors>
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+        <Label HorizontalAlignment="Left" x:Name="lblproduct" Height="28" Margin="21,59,0,0" VerticalAlignment="Top" Width="52" Content="Product:"/>
+        <Label HorizontalAlignment="Left" x:Name="lblquantity" Margin="21,94,0,113" Width="61" Content="Quantity:" Height="28"/>
+        <TextBox Margin="87,94,45,112" TextWrapping="Wrap"  Height="28" Text="{Binding Quantity,Mode=TwoWay}" KeyDown="TextBox_KeyDown" MaxLength="9" />
+        <ComboBox IsEnabled="{Binding Path=IsEditable}" Height="28" Margin="87,59,45,0" VerticalAlignment="Top" ItemsSource="{Binding ProductLookupList,Mode=TwoWay}" DisplayMemberPath="Name" SelectedItem="{Binding ProductLookups,Mode=TwoWay}"/>
+    </Grid>
+</Window>

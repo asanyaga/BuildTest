@@ -1,0 +1,70 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:FormBorderButtons="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.FormBorderButtons;assembly=Distributr.WPF.Lib"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+        xmlns:Converters="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+        mc:Ignorable="d" x:Class="Distributr.WPF.UI.Views.DispatchProducts.DispatchProductsLineItemModal"
+        DataContext="{Binding DPLineItemViewModel, Source={StaticResource Locator}}"
+           Title="Add/Edit Product To Dispatch" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Width="511.284" d:DesignHeight="393.209">
+    <i:Interaction.Behaviors>
+        <FormBorderButtons:HideCloseButtonBehaiviour />
+    </i:Interaction.Behaviors>
+    <StackPanel>
+        <Grid x:Name="LayoutRoot" Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" MinWidth="100"/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblproduct" Grid.Row="0" Grid.Column="0" Content="Product:" Margin="5" />
+            <StackPanel Orientation="Horizontal" Grid.Column="1" Width="auto" Margin="10 0 0 0">
+                <TextBox Margin="0,0,0,0" Text="{Binding SelectedProduct.Description,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                              MinWidth="170" MaxWidth="200"
+                             x:Name="TextBlockSelectedProduct" IsReadOnly="True" Width="auto" HorizontalAlignment="Stretch">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged" >
+                            <cmd:EventToCommand Command="{Binding SelectedProductChangedCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <Button Content="..." Margin="10 0 0 0" VerticalContentAlignment="Center" MinWidth="30">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click" >
+                            <cmd:EventToCommand Command="{Binding ProductDropDownOpenedCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </StackPanel>
+            <!--<ComboBox  Grid.Row="0" Grid.Column="1"  x:Name="cmbProduct" SelectionChanged="cmbProduct_SelectionChanged"
+                       ItemsSource="{Binding Products}" 
+                       DisplayMemberPath="Description" 
+                       SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" 
+                       Margin="5" Height="25" DropDownOpened="cmbProduct_DropDownOpened"/>-->
+
+            <Label  x:Name="lblavailable" Grid.Row="1" Grid.Column="0" Content="Available:" Margin="5"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding AvailableQty}" Margin="5" Height="24" />
+            <Label  x:Name="lblquantity" Grid.Row="2" Grid.Column="0" Content="Qty:" Margin="5"/>
+            <TextBox Converters:Masking.Mask="{x:Static Member=Converters:StringFormats.QuantityRegEx}" Grid.Row="2" Grid.Column="1" x:Name="txtQty" KeyDown="txtQty_KeyDown" Text="0" TextChanged="txtQty_TextChanged"  Margin="5"  />
+            <Label  x:Name="lblreason" Grid.Row="3" Grid.Column="0" Content="Reason:" Margin="5"/>
+            <ComboBox Grid.Row="3" Grid.Column="1" x:Name="cmbReason"
+                      ItemsSource="{Binding Reasons}"
+                      DisplayMemberPath="Reason"
+                      SelectedItem="{Binding SelectedReason, Mode=TwoWay}"
+                      Margin="5" Height="25"/>
+            <Label  x:Name="lblotherReason" Grid.Row="4" Grid.Column="0" Content="Other:" VerticalAlignment="Top" Margin="5"/>
+            <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtOtherReason" Text="{Binding OtherReason, Mode=TwoWay}" TextWrapping="Wrap" AcceptsReturn="True" Height="138" Margin="5"/>
+            <Button Grid.Row="5" Grid.Column="1" x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" />
+            <Button Grid.Row="5" Grid.Column="1" x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Left" Margin="8,12,0,0" />
+        </Grid>
+    </StackPanel>
+</Window>

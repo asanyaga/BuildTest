@@ -1,0 +1,161 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--cn datagrid styles-->
+
+    <!--datagrid aling right-->
+    <Style x:Key="dataGridCurrencyCell" TargetType="DataGridCell">
+        <Setter Property="HorizontalContentAlignment" Value="Right" />
+        <!--<Setter Property="Width" Value="80"/>-->
+    </Style>
+    <Style x:Key="dataGridCellVerticalAlignTop" TargetType="DataGridCell">
+        <Setter Property="VerticalContentAlignment" Value="Top"></Setter>
+    </Style>
+    <!--cn: wrap datagrid cell content by setting ElementStyle-->
+    <Style x:Key="dataGridCellWrapText" TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+    </Style>
+
+    <Style TargetType="DataGrid">
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserResizeColumns"  Value="True"/>
+        <Setter Property="CanUserResizeRows"  Value="True"/>
+        <Setter Property="VerticalGridLinesBrush" Value="#C9CACA"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="#C9CACA"/>
+        <Setter Property="BorderBrush"  Value="#627685"/>
+        <Setter Property="AlternatingRowBackground"  Value="#F1F1F1"/>
+        <!--#BADDE9-->
+    </Style>
+    <Style TargetType="DataGridRow">
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="WhiteSmoke"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="DataGridCell">
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <!--<Setter Property="Background" Value="#BADDE9" />-->
+                <Setter Property="BorderBrush" Value="#BADDE9" />
+                <Setter Property="BorderThickness" Value="1" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--datagrid header style-->
+    <!--cn: Removing the key applies implicitly to all datagrids in applic scope-->
+    <Style TargetType="DataGridColumnHeader">
+        <!--x:Key="dthFull"-->
+        <Setter Property="Foreground" Value="#FFB5B5B5" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="10.5" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="SeparatorBrush" Value="#FFDFE3E6" />
+        <Setter Property="Padding" Value="4,4,5,4" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridColumnHeader">
+                    <Grid Name="Root">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="00:00:0.1" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                            <SplineColorKeyFrame KeyTime="0" Value="#FF314D64"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
+                                            <SplineColorKeyFrame KeyTime="0" Value="#4C363B5C"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                                            <SplineColorKeyFrame KeyTime="0" Value="#7F363B5C"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                            <SplineColorKeyFrame KeyTime="0" Value="#F2FFFFFF"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+                                            <SplineColorKeyFrame KeyTime="00:00:00" Value="#FF363B5C"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Offset)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.013"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SortStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="00:00:0.1" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Unsorted" />
+                                <VisualState x:Name="SortAscending">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="SortIcon" Storyboard.TargetProperty="Opacity" Duration="0" To="1.0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="SortDescending">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="SortIcon" Storyboard.TargetProperty="Opacity" Duration="0" To="1.0"/>
+                                        <DoubleAnimation Storyboard.TargetName="SortIconTransform" Storyboard.TargetProperty="ScaleY" Duration="0" To="-.9"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle x:Name="BackgroundRectangle" Stretch="Fill" Fill="#FF33C421" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+                        <Rectangle x:Name="BackgroundGradient" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                            <Rectangle.Fill>
+
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFA6A6A6"/>
+                                    <GradientStop Color="#FF000000" Offset="1"/>
+                                    <GradientStop Color="#FF636363" Offset="0.33500000834465027"/>
+                                    <GradientStop Color="#FF262626" Offset="0.621"/>
+                                </LinearGradientBrush>
+
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+                        <ContentPresenter
+						Grid.RowSpan="2"
+						Content="{TemplateBinding Content}"
+						Cursor="{TemplateBinding Cursor}"
+						HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+						VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+						Margin="{TemplateBinding Padding}"/>
+
+                        <Rectangle Name="VerticalSeparator" Grid.RowSpan="2" Grid.Column="2" Width="1" VerticalAlignment="Stretch" Fill="{TemplateBinding SeparatorBrush}" Visibility="{TemplateBinding SeparatorVisibility}" />
+
+                        <Path Grid.RowSpan="2" Name="SortIcon" RenderTransformOrigin=".5,.5" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0" Grid.Column="1" Stretch="Uniform" Width="8" Data="F1 M -5.215,6.099L 5.215,6.099L 0,0L -5.215,6.099 Z " Fill="#FF82CAAB">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform x:Name="SortIconTransform" ScaleX=".9" ScaleY=".9" />
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TextAlignRight" TargetType="DataGridCell">
+        <Setter Property="HorizontalContentAlignment" Value="Right" />
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,98 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Orders_Purchase.PurchaseOrderForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+      xmlns:util="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" DataContext="{Binding PurchaseOrderFormViewModel,Source={StaticResource Locator}}"
+	Title="PurchaseOrderForm" MinWidth="800">
+    <Page.Resources>
+        <util:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded" >
+            <!--<cmd:EventToCommand Command="{Binding LoadCommand, Mode=OneWay}"/>-->
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="227*"/>
+            <RowDefinition Height="573*"/>
+        </Grid.RowDefinitions>
+        <Label Content="{Binding OrderReferenceNo}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="321" Margin="135,41,0,0" Height="26" Background="{DynamicResource MenuItem_DisabledBackgroundBrush}"/>
+        <Label x:Name="LabelOrderDate" Content="Order Date" HorizontalAlignment="Left" Margin="482,43,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
+        <DatePicker SelectedDate="{Binding OrderDate, StringFormat =\{0:d\}}" HorizontalAlignment="Left" Margin="560,43,0,0" VerticalAlignment="Top" Width="150" Height="24" IsEnabled="False"/>
+        <Label x:Name="textBlockTotalNet" Content="Total Net" HorizontalAlignment="Left" Margin="27,109,0,0" VerticalAlignment="Top" Width="82" Height="26"/>
+        <Label x:Name="textBlockTotalVat" Content="Total VAT" HorizontalAlignment="Left" Margin="27,138,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.983,1.791" Height="26"/>
+        <Label x:Name="textBlockTotalGross" Content="Total Gross" HorizontalAlignment="Left" Margin="27,167,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.983,1.791" Height="26"/>
+        <TextBlock TextAlignment="Right"  Text="{Binding TotalNet, Mode=TwoWay, StringFormat=\{0:n2\}}" HorizontalAlignment="Left" Margin="175,110,0,0" VerticalAlignment="Top" Width="214" Background="{DynamicResource MenuItem_DisabledBackgroundBrush}" Height="24"/>
+        <TextBlock TextAlignment="Right"  Text="{Binding TotalVat, Mode=TwoWay, StringFormat=\{0:n2\}}" HorizontalAlignment="Left" Margin="175,140,0,0" VerticalAlignment="Top" Width="214" RenderTransformOrigin="0.983,1.791" Background="{DynamicResource MenuItem_DisabledBackgroundBrush}" Height="24"/>
+        <TextBlock  TextAlignment="Right" Text="{Binding TotalGross, Mode=TwoWay, StringFormat=\{0:n2\}}" HorizontalAlignment="Left" Margin="175,170,0,0" VerticalAlignment="Top" Width="214" RenderTransformOrigin="0.983,1.791" Background="{DynamicResource MenuItem_DisabledBackgroundBrush}" Height="24">
+            
+        </TextBlock>
+        <Label x:Name="textBlockStatus" Content="Status" HorizontalAlignment="Left" Margin="27,79,0,0" VerticalAlignment="Top" Width="82" Height="26"/>
+        <Label  Content="{Binding Status, Mode=TwoWay}" HorizontalAlignment="Left" Margin="175,75,0,0" VerticalAlignment="Top" Width="214" Background="{DynamicResource MenuItem_DisabledBackgroundBrush}" Height="26"/>
+        <Label Content="Create Purchase Order" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.144,2.556" Width="989" FontSize="14" FontFamily="Arial Black" FontWeight="Bold" Height="26">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCDE0FB" Offset="0"/>
+                    <GradientStop Color="#FF498EF1" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label x:Name="textBlockOrderId" Content="Order ID :" HorizontalAlignment="Left" Margin="27,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.933,-1.563" Height="26" Width="62"/>
+
+        <StackPanel Margin="37,2,0,0" Grid.Row="1">
+            <GroupBox  HorizontalAlignment="Left" Header="Order LineItems" Width="970" >
+            <ScrollViewer HorizontalAlignment="Left"   VerticalAlignment="Top" MaxHeight="200" MinHeight="100"    Width="954">
+                <DataGrid x:Name="Lineitemsgrid" ItemsSource="{Binding LineItem, Mode=TwoWay}" Height="auto" Width="900" AutoGenerateColumns="False" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="" Binding="{Binding SequenceNo, Mode=TwoWay}"/>
+                            <DataGridTextColumn x:Name="Gridcolproductname" Header="Product" Binding="{Binding ProductName, Mode=TwoWay}"/>
+                            <DataGridTextColumn x:Name="Gridcolquantity" Header="Quantity" Binding="{Binding Quantity, Mode=TwoWay,StringFormat={}{0:n2}}"/>
+                            <DataGridTextColumn x:Name="Gridcolunitprice" Header="Unit Price"  Binding="{Binding UnitPrice, Mode=TwoWay,StringFormat={}{0:n2}}"/>
+                            <DataGridTextColumn x:Name="Gridcolunitdiscount" Header="Unit disc" Binding="{Binding UnitDiscount, Mode=TwoWay,StringFormat={}{0:n2}}"/>
+                            <DataGridTextColumn x:Name="Gridcoltotalamt" Header="Total Amt" Binding="{Binding TotalAmount, Mode=TwoWay,StringFormat={}{0:n2}}"/>
+                            <DataGridTextColumn x:Name="Gridcolunitvat" Header="Unit Vat" Binding="{Binding UnitVAT, Mode=TwoWay,StringFormat={}{0:n2}}" />
+                            <DataGridTextColumn x:Name="Gridtotalvat" Header="Total Vat" Binding="{Binding TotalVAT, Mode=TwoWay,StringFormat={}{0:n2}}" />
+                            <DataGridTextColumn x:Name="Gridunitprice" Header="Gross Amount" Binding="{Binding GrossAmount, Mode=TwoWay,StringFormat={}{0:n2}}" />
+                            <DataGridTextColumn x:Name="Gridcolproducttype" Header="Product Type" Binding="{Binding ProductType, Mode=TwoWay}" />
+                            <DataGridTemplateColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" MinWidth="50" Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl  Visibility="{Binding CanChange,Converter={StaticResource VisibilityConverter}}">
+                                            <Hyperlink  Command="{Binding DataContext.EditProductCommand, ElementName=Lineitemsgrid,Mode=TwoWay}" CommandParameter="{Binding}" >Edit</Hyperlink>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" MinWidth="50" Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl  Visibility="{Binding CanChange,Converter={StaticResource VisibilityConverter}}">
+                                            <Hyperlink  Command="{Binding DataContext.DeleteProductCommand, ElementName=Lineitemsgrid,Mode=TwoWay}" CommandParameter="{Binding}" >Delete</Hyperlink>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+            </GroupBox>
+            <StackPanel Height="30"  Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Right">
+                <Button x:Name="btnAdd" Margin="10,0,0,0" Command="{Binding AddProductCommand, Mode=TwoWay}" Content="Add Product" Width="88" />
+                <Button x:Name="btnSave" Margin="10,0,0,0"  Content="Save And Continue Later" Width="160" Visibility="Collapsed"/>
+                <Button x:Name="btnConfirm" Margin="10,0,0,0"  Command="{Binding ConfirmCommand, Mode=TwoWay}" Content="Confirm Order" Width="105" />
+                <Button x:Name="btnCancel" Margin="10,0,0,0"  Command="{Binding CancelCommand, Mode=TwoWay}" Content="Cancel" Width="69" />
+            </StackPanel>
+        </StackPanel>
+        <Label x:Name="LabelDateRequired" Content="Required Date" HorizontalAlignment="Left" Margin="742,45,0,0" VerticalAlignment="Top" Height="26" Width="92"/>
+        <DatePicker IsEnabled="{Binding CanChange, Mode=TwoWay}" HorizontalAlignment="Left" Margin="838,45,0,0" VerticalAlignment="Top" Width="150" SelectedDate="{Binding DateRequired, StringFormat =\{0:d\}}" Height="24"/>
+
+    </Grid>
+</Page>

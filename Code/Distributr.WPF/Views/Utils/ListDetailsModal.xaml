@@ -1,0 +1,39 @@
+<Window x:Class="Distributr.WPF.UI.Views.Utils.ListDetailsModal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+           Width="580" Height="300" 
+           Title="Product Details" >
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />-->
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+        <DataGrid x:Name="dgListDetails" AutoGenerateColumns="False" Height="226" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ProductDesc}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Description" Width="Auto" />
+                <DataGridTextColumn Binding="{Binding Qty, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Qty" Width="Auto" />
+                <DataGridTextColumn Binding="{Binding TotalPrice, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Total Amount" Width="Auto" />
+
+                <DataGridTextColumn Header="Product Type" Binding="{Binding ProductType}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="150*" />
+
+                <DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Header="More Details" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                            <Hyperlink x:Name="hlMoreDetails" Tag="{Binding ProductId}" TargetName="ContentFrame" Click="hlMoreDetails_Click">
+                            <TextBlock Text="View"></TextBlock>    
+                            </Hyperlink>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

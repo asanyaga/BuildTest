@@ -1,0 +1,278 @@
+﻿<UI_Utillity:PageBase x:Class="Distributr.WPF.UI.Views.Reports.Reports" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:UI_Utillity="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity;assembly=Distributr.WPF.Lib"
+                mc:Ignorable="d"
+           d:DesignWidth="950" 
+                 DataContext="{Binding ReportsViewModel, Source={StaticResource Locator}}"
+           Title="Reports Page" >
+        
+    <Grid x:Name="LayoutRoot">
+        <DockPanel LastChildFill="True" Background="#ffffff">
+        <TabControl x:Name="tcReports" SelectedIndex="0">
+            <TabControl.LayoutTransform>
+                <!-- Allows to zoom the control's content using the slider -->
+                <ScaleTransform CenterX="0" 
+                         CenterY="0"
+                         ScaleX="{Binding ElementName=uiScaleSlider,Path=Value}"
+                         ScaleY="{Binding ElementName=uiScaleSlider,Path=Value}"/>
+                </TabControl.LayoutTransform>
+                <TabItem Header="Reports Menu" >
+                <Border BorderBrush="Silver" BorderThickness="1" Height="456" HorizontalAlignment="Left" Margin="12,12,0,0" Name="border1" VerticalAlignment="Top" Width="900" CornerRadius="10">
+                    <Grid Height="433" Name="grid1" Width="900">
+                        <TabControl Margin="0,0,6,31" Name="tcReportMenu">
+                            <TabItem Header="Sales Reports" Name="tiSales" >
+                                <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="224*"/>
+                                            <ColumnDefinition Width="643*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <!--<RadioButton Content="Sales Summary" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rbSalesSummary" VerticalAlignment="Top" Width="199" IsChecked="True" />-->
+                                        <RadioButton Content="Sales Summary" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsSalesSummary" VerticalAlignment="Top" Width="199" IsChecked="True" />
+                                        <RadioButton Content="Sales BySummary by Date" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsSalesSummaryByDate" VerticalAlignment="Top" Width="220" Grid.ColumnSpan="2" />
+
+                                        <!--<RadioButton Content="Sales By Brand" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rbSalesByBrand" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Sales By Distributor" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rsSalesByDistributor" VerticalAlignment="Top" Width="199" />
+
+                                        <!--<RadioButton Content="Sales By SalesMan" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rbSalesBySalesMan" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Sales By Brand" Height="16" HorizontalAlignment="Left" Margin="6,80,0,0" Name="rsSalesByBrand" VerticalAlignment="Top" Width="199" />
+
+                                        <!--<RadioButton Content="Sales By Product" Height="16" HorizontalAlignment="Left" Margin="6,80,0,0" Name="rbSalesByProduct" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Sales By Packaging" Height="16" HorizontalAlignment="Left" Margin="6,105,0,0" Name="rsSalesByPackaging" VerticalAlignment="Top" Width="199" />
+
+                                        <RadioButton Content="Sales By Salesman" Height="16" HorizontalAlignment="Left" Margin="6,130,0,0" Name="rsSalesBySalesman" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Sales By Product" Height="16" HorizontalAlignment="Left" Margin="6,155,0,0" Name="rsSalesByProduct" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Sales By Route" Height="16" HorizontalAlignment="Left" Margin="6,180,0,0" Name="rsSalesByRoute" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Sales By Outlet" Height="16" HorizontalAlignment="Left" Margin="6,205,0,0" Name="rsSalesByOutlet" VerticalAlignment="Top" Width="199" />
+
+                                        <!--<RadioButton Content="Sales By Outlet" Height="16" HorizontalAlignment="Left" Margin="6,105,0,0" Name="rbSalesByRetailer" VerticalAlignment="Top" Width="199"/>-->
+                                        <RadioButton Content="Regional Sales" Height="16" HorizontalAlignment="Left" Margin="6,230,0,0" Name="rsRegionalSales" VerticalAlignment="Top" Width="199"/>
+
+                                        <!--<RadioButton Content="Sales By Route" Height="16" HorizontalAlignment="Left" Margin="6,130,0,0" Name="rbSalesByRoute" VerticalAlignment="Top" Width="199"/>-->
+                                        <!--<RadioButton Content="Sales By Region" Height="16" HorizontalAlignment="Left" Margin="6,130,0,0" Name="rsSalesByRegion" VerticalAlignment="Top" Width="199"/>-->
+
+                                        <!--<RadioButton Content="Sales Summary by Date" Height="16" HorizontalAlignment="Left" Margin="6,155,0,0" Name="rbSalesSummaryByDate" VerticalAlignment="Top" Width="199"/>-->
+                                        <RadioButton Content="Sale By ProductType" Height="16" HorizontalAlignment="Left" Margin="6,255,0,-5" Name="rsSalesByProductType" VerticalAlignment="Top" Width="199"/>
+                                        <RadioButton Content="Sales Summary Per Salesman" Height="16" HorizontalAlignment="Left" Margin="6,280,0,-5" Name="rsSalesSummaryPerSalesman" VerticalAlignment="Top" Width="199"/>
+
+                                        <!--<RadioButton Content="Losses" Height="16" HorizontalAlignment="Left" Margin="6,180,0,0" Name="rbLosses" VerticalAlignment="Top" Width="199"/>-->
+                                        <!--<RadioButton Content="Losses" Height="16" HorizontalAlignment="Left" Margin="6,280,0,0" Name="rsLosses" VerticalAlignment="Top" Width="199"/>
+                                        <RadioButton Content="Zero Sales" Height="16" HorizontalAlignment="Left" Margin="6,305,0,0" Name="rsZeroSales" VerticalAlignment="Top" Width="199"/>
+                                        <RadioButton Content="Sale By ProductType" Height="16" HorizontalAlignment="Left" Margin="6,330,0,-5" Name="rsSalesByProductType" VerticalAlignment="Top" Width="199"/>-->
+
+
+
+                                    </Grid>
+                            </TabItem>
+                            <TabItem Header="Order Reports" Name="tiOrders" >
+                                <Grid>
+                                    <!--<RadioButton Content="Orders Summary" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rbOrdersSummary" VerticalAlignment="Top" Width="199" IsChecked="True" />-->
+                                        <RadioButton Content="Orders Summary" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsOrdersSummary" VerticalAlignment="Top" Width="199" IsChecked="True" />
+
+                                        <!--<RadioButton Content="Orders By Brand" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rbOrdersByBrand" VerticalAlignment="Top" Width="199"  />-->
+                                        <RadioButton Content="Orders By Brand" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsOrdersByBrand" VerticalAlignment="Top" Width="199"  />
+
+                                        <!--<RadioButton Content="Orders By ProductType" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="Orders By ProductTypeOrders By ProductType" VerticalAlignment="Top" Width="199"  />-->
+
+                                        <!--<RadioButton Content="Orders By SalesMan" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rbOrdersBySalesMan" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Orders By Distributor" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rsOrdersByDistributor" VerticalAlignment="Top" Width="199" />
+
+                                        <!--<RadioButton Content="Orders By Product" Height="16" HorizontalAlignment="Left" Margin="6,80,0,0" Name="rbOrdersByProduct" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Orders By Product" Height="16" HorizontalAlignment="Left" Margin="6,80,0,0" Name="rsOrdersByProduct" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Orders By Product Packaging" Height="16" HorizontalAlignment="Left" Margin="6,105,0,0" Name="rsOrdersByProductPackaging" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Orders By Date Exception" Height="16" HorizontalAlignment="Left" Margin="6,130,0,0" Name="rsOrdersByDateException" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Orders By ProductType" Height="16" HorizontalAlignment="Left" Margin="6,155,0,0" Name="rsOrdersByProductType" VerticalAlignment="Top" Width="199"></RadioButton>
+
+                                </Grid>
+                            </TabItem>
+                                <TabItem Header="Reconciliation Reports" Name="tiReconciliation">
+                                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="39*"/>
+                                            <ColumnDefinition Width="250*"/>
+                                            <ColumnDefinition Width="289*"/>
+                                            <ColumnDefinition Width="289*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                            <RowDefinition  Height="20"/>
+                                        </Grid.RowDefinitions>
+                                        <RadioButton Grid.Row="0" Content="Salesman Movements" Height="20" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsSalesmanMovement" VerticalAlignment="Top" Width="199" IsChecked="True" Grid.ColumnSpan="2" />
+                                        <RadioButton Grid.Row="1"  Content="Lost Orders by Brand" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsLostOrdersByBrand" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2" />
+                                        <RadioButton Grid.Row="2" Content="Lost Orders Summary" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsLostOrdersSummary" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2" />
+                                        <RadioButton Grid.Row="3" Content="Back Orders by Brand" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsBackOrdersByBrand" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2" />
+                                        <RadioButton Grid.Row="4" Content="Back Orders Summary" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsBackOrdersSummary" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2" />
+                                        <RadioButton Grid.Row="5" Content="Sale Quantity Summary" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsSalesQuantitySummary" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2" />
+                                        <RadioButton Grid.Row="6" Content="Sale Value Summary" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsSalesValueSummary" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2" />
+                                        <RadioButton Grid.Row="7" Content="Outstanding Payment" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsOutstandingPayment" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2" />
+                                        <RadioButton Grid.Row="8" Content="Cash Sales" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsCashSalesReconciliation" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2" />
+                                        <RadioButton Grid.Row="9" Content="Brand Sales" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsBrandSalesReconciliation" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2" />
+                                        <RadioButton Grid.Row="10" Content="Brand Performance" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsBrandPerformance" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2" />
+                                        <RadioButton Grid.Row="11" Content="Losses" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsLosses" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2"/>
+                                        <RadioButton Grid.Row="12" Content="Zero Sales" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsZeroSales" VerticalAlignment="Top" Width="199" Grid.ColumnSpan="2"/>
+                                        
+                                        <RadioButton Grid.Column="2" Content="Close of Day" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsCloseOfDay" VerticalAlignment="Top" Width="199"/>
+                                        <RadioButton Grid.Column="2" Grid.Row="1" Content="Sales and Gross Profit" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsSalesAndGrossProfit" VerticalAlignment="Top" Width="199"  />
+                                        <RadioButton Grid.Column="2" Grid.Row="2" Content="Outlets Summary by Product" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="rsOutletsSummaryByProduct" VerticalAlignment="Top" Width="199"  />
+
+                                    </Grid>
+                                </TabItem>
+                                    <TabItem Header="Deliveries Reports" Name="tiDeliveries">
+                                    <Grid>
+                                        <RadioButton Content="Deliveries Summary" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsDeliveriesByDistributor" VerticalAlignment="Top" Width="199" IsChecked="True" />
+                                    </Grid>
+                                </TabItem>
+                                    <TabItem Header="Inventory Reports" Name="tiInventory" >
+                                <Grid>
+                                    <!--<RadioButton Content="Stock Summary" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="tbStockSummary" VerticalAlignment="Top" Width="199" IsChecked="True" />-->
+                                        <RadioButton Content="Stock Summary" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsStockSummary" VerticalAlignment="Top" Width="199" IsChecked="True" />
+                                      
+                                    <!--<RadioButton Content="Stock By Brand" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="tbStockByBrand" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Stock By Brand" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsStockByBrand" VerticalAlignment="Top" Width="199" />
+                                       
+                                    <!--<RadioButton Content="Stock By SalesMan" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rbStockBySalesMan" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Stock By Distributor" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rsStockByDistributor" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Stock at Distributor" Height="16" HorizontalAlignment="Left" Margin="6,80,0,0" Name="rsStockAtDistributor" VerticalAlignment="Top" Width="199" />
+
+                                        <!--<RadioButton Content="Stock Returns" Height="16" HorizontalAlignment="Left" Margin="6,80,0,0" Name="rbStockReturns" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Stock By Salesman" Height="16" HorizontalAlignment="Left" Margin="6,105,0,0" Name="rsStockBySalesman" VerticalAlignment="Top" Width="199" />
+
+                                   <!--<RadioButton Content="Reorder Level" Height="16" HorizontalAlignment="Left" Margin="6,105,0,0" Name="rbReorder" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Stock By Sub Brand" Height="16" HorizontalAlignment="Left" Margin="6,130,0,0" Name="rsStockBySubBrand" VerticalAlignment="Top" Width="199" />
+
+                                   <!--<RadioButton Content="Close of Day" Height="16" HorizontalAlignment="Left" Margin="6,130,0,0" Name="rbCloseOfDay" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Stock By Packaging" Height="16" HorizontalAlignment="Left" Margin="6,155,0,0" Name="rsStockByPackaging" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Stock Returns" Height="16" HorizontalAlignment="Left" Margin="6,180,0,0" Name="rsStockReturns" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Stock Take" Height="16" HorizontalAlignment="Left" Margin="6,205,0,0" Name="rsStockTake" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Stock Movement" Height="16" HorizontalAlignment="Left" Margin="6,230,0,0" Name="rsStockMovement" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Product Catalog" Height="16" HorizontalAlignment="Left" Margin="6,255,0,0" Name="rsProductCatalog" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Stock By Product Type" Height="16" HorizontalAlignment="Left" Margin="6,280,0,0" Name="rsStockByProductType" VerticalAlignment="Top" Width="199" />
+                                    </Grid>
+                            </TabItem >
+                                <TabItem Header="Inventory Receipt Reports" Name="tiInventoryReceipt" >
+                                    <Grid>
+                                        <RadioButton Content="Inventory Receipt By Brand" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsInventoryReceiptByBrand" VerticalAlignment="Top" Width="199" IsChecked="True" />
+                                        <RadioButton Content="Inventory Receipt By Distributor" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsInventoryReceiptByDistributor" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Inventory Receipt By Packaging" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rsInventoryReceiptByPackaging" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Inventory Receipt By SubBrand" Height="16" HorizontalAlignment="Left" Margin="6,80,0,0" Name="rsInventoryReceiptBySubBrand" VerticalAlignment="Top" Width="199" />
+                                    </Grid>
+                                </TabItem >
+                                <TabItem Header="Purchases" Name="tiPurchases">
+                                    <Grid>
+                                        <RadioButton Content="Purchases By Distributor" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsPurchasesByDistributor" VerticalAlignment="Top" Width="199" IsChecked="True" />
+                                        <RadioButton Content="Purchases By Brand" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsPurchasesByBrand" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Purchases By Packaging" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rsPurchasesByPackaging" VerticalAlignment="Top" Width="199"  />
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Routes By Distributor" Name="tiRoutesByDistributor" >
+                                    <Grid>
+                                        <RadioButton Content="Routes By Distributor" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsRoutesByDistributor" VerticalAlignment="Top" Width="199" IsChecked="True" />
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Payment Summary" Name="tiPaymentSummaryReports" >
+                                <Grid>
+                                        <RadioButton Content="Payments Summary" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rSPaymentSummary" VerticalAlignment="Top" Width="199" IsChecked="True" />
+                                        <RadioButton Content="Payments Summary Per Salesman" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rSPaymentSummaryPerSalesman" VerticalAlignment="Top" Width="199"/>
+                                        <!--<RadioButton Content="Payments Summary" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rbPaymentSummary" VerticalAlignment="Top" Width="199" IsChecked="True" />-->
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Exception Reports" Name="tiExceptionReports" >
+                                <Grid>
+                                    <RadioButton Content="Sales Exception Report" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" x:Name="rsSalesDateExReport" VerticalAlignment="Top" Width="199" IsChecked="True" />
+                                    <!--<RadioButton Content="Orders Exception Report" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rbOrderExReport" VerticalAlignment="Top" Width="199" />-->
+                                </Grid>
+                            </TabItem>
+                                <TabItem Header="Outlet Reports" Name="tiOutlets" >
+                                    <Grid>
+                                        <!--<RadioButton Content="Outlets By Date Created" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rbOutletsByDate" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Outlets By Distributor" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsOutletsByDistributor" VerticalAlignment="Top" Width="199" IsChecked="True" />
+
+                                        <!--<RadioButton Content="Zero Sales Outlets" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rbZeroSalesOutlets" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Outlets By Category" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsOutletsCategory" VerticalAlignment="Top" Width="199" />
+
+                                        <RadioButton Content="Outlets By Tier" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rsOutletByTier" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Distributor Outlets Summary" Height="16" HorizontalAlignment="Left" Margin="6,80,0,0" Name="rsDistributorOutlets" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Outlets By Type" Height="16" HorizontalAlignment="Left" Margin="6,105,0,0" Name="rsOutletsByType" VerticalAlignment="Top" Width="199" />
+
+
+                                    </Grid>
+                                </TabItem>
+                            
+                                <TabItem Header="Targets Reports" Name="tiTargets" >
+                                    <Grid>
+                                        <RadioButton Content="Distributor Targets" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsDistributorTargets" VerticalAlignment="Top" Width="199" IsChecked="True" />
+                                        <RadioButton Content="Salesman Targets" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsSalesmanTargets" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Outlet Targets" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rsOutletTargets" VerticalAlignment="Top" Width="199" />
+
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Discount Reports" Name="tiDiscounts" >
+                                    <Grid>
+                                        <!--<RadioButton Content="Free of Charge" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rbFreeProducts" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Total Discounts By Distributor" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsTotalDiscountsByDistributor" VerticalAlignment="Top" Width="199" IsChecked="True"/>
+                                        <RadioButton Content="Product Discounts" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsProductDiscount" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Promotion Discounts By Distributor" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rsPromoDiscountsByDistributor" VerticalAlignment="Top" Width="255" />
+                                        <RadioButton Content="Promotion Discounts By Product" Height="16" HorizontalAlignment="Left" Margin="6,80,0,0" Name="rsPromoDiscountsByProduct" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Certain Value Certain Product Discount" Height="16" HorizontalAlignment="Left" Margin="6,105,0,0" Name="rsCVCP" VerticalAlignment="Top" Width="225" />
+                                        <RadioButton Content="Free Of Charge Discounts By Distributor" Height="16" HorizontalAlignment="Left" Margin="6,130,0,0" Name="rsFOCByDistributor" VerticalAlignment="Top" Width="230" />
+                                        <RadioButton Content="Free Of Charge Discounts By Product" Height="16" HorizontalAlignment="Left" Margin="6,155,0,0" Name="rsFOCByProduct" VerticalAlignment="Top" Width="230" />
+                                        <RadioButton Content="Sale Value Discount Summary" Height="16" HorizontalAlignment="Left" Margin="6,180,0,0" Name="rsSVDSummary" VerticalAlignment="Top" Width="230" />
+                                        <RadioButton Content="Sale Value Discount per Outlet" Height="16" HorizontalAlignment="Left" Margin="6,205,0,0" Name="rsSVDperOutlet" VerticalAlignment="Top" Width="230" />
+
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Audit Reports" Name="tiAudit" >
+                                    <Grid>
+                                        <RadioButton Content="Audit Trail" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsAuditTrail" VerticalAlignment="Top" Width="199" IsChecked="True"/>
+                                        <!--<RadioButton Content="Stock Movement Summary" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsAuditStockMovement" VerticalAlignment="Top" Width="199" />-->
+                                        <RadioButton Content="Stock Movement Per Product" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsAuditStockMovementPerProduct" VerticalAlignment="Top" Width="199" />
+                                        <RadioButton Content="Salesman Stock Movement Per Product" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rsAuditSalesmanStockMovementPerProduct" VerticalAlignment="Top" Width="230" />
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Call Protocol Reports" Name="tiCall" >
+                                    <Grid>
+                                        <RadioButton Content="Sales Call Report" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsSalesCall" VerticalAlignment="Top" Width="199" IsChecked="True"/>
+                                        <!--<RadioButton Content="Stock Movement" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsAuditStockMovement" VerticalAlignment="Top" Width="199" />-->
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Crate Reports" Name="tiCrates">
+                                    <Grid>
+                                    <RadioButton Content="Crate Sales Summary" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsCrateSales" VerticalAlignment="Top" Width="199" IsChecked="True"/>
+                                    <RadioButton Content="Crate Orders Summary" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsCrateOrders" VerticalAlignment="Top" Width="199" />
+                                    <RadioButton Content="Crate Deliveries Summary" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rsCrateDeliveries" VerticalAlignment="Top" Width="199" />
+                                    <RadioButton Content="Crate Inventory By Distributor" Height="16" HorizontalAlignment="Left" Margin="6,80,0,0" Name="rsCrateInvByDistributor" VerticalAlignment="Top" Width="199" />
+                                    <RadioButton Content="Crate Inventory At Distributor" Height="16" HorizontalAlignment="Left" Margin="6,105,0,0" Name="rsCrateInvAtDistributor" VerticalAlignment="Top" Width="199" />
+                                    <RadioButton Content="Crate Inventory By Salesman" Height="16" HorizontalAlignment="Left" Margin="6,130,0,0" Name="rsCrateInvBySalesman" VerticalAlignment="Top" Width="199" />
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Stockist Reports" Name="tiStockist">
+                                    <Grid>
+                                        <RadioButton Content="Stock By Stockist" Height="16" HorizontalAlignment="Left" Margin="6,5,0,0" Name="rsStockistStock" VerticalAlignment="Top" Width="199" IsChecked="True"/>
+                                        <RadioButton Content="Stock By Stockist Salesman" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="rsStockistSalesmanStock" VerticalAlignment="Top" Width="199"/>
+                                        <RadioButton Content="Sales By Stockist" Height="16" HorizontalAlignment="Left" Margin="6,55,0,0" Name="rsStockistSales" VerticalAlignment="Top" Width="199"/>
+                                        <RadioButton Content="Sales By Stockist Salesman" Height="16" HorizontalAlignment="Left" Margin="6,80,0,0" Name="rsStockistSalesmanSales" VerticalAlignment="Top" Width="199"/>
+                                    </Grid>
+                                </TabItem>
+                            </TabControl>
+                    
+                        <Button Content="View Report" Height="28" HorizontalAlignment="Left" Margin="342,404,0,0" Name="cmdGenerateReport" VerticalAlignment="Top" Width="244" Click="cmdGenerateReport_Click" IsEnabled="{Binding ServerUrlIsSet}"/>
+                    </Grid>
+                </Border>
+            </TabItem>
+        </TabControl>
+        </DockPanel>
+    </Grid>
+</UI_Utillity:PageBase>

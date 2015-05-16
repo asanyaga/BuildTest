@@ -1,0 +1,53 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.GRN.SelectApprovedOrders"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+   d:DesignWidth="740" d:DesignHeight="480"
+           DataContext="{Binding SelectApprovedOrdersViewModel, Source={StaticResource Locator}}"  
+           Title="SelectApprovedOrders Page">
+
+    <Grid x:Name="LayoutRoot">
+        <StackPanel Width="720">
+            <Label Grid.Row="1" Grid.ColumnSpan="2" Height="28" HorizontalAlignment="Left"  Name="lblPageHeader" VerticalAlignment="Top"  Content="Receive Inventory" Width="308" FontSize="14" FontWeight="Bold"/>
+            <Border Height="429" Name="_border" CornerRadius="10">
+                <Grid Height="410" Name="grid1" Width="717">
+                    <DataGrid AutoGenerateColumns="False" Height="398" ItemsSource="{Binding Path=ApprovedOrders, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,5,0,0" Name="ApprovedOrdersDataGrid" VerticalAlignment="Top" Width="707" SelectedItem="{Binding Path=SelectedApprovedOrderItem, Mode=TwoWay}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding DocumentRef}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Order Reference" x:Name="colorderref" IsReadOnly="True" Width="Auto" />
+                            <DataGridTextColumn Binding="{Binding Date}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Order Date" x:Name="colorderdate" IsReadOnly="True" Width="Auto" />
+                            <DataGridTextColumn Binding="{Binding OrderValue}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Order Value" x:Name="colordervalue" IsReadOnly="True" Width="Auto" />
+                            <!--<sdk:DataGridCheckBoxColumn Binding="{Binding Path=IsSelected, Mode=TwoWay}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Select Order" Width="Auto" />-->
+                            <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" Header="Select Order" x:Name="colaction" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="chkSelectOrder" Checked="chkSelectOrder_Checked" Unchecked="chkSelectOrder_Unchecked" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        </CheckBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+            <!--<ListBox Name="lbPendingOrders" ItemsSource="{Binding ApprovedOrders}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding DocumentRef}" Margin="20,0,0,0"  />
+                            <TextBlock Text="{Binding Date}" Margin="20,0,0,0"  />
+                            <TextBlock Text="{Binding OrderValue}" Margin="20,0,0,0"  />
+                            <CheckBox  IsChecked="{Binding Path=IsSelected, Mode=TwoWay}" Margin="20,0,0,0"   />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>-->
+
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="SelectOrder" Content="Receive" Command="{Binding SelectOrders}" Width="99" />
+                <Button x:Name="cancel" Content="Cancel" Command="{Binding CancelSelectOrders}" Margin="20,0,20,0" Width="100" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,57 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Administration.SalesmanSupplier.SalesmanSupplier"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+     Title="SalesmanSupplier"  DataContext="{Binding SalesmanSupplierViewModel, Source={StaticResource Locator} }"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
+       xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45" mc:Ignorable="d"  d:DesignWidth="640" d:DesignHeight="480"
+	  >
+    <Grid x:Name="LayoutRoot">
+        <Grid Margin="0,0,0,8">
+            <Border BorderBrush="Black" BorderThickness="1" Margin="0,0,8,8" CornerRadius="10">
+                <Grid HorizontalAlignment="Center">
+                    <Label x:Name="lblRoute" HorizontalAlignment="Left" Height="30" Margin="50,38,0,0" VerticalAlignment="Top" Width="81" Content="Salesman"/>
+                    <StackPanel Margin="7,0,-7,0" >
+                        <TextBox x:Name="cboSsupplier"  HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
+                              Text="{Binding SelectedSalesman.Name, Mode=TwoWay}" IsReadOnly="True" Height="28" Margin="116,39,242,0"/>
+                        <Button Content="..."   VerticalContentAlignment="Center " Command="{Binding SalesmanDropDownOpenedCommand}"  Margin="402,-28,198,398"  Width="30" Height="28"  IsEnabled="{Binding CanChange, Mode=TwoWay}" RenderTransformOrigin="2.727,-2.399" />
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" >
+                                <cmd:EventToCommand Command="{Binding SalesmanDropDownOpenedCommand, Mode=TwoWay}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,73,0,131">
+                        <Border BorderBrush="Black" BorderThickness="1" Margin="50,0,0,317" HorizontalAlignment="Left">
+                            <DataGrid Width="389" ItemsSource="{Binding SalemanSupplierItems}" AutoGenerateColumns="False" x:Name="DgSalemanSupplier" Margin="0,10,0,0" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="150" x:Name="ColSupplier" Header="Supplier" Binding="{Binding Supplier.Name}" IsReadOnly="True"/>
+                                    <!-- <DataGridCheckBoxColumn x:Name="ColCheckbox" Header="Is Assigned" Binding="{Binding IsAssigned,Mode=TwoWay}"  />
+-->
+                                   
+
+                                    <DataGridTemplateColumn Header="Is Assigned">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate >
+                                                <CheckBox IsChecked="{Binding IsAssigned, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" HorizontalContentAlignment="Center"></CheckBox>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    
+                                    
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Border>
+                        <!--<Button Height="30" Width="60" RenderTransformOrigin="0.656,-3.985" Margin="284,-510,286,0"></Button>-->
+                        <Button Content="Save" Width ="80" Height="30" Margin="168,-590,382,0" RenderTransformOrigin="0.425,-2.333" Command ="{Binding SaveCommand}"/>
+                        <Button Content="Cancel" Width ="80" Height="30" Margin="262,-590,288,0" Command="{Binding CancelCommand}"/>
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

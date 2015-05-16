@@ -1,0 +1,57 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Reports.AuditLog"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+        d:DesignWidth="900" d:DesignHeight="480"
+                 DataContext="{Binding AuditLogViewModel, Source={StaticResource Locator}}"
+           Title="AuditLog Page" Loaded="Page_Loaded">
+
+    <Grid x:Name="LayoutRoot">
+        <StackPanel>
+            <!--<Border BorderBrush="Silver" BorderThickness="1" Height="Auto" HorizontalAlignment="Left" Margin="0,0,0,0" Name="border1" VerticalAlignment="Top" Width="826" CornerRadius="10">-->
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Start Date:" Height="23" Margin="10,0,0,0" Name="lblStartDate" HorizontalAlignment="Right"/>
+                <DatePicker Name="StartDateDP" SelectedDate="{Binding StartDate, Mode=TwoWay}" Width="100" Height="23"  Margin="10,0,0,0"/>
+                <Label Content="End Date:" Height="23" Margin="15,0,0,0" Name="lblEndDate" HorizontalAlignment="Right" />
+                <DatePicker  Margin="10,0,0,0" Name="EndDateDP" SelectedDate="{Binding EndDate, Mode=TwoWay}" Width="100" Height="23" />
+                <Label Name="lblUsers" Content="Users:" Height="23" Margin="20,0,0,0" />
+                <ComboBox DisplayMemberPath="Username"  
+                          ItemsSource="{Binding UsersList, Mode=TwoWay}" Name="cmbSalesman" 
+                          SelectedItem="{Binding SelectedUser, Mode=TwoWay}" 
+                          Width="Auto" Height="23" Margin="10,0,0,0" MinWidth="100" />
+                <Button Content="Run Report" Height="23" Name="cmdGenerate" Width="80" Click="cmdGenerate_Click"  Margin="20,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0" >
+                <Label Margin="0,0,0,0" Name="lblSearchByModule" Width="123" HorizontalAlignment="Right" Content="Search By Module:" Height="23" />
+                <TextBox Name="txtSearch" Width="150" Text="{Binding Path=SearchParameter, Mode=TwoWay}" Height="23" Margin="10,0,20,0" />
+                <Button Content="Search" Name="cmdSearch" Width="50" Click="cmdSearch_Click" Height="23" Margin="0,0,10,0" />
+                <Button Content="Clear" Name="cmdClear" Width="50" Click="cmdGenerate_Click" Height="23" Margin="0,0,10,0" />
+            </StackPanel>
+            <Grid Name="grid1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="802*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="25*" />
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="414*" />
+                    <RowDefinition Height="4*" />
+                </Grid.RowDefinitions>
+                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding AuditLogList, Mode=TwoWay}" Grid.Row="3" Height="Auto" Margin="6,1,0,0" Name="dgAuditLog" IsReadOnly="True" VerticalAlignment="Top" Width="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding ActionUser}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="User" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding Module}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Module" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding ActionTimeStamp}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Time Stamp" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding Action}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Action Done" MinWidth="200" Width="Auto" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </StackPanel>
+        <!--</Border>-->
+        <!--<Label Height="17" HorizontalAlignment="Left" Name="lblTitle" VerticalAlignment="Top" Width="850" Content="Audit Log Report" />-->
+    </Grid>
+</Page>

@@ -1,0 +1,95 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Orders.OrderDispatch"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+      xmlns:converters="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="800" DataContext="{Binding OrderDispatchViewModel,Source={StaticResource Locator}}"
+	Title="OrderDispatch">
+    <Page.Resources>
+        <converters:VisibilityConverter x:Key="VisibilityConverter"/>
+        <converters:AmountDecimalConverter x:Key="AmountDecimalConverter"/>
+    </Page.Resources>
+    <Grid>
+        <StackPanel>
+            <TextBlock Height="30" FontSize="16" FontWeight="Bold" Foreground="White">
+                <TextBlock.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF007ACC" Offset="1"/>
+                        <GradientStop Color="#FF0089E8" Offset="0.1"/>
+                    </LinearGradientBrush>
+                </TextBlock.Background>Dispatch order</TextBlock>
+            <Grid Height="40">
+                <Label x:Name="lblRoute" Content="Route" HorizontalAlignment="Left" Margin="19,6,0,0" VerticalAlignment="Top" Width="49"/>
+                <ComboBox x:Name="ComboBoxSelectedRoute"  IsDropDownOpen="False"  DisplayMemberPath="Name" SelectedItem="{Binding SelectedRoute,Mode=TwoWay}" ItemsSource="{Binding RoutesLookUp,Mode=TwoWay}" HorizontalAlignment="Left" Margin="67,8,0,0" VerticalAlignment="Top" Width="181"  Height="24">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged" >
+                            <cmd:EventToCommand Command="{Binding RouteChangedCommand, Mode=OneWay}"/>
+                        </i:EventTrigger>
+                        <i:EventTrigger EventName="DropDownOpened" >
+                            <cmd:EventToCommand Command="{Binding RouteDropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=ComboBoxSelectedRoute}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+                <Label x:Name="lblSalesman" Content="Salesman" HorizontalAlignment="Left" Margin="253,5,0,0" VerticalAlignment="Top" Width="71"/>
+                <ComboBox x:Name="ComboBoxSelectedSalesman"  IsDropDownOpen="False"  DisplayMemberPath="Name" SelectedItem="{Binding SelectedSalesman,Mode=TwoWay}" ItemsSource="{Binding SalesmanLookUp,Mode=TwoWay}" HorizontalAlignment="Left" Margin="329,6,0,0" VerticalAlignment="Top" Width="234"  Height="26">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged" >
+                            <cmd:EventToCommand Command="{Binding SalesmanChangedCommand, Mode=OneWay}"/>
+                        </i:EventTrigger>
+                        <i:EventTrigger EventName="DropDownOpened" >
+                            <cmd:EventToCommand Command="{Binding SalesmanDropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=ComboBoxSelectedSalesman}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+                <CheckBox IsChecked="{Binding IsChecked,Mode=TwoWay}" Command="{Binding SelectOrderItemCommand,Mode=TwoWay}" Content="Select All" HorizontalAlignment="Right" Margin="712,10,0,0" VerticalAlignment="Top"/>
+
+            </Grid>
+            <Border CornerRadius="5" Height="400" BorderThickness="1" BorderBrush="Black">
+                <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" ItemsSource="{Binding OrderDispatchItemSummaryList,Mode=TwoWay}" Margin="24,-9,-24,9" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding SequenceNo,Mode=TwoWay}" Header="No."/>
+                        <DataGridTextColumn x:Name="colOrderRef" Binding="{Binding OrderReference,Mode=TwoWay}" Header="Order ref"/>
+                        <DataGridTextColumn x:Name="colRequired"  Binding="{Binding Required,Mode=TwoWay,StringFormat={}{0:d-MMM-yyyy}}" Header="Required"/>
+                        <DataGridTextColumn x:Name="colSalesman"   Binding="{Binding Salesman,Mode=TwoWay}"  Header="Salesman"/>
+                        <DataGridTextColumn x:Name="colDeliveryPerson" Binding="{Binding ChangeToSalesman.Name,Mode=TwoWay}"  Header="Delivery Person"/>
+
+                        <DataGridTextColumn x:Name="colStatus" Binding="{Binding Status,Mode=TwoWay}"  Header="Status"/>
+                        <DataGridTextColumn x:Name="colNet" Binding="{Binding NetAmount,Mode=TwoWay,Converter={StaticResource AmountDecimalConverter}}"  Header="Net"/>
+                        <DataGridTextColumn x:Name="colGross" Binding="{Binding TotalVat,Mode=TwoWay,Converter={StaticResource AmountDecimalConverter}}"  Header="Vat"/>
+                        <DataGridTextColumn x:Name="colChangeSalesman" Binding="{Binding GrossAmount,Mode=TwoWay,Converter={StaticResource AmountDecimalConverter}}" Header="Gross"/>
+                       
+                        <DataGridTemplateColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Header="Select">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ItemsControl>
+                                        <CheckBox IsChecked="{Binding IsChecked, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
+                                        <!--<Hyperlink x:Name="Delete" Command="{Binding DataContext.BackCommand,ElementName=dataGrid,Mode=TwoWay}"  >Test</Hyperlink>-->
+                                    </ItemsControl>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Header="Change Salesman">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ItemsControl>
+                                        <Hyperlink  Command="{Binding DataContext.ChangeSalesmanCommand,ElementName=dataGrid,Mode=TwoWay}" CommandParameter="{Binding}"  >Change Delivery Person</Hyperlink>
+                                    </ItemsControl>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+
+                </DataGrid>
+            </Border>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btnDispatch" Command="{Binding DispatchCommand,Mode=TwoWay}" Margin="10,5,10,0" Content="Dispatch" Height="30" Width="102" />
+                <Button x:Name="btnBack" Command="{Binding BackCommand,Mode=TwoWay}" Margin="10,5,10,0" Content="Back" Height="30" Width="102" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

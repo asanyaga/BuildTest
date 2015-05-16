@@ -1,0 +1,75 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.Administration.Outlets.QuickSetPriority"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      DataContext="{Binding EditOutletPriorityViewModel, Source={StaticResource Locator}}"
+
+    Title="QuickSetPriority" Height="39" Width="455" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+   
+    
+    <Grid x:Name="LayoutRoot" Height="Auto" Width="Auto" Margin="0">
+
+        <Border x:Name="Frame" Width="Auto" Height="Auto" Background="LightYellow">
+
+            <StackPanel Orientation="Vertical" Width="Auto">
+
+                <Border Width="Auto" Height="Auto" BorderBrush="Blue" BorderThickness="0.5">
+
+                    <Border.Background>
+
+                        <LinearGradientBrush StartPoint="0.5,0.0"
+
+                        EndPoint="0.5,1.0">
+
+                            <GradientStop Offset="0.2" Color="#FF1C68A0" />
+
+                            <GradientStop Offset="1.0" Color="#FF54A7E2" />
+
+                        </LinearGradientBrush>
+
+                    </Border.Background>
+
+                    <Border.Effect>
+
+                        <DropShadowEffect BlurRadius="4" ShadowDepth="4"
+
+                        Opacity="0.4" />
+
+                    </Border.Effect>
+                    <StackPanel Orientation="Horizontal" Width="Auto" Margin="2">
+                        <Label x:Name="lblOutlet" Content="Outlet:" FontSize="12" FontWeight="Bold" Foreground="White" Margin="5,0,5,0" Width="50"/>
+                        <ComboBox x:Name="cmbRouteOutlets" Margin="5,0,5,0" MinWidth="200" Width="Auto"
+                                  ItemsSource="{Binding Path=QuickSetRouteOutlets, Mode=TwoWay}"
+                                  SelectedItem="{Binding Path=SelectedRouteOutlet, Mode=TwoWay}"
+                                  DisplayMemberPath="Name">
+                            <!--<i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding QuickSetRouteOutletsSelecteionChangedCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>-->
+                        </ComboBox>
+                        <TextBox x:Name="txtPriority" Text="{Binding Path=OutletPriorityToSet}" Width="50" Margin="5,0,5,0" KeyDown="txtPriority_KeyDown" TextChanged="txtPriority_TextChanged"/>
+                        <Button x:Name="btnOk" Content="OK" Width="40" Margin="5,0,5,0" Foreground="White" FontSize="12" FontWeight="Bold" Command="{Binding Path=QuickSetPriorityCommand}" Click="OKButton_Click"/>
+                        <Button x:Name="btnCancel" Content="Cancel" Width="50" Margin="5,0,5,0" Foreground="White" FontSize="12" FontWeight="Bold" Click="CancelButton_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <StackPanel Orientation="Horizontal">
+
+                    <!--<Image Source=""  Width="32" Height="34"
+
+                    Stretch="Fill" Margin="4" VerticalAlignment="Top" />-->
+
+                    <!--<TextBlock Width="Auto" Text="Kazi sawa..."
+
+                    FontSize="11" Foreground="#FF202020" TextWrapping="Wrap"
+
+                    Margin="4" />-->
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</Window>

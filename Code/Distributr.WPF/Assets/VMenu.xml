@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+  <MenuHeader Text="POS" Image="../images/pos.jpg">
+    <!--<Menu_Item Text="Create POS" Url="\Views\pos\AddPOSSale.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Create POS 2" Url="\Views\pos\PostOrderRefactoring\EditPOS.xaml" Image="../images/MenuIcons/edit.png"/>
+     <Menu_Item Text="Sale Summary" Url="\Views\POS\ListPOSSales.xaml" Image="../images/MenuIcons/edit.png"/>-->
+    <Menu_Item Text="Create POS" Url="\Views\Order_Pos\AddPOS.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Sale Summary" Url="\Views\Order_Pos\ListPOSSales.xaml" Image="../images/MenuIcons/edit.png"/>
+   
+  </MenuHeader>
+  <MenuHeader Text="Orders" Image="../images/order.jpg">
+    <!--<Menu_Item Text="Create Order" Url="\Views\SalesmanOrders\EditSalesmanOrder.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Orders Summary" Url="\Views\SalesmanOrders\ListSalesmanOrders.xaml?PendingApprovals" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Dispatch Orders" Url="\Views\DispatchPendingOrdersToPhone\DispatchPendingOrdersToPhone.xaml" Image="../images/MenuIcons/edit.png"/>-->
+    <Menu_Item Text="Create Order" Url="\Views\Orders\CreateOrder.xaml" Image="../images/MenuIcons/edit.png"/>
+  <Menu_Item Text="Orders Summary" Url="\Views\Orders\SalesManOrdersListing.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Orders Summary Export" Url="\Views\Orders\OrderSummaryWithExport.xaml" Image="../images/MenuIcons/edit.png"/>
+  <Menu_Item Text="Dispatch Orders" Url="\Views\Orders\OrderDispatch.xaml" Image="../images/MenuIcons/edit.png"/>
+  </MenuHeader>
+  <MenuHeader Text="Purchasing" Image="../images/po.jpg">
+    <Menu_Item Text="Create Purchase Order" Url="\Views\Orders_Purchase\CreatePurchaseOrder.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Purchase Order Summary" Url="\Views\Orders_Purchase\PurchaseOrderListing.xaml" Image="../images/MenuIcons/edit.png"/>
+   </MenuHeader>
+   <MenuHeader Text="Stockist" Image="../images/po.jpg">
+    <Menu_Item Text="Create Stockist Order" Url="\Views\Orders_Stockist\CreateStockistOrder.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Stockist Order Summary" Url="\Views\Orders_Stockist\StockistPurchaseOrderListing.xaml" Image="../images/MenuIcons/edit.png"/>
+   </MenuHeader>
+  <MenuHeader Text="Inventory" Image="../images/MenuIcons/order.jpg">
+    <Menu_Item Text="Adjust Product Inventory" Url="\Views\IAN\EditIANView.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Receive Inventory" Url="\Views\GRN\ListGRN.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Issue Inventory" Url="\Views\ITN\EditITNView.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Receive Returnables" Url="\Views\ReceiveReturnable\RecieveReturnable.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Dispatch Products" Url="\Views\DispatchProducts\DispatchProducts.xaml" Image="../images/dispatch.jpg"/>
+    <Menu_Item Text="Reconcile Returnables" Url="\Views\ReconcileGenerics\ListGenericInventory.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Returns List" Url="\Views\RN\RetunsList.xaml" Image="../images/MenuIcons/edit.png"/>
+    
+    <Menu_Item Text="Stock Take" Url="\Views\ian\editianview.xaml?StockTake" Image="../images/MenuIcons/edit.png"/>
+   <Menu_Item Text="Import Salesman Inventory" Url="\Views\ITn\importsalesmanInventoryview.xaml?StockTake" Image="../images/MenuIcons/edit.png"/>
+  </MenuHeader>
+  <MenuHeader Text="Payments" Image="../images/payment.jpg">
+    <Menu_Item Text="Outstanding Payments" Url="\Views\Payments\ListPendingPayment.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Issue Credit Notes" Url="\Views\cn\listinvoices.xaml" Image="../images/MenuIcons/edit.png"/>
+   <Menu_Item Text="UnderBanking List" Url="\Views\RN\UnderBankingList.xaml" Image="../images/MenuIcons/edit.png"/>
+  </MenuHeader>
+  <MenuHeader Text="Reports" Image="../images/report.jpg">
+    <Menu_Item Text="Reports Menu" Url="\Views\Reports\Reports.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Financial Report" Url="\Views\Reports\FinancialsReport.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Payment Exception Reports" Url="\Views\Reports\PaymentReports.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="View Inventory Levels" Url="\Views\Reports\InventoryListing.xaml" Image="../images/dispatch.jpg"/>
+    <Menu_Item Text="View Inventory Issues" Url="\Views\Reports\InventoryIssuesReport.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="View Inventory Adjustment Reports" Url="\Views\Reports\InventoryAdjustmentsReport.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="View Stock Take Reports" Url="\Views\Reports\StockTakeReport.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Audit Log" Url="\Views\Reports\AuditLog.xaml" Image="../images/MenuIcons/edit.png"/>
+   </MenuHeader>
+  <MenuHeader Text="Sync &amp; Settings" Image="../images/MenuIcons/settings.png">
+    <Menu_Item Text="Sync" Url="\Views\Settings\Sync.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Sync Settings" Url="\Views\Settings\DistributrSyncSettings.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="Data Viewer" Url="\Views\Settings\DataViewer.xaml" Image="../images/MenuIcons/edit.png"/>
+    <Menu_Item Text="General Settings" Url="\Views\Settings\GeneralSettings.xaml" Image="../images/MenuIcons/edit.png"/>
+   </MenuHeader>
+</Menu> 

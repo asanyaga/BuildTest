@@ -1,0 +1,44 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Reports.InventoryListing" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           d:DesignWidth="800" d:DesignHeight="534"
+                 DataContext="{Binding ListInventoryViewModel, Source={StaticResource Locator}}"
+           Title="InventoryListing Page" >
+
+    <Grid x:Name="LayoutRoot" Width="778" Height="520">
+        <Label Content="Available Inventory List" FontSize="14" Height="28" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" Width="747" Margin="12,0,0,0" />
+        <Button Height="30" Width="91" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Print" Margin="0,48,42,0" Command="{Binding PrintReportCommand}" CommandParameter="{Binding ElementName=InventoryDataGrid}"/>
+        <Border BorderBrush="Silver" BorderThickness="1" Height="482" HorizontalAlignment="Left" Margin="10,30,0,0" Name="border1" VerticalAlignment="Top" Width="749" CornerRadius="8">
+            <Grid Height="462" Name="grid1" Margin="6,9,22,9">
+                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding InventoryList, Mode=TwoWay}" Height="388" HorizontalAlignment="Left" Margin="15,42,-6,0" Name="InventoryDataGrid" VerticalAlignment="Top" Width="710" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn CanUserReorder="True" Binding="{Binding InventoryOwner}" CanUserResize="True" CanUserSort="True" Header="Inventory Ware House" Width="Auto" />
+                        <DataGridTextColumn CanUserReorder="True" Binding="{Binding ProductDescription}" CanUserResize="True" CanUserSort="True" Header="Product Description" MinWidth="120" Width="Auto" />
+                        <DataGridTextColumn CanUserReorder="True" Binding="{Binding Quantity}" CanUserResize="True" CanUserSort="True" Header="Available Quantity" MinWidth="120" Width="Auto" />
+                        <DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" x:Name="ActionsColumn" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock>
+                                        <Hyperlink x:Name="hlView" Tag="{Binding Id}" Click="hlView_Click" >
+                                            <TextBlock x:Name="txtView" Text="View Related Transactions"/>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Label Content="Filter By:" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="57" Height="28"/>
+                <TextBox HorizontalAlignment="Left" Height="28" Margin="78,9,0,0" TextWrapping="Wrap" Text="{Binding SelectedWarehouse.Name, Mode=TwoWay}" VerticalAlignment="Top"  Width="148" IsReadOnly="True"/>
+                <Button Content="..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="231,9,0,0" VerticalAlignment="Top" Width="30" Height="30" Command="{Binding LoadWarehouseCommand}"/>
+                <Button Content="Load" HorizontalAlignment="Left" Margin="278,9,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="-0.267,-0.1" Height="30" Command="{Binding LoadInventoryList}"/>
+                <Button Content="All" HorizontalAlignment="Left" Margin="383,9,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="-0.267,-0.1" Height="30" Command="{Binding LoadAllInventoryCommand}"/>
+
+
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,40 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.RN.UnderBankingPayment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+        xmlns:Converter="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+        DataContext="{Binding UnderBankingCollectionViewModel, Source={StaticResource Locator}}"
+        Title="Under Banking Confirmation" Height="300" Width="578.571" ResizeMode="NoResize">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadCommand,Mode=TwoWay}" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Window.Resources>
+        <Converter:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Window.Resources>
+    <Grid>
+        <ScrollViewer>
+            <DataGrid  AutoGenerateColumns="False" Height="auto" MinHeight="240" ItemsSource="{Binding LineItems, Mode=TwoWay}" HorizontalAlignment="Stretch" Margin="20,10,20,0" Name="dataGrid" VerticalAlignment="Top" Width="auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Binding="{Binding ReCollectionType}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Type" Width="Auto" />
+                    <DataGridTextColumn   Binding="{Binding Amount}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Amount" Width="Auto" />
+                    
+                    <DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl  Visibility="{Binding IsConfirmed,Converter={StaticResource VisibilityConverter}}" >
+                                    <Hyperlink  Command="{Binding DataContext.ConfirmCommand,ElementName=dataGrid,Mode=TwoWay}" CommandParameter="{Binding}" >
+                                        <TextBlock Text="Confirm "></TextBlock>
+                                    </Hyperlink>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </ScrollViewer>
+    </Grid>
+</Window>

@@ -1,0 +1,135 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Administration.Users.SalesmanTargets"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45" mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="1100"
+      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      DataContext="{Binding EditSalesmanTargetsViewModel, Source={StaticResource Locator}}"
+	Title="SalesmanTargets" MinHeight="621" Height="auto" Width="auto">
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+        <utility:IsReadOnlyConverter x:Key="IsReadOnlyConverter"/>
+        <utility:IsEnabledConverter x:Key="IsEnabledConverter"/>
+    </Page.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadCommand}" PassEventArgsToCommand="True" CommandParameter="{Binding ElementName=pageEdit}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid x:Name="LayoutRoot" Width="auto">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Salesman" Width="80" />
+               <!-- <ComboBox Margin="5,5,5,0" Width="200" Height="28" ItemsSource="{Binding Path=Salesmen, Mode=TwoWay}" 
+                          DisplayMemberPath="Username" SelectedItem="{Binding Path=SelectedSalesman, Mode=TwoWay}" SelectionChanged="ComboBox_SelectionChanged" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding Path=OnSalesmanChangedCommand}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>-->
+
+
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Margin="5" >
+                    <TextBox Grid.Row="21" Grid.Column="1" x:Name="cmbSalesman" Margin="3,3,10,3" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"  Width="195"
+                              Text="{Binding SalesmanNameHolder, Mode=TwoWay}">
+                    </TextBox>
+                    <Button Content="..."   VerticalContentAlignment="Center " Command="{Binding  SalemanDropDownOpenedCommand}"  Margin="0,0,0,0"  MinWidth="30" Height="25"  IsEnabled="{Binding CanChange, Mode=TwoWay}" />
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click" >
+                            <cmd:EventToCommand Command="{Binding SalemanDropDownOpenedCommand, Mode=TwoWay}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </StackPanel>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Period:" Width="80" />
+               <!-- <ComboBox Margin="5,5,5,0" Width="200" Height="28" ItemsSource="{Binding Path=TargetPeriods, Mode=TwoWay}"
+                                      DisplayMemberPath="Name"
+                                      SelectedItem="{Binding Path=SelectedTargetPeriod, Mode=TwoWay}" VerticalAlignment="Top">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding Path=OnTargetPeriodChangedCommand}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>-->
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Margin="5" >
+                    <TextBox Grid.Row="21" Grid.Column="1" x:Name="cmbPeriod" Margin="3,3,10,3" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"  Width="195"
+                              Text="{Binding SelectedTargetPeriod.Name, Mode=TwoWay}">
+                    </TextBox>
+                    <Button Content="..."   VerticalContentAlignment="Center " Command="{Binding  PeriodDropDownOpenedCommand}"  Margin="0,0,0,0"  MinWidth="30" Height="25"  IsEnabled="{Binding CanChange, Mode=TwoWay}" />
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click" >
+                            <cmd:EventToCommand Command="{Binding SalemanDropDownOpenedCommand, Mode=TwoWay}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="35" Margin="0,0,0,10" >
+                <Label Content="Set Target As:" Width="90" Margin="0,10,10,0" HorizontalContentAlignment="Right"/>
+                <RadioButton Content="Quantity" Width="80" Margin="10,10,0,0" VerticalAlignment="Center" IsChecked="{Binding Path=SetAsQty, Mode=TwoWay}" />
+                <RadioButton Content="Amount" Width="80" Margin="20,10,10,0" VerticalAlignment="Center" IsChecked="{Binding Path=SetAsAmt, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="35" Margin="0,0,0,10">
+                <Label Content="Target:" Width="60" FontWeight="Bold"/>
+                <TextBox Text="{Binding Path=Target, Mode=TwoWay}" Width="90" Height="35"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="35" Margin="0,0,0,20">
+                <Button Content="Save" Margin="0,0,50,0" Height="30" Width="80" Command="{Binding Path=SaveCommand}" IsEnabled="{Binding Path=CanSave, Converter={StaticResource IsEnabledConverter}}"/>
+                <Button Content="Cancel" Margin="0,0,50,0" Height="30" Width="80" Command="{Binding Path=CancelCommand}" IsEnabled="{Binding Path=CanCancel, Converter={StaticResource IsEnabledConverter}}"/>
+            
+            
+            </StackPanel>
+        </StackPanel>
+        <Border Grid.Column="1">
+            <StackPanel Orientation="Vertical">
+                <GroupBox>
+                    <GroupBox.Header>
+                        <Label Content="Salesman Target Info"/>
+                    </GroupBox.Header>
+                <DataGrid AutoGenerateColumns="False" Height="100" Name="dgTargets" Width="Auto" ItemsSource="{Binding Path=SalesmanTargets}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="30" 
+                    		Header="" IsReadOnly="True" />
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" 
+                                                Binding="{Binding Path=Target, StringFormat=#\,0.00;(#\,0.00);0}" Header="Target" IsReadOnly="True" />
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                                                Binding="{Binding Path=TargetSetAs}" Header="Target Set As" IsReadOnly="True" />
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" 
+                                                Binding="{Binding Path=Period}" Header="Period" IsReadOnly="True" />
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" 
+                                                Binding="{Binding Path=From, StringFormat='{}{0:dd-MMM-yyyy}'}" Header="From" IsReadOnly="True" />
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" 
+                                                Binding="{Binding Path=To, StringFormat='{}{0:dd-MMM-yyyy}'}" Header="To" IsReadOnly="True" />
+                        <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="100" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                       <TextBlock>
+                                            <Hyperlink Command="{Binding Path=DataContext.OnDeleteTargetClickedCommand, ElementName=dgTargets}"
+                                                       CommandParameter="{Binding}">
+                                                <TextBlock Text="Delete"/>
+                                            </Hyperlink>
+                                       </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                </GroupBox>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

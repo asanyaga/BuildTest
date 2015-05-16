@@ -1,0 +1,46 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Reports.InventoryIssuesReport" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+                
+                 d:DesignHeight="557" d:DesignWidth="900" 
+                 DataContext="{Binding ListITNViewModel, Source={StaticResource Locator}}"
+                 Title="InventoryIssuesReport Page" xmlns:sdk1="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <Grid x:Name="LayoutRoot" Width="850">
+        <Label Height="30" HorizontalAlignment="Left" Name="lblTitle" VerticalAlignment="Top" Width="850" Content="Inventory Transfers Report" FontSize="14" Margin="12,0,0,0" />
+        <Border BorderBrush="Silver" BorderThickness="1" Height="514" HorizontalAlignment="Left" Margin="0,35,0,0" Name="border1" VerticalAlignment="Top" Width="850" CornerRadius="8">
+            <Grid Height="500" Name="grid1" Width="840">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="332*" />
+                    <ColumnDefinition Width="319*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="34*" />
+                    <RowDefinition Height="34*" />
+                    <RowDefinition Height="34*" />
+                    <RowDefinition Height="428*" />
+                </Grid.RowDefinitions>
+                <Label Height="28" HorizontalAlignment="Left" Margin="27,4,0,0" Name="lblStartDate" VerticalAlignment="Top" Width="123" Content="Start Date:" />
+                <DatePicker Height="28" SelectedDate="{Binding StartDate, Mode =TwoWay}" HorizontalAlignment="Left" Margin="150,2,0,0" Name="StartDateDP" VerticalAlignment="Top" Width="176" />
+                <Label Height="28" HorizontalAlignment="Left" Margin="7,4,0,0" Name="lblEndDate" VerticalAlignment="Top" Width="123" Content="End Date" Grid.Column="1" />
+                <DatePicker Height="28" SelectedDate="{Binding EndDate, Mode=TwoWay}" HorizontalAlignment="Left" Margin="136,2,0,0" Name="EndDateDP" VerticalAlignment="Top" Width="159" Grid.Column="1" />
+                <Label Height="28" HorizontalAlignment="Left" Margin="27,16,0,0" Name="label4" VerticalAlignment="Top" Width="123" Content="Sales Man:" Visibility="Collapsed" Grid.Row="2" Grid.RowSpan="2" />
+                <!--<ComboBox Height="28" HorizontalAlignment="Left" Margin="156,16,0,0" Name="cmbSalesMan" VerticalAlignment="Top" Width="159" Visibility="Collapsed" Grid.Row="2" Grid.RowSpan="2" />-->
+                <Button Content="Run Report" Height="23" HorizontalAlignment="Left" Margin="150,4,0,0" Name="cmdGenerate" VerticalAlignment="Top" Width="176" Click="cmdGenerate_Click" Grid.Row="2" />
+                <Button Content="Print Report" Height="23" HorizontalAlignment="Right" Margin="150,4,0,0"  VerticalAlignment="Top" Width="176" Command="{Binding PrintReportCommand}" CommandParameter="{Binding ElementName=ITNGrid}" Grid.Row="2" Grid.Column="1"/>
+                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ItnList, Mode=TwoWay}" Height="416" HorizontalAlignment="Left" Margin="6,6,0,0" Name="ITNGrid" VerticalAlignment="Top" Width="840" Grid.Row="3" Grid.ColumnSpan="2">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding ProductDescription}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Product Description" Width="Auto" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding IssuedQuantity}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Issued Quantity" MinWidth="120" Width="Auto" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding DateTransferred}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Issue Date" MinWidth="120" Width="Auto" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding SalesMan}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Issued Sales Man" IsReadOnly="True" Width="Auto" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Label Content="Salesmen:" Height="28" HorizontalAlignment="Left" Margin="27,1,0,0" Name="lblSalesmen" VerticalAlignment="Top" Width="123" Grid.Row="1" />
+                <ComboBox DisplayMemberPath="Name" Height="28" HorizontalAlignment="Left" Margin="150,2,0,0" Name="cmbSalesmen" SelectedItem="{Binding SelectedSaleMan, Mode=TwoWay}" VerticalAlignment="Top" Width="176" Grid.Row="1" ItemsSource="{Binding Path=SalesMen, Mode=TwoWay}" />
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

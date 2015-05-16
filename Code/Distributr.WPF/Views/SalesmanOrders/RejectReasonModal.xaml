@@ -1,0 +1,17 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.SalesmanOrders.RejectReasonModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="400" Height="247" 
+           Title="Reject Order">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="No" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,12,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="Yes" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,108,0" Grid.Row="1" />
+        <TextBox Height="109" HorizontalAlignment="Left" Margin="12,53,0,0" Name="txtRejectReason" TextWrapping="Wrap" VerticalAlignment="Top" Width="354" />
+        <TextBlock Height="35" HorizontalAlignment="Left" Margin="12,12,0,0" Name="txtCaption" Text="" VerticalAlignment="Top" Width="354" />
+    </Grid>
+</Window>

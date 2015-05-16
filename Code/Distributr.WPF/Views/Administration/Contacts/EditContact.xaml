@@ -1,0 +1,187 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Administration.Contacts.EditContact"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:UI_Utillity="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity;assembly=Distributr.WPF.Lib"
+                      xmlns:Converter="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+                      mc:Ignorable="d" 
+      DataContext="{Binding AddEditContactViewModel, Source={StaticResource Locator}}"
+      d:DesignWidth="640" d:DesignHeight="742.836"
+	Title="EditContact"  x:Name="pageEdit">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadPageCommand}" PassEventArgsToCommand="True" CommandParameter="{Binding ElementName=pageEdit}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Page.Resources>
+        <Converter:VisibilityConverter x:Key="VisibilityConverter" />
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Top" Width="Auto">
+        <StackPanel>
+            <Border BorderThickness="1" CornerRadius="8,8,8,8" BorderBrush="Black" Padding="10,5" Width="640">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="lblHeader" Content="{Binding Path=PageTitle}" FontSize="14" FontWeight="Bold" Margin="0,0,0,20"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Contact Owner Type:" />
+                  <!--  <ComboBox Grid.Row="1" Grid.Column="1" x:Name="cmbContactOwnerType" Margin="3" 
+                              ItemsSource="{Binding Path=ContactOwnerTypes}"
+                              SelectedItem="{Binding Path=SelectedContactOwnerType, Mode=TwoWay}" 
+                              IsEnabled="{Binding Path=CanEdit}">
+                        <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged" >
+                            <cmd:EventToCommand Command="{Binding  Path=ComboSelectionChangedCommand}" PassEventArgsToCommand="True" CommandParameter="{Binding ElementName=cmbContactOwnerType}" />
+                        </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                    </ComboBox>-->
+                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="5" >
+                        <TextBox Grid.Row="1" Grid.Column="1" x:Name="cmbContactOwnerType" Margin="3,3,10,3" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"  Width=" 250"
+                              Text="{Binding Path=SelectedContactOwnerType}">
+                    </TextBox>
+                        <Button Content="..."   VerticalContentAlignment="Center " Command="{Binding ContactOwnerTypeDropDownOpenedCommand}"  Margin="0,0,0,0"  MinWidth="30" Height="25"  IsEnabled="{Binding CanChange, Mode=TwoWay}" />
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" >
+                                <cmd:EventToCommand Command="{Binding ContactOwnerTypeDropDownOpenedCommand, Mode=TwoWay}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </StackPanel>
+                    
+
+                    <Label x:Name="lblContactOwner" Grid.Row="2" Grid.Column="0" Content="Contact Owner:"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1" x:Name="cmbContactOwner"  Margin="3" ItemsSource="{Binding Path=ContactOwners, Mode=TwoWay}" DisplayMemberPath="Name" SelectedItem="{Binding Path=SelectedContactOwner, Mode=TwoWay}" 
+                              
+                              IsEnabled="{Binding Path=CanEdit}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged" >
+                                <cmd:EventToCommand Command="{Binding  Path=ComboSelectionChangedCommand}" PassEventArgsToCommand="True" CommandParameter="{Binding ElementName=cmbContactOwner}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                     </ComboBox>
+
+                   <!-- <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="5" >
+                        <TextBox Grid.Row="2" Grid.Column="1" x:Name="cmbContactOwner" Margin="3,3,10,3" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"  Width=" 250"
+                              Text="{Binding Path=ContactOwners}">
+                        </TextBox>
+                        <Button Content="..."   VerticalContentAlignment="Center " Command="{Binding ContactOwnerTypeDropDownOpenedCommand}"  Margin="0,0,0,0"  MinWidth="30" Height="25"  IsEnabled="{Binding CanChange, Mode=TwoWay}" />
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" >
+                                <cmd:EventToCommand Command="{Binding ContactOwnerDropDownOpenedCommand, Mode=TwoWay}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </StackPanel>-->
+
+                    <Label x:Name="lblFirstName" Grid.Row="3" Grid.Column="0" Content="First Name:"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtFirstName" Text="{Binding Path=FirstName, Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Margin="3" KeyUp="txtName_KeyUp" IsEnabled="{Binding Path=CanEdit}"/>
+                    <Label x:Name="lblLastName"  Grid.Row="4" Grid.Column="0" Content="Last Name:"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtLastName" Text="{Binding Path=LastName, Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Margin="3"  KeyUp="txtName_KeyUp" IsEnabled="{Binding Path=CanEdit}"/>
+                    <Label x:Name="lblDOB"  Grid.Row="5" Grid.Column="0" Content="Date of Birth:"/>
+                    <DatePicker Grid.Row="5" Grid.Column="1" x:Name="dtDateOfBirth" SelectedDate="{Binding Path=DateOfBirth, Mode=TwoWay, StringFormat=\{0:d\}}" Margin="3"  />
+                    <Label x:Name="lblMaritalStatus"  Grid.Row="6" Grid.Column="0" Content="Marital Status:"/>
+<!--                    <ComboBox Grid.Row="6" Grid.Column="1" x:Name="cmbMaritalStatus" ItemsSource="{Binding Path=MaritalStatuses, Mode=TwoWay}"  SelectedItem="{Binding Path=SelectedMaritalStatus, Mode=TwoWay}" Margin="3"  IsEnabled="{Binding Path=CanEdit}"/>-->
+
+                     <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="5" >
+                        <TextBox Grid.Row="6" Grid.Column="1" x:Name="cmbMaritalStatus" Margin="3,3,10,3" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"  Width=" 250"
+                              Text="{Binding Path=MaritalStatusesName}">
+                        </TextBox>
+                        <Button Content="..."   VerticalContentAlignment="Center " Command="{Binding  MaritalStatusDropDownOpenedCommand}"  Margin="0,0,0,0"  MinWidth="30" Height="25"  IsEnabled="{Binding CanChange, Mode=TwoWay}" />
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" >
+                                <cmd:EventToCommand Command="{Binding MaritalStatusDropDownOpenedCommand, Mode=TwoWay}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </StackPanel>
+
+
+                    <Label x:Name="lblSpouseName" Grid.Row="7" Grid.Column="0" Content="Spouse Name:" KeyUp="txtName_KeyUp"/>
+                    <TextBox Grid.Row="7" Grid.Column="1" x:Name="txtSpouseName" Text="{Binding Path=SpouseName, Mode=TwoWay}" Margin="3" KeyUp="txtName_KeyUp"  IsEnabled="{Binding Path=CanEdit}"/>
+                    <Label x:Name="lblCompany" Grid.Row="8" Grid.Column="0" Content="Company:" KeyDown="txtName_KeyUp"/>
+                    <TextBox Grid.Row="8" Grid.Column="1" x:Name="txtCompany" Text="{Binding Path=Company, Mode=TwoWay}" Margin="3"  KeyUp="txtName_KeyUp" IsEnabled="{Binding Path=CanEdit}"/>
+                    <Label x:Name="lblJobTitle" Grid.Row="9" Grid.Column="0" Content="Job Title:" KeyDown="txtName_KeyUp"/>
+                    <TextBox Grid.Row="9" Grid.Column="1" x:Name="txtJobTitle" Text="{Binding Path=JobTitle, Mode=TwoWay}" Margin="3"  KeyUp="txtName_KeyUp" IsEnabled="{Binding Path=CanEdit}"/>
+                    <Label x:Name="lblMobileNo" Grid.Row="10" Grid.Column="0" Content="Mobile Phone:" KeyDown="txtName_KeyUp"/>
+                    <TextBox Grid.Row="10" Grid.Column="1" x:Name="txtMobilePhone" Text="{Binding Path=MobilePhone, Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Margin="3"  KeyDown="txtName_KeyUp" IsEnabled="{Binding Path=CanEdit}"/>
+                    <Label x:Name="lblBusPhone" Grid.Row="11" Grid.Column="0" Content="Business Phone:"/>
+                    <TextBox Grid.Row="11" Grid.Column="1" x:Name="txtBusinessPhone" Text="{Binding Path=BusinessPhone, Mode=TwoWay}" Margin="3" IsEnabled="{Binding Path=CanEdit}" />
+                    <Label x:Name="lblHomeNo" Grid.Row="12" Grid.Column="0" Content="Home Phone:" KeyDown="txtName_KeyUp"/>
+                    <TextBox Grid.Row="12" Grid.Column="1" x:Name="txtHomePhone" Text="{Binding Path=HomePhone, Mode=TwoWay}" Margin="3" IsEnabled="{Binding Path=CanEdit}" />
+                    <Label x:Name="lblWorkExtensionPhone" Grid.Row="13" Grid.Column="0" Content="Work Extension Phone:" KeyDown="txtName_KeyUp"/>
+                    <TextBox Grid.Row="13" Grid.Column="1" x:Name="txtWorkExtensionPhone" Text="{Binding Path=WorkExtensionPhone, Mode=TwoWay}" Margin="3" IsEnabled="{Binding Path=CanEdit}" />
+                    <Label x:Name="lblEmail" Grid.Row="14" Grid.Column="0" Content="Email:"/>
+                    <TextBox Grid.Row="14" Grid.Column="1" x:Name="txtEmail" Text="{Binding Path=Email, Mode=TwoWay}" Margin="3" KeyUp="txtEmail_KeyUp" IsEnabled="{Binding Path=CanEdit}" />
+                    <Label x:Name="lblFax" Grid.Row="15" Grid.Column="0" Content="Fax:"/>
+                    <TextBox Grid.Row="15" Grid.Column="1" x:Name="txtFax" Text="{Binding Path=Fax, Mode=TwoWay}" Margin="3" KeyUp="txtName_KeyUp" IsEnabled="{Binding Path=CanEdit}"/>
+                    <Label x:Name="lblPhysicalAdd" Grid.Row="16" Grid.Column="0" Content="Physical Address:"/>
+                    <TextBox Grid.Row="16" Grid.Column="1" x:Name="txtPhysicalAddress" Text="{Binding Path=PhysicalAddress, Mode=TwoWay}" Margin="3" KeyUp="txtPhysicalAddress_KeyUp" IsEnabled="{Binding Path=CanEdit}" />
+                    <Label x:Name="lblPostalAdd" Grid.Row="17" Grid.Column="0" Content="Postal Address:"/>
+                    <TextBox Grid.Row="17" Grid.Column="1" x:Name="txtPostalAddress" Text="{Binding Path=PostalAddress, Mode=TwoWay}" Margin="3" KeyUp="txtPhysicalAddress_KeyUp" IsEnabled="{Binding Path=CanEdit}"/>
+                    <Label x:Name="lblHomeTown" Grid.Row="18" Grid.Column="0" Content="Home Town:"/>
+                    <TextBox Grid.Row="18" Grid.Column="1" x:Name="txtHomeTown" Text="{Binding Path=HomeTown, Mode=TwoWay}" Margin="3" KeyUp="txtName_KeyUp" IsEnabled="{Binding Path=CanEdit}"/>
+                    <Label x:Name="lblCity" Grid.Row="19" Grid.Column="0" Content="City:"/>
+                    <TextBox Grid.Row="19" Grid.Column="1" x:Name="txtCity" Text="{Binding Path=City, Mode=TwoWay}" Margin="3"  KeyUp="txtName_KeyUp" IsEnabled="{Binding Path=CanEdit}"/>
+                    <Label x:Name="lblChildrenNames" Grid.Row="20" Grid.Column="0" Content="Children Names:"/>
+                    <TextBox Grid.Row="20" Grid.Column="1" x:Name="txtChildrenNames" Text="{Binding Path=ChildrenNames, Mode=TwoWay}" Margin="3"  KeyUp="txtName_KeyUp" IsEnabled="{Binding Path=CanEdit}"/>
+                    <Label x:Name="lblContactType" Grid.Row="21" Grid.Column="0" Content="Contact Type:"/>
+                    
+                   <!-- <ComboBox Grid.Row="21" Grid.Column="1" x:Name="cmbContactType" ItemsSource="{Binding Path=ContactTypes, Mode=TwoWay}" DisplayMemberPath="Name" SelectedItem="{Binding Path=SelectedContactType, Mode=TwoWay}" Margin="6,2,0,4" IsEnabled="{Binding Path=CanEdit}" />-->
+
+                    <StackPanel Grid.Row="21" Grid.Column="1" Orientation="Horizontal" Margin="5" >
+                        <TextBox Grid.Row="21" Grid.Column="1" x:Name="cmbContactType" Margin="3,3,10,3" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"  Width=" 250"
+                              Text="{Binding ContactTypeName, Mode=TwoWay}">
+                        </TextBox>
+                        <Button Content="..."   VerticalContentAlignment="Center " Command="{Binding  ContactTypeDropDownOpenedCommand}"  Margin="0,0,0,0"  MinWidth="30" Height="25"  IsEnabled="{Binding CanChange, Mode=TwoWay}" />
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" >
+                                <cmd:EventToCommand Command="{Binding ContactTypeDropDownOpenedCommand, Mode=TwoWay}" />
+                            </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                    </StackPanel>
+
+                    <Label x:Name="lblContactClass" Grid.Row="22" Grid.Column="0" Content="Contact Classification:"/>
+                    <StackPanel Grid.Row="22" Grid.Column="1" Orientation="Horizontal">
+                        <RadioButton x:Name="rbPrimary" Content="PrimaryContact" Margin="0,5,0,5"  IsChecked="{Binding IsPrimaryContact}"
+                            IsEnabled="{Binding Path=CanEdit}"/>
+
+                        <RadioButton x:Name="rbSecondary" Content="Secondary Contact"  Margin="20,5,0,5" IsChecked="{Binding IsSecondaryContact}" 
+                            IsEnabled="{Binding Path=CanEdit}"/>
+                       </StackPanel>
+                   
+                </Grid>
+            </Border>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0" Height="30">
+                <Button x:Name="btnSave" Command="{Binding Path=SaveCommand}" Content="Save" Width="100" Margin="0,0,20,0" Visibility="{Binding CanEdit, Converter={StaticResource VisibilityConverter}}"/>
+                <Button x:Name="btnCancel" Command="{Binding Path=CancelCommand}" Content="{Binding Path=BtnCancelContent}" Width="100"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D3D60175-1436-487B-98F0-1671FB5C37DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Distributr.WPF.Lib</RootNamespace>
+    <AssemblyName>Distributr.WPF.Lib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Distributr.Import.Entities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Integration.Imports\Distributr.Import.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF45, Version=4.2.30.23246, Culture=neutral, PublicKeyToken=0e27b6f8be9b2ef7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\net45\GalaSoft.MvvmLight.Extras.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF45, Version=4.2.30.23246, Culture=neutral, PublicKeyToken=eabbf6a5f5af5004, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\net45\GalaSoft.MvvmLight.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.FP3530">
+      <HintPath>..\ReferencedAssemblies\printer\Interop.FP3530.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Reporting\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="siaqodb">
+      <HintPath>..\ReferencedAssemblies\siaqodb\siaqodb.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WarehouseReceipt.Client">
+      <HintPath>..\ReferencedAssemblies\WarehouseReceipt\WarehouseReceipt.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="WarehouseReceipt.Shared">
+      <HintPath>..\ReferencedAssemblies\WarehouseReceipt\WarehouseReceipt.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassFP-v2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PresentationUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporting\ReportCollective.cs" />
+    <Compile Include="Security\CachedUserInfo.cs" />
+    <Compile Include="UI\Extensions\EventBehaviourFactory.cs" />
+    <Compile Include="UI\Hierarchy\ColumnDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Hierarchy\ConsolidatedProductHierarchyHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Hierarchy\GridDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Hierarchy\HierarchyHelpers.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Hierarchy\LineItemType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Hierarchy\RowDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\MyWebClient.cs" />
+    <Compile Include="UI\Pages\IChangeSalesmanToDeliveryPopUp.cs" />
+    <Compile Include="UI\Pages\IComboPopUp.cs" />
+    <Compile Include="UI\Pages\ICustomReportViewer.cs" />
+    <Compile Include="UI\Pages\IDistributrMessageBox.cs" />
+    <Compile Include="UI\Pages\IEditCommodityOwnerModal.cs" />
+    <Compile Include="UI\Pages\IEditCommodityProducerModal.cs" />
+    <Compile Include="UI\Pages\IEditContactModal.cs" />
+    <Compile Include="UI\Pages\IOrderProductPage.cs" />
+    <Compile Include="UI\Pages\IPrintableDocumentViewer.cs" />
+    <Compile Include="UI\UI_Utillity\Converters\AmountDecimalConverter.cs" />
+    <Compile Include="UI\UI_Utillity\Converters\CustomResources.cs" />
+    <Compile Include="UI\UI_Utillity\Converters\EnumConverter.cs" />
+    <Compile Include="UI\UI_Utillity\Converters\IsEnabledConverter.cs" />
+    <Compile Include="UI\UI_Utillity\Converters\IsReadOnlyConverter.cs" />
+    <Compile Include="UI\UI_Utillity\Converters\Masking.cs" />
+    <Compile Include="UI\UI_Utillity\Converters\MessageResourceConverter.cs" />
+    <Compile Include="UI\UI_Utillity\Converters\MultivalueConverter.cs" />
+    <Compile Include="UI\UI_Utillity\Converters\ReverseIsEnabledConverter.cs" />
+    <Compile Include="UI\UI_Utillity\Converters\VisibilityConverter.cs" />
+    <Compile Include="UI\UI_Utillity\DataGridExtensions.cs" />
+    <Compile Include="UI\UI_Utillity\Extensions.cs" />
+    <Compile Include="UI\UI_Utillity\FormBorderButtons\BitExtensions.cs" />
+    <Compile Include="UI\UI_Utillity\FormBorderButtons\CloseButtonHider.cs" />
+    <Compile Include="UI\UI_Utillity\FormBorderButtons\ControlBox.cs" />
+    <Compile Include="UI\UI_Utillity\FormBorderButtons\HideCloseButtonBehaviour.cs" />
+    <Compile Include="UI\UI_Utillity\FormBorderButtons\Win32.cs" />
+    <Compile Include="UI\UI_Utillity\FormChildControls.cs" />
+    <Compile Include="UI\UI_Utillity\IPageControlContract.cs" />
+    <Compile Include="UI\UI_Utillity\PageBase.cs" />
+    <Compile Include="UI\UI_Utillity\PagerControl.cs" />
+    <Compile Include="UI\UI_Utillity\PagerControlData.cs" />
+    <Compile Include="UI\UI_Utillity\ScrollableTabPanel.cs" />
+    <Compile Include="UI\UI_Utillity\UserControlNavigationHelper.cs" />
+    <Compile Include="UI\UI_Utillity\WpfHelper.cs" />
+    <Compile Include="UI\UI_Utillity\WPFValidation.cs" />
+    <Compile Include="Messages\ViewModelMessages.cs" />
+    <Compile Include="ViewModels\Admin\AgriUsers\Contacts\EditAgriUserContactViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AgriUsers\EditAgriUsersViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AgriUsers\ListAgriUsersViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Centres\EditCentreViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Centres\ListCentresViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CommodityOwners\EditCommodityOwnerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CommodityOwners\EditIndividualFarmerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CommodityProducers\EditCommodityProducerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CommodityProducers\ListCommodityProducersViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CommoditySuppliers\EditCommodityOwnerModalViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CommoditySuppliers\EditCommodityProducerModalViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CommoditySuppliers\EditCommoditySupplierViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CommoditySuppliers\ListCommoditySuppliersViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CommoditySuppliers\SupplierToOutletMappingViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Contacts\AddEditContactViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Contacts\AgriListContactsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Contacts\EditContactViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Contacts\ListContactViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Contacts\MasterEntityContactUtilsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Contacts\NewListContactViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Containers\EditContainerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Containers\EditContainerTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Containers\ListContainersViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Containers\ListContainerTypesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\Activity\ActivityDetailsPopUp.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\Activity\ActivityListingViewModel.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\Infections\InfectionsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\Infections\ListingInfectionsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\Seasons\ListingSeasonsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\Seasons\SeasonViewModel.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\ServiceProviders\ListingServiceProvidersViewModel.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\ServiceProviders\ServiceProviderViewModel.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\Services\ListingServicesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\Services\ServiceViewModel.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\Shifts\ListingShiftsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\FarmActivities\Shifts\ShiftViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ListingsViewModelBase.cs" />
+    <Compile Include="ViewModels\Admin\Outlets\EditOutletPriorityViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Outlets\EditOutletTargetsViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Outlets\EditOutletViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Outlets\EditOutletVistDayViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Outlets\ListOutletsViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Owner\CommodityOwnerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Producer\CommodityProducerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Producer\MemberCommodityProducerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\ReorderLevel\ReorderLevelViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Routes\EditRouteViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Routes\ListRoutesViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\SalesmanSuppliers\SalesmanSupplierViewModel.cs" />
+    <Compile Include="ViewModels\Admin\SalesmanTargets\EditSalesmanTargetsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Stores\EditStoreViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Stores\ListStoresViewModel.cs" />
+    <Compile Include="ViewModels\Admin\SupplierContacts\ContactsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\SupplierContacts\ListingSupplierContactsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Supplier\AddEditSupplierViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CommodityOwners\ListCommodityOwnersViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Owner\MemberCommodityOwnerViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Supplier\ListingOfCommoditySuppliersViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Users\EditUsersViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Users\ListUsersViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Users\SalesmanRoutesViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin\Vehicles\EditVehicleViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Vehicles\ListVehiclesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\WeighingScales\EditWeighingScaleViewModel.cs" />
+    <Compile Include="ViewModels\Admin\WeighingScales\EquipmentViewModelBase.cs" />
+    <Compile Include="ViewModels\Admin\WeighingScales\ListWeighingScaleViewModel.cs" />
+    <Compile Include="ViewModels\ApplicSettings\GeneralSettingsViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\ApplicSettings\WarehouseMenuViewModel.cs" />
+    <Compile Include="ViewModels\ApplicSettings\WeighScaleDefaultViewModel.cs" />
+    <Compile Include="ViewModels\DistributrViewModelBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\IntialSetup\ConfigurationViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\IntialSetup\LoginViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\IProductPackagingSummaryService.cs" />
+    <Compile Include="ViewModels\MainPage\AgrimanagrMainPageViewModel.cs" />
+    <Compile Include="ViewModels\MainPage\MainPageViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\PrintableDocuments\DocumentReportViewerViewModel.cs" />
+    <Compile Include="ViewModels\PrintableDocuments\GRNReportViewerViewModel.cs" />
+    <Compile Include="ViewModels\PrintableDocuments\InvoiceReportViewerViewModel.cs" />
+    <Compile Include="ViewModels\PrintableDocuments\OrderReportViewerViewModel.cs" />
+    <Compile Include="ViewModels\PrintableDocuments\ReceiptReportViewerViewModel.cs" />
+    <Compile Include="ViewModels\Printerutilis\CustomDataGridDocumentPaginator.cs" />
+    <Compile Include="ViewModels\Printerutilis\UIPrintHelper.cs" />
+    <Compile Include="ViewModels\Reports\AgrimanagrReportsViewModel.cs" />
+    <Compile Include="ViewModels\Reports\FinancialsViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Reports\ProductTransactionsViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Reports\ReportsViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Sync\ArchiveViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Sync\AutomaticSyncViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Sync\SyncViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\TestFrames\Test1ViewModel.cs" />
+    <Compile Include="ViewModels\TestFrames\Test2ViewModel.cs" />
+    <Compile Include="ViewModels\Test\cTestViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Test\ProductPackagingTestViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Test\TestGridViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Test\TestViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Extensions\TextBoxBehaviour.cs" />
+    <Compile Include="ViewModels\Transactional\AuditLogs\AuditLogViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\CN\AddCreditNoteModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\CN\EditCNViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\CN\ListInvoicesViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\CommodityPurchase\CommodyLineItemViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityPurchase\EditCommodityPurchaseViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityPurchase\ListFarmersViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityReception\AwaitingStorageViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityReception\CommodityDeliveryListItem.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityReception\CommodityReceptionCollection.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityReception\CommodityDocumentListViewModelBase.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityReception\AwaitingReceptionViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityReception\CompletedAndStoredViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityReception\DocumentDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityReception\ListCommodityReceptionViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityReception\StoreCommodityViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\CommodityReception\WeighReceiveDeliveryViewModelPopUp.cs" />
+    <Compile Include="ViewModels\Transactional\DisbursementNotes\AddReturnableProductModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\DisbursementNotes\ListRecieveReturnableViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\DisbursementNotes\RecieveReturnableViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\DispatchProducts\DispatchProductsViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\DispatchProducts\DPLineItemViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\DN\DispatchNoteViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\Fiscalprinter\FiscalPrinterUtility.cs" />
+    <Compile Include="ViewModels\Transactional\GRN\AddGRNViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\GRN\GRNItemModalViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\GRN\ListGRNViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\GRN\SelectApprovedOrdersViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\IAN\EditIANViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\IAN\IANLineItemViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\IAN\ListIANViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\InventoryTransfer\CommodityReleaseDocumentViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\InventoryTransfer\CommodityReleaseViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\InventoryTransfer\IntraStoreTransferViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\InventoryTransfer\InventoryInStorageViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\InventoryTransfer\InventoryLevelViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\InventoryTransfer\InventoryTransferBaseViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\InventoryTransfer\ToHqInventoryTransferViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\InventoryTransfer\TransferedInventoryViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\InventoryViewModels\ListInventoryViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\InvoiceDocument\InvoiceDocumentViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\ITN\EditITNViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\ITN\ImportSalesmanInventoryViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\ITN\ITNLineItemViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\ITN\ListITNViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\ITransactionalViewmodelRefactoring.cs" />
+    <Compile Include="ViewModels\Transactional\OrderLineItemBase.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\ItemLookUpsLookUpViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\MainOrderLineItemViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\OrderApprovalViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\OrderBaseViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\OrderDispatchViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\OrderFormViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\OrderItemSummary.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\OrderListingBaseViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\OrderProduct\ChangeDeliveryPersonViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\OrderProduct\ViewOrderViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\OrderUtils.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\ProductMainOrderLineItem.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\SalesmanOrderListingViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders\SalesmanOrderSummaryListingViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders_Stockist\StockistPurchaseOrderApprovalFormViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Order_Pos\AddPOSViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Order_Pos\ListPOSViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Order_Pos\PaymentInfoItem.cs" />
+    <Compile Include="ViewModels\Transactional\Order_Pos\PaymentModePopUpViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Order_Pos\PaymentUtils.cs" />
+    <Compile Include="ViewModels\Transactional\Order_Pos\PGBridgeUtils.cs" />
+    <Compile Include="ViewModels\Transactional\Order_Pos\ViewOrderPOSViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Order_Purchase\PurchaseOrderFormViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Order_Purchase\PurchaseOrderListingViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders_Stockist\StockistPurchaseOrderFormViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders_Stockist\StockistPurchaseOrderListingViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Order_Purchase\ViewPurchaseOrderViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Orders_Stockist\ViewStockistPurchaseOrderViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\Payments\ListOutStandingPaymentsViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\ReceiptDocument\AgrimanagrReceiptDocumentViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\ReceiptDocument\ReceiptDocumentViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\ReceiptDocument\ReceiptViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\ReceiptDocument\ReceiptVm.cs" />
+    <Compile Include="ViewModels\Transactional\RN\ListReturnsViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Transactional\RN\UnderBankingCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\RN\UnderBankingListViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\RN\UnderBankingViewModel.cs" />
+    <Compile Include="ViewModels\Transactional\TransactionSatement\TransactionStatementViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Utils\CloneEntity.cs" />
+    <Compile Include="ViewModels\Utils\ComboPopUpViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Utils\CustomMessageBoxViewModel.cs" />
+    <Compile Include="ViewModels\Utils\DistributrMessageBoxViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Utils\DistributrOrdersPagerViewModel.cs" />
+    <Compile Include="ViewModels\Utils\EquipmentSetupViewModel.cs" />
+    <Compile Include="ViewModels\Utils\HubDevice.cs" />
+    <Compile Include="ViewModels\Utils\IMessageBoxWrapper.cs" />
+    <Compile Include="ViewModels\Utils\ListWeingScalesViewModel.cs" />
+    <Compile Include="ViewModels\Utils\MessageBoxWrapper.cs" />
+    <Compile Include="ViewModels\Utils\SerialPortHelper.cs" />
+    <Compile Include="ViewModels\Warehousing\AddWarehouseEntryViewModel.cs" />
+    <Compile Include="ViewModels\Warehousing\EagcClient\EAGCLoginDetails.cs" />
+    <Compile Include="ViewModels\Warehousing\WarehouseDepositorViewModel.cs" />
+    <Compile Include="ViewModels\Warehousing\WarehouseGoodsReceivedViewModel.cs" />
+    <Compile Include="ViewModels\Warehousing\WarehouseInventoryLevelsListingViewModel.cs" />
+    <Compile Include="ViewModels\Warehousing\WarehousePendingStorageListingViewModel.cs" />
+    <Compile Include="ViewModels\Warehousing\WarehouseReceiptViewModel.cs" />
+    <Compile Include="ViewModels\Warehousing\WarehouseStoreViewModel.cs" />
+    <Compile Include="ViewModels\Warehousing\WarehouseExitListingViewModel.cs" />
+    <Compile Include="ViewModels\Warehousing\WarehouseEntryListingViewModel.cs" />
+    <Compile Include="ViewModels\Warehousing\WarehouseExitViewModel.cs" />
+    <Compile Include="ViewModels\Warehousing\WarehouseLineItemViewModel.cs" />
+    <None Include="ViewModels\Utils\Payment\IPaymentService.cs.obsolete">
+      <SubType>Code</SubType>
+    </None>
+    <Compile Include="ViewModels\Utils\Payment\MessageSerializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Utils\Payment\PaymentService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Utils\SerialPortUtil.cs" />
+    <Compile Include="ViewModels\Utils\SLCacheViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Utils\WeighConfiguration.cs" />
+    <Compile Include="ViewModels\Utils\WeighScale Lib\RTSerialCom.cs" />
+    <Compile Include="ViewModels\Utils\WeighScalePrinterEquipment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distributor.Core.Data\Distributr.Core.Data.csproj">
+      <Project>{b9ee272b-6d02-47a5-b6f6-d96cb102404e}</Project>
+      <Name>Distributr.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributor.Core\Distributr.Core.csproj">
+      <Project>{900f434e-7d81-422b-b567-1564c79ceab3}</Project>
+      <Name>Distributr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WPF.Lib.Services\Distributr.WPF.Lib.Services.csproj">
+      <Project>{c29f45a4-3a5b-41e4-9918-a0c1ebe926cc}</Project>
+      <Name>Distributr.WPF.Lib.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WSAPI.Lib\Distributr.WSAPI.Lib.csproj">
+      <Project>{7271F6B1-35F0-4C0A-A4CB-3F10D426E37F}</Project>
+      <Name>Distributr.WSAPI.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PGWSAPI\PaymentGateway.WSApi.Lib\PaymentGateway.WSApi.Lib.csproj">
+      <Project>{93bffffd-89ab-49cc-9233-b313c0733d2a}</Project>
+      <Name>PaymentGateway.WSApi.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Windows.Data\System.Windows.Data.csproj">
+      <Project>{c6bece74-ff43-40a8-b80a-f820e5af7985}</Project>
+      <Name>System.Windows.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

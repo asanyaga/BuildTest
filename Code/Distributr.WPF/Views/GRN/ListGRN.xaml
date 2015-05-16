@@ -1,0 +1,66 @@
+﻿<UI_Utillity:PageBase x:Class="Distributr.WPF.UI.Views.GRN.ListGRN"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+               xmlns:UI_Utillity="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity;assembly=Distributr.WPF.Lib"
+                      xmlns:pager="clr-namespace:Distributr.WPF.UI.Views.Utils"
+                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+                      xmlns:Admin="clr-namespace:Distributr.WPF.Lib.ViewModels.Admin;assembly=Distributr.WPF.Lib"
+                      mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"
+      DataContext="{Binding ListGRNViewModel, Source={StaticResource Locator}}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+               Title="ListGRN Page">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadListingPageCommand}" PassEventArgsToCommand="True" CommandParameter="{x:Static Admin:BooleanHelper.True}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel LastChildFill="True">
+
+        <Label DockPanel.Dock="Top" Grid.Row="1" Grid.ColumnSpan="2" Height="28" HorizontalAlignment="Left"  Name="lblPageHeader" VerticalAlignment="Center"  Content="List GRNs" Width="429" FontSize="14" FontWeight="Bold"/>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,10,10">
+                <Label Grid.Row="1" Grid.ColumnSpan="2" Height="28" HorizontalAlignment="Left"  Name="lblSearch" VerticalAlignment="Center"  Content="Search By Doc Ref, Order Ref, User:" Width="243" MinWidth="200" />
+            <TextBox x:Name="txtSearchText" Text="{Binding Path=SearchText,UpdateSourceTrigger=PropertyChanged}" Margin="10,0,0,0" Width="230" HorizontalAlignment="Right">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <cmd:EventToCommand Command ="{Binding LoadListingPageCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <Button x:Name="btnClear" Content="Clear" Height="28"  Command="{Binding ClearSearchTextCommand}" Margin="10,0,5,0" Width="92"/>
+
+        </StackPanel>
+        <Grid DockPanel.Dock="Bottom" Margin="0,0,0,20" >
+            <pager:PagerControl Margin="0,0,130,0"/>
+          <Button x:Name="Link6" Content="Add Order" Command="{Binding NavigateCommand}" CommandParameter="\Views\GRN\selectapprovedorders.xaml" Height="30" Width="100" HorizontalAlignment="Right"/>
+        </Grid>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Path=GRNList,Mode=TwoWay}" IsReadOnly="True" Height="auto" Width="auto" x:Name="GridGRNList" HorizontalAlignment="Stretch">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding DocumentRef}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Doc Ref" x:Name="coldocref" IsReadOnly="True" Width="Auto" />
+                    <DataGridTextColumn Binding="{Binding DateReceived}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Date Received" x:Name="coldatereceived"  IsReadOnly="True" Width="Auto" />
+                    <DataGridTextColumn Binding="{Binding OrderReferences}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Order Refs" x:Name="colorderref"  IsReadOnly="True" Width="Auto" />
+                    <DataGridTextColumn Binding="{Binding LoadNo}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Load No" x:Name="colloadno"  IsReadOnly="True" Width="Auto" />
+                    <DataGridTextColumn Binding="{Binding CreatedBy}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="User" x:Name="coluser"  IsReadOnly="True" Width="Auto" />
+                    <DataGridTextColumn Binding="{Binding TotalValue}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Total" x:Name="coltotal"  IsReadOnly="True" Width="Auto" />
+                    <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <ItemsControl>
+                                    <Hyperlink x:Name="hlView" Command="{Binding DataContext.SelectViewerAndGoCommand, ElementName=GridGRNList}" CommandParameter="{Binding}" >View</Hyperlink>
+                                    </ItemsControl>
+                                    <ItemsControl >
+                                        <TextBlock Text="  |  "/>
+                                    </ItemsControl>
+                                    <ItemsControl >
+                                        <Hyperlink  Command="{Binding DataContext.ViewPrintableGRNCommand, ElementName=GridGRNList}" CommandParameter="{Binding}" >Print View</Hyperlink>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+    </DockPanel>
+</UI_Utillity:PageBase>

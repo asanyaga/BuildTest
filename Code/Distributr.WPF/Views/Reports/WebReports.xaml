@@ -1,0 +1,12 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Reports.WebReports" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="WebReports Page">
+    <Grid x:Name="LayoutRoot">
+        <WebBrowser Height="480" HorizontalAlignment="Left" Name="webBrowser1" VerticalAlignment="Top" Width="601" Margin="12,0,0,0" />
+    </Grid>
+</Page>

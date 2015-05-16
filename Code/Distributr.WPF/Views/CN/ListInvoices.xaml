@@ -1,0 +1,76 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.CN.ListInvoices"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:CustomControl="clr-namespace:Distributr.WPF.UI.Views.Utils"
+      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      mc:Ignorable="d" 
+      d:DesignWidth="850" d:DesignHeight="550"
+                 DataContext="{Binding ListInvoicesViewModel, Source={StaticResource Locator}}"
+           Title="ListInvoices Page">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot">
+        <StackPanel>
+            <Grid Margin="0,10,0,5" Width="850" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="439*"></ColumnDefinition>
+                    <ColumnDefinition Width="411*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <Label Content="From:" x:Name="lblStartDate" Height="28" Margin="0,0,5,0" Width="Auto" HorizontalAlignment="Right" />
+                    <DatePicker x:Name="dpStartDate" Text="Start Date" Margin="0,0,10,0" SelectedDate="{Binding Path=StartDate, Mode=TwoWay, StringFormat=\{0:d\}}"/>
+                    <Label Content="To:" x:Name="lblTo" Height="28" Margin="0,0,5,0" Width="Auto" HorizontalAlignment="Right" />
+                    <DatePicker x:Name="dpEndDate" Text="End Date" Margin="0,0,10,0" SelectedDate="{Binding Path=EndDate, Mode=TwoWay, StringFormat=\{0:d\}}"/>
+                    <Button Content="Load" Height="28" Name="cmdLoadSales" Click="cmdLoadSales_Click" Width="50" Margin="0,0,0,0"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Label x:Name="lblSearchText" Content="Search:" HorizontalAlignment="Right" Margin="0,0,5,0" Grid.ColumnSpan="2" Width="Auto" />
+                    <TextBox Grid.Column="2" x:Name="txtSearchText" Text="{Binding SearchText, Mode=TwoWay}" Height="25" Width="170" Margin="0,0,5,00" TextChanged="txtSearchText_TextChanged"  />
+                    <Button Grid.Column="3" Content="Search" x:Name="btnSearch" Width="60" Margin="0,0,5,0" Click="btnSearch_Click" Height="25" HorizontalAlignment="Right" />
+                    <Button Content="Clear" x:Name="btnClear" Grid.Column="3" Width="60" Click="btnClear_Click" Height="25" HorizontalAlignment="Right"/>
+                </StackPanel>
+            </Grid>
+            <Border BorderBrush="Silver" BorderThickness="1" Height="438" HorizontalAlignment="Center" Margin="0,0,0,0" Name="border1" VerticalAlignment="Top" Width="783" CornerRadius="10">
+                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Path=InvoicesList, Mode=TwoWay}" Height="368" HorizontalAlignment="Center" Margin="0,5,0,0" x:Name="InvoicesDG" VerticalAlignment="Top" Width="745" LoadingRow="InvoicesDG_LoadingRow">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=SequenceId}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" />
+                        <DataGridTextColumn x:Name="colInvoiceRef" Binding="{Binding DocumentRef}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Invoice Ref" Width="Auto" />
+                        <DataGridTextColumn x:Name="colTotalNet" Binding="{Binding TotalNet, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Total Net" Width="Auto" />
+                        <DataGridTextColumn x:Name="colTotalVat" Binding="{Binding TotalVat, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Total VAT" Width="Auto" />
+                        <DataGridTextColumn x:Name="colTotalGross" Binding="{Binding TotalGross, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Total Gross" Width="Auto" />
+                        <DataGridTemplateColumn x:Name="colIssue" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100*" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Visibility="{Binding CanIssueCreditNote, Converter={StaticResource VisibilityConverter}}">
+                                        <Hyperlink  x:Name="hlIssueCredintNote" Tag="{Binding Path=Id}"  TargetName="ContentFrame" Click="hlIssueCredintNote_Click" >
+                                            <TextBlock x:Name="txtIssueCreditNote" Text="Issue Credit Note"/>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock>
+                                        <Hyperlink Command="{Binding DataContext.ViewSelectedInvoiceCommand,ElementName=InvoicesDG}" CommandParameter="{Binding}">
+                                            <TextBlock  Text="View Invoice"/>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+            <Grid Margin="0,5,0,0" VerticalAlignment="Top" Width="783" HorizontalAlignment="Center">
+                <Label x:Name="lblProgress" Content="Loading ..."  VerticalAlignment="Bottom"/>
+             <CustomControl:DistributrDataPager Height="27" x:Name="DataPager" HorizontalAlignment="Right" Margin="0,0,0,0"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

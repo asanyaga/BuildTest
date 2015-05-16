@@ -1,0 +1,55 @@
+﻿<UI_Utillity:PageBase x:Class="Distributr.WPF.UI.Views.Administration.Routes.EditRoute"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:UI_Utillity="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity;assembly=Distributr.WPF.Lib"
+                      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+                      mc:Ignorable="d" 
+      
+	d:DesignWidth="640" d:DesignHeight="480"
+                 DataContext="{Binding EditRouteViewModel,Source={StaticResource Locator}}"
+           Title="EditRoute Page" >
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+        <utility:IsReadOnlyConverter x:Key="IsReadOnlyConverter"/>
+        </Page.Resources>
+    <Grid x:Name="LayoutRoot" HorizontalAlignment="Left">
+        <StackPanel Width="502">
+            <!--<TextBlock Text="Edit Route" Style="{StaticResource HeaderTextStyle}"/>-->
+            <Label x:Name="lblTitle" Content="{Binding Path=PageTitle}" Width="502" Height="25" FontSize="12" FontWeight="Bold" Margin="0,0,0,20"></Label>
+            <Border CornerRadius="0,0,8,8" BorderBrush="Black" BorderThickness="1">
+                <StackPanel Width="500" Margin="0,15,0,30">
+                    <!--<dataInput:ValidationSummary Margin="4" />-->
+                    <Grid x:Name="grdEditRoute" Width="400" Margin="0,20,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="lblCode" Content="Code" FontWeight="Bold"/>
+                        <TextBox Grid.Column="1" x:Name="txtCode" Text="{Binding Path=Code, Mode=TwoWay,ValidatesOnExceptions=True,NotifyOnValidationError=True}" Width="200" HorizontalAlignment="Left" Margin="0,5,0,0" KeyUp="txtCode_KeyUp" IsReadOnly="{Binding Path=CanManageRoute, Converter={StaticResource IsReadOnlyConverter}}" />
+
+
+                        <Label x:Name="lblName" Content="Name" Grid.Row="2" FontWeight="Bold"/>
+                        <TextBox Grid.Column="1"  Grid.Row="2" x:Name="txtName" Text="{Binding Path=Name, Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Width="200" HorizontalAlignment="Left" Margin="0,5,0,0" KeyUp="txtName_KeyUp" IsReadOnly="{Binding Path=CanManageRoute, Converter={StaticResource IsReadOnlyConverter}}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <Border>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="327">
+                    <Button x:Name="btnSave" Command="{Binding SaveCommand}"  Content="Save" Width="120" Margin="0,10,20,0" Visibility="{Binding Path=CanManageRoute, Converter={StaticResource VisibilityConverter}}"/><!--Click="btnSave_Click"-->
+                    <Button x:Name="btnCancel" Command="{Binding CancelCommand}" Content="{Binding Path=BtnCancelContent}" Width="120" Margin="20,10,0,0" /><!--Click="btnCancel_Click"-->
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UI_Utillity:PageBase>

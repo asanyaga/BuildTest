@@ -1,0 +1,177 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.POS.PaymentModeModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:FormBorderButtons="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.FormBorderButtons;assembly=Distributr.WPF.Lib"
+        xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+        Width="610" Height="700" 
+           DataContext="{Binding Path=PaymentModeViewModel, Source={StaticResource Locator}}"
+           Title="Distributr: Payment Module" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <i:Interaction.Behaviors>
+        <FormBorderButtons:HideCloseButtonBehaiviour />
+    </i:Interaction.Behaviors>
+    <Window.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+        <utility:IsReadOnlyConverter x:Key="IsReadOnlyConverter"/>
+    </Window.Resources>
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="28*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="235*" />
+            <ColumnDefinition Width="217*" />
+            <ColumnDefinition Width="170*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0"  Height="28" HorizontalAlignment="Left" Name="lblGrossAmount" VerticalAlignment="Top" Width="120" Content="Amount To Pay:" Margin="12,5,0,0" />
+        <TextBlock Grid.Row="0" Grid.Column="1" x:Name="txtGrossAmount"   Margin="5,3,5,2"  Text="{Binding GrossAmount, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right"/>
+        <Label Grid.Row="1"  Height="28" HorizontalAlignment="Left" Name="lblCash" VerticalAlignment="Top" Width="120" Content="Cash:" Margin="12,5,0,0" />
+        <TextBox Grid.Row="1" Grid.Column="1" Height="28"  x:Name="txtCash" Margin="5,3,5,2"  Text="{Binding Path=CashAmount, Mode=TwoWay}" TextAlignment="Right" LostFocus="txtCash_LostFocus" TextChanged="txtCash_TextChanged" />
+        <!--, StringFormat=#\,0.00;(#\,0.00);0-->
+        <Label Grid.Row="2"  Height="28" HorizontalAlignment="Left"  Name="lblCredit" VerticalAlignment="Top" Width="120" Content="Credit:" Margin="12,4,0,0" />
+        <TextBlock Grid.Row="2" Grid.Column="1" x:Name="txtCreditAmount" Text="{Binding CreditAmount, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right"
+                 Margin="5,2" Height="28"  />
+
+        <Border Grid.Row="3" Grid.ColumnSpan="3" BorderBrush="Blue" BorderThickness=".5" CornerRadius="8" Margin="0,5,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="235*" />
+                    <ColumnDefinition Width="222*" />
+                    <ColumnDefinition Width="165*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" HorizontalAlignment="Left"  Name="lblDistributrSubscriberNo" Width="150" Content="Distributor Subscriber No:" Margin="12,4,0,0" />
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtDistributrSubscriberNo" Text="{Binding Path=DistributorSubscriberNo, Mode=TwoWay}" TextAlignment="Right" 
+                 Margin="5,2,10,2" Height="28" IsReadOnly="True" ToolTipService.ToolTip="This is the distributor's primary contact mobile number." />
+                <Button Grid.Row="0" Grid.Column="2" x:Name="btnRequestPI" Content="Get Payment Instruments" Height="28"  VerticalAlignment="Center" Width="130" Click="btnRequestPI_Click"/>
+
+                <Label Grid.Row="1" Height="28" HorizontalAlignment="Left"  Name="lblMMoneyOption" VerticalAlignment="Top" Width="120" Content="M-Money Option:" Margin="12,5,0,0" />
+                <ComboBox Grid.Row="1" Grid.Column="1" Height="28" DisplayMemberPath="Name" 
+                  SelectedItem="{Binding Path=SelectedMMoneyOption, Mode=TwoWay}" 
+                  ItemsSource="{Binding Path=MMoneyOptions}" HorizontalAlignment="Left" 
+                  Margin="5,3,0,0" x:Name="cmbMMoneyOptions" VerticalAlignment="Top" Width="192" 
+                  SelectionChanged="cmbMMoneyOptions_SelectionChanged" 
+                  Loaded="cmbMMoneyOptions_Loaded" IsEnabled="{Binding Path=PaymentOptionsLoaded}" IsEnabledChanged="cmbMMoneyOptions_IsEnabledChanged" IsHitTestVisible="{Binding Path=CanChangePaymentOption}"/>
+
+                <Button Grid.Row="1" Grid.Column="2" x:Name="btnPaymentRequest" Content="Send Payment Request" Height="28"  VerticalAlignment="Center" Width="130" Click="btnRequest_Click" Visibility="{Binding Path=CanMakePaymentRequest, Converter={StaticResource VisibilityConverter}}"/>
+
+                <Label Grid.Row="2" HorizontalAlignment="Left"  Name="lblMMoneyAmount" Width="120" Content="M-Money Amount:" Margin="12,4,0,0" />
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtMMoneyAmount" Text="{Binding Path=MMoneyAmount, Mode=TwoWay}" TextAlignment="Right" 
+                 Margin="5,2,10,2" Height="28" LostFocus="txtMMoneyAmount_LostFocus" TextChanged="txtMMoneyAmount_TextChanged" 
+                         IsReadOnly="{Binding Path=CanEditMMoneyAmount, Converter={StaticResource IsReadOnlyConverter}}"/>
+
+                <Button Grid.Row="2" Grid.Column="2" x:Name="btnGetPaymntNotification" Content="Get Payment Notification" Height="28"  VerticalAlignment="Center" Width="130" Click="btnGetPaymntNotification_Click" Visibility="{Binding Path=CanGetPaymentNotification, Converter={StaticResource VisibilityConverter}}"/>
+
+                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                    <TextBlock>
+                        <Hyperlink Click="lblAccountNo_Click" >
+                            <TextBlock x:Name="lblAccountNo" Text="Distributor Account No."/>
+                        </Hyperlink>
+                    </TextBlock>
+                    <CheckBox x:Name="chkAccMobile" Content="mobile no." VerticalAlignment="Center" Margin="0,0,0,0" IsChecked="{Binding Path=MSISDNAccount, Mode=TwoWay}" ToolTipService.ToolTip="Select if paying to a mobile phone number."/>
+                </StackPanel>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtAccountNo" Text="{Binding Path=AccountNo, Mode=TwoWay}" TextAlignment="Right" 
+                 Margin="5,2,10,2" Height="28" KeyDown="txtAccountNo_KeyDown" ToolTipService.ToolTip="Account or mobile tel no of the party being paid (distributor).&#x0a;Incase of mobile number, you must start with the country code."
+                         IsReadOnly="{Binding Path=CanEditAccountNo, Converter={StaticResource IsReadOnlyConverter}}"/>
+                <Button Grid.Row="3" Grid.Column="2" x:Name="btnViewPaymentResponse" Content="See Payment Response" Height="28" VerticalAlignment="Center" Width="130" Click="ViewMessage" Visibility="{Binding Path=CanSeePaymentResponse, Converter={StaticResource VisibilityConverter}}"/>
+
+                <Label Grid.Row="4" HorizontalAlignment="Left"  Name="lblTillNumber" Width="120" Content="Till Number:" Margin="12,4,0,0" />
+                <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtTillNumber" Text="{Binding Path=TillNumber, Mode=TwoWay}" TextAlignment="Right" 
+                 Margin="5,2,10,2" Height="28" IsReadOnly="True" />
+                <Button Grid.Row="4" Grid.Column="2" x:Name="btnViewPaymentNotification" Content="See Payment Notification" Height="28"  VerticalAlignment="Center" Width="130" Click="ViewMessage" Visibility="{Binding Path=CanSeePaymentNotification, Converter={StaticResource VisibilityConverter}}"/>
+
+                <Label Grid.Row="5" Content="Transaction Reference No.:" Height="28" HorizontalAlignment="Left" Margin="12,1,0,0" Name="lnlTransRefNo" VerticalAlignment="Top" Width="169" />
+                <TextBox Grid.Row="5" Grid.Column="1" Height="28" x:Name="txtMMoneyRef" Text="{Binding Path=PaymentRef, Mode=TwoWay}" Margin="5,1,10,5" IsReadOnly="{Binding IsReadONly}" />
+                <StackPanel Grid.Row="6" Orientation="Horizontal">
+                    <TextBlock>
+                        <Hyperlink Click="lblSubscriberId_Click">
+                            <TextBlock x:Name="lblSubscriberId" Text="Outlet Subscriber No."/>
+                        </Hyperlink>
+                    </TextBlock>
+                    <StackPanel Margin="10,0,0,0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Label x:Name="lblSubsMobile" Content="mobile no:"/>
+                            <RadioButton x:Name="rbUseSubscriberTel" Checked="rbUseSubscriberTel_Checked" GroupName="gpSubscriberNo"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Label x:Name="lblSubsUserName" Content="user name:"/>
+                            <RadioButton x:Name="rbUseSubscriberUsername" Checked="rbUseSubscriberUsername_Checked" GroupName="gpSubscriberNo" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <TextBox Grid.Row="6" Grid.Column="1" Height="28" x:Name="txtSubscriberId" Text="{Binding Path=SubscriberId, Mode=TwoWay}" Margin="5,1,10,5" IsReadOnly="{Binding Path=CanEditSubscriberNo, Converter={StaticResource IsReadOnlyConverter}}" TextAlignment="Right" KeyDown="txtAccountNo_KeyDown" ToolTipService.ToolTip="mobile tel No or User name of the party paying.&#x0a;Incase of mobile number, you must start with the country code."/>
+
+                <Label Grid.Row="7" Content="SMS To Subscriber:&#x0a;(Optional. Max. 40 Chars)" Height="40" HorizontalAlignment="Left" Margin="12,1,0,0" Name="lblSms" VerticalAlignment="Top" Width="169" />
+                <TextBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" x:Name="txtSms" Text="{Binding Path=SMS, Mode=TwoWay}" TextWrapping="Wrap" AcceptsReturn="True" Height="56" Width="207" HorizontalAlignment="Left" Margin="5,1,10,5" IsReadOnly="{Binding Path=CanMakePaymentRequest, Converter={StaticResource IsReadOnlyConverter}}" TextChanged="txtSms_TextChanged"/>
+                <Label Grid.Row="7" Grid.Column="2" Content="40" Height="28" HorizontalAlignment="Left" Margin="15,1,0,0" Name="lblSmsChars" VerticalAlignment="Top" Width="40"/>
+                <Button Grid.Row="7" Grid.Column="2" x:Name="btnClearMmoneyFields" Content="Clear" Click="btnClearMmoneyFields_Click" Width="50" Height="28" Margin="80,28,0,6" Visibility="{Binding Path=CanClearMMoneyFields, Converter={StaticResource VisibilityConverter}}"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="8" Grid.ColumnSpan="3" BorderBrush="Blue" BorderThickness=".5" CornerRadius="8" Margin="0,5,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="235*" />
+                    <ColumnDefinition Width="222*" />
+                    <ColumnDefinition Width="165*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.RowSpan="2" Height="28" HorizontalAlignment="Left"  Name="lblChequeAmount" VerticalAlignment="Top" Width="120" Content="Cheque Amount:" Margin="12,5,0,0" />
+                <TextBox Grid.Row="0" Grid.Column="1" Height="28" x:Name="txtChequeAmount" Text="{Binding Mode=TwoWay, Path=ChequeAmount}" TextAlignment="Right" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right"  Margin="5,3,10,2" KeyDown="txtField_KeyDown" Loaded="txtChequeAmount_Loaded" LostFocus="txtChequeAmount_LostFocus"  TextChanged="txtChequeAmount_TextChanged" />
+                <TextBox Grid.Row="1" Grid.Column="1" Height="28" x:Name="txtChequeNo" Text="{Binding Mode=TwoWay, Path=ChequeNumber}" HorizontalAlignment="Stretch"  HorizontalContentAlignment="Right"  Margin="5,1,10,2" />
+                <Label Grid.Row="1" Content="Cheque Number:" Height="28" HorizontalAlignment="Left" Margin="12,1,0,0" Name="lblChequeNo" VerticalAlignment="Top" Width="120" />
+                <Label Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="12,8,0,0" Name="lblBank" VerticalAlignment="Top" Width="120" Content="Bank" Grid.RowSpan="2" />
+                <ComboBox Grid.Row="2" Grid.Column="1" Height="28" DisplayMemberPath="Name" SelectedItem="{Binding SelectedBank}" ItemsSource="{Binding BanksList}" HorizontalAlignment="Left" Margin="5,3,0,0" Name="cbBanks" VerticalAlignment="Top" Width="192" SelectionChanged="cbBanks_SelectionChanged" />
+                <Label Grid.Row="3" Content="Branch" Height="28" HorizontalAlignment="Left" Margin="12,4,0,0" Name="lblBranch" VerticalAlignment="Top" Width="120" />
+                <ComboBox Grid.Row="3" Grid.Column="1" Height="28" DisplayMemberPath="Name" SelectedItem="{Binding SelectedBankBranch}" ItemsSource="{Binding BankBranchesList}" HorizontalAlignment="Left" Margin="5,4,0,5" Name="cbBranches" VerticalAlignment="Top" Width="192" SelectionChanged="cbBranches_SelectionChanged" />
+            </Grid>
+        </Border>
+
+        <Label Grid.Row="12"  Height="28" HorizontalAlignment="Left"  Name="lblAmountPaid" VerticalAlignment="Top" Width="120" Content="Amount Paid:" Margin="12,3,0,0" />
+        <TextBlock Grid.Row="12" Grid.Column="1" Height="28" x:Name="txtAmountPaid" Text="{Binding Path=AmountPaid, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}"
+                   TextAlignment="Right"  Margin="5,2" FontWeight="Bold" />
+        <Label Grid.Row="13" Height="28" HorizontalAlignment="Left"  Name="lblChange" VerticalAlignment="Top" Width="120" Content="Change:" Margin="12,3,0,0" />
+        <TextBlock Grid.Row="13" Grid.Column="1" Height="28" x:Name="txtChange" Text="{Binding Path=Change, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}"
+                   TextAlignment="Right"  Margin="5,2" FontWeight="Bold" />
+
+        <StackPanel Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Right">
+            <Button x:Name="btnOK" Content="OK" Click="btnOK_Click" Width="65" Height="23" Margin="10,0,0,0" />
+            <Button x:Name="btnClearAll" Content="Clear All" Click="btnClearAll_Click"  Width="65" Height="23" Margin="50,0,0,0" />
+            <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Width="65" Height="23" Margin="50,0,18,0"  />
+        </StackPanel>
+        <!--<CheckBox Content="Pay in full." Grid.Column="1" Grid.Row="7" Height="16" HorizontalAlignment="Left" Margin="10,7,0,0" Name="chkPayInFull" VerticalAlignment="Top" Checked="chkPayInFull_Checked" Unchecked="chkPayInFull_Unchecked" />-->
+    </Grid>
+</Window>

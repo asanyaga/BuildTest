@@ -1,0 +1,79 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.Purchasing.POLineItemModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:FormBorderButtons="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.FormBorderButtons;assembly=Distributr.WPF.Lib"
+        xmlns:Converter="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+        Width="564.915" Height="300"
+                      Title="{Binding ModalTitle, Mode=TwoWay}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <i:Interaction.Behaviors>
+        <FormBorderButtons:HideCloseButtonBehaiviour />
+    </i:Interaction.Behaviors>
+    <Window.Resources>
+        <Converter:EnumConverter x:Key="EBConverter"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <Binding Path="POLineItemViewModel" Source="{StaticResource Locator}"/>
+    </Window.DataContext>
+    <StackPanel Orientation="Horizontal">
+        <Grid x:Name="LayoutRoot" Margin="2" Width="486">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition  />
+                <RowDefinition  />
+                <RowDefinition  />
+                <RowDefinition  />
+                <RowDefinition  />
+                <RowDefinition  />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="143*" />
+                <ColumnDefinition Width="343*" />
+            </Grid.ColumnDefinitions>
+
+            <Label  Height="28" HorizontalAlignment="Left" x:Name="lblProduct" VerticalAlignment="Top" Width="120" Content="Product" Margin="20,6,0,0" />
+            <ComboBox Grid.Column="1" Height="23" HorizontalAlignment="Left"  x:Name="cmbProducts" VerticalAlignment="Top" Width="337"  
+                      DisplayMemberPath="ProductDesc"  ItemsSource="{Binding Products}" 
+					  SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" SelectionChanged="cmbProducts_SelectionChanged" 
+                      Margin="0,11,0,0" DropDownOpened="cmbProducts_DropDownOpened" />
+
+            <Label  Height="28" HorizontalAlignment="Left"  x:Name="lblQty" VerticalAlignment="Top" Width="120" Content="Qty" Grid.Row="2" Margin="19,0,0,0" />
+            <TextBox Height="28" x:Name="txtQty" Text="{Binding Qty, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" TextAlignment="Right" Margin="38,4,0,4" KeyDown="txtQty_KeyDown" />
+
+            <Label  Height="28" HorizontalAlignment="Left"  x:Name="lblUnitPrice" VerticalAlignment="Top" Width="120" Content="Unit Price" Grid.Row="3" Margin="19,0,0,0" />
+            <TextBox Height="28" x:Name="txtUnitPrice" Text="{Binding UnitPrice, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right" IsReadOnly="True" Margin="38,5,0,5" />
+
+            <Label  Height="28" HorizontalAlignment="Left"  x:Name="lblVatAmount" VerticalAlignment="Top" Width="120" Content="VAT" Grid.Row="4" Margin="19,0,0,0" />
+            <TextBox Height="28" x:Name="txtVatAmount" Text="{Binding VatAmount, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" Grid.Row="4" Grid.Column="1" TextAlignment="Right" IsReadOnly="True" Margin="38,4,0,4" />
+
+            <Label  Height="28" HorizontalAlignment="Left"  x:Name="lblTotalPrice" VerticalAlignment="Top" Width="120" Content="Total Price" Grid.Row="5" Margin="19,0,0,0" />
+            <TextBox Height="28" x:Name="txtTotalPrice" Text="{Binding TotalPrice, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}"  Grid.Row="5" Grid.Column="1" TextAlignment="Right" IsReadOnly="True" Margin="38,5,0,5" />
+            <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" HorizontalAlignment="Right" Margin="0,5,0,6" Grid.Row="6" Grid.Column="1" />
+            <Button x:Name="OKButton" Content="Done" Click="OKButton_Click" Width="75" Grid.Column="1" Margin="145,6,123,5" Grid.Row="6" />
+
+
+            <RadioButton x:Name="rb2" Content="Cartons/Cases"
+                         IsChecked="{Binding LineItemType, ConverterParameter=Bulk, Converter={StaticResource EBConverter}, Mode=TwoWay}"  
+                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                         Grid.Column="1" Height="16" HorizontalAlignment="Left" Margin="163,12,0,0"  VerticalAlignment="Top" GroupName="Type" Click="rb2_Click" Grid.Row="1" />
+            <RadioButton x:Name="rb1" Content="Unit" 
+                         IsChecked="{Binding LineItemType, ConverterParameter=Unit, Converter={StaticResource EBConverter}, Mode=TwoWay}"  
+                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                         Height="16" HorizontalAlignment="Left" Margin="38,11,0,0" VerticalAlignment="Top" GroupName="Types" Click="rb1_Click" Grid.Column="1" Grid.Row="1" />
+            <Label Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="19,10,0,0" x:Name="labelOrderby" VerticalAlignment="Top" Width="92" Content="Order By" />
+            <Button x:Name="btnAddProduct" Content="Add Product" Margin="8,8,0,5" Width="73" Click="btnAddProduct_Click" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="1" />
+            <TextBlock Margin="19,8,18,8" Grid.Row="6">
+            <!--<Hyperlink  Command="{Binding ProductSummaryCommand}" >TODO ??</Hyperlink>-->
+                 <TextBlock >
+                <Hyperlink  Click="hyperlinkButton1_Click">
+                    <TextBlock  x:Name="hlViewAdded" Text="Added Products" />
+                </Hyperlink>
+            </TextBlock>
+
+            </TextBlock>
+        </Grid>
+        <!--<mycontrols:AutoExpandingTreeView x:Name="productTree" Width="350" Height="250" ItemTemplate="{StaticResource productlist}" ItemsSource="{Binding ProductTree}" />-->
+
+    </StackPanel>
+</Window>

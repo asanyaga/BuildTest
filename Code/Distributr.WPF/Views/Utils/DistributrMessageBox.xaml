@@ -1,0 +1,52 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.Utils.DistributrMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:FormBorderButtons="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.FormBorderButtons;assembly=Distributr.WPF.Lib"
+        xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+        Height="180" MinHeight="150" MaxHeight="300" Width="450" MinWidth="380" MaxWidth="500"
+           DataContext="{Binding Path=DistributrMessageBoxViewModel, Source={StaticResource Locator}}" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen"
+           Title="{Binding Path=MessageBoxTitle}"  FormBorderButtons:ControlBox.HasMinimizeButton="False" FormBorderButtons:ControlBox.HasMaximizeButton="False">
+    <i:Interaction.Behaviors>
+        <FormBorderButtons:HideCloseButtonBehaiviour />
+    </i:Interaction.Behaviors>
+    <Window.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter" />
+    </Window.Resources>
+    <Grid x:Name="LayoutRoot" Margin="2" Height="Auto" MinHeight="110">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderBrush="Blue" BorderThickness="0.5" >
+            <TextBlock TextWrapping="Wrap" Margin="5"  Text="{Binding Path=MessageBoxContent}" Height="Auto" MinHeight="75"/>
+        </Border>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,5,20,0" HorizontalAlignment="Right">
+            <Button x:Name="NewButton" Content="{Binding Path=NewButtonText}" Click="NewButton_Click"  Width="Auto" MinWidth="60" Height="23" HorizontalAlignment="Right" Margin="10,0,0,0" Visibility="{Binding ShowNewButton, Converter={StaticResource VisibilityConverter}}">
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="{Binding Path=NewButtonToolTip}"></ToolTip>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button x:Name="HomeButton" Content="{Binding Path=HomeButtonText}" Click="HomeButton_Click"  Width="Auto" MinWidth="60" Height="23" HorizontalAlignment="Right" Margin="10,0,0,0" Visibility="{Binding ShowHomeButton, Converter={StaticResource VisibilityConverter}}">
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="{Binding Path=HomeButtonTooTip}"></ToolTip>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button x:Name="OKButton" Content="{Binding Path=OKButtonText}" Click="OKButton_Click"  Width="Auto" MinWidth="60" Height="23" HorizontalAlignment="Right" Margin="10,0,0,0" Visibility="{Binding ShowOKButton, Converter={StaticResource VisibilityConverter}}" IsDefault="True">
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="{Binding Path=OKButtonToolTip}"></ToolTip>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button x:Name="CancelButton" Content="{Binding Path=CancelButtonText}" Click="CancelButton_Click"  Width="Auto" MinWidth="60" Height="23" HorizontalAlignment="Right" Margin="10,0,0,0" Visibility="{Binding Path=ShowCancelButton, Converter={StaticResource VisibilityConverter}}">
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="{Binding Path=CancelButtonTooTip}"></ToolTip>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button x:Name="ActionButton" Content="{Binding Path=Action1ButtonText}" Click="ActionButton_Click"  Width="Auto" MinWidth="60" Height="23" HorizontalAlignment="Right" Margin="10,0,0,0" Visibility="{Binding Path=ShowAction1Button, Converter={StaticResource VisibilityConverter}}">
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="{Binding Path=Action1ButtonToolTip}"></ToolTip>
+                </ToolTipService.ToolTip>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

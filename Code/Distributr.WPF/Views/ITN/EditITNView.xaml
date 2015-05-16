@@ -1,0 +1,65 @@
+﻿<UI_Utillity:PageBase x:Class="Distributr.WPF.UI.Views.ITN.EditITNView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:UI_Utillity="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity;assembly=Distributr.WPF.Lib"
+                      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+                      mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="480"
+                 DataContext="{Binding EditITNViewModel, Source={StaticResource Locator}}"
+           Title="Inventory Tranfers Page" Width="850" Height="555">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter" />
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot" Width="848" Height="555">
+        <Label x:Name="labelpagetitle" Content="Inventory Transfer" FontSize="16" Height="30" VerticalAlignment="Top"/>
+        <Border BorderBrush="Silver" BorderThickness="1" Height="470" HorizontalAlignment="Left" Margin="0,35,0,0" Name="border1" VerticalAlignment="Top" Width="836" CornerRadius="10">
+            <Grid Height="496" Name="grid1" Width="825">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="37*" />
+                    <RowDefinition Height="426*" />
+                    <RowDefinition Height="33*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130*" />
+                    <ColumnDefinition Width="259*" />
+                    <ColumnDefinition Width="406*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblSalesman" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" VerticalAlignment="Top" Width="99" Content="Salesman:" />
+                <ComboBox Height="23" DisplayMemberPath="Username" ItemsSource="{Binding SalesMen, Mode=TwoWay}" SelectedItem="{Binding SelectedSaleMan, Mode=TwoWay}" Margin="0,10,25,0" Name="cmbSalesmen" VerticalAlignment="Top" Width="226" SelectionChanged="cmbSalesmen_SelectionChanged" HorizontalAlignment="Right" Grid.Column="1" DropDownOpened="cmbSalesmen_DropDownOpened"/>
+                <DataGrid ItemsSource="{Binding LineItems, Mode=TwoWay}" AutoGenerateColumns="False" Name="TranfersGridView" Margin="6,2,0,51" HorizontalAlignment="Left" Width="805" Grid.ColumnSpan="3" Grid.Row="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding ProductName,Mode=TwoWay}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" x:Name="colproduct"  Header="Product" Width="Auto" IsReadOnly="True" MinWidth="120"/>
+                        <DataGridTextColumn Binding="{Binding Qty}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Issued Quantity" x:Name="colissuequantity" Width="Auto" IsReadOnly="True" />
+                        <DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Visibility="{Binding Editable, Converter={StaticResource VisibilityConverter}}">
+                                    <Hyperlink x:Name="hlEdit" TargetName="ContentFrame" Click="hlEdit_Click" Tag="{Binding ProductId}"  >Edit</Hyperlink>
+
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Visibility="{Binding Editable, Converter={StaticResource VisibilityConverter}}">
+                                    <Hyperlink x:Name="hlDelete"  TargetName="ContentFrame" Click="hlDelete_Click" Tag="{Binding ProductId}" >Delete</Hyperlink>
+
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="Confirm" Height="28" Name="cmdConfirm" Width="118" Command="{Binding Path=ConfirmCommand}" Margin="168,381,0,15" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="1" />
+                <Button Content="Save" Height="28" Name="cmdSave" Width="118" Command="{Binding Path=SaveCommand}" Margin="44,381,0,15" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="1" />
+                <Button Content="Cancel" Height="28" Name="cmdCancel" Width="118" Command="{Binding Path=CancelCommand}" Margin="292,381,9,15" Grid.Column="2" Grid.Row="1" />
+                <Button Content="Add Product" Height="28" Name="cmdAddProduct" Width="118" Click="cmdAddProduct_Click" Margin="187,381,381,15" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" />
+            </Grid>
+        </Border>
+    </Grid>
+</UI_Utillity:PageBase>

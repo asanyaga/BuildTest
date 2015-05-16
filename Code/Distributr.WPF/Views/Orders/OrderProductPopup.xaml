@@ -1,0 +1,136 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.Orders.OrderProductPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+        xmlns:Converter="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        DataContext="{Binding ProductMainOrderLineItem,Source={StaticResource Locator}}"
+        x:Name="AddProductWindow"
+        Title="Order Product Popup"   MinHeight="406.818"   ResizeMode="NoResize" BorderThickness="1" 
+        Background="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}" Width="512.776" Height="429.03" >
+  <Window.Resources>
+        <Converter:EnumConverter x:Key="UnitBulkConverter"/>
+      <Converter:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Window.Resources>
+   
+        <Grid Margin="0,30,0,0"  VerticalAlignment="Top">
+        <StackPanel VerticalAlignment="Center">
+            <Grid Visibility="{Binding IsFreeOfChargeVisible,Converter={StaticResource VisibilityConverter}}">
+                <Label Margin="20,0,0,0"  Content="Sell free of charge product" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="154"/>
+                <CheckBox Margin="200,0,0,0"  IsEnabled="{Binding CanChange,Mode=TwoWay}"  IsChecked="{Binding IsFreeOfChargeSale,Mode=TwoWay}" Content="" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="24">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click" >
+                            <cmd:EventToCommand Command="{Binding IsFreeOfChargeCheckedCommand, Mode=OneWay}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </CheckBox>
+            </Grid>
+            <Grid>
+               <ComboBox Margin="200,0,0,0" IsEnabled="{Binding CanChange,Mode=TwoWay}" x:Name="ComboBoxSelectedProduct"  
+                          SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" 
+                          ItemsSource="{Binding ProductLookup,Mode=TwoWay}" DisplayMemberPath="Description" HorizontalAlignment="Left"  
+                          VerticalAlignment="Top" Width="282" Height="26">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="DropDownOpened" >
+                            <cmd:EventToCommand Command="{Binding ProductDropDownOpenedCommand, Mode=TwoWay}"  
+                                                CommandParameter="{Binding ElementName=ComboBoxSelectedProduct}" />
+                        </i:EventTrigger>
+                        <!--<i:EventTrigger EventName="DropDownOpened" >
+                            <cmd:EventToCommand Command="{Binding ProductLookUpOpenedCommand, Mode=TwoWay}" />
+                        </i:EventTrigger>-->
+                        <i:EventTrigger EventName="SelectionChanged" >
+                            <cmd:EventToCommand Command="{Binding CalculateSummaryCommand, Mode=TwoWay}"   />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+            </Grid>
+            <Grid>
+                <Label Margin="20,0,0,0"  Content="{Binding PackageLabel,Mode=TwoWay}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="154"/>
+                <RadioButton Margin="200,5,0,0" IsEnabled="{Binding CanChange,Mode=TwoWay}"   IsChecked="{Binding LineItemType,ConverterParameter=Unit,Mode=OneWay,Converter={StaticResource UnitBulkConverter}}" Content="Units" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.521,1.503" Width="72" Height="21">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Checked" >
+                            <cmd:EventToCommand Command="{Binding SellModeChangedCommand, Mode=TwoWay}" CommandParameter="Unit"  />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+                <RadioButton Margin="300,5,0,0" IsEnabled="{Binding CanChange,Mode=TwoWay}" IsChecked="{Binding LineItemType,ConverterParameter=Bulk,Mode=OneWay,Converter={StaticResource UnitBulkConverter}}" Content="Cartons/Cases" HorizontalAlignment="Left"  VerticalAlignment="Top" RenderTransformOrigin="0.521,1.503" Width="171" Height="21">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Checked" >
+                            <cmd:EventToCommand Command="{Binding SellModeChangedCommand, Mode=TwoWay}" CommandParameter="Bulk"  />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+            </Grid>
+            <Grid>
+                <Label Margin="20,0,0,0" Content="Required" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154"/>
+                <TextBox Margin="200,0,0,0" MaxLength="14"  x:Name="TextBoxQuantity" Text="{Binding Quantity, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, 
+                ValidatesOnDataErrors=True, 
+                ValidatesOnExceptions=True, 
+                NotifyOnSourceUpdated=True, 
+                NotifyOnTargetUpdated=True}"  HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="282" TextAlignment="Right" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewTextInput" >
+                            <cmd:EventToCommand Command="{Binding ValidNumericInputCommand, Mode=TwoWay}"  PassEventArgsToCommand="True" />
+                        </i:EventTrigger>
+                        <i:EventTrigger EventName="TextChanged" >
+                            <cmd:EventToCommand Command="{Binding CalculateSummaryCommand, Mode=TwoWay}"  />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </Grid>
+            <Grid Visibility="{Binding IsAvailableVisible,Converter={StaticResource VisibilityConverter}}">
+                <Label Margin="20,0,0,0"  Content="{Binding AvailableLabel}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="154"/>
+                <TextBox Margin="200,0,0,0"   IsEnabled="False" Text="{Binding Available, Mode=TwoWay, StringFormat=\{0:n2\}}" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="282" TextAlignment="Right"/>
+
+            </Grid>
+            <Grid>
+                <Label Margin="20,0,0,0" Content="Unit VAT amount" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="154"/>
+                <TextBox Margin="200,0,0,0" IsEnabled="False" Text="{Binding UnitVAT, Mode=TwoWay,StringFormat={}{0:n2}}" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="282" TextAlignment="Right"/>
+
+            </Grid>
+            <Grid>
+                <Label Margin="20,0,0,0" Content="Unit price amount" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="154"/>
+                <TextBox Margin="200,0,0,0" IsEnabled="False" Text="{Binding UnitPrice, Mode=TwoWay,StringFormat={}{0:n2}}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="282" TextAlignment="Right"/>
+
+            </Grid>
+            <Grid>
+                <Label Margin="20,0,0,0" Content="Unit Product Discount" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="154" RenderTransformOrigin="0.529,2.138"/>
+                <TextBox Margin="200,0,0,0" IsEnabled="False" Text="{Binding UnitDiscount, Mode=TwoWay, StringFormat=\{0:n2\}}"   HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="282" TextAlignment="Right"/>
+
+            </Grid>
+            <Grid>
+                <Label  Margin="20,0,0,0" Content="Total net" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="154" RenderTransformOrigin="0.529,2.138"/>
+                <TextBox Margin="200,0,0,0" IsEnabled="False" Text="{Binding TotalNet, Mode=TwoWay,StringFormat={}{0:n2}}"   HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="282" TextAlignment="Right"/>
+
+            </Grid>
+           
+            <Grid>
+                <Label  Margin="20,0,0,0" Content="Total vat amount" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="154" RenderTransformOrigin="0.529,2.138"/>
+                <TextBox  Margin="200,0,0,0" IsEnabled="False" Text="{Binding TotalVAT, Mode=TwoWay,StringFormat={}{0:n2}}" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="282" TextAlignment="Right"/>
+
+            </Grid>
+            <Grid>
+                <Label  Margin="20,0,0,0" Content="Total gross price" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="154" RenderTransformOrigin="0.529,2.138"/>
+                <TextBox  Margin="200,0,0,0" IsEnabled="False" Text="{Binding GrossAmount, Mode=TwoWay,StringFormat={}{0:n2}}" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="282" TextAlignment="Right"/>
+
+            </Grid>
+            <StackPanel Margin="0,30,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <ItemsControl Visibility="{Binding ShowAddedProductsLink}">
+                    <Hyperlink Command="{Binding ShowAddedProductsCommand}">
+                        <TextBlock Text="{Binding AddedProductsCount}">
+                        </TextBlock>
+                    </Hyperlink>
+                </ItemsControl>
+                <Button Content="Add" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="95" Height="34" Command="{Binding AddProductCommand,Mode=TwoWay}" 
+                        Visibility="{Binding IsAddButtonVisible,Converter={StaticResource VisibilityConverter}}"/>
+                <Button x:Name="ButtonDone" Content="Done" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="71" Height="34" Command="{Binding DoneAddingCommand,Mode=TwoWay}"/>
+                <Button Content="Cancel" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="70" Height="34" Command="{Binding CancelCommand}"/>
+            </StackPanel>
+        </StackPanel>
+       
+
+    </Grid>
+       
+    
+</Window>

@@ -1,0 +1,125 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Administration.Outlets.ListOutlets"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      xmlns:pager="clr-namespace:Distributr.WPF.UI.Views.Utils"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:Admin="clr-namespace:Distributr.WPF.Lib.ViewModels.Admin;assembly=Distributr.WPF.Lib"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45" mc:Ignorable="d" 
+     d:DesignWidth="970" d:DesignHeight="480"
+                 DataContext="{Binding ListOutletsViewModel, Source={StaticResource Locator}}"
+           Title="ListOutlets Page">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadListingPageCommand}" PassEventArgsToCommand="True" CommandParameter="{x:Static Admin:BooleanHelper.True}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel x:Name="LayoutRoot" LastChildFill="True">
+        <Grid DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Margin="0,0,15,0">
+                <CheckBox Content="Show inactive" FontWeight="Bold" Command="{Binding Path=ToggleShowInactiveCommand}" CommandParameter="{Binding Path=IsChecked, ElementName=chkShowInactive}" FontSize="13" x:Name="chkShowInactive"  VerticalAlignment="Center" Margin="20,0,10,0"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel x:Name="spHeader" Width="auto" DockPanel.Dock="Top">
+                <StackPanel x:Name="spLoadOptionsAndActions" Orientation="Horizontal" HorizontalAlignment="Right"> 
+                    <Label  Content="Search By Name/Code" Width="Auto" FontWeight="Bold" Margin="0,0,5,0" />
+                <TextBox Text="{Binding SearchText,UpdateSourceTrigger=PropertyChanged}" Height="25" Width="200"  Margin="0,0,20,0" x:Name="txtSearch">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <cmd:EventToCommand Command="{Binding Path=SearchCommand, Mode=OneWay}" CommandParameter="{Binding Text, ElementName=txtSearch}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <CheckBox x:Name="chkLoadApproved"  Command="{Binding LoadOutletsCommand}" CommandParameter="{Binding ElementName=chkLoadApproved}" Content="Load Approved" Margin="0,0,20,0"></CheckBox>
+                    <CheckBox x:Name="chkLoadUnApproved" Command="{Binding LoadOutletsCommand}" CommandParameter="{Binding ElementName=chkLoadUnApproved}" Content="Load Unapproved" Margin="0,0,20,0"></CheckBox>
+                    <CheckBox x:Name="chkApproveAll" Command="{Binding LoadOutletsCommand}" CommandParameter="{Binding ElementName=chkApproveAll}"  Content="Select All Unapproved" Margin="0,0,20,0"></CheckBox>
+                    
+                </StackPanel>
+            </StackPanel>
+        <Grid DockPanel.Dock="Bottom" Margin="0,0,0,20" >
+            <pager:PagerControl Margin="0,10,10,0"/>
+        </Grid>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" MinHeight="30">
+          <Button x:Name="btnApprove" Command="{Binding ApproveSelectedOutletsCommand}" Width="120" Content="Approve" Visibility="{Binding Path=CanManageOutlet, Converter={StaticResource VisibilityConverter}}" />
+          <Button x:Name="btnAdd" Command="{Binding CreateNewOutletCommand}"  Width="120" Content="Add" Visibility="{Binding Path=CanManageOutlet, Converter={StaticResource VisibilityConverter}}"/> 
+        </StackPanel>
+       
+        <DataGrid AutoGenerateColumns="False" Height="Auto" x:Name="dgOutlets" MinHeight="250" Width="Auto" ItemsSource="{Binding Outlets}"  CanUserResizeColumns="True" SelectedItem="{Binding SelectedOutlet}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colNumber" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=RowNumber}" Header="" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colName" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Name}" Header="Name" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colCode" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Code}" Header="Code" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colRoute" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding RouteName}" Header="Route Name" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colCategory" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Category}" Header="Category" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colType" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding OutletType}" Header="Outlet Type" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colTier" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding ProductPricingTier}" Header="Pricing Tier" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colVat" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding VATClass}" Header="VAT Class" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colDiscGp" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding DiscountGroup}" Header="Discount Group" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colLat" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Latitude}" Header="Latitude" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colLong" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Longitude}" Header="Longitude" IsReadOnly="True" />
+                    <DataGridTemplateColumn x:Name="colApproved" Header="Is Approved">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ItemsControl>
+                                <CheckBox IsChecked="{Binding IsApproved,Mode=TwoWay}" IsEnabled="False"/>
+                                    </ItemsControl>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    
+                    <DataGridTemplateColumn  CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="70" Header="Approve" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsChecked, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" IsEnabled="{Binding CanApprove}"/>
+                           
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="colEdit" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="140" MinWidth="135" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel x:Name="spEdit" Orientation="Horizontal">
+                                <TextBlock >
+                                        <Hyperlink x:Name="hlEdit" Command="{Binding DataContext.EditSelectedCommand, ElementName=dgOutlets}">
+                                             <TextBlock x:Name="txtEdit" Text="Edit"></TextBlock>
+                                        </Hyperlink>
+                                 </TextBlock>
+                                <Label VerticalAlignment="Top" Content="|"/>
+                                    <TextBlock>
+                                        <Hyperlink x:Name="hlDeactivate" Command="{Binding DataContext.ActivateSelectedCommand, ElementName=dgOutlets}">
+                                             <TextBlock x:Name="txtDeactivate" Text="{Binding Path=HlkDeactivateContent}"></TextBlock>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                    <Label VerticalAlignment="Top" Content="|"/>
+                                    <TextBlock>
+                                         <Hyperlink x:Name="hlDelete" Command="{Binding DataContext.DeleteSelectedCommand, ElementName=dgOutlets}">
+                                             <TextBlock x:Name="txtDelete" Text="Delete"></TextBlock>
+                                         </Hyperlink>
+									</TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+       
+        </DockPanel>
+</Page>

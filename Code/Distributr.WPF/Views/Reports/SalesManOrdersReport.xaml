@@ -1,0 +1,43 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Reports.SalesManOrdersReport" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           d:DesignWidth="800" d:DesignHeight="480"
+                 DataContext="{Binding ListSalesmanOrdersViewModel, Source={StaticResource Locator}}"
+           Title="OrdersReport Page" >
+    <Grid x:Name="LayoutRoot">
+        <Label Height="19" HorizontalAlignment="Left" Margin="5,2,0,0" Name="label1" VerticalAlignment="Top" Width="631" Content="Orders Report" />
+        <Border BorderBrush="Silver" BorderThickness="1" Height="441" HorizontalAlignment="Left" Margin="5,27,0,0" Name="border1" VerticalAlignment="Top" Width="783" CornerRadius="8">
+            <Grid Height="418" Name="grid1" Width="772">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="290*" />
+                </Grid.RowDefinitions>
+                <Label Content="Start Date" Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label2" VerticalAlignment="Top" Width="121" />
+                <DatePicker Height="20" HorizontalAlignment="Left" Margin="132,6,0,0" Name="StartDateDP" SelectedDate="{Binding StartDate, Mode=TwoWay}" VerticalAlignment="Top" Width="159" />
+                <Label Content="End Date" Height="20" HorizontalAlignment="Left" Margin="315,6,0,0" Name="label3" VerticalAlignment="Top" Width="123" />
+                <DatePicker Height="20" HorizontalAlignment="Left" Margin="443,6,0,0" Name="EndDateDP" SelectedDate="{Binding EndDate, Mode=TwoWay}" VerticalAlignment="Top" Width="159" />
+                <Label Grid.Row="1" Height="19" HorizontalAlignment="Left" Margin="6,4,0,0" Name="label4" VerticalAlignment="Top" Width="121" Content="Order Type" />
+                <ComboBox Grid.Row="2" Height="19" ItemsSource="{Binding OrderStatusItems, Mode=TwoWay}" SelectedItem="{Binding OrderStatus}" HorizontalAlignment="Left" Margin="132,5,0,0" Name="cmbOrderStatus" VerticalAlignment="Top" Width="159" SelectionChanged="cmbOrderStatus_SelectionChanged" />
+                <Button Content="Run Report" Grid.Row="3" Height="28" HorizontalAlignment="Left" Margin="132,5,0,0" Name="cmdGenerate" VerticalAlignment="Top" Width="159" Click="cmdGenerate_Click" />
+                <DataGrid IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Report, Mode=TwoWay}" Margin="6,9,5,7" Name="dg1" Grid.Row="4">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding DocumentRef}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Doc Ref" IsReadOnly="True" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding DateRequired}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Date Required" IsReadOnly="True" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding CreatedBy}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="User" IsReadOnly="True" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding TotalNet, StringFormat=#\,0.00;(#\,0.00);0}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Total Net" IsReadOnly="True" Width="Auto" CellStyle="{StaticResource TextAlignRight}" />
+                        <DataGridTextColumn Binding="{Binding TotalVat, StringFormat=#\,0.00;(#\,0.00);0}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Total Vat" IsReadOnly="True" Width="Auto" CellStyle="{StaticResource TextAlignRight}" />
+                        <DataGridTextColumn Binding="{Binding TotalGross, StringFormat=#\,0.00;(#\,0.00);0}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Total Gross" IsReadOnly="True" Width="Auto" CellStyle="{StaticResource TextAlignRight}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Label Content="Order Status" Height="19" HorizontalAlignment="Left" Margin="6,7,0,0" Name="label5" VerticalAlignment="Top" Width="121" Grid.Row="2" />
+                <ComboBox Height="19" HorizontalAlignment="Left" ItemsSource="{Binding OrderTypes, Mode=TwoWay}" Margin="132,4,0,0" Name="cmdOrderType" SelectedItem="{Binding Ordertype}" VerticalAlignment="Top" Width="159" Grid.Row="1" SelectionChanged="cmdOrderType_SelectionChanged" />
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

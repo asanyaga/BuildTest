@@ -1,0 +1,131 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Payments.ListPendingPayment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+     xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+      xmlns:pager="clr-namespace:Distributr.WPF.UI.Views.Utils" mc:Ignorable="d" 
+d:DesignWidth="950" d:DesignHeight="528"
+                 DataContext="{Binding ListOutStandingPaymentsViewModel, Source={StaticResource Locator}}"
+      Title="ListSalesPendingPayment Page" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding PageLoadedCommand}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel LastChildFill="True">
+        <Label Content="Receive Payments" FontWeight="Bold"   VerticalAlignment="Top" DockPanel.Dock="Top"/>
+            <Grid  DockPanel.Dock="Top">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="400*"></ColumnDefinition>
+                    <ColumnDefinition Width="600*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0" >
+                    <Label Content="From:"  Height="28" Margin="0,0,5,0" Width="Auto" HorizontalAlignment="Right" />
+                    <DatePicker Text="Start Date" Margin="0,0,10,0" SelectedDate="{Binding Path=StartDate, Mode=TwoWay, StringFormat=\{0:d\}}"/>
+                    <Label Content="To:"  Height="28" Margin="0,0,5,0" Width="Auto" HorizontalAlignment="Right" />
+                    <DatePicker  Text="End Date" Margin="0,0,10,0" SelectedDate="{Binding Path=EndDate, Mode=TwoWay, StringFormat=\{0:d\}}"/>
+                    <Button Content="Load" Height="28"  Command="{Binding LoadForSelectedDatesCommand}" Width="50" Margin="0,0,10,0"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Right">
+                    <Label  Content="Search:" HorizontalAlignment="Right" Margin="0,0,5,0" Grid.ColumnSpan="2" Width="Auto" />
+                    <Label Content="Search By Sale Reference:" Height="25" Margin="10,0" Width="Auto" HorizontalAlignment="Right" />
+                    <TextBox Height="28" Text="{Binding SearchText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="182" Margin="0,0,10,0" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <cmd:EventToCommand Command ="{Binding LoadForSelectedDatesCommand}" PassEventArgsToCommand="True" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+                    <Button Content="Clear" Height="28"  Width="60" Command="{Binding ClearSearchTextCommand}" />
+                </StackPanel>
+            </Grid>
+        <Grid DockPanel.Dock="Bottom" Margin="0,0,0,20" >
+            <pager:PagerControl Margin="0,0,130,0"/>
+        </Grid>
+            <TabControl x:Name="tcPendingPayments"  Width="Auto" Height="auto">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <cmd:EventToCommand Command ="{Binding TabSelectionChangedCommand, Mode=OneWay}"  PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <TabItem x:Name="tiInvoiceList" Header="Outstanding Payments">
+                    <DataGrid Name="InvoicesDG" AutoGenerateColumns="False" Height="Auto" Width="Auto"  ItemsSource="{Binding OutstandingPaymentList, Mode=TwoWay}" Margin="0,5,0,0" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=SequenceId}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Header="No." />
+                            <DataGridTemplateColumn Header="Sale Reference No." CanUserReorder="True" CanUserResize="True" CanUserSort="True" MinWidth="60" Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl >
+                                            <Hyperlink Command="{Binding DataContext.ViewSelectedInvoiceCommand,ElementName=InvoicesDG,Mode=TwoWay}" CommandParameter="{Binding OrderId}" >
+                                                <TextBlock Text="{Binding OrderDocRef}" ToolTipService.ToolTip="{Binding DataContext.ViewSelectedOrderToolTip,ElementName=InvoicesDG}"></TextBlock>
+                                            </Hyperlink>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn  CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalNet,StringFormat={}{0:n2}}" Header="Net Amt" IsReadOnly="True" />
+                            <DataGridTextColumn  CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalVat,StringFormat={}{0:n2}}" Header="Total VAT" IsReadOnly="True" />
+                            <DataGridTextColumn  CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalGross,StringFormat={}{0:n2}}" Header="Gross Amt" IsReadOnly="True" />
+                            <DataGridTextColumn  CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalPaid,StringFormat={}{0:n2}}" Header="Amt Paid" IsReadOnly="True" />
+                            <DataGridTextColumn  CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=AmountDue,StringFormat={}{0:n2}}" Header="Outstanding Amt" IsReadOnly="True" />
+                            <DataGridTemplateColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" MinWidth="60" Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl>
+                                            <Hyperlink  Command="{Binding DataContext.ReceivePaymentCommand,ElementName=InvoicesDG,Mode=TwoWay}" CommandParameter="{Binding}" >Receive Payment</Hyperlink>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+              <TabItem x:Name="tiUnconfirmedReceiptPayments" Header="Unconfirmed Payments">
+                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Path=UnConfirmedPaymentList, Mode=TwoWay}" HorizontalAlignment="Left" Name="dgUnconfirmedReceiptPayments" VerticalAlignment="Top" Width="Auto" Height="Auto">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=SequenceId}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" />
+                            <DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Header="Order Reference" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <TextBlock>
+                                                <Hyperlink  Command="{Binding DataContext.ViewSelectedInvoiceCommand,ElementName=dgUnconfirmedReceiptPayments,Mode=TwoWay}" CommandParameter="{Binding OrderId}" >
+                                                    <TextBlock Text="{Binding OrderDocRef}"/>
+                                                </Hyperlink>
+                                                </TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                           <DataGridTextColumn Binding="{Binding Path=UnconfirmedAmount, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Unconfirmed Amount" Width="Auto" />
+                            <DataGridTextColumn Binding="{Binding Path=PaymentModeUsed}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Payment Type" Width="Auto" />
+                            <DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Header="Action" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <TextBlock HorizontalAlignment="Left">
+                                                <Hyperlink  Command="{Binding DataContext.PaymentDetailsCommand,ElementName=dgUnconfirmedReceiptPayments,Mode=TwoWay}" CommandParameter="{Binding}">Details</Hyperlink>
+                                            </TextBlock>
+                                            <TextBlock Text="|"/>
+                                            <TextBlock HorizontalAlignment="Right" Margin="5,0,0,0">
+                                                <Hyperlink  Command="{Binding DataContext.ConfirmPaymentCommand,ElementName=dgUnconfirmedReceiptPayments,Mode=TwoWay}" CommandParameter="{Binding }" >Confirm Payment</Hyperlink>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        <DataGridTextColumn Binding="{Binding Path=Description}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Description" Width="Auto" />
+
+                    </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+    </DockPanel>
+</Page>

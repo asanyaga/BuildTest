@@ -1,0 +1,46 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.ReceiptDocuments.ReceiptDocument"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+      xmlns:util="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      xmlns:ReceiptDocuments="clr-namespace:Distributr.WPF.UI.Views.ReceiptDocuments" mc:Ignorable="d" 
+     d:DesignWidth="830" 
+           DataContext="{Binding ReceiptDocumentViewModel, Source={StaticResource Locator}}"
+           Title="ReceiptDocument Page" d:DesignHeight="809.209">
+    <Page.Resources>
+        <util:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding ReceiptDocumentLoadedCommand}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid x:Name="LayoutRoot" MaxWidth="830" Width="auto">
+        <StackPanel Margin="0,0,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,10" HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal" Visibility="{Binding InvoiceHasMoreThanOneReceipt,Converter={StaticResource VisibilityConverter}}">
+                    <ComboBox  Margin="20,10,0,0" Width="Auto" ItemsSource="{Binding InvoiceReceipts, Mode=TwoWay}" SelectedItem="{Binding SelectedReceipt, Mode=TwoWay}" DisplayMemberPath="DocumentReference" />
+                    <Button  Content="View Related Receipts" Command="{Binding ViewReceiptCommand}" Margin="20,10,0,0" MinWidth="100" Width="124"/>
+                </StackPanel>
+                <Button  Content="View Invoice" Command="{Binding ViewInvoiceCommand}" Margin="20,10,0,0" Width="100"/>
+                <Button Command="{Binding PrintCommand}"
+                        CommandParameter="{Binding ElementName=gridPrintArea}"
+                        Content="Print"
+                        HorizontalAlignment="Right" Margin="20,10,0,0"
+                        Name="PrintButton"                          
+                        Width="100" />
+                <Button x:Name="btnBack" Content="Back" Margin="20,10,0,0" Width="100" Command="{Binding ReturnToListCommand}"/>
+            </StackPanel>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" >
+                <StackPanel x:Name="gridPrintArea" Width="800">
+                    <ReceiptDocuments:GenericReceiptContent Visibility="{Binding GenericReceiptVisibility}"/>
+                    <ReceiptDocuments:ReceiptDocControl Visibility="{Binding GenericReceiptVisibility}"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="Distributr.WPF.UI.Views.ReceiptDocuments.ReceiptDocControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+             xmlns:converters="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+             mc:Ignorable="d" 
+             d:DesignHeight="435.714" d:DesignWidth="800"
+             DataContext="{Binding ReceiptVm, Source={StaticResource Locator}}">
+    <UserControl.Resources>
+
+        <converters:AmountDecimalConverter x:Key="AmountDecimalConverter"/>
+    </UserControl.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding ReceiptLoadedCommand}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel LastChildFill="True" Width="600">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" >
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" MinWidth="200" Margin="0 10 0 0" Width="auto">
+                <Grid Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock  Text="{Binding ReceiptHeader.CompanyName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1"  Text="{Binding ReceiptHeader.Address}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="2"  Text="{Binding ReceiptHeader.TelNo}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="3"  Text="{Binding Path=ReceiptHeader.Email}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="4"   Text="{Binding ReceiptHeader.WebSite}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="5"   Text="{Binding Path=ReceiptHeader.PinVatNo}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+        </StackPanel>
+        <GroupBox DockPanel.Dock="Top"  HorizontalAlignment="Stretch" Margin="3">
+            <GroupBox.Header>
+                <Label x:Name="lblOfficialReceipt" Content="{Binding ReceiptLabel}" FontWeight="Bold" FontSize="13.333"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Border  BorderBrush="Black" BorderThickness="1"  Margin="0,5,0,5">
+                    <TextBlock x:Name="txtRoyalMedia" Text="{Binding ReceiptRecipientCompanyName}" HorizontalAlignment="Left" TextWrapping="Wrap"  Margin="5,5,0,5" Width="auto" />
+                </Border>
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                 <Label x:Name="lblReceiptNo" Content="Receipt No:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Path=ReceiptNo}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Label  x:Name="lblReceiptDate" Content="Receipt Date:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                    <TextBlock Text="{Binding Path=ReceiptDate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="2">
+                    <Label  x:Name="lblInvoiceNo" Content="Invoice Ref. No:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock   Text="{Binding Path=Invoice.DocumentReference}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Label  x:Name="lblInvoiceDate" Content="Invoice Date:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0 0 0" />
+                    <TextBlock   Text="{Binding Path=Invoice.DocumentDateIssued}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+
+
+               
+            </Grid>
+        </GroupBox>
+        <Grid HorizontalAlignment="Stretch"  DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+          
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" >
+                <Label  x:Name="lblTotalGross" Content="Total Incl. VAT:" FontWeight="Bold"  HorizontalAlignment="Right"/>
+                <TextBlock  x:Name="txtTotalVGross" Text="{Binding TotalGross,Converter={StaticResource AmountDecimalConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center"  TextAlignment="Right" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="1">
+                <Label   Content="Receipt Amount:"   HorizontalAlignment="Right" FontWeight="Bold"/>
+                <TextBlock   Text="{Binding TotalPaid,Converter={StaticResource AmountDecimalConverter}}"   TextAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1"  Orientation="Horizontal" >
+                <Label x:Name="lblServedBy" Content="You were served by:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="txtServedBy" Text="{Binding ServedByUserName}" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </StackPanel>
+            <StackPanel x:Name="spSignature" Grid.Row="2"  Orientation="Horizontal" >
+                <Label x:Name="lblSignature" Content="Signature:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="txtSignature" Text="__________________________" Width="152" Margin="5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="1"   Orientation="Horizontal" >
+                <Label x:Name="lblSignedDate" Content="Date:" Margin="0,0,0,0"/>
+                <TextBlock x:Name="txtSignedDate" Text="{Binding ReceiptDate,StringFormat=dd-MM-yyy:hh:mm:ss}" TextDecorations="Underline"   Width="180" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            </StackPanel>
+            <Label x:Name="lblWithThanksRegards" Grid.Row="3" Grid.Column="1"  Content="With Thanks and Kind Regards"  Margin="0,20,0,0"/>
+        </Grid>
+        <GroupBox DockPanel.Dock="Top" Margin="5">
+            <GroupBox.Header>
+                <Label Content="Particulars" FontWeight="Bold"/>
+            </GroupBox.Header>
+            <DataGrid x:Name="dgReceiptLineItems" AutoGenerateColumns="False" ItemsSource="{Binding Path=ReceiptLineItemsList}" VerticalAlignment="Top" HorizontalAlignment="Left"  CanUserAddRows="False" CanUserResizeRows="True" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colNo" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="" 
+                                                IsReadOnly="True" Width="Auto" Binding="{Binding RowNumber}" CellStyle="{StaticResource dataGridCellVerticalAlignTop}"/>
+                    <DataGridTextColumn x:Name="colproductCode" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Product Code" 
+                                                IsReadOnly="True" Width="Auto" Binding="{Binding ProductCode}" CellStyle="{StaticResource dataGridCellVerticalAlignTop}"/>
+                    <DataGridTextColumn x:Name="colproductDesc" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Description" 
+                                                IsReadOnly="True" Width="auto"  Binding="{Binding ProductDescription}" CellStyle="{StaticResource dataGridCellVerticalAlignTop}"/>
+                    <DataGridTextColumn x:Name="colQuantity" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Quantity" 
+                                                IsReadOnly="True" Width="auto"  Binding="{Binding Qty}"/>
+                    <DataGridTextColumn x:Name="colValue" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Value" 
+                                                IsReadOnly="True" Width="Auto" Binding="{Binding Value,Converter={StaticResource AmountDecimalConverter}}" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                    <DataGridTextColumn x:Name="colVatValue" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="VAT" 
+                                                IsReadOnly="True" Width="Auto" Binding="{Binding VatValue,Converter={StaticResource AmountDecimalConverter}}" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                    <DataGridTextColumn x:Name="colTotal" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Total" 
+                                                IsReadOnly="True" Width="Auto" Binding="{Binding LineItemTotal,Converter={StaticResource AmountDecimalConverter}}" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </DockPanel>
+    
+</UserControl>

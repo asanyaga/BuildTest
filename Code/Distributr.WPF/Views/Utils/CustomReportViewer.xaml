@@ -1,0 +1,12 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.Utils.CustomReportViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        Title="CustomReportViewer" MinHeight="600" MinWidth="900" ResizeMode="NoResize">
+    <StackPanel>
+        <WindowsFormsHost VerticalAlignment="Top" MinHeight="600" MinWidth="900" >
+            <rv:ReportViewer x:Name="_reportViewer"     />
+        </WindowsFormsHost>
+    
+    </StackPanel>
+</Window>

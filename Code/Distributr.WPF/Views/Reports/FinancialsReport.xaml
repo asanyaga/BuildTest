@@ -1,0 +1,35 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Reports.FinancialsReport"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45" mc:Ignorable="d" 
+      d:DesignWidth="800" d:DesignHeight="480"
+                 DataContext="{Binding FinancialsViewModel, Source={StaticResource Locator}}"
+           Title="FinancialsReport Page" >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding LoadFinancialsCommand}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid x:Name="LayoutRoot">
+        <Label Height="26" HorizontalAlignment="Left" Margin="12,8,0,0" Padding="12,0,0,0" Name="label1" FontSize="12" FontWeight="Bold"  VerticalAlignment="Top" Width="616" Content="Financials Listing" />
+        <Border BorderBrush="Silver" BorderThickness="1" Height="428" HorizontalAlignment="Left" Margin="12,40,0,0" Name="border1" VerticalAlignment="Top" Width="776" CornerRadius="10">
+            <Grid Height="405" Name="grid1" Width="746">
+                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Financials, Mode=TwoWay}" Height="393" HorizontalAlignment="Left" Margin="6,6,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="734"
+                          VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Id}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Document Id" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding Account}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Account" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding Documenttype}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Document Type" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding Amount}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Amount" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding Balance}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Balance" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding DateIserted}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Date Inserted" Width="Auto" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

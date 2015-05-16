@@ -1,0 +1,128 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.ITN.ITNLineItemModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        DataContext="{Binding ITNLineItemViewModel, Source={StaticResource Locator}}"
+           Title="Add Product to Issue" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:FormBorderButtons="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.FormBorderButtons;assembly=Distributr.WPF.Lib"
+        xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+        d:DesignHeight="500" d:DesignWidth="524" SizeToContent="WidthAndHeight">
+    <i:Interaction.Behaviors>
+        <FormBorderButtons:HideCloseButtonBehaiviour />
+    </i:Interaction.Behaviors>
+    <Window.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+      
+            <utility:EnumConverter x:Key="UnitBulkConverter"/>
+        </Window.Resources>
+    <StackPanel Width="500">
+        <Grid x:Name="LayoutRoot" Margin="2" Width="450" >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Height="28" Width="120" Content="Product:" x:Name="lblproduct" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,6,0,0"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" Width="auto">
+                <TextBox Margin="0,0,0,0" Text="{Binding Product.ProductDesc,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                              MinWidth="170" MaxWidth="200"
+                             x:Name="TextBlockSelectedProduct" IsReadOnly="True" Width="auto" HorizontalAlignment="Stretch">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged" >
+                            <cmd:EventToCommand Command="{Binding SetInventoryDetails}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <Button Content="..." Margin="10 0 0 0" VerticalContentAlignment="Center" MinWidth="30">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click" >
+                            <cmd:EventToCommand Command="{Binding ProductDropDownOpenedCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </StackPanel>
+            <Label Grid.Row="1" Grid.Column="0" Height="28" Width="120"  Content="Available Quantity:"  x:Name="lblavailableQuantity" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,6,0,0"/>
+            <TextBox Grid.Row="1" Grid.Column="1" TextAlignment="Right" Margin="2" IsReadOnly="True" Name="txtAvailableQty" Text="{Binding InStock, Mode=TwoWay}" TextWrapping="Wrap"/>
+            <Label Grid.Row="3" Grid.Column="0" Height="28" Width="160"  Content="Issue Inventory Quantity:"  x:Name="lblIssueQuantity" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,6,0,0"/>
+            <TextBox utility:Masking.Mask="{x:Static Member=utility:StringFormats.QuantityRegEx}" TextChanged="txtIssueAmount_TextChanged" Grid.Row="3" Grid.Column="1" TextAlignment="Right" Name="txtIssueAmount" Text="0" Height="28" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right" Margin="4,6,0,0" />
+            <StackPanel  VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <RadioButton Margin="20,0,0,0" IsEnabled="{Binding CanChange,Mode=TwoWay}"   IsChecked="{Binding LineItemType,ConverterParameter=Unit,Mode=OneWay,Converter={StaticResource UnitBulkConverter}}" Content="Units" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Checked" >
+                            <cmd:EventToCommand Command="{Binding UnitOfMeasureModeChangedCommand}" CommandParameter="Unit"  />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+                <RadioButton Margin="40,0,0,0"  IsEnabled="{Binding CanChange,Mode=TwoWay}" IsChecked="{Binding LineItemType,ConverterParameter=Bulk,Mode=OneWay,Converter={StaticResource UnitBulkConverter}}" Content="Cartons/Cases" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Checked" >
+                            <cmd:EventToCommand Command="{Binding UnitOfMeasureModeChangedCommand}" CommandParameter="Bulk"  />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+
+            </StackPanel>
+              </Grid>
+        <Grid Width="490" Visibility="{Binding AllowBarCodeInput, Converter={StaticResource VisibilityConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Content="Barcode Serial Numbers:" FontStyle="Italic" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="6,3,0,0" Name="lblSerialNumbers" VerticalAlignment="Top" Width="169" />
+            <Label Grid.Row="1" Content="Start No.:" Height="28" HorizontalAlignment="Right" Name="lblFrom" VerticalAlignment="Top" Width="Auto"  Margin="0,3,130,0" />
+            <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="28" TextWrapping="Wrap" x:Name="txtFrom" Text="{Binding Path=SerialFrom, Mode=TwoWay}" Margin="2" Width="250" KeyUp="txtFrom_KeyUp"/>
+            <Label Grid.Row="2" Content="End No.:" Height="28" HorizontalAlignment="Right" Name="lblTo" VerticalAlignment="Top" Width="Auto"  Margin="0,3,130,0" />
+            <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="28" TextWrapping="Wrap" x:Name="txtTo" Text="{Binding Path=SerialTo, Mode=TwoWay}" Margin="2"  Width="250" KeyUp="txtTo_KeyUp" />
+            <Button Grid.Row="2" Grid.Column="1" x:Name="btnAddSerial" Content="Add" Height="23" Width="80" HorizontalAlignment="Right" Margin="0,10,0,0" Click="btnAddSerial_Click" />
+            <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Height="Auto" MinHeight="120" Margin="0,5,0,0" ItemsSource="{Binding Path=ProductSerialNumbersList}" SelectedItem="{Binding Path=SelectedSerialNumbers, Mode=TwoWay}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Start No." Binding="{Binding Path=From}" Width="195" CanUserReorder="True" CanUserResize="True" CanUserSort="True"/>
+                    <DataGridTextColumn Header="End No." Binding="{Binding Path=To}"  Width="195*" CanUserReorder="True" CanUserResize="True" CanUserSort="True"/>
+                    <DataGridTemplateColumn Width="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel x:Name="spManageInventory" Orientation="Horizontal">
+                                    <TextBlock>
+                                    <Hyperlink x:Name="hlEdit"  TargetName="ContentFrame" Click="hlEdit_Click">Edit</Hyperlink>
+
+                                    </TextBlock>
+                                    <Label VerticalAlignment="Top">|</Label>
+                                    <TextBlock>
+                                    <Hyperlink x:Name="hlDelete"  Click="hlDelete_Click">Delete</Hyperlink>
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Height="47">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.ColumnSpan="2" Margin="0,10,10,0" Orientation="Horizontal">
+              
+                <Button x:Name="OKButton" Content="Add Product" Click="OKButton_Click" Height="23" Width="100" HorizontalAlignment="Left" Margin="20,0,0,0" />
+                <Button Content="Done" Height="23" Width="100" Name="cmdDone" Click="cmdDone_Click" HorizontalAlignment="Center" />
+                <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="100" Height="23" HorizontalAlignment="Right" Grid.Row="6" Grid.Column="1" Margin="0,0,20,0" />
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>

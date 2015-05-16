@@ -1,0 +1,59 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.ReceiveReturnable.RecieveReturnable"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      mc:Ignorable="d" 
+     DataContext="{Binding RecieveReturnableViewModel,  Source={StaticResource Locator}}"
+           d:DesignWidth="661" d:DesignHeight="486"
+           Title="RecieveReturnable Page">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter" />
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot" Height="486" Width="661" HorizontalAlignment="Center">
+        <StackPanel Margin="5,5,5,25">
+            <Border BorderBrush="Black" BorderThickness="1" Height="441" CornerRadius="10">
+                <Grid Height="454">
+                    <DataGrid x:Name="dg1" Margin="8,136,50,113" ItemsSource="{Binding Path=ReturnableItems,Mode=TwoWay}" AutoGenerateColumns="False" FontFamily="Portable User Interface">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="colproduct" Header="Product" Binding="{Binding Name,Mode=TwoWay}"/>
+                            <DataGridTextColumn x:Name="colquantity" Header="Quantity" Binding="{Binding Quantity,Mode=TwoWay}"/>
+                            <DataGridTextColumn x:Name="colunitprice" Header="Unit Price" Binding="{Binding UnitPrice,Mode=TwoWay}"/>
+                            <DataGridTextColumn x:Name="coltotalamt" Header="Total Amount" Binding="{Binding Value,Mode=TwoWay}"/>
+                            <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Visibility="{Binding Path=IsEditable, Converter={StaticResource VisibilityConverter}}">
+                                        <Hyperlink x:Name="hlEdit"  Tag="{Binding ProductId}" Click="hlEdit_Click"  TargetName="ContentFrame"  >Edit</Hyperlink>
+
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlDelete"  Tag="{Binding ProductId}" Click="hlDelete_Click" TargetName="ContentFrame"  >Delete</Hyperlink>
+
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label HorizontalAlignment="Left" Height="24" Margin="8,36,0,0" VerticalAlignment="Top" Width="94" x:Name="labeldatereceived" Content="Date Received"/>
+                    <Label HorizontalAlignment="Left" Height="25" Margin="8,81,0,0" VerticalAlignment="Top" Width="81" x:Name="labeloutlet" Content="Outlet "/>
+                    <DatePicker Height="24" IsTodayHighlighted="True" Margin="129,36,332,0" VerticalAlignment="Top" SelectedDate="{Binding DateReceived,Mode=TwoWay}" IsEnabled="False" />
+                    <ComboBox Name="ComboRoutes" IsEnabled="{Binding Path=IsOutletEnabled,Mode=TwoWay}" Height="25" Margin="0,81,332,0" VerticalAlignment="Top" ItemsSource="{Binding OutletLookupList,Mode=TwoWay}" DisplayMemberPath="Name" SelectedItem="{Binding OutletLookups,Mode=TwoWay}" HorizontalAlignment="Right" Width="188" />
+                    <Button x:Name="btAddProduct" Content="Add Returnable" HorizontalAlignment="Left" Height="25" Margin="312,0,0,82" VerticalAlignment="Bottom" Width="96" Click="btAddProduct_Click" />
+                    <Button x:Name="btConfirm" Content="Confrim" HorizontalAlignment="Left" Height="25" Margin="414,0,0,82" VerticalAlignment="Bottom" Width="87" Click="btConfirm_Click" />
+                    <Button x:Name="btCancel" Content="Cancel" Height="25" Margin="0,0,50,82" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="92" FlowDirection="RightToLeft" Click="btCancel_Click" />
+                </Grid>
+            </Border>
+        </StackPanel>
+
+    </Grid>
+</Page>

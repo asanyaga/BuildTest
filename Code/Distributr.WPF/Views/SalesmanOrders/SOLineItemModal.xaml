@@ -1,0 +1,78 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.SalesmanOrders.SOLineItemModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:FormBorderButtons="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.FormBorderButtons;assembly=Distributr.WPF.Lib"
+        xmlns:Converter="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+        Width="420" Height="439" 
+           DataContext="{Binding Path=SalesmanOrderLineItemViewModel, Source={StaticResource Locator}}"
+        Title="{Binding ModalCrumbs, Mode=TwoWay}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <i:Interaction.Behaviors>
+        <FormBorderButtons:HideCloseButtonBehaiviour />
+    </i:Interaction.Behaviors>
+    <Window.Resources>
+        <Converter:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Window.Resources>
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <!--<RowDefinition  />
+            <RowDefinition  />-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0"  Height="28" HorizontalAlignment="Left" Name="chkLoadFreeOfCharge" VerticalAlignment="Top" Width="160" Content="Sell Free Of Charge Products" />
+        <CheckBox Grid.Row="0" Grid.Column="1" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top"  Name="cmbLoadFreeOfCharge" Margin="10,2,0,0" Click="cmbLoadFreeOfCharge_Click" IsChecked="{Binding Path=SellFreeOfCharge, Mode=TwoWay}"/>
+        <Label Grid.Row="1"  Height="28" HorizontalAlignment="Left" Name="lblProduct" VerticalAlignment="Top" Width="120" Content="Product" />
+        <ComboBox Grid.Row="1" Grid.Column="1" Height="28" Width="190" HorizontalAlignment="Left"  Name="cmbProducts" DisplayMemberPath="ProductDesc"  ItemsSource="{Binding Path=Products}" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" SelectionChanged="cmbProducts_SelectionChanged" TabIndex="1" DropDownOpened="cmbProducts_DropDownOpened"/>
+        <Label Grid.Row="2" Height="28" HorizontalAlignment="Left" Name="lblSellby" VerticalAlignment="Top" Width="120" Content="Sell By" />
+        <StackPanel  Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Width="190">
+            <RadioButton x:Name="rbUnits" Content="Units" VerticalAlignment="Center" Margin="10,0,0,0" 
+                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                         Checked="rbUnits_Checked"  GroupName="Type"
+                         />
+            <!--IsChecked="{Binding LineItemType, ConverterParameter=Unit, Converter={StaticResource EBConverter}, Mode=TwoWay}"-->
+            <RadioButton x:Name="rbBulk" Content="Cartons/Cases" VerticalAlignment="Center" 
+                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                         Checked="rbBulk_Checked" Margin="25,0,0,0" GroupName="Type" />
+            <!--IsChecked="{Binding LineItemType, ConverterParameter=Bulk, Converter={StaticResource EBConverter}, Mode=TwoWay}"-->
+        </StackPanel>
+        <Label Grid.Row="3"  Height="28" HorizontalAlignment="Left"  Name="lblQty" VerticalAlignment="Top" Width="120" Content="Required Quantity" />
+        <TextBox Grid.Row="3" Grid.Column="1" Height="28" Width="190" x:Name="txtQty" Text="{Binding Qty, Mode=TwoWay}" TextAlignment="Right" TabIndex="3" KeyDown="txtQty_KeyDown" TextChanged="txtQty_TextChanged" />
+        <Label Grid.Row="4" Height="28" HorizontalAlignment="Left"  Name="lblUnitVat" VerticalAlignment="Top" Width="120" Content="Unit VAT Amount" />
+        <TextBox Grid.Row="4" Grid.Column="1" Height="28" Width="190" x:Name="txtUnitVat" Text="{Binding Mode=TwoWay, Path=VatAmount, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right" IsReadOnly="True" TabIndex="3"/>
+        <Label Grid.Row="5" Height="28" HorizontalAlignment="Left"  Name="lblUnitPrice" VerticalAlignment="Top" Width="120" Content="Unit Price Amount" />
+        <TextBox Grid.Row="5" Grid.Column="1" Height="28" Width="190" x:Name="txtUnitPrice" Text="{Binding Mode=TwoWay, Path=UnitPrice, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right" IsReadOnly="True" TabIndex="4" />
+        <Label Grid.Row="6"  Height="28" HorizontalAlignment="Left"  Name="lblTotalNet" VerticalAlignment="Top" Width="120" Content="Total Net Amount"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Height="28" Width="190" x:Name="txtTotalNet" Text="{Binding Path=LiTotalNet, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" IsReadOnly="True"  TabIndex="5" />
+        <Label Grid.Row="7"  Height="28" HorizontalAlignment="Left"  Name="lblVatAmount" VerticalAlignment="Top" Width="120" Content="Total VAT Amount" />
+        <TextBox Grid.Row="7" Grid.Column="1" Height="28" Width="190" x:Name="txtVatAmount" Text="{Binding Path=VatAmount, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" IsReadOnly="True"   TabIndex="6"/>
+
+        <Label Grid.Row="8"  Height="28" HorizontalAlignment="Left"  Name="lblTotalPrice" VerticalAlignment="Top" Width="120" Content="Total Gross Price" />
+        <TextBox Grid.Row="8" Grid.Column="1" Height="28" Width="190" x:Name="txtTotalPrice" Text="{Binding Path=TotalPrice, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" IsReadOnly="True" TabIndex="7"/>
+        <Border Grid.Row="9" Grid.ColumnSpan="2" >
+            <TextBlock>
+            <Hyperlink Click="txtHelp_Click">
+                <TextBlock x:Name="txtHelp" Text="View Added Items"></TextBlock>
+            </Hyperlink>
+            </TextBlock>
+        </Border>
+        <StackPanel Grid.Row="10" Grid.ColumnSpan="2" Orientation="Horizontal" >
+            <Button x:Name="btnAddProduct" Content="Add Product" Click="btnAddProduct_Click"  Width="80" Height="28" HorizontalAlignment="Left" Margin="33,0,0,0"  TabIndex="9" />
+            <Button x:Name="btnOK" Content="Done" Click="btnOK_Click" Width="80" Height="28" HorizontalAlignment="Left" Margin="33,0,0,0"  TabIndex="9" IsDefault="True" />
+            <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Width="80" Height="28" HorizontalAlignment="Left" Margin="33,0,0,0"  TabIndex="10"/>
+        </StackPanel>
+    </Grid>
+</Window>

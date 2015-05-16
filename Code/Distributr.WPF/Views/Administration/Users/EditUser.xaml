@@ -1,0 +1,88 @@
+﻿<UI_Utillity:PageBase x:Class="Distributr.WPF.UI.Views.Administration.Users.EditUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:UI_Utillity="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity;assembly=Distributr.WPF.Lib"
+                      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+                      mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="480"
+                 DataContext="{Binding EditUsersViewModel, Source={StaticResource Locator}}"
+           Title="Edit User">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+        <utility:IsReadOnlyConverter x:Key="IsReadOnlyConverter"/>
+        <utility:ReverseIsEnabledConverter x:Key="ReverseIsEnabledConverter"/>
+     
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot">
+        <StackPanel>
+            <TextBlock Text="{Binding Path=PageTitle}" Style="{StaticResource HeaderTextStyle}"></TextBlock>
+
+            <!--<dataInput:ValidationSummary Margin="4"></dataInput:ValidationSummary>-->
+
+            <Grid x:Name="gridEditUser" Width="450" Margin="0,20,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition  />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="250" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblUsername" Content="Username:" FontWeight="Bold"></Label>
+                <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtUserName"
+                         Text="{Binding UserName, Mode=TwoWay, NotifyOnValidationError=True}"
+                         Width="200" HorizontalAlignment="Left" Margin="0,5,0,0" KeyUp="txtUserName_KeyUp" IsReadOnly="{Binding Path=CanManageUser, Converter={StaticResource IsReadOnlyConverter}}" ></TextBox>
+
+                <Label x:Name="lblCode" Grid.Column="0" Grid.Row="1"  Content="Code (Cost Centre):" FontWeight="Bold"></Label>
+                <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtCode"
+                         Text="{Binding Code, Mode=TwoWay, NotifyOnValidationError=True}"
+                         Width="200" HorizontalAlignment="Left" Margin="0,5,0,0" KeyUp="txtUserName_KeyUp" IsReadOnly="{Binding Path=CanManageUser, Converter={StaticResource IsReadOnlyConverter}}" IsEnabled="{Binding Path=CanEditUserCode}"  ></TextBox>
+
+                <Label x:Name="lblPin" Content="PIN:" Grid.Column="0" Grid.Row="2" FontWeight="Bold"></Label>
+                <TextBox Grid.Column="1" Grid.Row="2" x:Name="txtUserPIN"
+                         Text="{Binding PIN, Mode=TwoWay, NotifyOnValidationError=True}"
+                         Width="200" HorizontalAlignment="Left" Margin="0,5,0,0" KeyUp="txtUserPIN_KeyUp" IsReadOnly="{Binding Path=CanManageUser, Converter={StaticResource IsReadOnlyConverter}}" ></TextBox>
+
+                <Label x:Name="lblMobile" Content="Mobile:" Grid.Column="0" Grid.Row="3" FontWeight="Bold"></Label>
+                <TextBox Grid.Column="1" Grid.Row="3" x:Name="txtUserMobile"
+                         Text="{Binding Mobile, Mode=TwoWay, NotifyOnValidationError=True}"
+                         Width="200" HorizontalAlignment="Left" Margin="0,5,0,0" KeyUp="txtUserMobile_KeyUp" IsReadOnly="{Binding Path=CanManageUser, Converter={StaticResource IsReadOnlyConverter}}" ></TextBox>
+
+                <Label x:Name="lblType" Content="User Type:" Grid.Column="0" Grid.Row="4" FontWeight="Bold" />
+                <ComboBox x:Name="cmbUserTypes" 
+                          ItemsSource="{Binding UserTypes}"  Grid.Row="4" Grid.Column="2" 
+                          SelectedItem="{Binding SelectedUserType, Mode=TwoWay}" 
+                          Width="200" Height="28" HorizontalAlignment="Left" Margin="0,6,0,0" IsEnabled="{Binding Path=CanEditUserType}" SelectionChanged="cmbUserTypes_SelectionChanged"/>
+                <Label Visibility="{Binding Path=CanSetSalesmanType, Converter={StaticResource VisibilityConverter}}" Content="Salesman Type:" Grid.Column="0" Grid.Row="5" FontWeight="Bold" />
+                <ComboBox  Visibility="{Binding Path=CanSetSalesmanType, Converter={StaticResource VisibilityConverter}}"
+                          ItemsSource="{Binding SalesmanTypes}"  Grid.Row="5" Grid.Column="2" 
+                          SelectedItem="{Binding SelectedSalesmanType, Mode=TwoWay}" 
+                          Width="200" Height="28" HorizontalAlignment="Left" Margin="0,6,0,0"  />
+
+                <Label x:Name="lblTill" Content="Till Number:" Grid.Column="0" Grid.Row="6" FontWeight="Bold" />
+                <TextBox Grid.Column="1" Grid.Row="6" x:Name="txtTillNumber"
+                         Text="{Binding TillNumber, Mode=TwoWay, NotifyOnValidationError=True}"
+                         Width="200" Height="28" HorizontalAlignment="Left" Margin="0,5,0,0" KeyDown="txtTillNumber_KeyDown" IsReadOnly="{Binding Path=CanManageUser, Converter={StaticResource IsReadOnlyConverter}}" ></TextBox>
+
+                <Button x:Name="btnSaveUser" Command="{Binding Path=SaveCommand}" 
+                        Grid.Row="10" Grid.Column="2" Content="Save" Width="95" Margin="0,8,0,0"  
+                        HorizontalAlignment="Left" Visibility="{Binding Path=CanManageUser, Converter={StaticResource VisibilityConverter}}"  Height="30"/>
+                <Button x:Name="btnCancelUser" Command="{Binding Path=CancelCommand}"
+                        Grid.Row="10" Grid.Column="2" Content="{Binding Path=BntCancelContent}" Width="95" Margin="0,8,0,0"  
+                        Height="30" HorizontalAlignment="Right" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UI_Utillity:PageBase>

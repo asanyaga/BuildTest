@@ -1,0 +1,33 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.DocumentReports.DocumentReportViewer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45" mc:Ignorable="d" d:DesignWidth="1000"
+	Title="{Binding Path=Title}" DataContext="{Binding Path=DocumentReportViewerViewModel, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen">
+
+    <DockPanel LastChildFill="True">
+        <GroupBox x:Name="gbDispatchNotes" Header="Order Dispatch Notes" DockPanel.Dock="Top" Margin="10" Visibility="{Binding Path=DispatchNotePanelVisibility}">
+            <StackPanel Orientation="Horizontal">
+            <Label Content="Select Dispatch Note To View" Height="28"/>
+            <ComboBox Height="28" Name="cmbDispatchNotes" Width="Auto" MinWidth="200"  DisplayMemberPath="ProductDesc"  ItemsSource="{Binding Path=OrderDispatchNotes, Mode=TwoWay}" SelectedItem="{Binding Path=SelectedDispatchNote, Mode=TwoWay}" />
+                <Button x:Name="viewDocument"></Button>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="gbReceipts" Header="Order Dispatch Notes" DockPanel.Dock="Top" Margin="10" Visibility="{Binding Path=ReceiptPanelVisibility}">
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,10" HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal" Visibility="{Binding Path=SelectReceiptVisibility}">
+                    <ComboBox  Margin="20,10,0,0" Width="Auto" ItemsSource="{Binding Path=InvoiceReceipts, Mode=TwoWay}" SelectedItem="{Binding SelectedReceipt, Mode=TwoWay}" DisplayMemberPath="DocumentReference" />
+                    <Button  Content="View Related Receipts" Command="{Binding Path=ViewReceiptCommand}" Margin="20,10,0,0" MinWidth="100" Width="124"/>
+                </StackPanel>
+                <Button  Content="View Invoice" Command="{Binding Path=ViewInvoiceCommand}" Margin="20,10,0,0" Width="100"/>
+            </StackPanel>
+        </GroupBox>
+        <WindowsFormsHost Name="windowsFormsHost1">
+            <rv:ReportViewer  x:Name="_reportViewer" Load="ReportViewer_Load">
+            </rv:ReportViewer>
+        </WindowsFormsHost>
+    </DockPanel>
+</Window>

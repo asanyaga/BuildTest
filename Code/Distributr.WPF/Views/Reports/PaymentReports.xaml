@@ -1,0 +1,85 @@
+﻿<Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="Distributr.WPF.UI.Views.Reports.PaymentReports" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:Converter="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      mc:Ignorable="d"
+      d:DesignWidth="850" d:DesignHeight="550"
+                 DataContext="{Binding PaymentReportsViewModel, Source={StaticResource Locator}}"
+           Title="PaymentExceptionsReport Page">
+    <Page.Resources>
+        <Converter:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot" Width="Auto" Height="Auto" VerticalAlignment="Top">
+        <StackPanel>
+            <!--<TextBlock Text="Payment Exception Report" x:Name="PageTitle" Height="26" Margin="0,0,0,0" FontWeight="Bold" />-->
+            <Grid Margin="0,0,0,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="400*"></ColumnDefinition>
+                    <ColumnDefinition Width="600*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label Content="From:" x:Name="lblStartDate" Height="28" Margin="0,0,5,0" Width="Auto" HorizontalAlignment="Right" />
+                    <DatePicker x:Name="dpStartDate" Text="Start Date" Margin="0,0,10,0" SelectedDate="{Binding Path=StartDate, Mode=TwoWay, StringFormat=\{0:d\}}"/>
+                    <Label Content="To:" x:Name="lblTo" Height="28" Margin="0,0,5,0" Width="Auto" HorizontalAlignment="Right" />
+                    <DatePicker x:Name="dpEndDate" Text="End Date" Margin="0,0,10,0" SelectedDate="{Binding Path=EndDate, Mode=TwoWay, StringFormat=\{0:d\}}"/>
+                    <Button Content="Load" Height="25" Name="cmdLoad" Width="60" Margin="0,0,10,0" Click="cmdLoad_Click" />
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Right">
+                    <Label x:Name="lblSearchText" Content="Search:" HorizontalAlignment="Right" Margin="0,0,5,0" Grid.ColumnSpan="2" Width="295" />
+                    <TextBox Grid.Column="2" x:Name="txtSearchText" Text="{Binding SearchText, Mode=TwoWay}" Height="25" Width="170" Margin="0,0,5,00" TextChanged="txtSearchText_TextChanged"  />
+                    <Button Grid.Column="3" Content="Search" x:Name="btnSearch" Width="60" Margin="0,0,5,0" Click="btnSearch_Click" Height="25" HorizontalAlignment="Right" />
+                    <Button Content="Clear" x:Name="btnClear" Grid.Column="3" Width="60" Click="btnClear_Click" Height="25" HorizontalAlignment="Right"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="2"  Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label x:Name="lblSalesman" Content="Filter By Salesman:" Margin="0,0,0,0" HorizontalContentAlignment="Right" />
+                    <ComboBox x:Name="cmbSalesmen" ItemsSource="{Binding Salesmen, Mode=TwoWay}" DisplayMemberPath="Username"
+                          SelectedItem="{Binding SelectedSalesman, Mode=TwoWay}"  Margin="10,0,0,0" MinWidth="100" Width="Auto" MaxWidth="180"/>
+                    <Label x:Name="lblOutlet" Content="Filter By Outlet:" Margin="10,0,0,0" HorizontalContentAlignment="Right" />
+                    <ComboBox x:Name="cmbOutlets" ItemsSource="{Binding Outlets, Mode=TwoWay}" DisplayMemberPath="Name"
+                          SelectedItem="{Binding SelectedOutlet, Mode=TwoWay}"  Margin="10,0,0,0" MinWidth="100" Width="Auto" MaxWidth="180"/>
+                    <Button Grid.Column="3" Content="Filter" x:Name="btnFilter" Width="60" Margin="10,0,5,0" Height="25" HorizontalAlignment="Right" Click="btnFilter_Click" />
+                </StackPanel>
+            </Grid>
+            <TabControl x:Name="tabReport" Width="Auto" Height="Auto" SelectionChanged="tabReport_SelectionChanged">
+                <TabItem Header="Exception Report" x:Name="tabItemPendingApprovals">
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" Width="Auto" x:Name="dgExceptionReport" ItemsSource="{Binding ListPaymentExceptionReportItems, Mode=TwoWay}" Margin="0,5,0,0" LoadingRow="dgExceptionReport_LoadingRow">
+                        <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="colExSequenceNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=SequenceId}" Header="" IsReadOnly="True" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                            <DataGridTextColumn x:Name="colExOrderDocRef" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding OrderRef}" Header="Sale/Order Ref" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="colExInvoiceDocRef" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding InvoiceRef}" Header="Invoice Ref" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="colExReceiptDocRef" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding ReceiptRef}" Header="Receipt Ref" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="colExSalesman" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Salesman}" Header="Salesman" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="colConfirmed" Binding="{Binding ConfirmedAmount, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Confirmed" Width="Auto" />
+                            <DataGridTextColumn x:Name="colUnConfirmed" Binding="{Binding UnConfirmedAmount, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Unconfirmed" Width="Auto" />
+                            <DataGridTextColumn x:Name="colExStatusCode" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding StatusCode}" Header="Status Code" IsReadOnly="True" ElementStyle="{StaticResource dataGridCellWrapText}">
+                                <!--<DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock x:Name="txtDescription" Text="{Binding Path=Description}" Padding="5,0,2,0" TextWrapping="Wrap"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>-->
+                            </DataGridTextColumn>
+                            <DataGridTextColumn x:Name="colExStatusDetail" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding StatusDetail}" Header="Status Detail" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="colExDateRequested" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=DateCreated}" Header="Requested On" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingApprovalDateRequired" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=TimeOutDate}" Header="Timed Out On" IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                
+            </TabControl>
+
+            <Grid Margin="0,0,0,0">
+                <Label x:Name="lblProgress" Padding="2.5,0,0,0" Content="Loading ... &#x0a;Please wait." Height="48" Width="307" HorizontalAlignment="Left" Visibility="{Binding Loading, Converter={StaticResource VisibilityConverter}}"/>
+                <!--<StackPanel Margin="0,0,0,0" Width="Auto" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <CustomControl:DistributrDataPager Height="27" x:Name="DataPager" HorizontalAlignment="Right" Margin="0,0,0,0"/>
+                </StackPanel>-->
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

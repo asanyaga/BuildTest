@@ -1,0 +1,68 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.SalesmanOrders.AmmendOrderLineItemModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:FormBorderButtons1="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.FormBorderButtons;assembly=Distributr.WPF.Lib"
+        Width="416" Height="461" 
+        DataContext="{Binding Path=AmmendSalesmanOrderLineItemViewModel, Source={StaticResource Locator}}"
+           Title="{Binding ModalCrumbs, Mode=TwoWay}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <i:Interaction.Behaviors>
+        <FormBorderButtons1:HideCloseButtonBehaiviour />
+    </i:Interaction.Behaviors>
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0"  Height="28" HorizontalAlignment="Left" Name="lblProduct" VerticalAlignment="Top" Width="120" Content="Product:" />
+        <ComboBox Grid.Row="0" Grid.Column="1" Height="23" HorizontalAlignment="Left"  Name="cmbProducts" VerticalAlignment="Top" Width="189"
+                  DisplayMemberPath="ProductDesc"  
+                  ItemsSource="{Binding Path=Products}" 
+                  SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" 
+                  SelectionChanged="cmbProducts_SelectionChanged"
+                  DropDownOpened="cmbProducts_DropDownOpened"/>
+
+        <Label Grid.Row="1"  Height="28" HorizontalAlignment="Left"  Name="lblAvailable" VerticalAlignment="Top" Width="120" Content="Available Quantity:" />
+        <TextBox Grid.Row="1" Grid.Column="1" Height="28" x:Name="txtAvailableQuantity" Text="{Binding Path=AvailableProductInv, Mode=TwoWay}" TextAlignment="Right" GotFocus="txtBackOrder_GotFocus" />
+        <Label Grid.Row="2"  Height="28" HorizontalAlignment="Left"  Name="lblQty" VerticalAlignment="Top" Width="120" Content="Required Quantity:" />
+        <TextBox Grid.Row="2" Grid.Column="1" Height="28" x:Name="txtQty" Text="{Binding Path=Qty, Mode=TwoWay}" TextAlignment="Right" GotFocus="txtQty_GotFocus"/>
+        <Label Grid.Row="3"  Height="28" HorizontalAlignment="Left"  Name="lblApprove" VerticalAlignment="Top" Width="120" Content="Quantity to Approve:" />
+        <TextBox Grid.Row="3" Grid.Column="1" Height="28" x:Name="txtApprove" Text="{Binding Path=Approve, Mode=TwoWay}" TextAlignment="Right" GotFocus="txtApprove_GotFocus" TextChanged="txtApprove_TextChanged" KeyDown="txtApprove_KeyDown" />
+        <Label Grid.Row="4"  Height="28" HorizontalAlignment="Left"  Name="lblBackOrder" VerticalAlignment="Top" Width="120" Content="Back Order Quantity:" />
+        <TextBox Grid.Row="4" Grid.Column="1" Height="28" x:Name="txtBackOrder" Text="{Binding Path=BackOrder, StringFormat=#\,0.00;(#\,0.00);0, Mode=TwoWay}" TextAlignment="Right" GotFocus="txtBackOrder_GotFocus" />
+        <Label Grid.Row="5"  Height="28" HorizontalAlignment="Left"  Name="lblLostSale" VerticalAlignment="Top" Width="120" Content="Lost Sale Quantity:" />
+        <TextBox Grid.Row="5" Grid.Column="1" Height="28" x:Name="txtLostSale" Text="{Binding Path=LostSale, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" GotFocus="txtLostSale_GotFocus" />
+        <Label Grid.Row="6" Height="28" HorizontalAlignment="Left"  Name="lblUnitVat" VerticalAlignment="Top" Width="120" Content="Unit VAT Amount:" />
+        <TextBox Grid.Row="6" Grid.Column="1" Height="28" x:Name="txtUnitVat" Text="{Binding Mode=TwoWay, Path=Vat, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right" IsReadOnly="True" />
+        <Label Grid.Row="7" Height="28" HorizontalAlignment="Left"  Name="lblUnitPrice" VerticalAlignment="Top" Width="120" Content="Unit Price:" />
+        <TextBox Grid.Row="7" Grid.Column="1" Height="28" x:Name="txtUnitPrice" Text="{Binding Mode=TwoWay, Path=UnitPrice, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right" IsReadOnly="True" />
+        <Label Grid.Row="8"  Height="28" HorizontalAlignment="Left"  Name="lblTotalNet" VerticalAlignment="Top" Width="120" Content="Total Net Amount:" />
+        <TextBox Grid.Row="8" Grid.Column="1" Height="28" x:Name="txtTotalNet" Text="{Binding Path=LiTotalNet, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" IsReadOnly="True"  />
+        <Label Grid.Row="9"  Height="28" HorizontalAlignment="Left"  Name="lblVatAmount" VerticalAlignment="Top" Width="120" Content="Total VAT Amount:" />
+        <TextBox Grid.Row="9" Grid.Column="1" Height="28" x:Name="txtVatAmount" Text="{Binding Path=VatAmount, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" IsReadOnly="True"  />
+
+        <Label Grid.Row="10"  Height="28" HorizontalAlignment="Left"  Name="lblTotalPrice" VerticalAlignment="Top" Width="120" Content="Total Gross Price:" />
+        <TextBox Grid.Row="10" Grid.Column="1" Height="28" x:Name="txtTotalPrice" Text="{Binding Path=TotalPrice, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" IsReadOnly="True"  />
+        <TextBlock Grid.Row="11" Grid.ColumnSpan="2" x:Name="txtHelp" Text="{Binding Path=SelectedActionDetails}" TextWrapping="Wrap" GotFocus="txtHelp_GotFocus"/>
+
+        <StackPanel Grid.Row="12" Grid.ColumnSpan="2" Orientation="Horizontal" >
+            <Button x:Name="btnOK" Content="OK" Click="btnOK_Click" Width="75" Height="23" HorizontalAlignment="Left" Margin="100,0,0,0"  />
+            <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Width="75" Height="23" HorizontalAlignment="Left" Margin="30,0,79,0" />
+        </StackPanel>
+    </Grid>
+</Window>

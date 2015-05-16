@@ -1,0 +1,147 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Purchasing.ListPurchaseOrders"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      mc:Ignorable="d" 
+    d:DesignWidth="941" d:DesignHeight="520"
+           Title="Purchase order summary">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter" />
+
+    </Page.Resources>
+
+    <Page.DataContext>
+        <Binding Path="ListPurchaseOrderViewModel" Source="{StaticResource Locator}"/>
+    </Page.DataContext>
+
+    <Grid x:Name="LayoutRoot" Height="500">
+        <StackPanel>
+            <TextBlock x:Name="txtpurchaseordersummary" Text="Purchase order Summary" Height="32" FontSize="18.667" />
+            <Grid Height="62">
+                <TextBox x:Name="txtSearch" Margin="0,30,232,8" TextWrapping="Wrap" Text="{Binding SearchText, Mode=TwoWay}" HorizontalAlignment="Right" Width="219" TextChanged="TextBox_TextChanged" />
+                <Button x:Name="btnSearch" Command="{Binding SearchPurchaseOrderCommand}" Content="Search" HorizontalAlignment="Right" Margin="0,30,135,8" Width="90" RenderTransformOrigin="-0.1,0.542"/>
+                <Button x:Name="btnClear" Command="{Binding ClearSearchCommand}" Content="Clear" HorizontalAlignment="Right" Margin="0,30,54,8" Width="66"/>
+                <Label HorizontalAlignment="Left" Content="{Binding Path=PageProgressBar}" Height="28" Margin="22,6,0,0" VerticalAlignment="Top" Width="243"/>
+                <Label  Height="28" HorizontalAlignment="Left" Margin="328,26,0,0" Name="labelOrderRef" VerticalAlignment="Top" Width="156" Content="Order ref." />
+            </Grid>
+            <Button x:Name="btnAddItem" Content="Add Order" Command="{Binding AddOrder}" Width="120" Margin="287,0" RenderTransformOrigin="-0.417,2.182" Visibility="Collapsed" />
+            <TabControl x:Name="tabControlPurchaseOrder" Height="375" Margin="22,0,8,0" SelectionChanged="TabControl_SelectionChanged" >
+
+                <TabItem x:Name="tabItemIncomplete" Header="Incomplete"  >
+
+                    <Grid Background="#FFE5E5E5">
+                        <DataGrid AutoGenerateColumns="False" x:Name="dgIncomplete" ItemsSource="{Binding PurchaseOrders, Mode=TwoWay}" Margin="10,8,0,17">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="230" Binding="{Binding DocumentRef, Mode=TwoWay}" x:Name="gridcolrefno" Header="Reference No." IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding DateRequired, Mode=TwoWay}" x:Name="gridcolrequired" Header="Required" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding DocIssuerInfo, Mode=TwoWay}" x:Name="gridcolissuedby" Header="Issued By" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Status, Mode=TwoWay}" x:Name="gridcolstatus" Header="Status" IsReadOnly="True" />
+                                <DataGridTextColumn  CanUserReorder="True" CanUserResize="True"  CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalNet, StringFormat=\{0:n\}}"  x:Name="gridcolnetamount" Header="Net Amount" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalVat, Mode=TwoWay, StringFormat=\{0:n\}}"  x:Name="gridcolvatamount" Header="Vat Amount" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalGross, Mode=TwoWay, StringFormat=\{0:n\}}"  x:Name="gridcolgrossamount" Header="Gross Amount" IsReadOnly="True" />
+                                <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock>
+                                                <Hyperlink x:Name="hlEdit" Tag="{Binding Path=OrderId}" Click="hlEdit_Click">
+                                                    <TextBlock Text="View"/>
+                                                </Hyperlink>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tabItemPendingAproval" Header="Pending approval">
+                    <Grid Background="#FFE5E5E5">
+                        <DataGrid AutoGenerateColumns="False" x:Name="dg1" ItemsSource="{Binding PurchaseOrders, Mode=TwoWay}" Margin="10,8,0,17">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="200" Binding="{Binding DocumentRef, Mode=TwoWay}" x:Name="dg1_gridcolrefno" Header="Reference No." IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding DateRequired, Mode=TwoWay}" x:Name="dg1_gridcolrequired" Header="Required" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding DocIssuerInfo, Mode=TwoWay}" x:Name="dg1_gridcolissuedby" Header="Issued By" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Status, Mode=TwoWay}" x:Name="dg1_gridcolstatus" Header="Status" IsReadOnly="True" />
+                                <DataGridTextColumn  CanUserReorder="True" CanUserResize="True"  CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalNet, StringFormat=\{0:n\}}"  x:Name="dg1_gridcolnetamount" Header="Net Amount" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalVat, Mode=TwoWay, StringFormat=\{0:n\}}"  x:Name="dg1_gridcolvatamount" Header="Vat Amount" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalGross, Mode=TwoWay, StringFormat=\{0:n\}}"  x:Name="dg1_gridcolgrossamount" Header="Gross Amount" IsReadOnly="True" />
+                                <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock>
+                                                <Hyperlink x:Name="hlEdit" Tag="{Binding Path=OrderId}" Click="hlEdit_Click">
+                                                    <TextBlock Text="View"/>
+                                                </Hyperlink>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tabItemApproved" Header="Approved" >
+                    <Grid Background="#FFE5E5E5">
+                        <DataGrid AutoGenerateColumns="False" x:Name="dgApproved" ItemsSource="{Binding PurchaseOrders, Mode=TwoWay}" Margin="10,8,0,17">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="200" Binding="{Binding DocumentRef, Mode=TwoWay}" x:Name="dgApproved_gridcolrefno"  Header="Reference No." IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding DateRequired, Mode=TwoWay}" x:Name="dgApproved_gridcolrequired" Header="Required" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding DocIssuerInfo, Mode=TwoWay}" x:Name="dgApproved_gridcolissuedby" Header="Issued By" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Status, Mode=TwoWay}" x:Name="dgApproved_gridcolstatus" Header="Status" IsReadOnly="True" />
+                                <DataGridTextColumn  CanUserReorder="True" CanUserResize="True"  CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalNet, StringFormat=\{0:n\}}"  x:Name="dgApproved_gridcolnetamount" Header="Net Amount" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalVat, Mode=TwoWay, StringFormat=\{0:n\}}" x:Name="dgApproved_gridcolvatamount" Header="Vat Amount" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalGross, Mode=TwoWay, StringFormat=\{0:n\}}"  x:Name="dgApproved_gridcolgrossamount" Header="Gross Amount" IsReadOnly="True" />
+                                <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock>
+                                                <Hyperlink x:Name="hlEdit" Tag="{Binding Path=OrderId}" Click="hlEdit_Click">
+                                                    <TextBlock Text="View"/>
+                                                </Hyperlink>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tabItemRejected" Header="Rejected" >
+                    <Grid Background="#FFE5E5E5">
+                        <DataGrid AutoGenerateColumns="False" x:Name="gdReject" ItemsSource="{Binding PurchaseOrders, Mode=TwoWay}" Margin="10,8,0,17">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="200" Binding="{Binding DocumentRef, Mode=TwoWay}" x:Name="gdReject_gridcolrefno" Header="Reference No." IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding DateRequired, Mode=TwoWay}" x:Name="gdReject_gridcolrequired" Header="Required" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding DocIssuerInfo, Mode=TwoWay}" x:Name="gdReject_gridcolissuedby" Header="Issued By" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Status, Mode=TwoWay}"  x:Name="gdReject_gridcolstatus" Header="Status" IsReadOnly="True" />
+                                <DataGridTextColumn  CanUserReorder="True" CanUserResize="True"  CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalNet, StringFormat=\{0:n\}}" x:Name="gdReject_gridcolnetamount"  Header="Net Amount" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalVat, Mode=TwoWay, StringFormat=\{0:n\}}" x:Name="gdReject_gridcolvatamount" Header="Vat Amount" IsReadOnly="True" />
+                                <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="120" CellStyle="{StaticResource TextAlignRight}" Binding="{Binding TotalGross, Mode=TwoWay, StringFormat=\{0:n\}}"  x:Name="gdReject_gridcolgrossamount" Header="Gross Amount" IsReadOnly="True" />
+                                <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock>
+                                                <Hyperlink x:Name="hlEdit" Tag="{Binding Path=OrderId}" Click="hlEdit_Click">
+                                                    <TextBlock Text="View"/>
+                                                </Hyperlink>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+
+            </TabControl>
+            <Grid Height="36" >
+                <Button Content="Create new Order" HorizontalAlignment="Right" Margin="0,6,52,6" Width="134" Command="{Binding AddOrder}" Visibility="{Binding Path=CanAddPurchaseOrder, Converter={StaticResource VisibilityConverter}}"  Grid.Column="1" d:LayoutOverrides="HorizontalAlignment" />
+            </Grid>
+
+
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,65 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.CN.AddCreditNote"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      mc:Ignorable="d" 
+       d:DesignWidth="640" d:DesignHeight="480" DataContext="{Binding AddCreditNoteModel, Source={StaticResource Locator}}"
+           Title="AddCreditNote Page">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter" />
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0,0,8,8" CornerRadius="10">
+            <Grid>
+                <Label x:Name="lblInvoiceRef" HorizontalAlignment="Left" Height="25" Margin="18,32,0,0" VerticalAlignment="Top" Width="135" Content="Invoice Reference"/>
+                <Label x:Name="lblInvoiceNo" HorizontalAlignment="Left" Height="25" Margin="18,63,0,0" VerticalAlignment="Top" Width="135" Content="Invoice No"/>
+                <Label x:Name="lblInvoiceAmount" HorizontalAlignment="Left" Height="25" Margin="18,92,0,0" VerticalAlignment="Top" Width="165" Content="Invoice Amount"/>
+                <Label x:Name="lblPrevCNAmount" HorizontalAlignment="Left" Height="25" Margin="18,123,0,0" VerticalAlignment="Top" Width="176" Content="Previous Credit Note Amount"/>
+                <Label x:Name="lblCNAmount" HorizontalAlignment="Left" Height="25" Margin="18,151,0,0" VerticalAlignment="Top" Width="135" Content="Credit Note Amount"/>
+                <TextBox x:Name="txtInvoiceRef" Height="25" Margin="201,29,0,0" Width="300" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding InvoiceRef,Mode=TwoWay}" VerticalAlignment="Top" IsReadOnly="True"/>
+                <TextBox x:Name="txtInvoiceNo" Height="25" Margin="201,60,0,0" Width="300" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding InvoiceId,Mode=TwoWay}" VerticalAlignment="Top" IsReadOnly="True"/>
+                <TextBox x:Name="txtInvoiceAmount" Height="25" Margin="201,89,0,0" Width="300" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding InvoiceAmount,Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" VerticalAlignment="Top" IsReadOnly="True"/>
+                <TextBox x:Name="txtPreviousCredit" Height="25" Margin="201,120,0,0" Width="300" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding PreviousCreditAmount,Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" VerticalAlignment="Top" IsReadOnly="True"/>
+                <TextBox x:Name="txtCreditAmount" Height="25" Margin="199,148,0,0" Width="300" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CreditAmount,Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" VerticalAlignment="Top" IsReadOnly="True"/>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="8,194,8,88" CornerRadius="5">
+                    <Grid>
+                        <DataGrid x:Name="dgLineItmes" Margin="0,0,8,8"  AutoGenerateColumns="False" ItemsSource="{Binding Path=CreditLineItem, Mode=TwoWay}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn x:Name="colProduct" Header="Product" IsReadOnly="True" Binding="{Binding ProductName,Mode=TwoWay}"  />
+                                <DataGridTextColumn x:Name="colQuantity" Header="Quantity" IsReadOnly="True" Binding="{Binding Quantity}"/>
+                                <DataGridTextColumn x:Name="colUnitPrice" Header="Unit Price" IsReadOnly="True" Binding="{Binding UnitPrice, StringFormat=#\,0.00;(#\,0.00);0}"/>
+                                <DataGridTextColumn x:Name="colTotalPrice" Header="Total Price" IsReadOnly="True" Binding="{Binding TotalPrice, StringFormat=#\,0.00;(#\,0.00);0}"/>
+                                <DataGridTextColumn x:Name="colReason" Header="Reason" IsReadOnly="True" Binding="{Binding Reason}"/>
+                                <DataGridTemplateColumn x:Name="colEdit" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Visibility="{Binding IsEditable, Converter={StaticResource VisibilityConverter}}">
+                                            <Hyperlink x:Name="hlEdit"    Tag="{Binding ProductId, Mode=TwoWay}" Click="hlEdit_Click"  TargetName="ContentFrame"  >Edit</Hyperlink>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn x:Name="colDelete" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Visibility="{Binding IsEditable, Converter={StaticResource VisibilityConverter}}">
+                                            <Hyperlink x:Name="hlDelete"   Tag="{Binding ProductId, Mode=TwoWay}" Click="hlDelete_Click"  TargetName="ContentFrame"  >Delete</Hyperlink>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+                <Button x:Name="btAdd" MaxWidth="200" Content="Add Product" HorizontalAlignment="Left" Height="27" Margin="8,0,0,53" VerticalAlignment="Bottom" Width="85" Click="btAdd_Click" />
+                <Button x:Name="btConfirm" Width="150" Command="{Binding ConfirmCommand}" MaxWidth="200" Content="Confirm Credit Note" Height="27" Margin="99,0,0,53" VerticalAlignment="Bottom" RenderTransformOrigin="-0.096,0.444" HorizontalAlignment="Left" />
+                <Button x:Name="btCancel" MaxWidth="200" Command="{Binding CancelCommand}" Content="Cancel" HorizontalAlignment="Left" Height="27" Margin="255,0,0,53" VerticalAlignment="Bottom" Width="84"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Page>

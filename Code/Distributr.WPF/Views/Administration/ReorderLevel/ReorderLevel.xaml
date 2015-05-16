@@ -1,0 +1,37 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Administration.ReorderLevel.ReorderLevel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      mc:Ignorable="d" 
+     d:DesignWidth="805" d:DesignHeight="480"
+                 DataContext="{Binding ReorderLevelViewModel, Source={StaticResource Locator}}"
+           Title="ReorderLevel Page">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot" HorizontalAlignment="Left" Width="805">
+        <StackPanel Width="805">
+            <Label x:Name="lblTitle" Content="{Binding Title}" Width="750" FontSize="12" FontWeight="Bold" Margin="0,0,0,15"/>
+            <DataGrid AutoGenerateColumns="False" Height="Auto"  x:Name="dgReorderLevels" Width="750" ItemsSource="{Binding Path=ReorderLevels}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colRowNum" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=RowNumber}" Header="" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colProdCode" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=ProductCode}" Header="Product Code" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colProdName" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="120*" 
+                    		Binding="{Binding Path=ProductName}" Header="Product Name" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colReorderLevel" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="120*" 
+                    		Binding="{Binding Path=ReorderLevel, StringFormat=#\,0.00;(#\,0.00);0}" Header="Reorder Level" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colAvailable" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="120*" 
+                    		Binding="{Binding Path=Available, StringFormat=#\,0.00;(#\,0.00);0}" Header="Available" IsReadOnly="True" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Margin="0,10,0,0" Width="750">
+                <Label Content="{Binding Path=LoadingStatus, Mode=TwoWay}" Visibility="{Binding Path=Loading, Converter={StaticResource VisibilityConverter}}"></Label>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

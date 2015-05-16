@@ -1,0 +1,93 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.HomeViews.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignWidth="800" d:DesignHeight="600"
+	Title="Home" DataContext="{Binding MainPageViewModel, Source={StaticResource Locator}}">
+
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Center">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="450" VerticalAlignment="Center" Width="750" CornerRadius="10" x:Name="borderLayout">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="250"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" x:Name="btpurchase" Height="120" Width="150" 
+                        Command="{Binding Path=NavigateCommand}" CommandParameter="\Views\Orders_Purchase\CreatePurchaseOrder.xaml">
+                    <!--Click="btpurchase_Click"-->
+                    <Button.Content>
+                        <Image Source="/images/po.jpg"  Stretch="Fill" >
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="Purchase Order"></ToolTip>
+                            </ToolTipService.ToolTip>
+                        </Image>
+                    </Button.Content>
+                </Button>
+                <Label Grid.Row="0" Grid.Column="0" Height="28" HorizontalAlignment="Center" x:Name="lblPurchaseOrders" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Width="150" Content="Purchase Order" Margin="50,0" />
+                <Button Grid.Row="0" Grid.Column="1" x:Name="btordering"  Height="120" Width="150" FontWeight="Bold" FontSize="21.333" Command="{Binding Path=NavigateCommand}" CommandParameter="\Views\Orders\Createorder.xaml"  d:LayoutOverrides="Width">
+                    <!--Click="btordering_Click"-->
+                    <Button.Content>
+                        <Image Source="/images/order.jpg"  Stretch="Fill">
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="Make an Order"></ToolTip>
+                            </ToolTipService.ToolTip>
+                        </Image>
+                    </Button.Content>
+                </Button>
+                <Label Grid.Row="0" Grid.Column="1" Content="Make Order" HorizontalContentAlignment="Center"  Height="28" HorizontalAlignment="Center" Name="lblOrder" VerticalAlignment="Bottom" Width="150" Margin="50,0" />
+                <Button Grid.Row="0" Grid.Column="2" x:Name="btpos" Height="120" Width="150" FontWeight="Bold" FontSize="21.333" Command="{Binding Path=NavigateCommand}" CommandParameter="\Views\Order_Pos\AddPOS.xaml" >
+                    <!--Click="btpos_Click"-->
+                    <Button.Content>
+                        <Image Source="/images/pos.jpg" Stretch="Fill">
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="Point of sale"></ToolTip>
+                            </ToolTipService.ToolTip>
+                        </Image>
+                    </Button.Content>
+                </Button>
+                <Label Grid.Row="0" Grid.Column="2" Content="Point Of Sale" Height="28" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Name="lblPOS" VerticalAlignment="Bottom" Width="150" Margin="50,0" />
+                <Button Grid.Row="1" Grid.Column="0" x:Name="btdispatch" Height="120" Width="150" Command="{Binding Path=NavigateCommand}" CommandParameter="\Views\Orders\OrderDispatch.xaml" >
+                    <!--Click="btdispatch_Click"-->
+                    <Button.Content>
+                        <Image Source="/images/dispatch.jpg" Stretch="Fill">
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="Dispatch Order"></ToolTip>
+                            </ToolTipService.ToolTip>
+                        </Image>
+                    </Button.Content>
+                </Button>
+                <Label Grid.Row="1" Grid.Column="0" Content="Dispatch Orders" Height="28" HorizontalAlignment="Center" Name="lblDispatchOrder" VerticalAlignment="Bottom" Width="150" Margin="50,0" HorizontalContentAlignment="Center" />
+                <Button Grid.Row="1" Grid.Column="1" x:Name="btrecievepayment" Width="150" Command="{Binding Path=NavigateCommand}" CommandParameter="\Views\Payments\ListPendingPayment.xaml" d:LayoutOverrides="Width" Height="120">
+                    <!--Click="btrecievepayment_Click"-->
+                    <Button.Content>
+                        <Image Source="/images/payment.jpg" Stretch="Fill">
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="Receive Payment"></ToolTip>
+                            </ToolTipService.ToolTip>
+                        </Image>
+                    </Button.Content>
+                </Button>
+                <Label Grid.Row="1" Grid.Column="1" Content="Outstanding Payments" Height="28" HorizontalAlignment="Center" Name="lblOutstandingPayments" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Width="150" Margin="50,0" />
+                <Button Grid.Row="1" Grid.Column="2" x:Name="btreports" Width="150" Height="120" Command="{Binding Path=NavigateCommand}" CommandParameter="\Views\Reports/Reports.xaml">
+                    <!--Click="btreports_Click"-->
+                    <Button.Content>
+                        <Image Source="/images/report.jpg"  Stretch="Fill">
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="Reports"></ToolTip>
+                            </ToolTipService.ToolTip>
+                        </Image>
+                    </Button.Content>
+                </Button>
+                <Label Grid.Row="1" Grid.Column="2" Content="Reports" Height="28" HorizontalAlignment="Center" Name="lblReports" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"  Width="120" />
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

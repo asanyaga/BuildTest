@@ -1,0 +1,446 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.SalesmanOrders.ListSalesmanOrders"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignWidth="1000" d:DesignHeight="500"
+                 DataContext="{Binding ListSalesmanOrdersViewModel, Source={StaticResource Locator}}"
+      xmlns:pager="clr-namespace:Distributr.WPF.UI.Views.Utils"
+      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      Title="ListSalesManOrder Page">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot" Width="Auto" Height="Auto" VerticalAlignment="Top">
+        <StackPanel>
+            <TextBlock Text="List Of Orders Awaiting Approval" x:Name="PageTitle" Height="26" Margin="0,0,0,0" FontWeight="Bold" />
+            <Grid Margin="0,0,0,5">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="400*"></ColumnDefinition>
+                    <ColumnDefinition Width="600*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <Label Content="From:" x:Name="lblStartDate" Height="28" Margin="0,0,5,0" Width="Auto" HorizontalAlignment="Right" />
+                    <DatePicker x:Name="dpStartDate" Text="Start Date" Margin="0,0,10,0" SelectedDate="{Binding Path=StartDate, Mode=TwoWay, StringFormat=\{0:d\}}"/>
+                    <Label Content="To:" x:Name="lblTo" Height="28" Margin="0,0,5,0" Width="Auto" HorizontalAlignment="Right" />
+                    <DatePicker x:Name="dpEndDate" Text="End Date" Margin="0,0,10,0" SelectedDate="{Binding Path=EndDate, Mode=TwoWay, StringFormat=\{0:d\}}"/>
+                    <Button Content="Load" Height="28" Name="cmdLoadSales" Width="50" Margin="0,0,10,0" Click="cmdLoadSales_Click" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Right">
+                    <Label x:Name="lblSearchText" Content="Search (Order Ref/Salesman/Status/Any Date Part):" HorizontalAlignment="Right" Margin="0,0,5,0" Grid.ColumnSpan="2" Width="295" />
+                    <TextBox Grid.Column="2" x:Name="txtSearchText" Text="{Binding SearchText, Mode=TwoWay}" Height="25" Width="170" Margin="0,0,5,00" TextChanged="txtSearchText_TextChanged"  />
+                    <Button Grid.Column="3" Content="Search" x:Name="btnSearch" Width="60" Margin="0,0,5,0" Click="btnSearch_Click" Height="25" HorizontalAlignment="Right" />
+                    <Button Content="Clear" x:Name="btnClear" Grid.Column="3" Width="60" Click="btnClear_Click" Height="25" HorizontalAlignment="Right"/>
+                </StackPanel>
+                <!--<Button Name="btnApproveOrders" Content="Approve Orders" Command="{Binding ApproveSalesmanOrder}" Margin="122,0,20,2" />-->
+            </Grid>
+            <TabControl x:Name="tabOrders" Width="Auto" Height="Auto" SelectionChanged="tabOrders_SelectionChanged">
+
+                <TabItem Header="Pending Approval" x:Name="tabItemPendingApprovals">
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" Width="Auto" x:Name="dgPendingApproval" ItemsSource="{Binding Orders, Mode=TwoWay}" Margin="0,5,0,0" LoadingRow="dgPendingApproval_LoadingRow">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="coldgPendingApprovalSequenceNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=SequenceNo}" Header="" IsReadOnly="True" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                            <DataGridTextColumn x:Name="coldgPendingApprovalDocumentRef" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding DocumentRef}" Header="Order Ref" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingApprovalDateRequired" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=DateRequired}" Header="Required" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingApprovalSalesman" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=DocIssuerInfo}" Header="Salesman" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingApprovalStatus" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Path=Status}" Header="Status" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingApprovalTotalNet" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalNet}" Header="Net Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingApprovalTotalVat" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalVat}" Header="Total VAT" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingApprovalTotalGross" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalGross}" Header="Gross Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingApprovalTotalPaid" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalPaid}" Header="Amt Paid" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingApprovalTotalDue" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalDue}" Header="Outstanding Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingApprovalEmptyString" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="60*" Binding="{Binding Path=EmptyString}" IsReadOnly="True" />
+                       <DataGridTemplateColumn x:Name="coldgPendingApprovalView" CanUserReorder="False" CanUserResize="True" CanUserSort="False" MinWidth="40" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlnkView" Tag="{Binding OrderId}" Click="hlnkView_Click" TargetName="ContentFrame" >
+                                            <TextBlock Text="View"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn x:Name="coldgPendingApprovalProcess" CanUserReorder="False" CanUserResize="True" CanUserSort="False" MinWidth="60">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Visibility="{Binding Converter={StaticResource VisibilityConverter}, Path=IsProcessable}">
+                                        <Hyperlink x:Name="hlnkProcess" Tag="{Binding OrderId}" Click="hlnkProcess_Click" >
+                                            <TextBlock Text="Process"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Pending Dispatch" x:Name="tabItemPendingDispatch">
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" Width="Auto" x:Name="dgPendingDispatch" ItemsSource="{Binding Path=Orders, Mode=TwoWay}" Margin="0,5,0,0" LoadingRow="dgPendingDispatch_LoadingRow">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="coldgPendingDispatchSequenceNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=SequenceNo}" Header="" IsReadOnly="True" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                            <DataGridTextColumn x:Name="coldgPendingDispatchDocumentRef" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding DocumentRef}" Header="Order Ref" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingDispatchDate" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=DateRequired}" Header="Required" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingDispatchSalesman" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=DocIssuerInfo}" Header="Salesman" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingDispatchStatus" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Path=Status}" Header="Status" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingDispatchTotalNet" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalNet}" Header="Net Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingDispatchTotalVat" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalVat}" Header="Total VAT" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingDispatchTotalGross" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalGross}" Header="Gross Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingDispatchTotalPaid" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalPaid}" Header="Amt Paid" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingDispatchTotalDue" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalDue}" Header="Outstanding Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPendingDispatchEmpty" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="70*" Binding="{Binding Path=EmptyString}" IsReadOnly="True" />
+
+                            <DataGridTemplateColumn x:Name="coldgPendingDispatchView" CanUserReorder="False" CanUserResize="True" CanUserSort="False" MinWidth="40" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlnkView" Tag="{Binding OrderId}" Click="hlnkView_Click" TargetName="ContentFrame" >
+                                            <TextBlock Text="{Binding Path=HlkViewContent}"/>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn x:Name="coldgPendingDispatchEdit" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="120" MinWidth="80" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Visibility="{Binding Converter={StaticResource VisibilityConverter}, Path=HasBackOrder}">
+                                            <Hyperlink x:Name="hlnkEdit" Click="hlnkEdit_Click" Tag="{Binding OrderId}">
+                                                <TextBlock Text="Process Back Order"/>
+                                            </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem x:Name="tabItemDispatchedOrders" Header="Dispatched">
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" Width="Auto" x:Name="dgDispatchedOrders" ItemsSource="{Binding Orders, Mode=TwoWay}" Margin="0,5,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="coldgDispatchedOrdersSequenceNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=SequenceNo}" Header="" IsReadOnly="True" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                            <DataGridTemplateColumn x:Name="coldgDispatchedOrdersDocumentRef" Header="Order Ref" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" IsReadOnly="True" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlDocRef" Click="hlDocRef_Click" Tag="{Binding Path=OrderId}">
+                                            <TextBlock Text="{Binding Path=DocumentRef}"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="coldgDispatchedOrdersDate" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=DateRequired}" Header="Required" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDispatchedOrdersSalesman" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=DocIssuerInfo}" Header="Salesman" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDispatchedOrdersStatus" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Path=Status}" Header="Status" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDispatchedOrdersTotalNet" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalNet}" Header="Net Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDispatchedOrdersTotalVat" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalVat}" Header="Total VAT" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDispatchedOrdersTotalGross" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalGross}" Header="Gross Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDispatchedOrdersTotalPaid" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalPaid}" Header="Amt Paid" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDispatchedOrdersTotalDue" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalDue}" Header="Outstanding Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDispatchedOrdersEmpty" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="60*" Binding="{Binding Path=EmptyString}" IsReadOnly="True" />
+                            <DataGridTemplateColumn x:Name="coldgDispatchedOrdersView" CanUserReorder="False" CanUserResize="True" CanUserSort="False" MinWidth="40" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlnkView" Tag="{Binding OrderId}" Click="hlnkView_Click" TargetName="ContentFrame" >
+                                            <TextBlock Text="{Binding Path=HlkViewContent}"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem x:Name="tabItemIncomplete" Header="Incomplete">
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" Width="Auto" x:Name="dgIncomplete" ItemsSource="{Binding Orders, Mode=TwoWay}" Margin="0,5,0,0" LoadingRow="dgIncomplete_LoadingRow">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="coldgIncompleteSequenceNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=SequenceNo}" Header="" IsReadOnly="True" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                            <DataGridTextColumn x:Name="coldgIncompleteDocumentRef" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding DocumentRef}" Header="Order Ref" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgIncompleteDate" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=DateRequired}" Header="Required" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgIncompleteSalesman" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=DocIssuerInfo}" Header="Salesman" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgIncompleteStatus" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Path=Status}" Header="Status" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgIncompleteTotalNet" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalNet}" Header="Net Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgIncompleteTotalVat" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalVat}" Header="Total VAT" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgIncompleteTotalGross" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalGross}" Header="Gross Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgIncompleteTotalPaid" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalPaid}" Header="Amt Paid" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgIncompleteTotalDue" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalDue}" Header="Outstanding Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgIncompleteEmpty" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="60*" Binding="{Binding Path=EmptyString}" IsReadOnly="True" />
+                            <DataGridTemplateColumn x:Name="coldgIncompleteView" CanUserReorder="False" CanUserResize="True" CanUserSort="False" MinWidth="40" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlnkView" Tag="{Binding OrderId}" Click="hlnkView_Click" TargetName="ContentFrame" >
+                                            <TextBlock Text="View"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn x:Name="coldgIncompleteProcess" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="60" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Visibility="{Binding Converter={StaticResource VisibilityConverter}, Path=IsProcessable}">
+                                        <Hyperlink x:Name="hlnkProcess" Tag="{Binding OrderId}" Click="hlnkProcess_Click" TargetName="ContentFrame">
+                                            <TextBlock  Text="Confirm"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem x:Name="tabItemDelivered" Header="Delivered">
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" Width="Auto" x:Name="dgDelivered" ItemsSource="{Binding Orders, Mode=TwoWay}" Margin="0,5,0,0" LoadingRow="dgDelivered_LoadingRow">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="coldgDelivered" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=SequenceNo}" Header="" IsReadOnly="True" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                            <DataGridTemplateColumn x:Name="coldgDeliveredDocumentRef" Header="Order Ref" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" IsReadOnly="True" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlDocRef" Click="hlDocRef_Click" Tag="{Binding Path=OrderId}">
+                                            <TextBlock  Text="{Binding Path=DocumentRef}"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="coldgDeliveredDate" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=DateRequired}" Header="Required" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDeliveredSalesman" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=DocIssuerInfo}" Header="Salesman" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDeliveredStatus" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Path=Status}" Header="Status" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDeliveredTotalNet" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalNet}" Header="Net Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDeliveredTotalVat" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalVat}" Header="Total VAT" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDeliveredTotalGross" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalGross}" Header="Gross Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDeliveredTotalPaid" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalPaid}" Header="Amt Paid" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDeliveredTotalDue" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalDue}" Header="Outstanding Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgDeliveredEmpty" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="60*" Binding="{Binding Path=EmptyString}" IsReadOnly="True" />
+                            <DataGridTemplateColumn x:Name="coldgDeliveredView" CanUserReorder="False" CanUserResize="True" CanUserSort="False" MinWidth="40" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlnkView" Tag="{Binding OrderId}" Click="hlnkView_Click" TargetName="ContentFrame" >
+                                            <TextBlock Text="View"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem x:Name="tabItemPartiallyPaidDeliveries" Header="Outstanding Payments">
+                    <!--Not paid in full : outstanding payments-->
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" Width="Auto" x:Name="dgPartiallyPaidDeliveries" ItemsSource="{Binding Orders, Mode=TwoWay}" Margin="0,5,0,0" LoadingRow="dgPartiallyPaidDeliveries_LoadingRow">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="coldgPartiallyPaidDeliveriesSequenceNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=SequenceNo}" Header="" IsReadOnly="True" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                            <DataGridTemplateColumn x:Name="coldgPartiallyPaidDeliveriesDocumentRef" Header="Order Ref" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" IsReadOnly="True" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlDocRef" Click="hlDocRef_Click" Tag="{Binding Path=OrderId}">
+                                            <TextBlock Text="{Binding Path=DocumentRef}"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="coldgPartiallyPaidDeliveriesDate" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=DateRequired}" Header="Required" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPartiallyPaidDeliveriesSalesman" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="100" Binding="{Binding Path=DocIssuerInfo}" Header="Salesman" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPartiallyPaidDeliveriesStatus" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" MinWidth="80" Binding="{Binding Path=Status}" Header="Status" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPartiallyPaidDeliveriesTotalNet" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalNet}" Header="Net Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPartiallyPaidDeliveriesTotalVat" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalVat}" Header="Total VAT" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPartiallyPaidDeliveriesTotalGross" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalGross}" Header="Gross Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPartiallyPaidDeliveriesTotalPaid" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalPaid}" Header="Amt Paid" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPartiallyPaidDeliveriesTotalDue" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalDue}" Header="Outstanding Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgPartiallyPaidDeliveriesEmpty" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="60*" Binding="{Binding Path=EmptyString}"  IsReadOnly="True" />
+                            <DataGridTemplateColumn x:Name="coldgPartiallyPaidDeliveriesView" CanUserReorder="False" CanUserResize="True" CanUserSort="False" MinWidth="40" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlnkView" Tag="{Binding OrderId}" Click="hlnkView_Click" TargetName="ContentFrame" >
+                                            <TextBlock  Text="{Binding Path=HlkViewContent}"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn x:Name="coldgPartiallyPaidDeliveriesEdit" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="110" MinWidth="93" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlnkEdit" Click="hlnkEdit_Click" Tag="{Binding OrderId}">
+                                            <TextBlock  Text="Receive Payment"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem x:Name="tabItemFullyPaidDeliveries" Header="Fully Paid Deliveries">
+                    <!--Not paid in full : outstanding payments-->
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" Width="Auto" x:Name="dgFullyPaidDeliveries" ItemsSource="{Binding Orders, Mode=TwoWay}" Margin="0,5,0,0" LoadingRow="dgFullyPaidDeliveries_LoadingRow">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="coldgFullyPaidDeliveriesSequenceNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=SequenceNo}" Header="" IsReadOnly="True" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                            <DataGridTemplateColumn x:Name="coldgFullyPaidDeliveriesDocumentRef" Header="Order Ref" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" IsReadOnly="True" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink  x:Name="hlDocRef" Click="hlDocRef_Click" Tag="{Binding Path=OrderId}">
+                                            <TextBlock Text="{Binding Path=DocumentRef}"></TextBlock>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="coldgFullyPaidDeliveriesDate" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=DateRequired}" Header="Required" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgFullyPaidDeliveriesSalesman" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=DocIssuerInfo}" Header="Salesman" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgFullyPaidDeliveriesStatus" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Path=Status}" Header="Status" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgFullyPaidDeliveriesTotalNet" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalNet}" Header="Net Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgFullyPaidDeliveriesTotalVat" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalVat}" Header="Total VAT" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgFullyPaidDeliveriesTotalGross" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalGross}" Header="Gross Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgFullyPaidDeliveriesTotalPaid" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalPaid}" Header="Amt Paid" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgFullyPaidDeliveriesTotalDue" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalDue}" Header="Outstanding Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgFullyPaidDeliveriesEmpty" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="60*" Binding="{Binding Path=EmptyString}"  IsReadOnly="True" />
+                            <DataGridTemplateColumn x:Name="coldgFullyPaidDeliveriesView" CanUserReorder="False" CanUserResize="True" CanUserSort="False" MinWidth="40" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlnkView" Tag="{Binding OrderId}" Click="hlnkView_Click" TargetName="ContentFrame">
+                                            <TextBlock Text="{Binding Path=HlkViewContent}"/>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem x:Name="tabItemBackOrders" Header="Back Orders">
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" Width="Auto" x:Name="dgBackOrders" ItemsSource="{Binding Orders, Mode=TwoWay}" Margin="0,5,0,0" LoadingRow="dgBackOrders_LoadingRow">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="coldgBackOrdersSequenceNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=SequenceNo}" Header="" IsReadOnly="True" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+
+                            <DataGridTemplateColumn x:Name="coldgBackOrdersDocumentRef" Header="Order Ref" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" IsReadOnly="True" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlDocRef" Click="hlDocRef_Click" Tag="{Binding Path=OrderId}">
+                                            <TextBlock Text="{Binding Path=DocumentRef}"/>
+                                        </Hyperlink></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="coldgBackOrdersDate" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=DateRequired}" Header="Required" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgBackOrdersSalesman" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=DocIssuerInfo}" Header="Salesman" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgBackOrdersStatus" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Path=Status}" Header="Status" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgBackOrdersTotalNet" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalNet}" Header="Net Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgBackOrdersTotalVat" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalVat}" Header="Total VAT" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgBackOrdersTotalGross" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalGross}" Header="Gross Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgBackOrdersTotalPaid" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalPaid}" Header="Amt Paid" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgBackOrdersTotalDue" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalDue}" Header="Outstanding Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgBackOrdersEmpty" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="60*" Binding="{Binding Path=EmptyString}" IsReadOnly="True" />
+                            <DataGridTemplateColumn x:Name="coldgBackOrdersView" CanUserReorder="False" CanUserResize="True" CanUserSort="False" MinWidth="40" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlnkView" Tag="{Binding OrderId}" Click="hlnkView_Click" TargetName="ContentFrame" ><TextBlock Text="{Binding Path=HlkViewContent}"/></Hyperlink></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn x:Name="coldgBackOrdersEdit" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="110" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Visibility="{Binding Converter={StaticResource VisibilityConverter}, Path=HasBackOrder}">
+                                        <Hyperlink x:Name="hlnkEdit" Click="hlnkEdit_Click" Tag="{Binding OrderId}">
+                                            <TextBlock Text="Process Back Order"/>
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem x:Name="tabItemLostSales" Header="Lost Sales">
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" Width="Auto" x:Name="dgLostSales" ItemsSource="{Binding Orders, Mode=TwoWay}" Margin="0,5,0,0" LoadingRow="dgLostSales_LoadingRow">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="coldgLostSalesSequenceNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=SequenceNo}" Header="" IsReadOnly="True" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                            <DataGridTemplateColumn x:Name="coldgLostSalesDocumentRef" Header="Order Ref" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" IsReadOnly="True" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink  x:Name="hlDocRef" Click="hlDocRef_Click" Tag="{Binding Path=OrderId}">Doc Ref??<!--Content="{Binding Path=DocumentRef}"--></Hyperlink></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="coldgLostSalesDate" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=DateRequired}" Header="Required" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgLostSalesSalesman" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=DocIssuerInfo}" Header="Salesman" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgLostSalesStatus" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Path=Status}" Header="Status" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgLostSalesTotalNet" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalNet}" Header="Net Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgLostSalesTotalVat" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalVat}" Header="Total VAT" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgLostSalesTotalGross" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalGross}" Header="Gross Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgLostSalesTotalPaid" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalPaid}" Header="Amt Paid" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgLostSalesTotalDue" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalDue}" Header="Outstanding Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgLostSalesEmpty" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="60*" Binding="{Binding Path=EmptyString}" IsReadOnly="True" />
+                            <DataGridTemplateColumn x:Name="coldgLostSalesView" CanUserReorder="False" CanUserResize="True" CanUserSort="False" MinWidth="40" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlnkView"  Tag="{Binding OrderId}" Click="hlnkView_Click" TargetName="ContentFrame" >Edit??<!--Content="{Binding Path=HlkViewContent}"-->
+                                        </Hyperlink>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem x:Name="tabItemRejectedOrders" Header="Rejected">
+                    <DataGrid AutoGenerateColumns="False" Height="Auto" Width="Auto" x:Name="dgRejectedOrders" ItemsSource="{Binding Orders, Mode=TwoWay}" Margin="0,5,0,0" LoadingRow="dgRejectedOrders_LoadingRow">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="coldgRejectedOrdersSequenceNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=SequenceNo}" Header="" IsReadOnly="True" CellStyle="{StaticResource dataGridCurrencyCell}"/>
+                            <DataGridTextColumn x:Name="coldgRejectedOrdersDocumentRef" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding DocumentRef}" Header="Order Ref" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgRejectedOrdersDate" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="80" Binding="{Binding Path=DateRequired}" Header="Required" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgRejectedOrdersSalesman" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=DocIssuerInfo}" Header="Salesman" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgRejectedOrdersStatus" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" Binding="{Binding Path=Status}" Header="Status" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgRejectedOrdersTotalNet" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalNet}" Header="Net Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgRejectedOrdersTotalVat" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalVat}" Header="Total VAT" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgRejectedOrdersTotalGross" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalGross}" Header="Gross Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgRejectedOrdersTotalPaid" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalPaid}" Header="Amt Paid" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgRejectedOrdersTotalDue" CellStyle="{StaticResource dataGridCurrencyCell}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" MinWidth="60" Binding="{Binding Path=TotalDue}" Header="Outstanding Amt" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="coldgRejectedOrdersEmpty" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="60*" Binding="{Binding Path=EmptyString}" IsReadOnly="True" />
+                            <DataGridTemplateColumn x:Name="coldgRejectedOrdersView" CanUserReorder="False" CanUserResize="True" CanUserSort="False" MinWidth="40" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                        <Hyperlink x:Name="hlnkView"  Tag="{Binding OrderId}" Click="hlnkView_Click" TargetName="ContentFrame" >Edit??</Hyperlink><!--Content="{Binding Path=HlkViewContent}"-->
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+
+            <Grid Margin="0,5,0,0">
+                <Label x:Name="lblProgress" Content="{Binding Path=PageProgressBar}" Height="24" Width="307" HorizontalAlignment="Left"/>
+                <StackPanel Margin="0,0,120,0" Width="Auto" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <pager:DistributrDataPager Height="28" x:Name="DataPager" HorizontalAlignment="Right" Margin="0,0,0,0"/>
+                    <Button Name="btnDispatch" Height="25" Content="Dispatch Order" Click="btnDispatch_Click" Width="100" HorizontalAlignment="Right" Margin="10,0,0,0" Visibility="Collapsed"/>
+                </StackPanel>
+                <Button Name="btnAddItem" Content="Add Order" Command="{Binding Path=AddSalesmanOrder}" Height="30" Width="100" HorizontalAlignment="Right"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

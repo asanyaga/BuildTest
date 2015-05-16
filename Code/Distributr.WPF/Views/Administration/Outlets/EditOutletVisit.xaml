@@ -1,0 +1,93 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Administration.Outlets.EditOutletVisit"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      DataContext="{Binding EditOutletVistDayViewModel, Source={StaticResource Locator}}"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45" mc:Ignorable="d"  d:DesignWidth="640" d:DesignHeight="480"
+	Title="EditOutletVisit" Loaded="OutletVisitDayPage_Loaded">
+
+
+    <Grid x:Name="LayoutRoot">
+        <Grid Margin="0,0,0,8">
+            <Border BorderBrush="Black" BorderThickness="1" Margin="0,0,8,8" CornerRadius="10">
+                <Grid HorizontalAlignment="Center">
+                    <Label x:Name="lblRoute" HorizontalAlignment="Left" Height="30" Margin="25,38,0,0" VerticalAlignment="Top" Width="81" Content="Route"/>
+                    <!--New Route pop up-->
+
+
+
+
+
+
+                    <Label x:Name="lblOutlet" HorizontalAlignment="Left" Height="30" Margin="25,73,0,0" VerticalAlignment="Top" Width="81" Content="Outlet"/>
+                    <Label x:Name="lblEffectiveDate" HorizontalAlignment="Left" Height="30" Margin="25,113,0,0" VerticalAlignment="Top" Width="81" Content="Effective Date"/>
+
+
+                    <!--<ComboBox x:Name="cboRoute"  ItemsSource="{Binding RouteLookUpList}" DisplayMemberPath="Name" 
+							  SelectedValue="{Binding RouteLookUp,Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Height="25" Margin="106,38,0,0" VerticalAlignment="Top" Width="306" HorizontalAlignment="Left">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding LoadOutletCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>-->
+                    <StackPanel Margin="7,0,-7,0" >
+                        <TextBox x:Name="cboRoute"  HorizontalContentAlignment="Left"  VerticalContentAlignment="Center"  Width="261"
+                              Text="{Binding SelectedRoute.Name, Mode=TwoWay}" IsReadOnly="True" Height="28" Margin="107,39,266,0"/>
+                        <Button Content="..."   VerticalContentAlignment="Center " Command="{Binding  RouteDropDownOpenedCommand}"  Margin="377,-28,222,398"  Width="30" Height="28"  IsEnabled="{Binding CanChange, Mode=TwoWay}" RenderTransformOrigin="2.727,-2.399" />
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" >
+                                <cmd:EventToCommand Command="{Binding RouteDropDownOpenedCommand, Mode=TwoWay}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </StackPanel>
+
+                    <!--<ComboBox x:Name="cboOutlet" ItemsSource="{Binding OutletLookUpList}" DisplayMemberPath="Name" 
+							  SelectedValue="{Binding OutletLookUp, Mode=TwoWay, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Height="25" Margin="106,72,0,0" VerticalAlignment="Top" Width="306" HorizontalAlignment="Left">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding LoadVisitItemCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>-->
+
+                    <StackPanel Orientation="Horizontal" Height="28" Margin="113,72,0,0" VerticalAlignment="Top" Width="315" HorizontalAlignment="Left">
+                        <TextBox  HorizontalAlignment="Right"  Width="261" Height="28"  HorizontalContentAlignment="Left"  VerticalContentAlignment="Center"  Margin="0,3,0,-3" IsReadOnly="True"
+                              x:Name="cboOutlet" 
+                          Text="{Binding SelectedOutlet.Name,Mode=TwoWay}" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="TextChanged" >
+                                    <cmd:EventToCommand Command="{Binding OutletChangedCommand, Mode=OneWay}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                        <Button Content="..." Margin="12 0 0 0" VerticalContentAlignment="Center" Width="30"  Height="28" IsEnabled="{Binding CanChange, Mode=TwoWay}" VerticalAlignment="Bottom">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click" >
+                                    <cmd:EventToCommand Command="{Binding OutletDropDownOpenedCommand, Mode=TwoWay}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                    </StackPanel>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="25,166,0,230" HorizontalAlignment="Left">
+                        <DataGrid Width="389" ItemsSource="{Binding VistDayItems}" AutoGenerateColumns="False" x:Name="DgVisitDays" Margin="0,10,0,0" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="150" x:Name="ColName" Header="Name" Binding="{Binding Name,Mode=TwoWay}" IsReadOnly="True"/>
+                                <DataGridCheckBoxColumn x:Name="ColCheckbox" Header="Is Visit Day" Binding="{Binding IsVistDay,Mode=TwoWay}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+                    <StackPanel Margin="25,326,214,96" Orientation="Horizontal" Height="40" RenderTransformOrigin="0.512,1.1">
+                        <Button x:Name="btnSave" Command="{Binding SaveCommand}" Content="Save" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="71" Margin="100,0,-100,10"/>
+                        <Button x:Name="btncancel" Click="OutvisitdayCancel" Content="Cancel" Height="28" VerticalAlignment="Top"  Width="79" HorizontalAlignment="Left"  Margin="130,0,0,10"/>
+                    </StackPanel>
+                    <DatePicker x:Name="datePickerEffectiveDate" DisplayDateStart="{x:Static System:DateTime.Now}" Height="30" Margin="113,113,0,0" VerticalAlignment="Top" Width="303" HorizontalAlignment="Left" SelectedDate="{Binding EffectiveDate,Mode=TwoWay}" />
+                </Grid>
+            </Border>
+        </Grid>
+
+    </Grid>
+</Page>

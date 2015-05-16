@@ -1,0 +1,68 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.RN.UnderBanking"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       DataContext="{Binding UnderBankingViewModel, Source={StaticResource Locator}}"
+        Title="UnderBanking" Height="550" Width="600">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140"  />
+                
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="230"/>
+                <RowDefinition Height="30"/>
+
+            </Grid.RowDefinitions>
+            <Label Margin="30,0,0,0" Content="Salesman" Grid.Column="0" Grid.Row="0"/>
+            <TextBlock Text="{Binding Salesman.Name, Mode=TwoWay}" Margin="10,2,10,2"   Width="300" Grid.Column="1" Grid.Row="0"/>
+            <Label Margin="30,0,0,0"  Content="Total Amount"  Grid.Column="0" Grid.Row="1"/>
+            <Label Margin="30,0,0,0"  Content="Allocated Amount"  Grid.Column="0" Grid.Row="2"/>
+            <Label Margin="30,0,0,0"  Content="Balance Amount"  Grid.Column="0" Grid.Row="3"/>
+            <Label Margin="30,0,0,0"  Content="Oultel/Salesman" Grid.Column="0" Grid.Row="4"/>
+            <Label Margin="30,0,0,0"  Content="Amount" Grid.Column="0" Grid.Row="5"/>
+            <Label Margin="30,0,0,0"  Content="Description" Grid.Column="0" Grid.Row="6"/>
+            <TextBlock TextAlignment="Right" Margin="10,2,10,2" Text="{Binding TotalUnderbankingAmout,StringFormat={}{0:n2}, Mode=TwoWay}"   Width="300" Grid.Column="1" Grid.Row="1"/>
+            <TextBlock TextAlignment="Right"  Margin="10,2,10,2" Text="{Binding TotalAllocatedAmount,StringFormat={}{0:n2}, Mode=TwoWay}"  Width="300" Grid.Column="1" Grid.Row="2"/>
+            <TextBlock TextAlignment="Right"  Margin="10,2,10,2" Text="{Binding TotaBalanceAmount,StringFormat={}{0:n2}, Mode=TwoWay}"  Width="300" Grid.Column="1" Grid.Row="3"/>
+            <TextBox IsReadOnly="True" Name="txtCostCentre" Tag="{Binding CostCentre,Mode=TwoWay}" Text="{Binding CostCentre.Name,Mode=TwoWay}"   Grid.Column="1" Grid.Row="4" Width="300" Margin="10,2,10,2"/>
+            <Button Name="btnCostCentre" Command="{Binding SelectCostCentreCommand,Mode=TwoWay}" Content="..."  Grid.Column="1" Grid.Row="4" Width="30" Margin="350,2,10,2"/>
+            <TextBox Text="{Binding  UnderBankAmount, Mode=TwoWay}" Grid.Column="1" Grid.Row="5"   Width="300" Margin="10,2,10,2"/>
+            <TextBox Text="{Binding Description, Mode=TwoWay}" Grid.Column="1" Grid.Row="6"   Width="300" Margin="10,2,10,2" />
+            <Button Command="{Binding AddCommand,Mode=TwoWay}" Content="Add" Grid.Column="1" Grid.Row="7" Width="100" Margin="10,2,10,2"/>
+            <Button Content="Save" Command="{Binding SaveCommand,Mode=TwoWay}" Grid.Column="1" Grid.Row="9" Width="100" Margin="10,2,10,2"/>
+            <Button Content="Cancel" Command="{Binding CancelCommand,Mode=TwoWay}" Grid.Column="1" Grid.Row="9" Width="100" Margin="250,2,10,2"/>
+            <ScrollViewer Grid.Row="8" Grid.ColumnSpan="2" >
+                <DataGrid  AutoGenerateColumns="False" Height="auto" MinHeight="200" ItemsSource="{Binding LineItems, Mode=TwoWay}" HorizontalAlignment="Stretch" Margin="20,10,20,0" Name="UnderBankingDataGrid" VerticalAlignment="Top" Width="auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="colicompletereturndate" Binding="{Binding CostCentre.Name}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Salesman/Outlet" Width="Auto" />
+                    <DataGridTextColumn x:Name="colicompletesaleman" Binding="{Binding Amount}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Amount" Width="Auto" />
+                    <DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl >
+                                        <Hyperlink  Command="{Binding DataContext.RemoveItemCommand, ElementName=UnderBankingDataGrid,Mode=TwoWay}" CommandParameter="{Binding}" >
+                                        <TextBlock Text="Remove"></TextBlock>
+                                    </Hyperlink>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            </ScrollViewer>
+
+        </Grid>
+    </Grid>
+   
+</Window>

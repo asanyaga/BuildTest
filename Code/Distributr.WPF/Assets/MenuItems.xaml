@@ -1,0 +1,91 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <MenuItem x:Key="mnuRoot" Name="mnuRoot">
+        <MenuItem Name="mnuAdmin"  Header="Admin">
+            <MenuItem Name="mnuRoutesAdmin" Header="Routes Admin"/>
+            <MenuItem Name="mnuOutletsAdmin" Header="Outlets Admin"/>
+            <MenuItem Name="mnuUsersAdmin" Header="Users Admin"/>
+            <MenuItem Name="mnuSalesmanRoutes" Header="Salesman Routes"/>
+            <MenuItem Name="mnuReturns" Header="Salesman Returns"/>
+        </MenuItem>
+
+        <!--<MenuItem Name="mnuPOS" Text="POS">
+            <MenuItem Name="mnuCreateOutletSales" Text="Create Outlet Sales" />
+            <MenuItem Name="mnuViewPendingSales" Text="View Sales Summary"/>
+            <MenuItem Name="mnuViewLostSales" Text="View Lost Sales"/>
+
+        </MenuItem>
+        <MenuItem Name="mnuOrders" Text="ORDERS">
+            <MenuItem Name="mnuViewOutlets" Text="View Outlets"/>
+            <MenuItem Name="mnuViewRoutes" Text="View Routes"/>
+            <MenuItem Name="mnuViewPendingOrders" Text="View Pending Orders"/>
+            <MenuItem Name="mnuCreateOrderOnBehalfOfSalesman" Text="On Behalf of Salesman"/>
+            <MenuItem Name="mnuDispatchOrders" Text="Dispatch Orders"/>
+            <MenuItem Name="mnuBackOrders" Text="Back Orders"/>
+
+            <MenuItem Name="mnuOrderSummaryStatus" Text="Order Summary Status">
+                <MenuItem Name="mnuViewIncompleteOrders" Text="View Incomplete Orders"/>
+                <MenuItem Name="mnuViewCompleteOrders" Text="View Complete Orders"/>
+            </MenuItem>
+
+        </MenuItem>
+        <MenuItem Name="mnuPurchasing" Text="PURCHASING">
+            <MenuItem Name="mnuListPurchaseOrders" Text="View Purchase Orders"/>
+            <MenuItem Name="mnuAddPurchaseOrder" Text="Add Purchase Orders"/>
+        </MenuItem>
+        <MenuItem Name="mnuInventory" Text="INVENTORY">
+            <MenuItem Name="mnuAdjustProductInventory" Text="Adjust Product Inventory"/>
+            <MenuItem Name="mnuAdjustReturnableInventory" Text="Adjust Returnable Inventory"/>
+            <MenuItem Name="mnuReceiveInventory" Text="Receive Inventory"/>
+            <MenuItem Name="mnuIssueInventory" Text="Issue Inventory"/>
+            <MenuItem Name="mnuReturnInventory" Text="Return Inventory"/>
+            <MenuItem Name="mnuDispatchProduct" Text="Dispatch Products"/>
+            <MenuItem Name="mnuReconcileGenericReturnables" Text="Reconcile Generic Returnables"/>
+        </MenuItem>
+        <MenuItem Name="mnuPayments" Text="PAYMENTS">
+            <MenuItem Name="mnuReceivePayment" Text="Receive Payments" />
+            <MenuItem Name="mnuOutstandingPayment" Text="Outstanding Payment" />
+            <MenuItem Name="mnuReceiveReturnables" Text="Receive Returnables" />
+            <MenuItem Name="mnuReturnablesAsCash" Text="Returnables as Cash" />
+            <MenuItem Name="mnuIssueCreditNote" Text="Issue Credit Note" />
+        </MenuItem>
+        <MenuItem Name="mnuProject" Text="REPORTS">
+            <MenuItem Name="mnuMainReports" Text="Reports Menu"/>
+            <MenuItem Name="mnuSalesManOrderReport" Text="Order Reports">
+            </MenuItem>
+            <MenuItem Name="mnuSeparator15" Text="-"/>
+            <MenuItem Name="mnuFinancialReport" Text="Financial Reports"/>
+            <MenuItem Name="mnuSeparator14" Text="-"/>
+            <MenuItem Name="mnuInventoryReports" Text="Inventory Reports">
+                <MenuItem Name="mnuViewInventoryLevels" Text="View Inventory Levels"/>
+                <MenuItem Name="mnuViewInventoryIssues" Text="View Inventory Issues"/>
+                <MenuItem Name="mnuInventoryAdjustmentReport" Text="View Inventory Adjustment Reports"/>
+            </MenuItem>
+            <MenuItem Name="mnuAuditLogReport" Text="Audit Log"/>
+
+        </MenuItem>
+
+        <MenuItem Name="mnuDebug" Text="TOOLS">
+            <MenuItem Name="mnuStartDebugging" Text="Start Debugging"/>
+            <MenuItem Name="mnuSeparator16" Text="-"/>
+            <MenuItem Name="mnuBuildSilverlightMenu" Text="Build SilverlightMenu"/>
+            <MenuItem Name="mnuSeparator17" Text="-"/>
+            <MenuItem Name="mnuStepInto" Text="Step Into"/>
+
+        </MenuItem>
+        <MenuItem Name="mnuTesting" Text="Testing">
+            <MenuItem Name="mnuInit" Text="Init Application"/>
+            <MenuItem Name="mnuDataViewer" Text="Data Viewer" />
+            <MenuItem Name="mnuSync" Text="Syncing"/>
+            <MenuItem Name="mnuTest" Text="TestHandle"/>
+            <MenuItem Name="mnuTestPage" Text="Test Page"/>
+        </MenuItem>
+
+        <MenuItem Name="mnuProfile" Text="Profile" >
+            <MenuItem Name="mnuLogout" Text="Log Out"/>
+            <MenuItem Name="mnuHome" Text="Home"/>
+        </MenuItem>-->
+
+    </MenuItem>
+</ResourceDictionary>

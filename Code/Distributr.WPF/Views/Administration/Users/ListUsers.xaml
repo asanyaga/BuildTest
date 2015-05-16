@@ -1,0 +1,90 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Administration.Users.ListUsers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      xmlns:pager="clr-namespace:Distributr.WPF.UI.Views.Utils"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:Admin="clr-namespace:Distributr.WPF.Lib.ViewModels.Admin;assembly=Distributr.WPF.Lib"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45" mc:Ignorable="d" 
+     d:DesignWidth="805" d:DesignHeight="480"
+                 DataContext="{Binding ListUsersViewModel, Source={StaticResource Locator}}"
+	Title="ListUsers" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadListingPageCommand}" PassEventArgsToCommand="True" CommandParameter="{x:Static Admin:BooleanHelper.True}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel x:Name="LayoutRoot" LastChildFill="True">
+       <Grid DockPanel.Dock="Top">
+              <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom"  HorizontalAlignment="Right">
+                  <CheckBox Content="Show inactive" FontWeight="Bold" Command="{Binding Path=ToggleShowInactiveCommand}" CommandParameter="{Binding Path=IsChecked, ElementName=chkShowInactive}" FontSize="13" x:Name="chkShowInactive"  VerticalAlignment="Center" Margin="20,0,10,0"/>
+            </StackPanel>
+            </Grid>
+        <Border Width="auto" Margin="0,10,0,0" DockPanel.Dock="Bottom">
+            <Grid  Margin="0,0,0,20" >
+                <pager:PagerControl Margin="0,0,130,0"/>
+                <Button x:Name="btnAddUser"  Command="{Binding NavigateCommand}" CommandParameter="views/administration/users/edituser.xaml?"  Height="23" Width="120" Content="Add" HorizontalAlignment="Right" Visibility="{Binding Path=CanAddUser, Converter={StaticResource VisibilityConverter}}"/>
+            </Grid>
+        </Border>
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+            <DataGrid AutoGenerateColumns="False" Height="Auto" CanUserResizeColumns="True" Name="dgUsers" Width="Auto" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser,Mode=TwoWay}" HorizontalAlignment="Stretch">
+                <DataGrid.Columns>
+                    <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=RowNumber}" Header="" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colUsername" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                                                Binding="{Binding UserName}" Header="User Name" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colCode" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                                                Binding="{Binding Code}" Header="Cost Centre Code" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colCostCentre" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="auto" 
+                                                Binding="{Binding CostCenter}" Header="Cost Center" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colPin" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="auto" 
+                                                Binding="{Binding PIN}" Header="PIN" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colTill" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="auto" 
+                                                Binding="{Binding TillNumber}" Header="Till Number" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colUserType" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="auto" 
+                                                Binding="{Binding UserType}" Header="User Type" IsReadOnly="True" />
+                    <DataGridTextColumn x:Name="colMobile" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="auto" 
+                                                Binding="{Binding Mobile}" Header="Mobile" IsReadOnly="True" />
+
+                    <DataGridTemplateColumn x:Name="colManageUser" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="auto" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel x:Name="spManageUser" Orientation="Horizontal">
+                                    <TextBlock>
+                                       <Hyperlink x:Name="hlEdit" Command="{Binding DataContext.EditSelectedCommand, ElementName=dgUsers}">
+                                             <TextBlock x:Name="txtEdit" Text="Edit"></TextBlock>
+                                        </Hyperlink>
+                                 </TextBlock>
+
+                                    <Label VerticalAlignment="Top" >|</Label>
+
+                                    <TextBlock Visibility="{Binding Path=CanManage, Converter={StaticResource VisibilityConverter}}">
+                                        <Hyperlink x:Name="hlResetPassword" 
+                                                    Command="{Binding DataContext.ResetUserPasswordCommand, ElementName=dgUsers}" >Reset Pwd</Hyperlink></TextBlock>
+
+                                    <Label VerticalAlignment="Top" Visibility="{Binding Path=CanManage, Converter={StaticResource VisibilityConverter}}">|</Label>
+                                    <TextBlock>
+                                        <Hyperlink x:Name="hlDeactivate" Command="{Binding DataContext.ActivateSelectedCommand, ElementName=dgUsers}">
+                                             <TextBlock x:Name="txtDeactivate" Text="{Binding Path=HlkDeactivateContent}"></TextBlock>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                    <Label VerticalAlignment="Top" Content="|"/>
+                                    <TextBlock>
+                                         <Hyperlink x:Name="hlDelete" Command="{Binding DataContext.DeleteSelectedCommand, ElementName=dgUsers}">
+                                             <TextBlock x:Name="txtDelete" Text="Delete"></TextBlock>
+                                         </Hyperlink>
+									</TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </DockPanel>
+</Page>

@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Distributr.WPF.UI.Views.Utils.DistributrOrdersPager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Height="26">
+    <Grid x:Name="LayoutRoot" Background="Transparent" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Top" Height="26" >
+        <Border x:Name="bdLayoutRoot" BorderBrush="Black" BorderThickness="1" Height="26" >
+            <StackPanel Orientation="Horizontal" Height="26" VerticalAlignment="Center">
+                <Button x:Name="btnFirst" Content="First" Width="30" Margin="0,0,2,0" Style="{StaticResource NormalButtorn}"></Button>
+                <!--Click="btnFirst_Click"-->
+                <Button x:Name="btnPrevious" Content="Prev" Width="30" Margin="0,0,2,0" Style="{StaticResource NormalButtorn}"></Button>
+                <!--Click="btnPrevious_Click"-->
+                <Label x:Name="lblPage" Content="Page" Width="38" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="txtPage" Text="1" TextAlignment="Center" Margin="0,0,2,0" TextChanged="txtPage_TextChanged" KeyDown="txtPage_KeyDown" Width="30"/>
+                <Label x:Name="lblOfPage" Content="of" Width="30" HorizontalContentAlignment="Center" />
+                <TextBox x:Name="txtTotal" Text="0" TextAlignment="Center" Margin="0,0,2,0" IsReadOnly="True" Width="30"/>
+                <Label x:Name="lblTotalItems" Content="0" Width="Auto" HorizontalContentAlignment="Center"/>
+                <Label Content=" Records" Width="Auto" HorizontalContentAlignment="Center"/>
+                <Button x:Name="btnGoTo" Content="Goto" Width="32" Margin="0,0,2,0" Style="{StaticResource NormalButtorn}"></Button>
+                <!--Click="btnNext_Click"-->
+                <Button x:Name="btnNext" Content="Next" Width="32" Margin="0,0,2,0" Style="{StaticResource NormalButtorn}"></Button>
+                <!--Click="btnNext_Click"-->
+                <Button x:Name="btnLast" Content="Last" Width="30" Margin="0,0,0,0" Style="{StaticResource NormalButtorn}"></Button>
+                <!--Click="btnLast_Click"-->
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

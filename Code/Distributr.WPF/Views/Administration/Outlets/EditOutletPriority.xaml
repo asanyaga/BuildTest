@@ -1,0 +1,85 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Administration.Outlets.EditOutletPriority"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+     
+      DataContext="{Binding EditOutletPriorityViewModel, Source={StaticResource Locator}}"
+	Title="EditOutletPriority" Loaded="pgOutletPriority_Loaded">
+
+    <Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter"/>
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Top">
+        <Border BorderBrush="Black" CornerRadius="8" BorderThickness="1">
+            <StackPanel>
+                <Label x:Name="lblTitle" Content="Set Outlet Priorities" Width="Auto" FontSize="12" FontWeight="Bold" Margin="31,10,0,10"/>
+                <Grid MinHeight="500" Height="570">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" MinHeight="300"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="56*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"  Grid.Row="1" x:Name="lblRoute" Content="Select Route:" Margin="5,5,0,0" Width="80" HorizontalAlignment="Left"/>
+                    <!--<ComboBox Grid.Column="0" Grid.Row="1" Margin="85,5,0,0" x:Name="cmbRoutes" Width="Auto" 
+                      ItemsSource="{Binding Path=Routes, Mode=TwoWay}" 
+                      SelectedItem="{Binding Path=SelectedRoute, Mode=TwoWay}"
+                      DisplayMemberPath="Name" Height="28">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding Path=SelectedRouteChangedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>-->
+
+                    <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Margin="5" >
+                        <TextBox Grid.Row="21" Grid.Column="1" x:Name="cmbContactType" Margin="3,3,10,3" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"  Width="195" IsReadOnly="True"
+                              Text="{Binding SelectedRoute.Name, Mode=TwoWay}">
+                        </TextBox>
+                        <Button Content="..."   VerticalContentAlignment="Center " Command="{Binding  RouteDropDownOpenedCommand}"  Margin="0,0,0,0"  MinWidth="30" Height="25"  IsEnabled="{Binding CanChange, Mode=TwoWay}" />
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" >
+                                <cmd:EventToCommand Command="{Binding RouteDropDownOpenedCommand, Mode=TwoWay}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </StackPanel>
+
+
+                    <Label Grid.Row="2" x:Name="lblEffectiveDate" Content="Effective Date:" Margin="5,10,0,0" Height="30" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <DatePicker Grid.Row="2" SelectedDate="{Binding Path=EffectiveDate, Mode=TwoWay}"  Margin="85,10,0,0" Height="30" VerticalAlignment="Top" Width="165" />
+                    <DataGrid Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,5,0" x:Name="dgOutletPriorities" ItemsSource="{Binding Path=RouteOutlets, Mode=TwoWay}" SelectedItem="{Binding Path=SelectedRouteOutlet, Mode=TwoWay}" AutoGenerateColumns="False" MaxHeight="500">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="colName" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="300" 
+                    		Binding="{Binding Name}" Header="Outlet Name" IsReadOnly="True" />
+                            <DataGridTextColumn x:Name="colPriority" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="100" 
+                    		Binding="{Binding Path=Priority}" Header="Outlet Priority" IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel x:Name="spPrioritize" Grid.Row="2" Grid.Column="3" Margin="64,24,66,179" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding Path=CanSetPriority, Converter={StaticResource VisibilityConverter}}">
+                        <Button x:Name="btnMoveTop" Content="Top" Width="60" Command="{Binding Path=MoveOutletTopCommand}" Height="24" Margin="30,0,29,10" RenderTransformOrigin="0.467,-0.583"/>
+                        <Button x:Name="btnMoveUp" Content="Up" Width="60" Command="{Binding Path=MoveOutletUpCommand}" Height="24" Margin="30,0,29,10" RenderTransformOrigin="0.467,-0.583"/>
+                        <Button x:Name="btnMoveDown" Content="Down" Width="60" Command="{Binding Path=MoveOutletDownCommand}" Height="24" Margin="0,10,0,0"/>
+                        <Button x:Name="btnMoveBottom" Content="Bottom" Width="60" Command="{Binding Path=MoveOutletBottomCommand}" Height="24" Margin="0,10,0,0"/>
+                        <Button x:Name="btnQuickSet" Content="Quick Set" Width="60" Click="btnQuickSet_Click" Height="24" Margin="0,10,0,0"/>
+                    </StackPanel>
+                    <StackPanel x:Name="spSave" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="4" Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <Button x:Name="btnSave" Content="Save" Width="100" Command="{Binding Path=SaveCommand}" Height="28" Margin="0,0,5,0" Visibility="{Binding Path=IsDirty, Converter={StaticResource VisibilityConverter}}"/>
+                        <Button x:Name="btnDeactivate" Content="Deactivate" Width="100" Command="{Binding Path=DeactivateCommand}" Margin="5,0,0,0" Visibility="Collapsed"/>
+                        <Button x:Name="btnCancel" Content="Cancel" Width="100" Command="{Binding Path=CancelCommand}" Margin="5,0,0,0" Visibility="{Binding Path=IsDirty, Converter={StaticResource VisibilityConverter}}"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

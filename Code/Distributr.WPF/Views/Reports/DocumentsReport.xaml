@@ -1,0 +1,33 @@
+﻿<Page x:Class="Distributr.WPF.UI.Views.Reports.DocumentsReport"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignWidth="640" d:DesignHeight="480"
+                 DataContext="{Binding ProductTransactionsViewModel, Source={StaticResource Locator}}"
+           Title="DocumentsReport Page">
+
+    <Grid x:Name="LayoutRoot">
+        <Label Height="28" HorizontalAlignment="Left" Margin="12,2,0,0" Name="lblProduct" VerticalAlignment="Top" Width="616" Content="Product Transactions" />
+        <Border BorderBrush="Silver" BorderThickness="1" Height="438" HorizontalAlignment="Left" Margin="12,30,0,0" Name="border1" VerticalAlignment="Top" Width="616" CornerRadius="10">
+            <Grid Height="417" Name="grid1" Width="593">
+                <DataGrid AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Transactions, Mode=TwoWay}" Margin="5,6,7,7" Name="dg1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding DocumentReference}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Document Id" IsReadOnly="True" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding TransactionType}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Transaction Type" IsReadOnly="True" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding CreatedBy}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Created By" IsReadOnly="True" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding DateIssued}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Created On" Width="Auto" />
+                        <DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <!--<HyperlinkButton x:Name="hlView" Content="View Document" TargetName="ContentFrame"></HyperlinkButton>-->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,82 @@
+﻿<Window
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:Converter="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+           mc:Ignorable="d" x:Class="Distributr.WPF.Views.RN.ReturnItemModal"
+           Width="450" DataContext="{Binding ReturnItemViewModel, Source={StaticResource Locator}}"
+           Title="ReturnItemModal">
+	<Window.Resources>
+		<Converter:VisibilityConverter x:Key="VisibilityConverter"/>
+	</Window.Resources>
+	<StackPanel  Width="450">
+        <Grid x:Name="LayoutRoot" Margin="18,2,17,10">
+            <Grid.ColumnDefinitions>
+            	<ColumnDefinition Width="174*" />
+            	<ColumnDefinition Width="324*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+            	<RowDefinition />
+            	<RowDefinition />
+            	<RowDefinition />
+            	<RowDefinition />
+            	<RowDefinition />                
+            </Grid.RowDefinitions>
+
+            
+        	<Label Height="28" HorizontalAlignment="Left" Margin="7,4,0,0" x:Name="labelReturnType" VerticalAlignment="Top" Width="120" Content="Return Type:" Grid.Row="0" />
+        	<Label Content="{Binding ReturnType, Mode=TwoWay}" Grid.Column="1" Height="24" HorizontalAlignment="Left" Margin="4,4,0,0" x:Name="lblReturnType" VerticalAlignment="Top" Width="258" Grid.RowSpan="2" />
+        	<Label Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="7,4,0,0" x:Name="labelProduct" VerticalAlignment="Top" Width="120" Content="Product:" />
+        	<Label Content="{Binding Product, Mode=TwoWay}" Height="24" HorizontalAlignment="Left" Margin="4,4,0,0" x:Name="lblProduct" VerticalAlignment="Top" Width="258" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
+        	<Label Content="Expected:" Height="28" HorizontalAlignment="Left" Margin="7,4,0,0" x:Name="labelexpected" VerticalAlignment="Top" Width="120" Grid.Row="3" />
+        	<Label Content="{Binding Expected, Mode=TwoWay}" Grid.Column="1" Height="24" HorizontalAlignment="Left" Margin="4,4,0,0" x:Name="lblExpected" VerticalAlignment="Top" Width="258" Grid.Row="2" Grid.RowSpan="2" />
+            <Label Content="Actual Returned:" Height="28" HorizontalAlignment="Left" Margin="7,4,0,0" x:Name="labelactual" VerticalAlignment="Top" Width="120" Grid.Row="4" d:LayoutOverrides="GridBox" />
+            <TextBox Text="{Binding ActualExpected, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" Height="23" HorizontalAlignment="Left" Margin="4,4,0,0" x:Name="txtActual" VerticalAlignment="Top" Width="258" />
+             </Grid>
+		<Grid Margin="0,0,17,0" Visibility="{Binding AllowBarCodeInput, Converter={StaticResource VisibilityConverter}}">
+			 <Grid.RowDefinitions>
+			 	<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>				
+			 </Grid.RowDefinitions>	
+			 <Grid.ColumnDefinitions>
+			 	<ColumnDefinition/>
+				<ColumnDefinition/>
+			 </Grid.ColumnDefinitions>
+			 
+            <Label Grid.Row="0" Content="Barcode Serial Numbers:" FontStyle="Italic" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="6,3,0,0" x:Name="lblSerialNumbers" VerticalAlignment="Top" Width="169" />
+            <Label Grid.Row="1" Content="Start No.:" Height="28" HorizontalAlignment="Right" x:Name="lblFrom" VerticalAlignment="Top" Width="Auto" Margin="0,3,130,0" />
+            <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="28" TextWrapping="Wrap" x:Name="txtFrom" Text="{Binding StartSerialNo, Mode=TwoWay}" Margin="2" Width="250" KeyUp="txtFrom_KeyUp" />
+            <Label Grid.Row="2" Content="End No.:" Height="28" HorizontalAlignment="Right" x:Name="lblTo" VerticalAlignment="Top" Width="Auto"  Margin="0,3,130,0" />
+            <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="28" TextWrapping="Wrap" x:Name="txtTo" Text="{Binding EndSerialNo, Mode=TwoWay}" Margin="2"  Width="250" KeyUp="txtTo_KeyUp" />
+            <Button Grid.Row="2" Grid.Column="1" x:Name="btnAdSerial" Content="Add" Height="23" Width="80" HorizontalAlignment="Right" Margin="0,10,5,0" Command="{Binding AddSerialsCommand}" />
+            <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Height="Auto" MinHeight="120" Margin="5,10,5,0" ItemsSource="{Binding SerialItems, Mode=TwoWay}" SelectedItem="{Binding SelectedSerialNumbers, Mode=TwoWay}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Start No." Width="250" Binding="{Binding FromSerial}" CanUserReorder="True" CanUserResize="True" CanUserSort="True"/>
+                    <DataGridTextColumn Header="End No." Width="195*" Binding="{Binding ToSerial}" CanUserReorder="True" CanUserResize="True" CanUserSort="True"/>
+                    <DataGridTemplateColumn Width="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel x:Name="spManageRoute" Orientation="Horizontal">
+                                    <TextBlock>
+                                    <Hyperlink x:Name="hlEdit"  TargetName="ContentFrame" Click="hlEdit_Click">Edit</Hyperlink>
+
+                                    </TextBlock>
+                                    <Label VerticalAlignment="Top" Content="|"/>
+                                    <TextBlock>
+                                        <Hyperlink x:Name="hlDelete"  Click="hlDelete_Click">Delete</Hyperlink>
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+			</Grid>
+			<Grid Margin="20,0,20,0" HorizontalAlignment="Center">
+                <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,100,0"  />
+                <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,3,0" Grid.Row="6" />
+        </Grid>
+    </StackPanel>
+</Window>

@@ -1,0 +1,28 @@
+﻿<Window x:Class="Distributr.WPF.UI.Views.CN.AddCreditNoteLineItemModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:FormBorderButtons="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.FormBorderButtons;assembly=Distributr.WPF.Lib"
+        Width="428.982" Height="359.121" DataContext="{Binding AddCreditNoteLineViewModel, Source={StaticResource Locator}}"
+           Title="Add Credit Note Line Item" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <i:Interaction.Behaviors>
+        <FormBorderButtons:HideCloseButtonBehaiviour />
+    </i:Interaction.Behaviors>
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+        <Label x:Name="lblProduct" HorizontalAlignment="Left" Height="25" Margin="13,57,0,0" VerticalAlignment="Top" Width="100" Content="Product" />
+        <Label x:Name="lblQty" HorizontalAlignment="Left" Height="25" Margin="13,86,0,0" VerticalAlignment="Top" Width="100" Content="Quantity Issued"/>
+        <Label x:Name="lblReq" HorizontalAlignment="Left" Height="25" Margin="13,111,0,0" VerticalAlignment="Top" Width="100" Content="Quantity Required" />
+        <Label x:Name="lblReason" HorizontalAlignment="Left" Height="25" Margin="13,136,0,0" VerticalAlignment="Top" Width="100" Content="Reason"/>
+        <ComboBox x:Name="cboProduct" Height="25" Margin="136,55,17,0" VerticalAlignment="Top"  DisplayMemberPath="ProductName" SelectionChanged="cboProduct_SelectionChanged" ItemsSource="{Binding Path=ProductLookUpList}"  SelectedItem="{Binding ProductLookUp, Mode=TwoWay}"/>
+        <TextBox x:Name="txtQIssued" Height="25" Margin="137,84,17,0" TextWrapping="Wrap" Text="{Binding QuantityIssued,Mode=TwoWay}" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBox x:Name="txtQRequired" Height="25" Margin="137,112,17,0" TextWrapping="Wrap" Text="{Binding QuantityRequired,Mode=TwoWay}" VerticalAlignment="Top" KeyDown="txtQRequired_KeyDown"/>
+        <TextBox x:Name="txReason" Height="122" Margin="137,140,17,0" TextWrapping="Wrap" Text="{Binding Reason,Mode=TwoWay}" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

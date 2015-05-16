@@ -1,0 +1,182 @@
+﻿<UI_Utillity:PageBase x:Class="Distributr.WPF.UI.Views.SalesmanOrders.EditSalesmanOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:UI_Utillity="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity;assembly=Distributr.WPF.Lib"
+                      xmlns:utility="clr-namespace:Distributr.WPF.Lib.UI.UI_Utillity.Converters;assembly=Distributr.WPF.Lib"
+                      Width="Auto" Height="Auto"
+               mc:Ignorable="d"  d:DesignHeight="1000" d:DesignWidth="1500"
+      DataContext="{Binding EditSalesmanOrderViewModel, Source={StaticResource Locator}}"
+      Title="Edit Salesman Order">
+<Page.Resources>
+        <utility:VisibilityConverter x:Key="VisibilityConverter" />
+    </Page.Resources>
+        <Grid x:Name="LayoutRoot" Height="Auto" VerticalAlignment="Top" Width="Auto">
+            <StackPanel Width="Auto">
+                <Label Grid.Row="1" Grid.ColumnSpan="2" Height="28" HorizontalAlignment="Left"  Name="lblPageHeader" VerticalAlignment="Top"  Content="Create Outlet Order" Width="Auto" FontSize="14" FontWeight="Bold"/>
+                <Border BorderThickness="1" CornerRadius="8,8,8,8" BorderBrush="Black" Padding="10,5" HorizontalAlignment="Stretch">
+                <DockPanel>
+                    <Grid Width="960" DockPanel.Dock="Top" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="81*" />
+                        <ColumnDefinition Width="233*" />
+                        <ColumnDefinition Width="70*" />
+                        <ColumnDefinition Width="182*" />
+                        <ColumnDefinition Width="91*" />
+                        <ColumnDefinition Width="193*" />
+
+                    </Grid.ColumnDefinitions>
+
+
+                    <Label Grid.Row="2" Grid.Column="0" Height="28" HorizontalAlignment="Left"  Name="lblOrderId" VerticalAlignment="Top"  Content="Order ID:" Foreground="#0099FF" Margin="20,0,0,0" />
+                    <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"  Height="23" HorizontalAlignment="Left" Name="txtOrderId"  Text="{Binding OrderId}" VerticalAlignment="Top" Width="Auto" Margin="0,0,0,0" />
+                    <Label Grid.Row="6" Grid.Column="4"  Height="28" HorizontalAlignment="Right"  Name="lblStatus" VerticalAlignment="Top" Content="Status:" Foreground="#0099FF" Width="Auto" Margin="0,0,10,0"/>
+                    <TextBlock Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2"  Height="23" HorizontalAlignment="Left" Name="txtStatus"  Text="{Binding Path=Status}" VerticalAlignment="Top" Width="Auto" Margin="10,0,0,0" />
+                    <Label Grid.Row="2" Grid.Column="4"  Height="28" HorizontalAlignment="Left"  Name="lblDateRequired" VerticalAlignment="Top" Width="100" Content="Date Required:" Foreground="#0099FF" />
+                    <DatePicker Grid.Row="2" Grid.Column="6"  Height="23" HorizontalAlignment="Left" Name="dtDateRequired" VerticalAlignment="Top" Width="120" SelectedDate="{Binding Path=DateRequired, Mode=TwoWay, StringFormat=\{0:d\}}" DisplayDateStart="{Binding Path=Now, Mode=TwoWay}" IsEnabled="{Binding Path=LoadForEditing}" />
+
+                    <Label Grid.Row="3" Height="28" HorizontalAlignment="Left" Name="lblSalesman" VerticalAlignment="Top" Content="Salesman:" Foreground="#0099FF" Margin="20,10,0,0"/>
+                    <ComboBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"  Name="cmbSalesman" VerticalAlignment="Top" Width="200" Height="23"
+                              DisplayMemberPath="Username" ItemsSource="{Binding Path=Salesmen}" SelectedItem="{Binding SelectedSalesman, Mode=TwoWay}"
+                             SelectionChanged="cmbSalesman_SelectionChanged" Margin="5,10,0,0" Visibility="{Binding Path=LoadForEditing, Converter={StaticResource VisibilityConverter}}" DropDownOpened="cmbSalesman_DropDownOpened"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"  Name="txtSalesman" VerticalAlignment="Top" Width="200" Height="23" 
+                               Text="{Binding Path=SelectedSalesmanUserName}" Margin="5,10,0,0" Visibility="{Binding Path=LoadForViewing, Converter={StaticResource VisibilityConverter}}" />
+
+                    <Label Grid.Row="3" Grid.Column="2" Height="28" HorizontalAlignment="Right" Name="lblRoute" VerticalAlignment="Top"  Content="Route:" Foreground="#0099FF" Margin="10,10,0,0" />
+                    <ComboBox Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  Name="cmbRoutes" Width="170" Height="23"
+                                  DisplayMemberPath="Name" SelectedItem="{Binding SelectedRoute, Mode=TwoWay}" ItemsSource="{Binding Path=DistributorRoutes, Mode=TwoWay}"
+                              SelectionChanged="cmbRoutes_SelectionChanged" Margin="10,10,0,0" 
+                                  Visibility="{Binding Path=LoadForEditing, Converter={StaticResource VisibilityConverter}}" DropDownOpened="cmbRoutes_DropDownOpened"/>
+                    <TextBlock Grid.Row="3" Grid.Column="3" Height="23" HorizontalAlignment="Left"  Name="txtRoute" VerticalAlignment="Top"  Width="170"
+                               Text="{Binding Path=SelectedRouteName}" Visibility="{Binding LoadForViewing, Converter={StaticResource VisibilityConverter}}" Margin="10,10,0,0"/>
+
+                    <Label Grid.Row="3" Grid.Column="4" Height="28" HorizontalAlignment="Right" Name="lblOutlet" VerticalAlignment="Top"  Content="Outlet:" Foreground="#0099FF" Margin="0,10,10,0" />
+                    <ComboBox Grid.Row="3" Grid.Column="5"   Height="23" HorizontalAlignment="Left"  Name="cmbOutlets" VerticalAlignment="Top" Width="170"
+                              DisplayMemberPath="Name" SelectionChanged="cmbOutlets_SelectionChanged" Margin="0,10,0,0"
+                              SelectedItem="{Binding Path=SelectedOutlet, Mode=TwoWay}" ItemsSource="{Binding Path=RouteOutlets,Mode=TwoWay}"
+                              Visibility="{Binding Path=LoadForEditing, Converter={StaticResource VisibilityConverter}}" DropDownOpened="cmbOutlets_DropDownOpened"/>
+                    <TextBlock Grid.Row="3" Grid.Column="5" Height="23" HorizontalAlignment="Left"  Name="txtOutlet" VerticalAlignment="Top" Width="170" 
+                               Text="{Binding Path=SelectedOutletName}" Margin="0,10,0,0" Visibility="{Binding LoadForViewing, Converter={StaticResource VisibilityConverter}}" />
+
+                    <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  Height="28" HorizontalAlignment="Left" Name="lblTotalNet" VerticalAlignment="Top" Width="100" Content="Total Net Amount:"  Foreground="#0099FF" Margin="20,20,0,0"/>
+                    <TextBlock Grid.Row="5" Grid.Column="1" Height="23" HorizontalAlignment="Right"  Name="txtTotalNet" VerticalAlignment="Top" Width="120" 
+                               Text="{Binding Path=TotalNet, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" Margin="0,20,20,0" />
+
+                    <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Height="28" HorizontalAlignment="Left" Name="lblTotaProductDiscount" VerticalAlignment="Top" Width="130" Content="Total Product Discount:" Foreground="#0099FF" Margin="20,0,0,0" />
+                    <TextBlock Grid.Row="6" Grid.Column="1" Height="23" HorizontalAlignment="Right"  Name="txtTotalProductDiscount" VerticalAlignment="Top" Width="120" 
+                               Text="{Binding Path=TotalProductDiscount, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" Margin="0,0,20,0"/>
+
+                    <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Height="28" HorizontalAlignment="Left" Name="lblTotalVat" VerticalAlignment="Top" Width="100" Content="Total Vat Amount:" Foreground="#0099FF" Margin="20,0,0,0" />
+                    <TextBlock Grid.Row="7" Grid.Column="1" Height="23" HorizontalAlignment="Right"  Name="txtTotalVat" VerticalAlignment="Top" Width="120" 
+                               Text="{Binding Path=TotalVat, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" Margin="0,0,20,0"/>
+
+                    <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Height="28" HorizontalAlignment="Left" Name="lblSaleDiscount" VerticalAlignment="Top" Width="100" Content="Sale Discount:" Foreground="#0099FF" Margin="20,0,0,0" />
+                    <TextBlock Grid.Row="8" Grid.Column="1" Height="23" HorizontalAlignment="Right"  Name="txtSaleDicount" VerticalAlignment="Top" Width="120" 
+                               Text="{Binding Path=SaleDiscount, Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" Margin="0,0,20,0"/>
+
+                    <Label Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Height="28" HorizontalAlignment="Left" Name="lblTotalGross" VerticalAlignment="Top" Width="120" Content="Total Gross Amount:" Foreground="#0099FF" Margin="20,0,0,0" />
+                    <TextBlock Grid.Row="9" Grid.Column="1" Height="23" HorizontalAlignment="Right"  Name="txtTotalGross" VerticalAlignment="Top" Width="120" 
+                               Text="{Binding Path=TotalGross , Mode=TwoWay, StringFormat=#\,0.00;(#\,0.00);0}" TextAlignment="Right" Margin="0,0,20,0" />
+                </Grid>
+                <GroupBox Header="Order Line Items" DockPanel.Dock="Top">
+                    <Border x:Name="bLineItems"  Grid.Row="11" Grid.ColumnSpan="6" BorderThickness=".5" CornerRadius="8" BorderBrush="White" Margin="0,20,0,0" Width="Auto" >
+                            <!--820-->
+                            <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" >
+                                <DataGrid ItemsSource="{Binding Path=LineItems}" AutoGenerateColumns="False"  Height="200" x:Name="dgOrderLineItems" VerticalAlignment="Top"
+                                      MaxWidth="1030" IsEnabled="{Binding LoadForEditing, Converter={StaticResource VisibilityConverter}}" VerticalGridLinesBrush="#FF0099FF" HorizontalGridLinesBrush="#FF0099FF" LoadingRow="dgOrderLineItems_LoadingRow">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="False" IsReadOnly="True" Width="Auto" Binding="{Binding SequenceNo}" />
+                                        <DataGridTextColumn x:Name="colProduct" CanUserReorder="False" CanUserResize="True" CanUserSort="True" Header="Product" IsReadOnly="True" Width="Auto" MinWidth="120" Binding="{Binding Product}" />
+                                        <DataGridTextColumn x:Name="colQty" CanUserReorder="False" CanUserResize="True" CanUserSort="True" Header="Qty" IsReadOnly="True"
+                                                        Binding="{Binding Path=Qty, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" Width="60"/>
+                                        <DataGridTextColumn x:Name="colUnitPrice" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Unit Price" IsReadOnly="True"
+                                                        Binding="{Binding Path=UnitPrice, StringFormat=#\,0.0;(#\,0.0);0}" CellStyle="{StaticResource dataGridCurrencyCell}" Width="75"/>
+                                        <DataGridTextColumn x:Name="colUnitDisc" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Unit Disc" IsReadOnly="True"
+                                                        Binding="{Binding Path=ProductDiscount, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" Width="68"/>
+                                        <DataGridTextColumn x:Name="colNetAmt" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Net Amount" IsReadOnly="True"
+                                                        Binding="{Binding Path=NetAmount, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" Width="88"/>
+                                        <DataGridTextColumn  x:Name="colUnitVat" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Unit VAT" IsReadOnly="True"
+                                                        Binding="{Binding Path=LineItemUnitVatValue, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" Width="68"/>
+                                        <DataGridTextColumn x:Name="colTotalVat" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Total VAT" IsReadOnly="True"
+                                                        Binding="{Binding Path=TotalLineItemVatAmount, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}" Width="68"/>
+                                        <DataGridTextColumn x:Name="colGrossAmt" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Header="Gross Amount" IsReadOnly="True"
+                                                        Binding="{Binding Path=TotalPrice, StringFormat=#\,0.00;(#\,0.00);0}" CellStyle="{StaticResource dataGridCurrencyCell}"  Width="95"/>
+                                        <DataGridTextColumn x:Name="colProductType" CanUserReorder="False" CanUserResize="True" CanUserSort="True" Header="Product Type" IsReadOnly="True" Width="150*" Binding="{Binding Product_Type}" />
+                                        <DataGridTemplateColumn x:Name="colEdit" CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="170">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                                    <TextBlock Visibility="{Binding Path=CanEditLineItem, Converter={StaticResource VisibilityConverter}}">
+                                                        <Hyperlink x:Name="hlEdit" Tag="{Binding ProductId, Mode=TwoWay}" Click="lnkEdit_Click"  TargetName="ContentFrame">
+                                                            <TextBlock Text="Edit" />
+                                                        </Hyperlink>
+                                                        </TextBlock>
+                                                        <Label Content="|" VerticalAlignment="Top" Visibility="{Binding Path=CanRemoveLineItem, Converter={StaticResource VisibilityConverter}}"/>
+                                                    <TextBlock Visibility="{Binding Converter={StaticResource VisibilityConverter}, Path=CanRemoveLineItem}">
+                                                        <Hyperlink x:Name="hlDelete" Tag="{Binding ProductId, Mode=TwoWay}" Click="lnkDelete_Click" TargetName="ContentFrame">
+                                                            <TextBlock Text="Delete"/>
+                                                            </Hyperlink>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </ScrollViewer>
+                    </Border>
+                </GroupBox>
+                <!--</Grid>-->
+                </DockPanel>
+            </Border>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Grid.Row="1" >
+                        <Label Content="{Binding Path=PageProgressBar}" Height="24" Name="lblOrderIdProgress" Visibility="{Binding Path=ShowProgress, Converter={StaticResource VisibilityConverter}}"/>
+                        <Label Content="{Binding Path=LoadSalesmenProgressBar}" Height="24" Name="lblSalesmenProgress" Visibility="{Binding Path=ShowLoadSalesmenProgress, Converter={StaticResource VisibilityConverter}}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="10,10,10,10" HorizontalAlignment="Right">
+                        <Button x:Name="btnAddLineItem" Content="Add Product" Click="btnAddLineItem_Click" Width="100" 
+                        Visibility="{Binding LoadForEditing, Converter={StaticResource VisibilityConverter}}" Margin="0,0,5,0" >
+                        </Button>
+                        <Button x:Name="btnSaveOrder" Content="Save To Continue Later" Click="btnSaveOrder_Click" Width="140" 
+                        Visibility="{Binding LoadForEditing, Converter={StaticResource VisibilityConverter}}">
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="Save and continue later."></ToolTip>
+                            </ToolTipService.ToolTip>
+                        </Button>
+                        <Button x:Name="btnConfirmOrder" Content="Confirm Order" Click="btnConfirmOrder_Click" Width="100"
+                        Visibility="{Binding LoadForEditing, Converter={StaticResource VisibilityConverter}}" Margin="0,0,5,0"/>
+                        <!--<Button x:Name="btnConfirmAndApprove" Content="Confirm and Approve" Width="150" Click="btnConfirmAndApprove_Click"
+                        Visibility="{Binding Path=LoadForEditing, Converter={StaticResource VisibilityConverter}}" Margin="0,0,5,0"/>-->
+                        <Button x:Name="btnGoHome" Content="Cancel Order" Click="btnGoHome_Click"  Width="100" Margin="0,0,5,0" Visibility="{Binding LoadForEditing, Converter={StaticResource VisibilityConverter}}"/>
+                        <Button x:Name="btnCancelOrder" Content="{Binding CancelButtonContent}" Click="btnCancelOrder_Click" Width="100" Margin="0,0,5,0"/>
+                        <!--<Button x:Name="btnCreateNewOrder" Content="New Order" Click="btnCreateNewOrder_Click"  Width="100" Margin="0,0,5,0" Visibility="{Binding PostConfirmVisible, Converter={StaticResource VisibilityConverter}}"/>-->
+                        <Button x:Name="btnViewList" Content="Back To List" Click="btnViewList_Click" Width="150" Margin="0,0,5,0" Visibility="{Binding PostConfirmVisible, Converter={StaticResource VisibilityConverter}}"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
+</UI_Utillity:PageBase>
