@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DistributrReportsDS</DataSourceReference>
+      <CommandText>SELECT        TOP (1) 'ALL' AS subBrandId, 'ALL' AS SubBrand
+FROM            tblProductFlavour INNER JOIN
+                         tblProduct ON tblProductFlavour.id = tblProduct.FlavourId
+UNION ALL
+SELECT DISTINCT CONVERT(nvarchar(50), tblProductFlavour_1.id) AS subBrandId, tblProductFlavour_1.name AS SubBrand
+FROM            tblProductFlavour AS tblProductFlavour_1 INNER JOIN
+                         tblProduct AS tblProduct_1 ON tblProductFlavour_1.id = tblProduct_1.FlavourId
+ORDER BY SubBrand</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="subBrandId">
+        <DataField>subBrandId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SubBrand">
+        <DataField>SubBrand</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

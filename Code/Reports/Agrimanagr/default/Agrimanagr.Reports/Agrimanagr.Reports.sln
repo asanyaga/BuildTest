@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Agrimanagr.Reports", "Agrimanagr.Reports\Agrimanagr.Reports.rptproj", "{045CBA41-194C-4882-91A3-D4A089A45AE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{045CBA41-194C-4882-91A3-D4A089A45AE5}.Debug|Default.ActiveCfg = Debug
+		{045CBA41-194C-4882-91A3-D4A089A45AE5}.Debug|Default.Build.0 = Debug
+		{045CBA41-194C-4882-91A3-D4A089A45AE5}.Debug|Default.Deploy.0 = Debug
+		{045CBA41-194C-4882-91A3-D4A089A45AE5}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{045CBA41-194C-4882-91A3-D4A089A45AE5}.DebugLocal|Default.Build.0 = DebugLocal
+		{045CBA41-194C-4882-91A3-D4A089A45AE5}.Release|Default.ActiveCfg = Release
+		{045CBA41-194C-4882-91A3-D4A089A45AE5}.Release|Default.Build.0 = Release
+		{045CBA41-194C-4882-91A3-D4A089A45AE5}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

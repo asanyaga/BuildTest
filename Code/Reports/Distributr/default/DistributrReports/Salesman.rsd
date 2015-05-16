@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DistributrReportsDS</DataSourceReference>
+      <CommandText>SELECT TOP(1) 
+           'ALL' AS SalesmanName, 
+           tblCostCentre_1.Name AS ParentName, 
+           'ALL' AS SalesmanId
+FROM       tblCostCentre LEFT OUTER JOIN
+           tblCostCentre AS tblCostCentre_1 ON 
+           tblCostCentre.ParentCostCentreId = tblCostCentre_1.Id
+WHERE  (tblCostCentre.CostCentreType =4)
+
+UNION ALL
+
+SELECT  
+           tblCostCentre.Name AS SalesmanName, 
+           tblCostCentre_1.Name AS ParentName, 
+           CONVERT(NVARCHAR(50),tblCostCentre.Id) AS SalesmanId
+FROM       tblCostCentre LEFT OUTER JOIN
+           tblCostCentre AS tblCostCentre_1 ON 
+           tblCostCentre.ParentCostCentreId = tblCostCentre_1.Id
+WHERE  (tblCostCentre.CostCentreType =4)
+ORDER BY SalesmanName</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="SalesmanName">
+        <DataField>SalesmanName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ParentName">
+        <DataField>ParentName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SalesmanId">
+        <DataField>SalesmanId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

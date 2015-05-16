@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DistributrReportsDS</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@startDate">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@endDate">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@distributorID">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@salesManID">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>
+                      SELECT dbo.tblLineItems.id, dbo.tblDocument.DocumentParentId, dbo.tblLineItems.ProductID, dbo.tblLineItems.Description, dbo.tblDocument.DocumentTypeId, 
+                                        dbo.tblLineItems.Quantity, dbo.tblLineItems.Value, dbo.tblLineItems.Vat, dbo.tblLineItems.IAN_Actual, dbo.tblDocument.DocumentReference, 
+                                        dbo.tblDocument.DocumentIssuerCostCentreId, dbo.tblDocument.DocumentIssuerUserId, dbo.tblDocument.DocumentDateIssued, 
+                                        dbo.tblDocument.DocumentRecipientCostCentre, dbo.tblDocument.OrderDateRequired, dbo.tblDocument.DocumentIssuerCostCentreApplicationId, 
+                                        dbo.tblDocument.OrderIssuedOnBehalfOfCC, dbo.tblDocument.InvoiceOrderId, dbo.tblDocument.OrderOrderTypeId, dbo.tblDocument.SendDateTime, 
+                                        dbo.tblDocument.PaymentDocId, dbo.tblCostCentre.Name AS Salesman, dbo.tblCostCentre.CostCentreType AS SalesmanTypeID, 
+                                        dbo.tblCostCentre.ParentCostCentreId, dbo.tblCostCentre.RouteId, dbo.tblLineItems.DocumentID, dbo.tblDocument.DocumentStatusId, 
+                                        dbo.tblLineItems.ApprovedQuantity, dbo.tblLineItems.LostSaleQuantity, dbo.tblLineItems.BackOrderQuantity, dbo.tblLineItems.DispatchedQuantity, 
+                                        tblCostCentre_1.Distributor_RegionId, tblCostCentre_1.Id AS DistributorID, tblCostCentre_1.Name AS Distributor, tblCostCentre_2.Name AS Producer, 
+                                        tblCostCentre_2.CostCentreType AS ProducerID, dbo.tblCostCentre.Id AS SalesManID, dbo.tblProduct.Description AS Product, 
+                                        dbo.tblProductBrand.name AS Brand, dbo.tblLineItems.ProductDiscount
+                      FROM     dbo.tblDocument INNER JOIN
+                                        dbo.tblLineItems ON dbo.tblDocument.Id = dbo.tblLineItems.DocumentID INNER JOIN
+                                        dbo.tblCostCentre ON dbo.tblDocument.DocumentRecipientCostCentre = dbo.tblCostCentre.Id INNER JOIN
+                                        dbo.tblCostCentre AS tblCostCentre_1 ON dbo.tblCostCentre.ParentCostCentreId = tblCostCentre_1.Id INNER JOIN
+                                        dbo.tblCostCentre AS tblCostCentre_2 ON tblCostCentre_1.ParentCostCentreId = tblCostCentre_2.Id INNER JOIN
+                                        dbo.tblProduct ON dbo.tblLineItems.ProductID = dbo.tblProduct.id INNER JOIN
+                                        dbo.tblProductBrand ON dbo.tblProduct.BrandId = dbo.tblProductBrand.id
+                      WHERE  (dbo.tblDocument.SendDateTime BETWEEN @startDate AND @endDate) AND (dbo.tblCostCentre.CostCentreType = 4) AND 
+                                        (dbo.tblDocument.DocumentTypeId = 1) AND (dbo.tblDocument.OrderOrderTypeId = 1 OR
+                                        dbo.tblDocument.OrderOrderTypeId = 3) AND (tblCostCentre_1.Id LIKE ISNULL(@distributorID, '%')) AND (dbo.tblCostCentre.Id LIKE ISNULL(@salesManID, '%'))
+UNION ALL
+SELECT tblLineItems_1.id, tblDocument_1.DocumentParentId, tblLineItems_1.ProductID, tblLineItems_1.Description, tblDocument_1.DocumentTypeId, tblLineItems_1.Quantity, 
+                  tblLineItems_1.Value, tblLineItems_1.Vat, tblLineItems_1.IAN_Actual, tblDocument_1.DocumentReference, tblDocument_1.DocumentIssuerCostCentreId, 
+                  tblDocument_1.DocumentIssuerUserId, tblDocument_1.DocumentDateIssued, tblDocument_1.DocumentRecipientCostCentre, tblDocument_1.OrderDateRequired, 
+                  tblDocument_1.DocumentIssuerCostCentreApplicationId, tblDocument_1.OrderIssuedOnBehalfOfCC, tblDocument_1.InvoiceOrderId, tblDocument_1.OrderOrderTypeId, 
+                  tblDocument_1.SendDateTime, tblDocument_1.PaymentDocId, tblCostCentre_3.Name AS Salesman, tblCostCentre_3.CostCentreType AS SalesmanTypeID, 
+                  tblCostCentre_3.ParentCostCentreId, tblCostCentre_3.RouteId, tblLineItems_1.DocumentID, tblDocument_1.DocumentStatusId, tblLineItems_1.ApprovedQuantity, 
+                  tblLineItems_1.LostSaleQuantity, tblLineItems_1.BackOrderQuantity, tblLineItems_1.DispatchedQuantity, tblCostCentre_1.Distributor_RegionId, 
+                  tblCostCentre_1.Id AS DistributorID, tblCostCentre_1.Name AS Distributor, tblCostCentre_2.Name AS Producer, tblCostCentre_2.CostCentreType AS ProducerID, 
+                  tblCostCentre_3.Id AS SalesManID, tblProduct_1.Description AS Product, tblProductBrand_1.name AS Brand, tblLineItems_1.ProductDiscount
+FROM     dbo.tblProductBrand AS tblProductBrand_1 INNER JOIN
+                  dbo.tblProduct AS tblProduct_1 ON tblProductBrand_1.id = tblProduct_1.BrandId INNER JOIN
+                  dbo.tblCostCentre AS tblCostCentre_1 INNER JOIN
+                  dbo.tblCostCentre AS tblCostCentre_3 ON tblCostCentre_1.Id = tblCostCentre_3.ParentCostCentreId INNER JOIN
+                  dbo.tblCostCentre AS tblCostCentre_2 ON tblCostCentre_1.ParentCostCentreId = tblCostCentre_2.Id INNER JOIN
+                  dbo.tblDocument AS tblDocument_1 INNER JOIN
+                  dbo.tblLineItems AS tblLineItems_1 ON tblDocument_1.Id = tblLineItems_1.DocumentID ON tblCostCentre_3.Id = tblDocument_1.DocumentIssuerCostCentreId ON 
+                  tblProduct_1.id = tblLineItems_1.ProductID
+WHERE  (tblDocument_1.SendDateTime BETWEEN @startDate AND @endDate) AND (tblCostCentre_3.CostCentreType = 4) AND (tblDocument_1.DocumentTypeId = 1) AND 
+                  (tblDocument_1.OrderOrderTypeId = 1 OR
+                  tblDocument_1.OrderOrderTypeId = 3) AND (tblCostCentre_1.Id LIKE ISNULL(@distributorID, '%')) AND (tblCostCentre_3.Id LIKE ISNULL(@salesManID, '%'))</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="id">
+        <DataField>id</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="DocumentParentId">
+        <DataField>DocumentParentId</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="ProductID">
+        <DataField>ProductID</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="Description">
+        <DataField>Description</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DocumentTypeId">
+        <DataField>DocumentTypeId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Quantity">
+        <DataField>Quantity</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Value">
+        <DataField>Value</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Vat">
+        <DataField>Vat</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="IAN_Actual">
+        <DataField>IAN_Actual</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="DocumentReference">
+        <DataField>DocumentReference</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DocumentIssuerCostCentreId">
+        <DataField>DocumentIssuerCostCentreId</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="DocumentIssuerUserId">
+        <DataField>DocumentIssuerUserId</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="DocumentDateIssued">
+        <DataField>DocumentDateIssued</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="DocumentRecipientCostCentre">
+        <DataField>DocumentRecipientCostCentre</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="OrderDateRequired">
+        <DataField>OrderDateRequired</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="DocumentIssuerCostCentreApplicationId">
+        <DataField>DocumentIssuerCostCentreApplicationId</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="OrderIssuedOnBehalfOfCC">
+        <DataField>OrderIssuedOnBehalfOfCC</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="InvoiceOrderId">
+        <DataField>InvoiceOrderId</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="OrderOrderTypeId">
+        <DataField>OrderOrderTypeId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="SendDateTime">
+        <DataField>SendDateTime</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="PaymentDocId">
+        <DataField>PaymentDocId</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="Salesman">
+        <DataField>Salesman</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SalesmanTypeID">
+        <DataField>SalesmanTypeID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ParentCostCentreId">
+        <DataField>ParentCostCentreId</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="RouteId">
+        <DataField>RouteId</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="DocumentID">
+        <DataField>DocumentID</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="DocumentStatusId">
+        <DataField>DocumentStatusId</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ApprovedQuantity">
+        <DataField>ApprovedQuantity</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="LostSaleQuantity">
+        <DataField>LostSaleQuantity</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="BackOrderQuantity">
+        <DataField>BackOrderQuantity</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="DispatchedQuantity">
+        <DataField>DispatchedQuantity</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Distributor_RegionId">
+        <DataField>Distributor_RegionId</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="DistributorID">
+        <DataField>DistributorID</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="Distributor">
+        <DataField>Distributor</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Producer">
+        <DataField>Producer</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ProducerID">
+        <DataField>ProducerID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="SalesManID">
+        <DataField>SalesManID</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="Product">
+        <DataField>Product</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Brand">
+        <DataField>Brand</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ProductDiscount">
+        <DataField>ProductDiscount</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

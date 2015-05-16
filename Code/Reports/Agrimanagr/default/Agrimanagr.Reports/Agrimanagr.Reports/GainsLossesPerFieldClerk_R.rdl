@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <Height>2in</Height>
+    <Style />
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="master">
+      <DataSourceReference>DataSource</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>274efe59-3c06-46de-82bc-5ad2ab99b41c</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="dsGainsAndLosses">
+      <Query>
+        <DataSourceName>master</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@startDate">
+            <Value>=Parameters!startDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@endDate">
+            <Value>=Parameters!endDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@hubId">
+            <Value>=Parameters!hubId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@routeId">
+            <Value>=Parameters!routeId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@clerkId">
+            <Value>=Parameters!clerkId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>sp_A_GainsAndLosses_Final</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="FactoryIds">
+          <DataField>FactoryIds</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FactoryName">
+          <DataField>FactoryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RouteIds">
+          <DataField>RouteIds</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RouteName">
+          <DataField>RouteName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClerkIds">
+          <DataField>ClerkIds</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClerkName">
+          <DataField>ClerkName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClerkCode">
+          <DataField>ClerkCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReceiptWeight">
+          <DataField>ReceiptWeight</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="LorryWeight">
+          <DataField>LorryWeight</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="FactoryWeight">
+          <DataField>FactoryWeight</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="VarianceBA">
+          <DataField>VarianceBA</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="VarianceCA">
+          <DataField>VarianceCA</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PurchaseDate">
+          <DataField>PurchaseDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="endDate">
+      <DataType>String</DataType>
+      <Prompt>end Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="hubId">
+      <DataType>String</DataType>
+      <Prompt>hub Id</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="routeId">
+      <DataType>String</DataType>
+      <Prompt>route Id</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clerkId">
+      <DataType>String</DataType>
+      <Prompt>clerk Id</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>c3c4e474-2eda-4fbd-b945-38f3e19ca359</rd:ReportID>
+</Report>

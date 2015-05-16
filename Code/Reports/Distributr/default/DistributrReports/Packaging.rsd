@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DistributrReportsDS</DataSourceReference>
+      <CommandText>SELECT        TOP (1) 'ALL' AS PackagingId, 'ALL' AS Packaging
+FROM            tblProductPackaging
+UNION ALL
+SELECT        CONVERT(nvarchar(50), Id) AS Expr1, Name AS Packaging
+FROM            tblProductPackaging AS tblProductPackaging_1
+ORDER BY Packaging</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="PackagingId">
+        <DataField>PackagingId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Packaging">
+        <DataField>Packaging</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

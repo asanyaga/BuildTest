@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DistributrReportsDS</DataSourceReference>
+      <CommandText>SELECT TOP (100) PERCENT tblCostCentre.Name, tblCostCentre_1.Name AS ParentName, tblCostCentre.Id
+FROM     tblCostCentre LEFT OUTER JOIN
+                  tblCostCentre AS tblCostCentre_1 ON tblCostCentre.ParentCostCentreId = tblCostCentre_1.Id
+WHERE  (tblCostCentre.CostCentreType = 5)
+ORDER BY tblCostCentre.Name</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Name">
+        <DataField>Name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ParentName">
+        <DataField>ParentName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Id">
+        <DataField>Id</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

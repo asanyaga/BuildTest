@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DistributrReportsDS</DataSourceReference>
+      <CommandText>SELECT        TOP (1) 'ALL' AS BrandId, 'ALL' AS Brand
+UNION ALL
+SELECT        CONVERT(nvarchar(50), id) AS BrandId, name AS Brand
+FROM            tblProductBrand</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="BrandId">
+        <DataField>BrandId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Brand">
+        <DataField>Brand</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

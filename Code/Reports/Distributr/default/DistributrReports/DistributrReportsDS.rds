@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DistributrReportsDS">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=10.0.0.19;Initial Catalog=qa3</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>5791dd7f-e437-487e-92e5-800f81bacc2e</DataSourceID>
+</RptDataSource>

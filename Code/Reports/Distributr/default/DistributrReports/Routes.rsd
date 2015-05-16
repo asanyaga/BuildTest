@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DistributrReportsDS</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@routeID">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@distributorID">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT TOP (100) PERCENT dbo.tblRoutes.Name, dbo.tblRoutes.RouteID, dbo.tblCostCentre.Name AS Salesman, dbo.tblCostCentre.Id AS SalesmanID, 
+               tblCostCentre_1.Name AS Distributor, tblCostCentre_1.Id AS DistributorID
+FROM  dbo.tblRoutes INNER JOIN
+               dbo.tblSalemanRoute ON dbo.tblRoutes.RouteID = dbo.tblSalemanRoute.RouteId AND dbo.tblRoutes.RouteID = dbo.tblSalemanRoute.RouteId INNER JOIN
+               dbo.tblCostCentre ON dbo.tblSalemanRoute.SalemanId = dbo.tblCostCentre.Id INNER JOIN
+               dbo.tblCostCentre AS tblCostCentre_1 ON dbo.tblCostCentre.ParentCostCentreId = tblCostCentre_1.Id
+WHERE (dbo.tblCostCentre.Id LIKE ISNULL(@routeID, '%')) AND (tblCostCentre_1.Id LIKE ISNULL(@distributorID, '%'))
+ORDER BY dbo.tblRoutes.Name</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Name">
+        <DataField>Name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RouteID">
+        <DataField>RouteID</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="Salesman">
+        <DataField>Salesman</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SalesmanID">
+        <DataField>SalesmanID</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+      <Field Name="Distributor">
+        <DataField>Distributor</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DistributorID">
+        <DataField>DistributorID</DataField>
+        <rd:TypeName>System.Guid</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

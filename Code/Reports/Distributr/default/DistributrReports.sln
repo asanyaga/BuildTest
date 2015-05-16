@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "DistributrReports", "DistributrReports\DistributrReports.rptproj", "{A1D61E11-999D-45F4-9941-1A8934BFCAD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D4F9BCEE-1ECF-4B07-9D5F-C58D7B3F907F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1D61E11-999D-45F4-9941-1A8934BFCAD8}.Debug|Default.ActiveCfg = Release
+		{A1D61E11-999D-45F4-9941-1A8934BFCAD8}.Debug|Default.Build.0 = Release
+		{A1D61E11-999D-45F4-9941-1A8934BFCAD8}.Debug|Default.Deploy.0 = Release
+		{A1D61E11-999D-45F4-9941-1A8934BFCAD8}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{A1D61E11-999D-45F4-9941-1A8934BFCAD8}.DebugLocal|Default.Build.0 = DebugLocal
+		{A1D61E11-999D-45F4-9941-1A8934BFCAD8}.Release|Default.ActiveCfg = Release
+		{A1D61E11-999D-45F4-9941-1A8934BFCAD8}.Release|Default.Build.0 = Release
+		{A1D61E11-999D-45F4-9941-1A8934BFCAD8}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

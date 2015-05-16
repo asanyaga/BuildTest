@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DistributrReportsDS</DataSourceReference>
+      <CommandText>SELECT        TOP (1) 'ALL' AS OutletTypeId, 'ALL' AS OutletType
+FROM            tblOutletType
+UNION ALL
+SELECT        CONVERT(nvarchar(50), id) AS OutletTypeId, Name AS OutletType
+FROM            tblOutletType AS tblOutletType_1</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="OutletTypeId">
+        <DataField>OutletTypeId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="OutletType">
+        <DataField>OutletType</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
