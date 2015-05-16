@@ -1,0 +1,174 @@
+﻿@model Distributr.HQ.Lib.ViewModelBuilders.Reports.FinnancialReport.ViewModel.AccountReportViewModel
+
+@{
+    ViewBag.Title = "AccountBalances";
+}
+<script type="text/javascript">
+    $(function () {
+        $("#DistributorId").change(function (e) {
+            var DistributorId = $("#DistributorId option:selected").val();
+            var urlemp = '@Url.Action("Outlets")';
+           
+            cascadingdropdown();
+            var DistributorId = $("#DistributorId option:selected").val();
+
+        });
+    });
+
+
+
+    //    $(document).ready(function () {
+    //        PopulateCountry();
+    //    });
+
+
+    function cascadingdropdown() {
+        var DistributorId = $("#DistributorId option:selected").val();
+        // window.alert(" call cascading dropdown for iddepartment = " + countryId);
+        var urlemp = '@Url.Action("Outlets")';
+        var selects = $('#cmbOutlet');
+        $.ajax({
+            type: "POST",
+            url: urlemp,
+            data: { DistributorId: DistributorId },
+            success: function (returndata) {
+                if (returndata.ok) {
+
+                    // window.alert('Provinces data is on javascript,  populating combo ');
+                    selects.append($('<option></option>').val('0').html('-----Select Outlet-----'));
+                    selects.empty();
+                    $.each(returndata.data, function (index, itemData) {
+
+                        //                        
+                        selects.append($('<option></option>').val(itemData.Id).html(itemData.Name));
+
+
+                    });
+                    selects.show('slow');
+                }
+                else {
+                    window.alert(' error : ' + returndata.message);
+                }
+
+            }
+        }
+        );
+
+    }
+
+    jQuery(function ($) {
+
+        jQuery('#submitButton').click(function () {
+            var DistributorId2 = $("#DistributorId option:selected").val();
+            var OutletId2 = $("#cmbOutlet option:selected").val();
+//            var distName = $("#DistrictName").val();
+//            var distNameLen = $("#DistrictName").val().length;
+            if (jQuery('#cmbOutlet').attr("selectedIndex") == -1) {
+                jQuery('p').addClass('ui-state-error');
+                updateTips('You must  select Distributor\n Or add Outlet first under that Distributor');
+            }
+            else if (DistributorId2 == 0) {
+                updateTips('You must  select a Distributor');
+            }
+            else if (OutletId2 == 0) {
+                updateTips('You must  select an Outlet');
+            }
+            
+            else {
+                var urlemp = '@Url.Action("AccountBalances")';
+                jQuery('p').removeClass('ui-state-error');
+                $.ajax({
+                    type: "POST",
+                    url: urlemp,
+                    data: { DistributorId: DistributorId2, OutletId: OutletId2 }
+                });
+                // updateTips('Success!');
+            }
+            return false;
+        });
+        function updateTips(msg) {
+            alert(msg);
+        }
+    });
+    </script>
+    <br />
+<h2>Account Balances</h2>
+@using (Html.BeginForm("AccountBalances", "Finnancial"))
+{
+    
+        <table>
+           @* <tr>
+                <td>
+                Filter By
+                </td>
+                <td>All 
+                
+                Distributor 
+                @Html.RadioButton("filterby", 1, true) 
+                Distribtor Outlet
+                @Html.RadioButton("filterby", 2)
+                </td>
+            </tr>*@
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        Distributor
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.DistributorId, new SelectList(ViewBag.DistributorList, "Key", "Value"), "~~~~~Select Distributor~~~~~")
+                    </div>
+                </td>
+                <td>
+                    <input type="submit" value="FilterDistributor" name="srch" class="button"  />
+                    @*<input type="hidden" value="Filter2" name="srch" />*@
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <div class="editor-label">
+                        Outlet
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                       @*     @Html.DropDownListFor(model => model.OutletId , new SelectList(ViewBag.OutletList, "Key", "Value"), "~~~~~Select Outlet~~~~~")*@
+                       <select id="cmbOutlet" style="display:block" name="OutletId" > <option value="0">---Select Distributor First---</option></select>
+                        @Html.ValidationMessageFor(model => model.OutletId )
+                    </div>
+                </td>
+                <td>
+                    <input type="submit" value="FilterOutlet" name="srch" class="button" />
+                    @*<input type="hidden" value="Filter3" name="src" />*@
+                </td>
+            </tr>
+        </table>
+   
+    <br />
+    
+}
+
+<table width="900px">
+    <tr>
+        <th>Account Type</th>
+        <th>Balance</th>
+        <th>CC Type</th>
+        <th>CC Name</th>
+    </tr>
+
+@foreach (var item in Model.Items ) {
+    <tr>
+    <td>@item.AccountType </td>
+     <td>@item.Balance </td>
+     <td>@item.CostCentreType  </td>
+     <td>@item.CostCenterName  </td>
+  
+        <td>
+             @Html.ActionLink("Account Transactions", "AccountTransaction", new {accountid= item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+

@@ -1,0 +1,81 @@
+﻿@model Distributr.HQ.Lib.ViewModels.RegisterModel
+           @using Distributr.HQ.Lib.Helper
+
+@{
+    ViewBag.Title = "Register";
+}
+	<h2 id="breadcrumb-holder">Distributor Users &nbsp; &gt;&nbsp;Manage &nbsp;&gt; <span class="bc-example">  @Html.ActionLink("View Users", "ListAllUsers", "DistributorUsers")</span> &gt; Register User</h2>
+
+<div id="main-content-housing">
+<div class="main-content-paragraph">
+<p>
+    Use the form below to create a new account. 
+</p>
+<p>
+    Passwords are required to be a minimum of 6 characters in length.
+</p>
+</div>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(false, "Account creation was unsuccessful. Please correct the errors and try again.")
+    <div id="primary-controls">
+    <fieldset>
+    <legend>Register</legend>
+   				
+        <table class="detail-arrange">
+            <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.distuser.form.costcentre")
+      </strong></td><td>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.CostCentre,
+         new SelectList(ViewBag.CostCentreList, "Key", "Value"))
+         
+            @Html.ValidationMessageFor(model => model.CostCentre)
+        </div></td></tr>
+            <tr><td style="padding-top:12px;"><strong>User Name</strong></td><td>
+                <span class="text-box-cshtml">
+                    @Html.TextBoxFor(m => m.UserName)</span>
+                @Html.ValidationMessageFor(m => m.UserName)
+            </td></tr>
+            <tr><td style="padding-top:12px;"><strong>Email</strong></td><td>
+                <span class="text-box-cshtml">
+                    @Html.TextBoxFor(m => m.Email)</span>
+                @Html.ValidationMessageFor(m => m.Email)
+            </td></tr>
+            <tr><td style="padding-top:12px;"><strong>Password</strong></td><td>
+            <span class="text-box-cshtml">
+                @Html.PasswordFor(m => m.Password)</span>
+            @Html.ValidationMessageFor(m => m.Password)
+            </td></tr>
+            <tr><td style="padding-top:12px;"><strong>Confirm Password</strong></td><td>
+                <span class="text-box-cshtml">
+                    @Html.PasswordFor(m => m.ConfirmPassword)</span>
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </td></tr>
+            <tr><td style="padding-top:12px;"><strong>Mobile</strong></td><td>
+                                                                              <span class="text-box-cshtml">
+                                                                                  @Html.TextBoxFor(m => m.Mobile)</span>
+                                                                              @Html.ValidationMessageFor(m => m.Mobile)
+                                                                          </td></tr>
+            <tr><td style="padding-top:12px;"><strong>User Type
+      </strong></td><td>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.UserType,
+         new SelectList(ViewBag.UserList, "Key", "Value"))
+         
+            @Html.ValidationMessageFor(model => model.UserType)
+        </div></td></tr>
+        </table>
+        </fieldset>
+            
+            <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Register" class="button-style-one"/>
+            <input name="Create" type="reset" value="Clear" class="button-style-one"/>
+            
+
+        </fieldset>
+    </div>
+}
+</div>

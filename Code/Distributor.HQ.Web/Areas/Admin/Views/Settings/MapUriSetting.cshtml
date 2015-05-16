@@ -1,0 +1,51 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Agrimanagr.SettingsViewModel.MapUriSettingsViewModel
+@{
+    ViewBag.Title = "Map Url Settings";
+}
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<h2 id="breadcrumb-holder">
+    Global Settings &gt; Map Url Settings
+</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">Map Url Settings</h2>
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+
+
+    } 
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        
+        //spacing between fieldset and response message
+    <hi>
+       <br/>
+    </hi>
+        <fieldset>
+            <legend>Set Url</legend>
+            <div class="editor-label">
+             @* @Html.LabelFor(model => model.MapUri)*@
+                Map Url
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MapUri)
+                @Html.ValidationMessageFor(model => model.MapUri)
+            </div>
+        </fieldset>
+        <br style="clear: both" />
+        <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Submit" type="submit" value="Save" class="button-style-one" />
+        </fieldset>
+    }
+</div>
+
+

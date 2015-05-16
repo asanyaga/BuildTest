@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<p>
+    <table>
+    <tr><td> @Html.ActionLink("Manage Products","index", new{Area ="Admin", Controller="Products"})</td></tr>     
+     <tr><td>  @Html.ActionLink("Product flavours", "index", new { Area = "Admin", Controller = "ProductFlavour" })</td></tr>
+     <tr><td>  @Html.ActionLink("Product Packaging", "index", new { Area = "Admin", Controller = "ProductPackaging" })</td></tr> 
+     <tr><td>  @Html.ActionLink("Product Packaging Type", "index", new { Area = "Admin", Controller = "ProductPackagingType" })</td></tr>      
+     <tr><td>  @Html.ActionLink("Product Types", "index", new { Area = "Admin", Controller = "ProductType" })</td></tr>
+     <tr><td>  @Html.ActionLink("Product Brand", "index", new { Area = "Admin", Controller = "ProductBrand" })</td></tr>    
+     <tr><td>  @Html.ActionLink("Product", "List", new { Area = "Admin", Controller = "Product" })</td></tr>
+     <tr><td>  @Html.ActionLink("Manage Users", "index", new { Area = "Admin", Controller = "User" })</td></tr>
+     
+     <tr><td>  @Html.ActionLink("Routes", "Index", new { Area = "Admin", Controller = "Route" })</td></tr>
+     <tr><td>  @Html.ActionLink("Producer", "Index", new { Area = "Admin", Controller = "Producers" })</td></tr>
+     <tr><td>  @Html.ActionLink("Distributor","Index", new {Area ="Admin", Controller="Distributor"})</td></tr>
+     <tr><td>  @Html.ActionLink("SocioEconomic Status","List", new {Area ="Admin", Controller="SocioEconomicStatus"})</td></tr>
+     <tr><td>  @Html.ActionLink("Transporter","Index", new {Area ="Admin", Controller="Transporter"})</td></tr>
+     <tr><td>  @Html.ActionLink("Product Pricing", "Index", new { Area = "Admin", Controller = "ProductPricing" })</td></tr>
+     <tr><td>  @Html.ActionLink("OutletTypes", "Index", new { Area = "Admin", Controller = "OutletType" })</td></tr>
+     <tr><td>  @Html.ActionLink("OutletCategories", "Index", new { Area = "Admin", Controller = "OutletCategory" })</td></tr>
+     <tr><td>  @Html.ActionLink("Product Pricing Tier", "Index", new { Area = "Admin", Controller = "ProductPricingTier" })</td></tr>
+     <tr><td>  @Html.ActionLink("Outlet Category", "Index", new { Area = "Admin", Controller = "OutletCategory" })</td></tr>
+     <tr><td>  @Html.ActionLink("Outlet Type", "ListOutletTypes", new { Area = "Admin", Controller = "OutletType" })</td></tr>
+     <tr><td>  @Html.ActionLink("Outlets", "Index", new { Area = "Admin", Controller = "Outlet" })</td></tr>
+     <tr><td>  @Html.ActionLink("CostCenter Contacts", "Index", new { Area = "Admin", Controller = "Contact" })</td></tr>
+     <tr><td>  @Html.ActionLink(" Territory", "Index", new { Area = "Admin", Controller = "Territory" })</td></tr>
+     <tr><td>  @Html.ActionLink(" Country", "Index", new { Area = "Admin", Controller = "Country" })</td></tr>
+     <tr><td>  @Html.ActionLink(" Region", "Index", new { Area = "Admin", Controller = "Region" })</td></tr>
+     <tr><td>  @Html.ActionLink(" Area", "Index", new { Area = "Admin", Controller = "Area" })</td></tr>
+     <tr><td>  @Html.ActionLink(" VatClass", "Index", new { Area = "Admin", Controller = "ListVatClass" })</td></tr>
+     <tr><td>  @Html.ActionLink("Create VatClass", "Index", new { Area = "Admin", Controller = "CreateVatClass" })</td></tr>
+     <tr><td>  @Html.ActionLink("Orders", "Index", new { Area = "Admin", Controller = "Orders" })</td></tr>
+     <tr><td>  @Html.ActionLink("TargetPeriod", "ListTargetPeriods", new { Area = "Admin", Controller = "TargetPeriod" })</td></tr>
+     <tr><td>  @Html.ActionLink("Provinces", "ListProvinces", new { Area = "Admin", Controller = "Province" })</td></tr>
+     <tr><td>  @Html.ActionLink("CoolerType", "ListCoolerTypes", new { Area = "Admin", Controller = "CoolerType" })</td></tr>
+     <tr><td>  @Html.ActionLink("Cooler", "ListCoolers", new { Area = "Admin", Controller = "Cooler" })</td></tr>
+     <tr><td>  @Html.ActionLink("MarketAudit", "ListMarketAudits", new { Area = "Admin", Controller = "MarketAudit" })</td></tr>
+     <tr><td>  @Html.ActionLink("OutletAudit", "ListOutletAudits", new { Area = "Admin", Controller = "OutletAudit" })</td></tr>
+     <tr><td>  @Html.ActionLink("Shells", "ListShells", new { Area = "Admin", Controller = "Shells" })</td></tr>
+     <tr><td>  @Html.ActionLink("Inventory Reports", "InventoryBalances", new { Area = "Admin", Controller = "Inventory" })</td></tr>
+     <tr><td>  @Html.ActionLink("Finnancial Reports", "AccountBalances", new { Area = "Admin", Controller = "Finnancial" })</td></tr>
+     <tr><td>  @Html.ActionLink("Transaction Reports", "GetAllTransactions", new { Area = "Admin", Controller = "Transaction" })</td></tr>
+     <tr><td>  @Html.ActionLink("Bank", "ListBanks", new { Area = "Admin", Controller = "Bank" })</td></tr>
+     <tr><td>  @Html.ActionLink("BankBranch", "ListBranches", new { Area = "Admin", Controller = "BankBranch" })</td></tr>
+    </table>
+   
+  
+</p>

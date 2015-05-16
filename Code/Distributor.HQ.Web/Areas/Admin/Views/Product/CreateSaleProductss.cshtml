@@ -1,0 +1,107 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.EditSaleProductViewModelOut
+
+@{
+    ViewBag.Title = "CreateSaleProduct";
+}
+<div><p class="add-items">
+    @Html.ActionLink("View Products", "/List")</p>
+</div>
+<h2 class="page-intro-header">Add Product</h2>
+<div style="display:none;">
+   
+</div>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<p style="color:Red;">
+@ViewBag.msg
+</p>
+<br />
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend></legend>
+
+        <table width="800px">
+         <tr><td>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductCode)
+        </div></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductCode)
+            @Html.ValidationMessageFor(model => model.ProductCode)
+        </div></td>
+        </tr>
+        
+        @*@Html.HiddenFor(model => model.ProductCode)*@
+        
+        <tr><td>
+        <div class="editor-label">
+            Brand
+        </div></td><td>
+         <div class="editor-field">
+              @Html.DropDownListFor(model => model.BrandId,new SelectList(ViewBag.BrandsList,"Key","Value"),"-----Select Brand-----" )
+        </div></td>
+</tr><tr><td>
+        <div class="editor-label">
+            Packaging Type
+        </div></td><td>
+         <div class="editor-field">
+              @Html.DropDownListFor(model => model.PackagingTypeId, new SelectList(ViewBag.PackTypeList, "Key", "Value"), "-----Select Packaging Type-----") 
+              )
+        </div></td>
+        </tr>
+        <tr><td>
+        <div class="editor-label">
+            Packaging
+        </div></td><td>
+         <div class="editor-field">
+              @Html.DropDownListFor(model => model.PackagingId,new SelectList(ViewBag.PackagingsList,"Key","Value"),"-----Select Packaging-----")
+  
+              )
+        </div></td>
+</tr><tr><td>
+        <div class="editor-label">
+            Flavour
+        </div></td><td>
+         <div class="editor-field">
+              @Html.DropDownListFor(model => model.FlavourID,new SelectList(ViewBag.FlavoursList,"Key","Value"),"-----Select Sub Brand-----"
+    
+              )
+        </div></td>
+</tr><tr><td>
+        <div class="editor-label">
+            Product Type
+        </div></td><td>
+         <div class="editor-field">
+              @Html.DropDownListFor(model => model.ProductTypeID,new SelectList(ViewBag.ProductTypeList,"Key","Value"),"-----Select Product Catgory-----"
+        
+              )
+        </div></td></tr>
+        <tr><td>
+        <div class="editor-label">
+            Returnables
+        </div></td><td>
+         <div class="editor-field">
+              @Html.DropDownListFor(model => model.Returnable,new SelectList(ViewBag.ReturnablesList,"Key","Value"),"-----Select Returnable-----"
+        
+              )
+        </div></td></tr>
+         <tr><td>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div></td></tr>
+
+        <tr><td>
+            <input type="submit" value="Save"  class="button-style-one" /></td>
+        </tr>
+        </table>
+    </fieldset>
+}
+
+
+

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2 id="breadcrumb-holder">
+    Purchase order
+</h2>
+<input id ="cache-key" type="hidden" value="@ViewBag.CacheKey"/>
+<input id ="quantityRegex" type="hidden" value="@ViewBag.QuantityRegex"/>
+<div id="pagecontentholder">
+    
+</div>
+
+ <script data-main="@Url.Content("~/js/main.js")" src="@Url.Content("~/js/libs/require/require.js")"></script>
+<script type="text/javascript">
+    window.app_baseurl = '@Url.Content("~")';
+</script>
+ 
+      
+    <script type="text/javascript" >
+        window.pageload = function () {
+            console.log("Create Form item pageload.....");
+            require(['addupdatepurchaseorderviewmodel'], function (view) {
+              
+                var v = new view({});
+                v.render();
+            });
+        }
+    </script>

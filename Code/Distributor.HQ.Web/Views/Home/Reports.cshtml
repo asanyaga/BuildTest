@@ -1,0 +1,271 @@
+﻿@using Distributr.HQ.Lib.Helper
+@*<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+@Html.ActionLink("Reports", "Reports")</span> &gt; 
+@Html.GetText("hq.bank.form.breadcrumb.add")</h2>*@
+
+<h2 id="breadcrumb-holder">Dashboard &nbsp; &gt; &nbsp;	 
+Reports</h2>
+<div id="main-content-housing">
+	<div id="homepage-dashboard">
+		<fieldset>
+			<legend>@Html.GetText("hq.rpts")</legend>
+			<div class="home-item">
+				<span class="icons orders"></span>
+				<h2 class="dash-headers ">@Html.GetText("hq.rpt.sales.title")</h2>
+				<ul>
+                    <li>@Html.ActionLink("Sales By Brand","Index","Reports", new {Area ="Rpt" , reportName ="SalesByBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="SaleByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Salesman","Index","Reports", new {Area ="Rpt" , reportName ="SalesBySalesman"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Packaging","Index","Reports", new {Area ="Rpt" , reportName ="SalesByPackaging"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Product","Index","Reports", new {Area ="Rpt" , reportName ="SalesByProduct"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Product Type","Index","Reports", new {Area ="Rpt" , reportName ="SalesByProductType"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Route","Index","Reports", new {Area ="Rpt" , reportName ="SalesByRoute"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Outlet","Index","Reports", new {Area ="Rpt" , reportName ="SalesByOutlet"}, new {})</li>
+                    <li>@Html.ActionLink("Sales Summary","Index","Reports", new {Area ="Rpt" , reportName ="SalesSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Sales Summary by Date","Index","Reports", new {Area ="Rpt" , reportName ="SalesSummaryByDate"}, new {})</li>
+                    <li>@Html.ActionLink("Sales Summary Per Salesman", "Index", "Reports", new { Area = "Rpt", reportName = "SalesSummaryPerSalesman" }, new { })</li>
+
+                    <li>@Html.ActionLink("Regional Sales","Index","Reports", new {Area ="Rpt" , reportName ="RegionalSales"}, new {})</li>
+                    <li>@Html.ActionLink("Sales Date Exception","Index","Reports", new {Area ="Rpt" , reportName ="SalesDateException"}, new {})</li>
+                    <li>@Html.ActionLink("Outlet Summary By Product","Index","Reports", new {Area ="Rpt" , reportName ="OutletSummaryByProduct"}, new {})</li>
+
+				</ul>
+			</div>
+			<!-- end of div.home-item -->
+            <div class="home-item">
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">
+                    @Html.GetText("hq.orders")</h2>
+                <ul>
+                    <li>@Html.ActionLink("Orders Summary","Index","Reports", new {Area ="Rpt" , reportName ="OrdersSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By Brand","Index","Reports", new {Area ="Rpt" , reportName ="OrdersByBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="OrdersByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By SubBrand","Index","Reports", new {Area ="Rpt" , reportName ="OrdersBySubBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By Product Packaging","Index","Reports", new {Area ="Rpt" , reportName ="OrdersByProductPackaging"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By Product ","Index","Reports", new {Area ="Rpt" , reportName ="OrdersByProduct"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By Product Type","Index","Reports", new {Area ="Rpt" , reportName ="OrdersByProductType"}, new {})</li>
+                    <li>@Html.ActionLink("Order Date Exception ","Index","Reports", new {Area ="Rpt" , reportName ="OrderDateException"}, new {})</li>
+                    
+                </ul>
+            </div>
+            <!-- end of div.home-item -->
+            <!-- Reconcilliation rpt-->
+            <div class="home-item">
+                	<span class="icons orders"></span>
+                <h2 class="dash-headers ">
+                    Reconciliation</h2>
+                <ul>
+                    <li>@Html.ActionLink("DailySaleSummary","Index","Reports", new {Area ="Rpt" , reportName ="dailySaleSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Sales & Gross Profit","Index","Reports", new {Area ="Rpt" , reportName ="salesAndGrossProfit"}, new {})</li>
+                    <li>@Html.ActionLink("Outstanding Payments","Index","Reports", new {Area ="Rpt" , reportName ="outstandingPayments"}, new {})</li>
+                    <li>@Html.ActionLink("Salesman Movements","Index","Reports", new {Area ="Rpt" , reportName ="salesmanMovements"}, new {})</li>
+                    <li>@Html.ActionLink("Lost Orders by Brand","Index","Reports", new {Area ="Rpt" , reportName ="lostOrdersByBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Lost Orders Summary","Index","Reports", new {Area ="Rpt" , reportName ="lostOrdersSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Back Orders by Brand","Index","Reports", new {Area ="Rpt" , reportName ="backOrdersByBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Back Orders Summary","Index","Reports", new {Area ="Rpt" , reportName ="backOrdersSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Close Of Day","Index","Reports", new {Area ="Rpt" , reportName ="CloseOfDay"}, new {})</li>
+                    <li>@Html.ActionLink("Losses","Index","Reports", new {Area ="Rpt" , reportName ="Losses"}, new {})</li>
+                    <li>@Html.ActionLink("Zero Sales","Index","Reports", new {Area ="Rpt" , reportName ="ZeroSales"}, new {})</li>
+                    <li>@Html.ActionLink("Sales Quantity Summary","Index","Reports", new {Area ="Rpt" , reportName ="SalesQuantitySummary"}, new {})</li>
+                    <li>@Html.ActionLink("Sales Value Summary","Index","Reports", new {Area ="Rpt" , reportName ="SalesValueSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Brand Ranking","Index","Reports", new {Area ="Rpt" , reportName ="BrandRanking"}, new {})</li>
+                    <li>@Html.ActionLink("Brand Perfomance","Index","Reports", new {Area ="Rpt" , reportName ="BrandPerformance"}, new {})</li>
+                    <li>@Html.ActionLink("Brand Sales ","Index","Reports", new {Area ="Rpt" , reportName ="BrandSales"}, new {})</li>
+                    <li>@Html.ActionLink("Cash Sales","Index","Reports", new {Area ="Rpt" , reportName ="CashSales"}, new {})</li>
+
+                </ul>
+            </div>
+            
+             <div class="home-item">   
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">Performance</h2>
+                <ul>
+                    <li>@Html.ActionLink("Performance By Region","Index","Reports", new {Area ="Rpt" , reportName ="performanceByRegion"}, new {})</li>
+                    <li>@Html.ActionLink("Performance By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="performanceByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Performance By Route","Index","Reports", new {Area ="Rpt" , reportName ="performanceByRoute"}, new {})</li>
+                    <li>@Html.ActionLink("Performance By Salesman","Index","Reports", new {Area ="Rpt" , reportName ="performanceBySalesman"}, new {})</li>
+                    <li>@Html.ActionLink("Performance By Outlet","Index","Reports", new {Area ="Rpt" , reportName ="performanceByOutlet"}, new {})</li>
+                </ul>
+            </div>
+
+
+            <div class="home-item">
+				<span class="icons orders"></span>
+				<h2 class="dash-headers ">
+					@Html.GetText("hq.inventory")</h2>
+                <ul>
+                    <li>@Html.ActionLink("Stock Summary","Index","Reports", new {Area ="Rpt" , reportName ="stockSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Brand","Index","Reports", new {Area ="Rpt" , reportName ="stockByBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="stockByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Stock at Distributor","Index","Reports", new {Area ="Rpt" , reportName ="stockAtDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Product Type","Index","Reports", new {Area ="Rpt" , reportName ="StockByProductType"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Salesman","Index","Reports", new {Area ="Rpt" , reportName ="stockBySalesman"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Sub-Brand","Index","Reports", new {Area ="Rpt" , reportName ="stockBySubBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Packaging","Index","Reports", new {Area ="Rpt" , reportName ="stockByPackaging"}, new {})</li>
+                    <li>@Html.ActionLink("Stock Returns","Index","Reports", new {Area ="Rpt" , reportName ="stockReturns"}, new {})</li>
+                    <li>@Html.ActionLink("Stock Take","Index","Reports", new {Area ="Rpt" , reportName ="stockTake"}, new {})</li>
+                    <li>@Html.ActionLink("Stock Movement","Index","Reports", new {Area ="Rpt" , reportName ="stockMovement"}, new {})</li>
+                    <li>@Html.ActionLink("Product Catalog","Index","Reports", new {Area ="Rpt" , reportName ="productCatalog"}, new {})</li>
+					@*<li><a href="@Url.Content("~/Rpt/Financial/SalesFinancialByTier")">Sales Financial By Tier</a></li>*@
+				</ul>
+			</div>
+            <div class="home-item">
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">
+                    Payment</h2>
+                <ul>
+                    
+                    <li>@Html.ActionLink("Payment Summary","Index","Reports", new {Area ="Rpt" , reportName ="PaymentSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Payment Summary Per Salesman", "Index", "Reports", new { Area = "Rpt", reportName = "PaymentSummaryPerSalesman" }, new { })</li>
+
+                </ul>
+            </div>
+            	<div class="home-item">
+				<span class="icons orders"></span>
+				<h2 class="dash-headers ">
+					Deliveries</h2>
+                <ul>
+                    
+                    <li>@Html.ActionLink("Deliveries Summary","Index","Reports", new {Area ="Rpt" , reportName ="DeliveriesSummary"}, new {})</li>
+
+                </ul>
+			</div>
+			<div class="home-item">
+				<span class="icons orders"></span>
+				<h2 class="dash-headers ">
+					Inventory Receipt</h2>
+                <ul>
+                    <li>@Html.ActionLink("Inventory Receipt By Brand","Index","Reports", new {Area ="Rpt" , reportName ="InventoryReceiptByBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Inventory Receipt By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="InventoryReceiptByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Inventory Receipt By Packaging","Index","Reports", new {Area ="Rpt" , reportName ="InventoryReceiptByPackaging"}, new {})</li>
+                    <li>@Html.ActionLink("Inventory Receipt By SubBrand","Index","Reports", new {Area ="Rpt" , reportName ="InventoryReceiptBySubBrand"}, new {})</li>
+                   
+
+                </ul>
+			</div>
+
+			<div class="home-item">
+				<span class="icons orders"></span>
+				<h2 class="dash-headers ">
+					Discounts</h2>
+                <ul>
+                    <li>@Html.ActionLink("Total Discounts By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="TotalDiscountsByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Product Discount","Index","Reports", new {Area ="Rpt" , reportName ="ProductDiscountSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Promotion Discount By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="PromotionDiscountByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Promotion Discount By Product","Index","Reports", new {Area ="Rpt" , reportName ="PromotionDiscountByProduct"}, new {})</li>
+                    <li>@Html.ActionLink("Certain Value Certain Product","Index","Reports", new {Area ="Rpt" , reportName ="CertainValueCertainProduct"}, new {})</li>
+                    <li>@Html.ActionLink("Free Of Charge By Product","Index","Reports", new {Area ="Rpt" , reportName ="FreeOfChargeByProduct"}, new {})</li>
+                    <li>@Html.ActionLink("Free Of Charge By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="FreeOfChargeByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Sale Value Discount Summary","Index","Reports", new {Area ="Rpt" , reportName ="SVDSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Sale Value Discount per Outlet","Index","Reports", new {Area ="Rpt" , reportName ="SVDPerOutlet"}, new {})</li>
+
+                
+                </ul>
+			</div>
+			
+			
+			
+			<div class="home-item">
+				<span class="icons orders"></span>
+				<h2 class="dash-headers ">
+					Outlets</h2>
+                <ul>
+                    <li>@Html.ActionLink("Outlets By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="OutletsByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Outlets By Category","Index","Reports", new {Area ="Rpt" , reportName ="OutletsByCategory"}, new {})</li>
+                    <li>@Html.ActionLink("Outlets By Tier","Index","Reports", new {Area ="Rpt" , reportName ="OutletsByTier"}, new {})</li>
+                    <li>@Html.ActionLink("Distributor Outlets Summary","Index","Reports", new {Area ="Rpt" , reportName ="OutletsSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Outlets By Type","Index","Reports", new {Area ="Rpt" , reportName ="OutletsByType"}, new {})</li>
+                    <li>@Html.ActionLink("Deactivated Outlets","Index","Reports", new {Area ="Rpt" , reportName ="DeactivatedOutlets"}, new {})</li>
+ 
+                </ul>
+			</div>
+			
+			<div class="home-item">
+				<span class="icons orders"></span>
+				<h2 class="dash-headers ">
+					Targets</h2>
+				<ul>
+			        <li>@Html.ActionLink("Country Targets","Index","Reports", new {Area ="Rpt" , reportName ="countryTargets"}, new {})</li>
+                    <li>@Html.ActionLink("Region Targets","Index","Reports", new {Area ="Rpt" , reportName ="regionTargets"}, new {})</li>
+                    <li>@Html.ActionLink("Distributor Targets","Index","Reports", new {Area ="Rpt" , reportName ="distributorTargets"}, new {})</li>
+                    <li>@Html.ActionLink("Salesman Targets","Index","Reports", new {Area ="Rpt" , reportName ="salesmanTargets"}, new {})</li>
+                    <li>@Html.ActionLink("Outlet Targets","Index","Reports", new {Area ="Rpt" , reportName ="outletTargets"}, new {})</li>
+
+				</ul>
+			</div>
+            
+            <div class="home-item">
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">
+                    Routes</h2>
+                <ul>
+                     <li>@Html.ActionLink("Routes By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="RouteByDistributor"}, new {})</li>
+                </ul>
+            </div>
+
+
+            <div class="home-item">   
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">Purchases</h2>
+                <ul>
+                    <li>@Html.ActionLink("Purchase By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="purchaseByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Purchase By Brand","Index","Reports", new {Area ="Rpt" , reportName ="purchaseByBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Purchase By Packaging","Index","Reports", new {Area ="Rpt" , reportName ="purchaseByPackaging"}, new {})</li>
+                    
+                </ul>
+            </div>
+            
+        <div class="home-item">   
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">Call Protocol</h2>
+                <ul>
+                    <li>@Html.ActionLink("Daily Sales Call Report","Index","Reports", new {Area ="Rpt" , reportName ="cpDailySales"}, new {})</li>
+                    <li>@Html.ActionLink("Sales Call Report","Index","Reports", new {Area ="Rpt" , reportName ="cpSalesCall"}, new {})</li>
+                    <li>@Html.ActionLink("Stock Take", "Index", "Reports", new { Area = "Rpt", reportName = "cpStockTake" }, new { })</li>
+                    <li>@Html.ActionLink("Non Productive Calls", "Index", "Reports", new { Area = "Rpt", reportName = "cpNonProductive" }, new { })</li>
+                    <li>@Html.ActionLink("No Activity Calls", "Index", "Reports", new { Area = "Rpt", reportName = "cpNoActivity" }, new { })</li>
+                </ul>
+            </div>
+
+        <div class="home-item">   
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">Audit Reports</h2>
+                <ul>
+                    <li>@Html.ActionLink("Audit Trail", "Index", "Reports", new { Area = "Rpt", reportName = "aAuditTrail" }, new { })</li>
+                    @*<li>@Html.ActionLink("Stock Take", "Index", "Reports", new { Area = "Rpt", reportName = "aStockTake" }, new { })</li>*@
+                    <li>@Html.ActionLink("Stock Movement Per Product", "Index", "Reports", new { Area = "Rpt", reportName = "aStockMovementPerProduct" }, new { })</li>
+
+                </ul>
+            </div>
+            <div class="home-item">
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">
+                    Crates
+                </h2>
+                <ul>
+                   <li>@Html.ActionLink("Crate Sales Summary", "Index", "Reports", new { Area = "Rpt", reportName = "crateSaleSummary" }, new { })</li>
+                   <li>@Html.ActionLink("Crate Orders Summary", "Index", "Reports", new { Area = "Rpt", reportName = "crateOrderSummary" }, new { })</li>
+                   <li>@Html.ActionLink("Crate Deliveries Summary", "Index", "Reports", new { Area = "Rpt", reportName = "crateDeliverySummary" }, new { })</li>
+                   <li>@Html.ActionLink("Crate Inventory By Distributor", "Index", "Reports", new { Area = "Rpt", reportName = "crateInventoryByDistributor" }, new { })</li>
+                   <li>@Html.ActionLink("Crate Inventory At Distributor", "Index", "Reports", new { Area = "Rpt", reportName = "crateInventoryAtDistributor" }, new { })</li>
+                   <li>@Html.ActionLink("Crate Inventory By Salesman", "Index", "Reports", new { Area = "Rpt", reportName = "crateInventoryBySalesman" }, new { })</li>
+
+                </ul>
+            </div>
+            <div class="home-item">
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">
+                    Stockist
+                </h2>
+                <ul>
+                    <li>@Html.ActionLink("Stock By Stockist", "Index", "Reports", new { Area = "Rpt", reportName = "stockistStock" }, new { })</li>
+                    <li>@Html.ActionLink("Stock By Stockist Salesman", "Index", "Reports", new { Area = "Rpt", reportName = "stockistSalesmanStock" }, new { })</li>
+                    <li>@Html.ActionLink("Sales By Stockist", "Index", "Reports", new { Area = "Rpt", reportName = "stockistSales" }, new { })</li>
+                    <li>@Html.ActionLink("Sales By Stockist Salesman", "Index", "Reports", new { Area = "Rpt", reportName = "stockistSalesmanSales" }, new { })</li>
+
+                </ul>
+            </div>
+
+        </fieldset>
+	</div>
+</div>

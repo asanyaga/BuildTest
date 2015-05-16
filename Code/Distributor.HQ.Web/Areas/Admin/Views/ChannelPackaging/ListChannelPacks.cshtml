@@ -1,0 +1,87 @@
+﻿@*@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.ChannelPackagingsViewModels.ChannelPackagingViewModel>*@
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@model Distributr.HQ.Lib.ViewModels.Admin.ChannelPackagingsViewModels.ChannelPackagingViewModel
+@*@model Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.ChannelPackagingsViewModels.ChannelPackagingViewModel>*@
+@{
+    ViewBag.Title = Html.GetText("hq.cpack.title");
+}
+<h2 id="breadcrumb-holder">Global Settings &nbsp;&gt; @Html.GetText("hq.cpack.breadcrumb")</h2>
+ <div id="main-content-housing">
+ <h2 class="page-header">@Html.GetText("hq.cpack.listing")</h2>
+  <div id="primary-controls">
+                            @*<fieldset>
+                            <legend>Import From Excel</legend>
+                            	 <div class="button-style-two-cshtml">@Html.ActionLink("Import From Excel", "ImportBrands")</div>
+                                </fieldset>*@
+                            </div><!-- end of div#primary-controls -->
+
+@if (ViewBag.msg != null)
+{
+<div class="notice-notification">
+@ViewBag.msg
+</div>
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend></legend>
+
+     <div class="table-container">
+     <table width="1000px" id="tablesorter-demo" class="tablesorter">
+
+        @for (int r = 0; r < ViewBag.cp.Count; r++)
+        {
+
+            if (r == 0)
+            {
+                <thead>
+                <tr>
+                @foreach (var item in Model.RowItems[0])
+                {
+                    <th>
+                     @item.CPLookup 
+                    </th>
+                }  
+                </tr>  
+                </thead> 
+            }
+            else
+            {
+            <tr>
+                @for (int c = 0; c < ViewBag.cp[r].Length; c++)
+                {
+
+                    if (c == 0)
+                    {
+                        <td>
+                        @Model.RowItems[r][c].CPLookup
+                       
+                        </td>
+                    }
+                    else
+                    {
+                        <td><input type="checkbox"  name="cb"  @Model.RowItems[r][c].Check value="@Model.RowItems[r][c].CPLookup" /> </td>
+                                           
+                    }
+                }
+            </tr> }
+        }
+     </table>
+     </div>
+   @*  <div class="pager">
+        @Html.Pager((int)ViewBag.cp.PageSize, (int)ViewBag.cp.PageNumber, (int)ViewBag.cp.TotalItemCount)
+            Items per page:
+         @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+    </div>*@
+     <input type="submit" value="Save"  class="button-style-one" />
+     
+
+      </fieldset>
+
+
+
+
+}</div>

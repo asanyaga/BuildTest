@@ -1,0 +1,43 @@
+﻿@model Distributr.HQ.Lib.ViewModelBuilders.Reports.TransactionalReport.ViewModel.TransactionTransactionViewModel
+
+@{
+    ViewBag.Title = "DocumentListing";
+}
+<p>
+    @Html.ActionLink("VIEW TRANSACTION", "GetAllTransactions")
+</p><br />
+<h2>TRANSACTION DOCUMENT LISTING</h2>
+<br /><br />
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table width="700px">
+    <tr>
+        <th>Document Date Issued</th>
+        <th>Document Issuer</th>
+        <th>Document Reference</th>
+        <th>Document Type</th>
+        <th>Document User</th>
+        <th>Issued On Behalf Of</th>
+      @*  <th>Document Id</th>*@
+    </tr>
+
+@foreach (var item in Model.Items ) {
+    <tr>
+    <td>@item.DocumentDateIssued </td>
+     <td>@item.DocumentIssuerCC  </td>
+     <td>@item.DocumentReference </td>
+     <td>@item.DocumentType </td>
+     <td>@item.DocumentUser  </td>
+     <td>@item.IssuedOnBehalfOf  </td>
+     @*<td>@item.transactionDocumentId </td>*@
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+    </tr>
+}
+
+</table>
+

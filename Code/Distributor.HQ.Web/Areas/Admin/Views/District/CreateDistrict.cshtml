@@ -1,0 +1,150 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CostCenter.DistrictViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.district.form.title.add");
+}
+
+
+<p style="color:Red;">
+@ViewBag.msg
+</p>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#CountryId").change(function (e) {
+            var countryId = $("#CountryId option:selected").val();
+            var urlemp = '@Url.Action("Provinces")';
+            cascadingdropdown();
+            var countryId = $("#CountryId option:selected").val();
+            
+        });
+    });
+
+ 
+
+//    $(document).ready(function () {
+//        PopulateCountry();
+//    });
+
+
+    function cascadingdropdown() {
+        var countryId = $("#CountryId option:selected").val();
+       // window.alert(" call cascading dropdown for iddepartment = " + countryId);
+        var urlemp = '@Url.Action("Provinces")';
+        var selects = $('#cmbProvince');
+        $.ajax({
+            type: "POST",
+            url: urlemp,
+            data: { countryId: countryId },
+            success: function (returndata) {
+                if (returndata.ok) {
+
+                    // window.alert('Provinces data is on javascript,  populating combo ');
+                    selects.append($('<option></option>').val('0').html('-----Select Province-----'));
+                   selects.empty();
+                    $.each(returndata.data, function (index, itemData) {
+
+//                        
+                        selects.append($('<option></option>').val(itemData.Id).html(itemData.Name));
+
+
+                    });
+                    selects.show('slow');
+                }
+                else {
+                    window.alert(' error : ' + returndata.message);
+                }
+
+            }
+        }
+        );
+
+    }
+
+    jQuery(function ($) {
+
+        jQuery('#submitButton').click(function () {
+            var countryId2 = $("#CountryId option:selected").val();
+            var provinceId2 = $("#cmbProvince option:selected").val();
+            var distName = $("#DistrictName").val();
+            var distNameLen = $("#DistrictName").val().length;
+            if (jQuery('#cmbProvince').attr("selectedIndex") == -1) {
+                jQuery('p').addClass('ui-state-error');
+                updateTips('You must  select coutry\n Or add province first under that country');
+            }
+            else if (countryId2 == 0) {
+                updateTips('You must  select Country');
+            }
+            else if (provinceId2 == 0) {
+                updateTips('You must  select Province');
+            }
+            else if (distName == "") {
+                updateTips('You must  Enter District Name');
+            }
+            else if (distNameLen < 3) {
+                updateTips(' District Name Must be 3 or more characters');
+            }
+
+            else {
+                var urlemp = '@Url.Action("CreateDistrict")';
+                jQuery('p').removeClass('ui-state-error');
+                $.ajax({
+                    type: "POST",
+                    url: urlemp,
+                    data: { countryId: countryId2, provinceId: provinceId2, DistrictName: distName }
+                });
+                // updateTips('Success!');
+            }
+            return false;
+        });
+        function updateTips(msg) {
+            alert(msg);
+        }
+    });
+    </script>
+    <h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+    @Html.ActionLink(Html.GetText("hq.district.form.breadcrumb.view"), "/ListDistricts")</span> &gt; 
+    @Html.GetText("hq.district.form.breadcrumb.add")</h2>
+
+    <div id="main-content-housing">
+
+    <p style="color:Red;">@ViewBag.msg2</p>
+
+@using (Html.BeginForm())
+{
+    
+    @Html.ValidationSummary(true)
+
+    <div id="primary-controls">
+    <fieldset>
+    <legend>@Html.GetText("hq.district.form.details.add")</legend>
+                            
+        <table class="detail-arrange">
+
+         <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.region.province") :</strong></td>
+         <td><span class="text-box-cshtml"> @Html.DropDownListFor(model => model.ProvinceId, new SelectList(ViewBag.Province, "Key", "Value"), "-----Select Province-----")</span> 
+           <span class="inline-error">  @Html.ValidationMessageFor(model => model.ProvinceId)</span> 
+         </td></tr>
+@*<select id="cmbProvince" style="display:block" name="ProvinceId" > <option value="0">---Select Country First---</option></select>
+@Html.ValidationMessageFor(model => model.ProvinceId)*@
+        
+       <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.region.district") :</strong></td>
+       <td><span class="text-box-cshtml">@Html.EditorFor(model => model.DistrictName)</span> 
+             <span class="inline-error"> @Html.ValidationMessageFor(model => model.DistrictName)</span> 
+        </td></tr>
+
+                    </table><!-- end of detail-arrange -->
+
+        </fieldset>
+
+   <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            <input name="Create" type="reset" value="Clear" class="button-style-one"/>
+    </fieldset>
+
+ </div><!-- end of div#pr-->
+    
+}
+</div>

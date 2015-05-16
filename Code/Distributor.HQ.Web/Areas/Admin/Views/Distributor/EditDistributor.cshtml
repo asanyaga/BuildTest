@@ -1,0 +1,189 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Distributors.DistributorViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.dist.form.title.edit");
+}
+<h2 id="breadcrumb-holder">Global Settings &nbsp; &gt;&nbsp;
+    @Html.GetText("hq.dist.breadcrumb") &nbsp;&gt; <span class="bc-example">
+        @Html.ActionLink(Html.GetText("hq.dist.form.breadcrumb.view"), "/ListDistributors")</span> &gt; 
+    @Html.GetText("hq.dist.form.breadcrumb.edit")</h2>
+
+<div id="main-content-housing">
+
+
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        <div id="primary-controls">
+            <fieldset>
+                <legend>@Html.GetText("hq.dist.form.details.edit")</legend>
+
+
+
+
+                <table class="detail-arrange">
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.code")
+                        </strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.CostCentreCode)
+                                @Html.ValidationMessageFor(model => model.CostCentreCode)
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.name")
+                        </strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Name)
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.owner")
+                        </strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Owner)
+                                @Html.ValidationMessageFor(model => model.Owner)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.region")
+                        </strong></td>
+                                @if (Model.CanEditRegion)
+                                {
+                                    <td>
+                                        <div class="editor-field">
+                                            @Html.DropDownListFor(model => model.RegionId, new SelectList(ViewBag.RegionList, "Key", "Value", Model.RegionId))
+                                            @Html.ValidationMessageFor(model => model.RegionId)
+                                        </div>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="padding-top: 12px;">
+                                        <div class="editor-field">
+                                            @Html.HiddenFor(model => model.RegionId)
+                                        </div>
+                                        <div class="editor-field"><strong>@Html.TextBoxFor(model => model.RegionName, new {@readonly = true})</strong>
+                                        </div>
+                                    </td>
+                                }
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.asm")
+                        </strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.ASM,
+            new SelectList(ViewBag.ASMList, "Key", "Value"))
+                                @Html.ValidationMessageFor(model => model.ASM)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.salesrep")
+                        </strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @*  @Html.EditorFor(model => model.SalesRep)*@
+                                @Html.DropDownListFor(model => model.SalesRep,
+          new SelectList(ViewBag.SalesRepList, "Key", "Value"))
+                                @Html.ValidationMessageFor(model => model.SalesRep)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.surveyor")
+                        </strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @* @Html.EditorFor(model => model.Surveyor)*@
+                                @Html.DropDownListFor(model => model.Surveyor,
+        new SelectList(ViewBag.SurveyorList, "Key", "Value"))
+                                @Html.ValidationMessageFor(model => model.Surveyor)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.account")
+                        </strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.AccountNo)
+                                @Html.ValidationMessageFor(model => model.AccountNo)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.vatregno")
+                        </strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.VatRegistrationNo)
+                                @Html.ValidationMessageFor(model => model.VatRegistrationNo)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.pin")
+                        </strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.PIN)
+                                @Html.ValidationMessageFor(model => model.PIN)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.paybillno")
+                        </strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.PayBillNumber)
+                                @Html.ValidationMessageFor(model => model.PayBillNumber)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.dist.form.merchantno")
+                        </strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.MerchantNumber)
+                                @Html.ValidationMessageFor(model => model.MerchantNumber)
+                            </div>
+                        </td>
+                    </tr>
+
+                    @*<div class="editor-label">
+			@Html.LabelFor(model => model.IsActive)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.IsActive)
+			@Html.ValidationMessageFor(model => model.IsActive)
+		</div> *@
+                </table>
+            </fieldset>
+            <fieldset class="actions">
+                <legend>Actions</legend>
+                <input name="Create" type="submit" value="Save" class="button-style-one" />
+
+
+
+            </fieldset>
+        </div>
+    }
+</div>
+
+

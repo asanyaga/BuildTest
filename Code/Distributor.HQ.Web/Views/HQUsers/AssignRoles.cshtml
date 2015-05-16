@@ -1,0 +1,49 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.User.UserViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.distuser.form.title.assign");
+}
+	<h2 id="breadcrumb-holder">Global Settings &nbsp; &gt;&nbsp;
+    @Html.GetText("hq.hq.user.breadcrumb")&nbsp;&gt; <span class="bc-example">
+    @Html.ActionLink(Html.GetText("hq.distuser.form.breadcrumb.view"), "/ListAllUsers")</span> &gt; 
+    @Html.GetText("hq.distuser.form.title.assign")</h2>
+
+<div id="main-content-housing">
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+   <div id="primary-controls">
+    <fieldset>
+    <legend>@Html.GetText("hq.distuser.form.details.assign")</legend>
+                            
+								
+							
+					
+        <table class="detail-arrange">
+        @Html.HiddenFor(model => model.Id)
+       <tr><td>
+        <div class="editor-label">
+            @Html.GetText("hq.distuser.form.group")
+        </div></td><td>
+        <div class="editor-field">         
+          @Html.DropDownListFor(model => model.Group, new SelectList(ViewBag.GroupList, "Key", "Value"), "----Select Group-----")
+          @Html.ValidationMessageFor(model => model.Group)
+        </div></td></tr>       </table>
+    </fieldset>
+
+       <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+           
+        </fieldset>
+
+    </div>
+}
+</div>
+
+

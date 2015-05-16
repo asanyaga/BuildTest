@@ -1,0 +1,22 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Orders.OrderViewModel
+@using MvcContrib.UI.Pager
+@{
+    ViewBag.Title = "OrderedList";
+}
+
+<h2>OrderedList</h2>
+
+<fieldset>
+    <legend>OrderViewModel</legend>
+
+    @foreach (var item in Model.orderPagedList)
+    {
+         <tr><td>@item.id</td><td>@item.isseuedOnBehalf</td><td>@item.gross</td></tr>
+    }
+    @Html.Raw(Html.Pager(Model.orderPagedList).ToString())
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

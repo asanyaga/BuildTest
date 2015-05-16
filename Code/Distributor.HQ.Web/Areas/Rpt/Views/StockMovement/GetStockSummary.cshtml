@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "GetStockSummary";
+}
+
+
+@{
+    ViewBag.Title = "Stock Summary";
+}
+
+<h2 id="breadcrumb-holder">
+	Dashboard &nbsp; &gt; &nbsp;	
+	<span class="bc-example">
+		@Html.ActionLink("Reports", "Reports", new { area = "", controller = "Home" }) &nbsp; &gt; &nbsp;
+		Stock Summary
+	</span> 
+</h2>
+<div id="main-content-report">
+@using Distributr.HQ.Lib.Util
+<div>
+<iframe src="@Html.MyResource("Reports/StockMovement/StockSummary.aspx")@ViewBag.Parameters" ></iframe>
+</div>
+</div>

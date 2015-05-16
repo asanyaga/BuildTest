@@ -1,0 +1,139 @@
+﻿@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels
+@model IPagedList<Distributr.HQ.Lib.ViewModels.Admin.OutletVisitReasonsTypeViewModels.OutletVisitReasonsTypeViewModel>
+@{
+    ViewBag.Title = "ListOutletVisitReasonsTypes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string searchText = ViewBag.srchparam;
+}
+
+<h2 id="breadcrumb-holder">List Outlet Visit Reasons Types</h2>
+<div id="main-content-housing">
+    @* <p>
+        @Html.ActionLink("Create New", "CreateOutletVisitReasonsTypes")
+    </p>*@
+  @if (ViewBag.msg != null)
+  {
+    <div class="notice-notification">
+        @ViewBag.msg
+    </div>
+  }
+    <fieldset>
+        <legend>Search Outlet Visit Reasons Types</legend>
+        <div class="criteria-div">
+            <span class="text-box-cshtml">@Html.TextBox("srchparam", searchText)</span>
+            <input name="srch" type="button" value="Search" class="button-style-one" id="search" />
+            <input name="srch" type="submit" value="Clear" class="button-style-one" id="clear" />
+        </div>
+
+        <div class="show-inactive">
+            Show Inactive @Html.CheckBox("show_inactive", showInactive)
+            <script type="text/javascript">
+
+                $("#show_inactive").change(function (e) {
+
+                    window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+                });
+                $('#search').click(function () {
+
+                    window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&srchparam=" + $('#srchparam').val();
+                });
+
+                $('#clear').click(function () {
+
+                    window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked');
+                });
+
+            </script>
+        </div>
+        <br class="clear-all" />
+    </fieldset>
+    
+    <fieldset class="actions">
+    <legend>Actions</legend>
+    <div class="button-style-two-cshtml"> @Html.ActionLink("Add Outlet Visit Reason", "CreateOutletVisitReasonsTypes")</div>
+</fieldset>
+    <div class="table-container">
+        <table id="tablesorter-demo" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>Name
+                    </th>
+                    <th>Description
+                    </th>
+                    <th>Outlet Visit Action
+                    </th>
+                    <th>Date Created
+                    </th>
+                    <th>Date LastUpdated
+                    </th>
+                    @*<th>isActive
+        </th>*@
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description )
+                        </td>
+                          <td>
+                            @Html.DisplayFor(modelItem => item.outletVisitAction )
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item._DateCreated)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item._DateLastUpdated)
+                        </td>
+                        @*<td>
+                @Html.DisplayFor(modelItem => item.isActive)
+            </td>*@
+                        <td>
+                            @{
+                                if (item.isActive == true)
+                                {   <text>@Html.ActionLink("Edit", "EditOutletVisitReasonsType", new { id = item.id })</text>
+                                    <text>|</text>
+                        
+                                    @Html.ActionLink("Deactivate", "DeActivate", new { id = item.id },
+                                                     new { onclick = "return confirm('Are you sure you want to deactivate " + item.Name + "?')" })
+                                    <text>|</text>
+
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.id },
+                                                     new { onclick = "return confirm('Are you sure you want to delete " + item.Name + "?')" })
+
+                                }
+                                else
+                                {
+<text>@Html.ActionLink("Activate", "Activate", new { id = item.id, name = item.Name })</text>
+                                    <text>|</text>
+
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.id },
+                                                     new { onclick = "return confirm('Are you sure you want to delete " + item.Name + "?')" })
+                                
+                                }                            
+					
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="pager">
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new {showInactive, srchparam = searchText})
+        Items per page:
+        @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+    </div>
+
+</div>
+

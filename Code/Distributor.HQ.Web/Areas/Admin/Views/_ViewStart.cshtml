@@ -1,0 +1,12 @@
+﻿
+@{
+    if (Context.Request.UrlReferrer!=null && Context.Request.UrlReferrer.ToString().Contains("Agrimanagr"))
+  {
+      Layout = "~/Views/Shared/_Layout_Agrimanagr.cshtml";
+      PageData["Url"] = "Agrimanagr";
+  }
+  else 
+  {
+      Layout = "~/Views/Shared/_Layout.cshtml";
+  }
+}

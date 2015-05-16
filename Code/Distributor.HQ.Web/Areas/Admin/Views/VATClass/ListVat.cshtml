@@ -1,0 +1,112 @@
+﻿@model Distributr.HQ.Lib.Paging.IPagedList<Distributr.Core.Domain.Master.ProductEntities.VATClass>
+
+@{
+    ViewBag.Title = "ListVat";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string text = ViewBag.srchParam;
+}
+
+<h2>ListVat</h2>
+<div>
+<div style="float:left;">
+<p>
+    @Html.ActionLink("Create Vat Class", "CreateVat")
+</p>
+<p style="color:Red;">
+@ViewBag.msg
+</p>
+</div>
+<div style="float: right"><label for="show_inactive">Show Inactive </label>@Html.CheckBox("show_inactive", showInactive)</div>
+
+
+<script type="text/javascript">
+    $("#show_inactive").change(function () {
+        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+    });
+</script>
+</div>
+<div style="clear:both;"></div>
+<table width="100%" cellpadding="1" cellspacing="2" border="0" id="tablesorter-demo" class="tablesorter">
+    <tr>
+       
+        <th>
+            Name
+        </th>
+        <th>
+            VatClass
+        </th>
+        <th>
+            EffectiveDate
+        </th>
+        <th>
+            Rate
+        </th> <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.VatClass
+        </td>
+        <td>
+            @String.Format("{0,-20:g}", item.EffectiveDate)
+        </td>
+        <td>    
+            @String.Format("{0,-20:F}", item.Rate)
+        </td><td>
+            @Html.ActionLink("Edit", "EditVat", new { id=item.Id }) |
+            @Html.ActionLink("Details", "DetailsVat", new { id=item.Id }) |
+              @{
+    string active = "none";
+    string inactive = "none";
+    if (item.isActive)
+    {
+        @Html.ActionLink("Activate","Activate",new{id = item.Id, name = item.Name})
+    }
+    else
+    {
+        inactive = "inline";
+    }    
+            }
+            <a href="@Url.Action("DeActivate", new { id = item.Id })" onclick="javascript:return confirm('Do You Want To Deactive This VatClass?')" style="display: @active">DeActivate</a>
+            <!-- <a href="@Url.Action("DeActivate", new { id = item.Id })" onclick="javascript:return confirm('Do You Want To Deactive This VatClass?')" style="display: @inactive">Activate</a> -->
+            <span style="display: @inactive">Activate</span>
+        </td>
+    </tr>
+}
+
+
+</table>
+<br />
+
+
+<h2>Submit Form With Parameters</h2>
+	 
+	@using (Html.BeginForm())
+	{   
+     @Html.ValidationSummary(true)
+      <div>
+	        You have submitted:<br />
+	        Date: @ViewData["txtDate"]<br />
+        Name: @ViewData["txtName"]<br />
+	        
+	    </div>
+	    <br />
+	 
+	    <label for="txtDate">Date:</label>
+	    <input type="text" name="txtDate" />
+	    <br />
+	    <label for="Name">Name:</label>
+	    <input type="text" name="txtName" />
+	    <br />
+	      <br />
+	 
+	    <input type="submit" name="submit"  value="Add Vat Class"/>
+	}
+
+   

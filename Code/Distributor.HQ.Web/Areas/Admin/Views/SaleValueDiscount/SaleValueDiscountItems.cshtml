@@ -1,0 +1,94 @@
+﻿@*@model Distributr.HQ.Lib.ViewModels.Admin.Product.SaleValueDiscountViewModel*@
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.Product.SaleValueDiscountViewModel.SaleValueDiscountItemsVM>
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.Paging
+@{
+    ViewBag.Title = @Html.GetText("hq.svdiscitm.listing.title");
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+@Html.ActionLink(Html.GetText("hq.svdiscitm.listing.breadcrumb.view"), "/ListSaleValueDiscounts")</span> &gt; 
+@Html.GetText("hq.svdiscitm.listing.breadcrumb")</h2>
+
+<div id="main-content-housing">
+
+@if (ViewBag.msg != null)
+{ 
+    <div class="notice-notification">
+@ViewBag.msg
+</div>
+}
+ <div id="primary-controls"></div>
+
+
+<fieldset class="actions">
+    <legend>Actions</legend>
+    <div class="button-style-two-cshtml">@Html.ActionLink(Html.GetText("hq.svdiscitm.listing.add"), "CreateSaleValueDiscountItem", new { id = ViewBag.svdId })
+</div>
+</fieldset>
+<table id="tablesorter-demo" class="tablesorter">
+<thead>
+    <tr>
+        <th>
+            @Html.GetText("hq.disc.salevalue")
+        </th>
+        <th>
+           @Html.GetText("hq.disc.discrate")
+        </th>
+        <th>
+            @Html.GetText("hq.disc.edate")
+        </th>
+        <th>
+            End Date
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+</thead><tbody>
+@foreach (var item in Model)
+{
+    <tr>
+       
+        
+        <td align="right">
+            @String.Format("{0:0,0.00}", item.SaleValue)
+        </td>
+        <td align="right">
+            @String.Format("{0:0,0.00}", item.Rate)
+        </td>
+        <td align="right">
+            @item.effectiveDate.ToString("dd-MMM-yyyy")
+        </td>
+    <td align="right">
+        @item.endDate.ToString("dd-MMM-yyyy")
+    </td>
+        <td>
+            @{ 
+                if (item.IsActive)
+                {
+                    @Html.ActionLink("Delete", "DeleteLineItem", new { id = item.LineItemId, svdId = ViewBag.svdId },
+                                     new { onclick = "return confirm('Are you sure you want to delete ?');" })
+                }
+            }
+        </td>
+    </tr>
+}
+</tbody>
+</table>
+
+@*<div id="tnt_pagination">
+@for (int p = 1; p < Model.NoPages + 1; p++)
+{
+    string selected = (p == Model.CurrentPage) ? "selected" : String.Empty;
+<a href="?page=@p" title="Go to page @p of results">@p</a>
+}
+</div>*@
+
+<div class="pager">
+            @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+        </div>
+</div>

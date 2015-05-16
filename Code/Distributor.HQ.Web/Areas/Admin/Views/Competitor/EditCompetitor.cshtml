@@ -1,0 +1,85 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CompetitorViewModel.CompetitorViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.comptor.form.title.edit");
+}
+
+<p style="color:Red;">@ViewBag.msg</p>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+@Html.ActionLink(Html.GetText("hq.comptor.form.breadcrumb.view"), "/ListCompetitors")</span> &gt; 
+@Html.GetText("hq.comptor.form.breadcrumb.add")</h2>
+
+<div id="main-content-housing">
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+      <div id="primary-controls">
+
+    <fieldset>
+
+    <legend>@Html.GetText("hq.comptor.form.details.add")</legend>
+                            
+        <table class="detail-arrange">
+
+           <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.cname") :</strong></td>
+           <td><span class="text-box-cshtml">@Html.EditorFor(model => model.Name)</span> 
+               <span class="inline-error"> @Html.ValidationMessageFor(model => model.Name)</span> 
+           </td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.phyaddr") :</strong></td>
+        <td><span class="text-box-cshtml">@Html.EditorFor(model => model.PhysicalAddress)</span> 
+            <span class="inline-error"> @Html.ValidationMessageFor(model => model.PhysicalAddress)</span> 
+        </td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.postaladdr") :</strong></td>
+        <td><span class="text-box-cshtml">@Html.EditorFor(model => model.PostalAddress)</span> 
+            <span class="inline-error"> @Html.ValidationMessageFor(model => model.PostalAddress)</span> 
+        </td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.tel") :</strong></td>
+        <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.Telephone)</span> 
+           <span class="inline-error"> @Html.ValidationMessageFor(model => model.Telephone)</span> 
+       </td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.cperson") :</strong></td>
+        <td><span class="text-box-cshtml">@Html.EditorFor(model => model.ContactPerson)</span> 
+           <span class="inline-error"> @Html.ValidationMessageFor(model => model.ContactPerson)</span> 
+        </td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.city") :</strong></td>
+        <td><span class="text-box-cshtml">@Html.EditorFor(model => model.City)</span> 
+           <span class="inline-error">  @Html.ValidationMessageFor(model => model.City)</span> 
+        </td></tr>
+
+         <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.longitude") :</strong></td>
+         <td><span class="text-box-cshtml">@Html.EditorFor(model => model.Longitude)</span> 
+           <span class="inline-error"> @Html.ValidationMessageFor(model => model.Longitude)</span> 
+        </td></tr>
+
+         <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.latitude") :</strong></td>
+         <td><span class="text-box-cshtml">@Html.EditorFor(model => model.Lattitude)</span> 
+            <span class="inline-error"> @Html.ValidationMessageFor(model => model.Lattitude)</span> 
+        </td></tr>
+       
+          </table><!-- end of detail-arrange -->
+
+        </fieldset>
+
+   <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+           
+    </fieldset>
+
+ </div><!-- end of div#pr-->
+    
+}
+</div>
+

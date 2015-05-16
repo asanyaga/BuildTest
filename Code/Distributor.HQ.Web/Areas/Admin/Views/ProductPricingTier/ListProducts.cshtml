@@ -1,0 +1,44 @@
+﻿@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels
+@model  IPagedList<Distributr.HQ.Web.Areas.Admin.Controllers.TierProduct>
+@{
+    ViewBag.Title = "Tier Products";
+}
+<h2 id="breadcrumb-holder">@Html.GetText("hq.ptier.breadcrumb") &gt; Tier Products &gt;
+    <span class="bc-example">@Html.ActionLink(Html.GetText("hq.ptier.form.breadcrumb.view"), "/ListProductPricingTiers")</span>
+</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">Pricing Tier Products</h2>
+
+<div class="table-container">
+    <table id="tablesorter-demo" class="tablesorter">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>
+                    Product Name
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Index</td>
+                    <td>
+                        @item.Name
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="pager">
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount) Items per page: @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>
+</div>
+
+
+
+

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "SalesFinancialByTier";
+}
+<h2 id="breadcrumb-holder">
+	Dashboard &nbsp; &gt; &nbsp;	
+	<span class="bc-example">
+		@Html.ActionLink("Reports", "Reports", new { area = "", controller = "Home" }) &nbsp; &gt; &nbsp;
+		Sales Financial By Tier
+	</span> 
+</h2>
+<div id="main-content-report">
+@using Distributr.HQ.Lib.Util
+<div>
+<iframe src="@Html.MyResource("Reports/Finnancial/FinnancialTier.aspx")" ></iframe>
+</div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CostCenter.VATClassViewModel
+
+@{
+    ViewBag.Title = "DetailsVat";
+}
+
+<h2>DetailsVat</h2>
+
+<fieldset>
+    <legend>VATClassViewModel</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">VatClass</div>
+    <div class="display-field">@Model.VatClass</div>
+
+    <div class="display-label">EffectiveDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.EffectiveDate)</div>
+
+    <div class="display-label">Rate</div>
+    <div class="display-field">@String.Format("{0:F}", Model.Rate)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditVat", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

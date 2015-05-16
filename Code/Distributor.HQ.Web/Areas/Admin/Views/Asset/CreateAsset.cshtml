@@ -1,0 +1,140 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.AssetViewModel.AssetViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.asset.form.title.add");
+}
+
+<script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#AssetTypeId").change(function (e) {
+            var assetTypeId = $("#AssetTypeId option:selected").val();
+            var urlB = '@Url.Action("LoadTypeAndCategories")';
+
+            cascadingdropdown();
+
+        });
+    });
+
+
+    function cascadingdropdown() {
+        var assetTypeId = $("#AssetTypeId option:selected").val();
+        // window.alert(" call cascading dropdown for iddepartment = " + countryId);
+        var urlemp = '@Url.Action("LoadTypeAndCategories")';
+        var selects = $('#AssetCategoryId');
+        $.ajax({
+            type: "POST",
+            url: urlemp,
+            data: { AssetTypeId: assetTypeId },
+            success: function (returndata) {
+                if (returndata.ok) {
+
+                    selects.empty();
+                    selects.append($('<option></option>').val('0').html('-----Select Asset Category-----'));
+                    $.each(returndata.data, function (index, itemData) {
+
+                        //                        
+                        selects.append($('<option></option>').val(itemData.Id).html(itemData.Name));
+
+                    });
+                    selects.show('slow');
+                }
+                else {
+                    window.alert(' error : ' + returndata.message);
+                }
+
+            }
+        });
+
+    }
+    </script>
+<h2 id="breadcrumb-holder">Global Settings &gt;<span class="bc-example">
+@Html.ActionLink(Html.GetText("hq.asset.form.breadcrumb.view"), "/ListAssets")</span> &gt;
+@Html.GetText("hq.asset.form.breadcrumb.add")</h2>
+<div id="main-content-housing">
+
+@using (Html.BeginForm())
+{
+     @Html.ValidationSummary(true)
+    <div id="primary-controls">
+    <fieldset>
+    <legend>@Html.GetText("hq.asset.form.details.add")</legend>
+      <table class="detail-arrange">      
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.asset.astcode")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.Code, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.Code)
+       
+</td></tr>
+
+<tr><td style="padding-top:12px;"><strong> @Html.GetText("hq.asset.astname")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.Name, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.Name)
+       
+</td></tr>
+
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.asset.serial")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.SerialNo, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.SerialNo)
+       
+</td></tr>
+
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.asset.astno")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.AssetNo, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.AssetNo)
+       
+</td></tr>
+
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.asset.capacity")
+        </strong></td><td>
+        
+            @Html.EditorFor(model => model.Capacity, new { @id = "Name" })
+            @Html.ValidationMessageFor(model => model.Capacity)
+       
+</td></tr>
+
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.asset.aststatus")
+        </strong></td><td>
+        
+            @Html.DropDownListFor(model => model.AssetStatusId, new SelectList(ViewBag.AssetStatusList, "Key", "Value"), "-----Select Asset Status-----")
+            @Html.ValidationMessageFor(model => model.AssetStatusId)
+       
+</td></tr>
+
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.asset.asttype")
+        </strong></td><td>
+        
+            @Html.DropDownListFor(model => model.AssetTypeId, new SelectList(ViewBag.AssetTypeList, "Key", "Value"), "-----Select Asset Type-----")
+            @Html.ValidationMessageFor(model => model.AssetStatusId)
+       
+</td></tr>
+
+<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.asset.astcategory")
+        </strong></td><td>      
+                    <select id="AssetCategoryId" style="display:block" name="AssetCategoryId" > <option value="0">---Select Asset Type First---</option></select>
+  
+            @*Html.DropDownListFor(model => model.AssetCategoryId, new SelectList(ViewBag.AssetCategoryList, "Key", "Value"), "-----Select Asset Category-----")*@
+            @Html.ValidationMessageFor(model => model.AssetCategoryId)     
+</td></tr>
+
+</table>
+    </fieldset>
+    <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            <input name="Create" type="reset" value="Clear" class="button-style-one"/>
+            
+
+        </fieldset>
+        </div>
+}
+</div>

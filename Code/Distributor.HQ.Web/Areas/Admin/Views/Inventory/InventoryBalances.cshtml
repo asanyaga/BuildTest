@@ -1,0 +1,87 @@
+﻿@model Distributr.HQ.Lib.ViewModelBuilders.Reports.InventoryReport.ViewModel.InventoryReportViewModel
+@{
+    ViewBag.Title = "InventoryBalances";
+}
+<h2>
+    Warehouse Inventory</h2>
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+@using (Html.BeginForm("InventoryBalances", "Inventory"))
+{
+    
+        <table>
+            <tr>
+                <td>
+                Filter By
+                </td>
+                <td>All 
+                
+                Distributor 
+                @Html.RadioButton("filterby", 1, true) 
+                Distribtor Salesman
+                @Html.RadioButton("filterby", 2)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        Distributor
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.DistributorId, new SelectList(ViewBag.DistributorList, "Key", "Value"), "<-----Select Distributor----->")
+                    </div>
+                </td>
+                <td>
+                    <input type="submit" value="Filter" name="srch" class="button" />
+                </td>
+            </tr>
+        </table>
+   
+   
+   
+    <br />
+    
+}
+<table>
+    <tr>
+        <th>
+            Product Description
+        </th>
+        @*<th>Product Id</th>*@
+        <th>
+            Value
+        </th>
+        <th>
+            Balance
+        </th>
+        @* <th>CostCenter Id</th>*@
+        <th>
+            CC Description
+        </th>
+        <th>CC Type</th>
+    </tr>
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>@item.ProductDescription
+            </td>
+            @*<td>@item.ProductId</td>*@
+            <td>@item.Value
+            </td>
+            <td>@item.Balance
+            </td>
+            @* <td>@item.CostCentreId </td>*@
+            <td>@item.CostCentreDescription
+            </td>
+            <td>@item.CostCentreType</td>
+            <td>
+                @Html.ActionLink("Inventory Transactions", "InventoryTransactions", new { item.CostCentreId, item.ProductId })
+                | @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+    }
+</table>

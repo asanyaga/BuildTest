@@ -1,0 +1,19 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CostCenter.TerritoryViewModel
+
+@{
+    ViewBag.Title = "DetailsTerritory";
+}
+
+<h2>DetailsTerritory</h2>
+
+<fieldset>
+    <legend>TerritoryViewModel</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditTerritory", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

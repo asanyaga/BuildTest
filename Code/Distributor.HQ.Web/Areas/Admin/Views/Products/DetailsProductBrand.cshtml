@@ -1,0 +1,25 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.AdminProductBrandViewModel
+
+@{
+    ViewBag.Title = "DetailsProductBrand";
+}
+
+<h2>DetailsProductBrand</h2>
+
+<fieldset>
+    <legend>AdminProductBrandViewModel</legend>
+
+    <div class="display-label">Code</div>
+    <div class="display-field">@Model.Code</div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">@Model.Description</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditProductBrand", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "ListProductBrands")
+</p>
+

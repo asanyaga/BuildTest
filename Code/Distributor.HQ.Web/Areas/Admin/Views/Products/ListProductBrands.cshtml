@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.AdminProductBrandViewModel>
+
+@{
+    ViewBag.Title = "ListProductBrands";
+}
+
+<h2>ListProductBrands</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateProductBrand")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Code
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           @* @Html.ActionLink("Edit", "EditProductBrand", new { id=item.Id }) |*@
+            @Html.ActionLink("Details", "DetailsProductBrand", new { id=item.Id }) |
+           @* @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+        </td>
+        <td>
+            @item.Code
+        </td>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Description
+        </td>
+    </tr>
+}
+
+</table>
+

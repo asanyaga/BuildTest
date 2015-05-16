@@ -1,0 +1,140 @@
+﻿@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.Paging
+@model Distributr.Core.Domain.Transactional.DocumentEntities.OrderDocumentEntities.MainOrder
+@{
+    ViewBag.Title = "OrderDetails";
+}
+
+<h2 id="breadcrumb-holder">@Html.GetText("hq.orders.breadcrumb") &gt; @Html.GetText("hq.orders.listing.breadcrumb") &gt; @Html.GetText("hq.orders.listing.items.breadcrumb")</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">@Html.GetText("hq.orders.listing.items.heading")</h2>
+    <script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    
+    @using(Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Line Items</legend>
+            <table>
+                <tr>
+                    <td>
+                        <span><strong>Order ID: &nbsp;</strong></span>
+                        @Html.LabelForModel(Model.DocumentReference)
+                    </td>
+                    <td>
+                        <span><strong>Date: &nbsp;</strong></span>
+                            @Html.LabelForModel(Model.DocumentDateIssued.ToShortDateString())
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 15px">
+                        <span><strong>Status &nbsp;</strong></span>
+                        @Html.LabelForModel(Model.OrderStatus.ToString())
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 15px">
+                        <span><strong>Sale Discount &nbsp;</strong></span>
+                        @Html.Label(Model.SaleDiscount.ToString())
+                    </td>
+                    <td style="padding-top: 15px">
+                        <span><strong>Paid Amount &nbsp;</strong></span>
+                        @Html.LabelForModel(Model.PaidAmount.ToString())
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 15px">
+                        <span><strong>Ship to Address &nbsp;</strong></span>
+                        @Html.LabelForModel(Model.ShipToAddress)
+                    </td>
+                    <td style="padding-top: 15px">
+                        <span><strong>Comment &nbsp;</strong></span>
+                        @Html.LabelForModel(Model.Note)
+                    </td>
+                </tr>
+            </table>
+            
+            <div>
+                @if(Model.ItemSummary.Count >=0)
+                {
+                    <table width="800px" id="tablesorter-demo" class="tablesorter">
+                        <thead>
+                            <tr>
+                                <th align="center">
+                                    @Html.GetText("hq.orders.product")
+                                </th>
+                                <th align="center">
+                                    @Html.GetText("hq.orders.quantity")
+                                </th>
+                                <th align="center">
+                                    @Html.GetText("hq.orders.value")
+                                </th>
+                                <th align="center">
+                                    @Html.GetText("hq.orders.productdiscount")
+                                </th>
+                                <th align="center">
+                                    @Html.GetText("hq.orders.approvedquantity")
+                                </th>
+                                 <th align="center">
+                                    @Html.GetText("hq.orders.lineitemtype")
+                                </th>
+                                <th align="center">
+                                    @Html.GetText("hq.orders.totalnet")
+                                </th>
+                                <th align="center">
+                                    @Html.GetText("hq.orders.vatvalue")
+                                </th>
+                                <th align="center">
+                                    @Html.GetText("hq.orders.totalvat")
+                                </th>
+                                <th align="center">
+                                    @Html.GetText("hq.orders.totalgross")
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model.ItemSummary)
+                            {
+                                <tr>
+                                    <td align="left">
+                                        @item.Product.Description
+                                    </td>
+                                    <td align="left">
+                                        @String.Format("{0:F}", item.Qty)
+                                    </td>
+                                    <td align="left">
+                                        @String.Format("{0:F}", item.Value)
+                                    </td>
+                                    <td align="left">
+                                        @String.Format("{0:F}", item.ProductDiscount)
+                                    </td>
+                                    <td align="left">
+                                        @String.Format("{0:F}", item.ApprovedQuantity)
+                                    </td>
+                                    <td align="left">
+                                        @String.Format("{0:F}", item.LineItemType)
+                                    </td>
+                                    <td align="left">
+                                        @String.Format("{0:F}", item.TotalNet)
+                                    </td>
+                                    <td align="left">
+                                        @String.Format("{0:F}", item.VatValue)
+                                    </td>
+                                    <td align="left">
+                                        @String.Format("{0:F}", item.TotalVat)
+                                    </td>
+                                    <td align="left">
+                                        @String.Format("{0:F}", item.TotalGross)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </fieldset>
+    }
+</div>

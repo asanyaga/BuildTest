@@ -1,0 +1,96 @@
+﻿@*@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.Orders.OrderViewModel>*@
+@model IPagedList<Distributr.HQ.Lib.ViewModels.Admin.Orders.OrderViewModel>
+
+@using Distributr.HQ.Lib.ViewModels
+@using Distributr.HQ.Lib.Paging
+@using MvcContrib.UI.Pager
+@{ViewBag.Title = "PendingDeliveries";}
+
+
+
+<h2 id="breadcrumb-holder">ORDERS &amp; Distributor Orders &gt; Pending Deliveries</h2>
+ <div id="main-content-housing">
+ <h2 class="page-header">Delivered Purchase Orders Listing</h2>
+
+     @*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+     <script type="text/javascript">
+         $(function() {
+             $("table.tablesorter").tablesorter*({ widthFixed: true, sortList:[[5,1]] });
+         });
+
+     </script>
+
+     <table id="tablesorter-demo" class="tablesorter">
+    <thead>
+    <tr>
+        <th align="center">
+            Issued On Behalf Of
+        </th>
+        <th align="center">
+            Status
+        </th>
+        <th align="center">
+            Net Value
+        </th>
+        <th align="center">
+            Vat
+        </th>
+        <th align="center">
+            Gross
+        </th>
+        <th align="center">
+            Doc Ref
+        </th>
+        @*<th>
+            Process
+        </th>*@
+    </tr></thead><tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td align="left">
+                @item.isseuedOnBehalf
+            </td>
+            <td align="right">
+                @item.status
+            </td>
+            <td align="right">
+                @string.Format("{0:F}", item.net)
+            </td>
+            <td align="right">
+                @string.Format("{0:F}", item.vat)
+            </td>
+            <td align="right">@string.Format("{0:F}", item.gross)
+            </td>
+            <td align="right">
+                @item.documentReference
+            </td>
+           @* <td>
+                @Html.ActionLink("Process", "Index", "ApproveOrder", new { orderId = item.id }, null)
+            </td>*@
+        </tr>
+    }</tbody>
+
+</table>
+
+<div>
+@*    <table cellpadding="1" cellspacing="1">
+        <tr align="center">
+            <td>
+                @Html.Raw(Html.Pager(Model.orderPagedList).ToString())
+            </td>
+        </tr>
+    </table>*@
+    @*@for (int p = 1; p < Model.TotalPages + 1; p++)
+{
+    string selected = (p == Model.CurrentPage) ? "selected" : String.Empty;
+<a href="?page=@p" title="Go to page @p of results">@p</a>
+}*@
+    @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount,new {itemsperpage = ViewModelBase.ItemsPerPage })
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>
+</div>

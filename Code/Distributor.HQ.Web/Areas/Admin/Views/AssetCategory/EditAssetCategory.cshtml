@@ -1,0 +1,51 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.AssetViewModel.AssetCategoryViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.assetcat.form.title.edit");
+}
+
+<p style="color:Red;">@ViewBag.msg</p>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+@Html.ActionLink(Html.GetText("hq.assetcat.form.breadcrumb.view"), "/ListAssetCategories")</span> &gt;
+@Html.GetText("hq.assetcat.form.breadcrumb.edit")</h2>
+
+<div id="main-content-housing">
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <div id="primary-controls">
+     <fieldset>
+    <legend>@Html.GetText("hq.assetcat.form.details.edit")</legend>
+                            
+        <table class="detail-arrange">        
+
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.asset.name") :</strong></td>
+       <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.Name)</span> 
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.Name)</span>      
+       </td></tr>
+
+       <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.asset.desc") :</strong></td>
+       <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.Description)</span> 
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.Description)</span>      
+       </td></tr>
+
+       <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.asset.asttype") :</strong></td>
+        <td><span class="text-box-cshtml">
+     @Html.DropDownListFor(model => model.AssetTypeId, new SelectList(ViewBag.AssetTypeList, "Key", "Value"), "----Select Asset Type----") </span> 
+           <span class="inline-error"> @Html.ValidationMessageFor(model => model.AssetTypeId)</span> 
+        </td></tr> 
+       
+           </table><!-- end of detail-arrange -->
+        </fieldset>
+    <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+    </fieldset>
+    </div><!-- end of div#pr-->
+}
+</div>
+

@@ -1,0 +1,78 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.ReturnablesViewModel
+
+@{
+    ViewBag.Title = "EditReturnables";
+}
+<div>
+    @Html.ActionLink("View Returnables", "ListReturnables")
+</div><br />
+<h2>Edit Returnables</h2>
+<br />
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend></legend>
+<table>
+        @Html.HiddenFor(model => model.Id)
+        <tr><td>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReturnableCode)
+        </div></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReturnableCode)
+            @Html.ValidationMessageFor(model => model.ReturnableCode)
+        </div></td></tr>
+        <tr><td>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Returnable)
+        </div></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Returnable)
+            @Html.ValidationMessageFor(model => model.Returnable)
+        </div></td></tr>
+        <tr><td>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div></td></tr>
+        <tr><td>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Shell)
+        </div></td><td>
+        <div class="editor-field">
+           @Html.DropDownListFor(model => model.Shell, new SelectList(ViewBag.ShellsList, "Key", "Value"), "<-------  Select Shell  ------->") 
+            @Html.ValidationMessageFor(model => model.Shell)
+        </div></td></tr>
+        
+        <tr><td>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Pricing)
+        </div></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Pricing)
+            @Html.ValidationMessageFor(model => model.Pricing)
+        </div></td></tr>
+       @* <tr><td>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsActive)
+        </div></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsActive)
+            @Html.ValidationMessageFor(model => model.IsActive)
+        </div></td></tr>*@
+ <tr><td>
+            <input type="submit" value="Save" class="button" /></td>
+            <td><input type="reset" value="Clear" class="button"/></td>
+        </tr>
+</table> 
+    </fieldset>
+}
+
+
+

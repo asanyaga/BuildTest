@@ -1,0 +1,75 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.PromotionDiscountViewModel
+
+@{
+    ViewBag.Title = "ListFOCDiscountItems";
+}
+<p>
+    @Html.ActionLink("View Promotion Products", "ListFOCDiscounts")
+</p><br />
+<h2>Promotion</h2>
+
+<p>
+    @Html.ActionLink("Add Free Promotion Product", "CreatFOCDiscountItem", new { id=@Model.Id,ProductName=@Model.ProductName})
+</p>
+<br />
+Promotion Product : @ViewBag.ProductName
+<br />
+
+<table>
+    <tr>
+       
+       
+        
+        <th>
+            Sale Quantity
+        </th>
+        <th>
+            Free Product
+        </th>
+        <th>
+            Free Quantity
+        </th>
+        
+        
+        <th>
+            Effective Date
+        </th> @*<th></th>*@
+    </tr>
+
+@foreach (var item in Model.CurrentPageItems) {
+    <tr>
+        
+       
+       
+        <td>
+            @item.ParentProductQuantity
+        </td>
+        <td>
+            @item.FreeProductName
+        </td>
+        <td>
+            @item.FreeOfChargeProductQuantity
+        </td> 
+        
+        
+       
+        <td>
+            @String.Format("{0:d}", item.effectiveDate)
+        </td>
+      @*  <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>*@
+    </tr>
+}
+
+</table>
+
+<div id="tnt_pagination">
+@for (int p = 1; p < Model.NoPages + 1; p++)
+{
+    string selected = (p == Model.CurrentPage) ? "selected" : String.Empty;
+<a href="?page=@p" title="Go to page @p of results">@p</a>
+}
+</div>

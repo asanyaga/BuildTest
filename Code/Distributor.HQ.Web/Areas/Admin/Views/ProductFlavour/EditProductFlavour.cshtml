@@ -1,0 +1,74 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.ProductFlavoursViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.subbrand.form.title.edit");
+}
+
+<h2 id="breadcrumb-holder">Products &amp; Pricing &gt; <span class="bc-example">
+@Html.ActionLink(Html.GetText("hq.subbrand.form.breadcrumb.view"), "/ListProductFlavours")</span> &gt; 
+@Html.GetText("hq.subbrand.form.breadcrumb.edit")</h2>
+
+<div id="main-content-housing">
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<br />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+     @Html.HiddenFor(model => model.Id)
+   <div id="primary-controls">
+    <fieldset>
+         <legend>@Html.GetText("hq.subbrand.form.details.edit")</legend>
+              
+
+        <table class="detail-arrange">
+        <tr>
+        
+        <td style="padding-top:12px;"><strong>@Html.GetText("hq.subbrand.form.brand")</strong></td>
+       
+       <td>
+         <div class="editor-field">
+            @Html.DropDownListFor(model => model.BrandId, new SelectList(ViewBag.BrandList, "Key", "Value"), "------Select Brand------")
+            @Html.ValidationMessageFor(model => model.BrandId)
+        </div>
+        </td></tr>
+        <tr>
+        
+           <td style="padding-top:12px;"><strong>@Html.GetText("hq.subbrand.form.code")</strong>
+       </td><td>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Code, new { @disabled = "disabled", @readonly = "readonly" })
+            @Html.HiddenFor(model => model.Code)
+        </div>
+</td></tr><tr>
+        
+           <td style="padding-top:12px;"><strong>@Html.GetText("hq.subbrand.form.name")</strong>
+       </td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div></td>
+</tr><tr>
+      
+           <td style="padding-top:12px;"><strong>@Html.GetText("hq.subbrand.form.description")</strong>
+       </td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div></td>
+</tr></table></fieldset>
+        <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+           
+            
+
+        </fieldset>
+        </div>
+}
+
+</div>
+
+
+

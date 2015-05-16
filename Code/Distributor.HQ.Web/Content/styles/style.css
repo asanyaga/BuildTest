@@ -1,0 +1,32 @@
+﻿*
+{
+    margin:0 43px 0 0;
+}
+
+body
+{    
+    font-family:Verdana;
+    font-size:10pt;
+    background-color:#eeeeee;
+ 
+}
+
+#content
+{
+    padding:10px;
+    border:0px solid red;
+}
+
+input.field
+{
+    width:110px;
+    border:1px solid black;
+    padding:1px;
+    background-color:#fff;
+}
+
+.msg
+{
+    display:none;    
+    padding:10px;
+}

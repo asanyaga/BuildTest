@@ -1,0 +1,93 @@
+﻿@*@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.MarketAuditViewModels.OutletAuditViewModel>*@
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.MarketAuditViewModels.OutletAuditViewModel>
+@{
+    ViewBag.Title = "ListOutletAudits";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+}
+<div>
+<div style="float: left">
+<p>
+    @Html.ActionLink("Add Outlet Audit", "CreateOutletAudit")
+</p>
+
+<p style="color:Red;">
+@ViewBag.msg
+</p>
+</div>
+<div style="float: right"><label for="show_inactive">Show Inactive </label>@Html.CheckBox("show_inactive", showInactive)</div>
+<script type="text/javascript">
+    $("#show_inactive").change(function () {
+        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+    });
+</script>
+</div>
+<br />
+<br />
+@using (Html.BeginForm("ListOutletAudits", "OutletAudit"))
+{
+<div class="alignRight">
+<table><tr>
+<td>Search</td><td>@Html.TextBox("distName")</td>
+<td><input name="srch" type="submit" value="Search" /></td>
+<td><input name="srch" type="submit" value="Clear" /></td>
+</tr>
+</table>
+</div>
+}
+
+<div style="clear:both;"></div>
+<br />
+<h2>View Outlet Audit</h2>
+<br />
+
+<table width="700px" id="tablesorter-demo" class="tablesorter">
+    <tr>
+        
+        <th>
+            Question
+        </th>
+        <th>
+            IsActive
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @item.Question
+        </td>
+        <td>
+            @item.IsActive
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditOutletAudit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "OutletAuditDetails", new { id = item.Id }) |
+                @{
+    string active = "none";
+    string inactive = "none";
+    if (item.IsActive)
+    {
+        active = "inline";
+    }
+    else
+    {
+        inactive = "inline";
+    }    
+            }
+            <a href="@Url.Action("Deactivate", new { id = item.Id })" onclick="javascript:return confirm('Do You Want To Deactivate This CoolerType?')" style="display: @active">Deactivate</a>
+            <span style="display: @inactive">Activate</span>
+        </td>
+    </tr>
+}
+
+</table>
+<div class="pager">
+		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new {showInactive });
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>

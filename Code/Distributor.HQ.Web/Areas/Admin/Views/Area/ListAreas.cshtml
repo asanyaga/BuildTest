@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.CostCenter.AreaViewModel>
+
+@{
+    ViewBag.Title = "ListAreas";
+
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+}
+<h2>ListAreaa</h2>
+<div>
+<div style="float:left;">
+<p>
+    @Html.ActionLink("Create New Area", "CreateArea")
+</p>
+<p style="color:Red;">
+@ViewBag.msg
+</p>
+</div>
+<div style="float: right"><label for="show_inactive">Show Inactive </label>@Html.CheckBox("show_inactive", showInactive)</div>
+<script type="text/javascript">
+    $("#show_inactive").change(function () {
+        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+    });
+</script>
+</div>
+<div style="clear:both;"></div>
+<table>
+    <tr>
+        
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            isActive
+        </th><th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Description
+        </td>
+        <td>
+            @item.isActive
+        </td>
+
+             <td>
+            @{
+                    if (item.isActive == true)
+                    {   
+                        <text> @Html.ActionLink("Edit", "EditArea", new { id = item.Id })  </text>
+                        <text>|</text>
+                        <text> @Html.ActionLink("Details", "DetailsArea", new { id = item.Id })  </text>
+                        <text>|</text>
+                        <text>
+                                @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to deactivate area for " + item.Name + "')" })
+                        </text>
+                        <text>|</text>
+                        <text>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to delete area for " + item.Name + "')" })
+                        </text>
+                    }
+                    else
+                    {
+                         <text>
+                                @Html.ActionLink("Activate", "Activate", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to activate area for " + item.Name + "')" })
+                        </text>
+                
+                        <text>|</text>
+                        <text>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to delete area for " + item.Name + "')" })
+                        </text>
+                     
+                    }
+                }
+        </td>
+
+        <!--<td>
+            @*Html.ActionLink("Edit", "EditArea", new { id=item.Id }) |
+            @Html.ActionLink("Details", "DetailsArea", new { id=item.Id }) |
+            @{
+    string active = "none";
+    string inactive = "none";
+    if (item.isActive)
+    {
+        active = "inline";
+    }
+    else
+    {
+        inactive = "inline";
+    }    
+            }
+            <a href="@Url.Action("DeActivate", new { id = item.Id })" onclick="javascript:return confirm('Do You Want To Deactive This Area?')" style="display: @active">DeActivate</a>
+            <!-- <a href="@Url.Action("DeActivate", new { id = item.Id })" onclick="javascript:return confirm('Do You Want To Deactive This Area?')" style="display: @inactive">Activate</a> -->
+            <span style="display: *@inactive">Activate</span>
+        </td>-->
+   
+    </tr>
+}
+
+</table>
+

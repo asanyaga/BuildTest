@@ -1,0 +1,32 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.ShellsViewModel
+
+@{
+    ViewBag.Title = "ShellDetails";
+}
+<p>
+    @Html.ActionLink("Edit Shell", "EditShells", new { id=Model.Id }) |
+    @Html.ActionLink("View Shells", "ListShells")
+</p>
+<h2>Shell Details</h2>
+
+<fieldset>
+    <legend></legend>
+    <table><tr><td>
+    <div class="display-label">ShellCode</div></td><td>
+    <div class="display-field">@Model.ShellCode</div></td></tr>
+    <tr><td>
+    <div class="display-label">BottlesPerShell</div></td><td>
+    <div class="display-field">@Model.BottlesPerShell</div></td></tr>
+    <tr><td>
+    <div class="display-label">ShellPrice</div></td><td>
+    <div class="display-field">@String.Format("{0:F}", Model.ShellPrice)</div></td></tr>
+    <tr><td>
+    <div class="display-label">Description</div></td><td>
+    <div class="display-field">@Model.Description</div></td></tr>
+    <tr><td>
+    <div class="display-label">IsActive</div></td><td>
+    <div class="display-field">@Model.IsActive</div></td></tr>
+    </table> 
+</fieldset>
+
+

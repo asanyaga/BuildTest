@@ -1,0 +1,102 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Orders.OrderViewModel
+@using MvcContrib.UI.Pager
+@{
+    ViewBag.Title = "ListAllOrders";
+    
+}
+<h2>
+    ListAllOrders</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm("ListAllOrders", "Orders"))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Order</legend>@*        @Html.HiddenFor(model => model.id)*@
+        <div class="editor-label">
+            @Html.LabelFor(model => model.distributor)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.distributor,
+      new SelectList(ViewBag.DistributorList, "Key", "Value"))
+            @Html.ValidationMessageFor(model => model.distributor)
+        </div>
+        <p>
+            <input type="submit" value="Filter" />
+        </p>
+    </fieldset>
+}
+@using (Html.BeginForm("ListAllOrders", "Orders"))
+{
+    <input type="hidden" name="distributor" value="0" />
+      
+    <p>
+        <input type="submit" value="Load All" />
+    </p>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<br />
+Orders
+<br />
+<table width="90%" cellspacing="1" cellpadding="2">
+    <tr>
+        <th align="center">
+            Issued On Behalf Of**
+        </th>
+        <th align="center">
+            Status
+        </th>
+        <th align="center">
+            Net Value
+        </th>
+        <th align="center">
+            Vat
+        </th>
+        <th align="center">
+            Gross
+        </th>
+        <th align="center">
+            Doc Ref
+        </th>
+        <th>
+            Edit
+        </th>
+    </tr>
+    @foreach (var item in Model.orderPagedList)
+    {
+        <tr>
+            <td align="left">
+                @item.isseuedOnBehalf
+            </td>
+            <td align="right">
+                @item.status
+            </td>
+            <td align="right">
+                @item.net
+            </td>
+            <td align="right">
+                @item.vat
+            </td>
+            <td align="right">@string.Format("{0:F}", item.gross)
+            </td>
+            <td align="right">
+                @item.documentReference
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "View", "ApproveOrder", new { orderId = item.id }, null);
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<div>
+    <table cellpadding="1" cellspacing="1">
+        <tr align="center">
+            <td>
+                @Html.Raw(Html.Pager(Model.orderPagedList).ToString())
+            </td>
+        </tr>
+    </table>
+</div>

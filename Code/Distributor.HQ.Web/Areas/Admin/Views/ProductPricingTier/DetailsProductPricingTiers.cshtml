@@ -1,0 +1,19 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.ProductPricingTierViewModel
+
+@{
+    ViewBag.Title = "DetailsProductPricingTiers";
+}
+
+<h2>DetailsProductPricingTiers</h2>
+
+<fieldset>
+    <legend>ProductPricingTierViewModel</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditProductPricingTier", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

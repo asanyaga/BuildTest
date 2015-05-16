@@ -1,0 +1,159 @@
+﻿@*@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.DistributorTargetsViewModel.TargetViewModel>*@
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.DistributorTargetsViewModel.TargetViewModel>
+@{
+    ViewBag.Title = "ListTargets";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string searchText = ViewBag.searchParam;
+}
+<h2 id="breadcrumb-holder">Global Settings &gt; Distributor Targets</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">Targets Listing</h2>
+    <div id="primary-controls">
+        @*<fieldset>
+                            <legend>Import From Excel</legend>
+                            	 <div class="button-style-two-cshtml">@Html.ActionLink("Import From Excel", "ImportBrands")</div>
+                                </fieldset>*@
+    </div>
+    <!-- end of div#primary-controls -->
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            ViewBag.msg
+        </div> 
+        using (@Html.BeginForm())
+        {
+        @Html.ValidationSummary()
+        }
+    }
+    else if (TempData["msg"] != null)
+    {
+        <div class="notice-notification">
+            @TempData["msg"]
+        </div>
+    }
+    @using (Html.BeginForm("ListTargets", "Target"))
+    {
+
+        <fieldset>
+            <legend>Search For Target</legend>
+            <div class="criteria-div">
+                <span class="text-box-cshtml">@Html.TextBox("searchText", searchText)</span>
+                <input name="srch" type="button" value="Search" class="button-style-one" id="search" />
+                <input name="srch" type="button" value="Clear" class="button-style-one" id="clear" />
+            </div>
+            <div class="show-inactive">
+                Show Inactive @Html.CheckBox("show_inactive", showInactive)
+                <script type="text/javascript">
+
+
+                    $("#show_inactive").change(function (e) {
+
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+                    });
+
+                    $('#search').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&searchText=" + $('#searchText').val();
+
+                    });
+
+                    $('#clear').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked');
+
+                    });
+
+                </script>
+            </div>
+            <br class="clear-all" />
+        </fieldset>
+    }
+    <fieldset class="actions">
+        <legend>Actions</legend>
+        <div class="button-style-two-cshtml">
+            @Html.ActionLink("Add Distributor Target", "CreateTarget")
+        </div>
+    </fieldset>
+    @try
+    {
+        <div class="table-container">
+            <table width="700px" id="tablesorter-demo" class="tablesorter">
+                <thead>
+                    <tr>
+                        <th>Distributor
+                        </th>
+                        <th>Target Month
+                        </th>
+                        <th>Target
+                        </th>
+                        <th>Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.CostCentreName
+                            </td>
+                            <td>
+                                @item.PeriodName
+                            </td>
+                            <td>
+                                @String.Format("{0:0,0.00}", item.TargetValue)
+                            </td>
+                            <td>
+                                @*           
+           @{
+    string active = "none";
+    string inactive = "none";
+    if (item.isActive)
+    {
+        active = "inline";
+    }
+    else
+    {
+        inactive = "inline";
+    }    
+            }
+            <a href="@Url.Action("Deactivate", new { id = item.Id })" onclick="javascript:return confirm('Do You Want To Deactivate This Target?')" style="display: @active">Deactivate</a>
+            <span style="display: @inactive">Activate</span>*@
+                                @{
+                        if (item.isActive == true)
+                        {   <text> @Html.ActionLink("Edit", "EditTarget", new { id = item.Id }) </text>
+                                    <text>|</text>
+                                    @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to deactivate target for " + item.PeriodName + "')" })
+                                    <text>|</text>
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to delete target for " + item.PeriodName + "')" })
+                        }
+                        else
+                        {
+                                    @Html.ActionLink("Activate", "Activate", new { id = item.Id })
+                                    <text>|</text>
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to delete target for " + item.PeriodName + "')" })
+                        }
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pager">
+            @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new { showInactive, searchText=searchText })
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+        </div>
+    }
+    catch (Exception exx)
+    {
+        ViewBag.msg = exx.Message;
+    }
+</div>

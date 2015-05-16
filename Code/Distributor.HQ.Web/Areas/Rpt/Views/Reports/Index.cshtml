@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = ViewBag.ReportName;
+}
+
+<h2 id="breadcrumb-holder">
+	Dashboard &nbsp; &gt; &nbsp;	
+	<span class="bc-example">
+		@Html.ActionLink("Reports", "Reports", new { area = "", controller = "Home" }) &nbsp; &gt; &nbsp;
+	  @ViewBag.ReportName
+	</span> 
+</h2>
+<div id="main-content-report">
+@using Distributr.HQ.Lib.Util
+<div>
+    <iframe src="@Html.MyResource("DistributrReports/Report.aspx")?reportName=@ViewBag.ReportName" ></iframe>
+
+</div>
+</div>

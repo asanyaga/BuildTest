@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.RouteViewModel.AdminRouteViewModel>
+@{
+    ViewBag.Title = "ListRoutes";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+}
+<h2>
+    ListRoutes</h2>
+<div>
+    <div style="float: left">
+        <p>
+            @Html.ActionLink("Create New", "CreateRoute")
+        </p>
+        <p style="color: Red;">
+            @ViewBag.msg
+        </p>
+    </div>
+    <div style="float: right">
+        <label for="show_inactive">
+            Show Inactive
+        </label>@Html.CheckBox("show_inactive", showInactive)</div>
+    <script type="text/javascript">
+        $("#show_inactive").change(function () {
+            window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+        });
+    </script>
+</div>
+<div style="clear: both;">
+</div>
+<table>
+    <tr>
+        <th>
+            Route Name
+        </th>
+        <th>
+            Code
+        </th>
+        <th>
+            Distributor Name
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Details
+        </th>
+        <th>
+            Deactivate
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distributor.Name)
+            </td>
+           
+             <td>
+            @{
+                    if (item.isActive == true)
+                    {   <text> @Html.ActionLink("Edit", "EditRoute", new { id = item.Id })  </text>
+                        <text>|</text>
+                        <text> @Html.ActionLink("Details", "DetailsRoutes", new { id = item.Id })  </text>
+                        <text>|</text>
+                        <text>
+                                @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to deactivate route for " + item.Name + "')" })
+                        </text>
+                        <text>|</text>
+                        <text>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to delete route for " + item.Name + "')" })
+                        </text>
+                    }
+                    else
+                    {
+                         <text>
+                                @Html.ActionLink("Activate", "Activate", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to activate route for " + item.Name + "')" })
+                        </text>
+                
+                        <text>|</text>
+                        <text>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to delete route for " + item.Name + "')" })
+                        </text>
+                     
+                    }
+                }
+        </td>
+
+           <!-- 
+            <td>
+                @*Html.ActionLink("Edit", "EditRoute", new { id = item.Id }) |
+            </td>
+            <td>
+                @Html.ActionLink("Details", "DetailsRoutes", new { id = item.Id }) |
+            </td><td>
+                @{
+        string active = "none";
+        string inactive = "none";
+        if (item.isActive)
+        {
+            active = "inline";
+        }
+        else
+        {
+            inactive = "inline";
+        }    
+                }
+                <a href="@Url.Action("DeActivate", new { id = item.Id })" onclick="javascript:return confirm('Do You Want To Deactive This Route?')" style="display: @active">
+                    DeActivate</a> <span style="display: *@inactive">Activate</span>
+
+            </td>-->
+
+        </tr>
+    }
+</table>

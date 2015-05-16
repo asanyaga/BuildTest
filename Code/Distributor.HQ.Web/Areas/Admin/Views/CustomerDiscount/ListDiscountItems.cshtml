@@ -1,0 +1,49 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.CustomerDiscountViewModel
+
+@{
+    ViewBag.Title = "ListDiscountItems";
+}
+<p>
+    @Html.ActionLink("View Customer Discounts", "/ListCustomerDiscounts")
+</p>
+
+<h2>View Discount Products</h2>
+
+
+<p>
+    @Html.ActionLink("Add Discount Products", "/CreateDiscountItems", new { id = @Model.id })
+</p>
+<table width="650px" id="tablesorter-demo" class="tablesorter">
+    <tr>
+        
+        
+        <th>
+           Effective Date
+        </th>
+        <th>
+            Discount Rate
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.DiscountItems) {
+    <tr>
+        
+        
+        <td>
+            @item.effectiveDate
+        </td>
+        <td>
+            @String.Format("{0:F}", item.discountRate)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>*@
+    </tr>
+}
+
+</table>
+

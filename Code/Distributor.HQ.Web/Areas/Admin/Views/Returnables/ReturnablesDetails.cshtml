@@ -1,0 +1,38 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.ReturnablesViewModel
+
+@{
+    ViewBag.Title = "ReturnablesDetails";
+}
+<p>
+    @Html.ActionLink("Edit Returnables", "EditReturnables", new { id = Model.Id }) |
+    @Html.ActionLink("View Returnables", "ListReturnables")|
+</p><br />
+<h2>Returnables Details</h2>
+<br />
+<fieldset>
+    <legend></legend>
+<table><tr><td>
+    <div class="display-label">ReturnableCode</div></td><td>
+    <div class="display-field">@Model.ReturnableCode</div></td></tr>
+    <tr><td>
+    <div class="display-label">Returnable</div></td><td>
+    <div class="display-field">@Model.Returnable</div></td></tr>
+    <tr><td>
+    <div class="display-label">Description</div></td><td>
+    <div class="display-field">@Model.Description</div></td></tr>
+    <tr><td>
+    <div class="display-label">Shell</div></td><td>
+    <div class="display-field">@Model.Shell</div></td></tr>
+    <tr><td>
+    <div class="display-label">ShellName</div></td><td>
+    <div class="display-field">@Model.ShellName</div></td></tr>
+    <tr><td>
+    <div class="display-label">Pricing</div></td><td>
+    <div class="display-field">@String.Format("{0:F}", Model.Pricing)</div></td></tr>
+    <tr><td>
+    <div class="display-label">IsActive</div></td><td>
+    <div class="display-field">@Model.IsActive</div></td></tr>
+    </table> 
+</fieldset>
+
+

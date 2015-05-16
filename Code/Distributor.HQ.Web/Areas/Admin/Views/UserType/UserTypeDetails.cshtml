@@ -1,0 +1,22 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.User.UserTypeViewModel
+
+@{
+    ViewBag.Title = "UserType Details";
+}
+
+<h2>UserTypeDetails</h2>
+
+<fieldset>
+    <legend>UserTypeViewModel</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">@Model.Description</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditUserType", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "ListUserTypes")
+</p>
+

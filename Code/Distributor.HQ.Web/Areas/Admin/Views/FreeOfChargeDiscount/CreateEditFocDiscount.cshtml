@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.Product.FreeOfChargeDiscountViewModel>
+
+@{
+    ViewBag.Title = "CreateEditFocDiscount";
+}
+
+<h2>CreateEditFocDiscount</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            isChecked
+        </th>
+        <th>
+            ProductRef
+        </th>
+        <th>
+            isActive
+        </th>
+        <th>
+            BrandId
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+        <td>
+            @item.isChecked
+        </td>
+        <td>
+            @item.ProductRef
+        </td>
+        <td>
+            @item.isActive
+        </td>
+        <td>
+            @item.BrandId
+        </td>
+    </tr>
+}
+
+</table>
+

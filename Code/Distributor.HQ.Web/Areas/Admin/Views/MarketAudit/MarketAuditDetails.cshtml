@@ -1,0 +1,29 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.MarketAuditViewModels.MarketAuditViewModel
+
+@{
+    ViewBag.Title = "MarketAuditDetails";
+}
+<p>
+    @Html.ActionLink("Edit Market Audit", "EditMarketAudit", new { id=Model.Id }) |
+    @Html.ActionLink("View Market Audits", "ListMarketAudit")|
+</p><br />
+<h2>Market Audit Details</h2>
+<br />
+<fieldset>
+    <legend></legend>
+    <table><tr><td>
+    <div class="display-label">Question</div></td><td>
+    <div class="display-field">@Model.Question</div></td></tr>
+    <tr><td>
+    <div class="display-label">StartDate</div></td><td>
+    <div class="display-field">@String.Format("{0:g}", Model.StartDate)</div></td></tr>
+    <tr><td>
+    <div class="display-label">EndDate</div></td><td>
+    <div class="display-field">@String.Format("{0:g}", Model.EndDate)</div></td></tr>
+    <tr><td>
+    <div class="display-label">IsActive</div></td><td>
+    <div class="display-field">@Model.IsActive</div></td></tr>
+    </table>
+</fieldset>
+
+

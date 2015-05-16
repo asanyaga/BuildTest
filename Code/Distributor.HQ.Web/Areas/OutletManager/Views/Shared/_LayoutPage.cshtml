@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>@ViewBag.Title</title>
+        @using Agrimanagr.HQ.Models        @using SquishIt.Framework
+        @using Distributr.HQ.Lib.Helper
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <link href="@Url.Content("~/Content/styles/reset.css")" rel="stylesheet" type="text/css" />
+      
+    <link href="@Url.Content("~/content/backgrid/backgrid.css")" rel="stylesheet" media="screen">
+    <link href="@Url.Content("~/content/backgrid/backgrid-paginator.css")" rel="stylesheet" media="screen">
+    <link href="@Url.Content("~/content/backgrid/backgrid-filter.css")" rel="stylesheet" media="screen">
+    <link href="@Url.Content("~/content/magnific-popup.css")" rel="stylesheet" media="screen">
+        <link href="@Url.Content("~/content/toastr.min.css")" rel="stylesheet" media="screen">
+       
+        @MvcHtmlString.Create(
+            Bundle.Css()
+                .Add("~/Content/styles/main.css")
+                .Add("~/Content/styles/Site.css")
+                .Add("~/Content/styles/layout.css")
+                .Add("~/Content/styles/tabs.css")                                        
+                .Add("~/Content/styles/main-menu.css")
+                .Add("~/Content/styles/MenuMatic.css")
+                .Add("~/Content/styles/tabs.css")
+                .Add("~/Content/styles/tables.css")
+                .Add("~/Content/themes/base/jquery-ui.css")
+                .Add("~/Content/jquery.ui.datepicker.css")
+                .ForceRelease()
+                .Render("~/Content/styles/combined_#.css"))
+
+
+        @MvcHtmlString.Create(
+            Bundle.JavaScript()
+ 
+                .Add("~/Content/js/jquery-1.4.2.min.js")
+                .Add("~/Content/js/jquery.tablesorter.js")
+                .Add("~/Content/js/tablesort.js")
+                .Add("~/Content/js/eye.js")
+                .Add("~/Content/js/utils.js")
+                .Add("~/Content/js/tabs.js")
+                .ForceRelease()
+                .Render("~/Content/js/combined_#.js")
+             )
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#disabled").click(function (e) {
+                    //jscript never reaches here on load or click
+                    //yes, the name of the control is correct.
+                    e.preventDefault();
+                    return false;
+                });
+            });
+        </script>
+
+        <script src="@Url.Content("~/Content/js/main-menu-drop-down.js")" type="text/javascript"></script>
+    @*    <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsNzaVMs9tyT5mPz2jWGjUtRlOAVyLfa8&sensor=false">
+</script>*@
+
+        @if ( IsSectionDefined("Style"))
+        {
+            @RenderSection("Style");
+        }
+        else
+        {
+            <style type="text/css">
+                </style>
+        }
+
+    </head>
+
+
+<body>
+
+	<div id="container">
+    
+    	<div id="header" class="print-hide">
+      		
+            <img width="389" height="55" src="@Html.GetLogo()" />
+
+           
+            <p id="logged-in-as">
+            	logged In As <strong>@ViewBag.logged</strong> <a href="@Url.Content("~/account/logoff")">(Logout)</a>
+            </p>
+        </div><!-- end of div#header -->
+        
+        <div id="main-panel">
+        <ul id="nav2">
+        	<li><a href="@Url.Content("~/outletmanager")" id="dashboard-btn"><span class="img-replace">Dashboard</span></a></li>
+        </ul>
+        	<!-- BEGIN Menu -->
+    <div style="position:absolute; right:5px;">
+	    <ul id="nav">
+            <li><a href="#" id="help-btn"><span class="img-replace">Account</span></a></li>
+        </ul>
+	</div>
+		<!-- END Menu -->
+
+        </div><!-- end of div#main-panel -->
+        
+        <div id="content-container">
+        	
+      @using Distributr.HQ.Lib.ViewModelBuilders.Admin.Transaction
+     
+            <table cellpadding="0" cellspacing="0" id="main-layout-container">
+            	<tr>
+                	<td id="sidebar" class="print-hide">
+                    <div id="sidebar-wrapper">
+                        <h2 id="quick-links-header">Quick Links</h2>
+                        <ul id="quick-links-list">
+                            <li><a href="@Url.Content("#")"> <span class="icons orders-pending"></span> Pending Confirmation</a></li>
+                        </ul>
+                        
+                        <h2 id="main-menu-header">Main Menu</h2>
+                        <div id="firstpane" class="menu_list"> <!--Code for menu starts here-->
+		                    <p class="menu_head"> <span class="icons orders"></span>Orders</p>
+                            <div class="menu_body">
+                                <a href="@Url.Content("#")">Add Outlet Order</a>
+                                <a href="@Url.Content("~/OutletManager/OutletOrder/ListAllOrders")">View Outlet Orders</a>	
+                            </div>
+                            <p class="menu_head"> <span class="icons orders"></span>Reports</p>
+	                    </div> <!--Code for menu stops here-->
+                        </div><!-- end of div#sidebar-wrapper -->
+                    </td><!-- end of div#sidebar -->
+                    <td id="main-content-section">
+                    
+                    	
+                        	@RenderBody()
+                         
+                           <div style="min-height:200px; display:block;">
+                           </div>
+                        <!-- end of div#main-content-housing -->
+                    
+                    </td><!-- end of div#main-content-section -->
+                </tr>
+            </table><!-- end of table#main-layout-container -->
+           </div> 
+        </div><!-- end of div#content-container -->
+        
+        <div id="footer"><div style="position:absolute; right:5px;">@Html.GetVersion()</div>
+        	<div id="powered-by">
+            	<p>Powered By</p>
+                <div id="virtual-city-logo">
+                	<a target="_blank" href="http://www.virtualcity.co.ke"><span class="img-replace">Virtual City Ltd | Innovation Lives Here</span></a>
+                    
+                </div><!-- end of virtual-city-logo -->
+               
+            </div><!-- end of div#powered-by -->
+        </div><!-- end of div#footer -->
+        
+   <!-- </div> end of div#container -->
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+    $("#ddlItemsPerPage").change(function (e) {
+
+        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?itemsperpage=" + $(this).val();
+    });
+
+</script>

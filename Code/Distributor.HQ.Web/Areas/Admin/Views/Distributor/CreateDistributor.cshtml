@@ -1,0 +1,129 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Distributors.DistributorViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.dist.form.title.add");
+}
+	<h2 id="breadcrumb-holder">Global Settings &nbsp; &gt;&nbsp;
+    @Html.GetText("hq.dist.breadcrumb") &nbsp;&gt; <span class="bc-example">
+    @Html.ActionLink(Html.GetText("hq.dist.form.breadcrumb.view"), "/ListDistributors")</span> &gt; 
+    @Html.GetText("hq.dist.form.breadcrumb.add")</h2>
+
+<div id="main-content-housing">
+
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<p  style="color:Red;">
+	@ViewBag.msg
+</p>
+
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+   <div id="primary-controls">
+	<fieldset>
+	<legend>@Html.GetText("hq.dist.form.details.add")</legend>			
+		<table class="detail-arrange">
+		 <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.dist.form.code")
+		</strong></td><td>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.CostCentreCode)
+			@Html.ValidationMessageFor(model => model.CostCentreCode)
+		</div></td></tr>
+ <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.dist.form.name")
+		</strong></td><td>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.Name)
+			@Html.ValidationMessageFor(model => model.Name)
+		</div></td></tr>
+		<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.dist.form.owner")
+		</strong></td><td>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.Owner)
+			@Html.ValidationMessageFor(model => model.Owner)
+		</div></td></tr>
+		<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.dist.form.region")
+		</strong></td><td>
+		<div class="editor-field">
+			@Html.DropDownListFor(model => model.RegionId,
+         new SelectList(ViewBag.RegionList, "Key", "Value"), "----- None Selected -----")
+			@Html.ValidationMessageFor(model => model.RegionId)
+		</div></td></tr>
+		<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.dist.form.asm")
+		</strong></td><td>
+		<div class="editor-field">
+			@Html.DropDownListFor(model => model.ASM,
+                new SelectList(ViewBag.ASMList, "Key", "Value"), "----- Select ASM -----")
+			@Html.ValidationMessageFor(model => model.ASM)
+		</div></td></tr>
+		<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.dist.form.salesrep")
+		</strong></td><td>
+		<div class="editor-field">
+	@*     @Html.EditorFor(model => model.SalesRep )*@
+		   @Html.DropDownListFor(model => model.SalesRep,
+              new SelectList(ViewBag.SalesRepList, "Key", "Value"), "----- Select SalesRep -----")
+			@Html.ValidationMessageFor(model => model.SalesRep)
+		</div></td></tr>
+		<tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.dist.form.surveyor")
+		</strong></td><td>
+		<div class="editor-field">
+   @*     @Html.EditorFor(model => model.Surveyor  )*@
+			 @Html.DropDownListFor(model => model.Surveyor,
+        new SelectList(ViewBag.SurveyorList, "Key", "Value"), "----- Select Surveyor -----")
+			@Html.ValidationMessageFor(model => model.Surveyor)
+		</div></td></tr>
+		 <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.dist.form.account")
+	   </strong></td><td>
+		<span class="text-box-cshtml">
+			@Html.EditorFor(model => model.AccountNo)</span>
+			@Html.ValidationMessageFor(model => model.AccountNo)
+		</td></tr>
+		 <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.dist.form.vatregno")
+		</strong></td><td>
+		<span class="text-box-cshtml">
+			@Html.EditorFor(model => model.VatRegistrationNo)</span>
+			@Html.ValidationMessageFor(model => model.VatRegistrationNo)
+		</td></tr>
+		<tr>
+		<td style="padding-top:12px;"><strong>@Html.GetText("hq.dist.form.pin")
+		</strong></td><td>
+	   <span class="text-box-cshtml">
+			@Html.EditorFor(model => model.PIN)</span>
+			@Html.ValidationMessageFor(model => model.PIN)
+		</td>
+		</tr>
+		<tr>
+		<td style="padding-top:12px;">
+			<strong>@Html.GetText("hq.dist.form.paybillno")</strong>
+		</td>
+		<td>
+			<span class="text-box-cshtml">
+			@Html.EditorFor(model => model.PayBillNumber)</span>
+			@Html.ValidationMessageFor(model => model.PayBillNumber)
+		</td>
+		</tr>
+		<tr>
+		<td style="padding-top:12px;">
+			<strong>@Html.GetText("hq.dist.form.merchantno")</strong>
+		</td>
+		<td>
+			<span class="text-box-cshtml">
+			@Html.EditorFor(model => model.MerchantNumber)</span>
+			@Html.ValidationMessageFor(model => model.MerchantNumber)
+		</td>
+		</tr>
+		</table>
+		</fieldset>
+
+	   <fieldset class="actions">
+			<legend>Actions</legend>
+			<input name="Create" type="submit" value="Save" class="button-style-one"/>
+			<input name="Create" type="reset" value="Clear" class="button-style-one"/>
+		</fieldset>
+	</div>
+}
+</div>
+
+

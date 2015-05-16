@@ -1,0 +1,142 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CostCenter.EditVatClassViewModel
+
+@{
+    ViewBag.Title = "EditVat1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+	<h2 id="breadcrumb-holder">Global Settings &nbsp; &gt;&nbsp; <span class="bc-example">@Html.ActionLink("View Vat Rates", "/ListVat")</span> &gt; Add Vat Rate</h2>
+
+<div id="main-content-housing">
+ <p  style="color:Red;">
+    @ViewBag.err
+</p>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+@*<link href="@Url.Content("~/Content/jquery-ui-1.8.6.custom.css")" rel="stylesheet" type="text/css" />*@
+
+@*    <script type="text/javascript">
+        $().ready(function () {
+
+            $('input').filter('.ui-datepicker').datepicker({
+                dateFormat: 'dd-mm-yy',
+                inline: true,
+                changeMonth: true,
+                changeYear: true,
+                buttonImage: '@Url.Content("~/Content/Images/cal.gif")',
+                buttonImageOnly: true,
+                showOn: "button"
+            });
+        });
+    </script>*@
+
+    <script type="text/javascript">
+        $(function () {
+            $('.date').datepicker({
+                showStatus: true,
+                highlightWeek: true,
+                showAnim: 'scale',
+                firstDay: 6,
+                                buttonImage: '@Url.Content("~/Content/Images/cal.gif")',
+                buttonImageOnly: true,
+                showOn: "button",
+                showOptions: {
+                    origin: ['top', 'left']
+                },
+                onSelect: function () {
+
+                }
+            });
+            $('#datepicker').datepicker();
+        });
+</script>
+
+@using (Html.BeginForm("EditVat1", "listvatclass"))
+{
+    @Html.ValidationSummary(true)
+   @Html.HiddenFor(model => model.Id) 
+    <div id="primary-controls">
+    <fieldset>
+    <legend>Vat Rate</legend>
+                            
+								
+							
+					
+        <table class="detail-arrange">
+        <tr><td style="padding-top:12px;"><strong>Name</strong></td>
+        <td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div></td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>Vat Class</strong></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VatClass)
+            @Html.ValidationMessageFor(model => model.VatClass)
+        </div></td>
+</tr>  </table>
+ </fieldset>
+               
+      <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+           
+            
+
+        </fieldset>
+    </div><!-- end of div#primary-controls -->
+    
+}
+</div>
+@*<br />
+   Vat Class Lineitems
+    <br/>*@
+@*<table width="90%" cellspacing="1" cellpadding="2">
+<tr><th align="center">Rate</th><th align="center">Effective Date</th></tr>
+
+@foreach (var item in Model.VCItems)
+{
+    <tr><td align="right">@string.Format("{0:F}", item.Rate)</td><td align="right"> @item.EffectiveDate</td></tr>
+}
+</table>  
+    *@
+
+@*@using (Html.BeginForm("createvatlineitem", "listvatclass"))
+{
+    @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            Rate
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("addrate",Model.SRate)
+            @Html.ValidationMessage("addrate","*")
+            <p  style="color:Red;">
+    @ViewBag.err
+</p>
+            @ViewData["addrate"]
+            <p  style="color:Red;">
+    
+</p>
+        </div>@Html.Encode(ViewData["addrate"])
+    <div class="editor-label">
+            Effective Date
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("addeffectivedate", DateTime.Now.ToString("dd-MMM-yyyy"), new { @id = "datepicker" })
+         
+        </div>
+        <p>
+            <input type="submit" value="Save"  />
+        </p>
+   
+   <div>  
+     
+</div>  
+
+}
+*@
+
+

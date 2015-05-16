@@ -1,0 +1,28 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.DistributorTargetsViewModel.TargetPeriodViewModel
+
+@{
+    ViewBag.Title = "TargetPeriodDetails";
+}
+
+<h2>TargetPeriodDetails</h2>
+
+<fieldset>
+    @*<legend>TargetPeriodViewModel</legend>*@
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">StartDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.StartDate)</div>
+
+    <div class="display-label">EndDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.EndDate)</div>
+
+    <div class="display-label">IsActive</div>
+    <div class="display-field">@Model.IsActive</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditTargetPeriod", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "ListTargetPeriods")
+</p>
+

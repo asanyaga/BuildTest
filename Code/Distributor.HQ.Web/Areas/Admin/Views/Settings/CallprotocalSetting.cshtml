@@ -1,0 +1,87 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Agrimanagr.SettingsViewModel.CallProtocalSettingsViewModel
+@{
+    ViewBag.Title = "Call Protocol Settings";
+}
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<h2 id="breadcrumb-holder">Global Settings &gt; Call Protocol Settings
+</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">Call Protocol Settings</h2>
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+   
+        <fieldset >
+            <legend>Allow</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.AllProduct)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.AllProduct)
+                @Html.ValidationMessageFor(model => model.AllProduct)
+            </div>
+             <div class="editor-label">
+                @Html.LabelFor(model => model.Mandatory)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.Mandatory)
+                @Html.ValidationMessageFor(model => model.Mandatory)
+            </div>
+             <div class="editor-label">
+                @Html.LabelFor(model => model.Promotion)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.Promotion)
+                @Html.ValidationMessageFor(model => model.Promotion)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FOC)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.FOC)
+                @Html.ValidationMessageFor(model => model.FOC)
+            </div>
+             <div class="editor-label">
+                @Html.LabelFor(model => model.Previous)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.Previous)
+                @Html.ValidationMessageFor(model => model.Previous)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OutOfStock)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.OutOfStock)
+                @Html.ValidationMessageFor(model => model.OutOfStock)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Other)
+            </div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(model => model.Other)
+                @Html.ValidationMessageFor(model => model.Other)
+            </div>
+           
+        </fieldset>
+        <br style="clear: both"/>
+        <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Submit" type="submit" value="Save" class="button-style-one" />
+        </fieldset>
+    }
+</div>
+
+

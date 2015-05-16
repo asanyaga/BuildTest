@@ -1,0 +1,25 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.ProducerViewModel.AdminProducerViewModel
+
+@{
+    ViewBag.Title = "DetailsProducer";
+}
+
+<h2>DetailsProducer</h2>
+
+<fieldset>
+    <legend>AdminProducerViewModel</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Longitude</div>
+    <div class="display-field">@Model.Longitude</div>
+
+    <div class="display-label">Latitude</div>
+    <div class="display-field">@Model.Latitude</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditProducer", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

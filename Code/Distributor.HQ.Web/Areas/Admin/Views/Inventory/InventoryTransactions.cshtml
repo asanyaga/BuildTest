@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Distributr.HQ.Lib.ViewModelBuilders.Reports.InventoryReport.ViewModel.InventoryTransactionViewModel>
+<p>
+    @Html.ActionLink("View Inventory Balances", "InventoryBalances")
+</p>
+@{
+    ViewBag.Title = "InventoryTransactions";
+}
+
+<h2>InventoryTransactions</h2>
+
+
+<table width="900px">
+    <tr>
+        @*<th></th>*@
+        <th>
+            CostCentre Name
+        </th>
+        <th>
+            Product
+        </th>
+        <th>
+            NoItems
+        </th>
+        
+        <th>
+            DocumentType
+        </th>
+        <th>
+            DocumentId
+        </th>
+        <th>
+            DateInserted
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+        <td>
+            @item.CostCenterName
+        </td>
+        <td>
+            @item.ProductName 
+        </td>
+        <td>
+            @item.NoItems
+        </td>
+        
+        <td>
+            @item.DocumentType
+        </td>
+        <td>
+            @item.DocumentId
+        </td>
+        <td>
+            @item.DateInserted
+        </td>
+    </tr>
+}
+
+</table>
+

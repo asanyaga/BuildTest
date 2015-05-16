@@ -1,0 +1,91 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.ProductDiscountGroupViewModel
+@*@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.Product.ProductDiscountGroupViewModel>
+@using Distributr.HQ.Lib.Paging*@
+@{
+    ViewBag.Title = "ListProductGroupDiscountItems";
+}
+@*@{
+    int pageSize = 10;
+    int page = 1;
+    /* Set up parameters */
+
+    //if (!int.TryParse(Parameter.PageSize, out pageSize))
+    //{
+    //    pageSize = 6;
+    //}
+
+    //if (!int.TryParse(Request.QueryString["page"], out page))
+    //{
+    //    page = 1;
+    //}
+
+    var nodes = Model.productGroupDiscountItems.Count;
+    int totalPages = (int)Math.Ceiling((double)nodes / (double)pageSize);
+
+    /* Bounds checking */
+
+    if (page > totalPages)
+    {
+        page = totalPages;
+    }
+    else if (page < 1)
+    {
+        page = 1;
+    }
+
+}*@
+<p>
+    @Html.ActionLink("View Discount Groups", "/ListDiscountGroups")
+</p>
+<h2>
+    Product Group Discount Items</h2>
+<p>
+    @Html.ActionLink("Add Product Line Item", "CreateProductGroupDiscountItems", new { id = @Model.Id, discountGroup = @Model.DiscountGroupName })
+</p>
+<br />
+<div style="margin-left: 30px; font-size: medium; font-weight: bold; padding-top: auto;
+    color: Black;">
+    Discount Group : @Model.DiscountGroupName</div>
+<br />
+<table width="700px">
+    <tr>
+        <th>
+            Product
+        </th>
+        <th>
+            Discount Rate
+        </th>
+        <th>
+            Effective Date
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model.CurrentPageItems)
+    {
+
+        <tr>
+            <td>
+                @item.ProductName
+            </td>
+            <td>
+                @String.Format("{0:F}", item.discountRate)
+            </td>
+            <td>
+                @String.Format("{0:d}", item.EffectiveDate)
+            </td>
+            <td>
+                @* @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@ @*      @Html.ActionLink("Deactivate", "DeactivateLineItems", new { id = item.Id }) |*@
+                @* @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+            </td>
+        </tr>
+   
+    }
+</table>
+<ul>
+    @for (int p = 1; p < Model.NoPages + 1; p++)
+    {
+        string selected = (p == page) ? "selected" : String.Empty;
+        <li class="@selected"><a href="?page=@p" title="Go to page @p of results">@p</a></li> 
+    }
+</ul>

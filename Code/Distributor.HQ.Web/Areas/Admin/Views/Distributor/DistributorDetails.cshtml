@@ -1,0 +1,54 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Distributors.DistributorViewModel
+
+@{
+    ViewBag.Title = "Distributor Details";
+}
+<div> @Html.ActionLink("View Distributors", "/ListDistributors")</div><br />
+<h2>Distributor Details</h2>
+
+<fieldset>
+    <legend></legend>
+<table>
+<tr><td>
+    <div class="display-label">Name</div></td><td>
+    <div class="display-field">@Model.Name</div></td></tr>
+    <tr><td>
+    <div class="display-label">Owner</div></td><td>
+    <div class="display-field">@Model.Owner</div></td></tr>
+    <tr><td>
+    <div class="display-label">Region</div></td><td>
+    <div class="display-field">@Model.RegionName</div></td></tr>
+    <tr><td>
+    <div class="display-label">ASM</div></td><td>
+    <div class="display-field">@Model.ASM</div></td></tr>
+    <tr><td>
+    <div class="display-label">SalesRep</div></td><td>
+    <div class="display-field">@Model.SalesRep</div></td></tr>
+    <tr><td>
+    <div class="display-label">Surveyor</div></td><td>
+    <div class="display-field">@Model.Surveyor</div></td></tr>
+    <tr><td>
+    <div class="display-label">AccountNo</div></td><td>
+    <div class="display-field">@Model.AccountNo</div></td></tr>
+    <tr><td>
+    <div class="display-label">VatRegistrationNo</div></td><td>
+    <div class="display-field">@Model.VatRegistrationNo</div></td></tr>
+    <tr><td>
+    <div class="display-label">PIN</div></td><td>
+    <div class="display-field">@Model.PIN</div> </td></tr>  
+    <tr><td>
+    <div class="display-label">Paybill Number</div></td><td>
+    <div class="display-field">@Model.PayBillNumber</div> </td></tr>  
+    <tr><td>
+    <div class="display-label">Merchant Number</div></td><td>
+    <div class="display-field">@Model.MerchantNumber</div> </td></tr>  
+    <tr><td>
+    <div class="display-label">IsActive</div></td><td>
+    <div class="display-field">@Model.IsActive</div></td></tr>   
+    </table>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditDistributor", new { id = Model.id }) |
+    @Html.ActionLink("View Distributors", "/ListDistributors")
+</p>
+

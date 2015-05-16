@@ -1,0 +1,29 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Outlets.OutletViewModel
+
+@{
+    ViewBag.Title = "ImportOutlets";
+}
+
+<div><p class="add-items">
+    @Html.ActionLink("View Outlets", "/ListOutlets")</p>
+</div>
+<div style="display:none;">
+   
+</div>
+<h2 class="page-intro-header">Import Outlets</h2>
+
+
+<p  style="color:Red;">
+    @ViewBag.msg
+</p>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("ImportOutlets", "Outlet", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="editor-field">
+    <input type="file" name="file" />
+    </div>
+    <input type="submit" value="OK"  class="button-style-one"/>
+}

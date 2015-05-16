@@ -1,0 +1,37 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.SettingsViewModel.RetireSettingViewModel
+@{
+	ViewBag.Title = "Index";
+}
+<h2 id="breadcrumb-holder">Global Settings &nbsp; &gt;&nbsp;Retire Settings &nbsp;&gt; Index</h2>
+<div id="main-content-housing">
+	<div id="primary-controls">
+		<fieldset>
+			<legend>Retire Setting View</legend>
+			<table class="detail-arrange">
+				<tr>
+					<td>
+						<div class="display-label">
+							<strong>RetireType</strong>
+						</div>
+					</td>
+					<td>
+						<div class="display-field">@Model.RetireTypeName</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="display-label">
+							<strong>Duration</strong></div>
+					</td>
+					<td>
+						<div class="display-field">@Model.Duration</div>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		<p>
+			@Html.ActionLink("| Edit |", "Edit", new { id = Model.Id }) 
+		</p>
+	</div>
+</div>
+

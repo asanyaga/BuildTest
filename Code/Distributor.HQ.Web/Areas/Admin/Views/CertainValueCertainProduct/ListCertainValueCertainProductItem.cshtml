@@ -1,0 +1,76 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.CertainValueCertainProductDiscountViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.cvcpitm.form.title.add");
+}
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+@Html.ActionLink(Html.GetText("hq.cvcp.form.breadcrumb.view"), "/ListCertainValueCertainProduct")</span> &gt; 
+@Html.GetText("hq.cvcpitm.listing.breadcrumb")</h2>
+<div id="main-content-housing">
+<fieldset class="actions">
+    <legend>Actions</legend>
+    <div class="button-style-two-cshtml">@Html.ActionLink("hq.cvcpitm.listing.add", "CreateCertainValueCertainProductItem", new { id = @Model.id })</div>
+</fieldset>
+<table width="700px" id="tablesorter-demo" class="tablesorter">
+<thead>
+    <tr>
+        
+        <th>
+            @Html.GetText("hq.disc.product")
+        </th>
+        
+        <th>
+            @Html.GetText("hq.disc.value")
+        </th>
+        <th>
+            @Html.GetText("hq.disc.quantity")
+        </th>
+       
+        <th>
+            @Html.GetText("hq.disc.edate")
+        </th>
+        <th>
+            Actions
+        </th>
+
+    </tr>
+</thead><tbody>
+@foreach (var item in Model.CurrentPageItems)
+{
+    <tr>
+       
+       
+        <td>
+            @item.ProductName
+        </td>
+        <td align="right">
+            @String.Format("{0:0,0.00}", item.Value)
+        </td>
+        <td align="right">
+            @item.Quantity
+        </td>
+        
+        <td align="right">
+            @item.EffectiveDate.ToString("dd-MMM-yyyy")
+        </td> 
+        <td>
+           @{ 
+       if (item.IsActive)
+       {
+                 @Html.ActionLink("Delete", "DeleteLineItem", new { id = item.LineItemId, cvcpId = ViewBag.cvcpId },
+                 new { onclick = "return confirm('Are you sure you want to delete ?');" })
+       }
+                 }
+        </td>
+    </tr>
+}
+</tbody>
+</table>
+<div id="tnt_pagination">
+@for (int p = 1; p < Model.NoPages + 1; p++)
+{
+    string selected = (p == Model.CurrentPage) ? "selected" : String.Empty;
+<a href="?page=@p" title="Go to page @p of results">@p</a>
+}
+</div>
+</div>

@@ -1,0 +1,95 @@
+﻿@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.Product.PromotionDiscountViewModel.FreeOfChargeDiscountVM>
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels
+@{
+    ViewBag.Title = Html.GetText("hq.promodiscitm.listing.title");
+}
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+@Html.ActionLink(Html.GetText("hq.promodisc.breadcrumb.view"), "ListFOCDiscounts")</span> &gt; 
+@Html.GetText("hq.promodiscitm.listing.breadcrumb")</h2>
+@if (ViewBag.msg != null)
+{ 
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+}
+<div id="main-content-housing"><div id="primary-controls"></div>
+<fieldset class="actions">
+    <legend>Actions</legend>
+    <div class="button-style-two-cshtml">
+    @Html.ActionLink(Html.GetText("hq.promodiscitm.listing.add"), "CreatFOCDiscountItem", new { id = ViewBag.pdid, ProductName = ViewBag.ProductName })</div>
+</fieldset>
+<table id="tablesorter-demo" class="tablesorter">
+<thead>
+    <tr>
+     <th>
+            @Html.GetText("hq.disc.salequantity")
+        </th>
+        <th>
+            @Html.GetText("hq.disc.freeprod")
+        </th>
+        <th>
+            @Html.GetText("hq.disc.freequantity")
+        </th>
+        <th>@Html.GetText("hq.disc.discrate")</th>
+        <th>
+            @Html.GetText("hq.disc.edate")
+        </th> 
+        <th>
+            End Date
+        </th> 
+        <th>
+            Actions
+        </th>
+    </tr>
+</thead><tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @item.ParentProductQuantity
+        </td>
+        <td>
+            @item.FreeProductName
+        </td>
+        <td>
+            @item.FreeOfChargeProductQuantity
+        </td> 
+        <td>
+            @String.Format("{0:0,0.00}", item.DiscountRate)
+        </td>
+        <td>
+            @item.effectiveDate.ToString("dd-MMM-yyyy")
+        </td>
+        <td>
+            @item.endDate.ToString("dd-MMM-yyyy")
+        </td>
+        <td>
+             @{ 
+    if (item.IsActive)
+    {
+        if (Model.Count == 1)
+        {
+                          @Html.ActionLink("Delete", "Delete", new { id = ViewBag.pdId },
+                            new { onclick = "return confirm('Are you sure you want to deactivate ?');" }) 
+        }
+        else
+        {
+                           @Html.ActionLink("Delete", "DeleteLineItem", new { id = item.LineItemId, pdId = ViewBag.pdId, ProductName = ViewBag.ProductName },
+                             new { onclick = "return confirm('Are you sure you want to deactivate ?');" })
+        }
+    }
+              }
+        </td>
+    </tr>
+}
+</tbody>
+</table>
+
+<div class="pager">
+            @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+        </div>
+</div>

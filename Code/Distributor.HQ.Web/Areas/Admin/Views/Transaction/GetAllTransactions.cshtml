@@ -1,0 +1,48 @@
+﻿@model Distributr.HQ.Lib.ViewModelBuilders.Reports.TransactionalReport.ViewModel.TransactionReportViewModel
+
+@{
+    ViewBag.Title = "GetAllTransactions";
+}
+
+<h2>GET ALL TRANSACTIONS BY ORDER TYPE</h2><br />
+
+
+@using (Html.BeginForm("GetAllTransactions", "Transaction"))
+{
+<table>
+<tr><td>
+        <div class="editor-label"> ORDER TYPE </div></td><td>
+        <div class="editor-field">
+        @Html.DropDownList("OrderType", new SelectList(ViewBag.OrderTypeList, "Key", "Value"), "~~~~~Select Order Type~~~~~")
+        </div></td><td>
+        <input type="submit" value="Filter" name="srch" class="button" /></td></tr>
+</table>
+}<br /><br />
+<table width="900px">
+    <tr>
+        
+        <th>Order Type</th>
+        <th>Total VAT</th>
+          <th>Total Gross</th>
+        <th>Total Net</th>
+       
+    </tr>
+
+@foreach (var item in Model.Items ) {
+    <tr>
+   
+    <td>@item.OrderType </td>
+    <td>@item.TotalVat </td>
+     <td>@item.TotalGross </td>
+    <td>@item.TotalNet </td>
+   
+    
+        <td>
+            @Html.ActionLink("View Document Listing", "DocumentListing", new {transactionDocumentId=item.documentId   }) |
+           
+        </td>
+    </tr>
+}
+
+</table>
+

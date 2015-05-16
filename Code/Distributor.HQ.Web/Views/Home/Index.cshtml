@@ -1,0 +1,199 @@
+﻿@using Distributr.HQ.Lib.Helper
+<h2 id="breadcrumb-holder">
+    @Html.GetText("hq.dboard")  <span class="bc-example-intro"></span>
+</h2>
+<div id="main-content-housing">
+    <div id="homepage-dashboard">
+        <fieldset>
+            <legend>@Html.GetText("hq.mgt") &amp; @Html.GetText("hq.settings") </legend>
+            <div class="home-item">
+                <span class="icons global"></span>
+                <h2 class="dash-headers ">Global Settings
+                    </h2>
+                <ul>
+                    @if (Html.IsDashBoardUrlActive("DashboardRegion"))
+                    {
+                        <li><a href="@Url.Content("~/Admin/Region/ListRegion")">@Html.GetText("hq.regions")</a></li>
+                    }
+                    <li><a href="@Url.Content("~/Admin/OutletVisitReasonsType/ListOutletVisitReasonsTypes")">@Html.GetText("Outlet Visit Reasons Type")</a></li>
+                    @if (Html.IsSystemAdmin())
+            {
+              
+                    <li><a href="@Url.Content("~/Admin/Supplier/ListSuppliers")">@Html.GetText("hq.suppliers")</a></li>
+                <li><a href="@Url.Content("~/Admin/Distributor/ListDistributors")">@Html.GetText("hq.distmgt")</a></li>
+                        }
+                    @*<li><a href="@Url.Content("~/Admin/Transporter/ListTransporter")">Transporter Management</a></li>*@
+                    <li><a href="@Url.Content("~/Admin/Competitor/ListCompetitors")">@Html.GetText("hq.comptormgt")</a></li>
+                    @if (Html.IsSystemAdmin())
+                    {
+
+                        <li><a href="@Url.Content("~/Admin/Outlet/ListOutlets")">@Html.GetText("hq.outlets")</a></li>
+                    }
+                    <li><a href="@Url.Content("~/Admin/ListVatClass/ListVat")">@Html.GetText("hq.vatrates")</a></li>
+                    <li><a href="@Url.Content("~/Admin/Asset/ListAssets")">@Html.GetText("hq.assets")</a></li>
+                    @if (Html.IsDashBoardUrlActive("DashboardTarget"))
+                    {
+                        <li><a href="@Url.Content("~/Admin/Target/ListTargets")">@Html.GetText("hq.dist") @Html.GetText("hq.targets")</a></li>
+                    }
+                    @if (Html.IsDashBoardUrlActive("DashboardReorderlevel"))
+                    {
+                        <li><a href="@Url.Content("~/Admin/ReOrderLevel/ListReOrderLevels")">@Html.GetText("hq.reorderlvl")</a></li>
+                    }
+                    @if (Html.IsDashBoardUrlActive("DashboardSaleValueDiscount"))
+                    {
+                        <li><a href="@Url.Content("~/Admin/SaleValueDiscount/ListSaleValueDiscounts")">@Html.GetText("hq.svdisc")</a></li>
+                    }
+                    @if (Html.IsDashBoardUrlActive("DashboardFreeOfChargeDicount"))
+                    {
+                        <li><a href="@Url.Content("~/Admin/FreeOfChargeDiscount/List")">@Html.GetText("hq.foc")</a></li>
+                    }
+                    @if (Html.IsDashBoardUrlActive("DashboardDiscountGroup"))
+                    {
+                        <li><a href="@Url.Content("~/Admin/DiscountGroup/ListDiscountGroups")">@Html.GetText("hq.dgroup")</a></li>
+                    }
+                    @if (Html.IsDashBoardUrlActive("DashboardPromotionDiscount"))
+                    {
+                        <li><a href="@Url.Content("~/Admin/PromotionDiscount/ListFOCDiscounts")">@Html.GetText("hq.promodisc")</a></li>
+                    }
+                    @if (Html.IsDashBoardUrlActive("DashboardProductDiscount"))
+                    {
+                        <li><a href="@Url.Content("~/Admin/ProductDiscount/ListDiscounts")">@Html.GetText("hq.proddisc")</a></li>
+                    }
+                    @if (Html.IsDashBoardUrlActive("DashboardCertainValueCertainProduct"))
+                    {
+                        <li><a href="@Url.Content("~/Admin/CertainValueCertainProduct/ListCertainValueCertainProduct")">
+                            @Html.GetText("hq.cvcp")</a></li>
+                    }
+                    @if (Html.IsDashBoardUrlActive("DashboardBank"))
+                    {		
+                        <li><a href="@Url.Content("~/Admin/Bank/ListBanks")">@Html.GetText("hq.bankmgt")</a></li>
+                    }
+                    @if (Html.IsDashBoardUrlActive("DashboardBranch"))
+                    {
+                        <li><a href="@Url.Content("~/Admin/BankBranch/ListBankBranches")">@Html.GetText("hq.bbranchmgt")</a></li>
+                    }
+                    @if (Html.IsDashBoardUrlActive("DashboardChannelPackaging"))
+                    {
+                        <li><a href="@Url.Content("~/Admin/ChannelPackaging/ListChannelPacks")">@Html.GetText("hq.cpacs")</a></li>
+                    }
+                    <li><a href="@Url.Content("~/Admin/Settings/DocumentReferenceSetting")">Document reference Settings</a></li>
+                    <li><a href="@Url.Content("~/Admin/Settings/SettingsDetails")">@Html.GetText("hq.settings")</a></li>
+                    <li><a href="@Url.Content("~/Admin/RetireSetting/index")">@Html.GetText("hq.retiresetting")</a></li>
+                    <li><a href="@Url.Content("~/Admin/Settings/ReportSetting")">Report Settings</a></li>
+                    <li><a href="@Url.Content("~/Admin/Settings/NotificationSetting")">Notification Settings</a></li>
+                    <li><a href="@Url.Content("~/Admin/Settings/CallprotocalSetting")">Call Protocol Settings</a></li>
+                    <li><a href="@Url.Content("~/Admin/Settings/MapUriSetting")">Map Uri Settings</a></li>
+
+                </ul>
+            </div>
+            <!-- end of div.home-item -->
+            <div class="home-item">
+                <span class="icons products"></span>
+                <h2 class="dash-headers ">
+                    @Html.GetText("hq.prodpricing")</h2>
+                <ul>
+                    <li><a href="@Url.Content("~/Admin/ProductBrand/ListProductBrands")">@Html.GetText("hq.brands")</a></li>
+                    <li><a href="@Url.Content("~/Admin/ProductFlavour/ListProductFlavours")">@Html.GetText("hq.subbrands")</a></li>
+                    <li><a href="@Url.Content("~/Admin/ProductPackaging/ListProductPackaging")">@Html.GetText("Packaging")</a></li>
+                    <li><a href="@Url.Content("~/Admin/ProductPackagingType/ListProductPackagingType")">
+                        @Html.GetText("hq.pactypes")</a></li>
+                    <li><a href="@Url.Content("~/Admin/Product/Index")">@Html.GetText("hq.prods")</a></li>
+                    <li><a href="@Url.Content("~/Admin/ProductPricing/List")">@Html.GetText("hq.pricing")</a></li>
+                    <li><a href="@Url.Content("~/Admin/ProductPricingTier/ListProductPricingTiers")">@Html.GetText("hq.ptier")</a></li>
+                    <li><a href="@Url.Content("~/Admin/ProductType/ListProductTypes")">@Html.GetText("hq.prodtype")</a></li>
+                </ul>
+            </div>
+            <!-- end of div.home-item -->
+            @if (Html.IsSystemAdmin())
+            {
+                <div class="home-item">
+                    <span class="icons system"></span>
+                    <h2 class="dash-headers ">
+                        @Html.GetText("hq.sysmgt")</h2>
+                    <ul>
+                        <li><a href="@Url.Content("~/Admin/UserGroup/List")">@Html.GetText("hq.managegrps")</a></li>
+                        <li><a href="@Url.Content("~/HQUsers/ListAllUsers")">@Html.GetText("hq.managehqusrs")</a></li>
+                        <li><a href="@Url.Content("~/DistributorUsers/ListAllUsers")">@Html.GetText("hq.managedistusrs")</a></li>
+                        <li><a href="@Url.Content("~/SupplierUsers/ListAllUsers")">@Html.GetText("hq.managesupplierusrs")</a></li>
+                        <li><a href="@Url.Content("~/Account/ChangePassword")">@Html.GetText("hq.changepwd")</a></li>
+                        <li><a href="@Url.Content("~/Account/ResetDistributorUserPassword")">@Html.GetText("hq.resetdistusrpwd")</a></li>
+                        <li><a href="@Url.Content("~/Account/ResetHqUserPassword")">@Html.GetText("hq.resethqusrpwd")</a></li>
+                    </ul>
+                </div>
+            }
+            <!-- end of div.home-item -->
+            <div class="home-item">
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">
+                    @Html.GetText("hq.orders")</h2>
+                <ul>
+                  
+                    <li><a href="@Url.Content("~/Admin/Orders/ListAllOrders")">@Html.GetText("hq.distorders")</a></li>
+                </ul>
+            </div>
+            <!-- end of div.home-item -->
+            <br class="clear-left" />
+        </fieldset>
+        <fieldset>
+            <legend>@Html.GetText("hq.rpts")</legend>
+            <div class="home-item">
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">
+                    @Html.GetText("hq.orders")</h2>
+                <ul>
+                    <li>@Html.ActionLink("Orders Summary","Index","Reports", new {Area ="Rpt" , reportName ="OrdersSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By Brand","Index","Reports", new {Area ="Rpt" , reportName ="OrdersByBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="OrdersByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By SubBrand","Index","Reports", new {Area ="Rpt" , reportName ="OrdersBySubBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By Product Packaging","Index","Reports", new {Area ="Rpt" , reportName ="OrdersByProductPackaging"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By Product ","Index","Reports", new {Area ="Rpt" , reportName ="OrdersByProduct"}, new {})</li>
+                    <li>@Html.ActionLink("Orders By Product Type","Index","Reports", new {Area ="Rpt" , reportName ="OrdersByProductType"}, new {})</li>
+                    <li>@Html.ActionLink("Order Date Exception ","Index","Reports", new {Area ="Rpt" , reportName ="OrderDateException"}, new {})</li>
+                </ul>
+            </div>
+            <!-- end of div.home-item -->
+            <div class="home-item">
+                <span class="icons outstanding-bal"></span>
+                <h2 class="dash-headers ">@Html.GetText("hq.rpt.sales.title")</h2>
+                <ul>
+                     <li>@Html.ActionLink("Sales By Brand","Index","Reports", new {Area ="Rpt" , reportName ="SalesByBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="SaleByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Salesman","Index","Reports", new {Area ="Rpt" , reportName ="SalesBySalesman"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Packaging","Index","Reports", new {Area ="Rpt" , reportName ="SalesByPackaging"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Product","Index","Reports", new {Area ="Rpt" , reportName ="SalesByProduct"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Product Type","Index","Reports", new {Area ="Rpt" , reportName ="SalesByProductType"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Route","Index","Reports", new {Area ="Rpt" , reportName ="SalesByRoute"}, new {})</li>
+                    <li>@Html.ActionLink("Sales By Outlet","Index","Reports", new {Area ="Rpt" , reportName ="SalesByOutlet"}, new {})</li>
+
+
+
+                    <li>@Html.ActionLink("Sales Summary","Index","Reports", new {Area ="Rpt" , reportName ="SalesSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Sales Summary by Date","Index","Reports", new {Area ="Rpt" , reportName ="SalesSummaryByDate"}, new {})</li>
+                    <li>@Html.ActionLink("Regional Sales","Index","Reports", new {Area ="Rpt" , reportName ="RegionalSales"}, new {})</li>
+                </ul>
+            </div>
+            <!-- end of div.home-item -->
+            <div class="home-item">
+                <span class="icons reports"></span>
+                <h2 class="dash-headers ">
+                    @Html.GetText("hq.inventory")</h2>
+                <ul>
+                    <li>@Html.ActionLink("Stock Summary","Index","Reports", new {Area ="Rpt" , reportName ="stockSummary"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Brand","Index","Reports", new {Area ="Rpt" , reportName ="stockByBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Distributor","Index","Reports", new {Area ="Rpt" , reportName ="stockByDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Stock at Distributor","Index","Reports", new {Area ="Rpt" , reportName ="stockAtDistributor"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Product Type","Index","Reports", new {Area ="Rpt" , reportName ="StockByProductType"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Salesman","Index","Reports", new {Area ="Rpt" , reportName ="stockBySalesman"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Sub-Brand","Index","Reports", new {Area ="Rpt" , reportName ="stockBySubBrand"}, new {})</li>
+                    <li>@Html.ActionLink("Stock By Packaging","Index","Reports", new {Area ="Rpt" , reportName ="stockByPackaging"}, new {})</li>
+                    <li>@Html.ActionLink("Stock Returns","Index","Reports", new {Area ="Rpt" , reportName ="stockReturns"}, new {})</li>
+                    <li>@Html.ActionLink("Stock Take","Index","Reports", new {Area ="Rpt" , reportName ="stockTake"}, new {})</li>
+                    <li>@Html.ActionLink("Stock Movement","Index","Reports", new {Area ="Rpt" , reportName ="stockMovement"}, new {})</li>
+                    <li>@Html.ActionLink("Product Catalog","Index","Reports", new {Area ="Rpt" , reportName ="productCatalog"}, new {})</li>
+                </ul>
+            </div>
+
+        </fieldset>
+    </div>
+    <!-- end of div#homepage-dashboard -->
+</div>

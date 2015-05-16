@@ -1,0 +1,145 @@
+﻿@*@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.CostCenter.DistrictViewModel>
+*@
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.CostCenter.DistrictViewModel>
+@{
+    ViewBag.Title = Html.GetText("hq.district.listing.title");
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string searchText = ViewBag.srchText;
+}
+
+<h2 id="breadcrumb-holder">Global Settings &gt; 
+@Html.GetText("hq.region.breadcrumb") &gt; 
+@Html.GetText("hq.district.listing.breadcrumb")</h2>
+ <div id="main-content-housing">
+ <h2 class="page-header">@Html.GetText("hq.district.listing.heading")</h2>
+ <div id="primary-controls"></div><!-- end of div#primary-controls -->
+ @if (ViewBag.msg != null)
+ {
+<div class="notice-notification">
+@ViewBag.msg
+</div>
+ }
+
+
+@using (Html.BeginForm("ListDistricts", "District"))
+{
+
+    <fieldset>
+    <legend>@Html.GetText("hq.district.listing.search")</legend>
+    <div class="criteria-div">
+                            	
+            <span class="text-box-cshtml">@Html.TextBox("distName", searchText)</span>
+        <input name="srch" type="button" value="Search" class="button-style-one" id="search" />
+        <input name="srch" type="button" value="Clear" class="button-style-one" id="clear" />
+        </div>
+         
+         <div class="show-inactive">Show Inactive @Html.CheckBox("show_inactive", showInactive)
+
+        <script type="text/javascript">
+
+
+            $("#show_inactive").change(function (e) {
+
+                window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+            });
+            $('#search').click(function () {
+                window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&srchParam=" + $('#distName').val();
+
+            });
+
+            $('#clear').click(function () {
+                window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked');
+
+            });
+
+   
+
+        </script></div>                   
+                            
+        <br class="clear-all" />
+</fieldset>
+}
+
+<fieldset class="actions">
+    <legend>Actions</legend>
+    <div class="button-style-two-cshtml">
+    @Html.ActionLink(Html.GetText("hq.district.listing.add"), "CreateDistrict")</div>
+</fieldset>
+
+<div class="table-container">
+
+<table width="800px" id="tablesorter-demo" class="tablesorter">
+    <thead>
+        <tr>
+        
+            <th>
+                @Html.GetText("hq.region.districtname")
+            </th>
+       
+       
+       
+            <th>
+                @Html.GetText("hq.region.province")
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        
+        <td>
+            @item.DistrictName
+        </td>
+        <td>
+            @item.ProvinceName
+        </td>
+        <td>
+            @{
+                    if (item.isActive == true)
+                    {   <text> @Html.ActionLink("Edit", "EditDistrict", new { id = item.Id }) </text>
+                <text>|</text>
+                        
+                @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to deactivate "+item.DistrictName+"?')" })
+
+                  <text>|</text>
+                        
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to delete " + item.DistrictName + "?')" })
+                    }
+                    else
+                    {
+                //<text>@Html.ActionLink("Activate", "Activate", new { id = item.Id, name = item.DistrictName })</text>
+                         
+                @Html.ActionLink("Activate", "Activate", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to activate " + item.DistrictName + "?')" })
+
+                  <text>|</text>
+                        
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to delete " + item.DistrictName + "?')" })        
+                        
+                    }
+      
+    
+            }
+        </td>
+    </tr>
+}
+</tbody>
+</table>
+
+<div class="pager">
+		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new {showInactive, srchParam = searchText})
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>
+</div> 
+</div>

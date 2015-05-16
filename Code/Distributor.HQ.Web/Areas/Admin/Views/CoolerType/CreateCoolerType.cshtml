@@ -1,0 +1,52 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CoolerViewModel.CoolerTypeViewModel
+
+@{
+    ViewBag.Title = "CreateCoolerType";
+}
+
+<p style="color:Red;">@ViewBag.msg</p>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example"> @Html.ActionLink("View Cooler Types", "ListCoolerTypes")</span> &gt; Add New Cooler Type</h2>
+
+<div id="main-content-housing">
+
+@using (Html.BeginForm()) {
+    
+    @Html.ValidationSummary(true)
+
+    <div id="primary-controls">
+    <fieldset>
+    <legend>Cooler Type Details</legend>
+                            
+        <table class="detail-arrange">
+
+        <tr><td style="padding-top:12px;"><strong>Cooler Type :</strong></td>
+        <td><span class="text-box-cshtml">@Html.EditorFor(model => model.Name)</span> 
+           <span class="inline-error"> @Html.ValidationMessageFor(model => model.Name)</span> 
+        </td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>Cooler Type Code :</strong></td>
+        <td><span class="text-box-cshtml">@Html.EditorFor(model => model.Code)</span> 
+           <span class="inline-error"> @Html.ValidationMessageFor(model => model.Code)</span> 
+        </td></tr>
+
+
+     </table><!-- end of detail-arrange -->
+
+   </fieldset>
+
+   <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            <input name="Create" type="reset" value="Clear" class="button-style-one"/>
+    </fieldset>
+
+ </div><!-- end of div#pr-->
+    
+}
+</div>
+
+

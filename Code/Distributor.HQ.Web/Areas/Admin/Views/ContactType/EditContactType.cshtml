@@ -1,0 +1,74 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Contact.ContactTypeViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.conttype.form.title.edit");
+}
+
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<h2 id="breadcrumb-holder">Global Settings &gt; <span class="bc-example">
+@Html.ActionLink(Html.GetText("hq.conttype.form.breadcrumb.view"), "/ListContactTypes")</span> &gt; 
+@Html.GetText("hq.conttype.form.breadcrumb.edit")</h2>
+
+<div id="main-content-housing">
+@if (ViewBag.msg != null)
+{ 
+    <div class="notice-notification">
+@ViewBag.msg
+@Model.ErrorText
+</div>
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+     <div id="primary-controls">
+    <fieldset>
+    <legend>@Html.GetText("hq.conttype.form.details.edit")</legend>
+                            
+								
+							
+					
+        <table class="detail-arrange">
+              <tr><td style="padding-top:12px;"><strong>
+        
+            @Html.GetText("hq.contact.code")</strong>
+  </td><td>
+           <span class="text-box-cshtml"> @Html.EditorFor(model => model.Code)</span>
+            @Html.ValidationMessageFor(model => model.Code)
+   </td></tr>
+          <tr>
+               
+                <td style="padding-top:12px;"><strong>
+             @Html.GetText("hq.contact.name")</strong>
+       </td><td>
+        <div class="editor-field">
+           <span class="text-box-cshtml"> @Html.EditorFor(model => model.Name)</span>
+            @Html.ValidationMessageFor(model => model.Name)
+        </div></td>
+        </tr>
+        <tr><td style="padding-top:12px;"><strong>
+        
+             @Html.GetText("hq.contact.desc")</strong>
+      </td><td>
+           <span class="text-box-cshtml"> @Html.EditorFor(model => model.Description)</span>
+            @Html.ValidationMessageFor(model => model.Description)
+       </td></tr>
+
+ </table>
+
+           </fieldset>  
+    
+          <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            
+          
+        </fieldset>
+    </div>
+}
+
+</div>
+

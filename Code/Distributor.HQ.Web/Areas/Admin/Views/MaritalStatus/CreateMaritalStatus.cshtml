@@ -1,0 +1,87 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.MaritalStatusViewModels.MaritalStatusViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.mstatus.form.title.add");
+}
+
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<h2 id="breadcrumb-holder">Global Settings &gt; <span class="bc-example">
+@Html.ActionLink(Html.GetText("hq.mstatus.form.breadcrumb.view"), "/ListMaritalStatus")</span> &gt; 
+@Html.GetText("hq.mstatus.form.breadcrumb.add")</h2>
+
+<div id="main-content-housing">
+@if (ViewBag.msg != null)
+{ 
+    <div class="notice-notification">
+@ViewBag.msg
+
+</div>
+}
+@using (Html.BeginForm())
+{
+    if (!Html.ViewData.ModelState.IsValid)
+    {
+            <div class="notice-notification">
+                @Html.ValidationSummary(true)
+            </div>
+    }
+    
+   <div id="primary-controls">
+    <fieldset>
+    <legend>@Html.GetText("hq.mstatus.form.details.add")</legend>
+                            
+								
+							
+					
+        <table class="detail-arrange">
+          <tr>
+                <td style="padding-top:12px;"><strong>@Html.GetText("hq.contact.code"):</strong></td>
+                <td>
+                     
+           <span class="text-box-cshtml"> @Html.EditorFor(model => model.Code)</span>
+            @Html.ValidationMessageFor(model => model.Code)
+        
+        </td>
+     </tr>
+     <tr><td style="padding-top:12px;">
+       
+            @Html.GetText("hq.contact.status")
+      </td><td>
+        
+          <span class="text-box-cshtml">  @Html.EditorFor(model => model.Status)</span>
+            @Html.ValidationMessageFor(model => model.Status)
+     
+</td></tr>
+
+<tr><td style="padding-top:12px;">
+        
+            @Html.GetText("hq.contact.desc")
+      </td><td>
+       
+           <span class="text-box-cshtml"> @Html.EditorFor(model => model.Description)</span>
+            @Html.ValidationMessageFor(model => model.Description)
+        
+</td></tr>
+ </table>
+
+           </fieldset>  
+    
+          <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            <input name="Create" type="reset" value="Clear" class="button-style-one"/>
+            
+
+        </fieldset>
+
+        
+
+    </div>
+}
+
+</div>
+

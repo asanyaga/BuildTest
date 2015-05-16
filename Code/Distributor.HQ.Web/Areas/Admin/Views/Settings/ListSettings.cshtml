@@ -1,0 +1,67 @@
+﻿@using Distributr.HQ.Lib.Paging
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.SettingsViewModel.SettingsViewModel>
+@{
+    ViewBag.Title = "ListSettings";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+}
+<h2 id="breadcrumb-holder">
+    Global Settings &gt; Settings</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">
+        Settings Listing</h2>
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    <fieldset class="actions">
+        <legend>Actions</legend>
+        <div class="button-style-two-cshtml">@Html.ActionLink("Add Settings", "CreateSettings")</div>
+    </fieldset>
+    <div class="table-container">
+        <table id="tablesorter-demo" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        Key
+                    </th>
+                    <th>
+                        Value
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Key
+                        </td>
+                        <td>
+                            @item.Value
+                        </td>
+                        <td>
+                            <!-- @Html.ActionLink("Edit", "EditSettings", new { id = item.Id }) -->
+                            @{
+                                if (item.IsActive == true)
+                                {   <text> @Html.ActionLink("Edit", "EditSettings", new { id = item.Id }) </text>
+                                            <text>|</text>
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+									new { onclick = "return confirm('Are you sure you want to delete " + item.Key + "?')" })
+								}								
+                            }
+                        </td>
+                    </tr>
+				}
+            </tbody>
+        </table>
+    </div>
+    <div class="pager">
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new {showInactive})
+    </div>
+</div>

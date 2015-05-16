@@ -1,0 +1,60 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CostCenter.VATClassViewModel
+
+@{
+    ViewBag.Title = "EditVat";
+}
+
+<h2>EditVat</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>VATClassViewModel</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VatClass)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VatClass)
+            @Html.ValidationMessageFor(model => model.VatClass)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EffectiveDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EffectiveDate)
+            @Html.ValidationMessageFor(model => model.EffectiveDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Rate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Rate)
+            @Html.ValidationMessageFor(model => model.Rate)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

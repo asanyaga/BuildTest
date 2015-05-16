@@ -1,0 +1,29 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.User.UserViewModel
+
+@{
+    ViewBag.Title = "ImportUsers";
+}
+<h2 id="breadcrumb-holder">Account &gt;Manage Users &nbsp;&gt; <span class="bc-example">  @Html.ActionLink("View Users", "ListAllUsers", "Account")</span> &gt; Import HQ Users</h2>
+ <div id="main-content-housing">
+ 
+
+
+<div class="notice-notification">
+@ViewBag.msg
+</div>
+@using (@Html.BeginForm())
+{
+@Html.ValidationSummary()
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("ImportUsers", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="editor-field">
+    <input type="file" name="file" />
+    </div>
+    <input type="submit" value="OK"  class="button-style-one"/>
+}
+</div>
+

@@ -1,0 +1,5 @@
+DistributorCode,OutletCode,SalesmanCode,ProductCode,Quantity,Vat,Value,OrderType,OrderReference
+D001,O001,S001,SP001,1,0.16,500,DuringConfirmation,123e3547
+D001,O001,S001,SP004,10,0.17,501,DuringConfirmation,123e3547
+D001,O001,S001,SP002,15,0.18,502,DuringConfirmation,123e3547
+D001,O001,S001,SP005,5,0.2,504,DuringConfirmation,123e3547

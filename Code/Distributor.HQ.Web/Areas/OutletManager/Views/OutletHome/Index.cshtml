@@ -1,0 +1,29 @@
+﻿@using Distributr.HQ.Lib.Helper
+<h2 id="breadcrumb-holder">
+    @Html.GetText("hq.dboard")  <span class="bc-example-intro"></span>
+</h2>
+<div id="main-content-housing">
+    <div id="homepage-dashboard">
+        <fieldset>
+            <legend>Orders </legend>
+            <!-- end of div.home-item -->
+            <div class="home-item">
+                <span class="icons orders"></span>
+                <h2 class="dash-headers ">
+                    @Html.GetText("hq.orders")</h2>
+                <ul>
+                    <li><a href="@Url.Content("#")">Add Outlet Order</a></li>
+                    <li><a href="@Url.Content("~/OutletManager/OutletOrder/ListAllOrders")">View Outlet Orders</a></li>
+                    <li><a href="@Url.Content("~/OutletManager/OutletOrder/OrdersPendingApproval")"> Pending Approval </a></li>	
+                    <li><a href="@Url.Content("~/OutletManager/OutletOrder/OrdersPendingDispatch")"> Pending Dispatch </a></li>	
+                    <li><a href="@Url.Content("~/OutletManager/OutletOrder/OutstandingOrders")"> Outstanding </a></li>	
+                    <li><a href="@Url.Content("~/OutletManager/OutletOrder/RejectedOrders")"> Rejected </a></li>	
+                    <li><a href="@Url.Content("~/OutletManager/OutletOrder/DispatchedOrders")"> Dispatched </a></li>	
+                </ul>
+            </div>
+            <!-- end of div.home-item -->
+            <br class="clear-left" />
+        </fieldset>
+    </div>
+    <!-- end of div#homepage-dashboard -->
+</div>

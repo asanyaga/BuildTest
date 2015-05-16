@@ -1,0 +1,73 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.EditProductPricingViewModel
+
+@{
+    ViewBag.Title = "ListPricingItems";
+}
+
+<h2>ListPricingItems</h2>
+
+<p class="add-items">
+    @Html.ActionLink("Create New", "CreatePricingItems/", new { id = @Model.Id })
+</p>
+<br />
+<br />
+
+
+<table width="700px"  id="tablesorter-demo" class="tablesorter">
+<thead>
+<tr><th align="center">Exfactory Price</th><th align="center">Selling Price</th><th align="center">Effective Date</th></tr>
+</thead><tbody>
+@foreach (var item in Model.PItems)
+{
+    <tr><td align="right">@String.Format("{0:0,0.00}", item.CurrentExFactory)</td><td align="right">@String.Format("{0:0,0.00}",item.CurrentSellingPrice)</td><td align="right"> @item.CurrentEffectiveDate.ToString("dd-MMM-yyyy")</td></tr>
+}</tbody>
+</table> 
+
+@*<table>
+    <tr>
+        <th></th>
+        <th>
+            ProductId
+        </th>
+        <th>
+            ProductName
+        </th>
+        <th>
+            TierId
+        </th>
+        <th>
+            TierName
+        </th>
+        <th>
+            Active
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+        <td>
+            @item.ProductId
+        </td>
+        <td>
+            @item.ProductName
+        </td>
+        <td>
+            @item.TierId
+        </td>
+        <td>
+            @item.TierName
+        </td>
+        <td>
+            @item.Active
+        </td>
+    </tr>
+}
+
+</table>
+
+*@

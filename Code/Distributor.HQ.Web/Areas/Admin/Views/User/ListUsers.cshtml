@@ -1,0 +1,184 @@
+﻿@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.User.UserViewModel>
+@{
+    ViewBag.Title = Html.GetText("hq.distuser.listing.title");
+
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string searchText = ViewBag.searchParam;
+}
+<h2 id="breadcrumb-holder">
+    @Html.GetText("hq.user.breadcrumb") &nbsp;&gt; 
+    @Html.GetText("hq.distuser.breadcrumb") &gt; 
+    @Html.GetText("hq.distuser.listing.breadcrumb")</h2>
+<div id="main-content-housing">
+    @if (ViewBag.usrTitle != null)
+    {
+        <h2 class="page-header">
+        @Html.GetText("hq.distuser.listing.heading")</h2>
+    }
+    else
+    {
+        <h2 class="page-header">
+         @Html.GetText("hq.distuser.listing.heading")</h2>
+    }
+    <div id="primary-controls">
+    </div>
+    <!-- end of div#primary-controls -->
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    @using (Html.BeginForm("ListUsers", "User"))
+    {
+        <fieldset>
+            <legend>@Html.GetText("hq.distuser.listing.filter")</legend>
+            @Html.Label("User Type")
+            @Html.DropDownList("UserType", new SelectList(ViewBag.UserList, "Key", "Value"), "----Select User Type-----")
+            <input type="button" name="srch" value="Filter" class="button-style-one" id="UserType" />
+        </fieldset>
+        <fieldset>
+            <legend>
+            @Html.GetText("hq.distuser.listing.search")</legend>
+            <div class="criteria-div">
+                <span class="text-box-cshtml">@Html.TextBox("searchText", searchText)</span>
+                <input type="hidden" name="usrType" value="@ViewBag.usrTitle" />
+                <input name="srch" type="button" value="Search" class="button-style-one" id="search" />
+                <input name="srch" type="button" value="Clear" class="button-style-one" id="clear" />
+            </div>
+            <div class="show-inactive">
+                Show Inactive @Html.CheckBox("show_inactive", showInactive)
+                <script type="text/javascript">
+
+
+                    $("#show_inactive").change(function (e) {
+
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+                    });
+
+                    $('#search').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&searchText=" + $('#searchText').val();
+
+                    });
+
+                    $('#clear').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked');
+
+                    });
+                    $('#UserType').change(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&userType=" + $('#UserType').val();
+
+                    });
+
+                </script>
+            </div>
+            <br class="clear-all" />
+        </fieldset>
+    }
+    <fieldset class="actions">
+        <legend>Actions</legend>
+        <div class="button-style-two-cshtml">@Html.ActionLink(Html.GetText("hq.distuser.listing.add"), "CreateUser")</div>
+    </fieldset>
+    <div class="table-container">
+        <table id="tablesorter-demo" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.GetText("hq.distuser.code")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.distuser.username")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.distuser.costcentre")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.distuser.pin")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.distuser.usertype")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.distuser.mobile")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.distuser.tillnumber")
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CostCentreCode
+                        </td>
+                        <td>
+                            @item.Username
+                        </td>
+                        <td>
+                             @item.CostCentreName
+                        </td>
+                        <td>
+                            @item.PIN
+                        </td>
+                        <td>
+                            @item.UserType
+                        </td>
+                        <td>
+                            @item.Mobile
+                        </td>
+                        <td>
+                            @item.TillNumber
+                        </td>
+                        <td>
+                            @{
+                       if (item.isActive == true)
+                       {
+                           if (item.UserType != Distributr.Core.Domain.Master.UserEntities.UserType.DistributorSalesman)
+                           {
+                                <text> @Html.ActionLink("Edit", "EditUser", new { id = item.Id }) </text>
+                                <text>|</text>
+                           }
+                                <text> @Html.ActionLink("Assign Roles", "AssignRoles", new { id = item.Id }) </text>
+                                <text>|</text>
+						
+                                @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to deactivate " + item.Username + "?')" })
+                                <text>|</text>
+                               @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to delete " + item.Username + "?')" })
+                       }
+                       else
+                       {
+                                @Html.ActionLink("Activate", "Activate", new { id = item.Id })
+                                <text>|</text>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                                new { onclick = "return confirm('Are you sure you want to delete " + item.Username + "?')" })
+                       }
+	  
+	
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    @*<div class="main-content-paragraph">
+		
+		@Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+</div>*@
+    <div class="pager">
+		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new { showInactive = showInactive, searchText = searchText})
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>
+</div>

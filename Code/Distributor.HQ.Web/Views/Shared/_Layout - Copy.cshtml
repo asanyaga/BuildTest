@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head id="Head1">
+	<title>@ViewBag.Title</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+
+	<link href="@Url.Content("~/Content/vcity.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/btn.css")" rel="stylesheet" type="text/css" />    
+	<link href="@Url.Content("~/Content/Distributor.css")" rel="stylesheet" type="text/css" /> 
+    <link href="@Url.Content("~/Content/demo.css")" rel="stylesheet" type="text/css" />   
+    <link href="@Url.Content("~/Content/demo.css")" rel="stylesheet" type="text/css" />  
+   
+    @*<link href="@Url.Content("~/calendar/jquery.ui.all.css")" rel="stylesheet" type="text/css" />*@
+    <link href="@Url.Content("~/Content/jquery-ui-1.8.13.custom.css")" rel="stylesheet" type="text/css" />
+	<script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+   
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" type="text/css" />
+   
+<script src="@Url.Content("~/Scripts/jquery.ui.datepicker.js")" type="text/javascript"></script>
+
+<script src="@Url.Content("~/Scripts/jquery.bgiframe-2.1.2.js")" type="text/javascript"></script>
+	
+    <script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+    
+	<script src="@Url.Content("~/Scripts/distributrDatePicker.js")" type="text/javascript"></script>
+	
+  <script src="@Url.Content("~/Scripts/jquery.tablesorter-update.js")" type="text/javascript"></script>
+     <script type="text/javascript">
+         $(function () {
+
+             $('#tableSort').tablesorter({ sortList: [[0, 0]], locale: 'en', widgets: ['zebra'], useUI: true });
+         });
+</script> 
+	<!--<script src="@Url.Content("~/Scripts/Menu/stfilter.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/Menu/sthilight.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/Menu/stie.js")" type="text/javascript"></script>    
+	<script src="@Url.Content("~/Scripts/Menu/stscroll.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/Menu/stslip.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/Menu/stwinels.js")" type="text/javascript"></script>
+	
+	<script src="@Url.Content("~/Scripts/Menu/stinit.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/Menu/menu.js")" type="text/javascript"></script> -->
+        <script type="text/javascript">
+        var baseUrl = "@Url.Content("~/")";
+	</script>
+    
+	<script src="@Url.Content("~/Scripts/Menu/stmenu.js")" type="text/javascript"></script>
+
+	
+
+	<style type="text/css">
+		/*#wrapper,#innerwrapper,#header,#breadcrumb,#main_content
+		{
+			width: auto;
+			
+			}*/
+			#main_content
+			{
+				background-color:transparent;
+				border:none;
+				margin:0px;
+				padding:0px;
+				width:950px;
+				}
+				
+				.extralinks a
+				{
+					padding-left: 40px;
+					padding-top: 12px;
+					}
+			.toplinks
+			{
+				height: auto;
+				padding: 0px;
+				}
+				.stctb
+				{
+					width: 100%;
+					}
+					
+					#main_content
+					{
+						float: none;
+						height: auto;
+						}
+						
+						table td
+						{
+							padding: 0;
+							}
+	</style>
+   <style type="text/css">
+
+  
+#container {
+    display: table;
+    }
+
+  #row  {
+    display: table-row;
+    margin: 30px;
+    padding-top: 12px;
+    
+    }
+
+  #left, #right, #middle {
+    display: table-cell;
+    margin-top: 5px;
+    }
+.alignRight
+{ float:right;
+  margin-right:15px;
+}
+.alignLeft
+{ float:left;
+  margin-left:15px;
+}
+
+.desc { display: none; }
+
+
+div#tableBody {
+ 			  width: 60em;
+  			  padding: 0.3em;
+			}
+			table {
+  			  width: 100%;
+			}
+			table th {
+			  padding: 0.3em;
+			  cursor:pointer;
+			  
+			}
+			table th span {
+  			  float:right;
+			}
+			table tr.odd {
+  			  background-color: #E0E0E0;
+			}
+			
+</style>
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="wrapper">
+	<div id="innerwrapper">
+		<div id="header">
+			<img src="@Url.Content("~/Content/Images/index_01.gif")"  height="92" alt="" />
+		</div>
+		<div id="breadcrumb">
+			<div style="float:right;margin:5px;padding:5px;""> 
+                @if(User.Identity.IsAuthenticated){
+              <a href="/account/logoff">Logout</a>
+                }
+              
+              </div>   
+ 
+				<!--<div style="float:left;margin:5px;padding:5px;">You are here // dashboard</div>-->         
+			<div style="clear:both;"></div>
+		</div>
+		<div class="toplinks">
+        @if (User.Identity.IsAuthenticated){
+			<script type="text/javascript" src="@Url.Content("~/Scripts/Menu/menu.js")"></script>
+        }
+        <div style="clear:both;margin:0px;padding:0px;"></div>  
+		</div>
+		<div id="mainbody" style="padding:1px;">
+
+                           
+				   
+
+
+
+					@RenderBody()
+
+
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+	
+</body>
+</html>

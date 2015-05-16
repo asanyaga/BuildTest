@@ -1,0 +1,24 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.MarketAuditViewModels.OutletAuditViewModel
+
+@{
+    ViewBag.Title = "OutletAuditDetails";
+}
+<p>
+    @Html.ActionLink("Edit Outlet Audit", "EditOutletAudit", new { id=Model.Id }) |
+    @Html.ActionLink("View Outlet Audits", "ListOutletAudits")
+</p>
+<h2>Outlet Audit Details</h2>
+
+<fieldset>
+    <legend></legend>
+    <table>
+    <tr><td>
+    <div class="display-label">Question</div></td><td>
+    <div class="display-field">@Model.Question</div></td></tr>
+    <tr><td>
+    <div class="display-label">IsActive</div></td><td>
+    <div class="display-field">@Model.IsActive</div></td></tr>
+    </table>
+</fieldset>
+
+

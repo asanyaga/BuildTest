@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "SaleBySalesman";
+}
+
+<h2 id="breadcrumb-holder">
+	Dashboard &nbsp; &gt; &nbsp;	
+	<span class="bc-example">
+		@Html.ActionLink("Reports", "Reports", new { area = "", controller = "Home" }) &nbsp; &gt; &nbsp;
+		Sales By Salesman
+	</span> 
+</h2>
+<div id="main-content-report">
+@using Distributr.HQ.Lib.Util
+<div>
+<iframe src="@Html.MyResource("Reports/SalesByDistributor/SaleBySaleman.aspx")@ViewBag.Parameters" ></iframe>
+</div>
+</div>

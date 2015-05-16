@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.User.UserViewModel>
+
+@{
+    ViewBag.Title = "ListUsers";
+}
+
+<h2>ListUsers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Username
+        </th>
+        <th>
+            CostCentre
+        </th>
+        <th>
+            CostCentreName
+        </th>
+        <th>
+            Password
+        </th>
+        <th>
+            PIN
+        </th>
+        <th>
+            Mobile
+        </th>
+        <th>
+            isActive
+        </th>
+        <th>
+            Group
+        </th>
+        <th>
+            GroupName
+        </th>
+        <th>
+            userTypeName
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+        <td>
+            @item.Username
+        </td>
+        <td>
+            @item.CostCentre
+        </td>
+        <td>
+            @item.CostCentreName
+        </td>
+        <td>
+            @item.Password
+        </td>
+        <td>
+            @item.PIN
+        </td>
+        <td>
+            @item.Mobile
+        </td>
+        <td>
+            @item.isActive
+        </td>
+        <td>
+            @item.Group
+        </td>
+        <td>
+            @item.GroupName
+        </td>
+        <td>
+            @item.userTypeName
+        </td>
+    </tr>
+}
+
+
+</table>
+

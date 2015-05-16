@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.User.UserTypeViewModel>
+
+@{
+    ViewBag.Title = "List UserTypes";
+}
+
+<h2>ListUserTypes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateUserType")
+</p>
+<p  style="color:Red;">
+    @ViewBag.msg
+</p>
+<table id="tablesorter-demo" class="tablesorter">
+    <tr>
+        <th></th>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "EditUserType", new { id=item.Id }) |
+            @Html.ActionLink("Details", "UserTypeDetails", new { id=item.Id }) |
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id }, 
+             new { onclick = "return confirm('Are you sure you want to deactivate the User Type?')" })
+        </td>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Description
+        </td>
+    </tr>
+}
+
+</table>
+

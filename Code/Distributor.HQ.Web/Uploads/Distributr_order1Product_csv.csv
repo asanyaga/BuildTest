@@ -1,0 +1,2 @@
+DistributorCode,OutletCode,SalesmanCode,ProductCode,Quantity,Vat,Value,OrderType,OrderReference
+D001,O001,S001,SP004,1000,0.17,501,DuringConfirmation,O23454500000000q

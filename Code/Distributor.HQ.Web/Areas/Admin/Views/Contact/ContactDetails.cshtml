@@ -1,0 +1,49 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Contact.ContactViewModel
+
+@{
+    ViewBag.Title = "ContactDetails";
+}
+
+<h2>ContactDetails</h2>
+
+<fieldset>
+    <legend>ContactViewModel</legend>
+
+    <div class="display-label">ContactPerson</div>
+    <div class="display-field">@Model.ContactPerson</div>
+
+    <div class="display-label">Mobile</div>
+    <div class="display-field">@Model.Mobile</div>
+
+    <div class="display-label">Telephone</div>
+    <div class="display-field">@Model.Telephone</div>
+
+    <div class="display-label">Fax</div>
+    <div class="display-field">@Model.Fax</div>
+
+    <div class="display-label">Address1</div>
+    <div class="display-field">@Model.Address1</div>
+
+    <div class="display-label">Address2</div>
+    <div class="display-field">@Model.Address2</div>
+
+    <div class="display-label">Locality</div>
+    <div class="display-field">@Model.Locality</div>
+
+    <div class="display-label">PostalCode</div>
+    <div class="display-field">@Model.PostalCode</div>
+
+    <div class="display-label">City</div>
+    <div class="display-field">@Model.City</div>
+
+    <div class="display-label">IsActive</div>
+    <div class="display-field">@Model.IsActive</div>
+
+    <div class="display-label">CostCentre</div>
+    <div class="display-field">@Model.CostCentre</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditContact", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

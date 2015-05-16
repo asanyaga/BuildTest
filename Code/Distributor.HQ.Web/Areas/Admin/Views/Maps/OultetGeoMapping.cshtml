@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "Oultet Geo-Mapping";
+            //Layout = null;
+}
+
+
+
+<script type="text/javascript">
+
+   
+
+   
+</script>
+<h2 id="breadcrumb-holder">Oultet Geo-Mapping <span class="bc-example-intro"></span>
+</h2>
+<div id="main-content-housing">
+    <div id="map-filters">
+        <table>
+            <tr>
+                <td>Distributor</td>
+                <td>
+                    <select id="distributrfilter">
+                        <option></option>
+                        @foreach (SelectListItem distributor in ViewBag.DistributrList)
+                        {
+                            <option value="@distributor.Value">@distributor.Text</option>
+                        }
+                    </select></td>
+                <td>Route</td>
+                <td>
+                    <select id="routefilter">
+                        <option></option>
+                    </select>
+
+                </td>
+                <td>
+                    <input id="view-map" type="button" value="View Map" /></td>
+            </tr>
+        </table>
+
+
+    </div>
+    <br />
+    <div id="map-canvas" style="height: 400px; width: 100%;" />
+
+</div>
+<script type="text/javascript">
+     function initialize() {
+       
+        var selectedroute = $('#routefilter').val();
+        var selectedDistributor = $('#distributrfilter').val();
+        $.getJSON('@Url.Action("OultetGeoMappingData", "Maps", new { area = "Admin" })', { routeId: selectedroute, distributorId: selectedDistributor }, function (locations) {
+
+           
+            var mapOptions = {
+                //center: new google.maps.LatLng(41.923, 12.513),
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("map-canvas"),
+                mapOptions);
+            var infowindow = new google.maps.InfoWindow();
+            var marker, i;
+            var bounds = new google.maps.LatLngBounds();
+            for (i = 0; i < locations.length; i++) {
+              
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i].Latitude, locations[i].Longitude),
+                    map: map
+                });
+                marker.setTitle(locations[i].Name);
+                bounds.extend(marker.position);
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(locations[i].Description);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+            map.fitBounds(bounds);
+        });
+    }
+    
+    $('#distributrfilter').change(function () {
+        var routesSelect = $('#routefilter');
+        routesSelect.empty();
+        var selected = $(this).val();
+        if (selected != null && selected != '') {
+            $.getJSON('@Url.Action("GetRoutesByDistributor", "Maps", new { area = "Admin" })', { distributorId: selected }, function (routes) {
+                routesSelect.append($('<option/>', {
+                    value: '',
+                    text: 'ALL'
+                }));
+                $.each(routes, function (index, route) {
+                    routesSelect.append($('<option/>', {
+                        value: route.Value,
+                        text: route.Text
+                    }));
+                });
+            });
+        }
+    });
+    $('#view-map').click(function () {
+      
+        var selectedroute = $('#routefilter');
+        var selectedDistributor = $('#distributrfilter');
+       
+        if (selectedDistributor.val() == null || selectedDistributor.val() == '') {
+            alert("Please Select a Distributor");
+            return;
+        }
+        initialize();
+     
+
+    });
+</script>

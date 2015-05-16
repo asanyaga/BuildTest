@@ -1,0 +1,430 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    @using Agrimanagr.HQ.Models        @using Distributr.HQ.Lib.Util        @using SquishIt.Framework
+    @using Distributr.HQ.Lib.Helper
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link href="@Url.Content("~/Content/styles/reset.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/content/backgrid/backgrid.css")" rel="stylesheet" media="screen" />
+    <link href="@Url.Content("~/content/backgrid/backgrid-paginator.css")" rel="stylesheet" media="screen" />
+    <link href="@Url.Content("~/content/backgrid/backgrid-filter.css")" rel="stylesheet" media="screen" />
+    <link href="@Url.Content("~/content/magnific-popup.css")" rel="stylesheet" media="screen" />
+    <link href="@Url.Content("~/content/toastr.min.css")" rel="stylesheet" media="screen" />
+
+    @MvcHtmlString.Create(
+            Bundle.Css()
+                .Add("~/Content/styles/main.css")
+                .Add("~/Content/styles/Site.css")
+                .Add("~/Content/styles/layout.css")
+                .Add("~/Content/styles/tabs.css")
+                .Add("~/Content/styles/main-menu.css")
+                .Add("~/Content/styles/MenuMatic.css")
+                .Add("~/Content/styles/tabs.css")
+                .Add("~/Content/styles/tables.css")
+                .Add("~/Content/themes/base/jquery-ui.css")
+                .Add("~/Content/jquery.ui.datepicker.css")
+                .ForceRelease()
+                .Render("~/Content/styles/combined_#.css"))
+
+
+    @MvcHtmlString.Create(
+            Bundle.JavaScript()
+
+                .Add("~/Content/js/jquery-1.4.2.min.js")
+                .Add("~/Content/js/jquery.tablesorter.js")
+                .Add("~/Content/js/tablesort.js")
+                .Add("~/Content/js/eye.js")
+                .Add("~/Content/js/utils.js")
+                .Add("~/Content/js/tabs.js")
+                .ForceRelease()
+                .Render("~/Content/js/combined_#.js")
+             )
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#disabled").click(function (e) {
+                //jscript never reaches here on load or click
+                //yes, the name of the control is correct.
+                e.preventDefault();
+                return false;
+            });
+        });
+    </script>
+
+    <script src="@Url.Content("~/Content/js/main-menu-drop-down.js")" type="text/javascript"></script>
+    @*    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsNzaVMs9tyT5mPz2jWGjUtRlOAVyLfa8&sensor=false">
+        </script>*@
+
+    @if (IsSectionDefined("Style"))
+    {
+        @RenderSection("Style");
+    }
+    else
+    {
+        <style type="text/css">
+        </style>
+    }
+
+</head>
+
+
+<body>
+
+    <div id="container">
+
+        <div id="header" class="print-hide">
+
+            <img width="389" height="55" src="@Html.GetLogo()" />
+
+
+            <p id="logged-in-as">
+                logged In As <strong>@ViewBag.logged</strong> <a href="@Url.Content("~/account/logoff")">(Logout)</a>
+            </p>
+        </div><!-- end of div#header -->
+
+        <div id="main-panel">
+            <ul id="nav2">
+                <li><a href="@Url.Content("~/Home/Index")" id="dashboard-btn"><span class="img-replace">Dashboard</span></a></li>
+            </ul>
+            <!-- BEGIN Menu -->
+            <div style="position:absolute; right:5px;">
+                <ul id="nav">
+
+                    <li>
+                        <a href="#" id="global-settings"><span class="img-replace">Global Settings</span></a>
+
+                        <ul>
+
+                            <li>
+                                <a href="#">Regions</a>
+                                <ul>
+                                    <li><a href="@Url.Content("~/Admin/Territory/ListTerritory")">Country Region</a></li>
+                                    <li><a href="@Url.Content("~/Admin/Country/ListCountry")">Country</a></li>
+                                    <li><a href="@Url.Content("~/Admin/Province/ListProvinces")">Province</a></li>
+                                    <li><a href="@Url.Content("~/Admin/District/ListDistricts")">District</a></li>
+                                    <li><a href="@Url.Content("~/Admin/Region/ListRegion")">Region</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Contacts</a>
+                                <ul>
+                                    <li><a href="@Url.Content("~/Admin/ContactType/ListContactTypes")">Contact Types</a></li>
+                                    <li><a href="@Url.Content("~/Admin/Contact/ListContacts")">Contacts</a></li>
+                                </ul>
+                            </li>
+                            @if (Html.IsSystemAdmin())
+                            {
+                                <li>
+                                    <a href="#">Suppliers</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Admin/Supplier/ListSuppliers")">Suppliers</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">@Html.GetText("hq.dist") Management</a>
+                                    <ul>
+                                        @*							<li><a href="@Url.Content("~/Admin/User/ListUsers?userType=ASM")">ASM Management</a></li>
+
+                                            <li><a href="@Url.Content("~/Admin/User/ListUsers?userType=SalesRep")">Sales Rep Management</a></li>
+                                            <li><a href="@Url.Content("~/Admin/User/ListUsers?userType=Surveyor")">Surveyors Management</a></li>*@
+                                        <li><a href="@Url.Content("~/DistributorUsers/ListAllUsers")">@Html.GetText("hq.dist") Management</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            @if (Html.IsGlobalSettingUrlActive("GlobalSettingCompetitormgt"))
+                            {
+                                <li>
+                                    <a href="#">Competitor Management</a>
+                                    <ul>
+                                        @*<li><a href="@Url.Content("~/Admin/Competitor/CreateCompetitor")">Add Competitor</a></li>*@
+                                        <li><a href="@Url.Content("~/Admin/Competitor/ListCompetitors")">Competitors</a></li>
+                                        @*<li><a href="@Url.Content("~/Admin/CompetitorProduct/CreateProduct")">Add Competitor Product</a></li>*@
+                                        <li><a href="@Url.Content("~/Admin/CompetitorProduct/ListCompetitorProducts")">Competitor Products</a></li>
+
+                                    </ul>
+                                </li>
+                            }
+                            @if (Html.IsSystemAdmin())
+                            {
+                                <li>
+                                    <a href="#">Outlets</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Admin/OutletCategory/ListOutletCategories")">@Html.GetText("hq.outletcats")</a></li>
+                                        <li><a href="@Url.Content("~/Admin/OutletType/ListOutletTypes")">@Html.GetText("hq.outlettypes")</a></li>
+                                        <li><a href="@Url.Content("~/Admin/Outlet/ListOutlets")">@Html.GetText("hq.outlets")</a></li>
+
+                                    </ul>
+                                </li>
+                            }
+                            <li>
+                                <a href="#">VAT Rates</a>
+                                <ul>
+                                    @*<li><a href="@Url.Content("~/Admin/ListVatClass/CreateVat")">Add VAT Rate</a></li>*@
+                                    <li><a href="@Url.Content("~/Admin/ListVatClass/ListVat")">VAT Rates</a></li>
+
+                                </ul>
+                            </li>
+
+                            <!-- <li><a href="#">Coolers</a>
+                                 <ul>
+                                     @*<li><a href="@Url.Content("~/Admin/CoolerType/CreateCoolerType")">Add Cooler Types</a></li>*@
+                                     <li><a href="@Url.Content("~/Admin/CoolerType/ListCoolerTypes")">Cooler Types</a></li>
+                                    @* <li><a href="@Url.Content("~/Admin/Cooler/CreateCooler")">Add Coolers</a></li>*@
+                                     <li><a href="@Url.Content("~/Admin/Cooler/ListCoolers")">Coolers</a></li>
+
+                                 </ul>
+
+                             </li> -->
+
+                            <li>
+                                <a href="#">Assets</a>
+                                <ul>
+                                    @*<li><a href="@Url.Content("~/Admin/CoolerType/CreateCoolerType")">Add Asset Status</a></li>*@
+                                    <li><a href="@Url.Content("~/Admin/AssetStatus/ListAssetStatus")">Asset Status</a></li>
+                                    @* <li><a href="@Url.Content("~/Admin/Cooler/CreateCooler")">Add Asset Types</a></li>*@
+                                    <li><a href="@Url.Content("~/Admin/AssetType/ListAssetTypes")">Asset Types</a></li>
+                                    @* <li><a href="@Url.Content("~/Admin/Cooler/CreateCooler")">Add Asset Categories</a></li>*@
+                                    <li><a href="@Url.Content("~/Admin/AssetCategory/ListAssetCategories")">Asset Categories</a></li>
+                                    @* <li><a href="@Url.Content("~/Admin/Cooler/CreateCooler")">Add Assets</a></li>*@
+                                    <li><a href="@Url.Content("~/Admin/Asset/ListAssets")">Assets</a></li>
+                                </ul>
+                            </li>
+                            @if (Html.IsGlobalSettingUrlActive("GlobalSettingDistributorTargets"))
+                            {
+                                <li>
+                                    <a href="#">Distributor Target</a>
+                                    <ul>
+                                        @*<li><a href="@Url.Content("~/Admin/TargetPeriod/CreateTargetPeriod")">Add Targets Calendar</a></li>*@
+                                        <li><a href="@Url.Content("~/Admin/TargetPeriod/ListTargetPeriods")">Targets Calendar</a></li>
+                                        @*<li><a href="@Url.Content("~/Admin/Target/CreateTarget")">Add Distributor Targets</a></li>*@
+                                        <li><a href="@Url.Content("~/Admin/Target/ListTargets")">@Html.GetText("hq.dist") Targets</a></li>
+
+                                    </ul>
+                                </li>
+                            }
+                            @if (Html.IsGlobalSettingUrlActive("GlobalSettingReorderlevel"))
+                            {
+                                <li>
+                                    <a href="#">Re-Order Level</a>
+                                    <ul>
+                                        @*<li><a href="@Url.Content("~/Admin/ReOrderLevel/CreateReOrderLevel")">Add Product Re-Order Level</a></li>*@
+                                        <li><a href="@Url.Content("~/Admin/ReOrderLevel/ListReOrderLevels")">Product Re-Order Levels</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            @if (Html.IsGlobalSettingUrlActive("GlobalSettingDiscount"))
+                            {
+                                <li>
+                                    <a href="#">Discounts</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Admin/ProductDiscount/ListDiscounts")">Product Discount</a></li>
+                                        <li><a href="@Url.Content("~/Admin/SaleValueDiscount/ListSaleValueDiscounts")">Sale Value Discount</a></li>
+                                        <li><a href="@Url.Content("~/Admin/PromotionDiscount/ListFOCDiscounts")">Promotion</a></li>
+                                        <li><a href="@Url.Content("~/Admin/FreeOfChargeDiscount/List")">Free Of Charge</a></li>
+                                        <li><a href="@Url.Content("~/Admin/DiscountGroup/ListDiscountGroups")">Discount Groups</a></li>
+                                        <li><a href="@Url.Content("~/Admin/CertainValueCertainProduct/ListCertainValueCertainProduct")">Certain Value Certain Product</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            @if (Html.IsGlobalSettingUrlActive("GlobalSettingChannelPackaging"))
+                            {
+                                @*<li><a href="@Url.Content("~/Admin/ChannelPackaging/ListChannelPacks")">Channel Packs</a></li>*@
+                            }
+                            @if (Html.IsGlobalSettingUrlActive("GlobalSettingBank"))
+                            {
+                                <li>
+                                    <a href="#">Banks</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Admin/Bank/ListBanks")">Bank Management</a></li>
+                                        <li><a href="@Url.Content("~/Admin/BankBranch/ListBankBranches")">Bank Branch Management</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            @if (Html.IsGlobalSettingUrlActive("GlobalSettingMarketAudit"))
+                            {
+                                <li>
+                                    <a href="#">Market Audit</a>
+                                    <ul>
+                                        @*<li><a href="@Url.Content("~/Admin/Blank/Blank")">Add Market Audit Questions</a></li>*@
+                                        <li><a href="@Url.Content("~/Admin/Blank/Blank")">Market Audit Questions</a></li>
+                                        @*<li><a href="@Url.Content("~/Admin/Blank/Blank")">Add Outlet Audit Questions</a></li>*@
+                                        <li><a href="@Url.Content("~/Admin/Blank/Blank")">Outlet Audit Questions</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="@Url.Content("~/Admin/OutletVisitReasonsType/ListOutletVisitReasonsTypes")">Outlet Visit Reasons Type</a>
+                                </li>
+                            }
+
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" id="account-btn"><span class="img-replace">Account</span></a>
+                        <ul>
+                            @if (Html.IsSystemAdmin())
+                            {
+                                <li><a href="@Url.Content("~/Admin/UserGroup/List")">Manage Group</a></li>
+                                <li>
+                                    <a href="#">Manage Users</a>
+                                    <ul>
+                                        <li><a href="@Url.Content("~/Account/ListAllUsers")">Manage HQ Users</a></li>
+                                        <li><a href="@Url.Content("~/Admin/User/ListUsers")">Manage @Html.GetText("hq.dist") Users</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            <li><a href="@Url.Content("~/Account/ChangePassword")">Change Password</a></li>
+
+                            @if (Html.IsSystemAdmin())
+                            {
+                                <li><a href="@Url.Content("~/Account/ResetDistributorUserPassword")">Reset Distributor User Password</a></li>
+                                <li><a href="@Url.Content("~/Account/ResetHqUserPassword")">Reset HQ User Password</a></li>
+
+                                <li><a href="@Url.Content("~/Admin/AuditLog/ListAuditLogs")">Audit Log</a></li>
+
+                            }
+
+                        </ul>
+                    </li>
+
+                    <li><a href="#" id="help-btn"><span class="img-replace">Account</span></a></li>
+
+                </ul>
+            </div>
+            <!-- END Menu -->
+
+        </div><!-- end of div#main-panel -->
+
+        <div id="content-container">
+
+            @using Distributr.HQ.Lib.ViewModelBuilders.Admin.Transaction
+
+            <table cellpadding="0" cellspacing="0" id="main-layout-container">
+                <tr>
+                    <td id="sidebar" class="print-hide">
+                        <div id="sidebar-wrapper">
+                            <h2 id="quick-links-header">Quick Links</h2>
+                            <ul id="quick-links-list">
+                                <li><a href="@Url.Content("~/Admin/Orders/PendingOrders")"> <span class="icons deliveries-pending"></span> Purchase Order summary  (@Html.CountPendingOrders())</a></li>
+                                <li><a href="@Url.Content("~/Admin/Orders/DeliveredPurchaseOrders")"> <span class="icons outstanding-bal"></span> Delivered Purchase orders (@Html.CountDeliveredPOrders())</a></li>
+                                <li><a href="@Url.Content("~/Admin/Orders/ApprovedPurchaseOrders")"> <span class="icons outstanding-bal"></span>Approved Purchase orders (@Html.CountApprovedOrders())</a></li>
+                            </ul><!-- end of ul#quick-links-list -->
+                            <h2 id="main-menu-header">Main Menu</h2>
+
+                            <div id="firstpane" class="menu_list">
+                                <!--Code for menu starts here-->
+                                <p class="menu_head"> <span class="icons orders"></span>Orders</p>
+                                <div class="menu_body">
+                                    <a href="@Url.Content("~/Admin/Orders/ListAllOrders")">View Pending Orders</a>
+                                    <a href="@Url.Content("~/Admin/PurchaseOrder/")">Add Purchase Order</a>
+                                </div>
+                                <p class="menu_head"><span class="icons products"></span>Product And Pricing</p>
+                                <div class="menu_body">
+                                    <a href="@Url.Content("~/Admin/ProductBrand/ListProductBrands")">@Html.GetText("hq.brands")</a>
+                                    <a href="@Url.Content("~/Admin/ProductFlavour/ListProductFlavours")">@Html.GetText("hq.subbrands")</a>
+                                    <a href="@Url.Content("~/Admin/ProductPackaging/ListProductPackaging")">Packaging</a>
+                                    <a href="@Url.Content("~/Admin/ProductPackagingType/ListProductPackagingType")">Packaging Types</a>
+                                    <a href="@Url.Content("~/Admin/Product/Index")">Products</a>
+                                    <a href="@Url.Content("~/Admin/ProductPricing/List")">Pricing</a>
+                                    <a href="@Url.Content("~/Admin/ProductPricingTier/ListProductPricingTiers")">Pricing Tier</a>
+                                    <a href="@Url.Content("~/Admin/ProductType/ListProductTypes")">Product Type</a>
+                                </div>
+
+                                <p class="menu_head">
+
+                                    <span class="icons reports"></span>
+                                    <span class="report-label"><a href="@Url.Content("~/Home/Reports")">Reports</a></span>
+                                </p>
+                                <p class="menu_head">
+                                    <span class="icons reports"></span>
+                                    <span class="report-label">  @Html.ActionLink("Reports Dashboard", "Dashboard", "Reports", new { Area = "Rpt", reportName = "Dashboard" }, new { })</></span>
+                                </p>
+                                <p class="menu_head">
+
+                                    <span class="icons reports"></span>
+
+                                    <span class="report-label"><a href="@Url.Content("~/admin/maps")" onclick="return openMap()">Maps</a></span>
+
+                                </p>
+                                @*<div class="menu_body">
+                                        <a href="@Url.Content("~/Reports/Sales/SalesSummary.aspx")">@Html.GetText("hq.rpt.sales.title") Reports</a>
+                                          <a href="@Url.Content("~/Reports/Order/OrdersSummary.aspx")">Order Reports</a>
+                                          <a href="@Url.Content("~/Reports/InventoryReceipt/InventoryReceiptByDistributor.aspx")">Inventory Receipt Reports</a>
+                                          <a href="@Url.Content("~/Reports/Stock/StockSummary.aspx")">Stock Reports</a>
+                                          <a href="@Url.Content("~/Reports/Outlets/NewOutlets.aspx")">@Html.GetText("hq.rpt.outlet.title") Reports</a>
+                                          <a href="@Url.Content("~/Reports/Blank/Blank.aspx")">Dispatch &amp; Losses Reports</a>
+                                          <a href="@Url.Content("~/Reports/Discounts/ProductPromotionByProduct.aspx")">Discount Reports</a>
+                                          <a href="@Url.Content("~/Reports/Outlets/Route.aspx")">Route Reports</a>
+                                          <a href="@Url.Content("~/Reports/Blank/Blank.aspx")">Re-Order Level Reports</a>
+                                         <a href="@Url.Content("~/Reports/Targets/OutletTargets.aspx")">Targets Reports</a>
+                                          <a href="@Url.Content("~/Reports/Finnancial/FinnancialDistributor.aspx")">@Html.GetText("hq.rpt.sales.title") &amp; Gross Profit Reports</a>
+                                          <a href="@Url.Content("~/Reports/Blank/Blank.aspx")">Volume @Html.GetText("hq.rpt.sales.title") Reports</a>
+                                          <a href="@Url.Content("~/Reports/Blank/Blank.aspx")">Transactional Reports</a>
+                                    </div>*@
+
+                            </div>  <!--Code for menu ends here-->
+
+
+
+
+
+                        </div><!-- end of div#sidebar-wrapper -->
+                    </td><!-- end of div#sidebar -->
+                    <td id="main-content-section">
+
+
+                        @RenderBody()
+
+                        <div style="min-height:200px; display:block;">
+                        </div>
+                        <!-- end of div#main-content-housing -->
+
+                    </td><!-- end of div#main-content-section -->
+                </tr>
+            </table><!-- end of table#main-layout-container -->
+        </div>
+    </div><!-- end of div#content-container -->
+
+    <div id="footer">
+        <div style="position:absolute; right:5px;">@Html.GetVersion()</div>
+        <div id="powered-by">
+            <p>Powered By</p>
+            <div id="virtual-city-logo">
+                <a target="_blank" href="http://www.virtualcity.co.ke"><span class="img-replace">Virtual City Ltd | Innovation Lives Here</span></a>
+
+            </div><!-- end of virtual-city-logo -->
+
+        </div><!-- end of div#powered-by -->
+    </div><!-- end of div#footer -->
+    <!-- </div> end of div#container -->
+</body>
+</html>
+
+<script type="text/javascript">
+
+    function openMap() {
+        var status = confirm('To open map inside distributr click okay.');
+        debugger;
+        if (!status) {
+            window.open('@Html.MapResource()', '_blank');
+
+        }
+        return status;
+    }
+
+    $("#ddlItemsPerPage").change(function (e) {
+        debugger;
+        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?itemsperpage=" + $(this).val();
+        $.post("@Url.Content("~/api/SetItemsPerpage")", { pagesize: $(this).val() });
+    });
+// suggested by james
+    $.validator.methods.date = function(value, element) {
+        return this.optional(element) || parseDate(value, "dd-MMM-yyyy") !== null;
+    };
+</script>

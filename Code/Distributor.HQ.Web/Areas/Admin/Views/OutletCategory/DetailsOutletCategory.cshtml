@@ -1,0 +1,21 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CostCenter.OutletCategoryViewModel
+
+@{
+    ViewBag.Title = "DetailsOutletCategory";
+}
+
+<h2>DetailsOutletCategory</h2>
+
+<fieldset>
+    <legend>OutletCategoryViewModel</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+   
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditOutletCategory", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

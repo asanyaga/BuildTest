@@ -1,0 +1,59 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.User.UserGroupVeiwModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.usrgrp.title.add");
+}
+	<h2 id="breadcrumb-holder">Account &nbsp; &gt;&nbsp;
+    @Html.GetText("hq.usrgrp.breadcrumb") &nbsp;&gt; <span class="bc-example">  
+    @Html.ActionLink(Html.GetText("hq.usrgrp.breadcrumb.view"), "List")</span> &gt; 
+    @Html.GetText("hq.usrgrp.breadcrumb.add")</h2>
+
+<div id="main-content-housing">
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <br />
+    <div id="primary-controls">
+    <fieldset>
+    <legend>@Html.GetText("hq.usrgrp.form.details.add")</legend>
+   				
+        <table class="detail-arrange">
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.usrgrp.name")</strong>
+        </td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        </td>
+        </tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.usrgrp.desc")</strong>
+        
+        </td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        </td></tr>
+        
+        
+
+       </table>
+</fieldset>
+        <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            <input name="Create" type="reset" value="Clear" class="button-style-one"/>
+            
+
+        </fieldset>
+      
+    </div>
+}
+</div>
+
+

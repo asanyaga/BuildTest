@@ -1,0 +1,262 @@
+﻿@model IPagedList<Distributr.HQ.Lib.ViewModels.Admin.Orders.OrderViewModel>
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+
+@{
+    ViewBag.Title = Html.GetText("hq.orders.listing.title");
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string searchText = ViewBag.searchParam;
+    string startDate = "";
+    string endDate = "";
+}
+<h2 id="breadcrumb-holder">@Html.GetText("hq.orders.breadcrumb") &gt; @Html.GetText("hq.orders.listing.breadcrumb")</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">@Html.GetText("hq.orders.listing.heading")</h2>
+    <div id="primary-controls">
+        <fieldset>
+            <legend>Import From Excel</legend>
+            <div class="button-style-two-cshtml">
+                @Html.ActionLink("Import From Excel", "ImportOrders")
+            </div>
+        </fieldset>
+    </div>
+    <!-- end of div#primary-controls -->
+    @if (TempData["unImportedOrders"] != null)
+    {
+        <div class="notice-notification">
+            <ul>
+                @foreach (var item in TempData["unImportedOrders"] as List<Distributr.HQ.Lib.ViewModels.Admin.Orders.OrderViewModel>)
+                { 
+                    <li><span>Order with Reference @item.OrderReference was not imported(Reference Already
+                        Exists)</span> </li>
+                }</ul>
+        </div>
+    }
+    
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    
+    @if (ViewBag.invalidDate != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.invalidDate
+        </div>
+    }
+    <script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            debugger;
+            $("#datepicker").datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                buttonImage: "/Content/images/cal.gif",
+                showOn: "button",
+                inline: true,
+                showStatus: true,
+                highlightWeek: true,
+                showAnim: 'scale',
+                changeYear: true,
+                onSelect: function(datetext) {
+                    var d = new Date(); // for now
+                    datetext = datetext ;
+                    $('#datepicker').val(datetext);
+                   },
+            });
+        });
+
+
+        //Second Date picker
+        $(function() {
+            $("#datepicker2").datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                buttonImage: "/Content/images/cal.gif",
+                showOn: "button",
+                inline: true,
+                showStatus: true,
+                highlightWeek: true,
+                showAnim: 'scale',
+                changeYear: true,
+                onSelect: function(datetext) {
+                    var d = new Date(); // for now
+                    //datetext = datetext + " " + addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getSeconds());
+                    $('#datepicker2').val(datetext);
+                },
+            });
+        });
+
+        function addZero(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        $(function() {
+            $("#ddlItemsPerPageO").change(function(e) {
+                debugger;
+                var distriburorId = $('#distributor').val();
+                window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?itemsperpage=" + $(this).val() + "&distributor=" + $('#distributor').val() + "&StartDate=" + $('#datepicker').val() + "&EndDate=" + $('#datepicker2').val();
+                $.post("@Url.Content("~/api/SetItemsPerpage")", { pagesize: $(this).val() });
+        });
+    });
+
+    @*$(function() {
+            debugger;
+            $("#datepicker").onChange(function(e) {
+                var endDate = $('#datepicker').val();
+                @endDate = endDate;
+            });
+        });*@
+
+</script>
+    @using (Html.BeginForm("ListAllOrders", "Orders"))
+    {
+        @Html.ValidationSummary(true)
+    
+    
+        <fieldset>
+            <legend>Filter</legend>
+            <table>
+                <tr>
+                    <td style="padding-top: 12px;">
+                        <strong>@Html.GetText("hq.orders.listing.distributor")</strong>
+                    </td>
+                    <td>
+                        <span class="text-box-cshtml">@Html.DropDownList("distributor",
+                                                                            new SelectList(ViewBag.DistributorList, "Key", "Value"), "[All]")</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 12px;">
+                        <strong>Start Date &nbsp;</strong>
+                    </td>
+                    <td>
+                        <span class="text-box-cshtml">@Html.TextBox("StartDate", DateTime.Today.AddDays(1 - DateTime.Today.Day).ToString("dd/MM/yyyy"), new { @id = "datepicker"})</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 12px;">
+                        <strong>End Date &nbsp;</strong>
+                    </td>
+                    <td>
+                        <span class="text-box-cshtml">@Html.TextBox("EndDate", DateTime.Now.ToString("dd/MM/yyyy"), new { @id = "datepicker2" })</span>
+                    </td>
+                </tr>
+                <tr><td><br/></td></tr>
+                <tr>
+                    <td>
+                        @*<input type="button" name="command" value="Filter" class="button-style-one" id="filter"/>*@
+                        <input type="submit" name="command" value="Filter" class="button-style-one" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>@Html.GetText("hq.orders.listing.search")</legend>
+            <div class="criteria-div">
+                <span class="text-box-cshtml">@Html.TextBox("orderRef", searchText)</span>
+                <input name="command" type="submit" value="Search" class="button-style-one" />
+                <input name="command" type="submit" value="Clear" class="button-style-one" id="clear" />
+                <script type="text/javascript">
+                    $('#clear').click(function () {
+                        $('#orderRef').val('');
+                    });
+                </script>
+            </div>
+        </fieldset>
+    }
+
+    @try
+    {
+   
+        <div class="table-container">
+            @if (Model.PageSize != 0)
+            {
+                <table width="800px" id="tablesorter-demo" class="tablesorter">
+                    <thead>
+                        <tr>
+                            <th align="center">
+                                @Html.GetText("hq.orders.issuedbehalf")
+                            </th>
+                            <th align="center">
+                                @Html.GetText("hq.orders.status")
+                            </th>
+                            <th align="center">
+                                @Html.GetText("hq.orders.netamount")
+                            </th>
+                            <th align="center">
+                                @Html.GetText("hq.orders.vatamount")
+                            </th>
+                            <th align="center">
+                                @Html.GetText("hq.orders.grossamount")
+                            </th>
+                            <th align="center">
+                                @Html.GetText("hq.orders.docref")
+                            </th>
+                            <th>
+                                Process
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td align="left">
+                                    @item.isseuedOnBehalf
+                                </td>
+                                <td>
+                                    @item.status
+                                </td>
+                                <td style="text-align: right">
+                                    @string.Format("{0:F}", item.net)
+                                </td>
+                                <td style="text-align: right">
+                                    @string.Format("{0:F}", item.vat)
+                                </td>
+                                <td style="text-align: right">@string.Format("{0:F}", item.gross)
+                                </td>
+                                <td>
+                                    @item.documentReference
+                                </td>
+                                <td>
+                                    @if (item.status == Distributr.Core.Domain.Transactional.DocumentEntities.DocumentStatus.Confirmed)
+                                    {
+                                        @Html.ActionLink("Process", "Index", "ApproveOrder", new { orderId = item.id, refesh = true }, null)
+                                    }
+                                    else
+                                    {
+                                        @Html.ActionLink("View", "Display", "ApproveOrder", new { orderId = item.id }, null)
+                                    }
+                                </td>
+                            </tr>
+                        }</tbody>
+                </table>
+            }
+            else
+            {
+                @ViewBag.NoOrders;
+            }
+        </div>
+        
+        <div class="pager" id="pager">
+            @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new { showInactive, srchParam = searchText, distributor = ViewBag.distributorId, StartDate = ViewBag.startDate, EndDate = ViewBag.endDate, itemsperpage = ViewModelBase.ItemsPerPage })
+                Items per page:
+                @Html.DropDownListFor(n => Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPageO" })
+        </div>
+
+    }
+    catch (Exception exx)
+    {
+        ViewBag.msg = exx.Message;
+    }
+</div>

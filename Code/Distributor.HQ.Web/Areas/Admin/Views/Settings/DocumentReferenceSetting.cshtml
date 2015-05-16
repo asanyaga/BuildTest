@@ -1,0 +1,85 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Agrimanagr.SettingsViewModel.SettingsDocReferenceViewModel
+@{
+    ViewBag.Title = "Document reference Setting";
+}
+<h2 id="breadcrumb-holder">Global Settings &gt; Document reference Settings
+</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">Document reference Setting</h2>
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset style="float: left; width: 500px">
+            <legend>Reports  Setting </legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OrderInitial)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.OrderInitial)
+                @Html.ValidationMessageFor(model => model.OrderInitial)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SaleInitial)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SaleInitial)
+                @Html.ValidationMessageFor(model => model.SaleInitial)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.InvoiceInitial)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.InvoiceInitial)
+                @Html.ValidationMessageFor(model => model.InvoiceInitial)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ReceiptInitial)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ReceiptInitial)
+                @Html.ValidationMessageFor(model => model.ReceiptInitial)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DocReferenceRule)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DocReferenceRule)
+                @Html.ValidationMessageFor(model => model.DocReferenceRule)
+            </div>
+            @* <p>
+                <input type="submit" value="Save" />
+            </p>*@
+        </fieldset>
+        <fieldset style="float: right; width: 300px">
+            <legend>Help</legend>
+            Document Reference Rule Component
+            <ul class="sdsds">
+                <li>{D} = Document Intial</li>
+                <li>{SN} = Salesman Name</li>
+                <li>{SC} = Salesman Code</li>
+                <li>{ON} = Outlet Name</li>
+                <li>{OC} = Outlet Code</li>
+                <li>{DT} = Date (yyyyMMdd)</li>
+                <li>{TM} = Time (hhmmss)</li>
+                <li>{SQ} = Sequence (5 Character)</li>
+            </ul>
+        </fieldset>
+        <br style="clear: both"/>
+        <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Submit" type="submit" value="Save" class="button-style-one" />
+        </fieldset>
+    }
+</div>
+
+

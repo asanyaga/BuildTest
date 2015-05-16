@@ -1,0 +1,142 @@
+﻿@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.User.UserViewModel>
+@{
+    ViewBag.Title = Html.GetText("hq.user.listing.title");
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string searchText = ViewBag.searchParam;
+}
+<h2 id="breadcrumb-holder">
+    @Html.GetText("hq.supplier.user.breadcrumb") &gt; 
+    @Html.GetText("hq.user.listing.breadcrumb")</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">
+        @Html.GetText("hq.user.listing.heading")</h2>
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+
+        using (@Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+        }
+    }
+    @using (Html.BeginForm())
+    {      
+        <fieldset>
+            <legend>@Html.GetText("hq.supplier.user.listing.search")</legend>
+            <div class="criteria-div">
+                <span class="text-box-cshtml">@Html.TextBox("searchText", searchText)</span>
+                <input type="hidden" name="usrType" value="@ViewBag.usrTitle" />
+                <input name="srch" type="button" value="Search" class="button-style-one" id="search" />
+                <input name="srch" type="button" value="Clear" class="button-style-one" id="clear" />
+            </div>   
+            <div class="show-inactive">
+                Show Inactive @Html.CheckBox("show_inactive", showInactive)
+                <script type="text/javascript">
+
+
+                    $("#show_inactive").change(function (e) {
+
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+                    });
+                    $('#search').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&searchText=" + $('#searchText').val();
+
+                    });
+
+                    $('#clear').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked');
+
+                    });
+                </script>
+            </div>         
+            <br />
+        </fieldset>   
+    }
+    <div>
+    </div>
+    <fieldset class="actions">
+        <legend>Actions</legend>
+        <div class="button-style-two-cshtml">
+            @Html.ActionLink(Html.GetText("hq.user.listing.add"), "Register", "SupplierUsers")</div>
+    </fieldset>
+    <div class="table-container">
+        <table id="tablesorter-demo" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.GetText("hq.user.username")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.user.usertype")
+                    </th>
+                    <th>
+                        Supplier
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Username
+                        </td>
+                        <td>
+                            @item.UserType
+                        </td>
+                        <td>
+                            @item.SupplierName
+                        </td>
+                        <td>
+                            @{
+                                if (item.isActive == true)
+                                {   <text>@Html.ActionLink("Edit", "EditSupplierUser", new { id = item.Id }) </text>  <text>|</text>
+                                    <text> @Html.ActionLink("AssignRoles", "AssignRoles", "SupplierUsers", new {id = item.Id }, null)
+                                    </text>
+                                    <text>|</text>
+                                    <text>
+                                        @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id },
+                                                         new { onclick = "return confirm('Are you sure you want to deactivate " + item.Username + "?')" })</text>
+                                    <text>|</text>
+                                    <text>
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                                                         new { onclick = "return confirm('Are you sure you want to delete " + item.Username + "?')" })
+                                    </text>
+                                    <text>|</text>
+                                    <text>
+                                        @Html.ActionLink("Reset Password", "ResetPassword", new { id = item.Id },
+                                                         new { onclick = "return confirm('Are you sure you want to rest the password for " + item.Username + "?')" })
+                                    </text>
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Activate", "Activate", new { id = item.Id })
+                                    <text>|</text>
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                                                     new { onclick = "return confirm('Are you sure you want to delete " + item.Username + "?')" })
+                                }
+      
+    
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="pager">
+		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new { showInactive, searchText = searchText })
+        Items per page:
+        @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+    </div>
+</div>

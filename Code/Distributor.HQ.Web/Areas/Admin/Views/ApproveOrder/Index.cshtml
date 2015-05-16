@@ -1,0 +1,309 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Orders.ApproveOrderViewModel
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<div><p class="add-items">
+    @Html.ActionLink("List Orders", "ListAllOrders", "Orders")</p>
+</div>
+<h2>
+    View</h2>
+    <br />
+ <p style="color:Red;">
+@ViewBag.msg
+</p>
+<br />*@
+
+
+
+
+@*<script src="@Url.Content("~/Scripts/jquery-1.4.4.js")" type="text/javascript"></script>*@
+<script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#reject").click(function (e) {
+
+            name = prompt("Please enter reason", "");
+            if (name != null && name != "") {
+                var resn = name;
+                document.getElementById("textbox1").value = resn;
+
+                var txtReason = $("#textbox1").val();
+                var docId = $("#textbox2").val();
+                var urlemp = '@Url.Action("Reject")';
+
+
+                $.ajax({
+                    type: "POST",
+                    url: urlemp,
+                    data: { documentId: docId, reason: txtReason },
+                    // contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    // async: true,
+                    cache: false,
+                    success: function (msg) {
+                        //alert("ok");
+                        window.location = msg.redirectTo;
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(textStatus + " - " + errorThrown);
+                    }
+                });
+            }
+            else {
+                //alert("Please enter reason");
+
+            }
+
+        });
+    });
+    //    Remove Line Item
+    $(function () {
+        $("#remove").click(function (e) {
+
+            name = prompt("Please enter reason", "");
+            if (name != null && name != "") {
+                var resn = name;
+                document.getElementById("reason").value = resn;
+            }
+            var reason = $("#reason").val();
+            var documentId = $("#documentId").val();
+            var lineItemId = $("#lineItemId").val();
+            var urlemp = '@Url.Action("LineItemRemove")';
+
+
+            $.ajax({
+                type: "POST",
+                url: urlemp,
+                data: { lineitemid: lineItemId, documentid: documentId, removeReason: reason },
+                // contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                // async: true,
+                cache: false,
+                success: function (msg) {
+                    //alert("ok");
+                    window.location = msg.redirectTo;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(textStatus + " - " + errorThrown);
+                }
+            });
+
+
+        });
+    });
+
+</script>
+
+<h2 id="breadcrumb-holder">ORDERS &gt;  <span class="bc-example">@Html.ActionLink("List Orders", "ListAllOrders", "Orders")</span> &gt; Approve Orders</h2>
+
+<div id="main-content-housing">
+
+    @if (ViewBag.msg != null)
+    {
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div id="primary-controls">
+            <fieldset>
+                <legend>Approved Order Details</legend>
+
+                <table class="detail-arrange">
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>Document Reference :</strong></td>
+                        <td><span class="text-box-cshtml">@Model.DocumentReference</span> </td>
+                    </tr>
+
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>Document Issuer CostCenter:</strong></td>
+                        <td><span class="text-box-cshtml">@Model.DocumentIssuerCostCentre </span></td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>Document Recipient :</strong></td>
+                        <td><span class="text-box-cshtml">@Model.DocumentRecipientCostCentre</span> </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>Document Issuer User :</strong></td>
+                        <td><span class="text-box-cshtml">@Model.DocumentIssuerUser</span> </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>Document Status :</strong></td>
+                        <td><span class="text-box-cshtml">@Model.DocumentStatus</span> </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>Document Date Issued :</strong></td>
+                        <td><span class="text-box-cshtml">@Model.DocumentDateIssued</span> </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>Date Required :</strong></td>
+                        <td><span class="text-box-cshtml">@Model.DateRequired</span> </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>Total Net Amount:</strong></td>
+                        <td style="text-align: right"><span class="text-box-cshtml">@String.Format("{0:0,0.00}", Model.TotalNet)</span> </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>Total VAT Amount:</strong></td>
+                        <td style="text-align: right"><span class="text-box-cshtml">@String.Format("{0:0,0.00}", Model.TotalVat)</span> </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>Total Gross Amount:</strong></td>
+                        <td style="text-align: right"><span class="text-box-cshtml">@String.Format("{0:0,0.00}", Model.OrderTotal)</span> </td>
+                    </tr>
+
+                </table>
+                <!-- end of detail-arrange -->
+
+            </fieldset>
+
+
+
+            <div class="table-container">
+
+                <table id="tablesorter-demo" class="tablesorter">
+                    <thead>
+                        <tr>
+                            <th>Product
+                            </th>
+                            <th>Qty
+                            </th>
+                            <th>Unit Value
+                            </th>
+                            <th>Net Amount
+                            </th>
+                            <th>VAT Amount
+                            </th>
+                            <th>Total Amount
+                            </th>
+                            <th>Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.LineItems)
+                        {
+                            <tr>
+                                <td>@item.ProductDesc
+                                </td>
+                                <td>@item.Qty
+                                </td>
+                                <td style="text-align: right">
+
+                                    @String.Format("{0:0,0.00}", item.Value)
+
+                                </td>
+                                <td style="text-align: right">
+
+                                    @String.Format("{0:0,0.00}", item.TotalNet)
+
+                                </td>
+                                <td style="text-align: right">
+
+                                    @String.Format("{0:0,0.00}", item.TotalVat)
+
+                                </td>
+                                <td style="text-align: right">
+
+                                    @String.Format("{0:0,0.00}", item.LineTotal)
+
+                                </td>
+
+                                <td>
+                                    @if (item.ProductType == "SaleProduct" || item.ProductType == "ConsolidatedProduct")
+                                    {
+                                        if (Model.CanEdit)
+                                        {
+@*@Html.ActionLink("Edit", "LineItemEdit", new { LineItemId = item.LineItemId, DocumentId = item.DocumentId })*@
+                                        @Html.ActionLink("Edit", "LineItemEdit", new { orderid = Model.DocumentId, productId = item.ProductId })
+                                        }
+                                    }
+                                    &nbsp; &nbsp;
+                    @if (item.ProductType == "SaleProduct" || item.ProductType == "ConsolidatedProduct")
+                    {
+                        if (Model.CanEdit)
+                        {
+                     
+                        @Html.ActionLink("Remove", "LineItemRemove", new { productId = item.ProductId, documentid = Model.DocumentId },
+                    new { onclick = "return confirm('Are you sure you want to remove this item?')" })
+@*                        <input type="hidden" name="removeReason" id="reason" />
+                        <input type="hidden" name="removeLineItem" id="lineItemId" value="@item.LineItemId" />
+                        <input type="hidden" name="removeLineItem" id="documentId" value="@item.DocumentId" />
+                    <a href="#" id="remove">Remove</a>*@
+                        }
+                    }
+                                </td>
+                            </tr> 
+   
+                        }
+                    </tbody>
+                </table>
+                @* <p class="add-items">
+        @if (Model.CanEdit)
+        {
+            @Html.ActionLink("Add", "LineItemAdd", new { documentId = Model.DocumentId }) }
+            &nbsp; &nbsp; &nbsp;
+        @if (Model.CanEdit)
+        {
+            @Html.ActionLink("Approve", "Approve", new { documentId = Model.DocumentId })
+        }
+        &nbsp; &nbsp; &nbsp;
+         @if (Model.CanEdit)
+         {
+            @Html.ActionLink("Reject", "Reject", new { documentId = Model.DocumentId })
+         }</p>*@
+                <fieldset class="actions">
+                    <legend>Actions</legend>
+                    <div class="button-style-two-cshtml">
+                        @if (Model.CanEdit)
+                        {
+                            @Html.ActionLink("Add Product", "LineItemAdd", new { documentId = Model.DocumentId })
+                        }
+
+                        @if (Model.CanEdit)
+                        {
+                            @Html.ActionLink("Approve", "Approve", new { documentId = Model.DocumentId })
+                        }
+
+
+                        @if (Model.CanEdit)
+                        {
+       
+                            <input type="hidden" id="textbox1" name="reason" value="saam" />
+                            <input type="hidden" id="textbox2" name="documentId" value="@Model.DocumentId" />
+   
+ 
+@*@Html.ActionLink("Reject", "Reject", new { documentId = Model.DocumentId, reason = "",id="edit" }, new { onclick = "show_prompt()" })*@
+                                           
+  
+     
+                            <a href="#" id="reject">Reject</a>
+
+        
+                        }
+                    </div>
+
+                </fieldset>
+            </div>
+        </div>
+    }
+
+
+</div>

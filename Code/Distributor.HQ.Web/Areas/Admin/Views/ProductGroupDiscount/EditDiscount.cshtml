@@ -1,0 +1,172 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.ProductDiscountGroupViewModel
+@{
+    ViewBag.Title = "AddProductGroupDiscount";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#EffectiveDate, #EndDate").datepicker({
+            dateFormat: "dd-M-yy",
+            //changeMonth: true,
+            //changeYear: true,
+            showStatus: true,
+            highlightWeek: true,
+            showAnim: 'scale',
+            firstDay: 6,
+            buttonImage: '@Url.Content("~/Content/Images/cal.gif")',
+            buttonImageOnly: true,
+            showOn: "button",
+            showOptions: {
+                origin: ['top', 'left']
+            },
+            onSelect: function () {
+            }
+        });
+    });
+</Script>
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  
+    <span class="bc-example">@Html.ActionLink("View Group Discount", "/ListProductGroupDiscounts", new { discountGroup = Model.DiscountGroup, discountGroupName = Model.DiscountGroupName })</span> &gt; 
+    Edit Product Group Discount
+</h2>
+<div id="main-content-housing">
+    <script type="text/javascript">
+        $(function () {
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
+    @using (Html.BeginForm("EditDiscount", "ProductGroupDiscount", null, FormMethod.Post, new { onsubmit = "return validate();" }))
+    {
+        @Html.ValidationSummary(true)
+        <div id="primary-controls">
+            <fieldset>
+                <legend>Group Discount </legend>
+                @Html.HiddenFor(model => model.Id)
+                <table width="700px">
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.Label("Discount Group")
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.HiddenFor(model => model.DiscountGroup)
+                                @Html.DropDownListFor(model => model.DiscountGroup, new SelectList(ViewBag.DiscountGroupList, "Key", "Value"), string.Empty, new { @disabled = "disabled"})
+                                @Html.ValidationMessageFor(model => model.DiscountGroup)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Product)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.HiddenFor(model => model.Product)
+                                @Html.DropDownListFor(model => model.Product, new SelectList(ViewBag.ProductList, "Key", "Value"), string.Empty, new { @disabled = "disabled"})
+                                @Html.ValidationMessageFor(model => model.Product)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.Label("Discount Rate")
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.discountRate)
+                                @Html.ValidationMessageFor(model => model.discountRate)
+                            </div>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td style="padding-top: 12px;">
+                            Is By Quantity  :
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.CheckBoxFor(model => model.IsByQuantity,new { id="IsByQuantity"})
+                                @Html.ValidationMessageFor(model => model.IsByQuantity)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="forquantity">
+                        <td style="padding-top: 12px;">
+                            Quantity :
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Quantity,new { id="Quantity"})
+                                @Html.ValidationMessageFor(model => model.Quantity)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.Label("Effective Date")
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBox("EffectiveDate", Model.EffectiveDate.ToString("dd-MMM-yyyy"), new { @id = "EffectiveDate" }))
+                                @Html.ValidationMessageFor(model => model.EffectiveDate)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.Label("End Date")
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBox("EndDate", Model.EndDate.ToString("dd-MMM-yyyy"), new { @id = "EndDate" }))
+                                @Html.ValidationMessageFor(model => model.EndDate)
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset class="actions">
+                <legend>Actions</legend>
+                <input name="Create" type="submit" value="Save" class="button-style-one" />
+            </fieldset>
+        </div>
+    }
+
+</div>
+<script>
+    if (!$('#IsByQuantity').is(':checked')) {
+        $("#forquantity").hide();
+    }
+
+    $('#IsByQuantity').click(function () {
+        $('#Quantity').val('0');
+        $("#forquantity").toggle(this.checked);
+    });
+
+    function validate() {
+        debugger;
+        var status = $('#IsByQuantity').is(':checked');
+        var quantity = $('#Quantity').val();
+        var numberFilter = /^[1-9][0-9]*$/;
+        if (status && !numberFilter.test(quantity)) {
+            alert("Enter valid Quantity");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+

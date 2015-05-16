@@ -1,0 +1,100 @@
+﻿@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.Product.ProductDiscountGroupViewModel>
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels
+@{
+    ViewBag.Title = Html.GetText("hq.pdgroup.listing.title");
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string groupName = ViewBag.discountGroupName;
+}
+
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+    @Html.ActionLink(Html.GetText("hq.pdgroup.form.breadcrumb.view"), "ListDiscountGroups", "DiscountGroup")</span> &gt; 
+    @Html.GetText("hq.pdgroup.listing.breadcrumb")</h2>
+    @if (ViewBag.msg != null)
+    { 
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+
+<div id="main-content-housing">
+    @using (@Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+    }
+    @using (Html.BeginForm())
+    {  
+        <fieldset>
+            <legend>@Html.GetText("hq.pdgroup.listing.search")</legend>
+            <div class="criteria-div">
+                <span class="text-box-cshtml">@Html.TextBox("prdGroupDiscount")</span>
+                <input name="srch" type="submit" value="Search" class="button-style-one" />
+                <input name="srch" type="submit" value="Clear" class="button-style-one" />
+            </div>
+            <br class="clear-all" />
+        </fieldset>
+    }
+    <br />
+    <fieldset class="actions">
+        <legend>Actions</legend>
+        <div class="button-style-two-cshtml">@Html.ActionLink(Html.GetText("hq.pdgroup.listing.add"), "CreateDiscount", new { discountGroup = ViewBag.discountGroup, discountGroupName = ViewBag.discountGroupName })</div>
+    </fieldset>
+    @Html.GetText("hq.disc.discgrp") : @ViewBag.discountGroupName
+    <br />
+    <table width="700px" id="tablesorter-demo" class="tablesorter">
+        <thead>
+            <tr>
+                <th>
+                    @Html.GetText("hq.disc.product")
+                </th>
+                 <th>
+                   Quantity
+                </th>
+                <th>
+                    @Html.GetText("hq.disc.discrate")
+                </th>
+                <th>
+                    @Html.GetText("hq.disc.edate")
+                </th>
+                <th>End Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.ProductName
+                    </td>
+                     <td>
+                        @String.Format("{0:0,0.00}", item.Quantity)
+                    </td>
+                    <td>
+                        @String.Format("{0:0,0.00}", item.discountRate)
+                    </td>
+                    <td>
+                        @item.EffectiveDate.ToString("dd-MMM-yyyy")
+                    </td>
+                    <td>
+                        @item.EndDate.ToString("dd-MMM-yyyy")
+                    </td>
+                    <td>
+                        @{
+                            @Html.ActionLink("Edit", "EditDiscount", new { id = item.Id, discountGroup = item.DiscountGroup, discountGroupName = item.DiscountGroupName })<text> |</text>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id, discountGroup = item.DiscountGroup, discountGroupName = item.DiscountGroupName },
+                             new { onclick = "return confirm('Are you sure you want to delete " + item.ProductName + " from " + item.DiscountGroupName + " ?')" })
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="pager">
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new { showInactive })
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+    </div>
+</div>

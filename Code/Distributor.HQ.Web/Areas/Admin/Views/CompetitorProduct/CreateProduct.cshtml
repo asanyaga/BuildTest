@@ -1,0 +1,131 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CompetitorViewModel.CompetitorProductsViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.comptorprod.form.title.add");
+}
+<script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#Brand").change(function (e) {
+            var brand = $("#Brand option:selected").val();
+            var urlB = '@Url.Action("SubBrands")';
+            cascadingdropdown();
+        });
+    });
+
+    function cascadingdropdown() {
+        var brand = $("#Brand option:selected").val();
+        // window.alert(" call cascading dropdown for iddepartment = " + countryId);
+        var urlemp = '@Url.Action("SubBrands")';
+        var selects = $('#Flavour');
+        $.ajax({
+            type: "POST",
+            url: urlemp,
+            data: { Brand: brand },
+            success: function (returndata) {
+                if (returndata.ok) {
+                    selects.empty();
+                    $.each(returndata.data, function (index, itemData) {
+                        //                        
+                        selects.append($('<option></option>').val(itemData.Id).html(itemData.Name));
+                    });
+                    selects.show('slow');
+                }
+                else {
+                    window.alert(' error : ' + returndata.message);
+                }
+            }
+        });
+
+    }
+</script>
+
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+@Html.ActionLink(Html.GetText("hq.comptor.form.breadcrumb.view"), "/ListCompetitorProducts")</span> &gt; 
+@Html.GetText("hq.comptorprod.form.breadcrumb.add")</h2>
+
+<div id="main-content-housing">
+@if (ViewBag.msg != null)
+{
+    <div class="notice-notification">
+    @ViewBag.msg
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+
+    if (!Html.ViewData.ModelState.IsValid)
+    {
+    <div class="notice-notification">
+    @Html.ValidationSummary()
+  </div>
+    }
+
+    <div id="primary-controls">
+
+    <fieldset>
+
+    <legend>@Html.GetText("hq.comptorprod.form.details.add")</legend>
+                            
+        <table class="detail-arrange">
+
+           <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.cpname") :</strong></td>
+           <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.ProductName)</span> 
+           <span class="inline-error"> @Html.ValidationMessageFor(model => model.ProductName)</span> 
+        </td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.proddesc") :</strong></td>
+        <td><span class="text-box-cshtml">@Html.EditorFor(model => model.ProductDescription)</span> 
+           <span class="inline-error"> @Html.ValidationMessageFor(model => model.ProductDescription)</span> 
+        </td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.cname") :</strong></td>
+        <td><span class="text-box-cshtml">@Html.DropDownListFor(model => model.Competitor, new SelectList(ViewBag.Competitors, "Key", "Value"), "-----Select Competitor-----")</span> 
+             <span class="inline-error"> @Html.ValidationMessageFor(model => model.Competitor)</span> 
+        </td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.brand") :</strong></td>
+        <td><span class="text-box-cshtml">@Html.DropDownListFor(model => model.Brand, new SelectList(ViewBag.Brands, "Key", "Value"), "-----Select Brand-----")</span> 
+           <span class="inline-error"> @Html.ValidationMessageFor(model => model.Brand)</span>             
+        </td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.subbrand") :</strong></td>
+        <td><select id="Flavour" style="display:block" name="Flavour" > <option value="0">---Select Sub Brand---</option></select>
+       <span class="inline-error"> @Html.ValidationMessageFor(model => model.Flavour) </span>
+        </td></tr>
+
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.pactype") :</strong></td>
+        <td><span class="text-box-cshtml"> @Html.DropDownListFor(model => model.PackagingType, new SelectList(ViewBag.PackTypes, "Key", "Value"), "-----Select Packaging Type-----")</span> 
+           <span class="inline-error"> @Html.ValidationMessageFor(model => model.PackagingType)</span> 
+       </td></tr>
+
+       <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.pac") :</strong></td>
+       <td><span class="text-box-cshtml">@Html.DropDownListFor(model => model.Packaging, new SelectList(ViewBag.Packs, "Key", "Value"), "-----Select Packaging-----")</span> 
+           <span class="inline-error"> @Html.ValidationMessageFor(model => model.Packaging)</span> 
+       </td></tr>
+
+       <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.comptor.prodtype") :</strong></td>
+       <td><span class="text-box-cshtml"> @Html.DropDownListFor(model => model.Type, new SelectList(ViewBag.Types, "Key", "Value"), "-----Select Product Type-----")</span> 
+           <span class="inline-error">  @Html.ValidationMessageFor(model => model.Type)</span> 
+       </td></tr>
+
+      </table><!-- end of detail-arrange -->
+
+        </fieldset>
+
+   <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            <input name="Create" type="reset" value="Clear" class="button-style-one"/>
+    </fieldset>
+
+ </div><!-- end of div#pr-->
+    
+}
+</div>
+
+
+

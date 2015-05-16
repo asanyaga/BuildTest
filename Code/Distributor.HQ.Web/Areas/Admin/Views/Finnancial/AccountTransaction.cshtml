@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Distributr.HQ.Lib.ViewModelBuilders.Reports.FinnancialReport.ViewModel.AccountTransactionReportViwModel>
+
+@{
+    ViewBag.Title = "AccountTransaction";
+}
+
+<h2>AccountTransaction</h2>
+
+<p>
+    @Html.ActionLink("View Account Balances", "AccountBalances")
+</p>
+<table>
+    <tr>
+        @*<th></th>
+        <th>
+            CostCenterId
+        </th>*@
+        <th>
+            Account ID
+        </th>
+        <th>
+            Amount
+        </th>
+       @* <th>
+            DocumentTypeId
+        </th>*@
+        <th>
+            DocumentType
+        </th>
+        <th>
+            DocumentId
+        </th>
+        <th>
+            DateInserted
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       @* <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+        @*<td>
+            @item.Account 
+        </td>*@
+        <td>
+            @item.Account 
+        </td>
+        <td>
+            @String.Format("{0:F}", item.Amount)
+        </td>
+        @*<td>
+            @item.DocumentTypeId
+        </td>*@
+        <td>
+            @item.DocumentType
+        </td>
+        <td>
+            @item.DocumentId
+        </td>
+        <td>
+            @String.Format("{0:g}", item.DateInserted)
+        </td>
+    </tr>
+}
+
+</table>
+

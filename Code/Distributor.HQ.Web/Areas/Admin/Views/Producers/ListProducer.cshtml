@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.ProducerViewModel.AdminProducerViewModel>
+
+@{
+    ViewBag.Title = "ListProducer";
+}
+
+<h2>ListProducer</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateProducer")
+</p>
+<table id="tablesorter-demo" class="tablesorter">
+    <tr>
+        
+       
+        <th>
+            Name
+        </th>
+       
+        <th>
+            Longitude
+        </th>
+        <th>
+            Latitude
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+  
+        <td>
+            @item.Name
+        </td>
+      
+        <td>
+            @item.Longitude
+        </td>
+        <td>
+            @item.Latitude
+        </td>
+ <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "DetailsProducer", new { id=item.Id }) |
+           @* @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />

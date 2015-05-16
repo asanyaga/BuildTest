@@ -1,0 +1,58 @@
+﻿@model Distributr.HQ.Lib.ViewModelBuilders.Admin.UserModelBuilder.Impl.UserGroupRolesPlaceHolder
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.usrgrp.asn.title");
+}
+
+	<h2 id="breadcrumb-holder">Account &nbsp; &gt;&nbsp;
+    @Html.GetText("hq.usrgrp.breadcrumb") &nbsp;&gt; 
+    <span class="bc-example">  @Html.ActionLink(Html.GetText("hq.usrgrp.breadcrumb.view"), "List")</span> &gt; 
+    @Html.GetText("hq.usrgrp.breadcrumb.asnrole")</h2>
+
+<div id="main-content-housing">
+<p style="color:Red;">
+@ViewBag.msg
+</p>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <div>
+        <script type="text/javascript">
+            function checkAll(bx) {
+                var cbs = document.getElementsByTagName('input');
+                for (var i = 0; i < cbs.length; i++) {
+                    if (cbs[i].type == 'checkbox') {
+                        cbs[i].checked = bx.checked;
+                    }
+                }
+            }
+        </script>
+    </div>
+    <fieldset>
+        <legend>@Html.GetText("hq.usrgrp.grpname") =>  @Model.GroupName</legend>
+
+     <input type="hidden"  name="groupId"  value="@Model.GroupId" />
+        <table width="650px">
+            <tr>
+             <td> <input type="checkbox" onclick="checkAll(this)">Asign All</td>
+          </tr>
+            @foreach (var item in Model.Rows)
+            { 
+                <tr> 
+                    <td><input type="checkbox"  name="cb" @item.Check  value="@item.Value" /> @item.RoleName </td>
+                </tr> 
+            }
+        
+        </table>
+
+     <input type="submit" value="Save"   class="button-style-one" />
+     
+
+      </fieldset>
+
+
+
+
+        }</div>

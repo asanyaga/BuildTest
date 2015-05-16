@@ -1,0 +1,24 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CoolerViewModel.CoolerTypeViewModel
+
+@{
+    ViewBag.Title = "CoolerTypeDetails";
+}
+<p>
+    @Html.ActionLink("EditCoolerType", "EditCoolerType", new { id=Model.Id }) |
+    @Html.ActionLink("View Cooler Types", "ListCoolerTypes")
+</p><br />
+<h2>Cooler Type Details</h2>
+
+<fieldset>
+    <legend></legend>
+<table>
+<tr><td>
+    <div class="display-label">Name</div></td><td>
+    <div class="display-field">@Model.Name</div></td></tr>
+    <tr><td>
+    <div class="display-label">Code</div></td><td>
+    <div class="display-field">@Model.Code</div></td></tr>
+</table>
+</fieldset>
+
+

@@ -1,0 +1,37 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.User.UserViewModel
+
+@{
+    ViewBag.Title = "Details Of The User";
+}
+
+<h2>UserDetails</h2>
+
+<fieldset>
+    <legend>UserViewModel</legend>
+
+    <div class="display-label">Username</div>
+    <div class="display-field">@Model.Username</div>
+
+    <div class="display-label">CostCentre</div>
+    <div class="display-field">@Model.CostCentre</div>
+
+   @* <div class="display-label">Password</div>
+    <div class="display-field">@Model.Password</div>*@
+
+    <div class="display-label">PIN</div>
+    <div class="display-field">@Model.PIN</div>
+
+    <div class="display-label">UserType</div>
+    <div class="display-field">@Model.UserType</div>
+
+    <div class="display-label">Mobile</div>
+    <div class="display-field">@Model.Mobile</div>
+@*
+    <div class="display-label">Active</div>
+    <div class="display-field">@Model.Active</div>*@
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditUser", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

@@ -1,0 +1,31 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Outlets.OutletViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>OutletViewModel</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Route</div>
+    <div class="display-field">@Model.RouteId</div>
+
+    <div class="display-label">OutletCategory</div>
+    <div class="display-field">@Model.OutletCategoryId</div>
+
+    <div class="display-label">OutletType</div>
+    <div class="display-field">@Model.OutletTypeId</div>
+
+    <div class="display-label">IsActive</div>
+    <div class="display-field">@Model.IsActive</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditOutlets", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "/ListOutlets")
+</p>
+

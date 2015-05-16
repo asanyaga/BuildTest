@@ -1,0 +1,59 @@
+﻿@using Distributr.HQ.Lib.Helper
+@model Distributr.HQ.Lib.ViewModels.Admin.Product.AdminProductPackagingTypeViewModel
+@{
+    ViewBag.Title = Html.GetText("hq.packagingtype.form.title.edit");
+}
+
+	<h2 id="breadcrumb-holder">Products &amp; Pricing &gt; <span class="bc-example">
+    @Html.ActionLink(Html.GetText("hq.packagingtype.form.breadcrumb.view"), "/ListProductPackagingType")</span> &gt; @Html.GetText("hq.packagingtype.form.breadcrumb.edit")</h2>
+
+<div id="main-content-housing">
+<br />
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    
+
+        @Html.HiddenFor(model => model.Id)
+     <div id="primary-controls">
+    <fieldset>
+    <legend>@Html.GetText("hq.packagingtype.form.details.edit")</legend>
+
+         <table class="detail-arrange">
+
+             <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.packagingtype.form.name")
+                                               </strong></td>
+                 <td> 
+                     <span class="text-box-cshtml"> @Html.EditorFor(model => model.Name)</span>
+                     @Html.ValidationMessageFor(model => model.Name)
+                 </td>
+             </tr>
+             
+              <tr><td style="padding-top:12px;"><strong>Code
+        </strong></td>
+       <td> 
+       <span class="text-box-cshtml"> @Html.DisplayFor(model => model.Code, new { @disabled = "disabled", @readonly = "readonly"  } )</span>
+           @Html.HiddenFor(model => model.Code)
+        </td>
+        </tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.packagingtype.form.description")
+        </strong></td><td>
+        <span class="text-box-cshtml"> @Html.EditorFor(model => model.Description)</span>
+            @Html.ValidationMessageFor(model => model.Description)
+        
+</td></tr>
+</table></fieldset>
+
+      <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            
+            
+
+        </fieldset>
+ </div><!-- end of div#primary-controls -->
+     
+}
+</div>

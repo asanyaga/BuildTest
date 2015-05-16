@@ -1,0 +1,157 @@
+﻿@*@model Distributr.HQ.Lib.ViewModels.Admin.Product.ProductFlavoursViewModel*@
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.Product.ProductFlavoursViewModel>
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels
+@{
+    ViewBag.Title = Html.GetText("hq.subbrand.listing.title");
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string searchText = ViewBag.srchParam;
+}
+<h2 id="breadcrumb-holder">Products &amp; Pricing &gt;@Html.GetText("hq.subbrand.listing.breadcrumb")</h2>
+ <div id="main-content-housing">
+ <h2 class="page-header">@Html.GetText("hq.subbrand.listing.heading")</h2>
+  <div id="primary-controls">
+                            <fieldset>
+                            <legend>Import From Excel</legend>
+                            	 @*<div class="button-style-two-cshtml">@Html.ActionLink("Import From Excel", "ImportSubBrands")</div>*@
+                                 <div class="button-style-disabled">@Html.ActionLink("Import From Excel", "ImportSubBrands", null, new {Href="JavaScript:void(0)", title ="Disabled" })</div>
+                                </fieldset>
+                            </div><!-- end of div#primary-controls -->
+
+
+
+
+@if (ViewBag.msg != null)
+{ 
+    <div class="notice-notification">
+@ViewBag.msg
+
+</div>
+}
+
+@using (@Html.BeginForm())
+{
+@*@Html.ValidationSummary()*@
+}
+
+
+
+@using (Html.BeginForm("ListProductFlavours", "ProductFlavour"))
+{
+
+<fieldset>
+    <legend>@Html.GetText("hq.subbrand.listing.search")</legend>
+    <div class="criteria-div">
+                            	
+            <span class="text-box-cshtml">@Html.TextBox("srchParam", searchText)</span>
+        <input name="srch" type="submit" value="Search" class="button-style-one" id="search"/>
+        <input name="srch" type="submit" value="Clear" class="button-style-one" id="clear" />
+        </div>
+         
+         <div class="show-inactive">Show Inactive @Html.CheckBox("show_inactive", showInactive)
+
+        <script type="text/javascript">
+
+
+            $("#show_inactive").change(function (e) {
+
+                window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+            });
+            $('#search').click(function () {
+
+                window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&srchParam=" + $('#srchParam').val();
+            });
+
+            $('#clear').click(function () {
+
+                window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + $('#srchParam').val("");
+            });
+
+   
+
+        </script></div>                   
+                            
+        <br class="clear-all" />
+</fieldset>
+}
+
+<fieldset class="actions">
+    <legend>Actions</legend>
+    <div class="button-style-two-cshtml">@Html.ActionLink(Html.GetText("hq.subbrand.listing.add"), "Createflavour")</div>
+</fieldset>
+<div class="table-container">
+
+<table width="700px" id="tablesorter-demo" class="tablesorter">
+<thead>
+    <tr>
+       <th>@Html.GetText("hq.subbrand.brand")</th>
+        <th>
+           @Html.GetText("hq.subbrand.code")
+        </th>
+        <th>
+          @Html.GetText("hq.subbrand.name")
+        </th>
+        <th>
+          @Html.GetText("hq.subbrand.description")
+        </th>
+        <th>Actions</th>
+    </tr>
+</thead>
+<tbody>
+@foreach (var item in Model)
+{
+    <tr>
+         <td>
+            @item.BrandName
+        </td>
+        <td>
+            @item.Code
+        </td>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Description
+        </td>
+       <td>
+
+           @{
+    if (item.isActive == true)
+    {   <text>@Html.ActionLink("Edit", "EditProductFlavour", new { id = item.Id }) </text>
+               <text>|</text>
+               <text>
+               @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to deactivate " + item.Description + "?')" })
+               </text>
+               <text>|</text>
+               @Html.ActionLink("Delete", "Delete", new { id = item.Id, name = item.Description },
+                        new { onclick = "return confirm('Are you sure you want to Delete " + item.Description + "?')" })
+                        
+    }
+    else
+    {
+               <text>@Html.ActionLink("Activate", "Activate", new { id = item.Id, name = item.Name })</text>
+               <text>|</text>
+               @Html.ActionLink("Delete", "Delete", new { id = item.Id, name = item.Description },
+                        new { onclick = "return confirm('Are you sure you want to Delete " + item.Description + "?')" })
+   
+               
+    }
+      
+    
+                }
+        </td>
+    </tr>
+}
+</tbody>
+</table>
+</div>
+<div class="pager">
+		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new {showInactive })
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>
+</div>

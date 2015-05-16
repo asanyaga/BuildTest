@@ -1,0 +1,77 @@
+﻿@*@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.Orders.OrderViewModel>*@
+@model Distributr.HQ.Lib.ViewModels.Admin.Orders.OrderViewModel
+@using MvcContrib.UI.Pager
+@{
+    ViewBag.Title = "PendingDeliveries";
+}
+
+<h2 id="breadcrumb-holder">ORDERS &amp; Distributor Orders &gt; Pending Deliveries</h2>
+ <div id="main-content-housing">
+ <h2 class="page-header">Pending Deliveries Listing</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table id="tablesorter-demo" class="tablesorter">
+    <thead>
+    <tr>
+        <th align="center">
+            Issued On Behalf Of
+        </th>
+        <th align="center">
+            Status
+        </th>
+        <th align="center">
+            Net Value
+        </th>
+        <th align="center">
+            Vat
+        </th>
+        <th align="center">
+            Gross
+        </th>
+        <th align="center">
+            Doc Ref
+        </th>
+        @*<th>
+            Process
+        </th>*@
+    </tr></thead><tbody>
+    @foreach (var item in Model.orderPagedList)
+    {
+        <tr>
+            <td align="left">
+                @item.isseuedOnBehalf
+            </td>
+            <td align="right">
+                @item.status
+            </td>
+            <td align="right">
+                @string.Format("{0:F}", item.net)
+            </td>
+            <td align="right">
+                @string.Format("{0:F}", item.vat)
+            </td>
+            <td align="right">@string.Format("{0:F}", item.gross)
+            </td>
+            <td align="right">
+                @item.documentReference
+            </td>
+           @* <td>
+                @Html.ActionLink("Process", "Index", "ApproveOrder", new { orderId = item.id }, null)
+            </td>*@
+        </tr>
+    }</tbody>
+
+</table>
+
+<div>
+    <table cellpadding="1" cellspacing="1">
+        <tr align="center">
+            <td>
+                @Html.Raw(Html.Pager(Model.orderPagedList).ToString())
+            </td>
+        </tr>
+    </table>
+</div>
+</div>

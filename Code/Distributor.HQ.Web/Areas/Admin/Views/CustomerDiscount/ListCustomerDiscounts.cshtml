@@ -1,0 +1,110 @@
+﻿@*@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.Product.CustomerDiscountViewModel>*@
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.Product.CustomerDiscountViewModel>
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@{
+    ViewBag.Title = "ListCustomerDiscounts";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+}
+
+<h2>Customer Discounts</h2>
+
+<p>
+    @Html.ActionLink("Add Customer Discounts", "CreateDiscounts")
+</p>
+<p  style="color:Red;">
+    @ViewBag.msg
+</p>
+@using (@Html.BeginForm())
+{
+@Html.ValidationSummary()
+}
+<div>
+<div style="float: right"><label for="show_inactive">Show Inactive </label>@Html.CheckBox("show_inactive", showInactive)</div>
+<script type="text/javascript">
+    $(function () {
+
+        $("#show_inactive").change(function () {
+            window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+        });
+
+    });
+   
+
+</script>
+</div>
+<br />
+<br />
+@using (Html.BeginForm("ListCustomerDiscounts", "CustomerDiscount"))
+{
+<div class="alignRight">
+<table><tr>
+<td>Search</td><td>@Html.TextBox("discount")</td>
+<td><input name="srch" type="submit" value="Search" /></td>
+<td><input id="clearsearch" name="srch" type="submit" value="Clear" /></td>
+</tr>
+</table>
+</div>
+}
+<br />
+<table width="700px" id="tablesorter-demo" class="tablesorter">
+    <tr>
+        
+       <th>
+            Outlet
+        </th>
+        <th>
+            Product
+        </th>
+        <th>
+            discountRate
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        
+       <td>
+            @item.OutletName
+        </td>
+        <td>
+            @item.ProductName
+        </td>
+        <td>
+            @String.Format("{0:F}", item.discountRate)
+        </td>
+        
+        <td>
+          @*  @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })*@
+            
+              @{
+    if (item.isActive == true)
+    {  <text> @Html.ActionLink("Edit", "EditDiscounts", new { id = item.id })</text> <text>|</text>
+                  
+          <text>  @Html.ActionLink("Product Discounts", "ListDiscountItems", new { id = item.id })</text> <text>|</text>
+                                @Html.ActionLink("Deactivate", "Deactivate", new { id = item.id },
+                        new { onclick = "return confirm('Are you sure you want to deactivate "+item.discountRate+"')" })
+    }
+    else
+    {
+                                <text>Activate</text>
+    }
+      
+    
+                }
+        </td>
+    </tr>
+}
+
+</table>
+<div class="pager">
+		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new {showInactive })
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>

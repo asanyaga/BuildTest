@@ -1,0 +1,37 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.ProductPricingViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ProductPricingViewModel</legend>
+
+    <div class="display-label">ProductId</div>
+    <div class="display-field">@Model.ProductId</div>
+
+    <div class="display-label">ProductName</div>
+    <div class="display-field">@Model.ProductName</div>
+
+    <div class="display-label">TierId</div>
+    <div class="display-field">@Model.TierId</div>
+
+    <div class="display-label">TierName</div>
+    <div class="display-field">@Model.TierName</div>
+
+    <div class="display-label">CurrentExFactory</div>
+    <div class="display-field">@String.Format("{0:F}", Model.CurrentExFactory)</div>
+
+    <div class="display-label">CurrentSellingPrice</div>
+    <div class="display-field">@String.Format("{0:F}", Model.CurrentSellingPrice)</div>
+
+    <div class="display-label">CurrentEffectiveDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.CurrentEffectiveDate)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "List")
+</p>
+

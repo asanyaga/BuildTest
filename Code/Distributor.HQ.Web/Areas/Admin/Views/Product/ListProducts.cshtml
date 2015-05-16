@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.Product.ProductsViewModel>
+
+@{
+    ViewBag.Title = "ListProducts";
+}
+
+<h2 class="page-intro-header">ListProducts</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        
+        <th>
+            Products
+        </th>
+        <th>
+          Brands
+        </th>
+       
+        <th>
+            Packaging
+        </th>
+        <th>
+            Product Category
+        </th>
+      @*  <th>
+            Returnable
+        </th>
+        <th>
+            Description
+        </th>*@
+        <th>
+            UnitCases
+        </th>
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @item.Description
+        </td>
+        <td>
+            @item.BrandsName
+        </td>
+        <td>
+            @item.SubBrandsName
+        </td>
+        <td>
+            @item.PackagingName
+        </td>
+        <td>
+            @item.ProductTypeName
+        </td>
+       @* <td>
+            @item.Returnable
+        </td>
+        <td>
+            @item.Description
+        </td>*@
+        <td>
+            @String.Format("{0:F}", item.UnitCases)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+

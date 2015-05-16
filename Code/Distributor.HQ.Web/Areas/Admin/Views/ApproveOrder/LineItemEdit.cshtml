@@ -1,0 +1,50 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Orders.OrderEditLineItemViewModel
+
+@{
+    ViewBag.Title = "LineItemEdit";
+}
+<h2 id="breadcrumb-holder">ORDERS &amp; Distributor Orders &gt; <span class="bc-example">@Html.ActionLink("List Orders", "ListAllOrders", "Orders")</span> &nbsp;&gt;&nbsp;<span class="bc-example">@Html.ActionLink("Process Orders", "Index", new { orderid = Model.DocumentId })</span> &nbsp;&gt;LineItem Edit </h2>
+<div id="main-content-housing">
+ <h2 class="page-header">Edit Line Item</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Order - Edit Line Item</legend>
+        @Html.HiddenFor(n=> n.LineItemId)
+        @Html.HiddenFor(n=> n.DocumentId)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DocumentRef) : @Model.DocumentRef
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductDesc) : @Model.ProductDesc
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Qty)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Qty)
+            @Html.ValidationMessageFor(model => model.Qty)
+        </div>
+</fieldset>
+    
+      <fieldset class="actions">
+            <legend>Actions</legend>
+            
+         @* <input type="button" value="Cancel" class="button-style-one" onclick="@Html.ActionLink('Cancel', 'Index', new{orderId=Model.DocumentId})" />*@
+          
+            <div class="button-style-two-cshtml"> 
+            <input type="submit" value="Save" class="button-style-one"/>
+            @Html.ActionLink("Cancel", "Index", new { orderid = Model.DocumentId })</div>
+           </fieldset>
+       
+    
+}
+</div>
+
+

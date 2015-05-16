@@ -1,0 +1,105 @@
+﻿@*@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.Product.ProductDiscountViewModel>*@
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.Discounts.ProductDiscountViewModel>
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@{
+    ViewBag.Title = Html.GetText("hq.proddisc.listing.title");
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string text = ViewBag.srchText;
+}
+<h2 id="breadcrumb-holder">Global Settings &gt; Discounts &gt; @Html.GetText("hq.proddisc.listing.breadcrumb")</h2>
+<div id="main-content-housing">
+    <h2 class="page-header">
+        @Html.GetText("hq.proddisc.listing.heading")</h2>
+    <div id="primary-controls">
+    </div>
+    <!-- end of div#primary-controls -->
+    @if (ViewBag.msg != null)
+    { 
+        <div class="notice-notification">
+            @ViewBag.msg
+        </div>
+    }
+    @using (Html.BeginForm("ListDiscounts", "ProductDiscount"))
+    {
+        <fieldset>
+            <legend>@Html.GetText("hq.proddisc.listing.search")</legend>
+            <div class="criteria-div">
+                <span class="text-box-cshtml">@Html.TextBox("discount", text)</span>
+                <input name="srch" type="button" value="Search" class="button-style-one" id="search" />
+                <input name="srch" type="button" value="Clear" class="button-style-one" id="clear" />
+                
+                <script type="text/javascript">
+
+                    $("#show_inactive").change(function (e) {
+
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+                    });
+                    $('#search').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&srchParam=" + $('#discount').val();
+
+                    });
+
+                    $('#clear').click(function () {
+                        window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked');
+
+                    });
+                </script>
+            </div>
+            <br class="clear-all" />
+        </fieldset>
+    }
+    <fieldset class="actions">
+        <legend>Actions</legend>
+        <div class="button-style-two-cshtml">
+            @Html.ActionLink(Html.GetText("hq.proddisc.listing.add"), "CreateDiscount")
+        </div>
+    </fieldset>
+    <div class="table-container">
+        <table width="800px" id="tablesorter-demo" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.GetText("hq.disc.prodname")
+                    </th>
+                    <th>
+                        @Html.GetText("hq.disc.pricingtier")
+                    </th>
+                    <th>Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.ProductName
+                        </td>
+                        <td>
+                            @item.TierName
+                        </td>
+                        
+                        <td>
+                            @{
+                                 <text> @Html.ActionLink("Items", "ListDiscountItems", new { id = item.Id })</text> 
+                               
+                                <text>|</text>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                                new { onclick = "return confirm('Are you sure you want to delete " + item.ProductName + ", " + item.TierName + " ?')" })
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        <div class="pager">
+            @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new { showInactive, srchParam = text })
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+        </div>
+    </div>
+</div>

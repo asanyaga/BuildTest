@@ -1,0 +1,77 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.DistributorTargetsViewModel.TargetViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    //ViewBag.Title = "hq.targets.form.title.add";
+    ViewBag.Title = "Create Target";
+}
+	<h2 id="breadcrumb-holder">Global Settings &nbsp; &gt;&nbsp;
+    @Html.GetText("hq.targets.breadcrumb") &nbsp;&gt; <span class="bc-example">
+     @Html.ActionLink(Html.GetText("hq.targets.form.breadcrumb.view"), "ListTargets")</span> &gt;
+     @Html.GetText("hq.targets.form.breadcrumb.add")</h2>
+
+<div id="main-content-housing">
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+ 
+@using (Html.BeginForm()) {
+   @Html.ValidationSummary(true)
+
+   <div id="primary-controls">
+    <fieldset>
+    <legend>@Html.GetText("hq.targets.form.details.add")</legend>
+   				
+        <table class="detail-arrange">
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.targets.distributor")</strong>
+        </td><td>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.CostCentreId,
+      new SelectList(ViewBag.DistributorList, "Key", "Value"), "----Select Distributor----")
+        @Html.ValidationMessageFor(model => model.CostCentreId)
+        </div>
+</td></tr>
+       
+       <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.targets.period")</strong></td><td>
+        <div class="editor-field">
+             @Html.DropDownListFor(model => model.Period,
+      new SelectList(ViewBag.PeriodList, "Key", "Value"), "-----Select Target Period-----")
+            @Html.ValidationMessageFor(model => model.Period)
+        </div>
+</td></tr>
+        
+
+      
+       
+
+       <tr><td></td><td>
+        <div>
+            @Html.GetText("hq.targets.quantity")
+            @Html.RadioButtonFor(model => model.IsQuantityTarget, true)
+            @Html.GetText("hq.targets.amount")
+             @Html.RadioButtonFor(model => model.IsQuantityTarget, false)
+            @Html.ValidationMessageFor(model => model.IsQuantityTarget)
+        </div>
+       </td></tr>
+        <tr><td style="padding-top:12px;"><strong>@Html.GetText("hq.targets.value")</strong></td><td>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TargetValue)
+            @Html.ValidationMessageFor(model => model.TargetValue)
+        </div></td></tr>
+        
+        </table>
+    </fieldset>
+
+        <fieldset class="actions">
+            <legend>Actions</legend>
+            <input name="Create" type="submit" value="Save" class="button-style-one"/>
+            <input name="Create" type="reset" value="Clear" class="button-style-one"/>
+            
+
+        </fieldset>
+      
+    </div>
+}
+</div>
+
+

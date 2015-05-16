@@ -1,0 +1,87 @@
+@{
+    Layout = null;
+}
+
+
+        
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>@ViewBag.Title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+	<link href="@Url.Content("~/Content/styles/main.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/styles/accordion.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/styles/tables.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Content/demo.css")" rel="stylesheet" type="text/css" />   
+
+   
+    @*<link href="@Url.Content("~/calendar/jquery.ui.all.css")" rel="stylesheet" type="text/css" />*@
+    <link href="@Url.Content("~/Content/jquery-ui-1.8.13.custom.css")" rel="stylesheet" type="text/css" />
+	<script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/accordion.js")" type="text/javascript"></script>
+   
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" type="text/css" />
+   
+<script src="@Url.Content("~/Scripts/jquery.ui.datepicker.js")" type="text/javascript"></script>
+
+
+	
+    <script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+    
+	<script src="@Url.Content("~/Scripts/distributrDatePicker.js")" type="text/javascript"></script>
+	
+  <script src="@Url.Content("~/Scripts/jquery.tablesorter-update.js")" type="text/javascript"></script>
+     <script type="text/javascript">
+         $(function () {
+
+             $('#tableSort').tablesorter({ sortList: [[0, 0]], locale: 'en', useUI: true });
+         });
+</script> 
+        <script type="text/javascript">
+        var baseUrl = "@Url.Content("~/")";
+	</script>
+</head>
+
+<body>
+	<header>
+    	
+        <div id="header-wrap">
+        	<h1 id="logo"><span class="img-replace">Distributr | Supply Chain Automation Solutions</span></h1>
+            
+            	
+        </div><!-- end of div#header-wrap -->
+    
+    </header>
+    
+    <div id="page-header">
+    	<div id="page-header-wrap">
+        	<h2>Distributr&trade; HQ MODULE</h2>
+            
+            
+            <ul id="utilities">
+                <li><a href="" id="icon-help"><span class="img-replace">Help</span></a></li>
+            </ul>
+            <div class="clear-all"></div>
+        </div><!-- end of div#page-header-wrap-->
+    </div><!-- div#page-header -->
+  @RenderBody()
+   
+    <footer>
+    	<div id="footer-wrap">
+        	<div id="logo-virtualcity">
+            </div><!-- end of logo-virtualcity -->
+            <div id="corporate-info">
+            	<p>Virtual Building, Ring Road, Kilimani P.O. Box 76460-00508</p>
+                <p>+254-20-3873341/2191</p>
+                <p><a href="mailto:info@virtualcity.co.ke">info@virtualcity.co.ke</a></p>
+                <p id="copyright">&copy; 2011, <a href="http://www.virtualcity.co.ke" target="_blank">Virtual City Ltd</a> <span id="distributr-tm">Distributr&trade;</span></p>
+            </div><!-- end of corporate-info -->
+            <div class="clear-all"></div>
+        </div><!-- end of footer-wrap-->
+    </footer>
+</body>
+</html>

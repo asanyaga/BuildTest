@@ -1,0 +1,132 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Discounts.ProductDiscountViewModel.ProductDiscountItemViewModel
+@using Distributr.HQ.Lib.Helper
+@{
+    ViewBag.Title = Html.GetText("hq.proddiscitm.form.title.add");
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui.js")" type="text/javascript"></script>
+
+<h2 id="breadcrumb-holder">GLOBAL SETTINGS &gt;  <span class="bc-example">
+    @Html.ActionLink(Html.GetText("hq.proddiscitm.form.breadcrumb.view"), "/ListDiscountItems", new { @id = ViewBag.ProductDiscountId })</span> &gt; 
+    @Html.GetText("hq.proddiscitm.form.breadcrumb.add")</h2>
+<div id="main-content-housing">
+
+   
+
+    <h2>@Html.GetText("hq.disc.prodname"):<strong> @ViewBag.ProductName</strong> </h2>
+    <br />
+    @using (Html.BeginForm("CreateDiscountItems", "ProductDiscount", null, FormMethod.Post, new { onsubmit = "return validate();" }))
+    {
+        @Html.ValidationSummary(true)
+        <div id="primary-controls">
+            <fieldset>
+                <legend>@Html.GetText("hq.proddiscitm.form.details.add")</legend>
+                <table class="detail-arrange">
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.disc.rate") (%) :</strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.DiscountRate)
+                                @Html.ValidationMessageFor(model => model.DiscountRate)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;">
+                            <strong>Is By Quantity  :</strong>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.CheckBoxFor(model => model.IsByQuantity,new { id="IsByQuantity"})
+                                @Html.ValidationMessageFor(model => model.IsByQuantity)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="forquantity">
+                        <td style="padding-top: 12px;">
+                            <strong>Quantity :</strong>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Quantity,new { id="Quantity"})
+                                @Html.ValidationMessageFor(model => model.Quantity)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        @Html.HiddenFor(model => model.ProductDiscountId)
+                        <td style="padding-top: 12px;"><strong>@Html.GetText("hq.disc.edate") :</strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBox("EffectiveDate", DateTime.Now.ToString("dd-MMM-yyyy"), new { @id = "EffectiveDate" })
+                                @Html.ValidationMessageFor(model => model.EffectiveDate)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 12px;"><strong>End Date :</strong></td>
+                        <td>
+                            <div class="editor-field">
+                                @Html.TextBox("EndDate", DateTime.Now.ToString("dd-MMM-yyyy"), new { @id = "EndDate" })
+                                @Html.ValidationMessageFor(model => model.EndDate)
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset class="actions">
+                <legend>Actions</legend>
+                <input name="Create" type="submit" value="Save" class="button-style-one" />
+            </fieldset>
+        </div>
+    }
+</div>
+<script>
+    if (!$('#IsByQuantity').is(':checked')) {
+        $("#forquantity").hide();
+    }
+
+    $('#IsByQuantity').click(function () {
+        $('#Quantity').val('0');
+        $("#forquantity").toggle(this.checked);
+    });
+
+    function validate() {
+        debugger;
+        var status = $('#IsByQuantity').is(':checked');
+        var quantity = $('#Quantity').val();
+        var numberFilter = /^[1-9][0-9]*$/;
+        if (status && !numberFilter.test(quantity)) {
+            alert("Enter valid Quantity");
+            return false;
+        }
+
+        return true;
+    }
+    
+    $(function () {
+        $("#EffectiveDate, #EndDate").datepicker({
+            dateFormat: "dd-M-yy",
+            //changeMonth: true,
+            //changeYear: true,
+            showStatus: true,
+            highlightWeek: true,
+            showAnim: 'scale',
+            firstDay: 6,
+            buttonImage: '@Url.Content("~/Content/Images/cal.gif")',
+                buttonImageOnly: true,
+                showOn: "button",
+                showOptions: {
+                    origin: ['top', 'left']
+                },
+                onSelect: function () {
+
+                }
+            });
+       
+    });
+
+</script>
+
+

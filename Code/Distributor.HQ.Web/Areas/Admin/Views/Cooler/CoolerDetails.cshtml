@@ -1,0 +1,37 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CoolerViewModel.CoolerViewModel
+
+@{
+    ViewBag.Title = "CoolerDetails";
+}
+
+<h2>CoolerDetails</h2>
+
+<fieldset>
+    <legend>CoolerViewModel</legend>
+
+    <div class="display-label">CoolerType</div>
+    <div class="display-field">@Model.CoolerType</div>
+
+    <div class="display-label">CoolerTypeId</div>
+    <div class="display-field">@Model.CoolerTypeId</div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Code</div>
+    <div class="display-field">@Model.Code</div>
+
+    <div class="display-label">Capacity</div>
+    <div class="display-field">@Model.Capacity</div>
+
+    <div class="display-label">SerialNo</div>
+    <div class="display-field">@Model.SerialNo</div>
+
+    <div class="display-label">AssetNo</div>
+    <div class="display-field">@Model.AssetNo</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

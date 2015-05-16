@@ -1,0 +1,111 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.ApplicationSetupViewModel.ApplicationSetupViewModel
+@{
+    ViewBag.Title = "Register Company";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+@if (!Html.ViewData.ModelState.IsValid)
+{
+    <div class="notice-notification">
+        @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
+    </div>
+}
+
+<div id="login-container">
+
+
+    <div id="login-form">
+        @if (ViewBag.msg != null)
+        {
+            <div class="notice-notification">
+                @ViewBag.msg
+            </div>
+        }
+        @using (Html.BeginForm("RegisterCompany", "Account"))
+        {
+            if (!Html.ViewData.ModelState.IsValid)
+            {
+            <div class="notice-notification">
+                @Html.ValidationSummary()
+            </div>
+            }  
+            <h2 id="login-title">Register Company and Super Admin</h2>
+            <fieldset>
+                <span class="text-box-cshtml">@Html.LabelFor(m => m.CompanyName)</span>
+                <div class="login">@Html.TextBoxFor(m => m.CompanyName)
+                    @Html.ValidationMessageFor(m => m.CompanyName)
+                </div>
+            </fieldset>
+            <fieldset>
+                <span class="text-box-cshtml">@Html.LabelFor(m => m.AdminName)</span>
+                <div class="login">
+                    @Html.TextBoxFor(m => m.AdminName)
+                    @Html.ValidationMessageFor(m => m.AdminName)
+                </div>
+            </fieldset>
+            <fieldset>
+                <span class="text-box-cshtml">@Html.LabelFor(m => m.AdminPassword)</span>
+                <div class="login">
+                    @Html.PasswordFor(m => m.AdminPassword)
+                    @Html.ValidationMessageFor(m => m.AdminPassword)
+                </div>
+            </fieldset>
+            <fieldset>
+                <span class="text-box-cshtml">@Html.LabelFor(m => m.ConfirmPassword)</span>
+                <div class="login">
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                </div>
+            </fieldset>
+            <fieldset>
+                <span class="text-box-cshtml">@Html.LabelFor(m => m.Mobile)</span>
+                <div class="login">
+                    @Html.TextBoxFor(m => m.Mobile)
+                    @Html.ValidationMessageFor(m => m.Mobile)
+                </div>
+            </fieldset>
+            <fieldset>
+                <span class="text-box-cshtml">@Html.LabelFor(m => m.Pin)</span>
+                <div class="login">
+                    @Html.TextBoxFor(m => m.Pin)
+                    @Html.ValidationMessageFor(m => m.Pin)
+                </div>
+            </fieldset>
+            @*if (!Model.DatabaseExists)
+            {
+            <fieldset>
+                <span class="text-box-cshtml">@Html.LabelFor(m => m.DatabaseScriptPath)</span>
+                <div class="login">
+                    @Html.TextBoxFor(m => m.DatabaseScriptPath)
+                    @Html.ValidationMessageFor(m => m.DatabaseScriptPath)
+                </div>
+            </fieldset>
+            }
+            else
+            {
+            <fieldset>
+                <span class="text-box-cshtml">@Html.LabelFor(m => m.DatabaseName)</span>
+                <div class="login">
+                    @Html.TextBoxFor(m => m.DatabaseName, new { @readonly = true })
+                </div>
+            </fieldset>
+            <fieldset>
+                <span class="text-box-cshtml">@Html.LabelFor(m => m.DatabaseServer)</span>
+                <div class="login">
+                    @Html.TextBoxFor(m => m.DatabaseServer, new { @readonly = true })
+                </div>
+            </fieldset>
+            }
+            *@<fieldset>
+                <input id="login-submit" type="submit" value="Register" class="button-style-two" />
+            </fieldset>
+        }
+    </div>
+    <div class="clear-all"></div>
+
+
+</div>

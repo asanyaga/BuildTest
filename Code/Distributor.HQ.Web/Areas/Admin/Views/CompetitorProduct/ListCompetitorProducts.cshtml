@@ -1,0 +1,195 @@
+﻿@*@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.CompetitorViewModel.CompetitorProductsViewModel>*@
+@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.CompetitorViewModel.CompetitorProductsViewModel>
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.ViewModels
+@{
+    ViewBag.Title = Html.GetText("hq.comptorprod.listing.title");
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string searchText = ViewBag.srchParam;
+}
+
+<h2 id="breadcrumb-holder">Global Settings &gt;@Html.GetText("hq.comptorprod.breadcrumb")  &gt; 
+    @Html.GetText("hq.comptorprod.listing.breadcrumb")</h2>
+ <div id="main-content-housing">
+
+ <h2 class="page-header">@Html.GetText("hq.comptorprod.listing.heading")</h2>
+ <div id="primary-controls"></div><!-- end of div#primary-controls -->
+
+@if (ViewBag.msg != null)
+{
+    <div class = "notice-notification">
+    @ViewBag.msg
+    </div> 
+}
+
+
+@using (Html.BeginForm("ListCompetitorProducts", "CompetitorProduct"))
+{
+    <fieldset>
+    <legend>@Html.GetText("hq.comptorprod.listing.search")</legend>
+    <div class="criteria-div">
+                            	
+            <span class="text-box-cshtml">@Html.TextBox("srchParam" ,searchText)</span>
+        <input name="srch" type="button" value="Search" class="button-style-one" id ="search"/>
+        <input name="srch" type="submit" value="Clear" class="button-style-one" id="clear" />
+        </div>
+         
+         <div class="show-inactive">Show Inactive @Html.CheckBox("show_inactive", showInactive)
+
+        <script type="text/javascript">
+
+
+            $("#show_inactive").change(function (e) {
+
+                window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+            });
+            $('#search').click(function () {
+
+                window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&srchParam=" + $('#srchParam').val();
+            });
+
+            $('#clear').click(function () {
+
+                window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $('#show_inactive').is(':checked') + "&srchParam=" + $('#srchParam').val("");
+            });
+
+
+   
+
+        </script></div>                   
+                            
+        <br class="clear-all" />
+</fieldset>
+}
+
+<fieldset class="actions">
+    <legend>Actions</legend>
+    <div class="button-style-two-cshtml">
+    @Html.ActionLink(Html.GetText("hq.comptorprod.listing.add"), "CreateProduct")</div>
+</fieldset>
+
+<div class="table-container">
+
+<table width="950px" id="tablesorter-demo" class="tablesorter">
+<thead>
+    <tr>
+        
+        <th>
+            @Html.GetText("hq.comptor.prodname")
+        </th>
+        <th>
+            @Html.GetText("hq.comptor.proddesc")
+        </th>
+        <th>
+            @Html.GetText("hq.comptor.cname")
+        </th>
+        <th>
+            @Html.GetText("hq.comptor.brand")
+        </th>
+        <th>
+            @Html.GetText("hq.comptor.subbrand")
+        </th>
+        <th>
+            @Html.GetText("hq.comptor.pactype")
+        </th>
+          <th>
+            @Html.GetText("hq.comptor.prodcat")
+        </th>
+        <th>
+            @Html.GetText("hq.comptor.pac")
+        </th>
+      <th>Actions</th>
+       
+    </tr>
+</thead><tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        
+        <td>
+            @item.ProductName
+        </td>
+        <td>
+            @item.ProductDescription
+        </td>
+        <td>
+            @item.CompetitorName
+        </td>
+        <td>
+            @item.BrandName
+        </td>
+        <td>
+            @item.FlavourName
+        </td>
+        <td>
+            @item.PackagingTypeName
+        </td>
+        <td>
+            @item.TypeName
+        </td>
+        <td>
+            @item.PackagingName
+        </td>
+        
+        <td>
+            
+         @*  @{
+    string active = "none";
+    string inactive = "none";
+    if (item.isActive)
+    {
+        active = "inline";
+    }
+    else
+    {
+        inactive = "inline";
+    }    
+            }
+            <a href="@Url.Action("Deactivate", new { id = item.Id })" onclick="javascript:return confirm('Do You Want To Deactivate This Competitor Product?')" style="display: @active">Deactivate</a>
+            <span style="display: @inactive">Activate</span>*@
+
+             @{
+       if (item.isActive == true)
+       {   <text>   @Html.ActionLink("Edit", "EditProduct", new { id = item.Id })  </text>
+                <text>|</text>
+                        
+                                @Html.ActionLink("Deactivate", "Deactivate", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to deactivate " + item.CompetitorName + "')" })
+
+                 <text>|</text>
+                        
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to delete " + item.CompetitorName + "?')" })
+       }
+       else
+       {
+                
+                <text>
+                                @Html.ActionLink("Activate", "Activate", new { id = item.Id },
+            new { onclick = "return confirm('Are you sure you want to activate Competitor product for " + item.CompetitorName + "')" })
+                        </text>
+                 
+                <text>|</text>
+                        
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+                        new { onclick = "return confirm('Are you sure you want to delete " + item.CompetitorName + "?')" })
+       }
+      
+    
+                }
+        </td>
+    </tr>
+}
+</tbody>
+</table>
+</div>
+
+<div class="pager">
+		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount, new {showInactive, srchParam = searchText})
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>
+</div> 

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Distributr.HQ.Lib.ViewModels.Admin.CostCenter.SocioEconomicStatusViewModel>
+@{
+    ViewBag.Title = "List";
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+}
+<h2>
+    List</h2>
+<div>
+    <div style="float: left;">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <p style="color: Red;">
+            @ViewBag.msg
+        </p>
+    </div>
+    <div style="float: right">
+        <label for="show_inactive">
+            Show Inactive
+        </label>@Html.CheckBox("show_inactive", showInactive)</div>
+    <script type="text/javascript">
+        $("#show_inactive").change(function () {
+            window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+        });
+    </script>
+</div>
+<div style="clear: both;">
+</div>
+<table id="tablesorter-demo" class="tablesorter">
+    <tr>
+        <th>
+        </th>
+        <th>
+            Status
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Status
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @{
+        string active = "none";
+        string inactive = "none";
+        if (item.isActive)
+        {
+            active = "inline";
+        }
+        else
+        {
+            inactive = "inline";
+        }    
+                }
+                <a href="@Url.Action("DeActivate", new { id = item.Id })" onclick="javascript:return confirm('Do You Want To Deactive This Route?')" style="display: @active">
+                    Deactivate</a> <span style="display: @inactive">Activate</span>
+            </td>
+        </tr>
+    }
+</table>

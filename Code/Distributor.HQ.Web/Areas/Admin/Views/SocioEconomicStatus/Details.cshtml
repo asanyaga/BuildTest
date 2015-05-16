@@ -1,0 +1,22 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CostCenter.SocioEconomicStatusViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SocioEconomicStatusViewModel</legend>
+
+    <div class="display-label">Status</div>
+    <div class="display-field">@Model.Status</div>
+
+   @* <div class="display-label">isActive</div>
+    <div class="display-field">@Model.isActive</div>*@
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "List")
+</p>
+

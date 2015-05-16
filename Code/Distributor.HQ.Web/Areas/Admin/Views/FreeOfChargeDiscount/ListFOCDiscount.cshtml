@@ -1,0 +1,108 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.Product.FreeOfChargeDiscountViewModel
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@{
+	ViewBag.Title = Html.GetText("hq.foc.listing.title");  
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<h2 id="breadcrumb-holder">
+	GLOBAL SETTINGS &gt;@Html.GetText("hq.foc.listing.breadcrumb")</h2>
+<div id="main-content-housing">
+	<h2 class="page-header">@Html.GetText("hq.foc.listing.heading")</h2>
+	@if (ViewBag.msg != null)
+ { 
+		<div class="notice-notification">
+			@ViewBag.msg
+		</div>
+ }
+ @using (Html.BeginForm())
+ {
+     @Html.ValidationSummary(true)
+     <fieldset>
+         <legend>@Html.GetText("hq.foc.listing.search")</legend>
+         <div class="criteria-div">
+             <span class="text-box-cshtml">@Html.TextBox("focName")</span>
+             <input name="srch" type="submit" value="Search" class="button-style-one" />
+             <input name="srch" type="submit" value="Clear" class="button-style-one" />
+         </div>
+     </fieldset>
+ }
+ @using (Html.BeginForm())
+ {
+     @Html.ValidationSummary(true)
+     <fieldset class="actions">
+         <legend>Filter By Brand</legend>
+         <div class="table-container">
+             <table cellpadding="1" cellspacing="1">
+                 <tr>
+                     <td>
+                         @Html.DropDownList("BrandId", new SelectList(ViewBag.BrandList, "Key", "Value"), "---Select Brand---")
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>
+                         &nbsp;
+                     </td>
+                     <td>
+                         &nbsp;
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>
+                         <input name="srch" type="submit" value="Filter" class="button-style-one" />
+                     </td>
+                 </tr>
+             </table>
+         </div>
+     </fieldset>
+ }
+ @using (Html.BeginForm())
+ {
+     @Html.ValidationSummary(true)
+ <div class="table-container">
+			<table width="650px" id="tablesorter-demo" class="tablesorter">
+				@for (int i = 0; i < ViewBag.focsCount; i++)
+	{
+		if (i == 0)
+		{
+					<thead>
+						<tr>
+							<th>
+							</th>
+							<th>
+								Products
+							</th>
+							<td>
+							</td>
+						</tr>
+					</thead>   
+		}
+		else
+		{
+					<tr>
+						<td>
+                            <input type="checkbox" name="cb" @ViewBag.focs[i].Check value="@ViewBag.focs[i].CPLookup" />
+							
+						</td>
+                        <td>
+                            @ViewBag.focs[i].FOCProduct
+                        </td>
+					</tr>
+		}
+
+	}
+			</table>
+		</div>  
+     <div class="pager">
+         @Html.Pager((int)ViewBag.focsPageSize, (int)ViewBag.focsPageNumber, (int)ViewBag.focsTotalItemCount)
+     </div>
+     <br/>
+     <br/>
+	 
+		<fieldset class="actions">
+			<legend>Actions</legend>
+			<input type="submit" value="Save" name="srch" class="button-style-one" />
+		</fieldset>
+ }
+</div>

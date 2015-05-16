@@ -1,0 +1,76 @@
+﻿<section>
+    <br />
+    
+    <div id="primary-controls">
+        <fieldset>
+            <legend>Purchase Order</legend>
+                            
+            <table class="bordered">
+                <tr><td style="padding-top:12px;"><strong>Distributor :</strong></td>
+                   
+                    <td><span >
+                            <select id="distributorid" style="width: 350px;height: 30px">
+                                
+                            </select>
+                        </span> 
+                        <span class="inline-error"></span>             
+                    </td>
+                    
+               
+               
+                    <td style="padding-top:12px;"><strong>Required Date :</strong></td>
+                    <td style="padding-top:12px;"><span class="text-box-cshtml">
+                            <input id="requireddate" type="text"/>
+                        </span> 
+                        <span class="inline-error"> </span>
+                    </td>
+               <td style="padding-top:12px;"><strong>Status :</strong></td>
+                    <td style="padding-top:12px;"><span id="status" class="text-box-cshtml">
+                            
+                        </span> 
+                        <span class="inline-error"> </span>
+                    </td>
+                </tr>
+                <tr>
+                   
+                
+                    <td style="padding-top:12px;"><strong>Total Gross :</strong></td>
+                    <td  style="padding-top:12px; text-align: right"><span id="totalgrossamount" class="text-box-cshtml">
+                          
+                        </span> 
+                        <span class="inline-error"> </span>
+                    </td>
+               
+               
+                    <td style="padding-top:12px;"><strong>Total Net :</strong></td>
+                    <td  style="padding-top:12px; text-align: right"><span id="totalnetamount" class="text-box-cshtml">
+                          
+                        </span> 
+                        <span class="inline-error"> </span></td>
+                    <td style="padding-top:12px;"></td>
+                    <td>
+                    </td>
+               
+                </tr>
+               
+            </table><!-- end of detail-arrange -->
+            
+         
+        </fieldset>
+        <fieldset class="actions">
+            <legend>Line Item</legend>
+             <div id="order-items"></div>
+    </fieldset>
+   <fieldset class="actions">
+       <legend>Actions</legend>
+        
+            <input id="btn-add-item" name="Create" type="button" value="Add" class="button-style-one"/>
+       <input id="btn-confirm-order" name="Create" type="button" value="Confirm" class="button-style-one"/>
+       <input id="btn-cancel" type="button" value="Cancel" class="button-style-one"/>
+    </fieldset>
+ </div>
+    <div id="modal-productpopup"></div>
+     <div id="popup-dropdown"></div>
+   
+</section>
+

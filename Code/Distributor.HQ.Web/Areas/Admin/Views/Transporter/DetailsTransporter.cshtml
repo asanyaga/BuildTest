@@ -1,0 +1,24 @@
+﻿@model Distributr.HQ.Lib.ViewModels.Admin.CostCenter.TransporterViewModel
+
+@{
+    ViewBag.Title = "DetailsTransporter";
+}
+
+<h2>DetailsTransporter</h2>
+
+<fieldset>
+    <legend>TransporterViewModel</legend>
+    <div class="display-label">Transporter Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">DriverName</div>
+    <div class="display-field">@Model.DriverName</div>
+
+    <div class="display-label">VehicleRegistrationNo</div>
+    <div class="display-field">@Model.VehicleRegistrationNo</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditTransporter", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

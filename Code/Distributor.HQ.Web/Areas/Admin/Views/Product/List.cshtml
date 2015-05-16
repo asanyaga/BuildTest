@@ -1,0 +1,179 @@
+﻿@model  Distributr.HQ.Lib.Paging.IPagedList<Distributr.HQ.Lib.ViewModels.Admin.Product.ListProductViewModel>
+@using Distributr.HQ.Lib.Paging
+@using Distributr.HQ.Lib.Helper
+@using Distributr.HQ.Lib.ViewModels
+@{
+    ViewBag.Title = Html.GetText("hq.product.listing.title");
+    bool showInactive = false;
+    showInactive = ViewBag.showInactive;
+    string search = ViewBag.Searchparam;
+}
+<h2 id="breadcrumb-holder">Products &amp; Pricing &gt; @Html.GetText("hq.product.listing.breadcrumb")</h2>
+ <div id="main-content-housing">
+ <h2 class="page-header">@Html.GetText("hq.product.listing.heading")</h2>
+  <div id="primary-controls">
+                            <fieldset>
+                            <legend>Import From Excel</legend>
+                            	 @*<div class="button-style-two-cshtml">@Html.ActionLink("Import From Excel", "ImportProduct")</div>*@
+                               <div class="button-style-disabled">@Html.ActionLink("Import From Excel", "ImportProduct", null, new {Href="JavaScript:void(0)", title="Disabled" })</div>
+                                </fieldset>
+                            </div><!-- end of div#primary-controls -->
+
+@if (ViewBag.msg != null)
+{ 
+    <div class="notice-notification">
+@ViewBag.msg
+</div>
+}
+
+
+@using (Html.BeginForm("List", "Product"))
+{
+
+    <fieldset>
+    <legend>@Html.GetText("hq.product.listing.search")/Brand</legend>
+    <div class="criteria-div">
+                            	
+            <span class="text-box-cshtml">@Html.TextBox("product",@search)</span>
+        <input name="srch" type="submit" value="Search" class="button-style-one" />
+        <input name="srch" type="submit" value="Clear" class="button-style-one" />
+        </div>
+         
+         <div class="show-inactive">Show Inactive @Html.CheckBox("show_inactive", showInactive)
+
+ <script type="text/javascript">
+     $("#show_inactive").change(function () {
+         window.location = window.location.href.substring(0, window.location.href.indexOf('?')) + "?showInactive=" + $(this).is(':checked');
+     });
+</script>
+</div>                   
+                            
+        <br class="clear-all" />
+</fieldset>
+}
+
+
+<fieldset class="actions">
+    <legend>Actions</legend>
+    <div class="button-style-two-cshtml">
+    @Html.ActionLink(Html.GetText("hq.product.listing.add.sale"), "CreateSaleProduct")
+    @Html.ActionLink(Html.GetText("hq.product.listing.add.returnable"), "CreateReturnableProduct")
+    @Html.ActionLink(Html.GetText("hq.product.listing.add.consolidated"), "CreateConsolidatedProduct")</div>
+</fieldset>
+@try
+{
+<div class="table-container">
+
+<table cellpadding="0" cellspacing="1" id="tablesorter-demo" class="tablesorter">
+<thead>
+    <tr>
+        <th>@Html.GetText("hq.product.code")</th>
+        <th>
+            @Html.GetText("hq.product.description")
+        </th><th>
+            @Html.GetText("hq.product.brand")
+        </th>
+        <th>
+            @Html.GetText("hq.product.subbrand")
+        </th>
+        <th>
+            Product Type
+        </th>
+        <th>
+            @Html.GetText("hq.product.packaging")
+        </th>
+        <th>@Html.GetText("hq.product.category")</th>
+         <th>@Html.GetText("hq.product.vat")</th>
+        <th>Actions</th>
+    </tr>
+</thead><tbody>
+
+@foreach (var item in Model)
+{
+    <tr>
+    <td>@item.Code</td>
+        <td>
+            @item.Description
+        </td>
+        <td>
+            @item.Brand 
+        </td>
+        
+        
+        <td>
+            @if (item.ProductTypeName == "SaleProduct")
+            {
+                @item.Flavour
+            }
+
+            else
+            {
+                @item.RetProdFalvour
+            }
+        </td>
+        <td>
+            @item.ProductType
+        </td>
+        <td>
+            @item.PackagingName
+        </td>
+        <td>
+        @item.ProductTypeName
+        </td>
+        <td>
+        @item.VatClass
+        </td>
+        <td class="edit-deactivate">
+           
+           
+           
+             @{
+    if (item.isActive == true)
+    {
+                    @* <text> @Html.ActionLink("Create Consolidated Product", "CreateConsolidatedProduct", new { id = item.ProductId, isNew = true },
+             new { onclick = "return confirm('Are you sure you want to create a Consolidated Product from this product?')" }) </text>
+                      <text>|</text>*@
+                     <text> @Html.ActionLink("Edit", "Edit" + item.ProductTypeName, new { id = item.ProductId }) </text>
+                 <text>|</text>
+                     
+            @Html.ActionLink("Deactivate", "Deactivate", new { id = item.ProductId },
+             new { onclick = "return confirm('Are you sure you want to deactivate "+item.Description+"?')" })
+             <text>|</text>
+             @Html.ActionLink("Delete", "Delete", new { id = item.ProductId }, new {onclick = "return confirm('Are you sure you want to Delete "+item.Description+"?')" })   
+    }
+    else
+    {
+                    <text>@Html.ActionLink("Activate","Activate",new{id = item.ProductId, name = item.ProductTypeName})</text> 
+                  <text>|</text>
+             @Html.ActionLink("Delete", "Delete", new { id = item.ProductId }, new { onclick = "return confirm('Are you sure you want to Delete " + item.Description + "?')" })   
+    }
+             }
+        </td>
+    </tr>
+}
+</tbody>
+</table>
+
+
+</div>
+@*<div class="main-content-paragraph">
+
+@for (int p = 1; p < Model.NoPages + 1; p++)
+{
+    string selected = (p == Model.CurrentPage) ? "selected" : String.Empty;
+<a href="?page=@p" title="Go to page @p of results">@p</a>
+}
+
+</div>*@
+<div class="pager">
+		
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount,new { search=@search})
+            Items per page:
+            @Html.DropDownListFor(n =>Model.PageSize, ViewModelBase.ItemsPerPageList, new { @id = "ddlItemsPerPage" })
+</div>    
+}
+catch (Exception ex)
+{ 
+ViewBag.msg=ex.Message;
+}
+</div>
