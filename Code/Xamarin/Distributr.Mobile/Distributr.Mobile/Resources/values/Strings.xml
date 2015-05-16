@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  <string name="app_name">Distributr</string>
+  
+  <!-- Login Screen -->
+  <string name="login_screen_login_button_text">Authenticate</string>
+  <string name="login_screen_username_hint">Username</string>
+  <string name="login_screen_password_hint">Password</string>
+
+  <!-- Login Settings Screen -->
+  <string name="login_settings_screen_title">Login Settings</string>
+  <string name="login_settings_server_url_field_title">Server Address</string>
+  <string name="login_settings_save_button_text">Done</string>
+  
+  <!-- Product List Screns-->
+  <string name="product_add_item_view_title">Add Item</string>
+  <string name="product_add_item_case_button_text">CASE</string>
+  <string name="product_add_item_each_button_text">EACH</string>
+  <string name="product_add_item_returnable_title">Item Returnable</string>
+
+  <!-- Receive Payment Screens-->
+  <string name="receive_payment_amount_text">Payment Amount</string>
+  <string name="receive_payment_change_due_text">Change Due</string>
+  <string name="receive_payment_currency_code_text">KSH</string>
+  <string name="receive_payment_bank_text">Payment Bank</string>
+  <string name="receive_payment_bank_branch_text">Payment Bank Branch</string>
+  <string name="receive_payment_due_date_text">Due Date</string>
+  <string name="receive_payment_cheque_number_text">Cheque Number</string>
+  
+  <string name="view_shopping_basket">View Shopping Basket</string>
+  <string name="sort">Sort</string>
+  <string name="make_delivery">Make Delivery</string>
+  <string name="make_sale">Make Sale</string>
+  <string name="make_order">Make Order</string>
+  <string name="take_stock">Take Stock</string>
+  <string name="receive_payment">Receive Payment</string>
+  <string name="receive_cash">Receive Cash</string>
+  <string name="receive_cheque">Receive Cheque</string>
+  <string name="cash">Cash</string>
+  <string name="cheque">Cheque</string>
+  <string name="mmoney">M-Money</string>
+  <string name="summary">Summary</string>
+  <string name="popular">Popular</string>
+  <string name="mandatory">Mandatory</string>
+  <string name="promotion">Promotion</string>
+</resources>

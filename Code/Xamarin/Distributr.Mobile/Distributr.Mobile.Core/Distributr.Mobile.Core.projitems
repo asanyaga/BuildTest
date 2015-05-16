@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{CCCDF0B6-EFF7-4696-9D66-7DEA55BCBA0F}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Distributr.Mobile.Core</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\OutboundCommandEnvelope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\OutgoingCommandEnvelopeRouter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\BaseRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\DocumentRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\ILoginRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LoginRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LoginWorkflow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\ILoginClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LoginClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LoginModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\Settings\LoginSettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\Settings\LoginSettingsModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\Settings\LoginSettingsRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Database.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DatabaseConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Net\HttpParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Products\Pricing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Incoming\SyncPausedEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\Result.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Net\Timeouts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LastLoggedInUser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Routes\IRoutesRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Routes\RoutesRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Routes\RoutesModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeSale\MakeSaleModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Products\ProductRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\NoNoOpAuditLogWFManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Incoming\SyncCancelledEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Incoming\SyncCompletedEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Incoming\SyncFailedEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Incoming\SyncUpdateEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\CostCentreRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\UserRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\InvoiceRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\GetDocumentReference.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Net\IConnectivityMonitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Routes\" />
+    <Folder Include="$(MSBuildThisFileDirectory)MakeSale\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Core\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Sync\Outgoing\" />
+  </ItemGroup>
+</Project>

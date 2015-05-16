@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  <string name="library_name">Android.Common</string>
+  
+  <string name="default_technical_info_text">None</string>
+  <string name="error_alert_title">Error</string>
+  <string name="back">Back</string>
+  <string name="open">Open</string>
+  <string name="close">Close</string>
+</resources>

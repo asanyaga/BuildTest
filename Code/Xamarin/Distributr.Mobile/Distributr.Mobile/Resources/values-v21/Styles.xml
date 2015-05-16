@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+  <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light">
+    <item name="android:windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="colorControlNormal">@color/listDivider</item>
+    <item name="colorControlActivated">@color/colorAction</item>
+    <item name="colorControlHighlight">@color/colorAction</item>
+    <item name="android:textAllCaps">false</item>
+  </style>
+
+  <style name="AppTheme" parent="AppTheme.Base">
+
+    <item name="android:windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="textAllCaps">false</item>
+    <item name="android:textAllCaps">false</item>
+    <item name="homeAsUpIndicator">@drawable/ic_action_hamburger</item>
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+  </style>
+</resources>

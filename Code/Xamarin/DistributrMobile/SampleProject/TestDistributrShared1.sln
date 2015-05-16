@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDistributrShared1", "TestDistributrShared1\TestDistributrShared1.csproj", "{6B8F8047-B443-431D-87A4-C140E7F00CD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidLib1", "AndroidLib1\AndroidLib1\AndroidLib1.csproj", "{5CF89FB9-0A85-46FE-A87A-77D372ECAB32}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Distributr.Core.Shared", "..\..\..\Distributr.Core.Shared\Distributr.Core.Shared.shproj", "{79CA1BE8-F046-4A25-BD76-61E90FAE5D39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CF89FB9-0A85-46FE-A87A-77D372ECAB32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF89FB9-0A85-46FE-A87A-77D372ECAB32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF89FB9-0A85-46FE-A87A-77D372ECAB32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF89FB9-0A85-46FE-A87A-77D372ECAB32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B8F8047-B443-431D-87A4-C140E7F00CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B8F8047-B443-431D-87A4-C140E7F00CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B8F8047-B443-431D-87A4-C140E7F00CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B8F8047-B443-431D-87A4-C140E7F00CD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

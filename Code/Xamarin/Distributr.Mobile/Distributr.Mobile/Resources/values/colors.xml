@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  <drawable name="alternateAction">@color/colorAlternateAction</drawable>
+
+  <item name="colorPrimary" type="color">#FF03A9F4</item>
+  <item name="colorPrimaryDark" type="color">#FF0398DC</item>
+  <item name="colorBackground" type="color">#FFFDFDF4</item>
+
+  <item name="colorAlternateAction" type="color">#FFFF4081</item>
+  <item name="transparent" type="color">#00000000</item>
+
+  <item name="primaryText" type="color">#FF606060</item>
+  <item name="secondaryText" type="color">#FF797779</item>
+  <item name="actionBarContent" type="color">#FFFFFFFF</item>
+
+  <item name="colorAction" type="color">#FF03A9F4</item>
+  <item name="color_action_pressed" type="color">#CC03A9F4</item>
+  <item name="color_action_shadow" type="color">#CC01597E</item>
+
+  <item name="listDivider" type="color">#4D979797</item>
+
+  <item name="make_sale_color" type="color">#FF1DE9B6</item>
+
+</resources>

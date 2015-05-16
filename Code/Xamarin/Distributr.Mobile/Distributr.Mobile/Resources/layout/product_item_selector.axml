@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:paddingTop="4dp"
+    android:paddingBottom="8dp">
+    <TextView
+        android:id="@+id/product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Walker's Cheese &amp; Onion Crisps"
+        android:textSize="18sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/colorPrimary" />
+    <TextView
+        android:id="@+id/product_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="$0.99"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/secondaryText"
+        android:layout_below="@+id/product_name" />
+    <TextView
+        android:id="@+id/returnable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/product_add_item_returnable_title"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/primaryText"
+        android:layout_below="@+id/product_price" />
+    <TextView
+        android:id="@+id/returnable_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="$0.15"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/secondaryText"
+        android:layout_below="@+id/returnable" />
+</RelativeLayout>

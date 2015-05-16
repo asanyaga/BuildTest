@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/outlet_action_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standard_screen_padding"
+        android:layout_marginBottom="@dimen/standard_screen_padding"
+        android:layout_marginLeft="@dimen/standard_screen_padding"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/make_sale_action_background"
+        android:src="@drawable/ic_action_shopping_basket" />
+    <TextView
+        android:id="@+id/outlet_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standard_screen_padding"
+        android:layout_marginBottom="@dimen/standard_screen_padding"
+        android:layout_marginLeft="@dimen/standard_screen_padding"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/outlet_action_icon"
+        style="@style/AppTheme.PrimaryTextLarge"
+        android:text="Make Sale" />
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="@dimen/standard_screen_padding"
+        android:layout_marginBottom="@dimen/standard_screen_padding"
+        android:layout_marginRight="8dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_chevron_right" />
+</RelativeLayout>

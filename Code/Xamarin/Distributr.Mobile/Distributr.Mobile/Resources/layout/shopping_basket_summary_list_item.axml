@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/standard_screen_padding"
+    android:paddingRight="@dimen/standard_screen_padding"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="@dimen/secondary_text_size"
+        android:singleLine="true"
+        android:textAlignment="gravity"
+        android:gravity="left|start"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/secondaryText"
+        android:text="Amount Due" />
+    <TextView
+        android:id="@+id/item_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minWidth="30dp"
+        android:layout_weight="1"
+        android:textSize="@dimen/secondary_text_size"
+        android:textAlignment="gravity"
+        android:gravity="right|end"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/primaryText"
+        android:text="$18.40" />
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  <dimen name="list_item_text_size">18sp</dimen>
+  <dimen name="secondary_text_size">14sp</dimen>
+  <dimen name="receive_payment_amount_text_size">100sp</dimen>
+</resources>

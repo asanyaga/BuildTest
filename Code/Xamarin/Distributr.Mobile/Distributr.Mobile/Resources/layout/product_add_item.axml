@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/make_sale_color">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/standard_action_button_size"
+            android:textColor="@color/actionBarContent"
+            android:textStyle="bold"
+            android:textAlignment="gravity"
+            android:gravity="center"
+            android:textSize="@dimen/list_item_text_size"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@string/product_add_item_view_title" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:padding="8dp">
+            <include
+                layout="@layout/product_item_selector" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:padding="8dp">
+            <include
+                layout="@layout/product_item_quantity_selector" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ListView
+        android:id="@+id/products_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:choiceMode="singleChoice"
+        android:dividerHeight="@dimen/standard_list_item_divider_size"
+        android:divider="@drawable/list_item_divider" />
+    <Distributr.Mobile.Products.AddProductItemView
+        android:id="@+id/add_item_view"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <include
+            layout="@layout/product_add_item" />
+    </Distributr.Mobile.Products.AddProductItemView>
+</LinearLayout>

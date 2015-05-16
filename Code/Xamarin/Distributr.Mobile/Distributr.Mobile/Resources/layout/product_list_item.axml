@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp"
+    android:paddingLeft="@dimen/standard_screen_padding"
+    android:paddingRight="@dimen/standard_screen_padding">
+    <TextView
+        android:id="@+id/product_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:singleLine="true"
+        style="@style/AppTheme.SecondaryTextLarge"
+        android:text="Coca Cola 500ml" />
+    <TextView
+        android:id="@+id/stock_count"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="gravity"
+        android:gravity="right|end"
+        style="@style/AppTheme.PrimaryTextLarge"
+        android:text="6565" />
+</LinearLayout>

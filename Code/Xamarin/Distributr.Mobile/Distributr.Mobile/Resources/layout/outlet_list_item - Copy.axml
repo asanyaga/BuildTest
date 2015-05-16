@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/outlet_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="20dp"
+        android:textColor="@color/primaryText"
+        android:fontFamily="sans-serif-light"
+        android:text="Coca Cola 500ml" />
+    <ImageView
+        android:id="@+id/van_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_van_small" />
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="12dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_toRightOf="@id/ic_van_small"
+        android:textColor="@color/secondaryText"
+        android:text="Some Street, Some Town, Somewhere" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/listDivider"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

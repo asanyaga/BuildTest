@@ -1,0 +1,2 @@
+{"Could not create an instance of type Distributr.WSAPI.Lib.API.Model.MasterDataDTO.MasterBaseDTO. Type is an interface or abstract class and cannot be instantated. 
+Path 'MasterData[0].RouteMasterId', line 1, position 32."}C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild /verbosity:q coke.sln

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent">
+    <RelativeLayout
+        android:id="@+id/quantity_with_backspace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            android:textAlignment="gravity"
+            android:gravity="right"
+            android:inputType="phone"
+            android:singleLine="true" />
+        <ImageButton
+            android:id="@+id/quantity_backspace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ic_backspace" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/keypad"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/quantity_with_backspace"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="@dimen/product_add_item_keypad_button_margin"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/keypad_button_text_size"
+                android:padding="0dp"
+                android:text="7" />
+            <Button
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_marginLeft="@dimen/product_add_item_keypad_button_margin"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/keypad_button_text_size"
+                android:layout_weight="1"
+                android:text="8" />
+            <Button
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="@dimen/product_add_item_keypad_button_margin"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/keypad_button_text_size"
+                android:layout_weight="1"
+                android:text="9" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="@dimen/product_add_item_keypad_button_margin"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/keypad_button_text_size"
+                android:text="4" />
+            <Button
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="@dimen/product_add_item_keypad_button_margin"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/keypad_button_text_size"
+                android:text="5" />
+            <Button
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="@dimen/product_add_item_keypad_button_margin"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/keypad_button_text_size"
+                android:text="6" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="@dimen/product_add_item_keypad_button_margin"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/keypad_button_text_size"
+                android:layout_weight="1"
+                android:text="1" />
+            <Button
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="@dimen/product_add_item_keypad_button_margin"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/keypad_button_text_size"
+                android:layout_weight="1"
+                android:text="2" />
+            <Button
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="@dimen/product_add_item_keypad_button_margin"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/keypad_button_text_size"
+                android:layout_weight="1"
+                android:text="3" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/case_button"
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="@dimen/product_add_item_keypad_button_margin"
+                android:textSize="8sp"
+                android:padding="8dp"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/product_add_item_case_button_text" />
+            <Button
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="@dimen/product_add_item_keypad_button_margin"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/keypad_button_text_size"
+                android:layout_weight="1"
+                android:text="0" />
+            <Button
+                android:id="@+id/each_button"
+                android:layout_width="@dimen/product_add_item_keypad_button_width"
+                android:layout_height="@dimen/product_add_item_keypad_button_height"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:textSize="8sp"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="@dimen/product_add_item_keypad_button_margin"
+                android:textColor="@color/secondaryText"
+                android:text="@string/product_add_item_each_button_text" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
