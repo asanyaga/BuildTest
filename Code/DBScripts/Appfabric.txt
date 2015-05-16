@@ -1,0 +1,3 @@
+New-Cache -CacheName reports -Eviction LRU -TTL 60
+Set-CacheConfig -CacheName distributr -TimeToLive 60
+Set-CacheClusterSecurity -SecurityMode None -ProtectionLevel None

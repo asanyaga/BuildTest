@@ -1,0 +1,25 @@
+﻿using LINQtoCSV;
+
+namespace PzIntegrations.Lib.ImportEntities
+{
+   public class ShipToAddressImport
+    {
+        [CsvColumn(FieldIndex = 1)]
+        public string OutletCode { get; set; }
+
+        [CsvColumn(FieldIndex = 2)]
+        public string OutletName { get; set; }
+
+        [CsvColumn(FieldIndex = 3)]
+        public string ShipToCode { get; set; }
+
+
+        [CsvColumn(FieldIndex = 4)]
+        public string ShipToName { get; set; }
+
+        [CsvColumn(FieldIndex = 5)]
+        public string PostalAddress { get; set; }
+
+      
+    }
+}

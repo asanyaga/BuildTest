@@ -1,0 +1,1 @@
+Alter table dbo.tblRoutingCentre add [Valid] bit not null default 1

@@ -1,0 +1,1 @@
+Alter table  tblRecollectionItem add IsComfirmed  bit not null default 0;

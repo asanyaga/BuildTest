@@ -1,0 +1,16 @@
+private void Page_Load(object sender, System.EventArgs e)
+{
+   // Create a Web service proxy object and set credentials
+   ReportingService2005 rs = new ReportingService2005();
+   rs.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+   // Return a list of catalog items in the report server database
+   CatalogItem[] items = rs.ListChildren("/", true);
+
+   // For each report, display the path of the report in a Listbox
+   foreach(CatalogItem ci in items)
+   {
+      if (ci.Type == ItemTypeEnum.Report)
+         catalogListBox.Items.Add(ci.Path);
+   }
+}

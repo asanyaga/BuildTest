@@ -1,0 +1,16 @@
+﻿<Application x:Class="Integration.Cussons.WPF.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:locator="clr-namespace:Integration.Cussons.WPF.Lib.IOC;assembly=Integration.Cussons.WPF.Lib"
+             StartupUri="Pages/LoginPage.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <locator:CussonsViewModelLocator x:Key="CussonsViewModelLocator"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Assets/Styles.xaml" />
+                <ResourceDictionary Source="Assets/AdminMenuStyle.xaml" />
+                <ResourceDictionary Source="Assets/TabStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

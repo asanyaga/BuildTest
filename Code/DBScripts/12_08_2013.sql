@@ -1,0 +1,1 @@
+Alter table dbo.tblSourcingDocument Alter column [DocumentReference]  varchar(250)

@@ -1,0 +1,1 @@
+Alter table dbo.tblCostCentre add  [SpecialPricingTierId]  uniqueidentifier

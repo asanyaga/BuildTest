@@ -1,0 +1,1 @@
+Alter table dbo.tblDocument add  [ExtDocumentReference]  varchar(250)

@@ -1,0 +1,36 @@
+﻿<Page x:Class="Integration.Cussons.WPF.UI.Pages.ListExportedOrdersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+      xmlns:Admin="clr-namespace:Distributr.WPF.Lib.ViewModels.Admin;assembly=Distributr.WPF.Lib"
+      xmlns:Control="clr-namespace:Integration.QuickBooks.WPF.UI.Views.UtilityControls"
+      xmlns:UtilityControls="clr-namespace:Integration.Cussons.WPF.UI.Pages.UtilityControls" mc:Ignorable="d"  d:DesignWidth="1000"
+	Title="ListOrdersPage" DataContext="{Binding Path=ListOrdersViewModel, Source={StaticResource CussonsViewModelLocator}}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadExportedOrdersCommand}" PassEventArgsToCommand="True" CommandParameter="{x:Static Admin:BooleanHelper.True}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <GroupBox DockPanel.Dock="Top" HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1" Background="WhiteSmoke" Padding=" 0" Height="auto">
+        <GroupBox.Header>
+            <Label x:Name="lblEdit" Content="Exported Orders" FontWeight="Bold" FontSize="14" Foreground="#FF5C94F2"/>
+        </GroupBox.Header>
+        <DockPanel LastChildFill="True" Margin="20,0,0,0" >
+            <Control:HeaderControl2  DockPanel.Dock="Top" />
+            <UtilityControls:PagerControl DockPanel.Dock="Bottom" />
+            <ScrollViewer DockPanel.Dock="Top" Margin="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                <DataGrid AutoGenerateColumns="False" x:Name="dgClosedSale" ItemsSource="{Binding Path=ExportedOrdersList}"  Margin="0,5,0,0" IsReadOnly="True" Height="Auto" VerticalScrollBarVisibility="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=ExternalOrderReference}" Header="External Order Ref." IsReadOnly="True" />
+                        <DataGridTextColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=GenericOrderReference}" Header="Distributr Ref" IsReadOnly="True" />
+                        <DataGridTextColumn  CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" Binding="{Binding Path=DocumentDateExported, StringFormat=dd-MM-yyyy}" Header="Export Date" IsReadOnly="True" />
+                        
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </DockPanel>
+    </GroupBox>
+</Page>

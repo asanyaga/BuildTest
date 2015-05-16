@@ -1,0 +1,53 @@
+﻿<Page x:Class="Integration.Cussons.WPF.UI.Pages.MasterData.ListDistributrSalesmanImports"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:UtilityControls="clr-namespace:Integration.Cussons.WPF.UI.Pages.UtilityControls"
+     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+      xmlns:Admin="clr-namespace:Distributr.WPF.Lib.ViewModels.Admin;assembly=Distributr.WPF.Lib" mc:Ignorable="d" 
+      d:DesignHeight="300" 
+	 DataContext="{Binding DistributrsalesmanImportListViewModel, Source={StaticResource CussonsViewModelLocator}}"  KeyboardNavigation.TabNavigation="None"
+	Title="List Product Brands" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" d:DesignWidth="596">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command ="{Binding Path=LoadListingPageCommand}" PassEventArgsToCommand="True" CommandParameter="{x:Static Admin:BooleanHelper.True}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <GroupBox DockPanel.Dock="Top" HorizontalContentAlignment="Center" BorderBrush="#999999" BorderThickness="1" Background="WhiteSmoke" Padding=" 0" Height="auto">
+        <GroupBox.Header>
+            <Label x:Name="lblEdit" Content="{Binding Path=PageTitle}" FontWeight="Bold" FontSize="14" Foreground="#FF5C94F2"/>
+        </GroupBox.Header>
+        <DockPanel Margin="20 0 0 0" LastChildFill="True">
+            <UtilityControls:ImportControl DockPanel.Dock="Top" Margin="0 5 5 0" HorizontalAlignment="Right" Background="#CCCCCC"/>
+            <UtilityControls:PagerControl DockPanel.Dock="Bottom" />
+            <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                <DataGrid AutoGenerateColumns="False" x:Name="dgList" ItemsSource="{Binding Path=ImportVmList}"  
+                          Margin="0,5,0,0" IsReadOnly="True"
+                          Height="Auto" VerticalScrollBarVisibility="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=SequenceNo}" Header="No" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="colCode" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=Code}" Header="Code" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="colName" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=Name}" Header="Name" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="colIdNo" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto" 
+                    		Binding="{Binding Path=Description}" Header="Description" IsReadOnly="True" />
+                        <DataGridTemplateColumn Header="Action">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ItemsControl>
+                                        <CheckBox IsChecked="{Binding IsChecked, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
+                                    </ItemsControl>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+
+        </DockPanel>
+    </GroupBox>
+</Page>

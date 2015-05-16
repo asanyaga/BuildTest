@@ -1,0 +1,1 @@
+Alter table dbo.tblInventory add UnavailableBalance decimal not null default 0;

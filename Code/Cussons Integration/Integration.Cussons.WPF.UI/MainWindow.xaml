@@ -1,0 +1,108 @@
+﻿<Window x:Class="Integration.Cussons.WPF.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45"
+        Title="Cussons Integration" Height="750" Width="1450" WindowStartupLocation="CenterScreen" 
+        DataContext="{Binding Path=CussonsMainWindowViewModel, Source={StaticResource CussonsViewModelLocator}}" 
+        Icon="/Resources/images/PZCussonsIcon.ico">
+    <DockPanel LastChildFill="True">
+        <ToolBar DockPanel.Dock="Top">
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_File" >
+                    <MenuItem.Icon>
+                        <Image />
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Masterdata Imports" Command="{Binding Path=SyncOrdersCommand}" CommandParameter="{Binding ElementName=tcMainPage}">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                        <MenuItem Header="_Product Brands" Command="{Binding Path=ImportMasterdataCommand}" CommandParameter="{Binding ElementName=productbrands}" x:Name="productbrands">
+                            <MenuItem.Icon>
+                                <Image></Image>
+                            </MenuItem.Icon>
+                        </MenuItem> 
+                        <MenuItem Header="_Products" Command="{Binding Path=ImportMasterdataCommand}" CommandParameter="{Binding ElementName=products}" x:Name="products">
+                            <MenuItem.Icon>
+                                <Image></Image>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="_Pricing (Afco)" Command="{Binding Path=ImportMasterdataCommand}" CommandParameter="{Binding ElementName=afcopricing}" x:Name="afcopricing">
+                            <MenuItem.Icon>
+                                <Image></Image>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="_Distributor Salesmen" Command="{Binding Path=ImportMasterdataCommand}" CommandParameter="{Binding ElementName=distributrsalesman}" x:Name="distributrsalesman">
+                            <MenuItem.Icon>
+                                <Image></Image>
+                            </MenuItem.Icon>
+                        </MenuItem> 
+                        <MenuItem Header="_Outlets" Command="{Binding Path=ImportMasterdataCommand}" CommandParameter="{Binding ElementName=outlets}" x:Name="outlets">
+                            <MenuItem.Icon>
+                                <Image></Image>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="_ShipTo Address" Command="{Binding Path=ImportMasterdataCommand}" CommandParameter="{Binding ElementName=shipto}" x:Name="shipto">
+                            <MenuItem.Icon>
+                                <Image></Image>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                   
+                    <MenuItem Header="_Exit" Command="{Binding Path=ExitCommand}">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem >
+            </Menu>
+            <Separator></Separator>
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_Inventory" >
+                    <MenuItem.Icon>
+                        <Image />
+                    </MenuItem.Icon>
+                    <MenuItem Header="Adjust Inventory" Command="{Binding Path=AdjustInventoryCommand}">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <Separator></Separator>
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_Help" >
+                    <MenuItem.Icon>
+                        <Image />
+                    </MenuItem.Icon>
+                    <MenuItem Header="About" Command="{Binding Path=AboutCommand}">
+                        <MenuItem.Icon>
+                            <Image></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </ToolBar>
+        <StatusBar DockPanel.Dock="Bottom"  VerticalContentAlignment="Center">
+            <StatusBarItem DockPanel.Dock="Left">
+            </StatusBarItem>
+            <StatusBarItem HorizontalContentAlignment="Stretch">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock x:Name="lblStatus" Text="{Binding Path=GlobalStatus}" Margin="5,0,10,0" Width="Auto" MinWidth="100"/>
+                    <ProgressBar x:Name="pgbStatus" Height="20" Width="250"/>
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <GridSplitter HorizontalAlignment="Right" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Column="2" ResizeBehavior="PreviousAndNext"
+                  Width="2" Background="#FFBCBCBC" />
+            <Frame MinHeight="400" Grid.Column="3" Margin="0,0,0,0" x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" Source="\Pages\HomePage.xaml"  NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </DockPanel>
+</Window>

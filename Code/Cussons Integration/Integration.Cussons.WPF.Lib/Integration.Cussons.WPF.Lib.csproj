@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{089CF50B-1D94-4418-8417-E627E4CC7C59}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Integration.Cussons.WPF.Lib</RootNamespace>
+    <AssemblyName>Integration.Cussons.WPF.Lib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF45">
+      <HintPath>..\..\packages\MvvmLightLibs.4.1.27.0\lib\net45\GalaSoft.MvvmLight.Extras.WPF45.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF45">
+      <HintPath>..\..\packages\MvvmLightLibs.4.1.27.0\lib\net45\GalaSoft.MvvmLight.WPF45.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LINQtoCSV">
+      <HintPath>..\packages\LINQtoCSV.1.2.0.0\lib\LINQtoCSV.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="LumenWorks.Framework.IO">
+      <HintPath>..\ReferencedAssemblies\Third Party Dlls\LumenWorks.Framework.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="StructureMap">
+      <HintPath>..\Distributr.WPF.Lib\bin\Debug\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\packages\MvvmLightLibs.4.1.27.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CussonsIntegrationViewModels\CussonsAboutViewModel.cs" />
+    <Compile Include="CussonsIntegrationViewModels\CussonsLoginViewModel.cs" />
+    <Compile Include="CussonsIntegrationViewModels\CussonsMainWindowViewModel.cs" />
+    <Compile Include="CussonsIntegrationViewModels\MasterData\DistributrsalesmanImportListViewModel.cs" />
+    <Compile Include="CussonsIntegrationViewModels\MasterData\ImportItemVM.cs" />
+    <Compile Include="CussonsIntegrationViewModels\MasterData\ListProductImportsViewModel.cs" />
+    <Compile Include="CussonsIntegrationViewModels\MasterData\ListProductBrandImportsViewModels.cs" />
+    <Compile Include="CussonsIntegrationViewModels\MasterData\ListAfcoProductPricingImportsViewModel.cs" />
+    <Compile Include="CussonsIntegrationViewModels\MasterData\MasterDataImportListingsBase.cs" />
+    <Compile Include="CussonsIntegrationViewModels\MasterData\OutletImportsListViewModel.cs" />
+    <Compile Include="CussonsIntegrationViewModels\MasterData\ShipToAddressImportsViewModel.cs" />
+    <Compile Include="CussonsIntegrationViewModels\MasterData\ValidationResultViewModel.cs" />
+    <Compile Include="CussonsIntegrationViewModels\TransactionsExportViewModel.cs" />
+    <Compile Include="ExportService\DistributrIntegrationService.cs" />
+    <Compile Include="ExportService\IDistributrIntegrationService.cs" />
+    <Compile Include="ImportEntities\DistributorSalesmanImport.cs" />
+    <Compile Include="ImportEntities\OutletImport.cs" />
+    <Compile Include="ImportEntities\AfcoProductPricingImport.cs" />
+    <Compile Include="ImportEntities\ProductBrandImport.cs" />
+    <Compile Include="ImportEntities\ShipToAddressImport.cs" />
+    <Compile Include="ExportService\Orders\IOrderExportService.cs" />
+    <Compile Include="ExportService\Orders\OrderExportService.cs" />
+    <Compile Include="IOC\CussonsViewModelLocator.cs" />
+    <Compile Include="IOC\ImporterRegistry.cs" />
+    <Compile Include="IOC\Initializer.cs" />
+    <Compile Include="ImportService\CostCentres\Impl\OutletImportService.cs" />
+    <Compile Include="ImportService\DistributrSalesmen\DistributorSalesmanImportService.cs" />
+    <Compile Include="ImportService\DistributrSalesmen\IDistributorSalesmanImportService.cs" />
+    <Compile Include="ImportService\IImportService.cs" />
+    <Compile Include="ImportEntities\ProductImport.cs" />
+    <Compile Include="ImportService\CostCentres\IOutletImportService.cs" />
+    <Compile Include="ImportService\Products\Impl\ProductBrandImportService.cs" />
+    <Compile Include="ImportService\Products\Impl\AfcoPricingImportService.cs" />
+    <Compile Include="ImportService\Products\IProductBrandImportService.cs" />
+    <Compile Include="ImportService\Products\IProductImportService.cs" />
+    <Compile Include="ImportService\Products\Impl\ProductImportService.cs" />
+    <Compile Include="ImportService\Products\IAfcoPricingImportService.cs" />
+    <Compile Include="ImportService\Shipping\IShipToAddressImportService.cs" />
+    <Compile Include="ImportService\Shipping\ShipToAddressImportService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\FileUtility.cs" />
+    <Compile Include="Utils\GeneralHelper.cs" />
+    <Compile Include="Utils\IAbout.cs" />
+    <Compile Include="Utils\IImportValidationPopUp.cs" />
+    <Compile Include="Utils\Mailer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Distributor.Core.Data\Distributr.Core.Data.csproj">
+      <Project>{b9ee272b-6d02-47a5-b6f6-d96cb102404e}</Project>
+      <Name>Distributr.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Distributor.Core\Distributr.Core.csproj">
+      <Project>{900f434e-7d81-422b-b567-1564c79ceab3}</Project>
+      <Name>Distributr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Distributr.WPF.Lib.Data\Distributr.WPF.Lib.Data.csproj">
+      <Project>{8707481d-6e93-4f11-b778-68b5f55cf541}</Project>
+      <Name>Distributr.WPF.Lib.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Distributr.WPF.Lib.Impl\Distributr.WPF.Lib.Impl.csproj">
+      <Project>{7fafa880-4e65-4d41-9229-493372af7188}</Project>
+      <Name>Distributr.WPF.Lib.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Distributr.WPF.Lib.Services\Distributr.WPF.Lib.Services.csproj">
+      <Project>{c29f45a4-3a5b-41e4-9918-a0c1ebe926cc}</Project>
+      <Name>Distributr.WPF.Lib.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Distributr.WPF.Lib\Distributr.WPF.Lib.csproj">
+      <Project>{d3d60175-1436-487b-98f0-1671fb5c37dc}</Project>
+      <Name>Distributr.WPF.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

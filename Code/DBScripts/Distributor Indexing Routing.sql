@@ -1,0 +1,2 @@
+CREATE INDEX IDX_DISTRIBUTOR_COMMAND on tblDistributrCommand (CommandId,DocumentId,CommandGeneratedByCostCentreApplicationId);
+CREATE INDEX IDX_DISTRIBUTOR_ROUTINGCENTRE on tblRoutingCentre (RoutingCostCentreId,DistributorCommandId);

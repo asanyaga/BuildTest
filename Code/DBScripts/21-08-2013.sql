@@ -1,0 +1,1 @@
+Alter table dbo.tblUsers add  [Code]  varchar(250),[FirstName]  varchar(250),[LastName]  varchar(250)

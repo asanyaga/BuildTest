@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project
+    xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+    ToolsVersion="4.0"
+    DefaultTargets="Build">
+    <PropertyGroup>
+        <ExportDir>$(MSBuildProjectDirectory)\..\..\</ExportDir>
+        <ToolsDirectory>$(MSBuildProjectDirectory)\Tools</ToolsDirectory>
+        <MSBuildCommunityTasksPath>$(ToolsDirectory)\MSBuildExtension\MSBuild.Community.Tasks</MSBuildCommunityTasksPath>
+        <Environment Condition="'$(Environment)' == ''">local</Environment>
+        <ExtensionTasksPath Condition="'$(ExtensionTasksPath)' == ''">$(ToolsDirectory)\MSBuildExtension\MSBuild.Extension.Pack\</ExtensionTasksPath>
+    </PropertyGroup>
+    <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets"/>
+    <Import Project="$(ExtensionTasksPath)\MSBuild.ExtensionPack.tasks"/>
+    <Import Project="$(MSBuildProjectDirectory)\Config\$(Environment).properties"/>
+
+    <Target Name="UpdateConfigs" >
+	
+	 <Message Text="$(MSBuildProjectDirectory)===========================================================================" Importance="high" />	
+		 
+        <CallTarget Targets="UpdateWSConfig"/>
+        <CallTarget Targets="UpdateWebApiConfig"/>
+        <CallTarget Targets="UpdateHQConfig"/>
+        <CallTarget Targets="UpdateREBUILDDBConfig"/>
+        <CallTarget Targets="UpdateSubscriberConfig"/>
+        <CallTarget Targets="UpdateWPFConfig"/>
+        <CallTarget Targets="UpdateDataTestConfig"/>
+        <CallTarget Targets="UpdateIntegrationTests"/>
+        <CallTarget Targets="UpdateWPFAgrimanagrConfig"/>
+        <CallTarget Targets="UpdateCustomerSupportConfig"/>
+		<CallTarget Targets="UpdateAgrimanagrHQConfig"/>
+		<CallTarget Targets="UpdateDistributrAgrimanagrFeaturesConfig"/>
+    </Target>
+	<Target Name="UpdateDistributrAgrimanagrFeaturesConfig" >
+		  <Message Text="===========================================================================" Importance="high" />	
+		  <Message Text="START UPDATING DistributrAgrimanagrFeatures CONFIG" Importance="high" />	
+		  <Message Text="===========================================================================" Importance="high" />	
+		  
+		  <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\\DistributrAgrimanagrFeatures\app.config"
+		   Xpath="//configuration/appSettings/add[@key='createtablesscriptlocation']/@value"
+		   Value="$(DatabaseScriptLocation)"
+		  />
+		   <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\\DistributrAgrimanagrFeatures\app.config"
+		   Xpath="//configuration/appSettings/add[@key='Hub_DistributrConnectionString']/@value"
+		   Value="Data Source=$(SqlServerName);Initial Catalog=Hub_Distributr;Persist Security Info=True;User ID=$(DatabaseUsername);Password=$(DatabasePassword);multipleactiveresultsets=True;"
+		  />
+		   <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\\DistributrAgrimanagrFeatures\app.config"
+		   Xpath="//configuration/appSettings/add[@key='Server_DistributrConnectionString']/@value"
+		   Value="Data Source=$(SqlServerName);Initial Catalog=Server_Distributr;Persist Security Info=True;User ID=$(DatabaseUsername);Password=$(DatabasePassword);multipleactiveresultsets=True;"
+		  />
+		   <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\\DistributrAgrimanagrFeatures\app.config"
+		   Xpath="//configuration/appSettings/add[@key='Hub_RoutingConnectionString']/@value"
+		   Value="Data Source=$(SqlServerName);Initial Catalog=Hub_Routing;Persist Security Info=True;User ID=$(DatabaseUsername);Password=$(DatabasePassword);multipleactiveresultsets=True;"
+		  />
+     </Target>
+	<Target Name="UpdateCustomerSupportConfig" >
+		  <Message Text="===========================================================================" Importance="high" />	
+		  <Message Text="START UPDATING CustomerSupport CONFIG" Importance="high" />	
+		  <Message Text="===========================================================================" Importance="high" />	
+		  
+		  <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\Distributr.CustomerSupport\web.config"
+		   Xpath="//configuration/appSettings/add[@key='CacheName']/@value"
+		   Value="$(CacheName)"
+		  />
+		  <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\Distributr.CustomerSupport\web.config"
+		   Xpath="//configuration/appSettings/add[@key='cokeconnectionstring']/@value"
+		   Value="$(MainConnectionString)"
+		  />
+		  
+		   <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\Distributr.CustomerSupport\web.config"
+		   Xpath="//configuration/appSettings/add[@key='AppfabricCaching']/@value"
+		   Value="$(AllowAppFabricCaching)"
+		  />
+		    <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\Distributr.CustomerSupport\web.config"
+		   Xpath="//configuration/appSettings/add[@key='MQName']/@value"
+		   Value="$(MessageQueueName)"
+		  />
+		    <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\Distributr.CustomerSupport\web.config"
+		   Xpath="//configuration/appSettings/add[@key='MongoRoutingConnectionString']/@value"
+		   Value="$(MongoRoutingConnectionString)"
+		  />
+		    <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\Distributr.CustomerSupport\web.config"
+		   Xpath="//configuration/appSettings/add[@key='MongoAuditingConnectionString']/@value"
+		   Value="$(MongoAuditingConnectionString)"
+		  />
+		  <XmlUpdate
+			Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+			XmlFileName="$(ExportDir)\Distributr.CustomerSupport\web.config"
+			XPath="//configuration/dataCacheClient/hosts/host[@cachePort='22233']/@name"
+			Value="$(CacheHost)" />
+		  <Message Text="===========================================================================" Importance="high" />	
+		  <Message Text="FINISHED UPDATING CustomerSupport CONFIG" Importance="high" />	
+		  <Message Text="===========================================================================" Importance="high" />	
+		</Target>
+     <Target Name="UpdateWPFAgrimanagrConfig" >
+		  <Message Text="===========================================================================" Importance="high" />	
+		  <Message Text="START UPDATING Agrimanagr WPF CONFIG" Importance="high" />	
+		  <Message Text="===========================================================================" Importance="high" />	
+		  <!-- <Microsoft.Build.Tasks.Copy SourceFiles="@(WPFLicenseFile)" DestinationFolder="$(ExportDir)\ReferencedAssemblies\siaqodb" />	 -->
+			 <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\Agrimanagr.WPF.UI\app.config"
+		   Xpath="//configuration/appSettings/add[@key='cokeconnectionstring']/@value"
+		   Value="$(WPFConnectionString)"
+		  />	
+          <XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\Agrimanagr.WPF.UI\app.config"
+		   Xpath="//configuration/connectionStrings/add[@name='DistributrLocalContext']/@connectionString"
+		   Value="$(WPFSetupConnectionString)"
+		  />		
+			<XmlUpdate
+		   Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+		   XmlFileName="$(ExportDir)\Agrimanagr.WPF.UI\app.config"
+		   Xpath="//configuration/appSettings/add[@key='WSURL']/@value"
+		   Value="$(WPFServerURl)"
+		  />	
+		  <Message Text="===========================================================================" Importance="high" />	
+		  <Message Text="FINISHED UPDATING Agrimanagr CONFIG" Importance="high" />	
+		  <Message Text="===========================================================================" Importance="high" />	
+		</Target>
+    <Target Name="UpdateWSConfig" >
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="START UPDATING WS CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributr.WSAPI\web.config"
+         Xpath="//configuration/appSettings/add[@key='CacheName']/@value"
+         Value="$(CacheName)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributr.WSAPI\web.config"
+         Xpath="//configuration/appSettings/add[@key='cokeconnectionstring']/@value"
+         Value="$(MainConnectionString)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributr.WSAPI\web.config"
+         Xpath="//configuration/appSettings/add[@key='cokecommandroutingconnectionstring']/@value"
+         Value="$(RoutingConnectionString)"
+		  />
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\Distributr.WSAPI\web.config"
+        Xpath="//configuration/appSettings/add[@key='AppfabricCaching']/@value"
+        Value="$(AllowAppFabricCaching)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributr.WSAPI\web.config"
+       Xpath="//configuration/appSettings/add[@key='MQName']/@value"
+       Value="$(MessageQueueName)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributr.WSAPI\web.config"
+       Xpath="//configuration/appSettings/add[@key='MongoRoutingConnectionString']/@value"
+       Value="$(MongoRoutingConnectionString)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributr.WSAPI\web.config"
+       Xpath="//configuration/appSettings/add[@key='MongoAuditingConnectionString']/@value"
+       Value="$(MongoAuditingConnectionString)"
+		  />
+        <XmlUpdate
+          Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+          XmlFileName="$(ExportDir)\Distributr.WSAPI\web.config"
+          XPath="//configuration/dataCacheClient/hosts/host[@cachePort='22233']/@name"
+          Value="$(CacheHost)" />
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="FINISHED UPDATING WS CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+    </Target>
+    <Target Name="UpdateWebApiConfig" >
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="START UPDATING WS CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributr.WebApi\web.config"
+         Xpath="//configuration/appSettings/add[@key='CacheName']/@value"
+         Value="$(CacheName)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributr.WebApi\web.config"
+         Xpath="//configuration/appSettings/add[@key='cokeconnectionstring']/@value"
+         Value="$(MainConnectionString)"
+		  />
+
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\Distributr.WebApi\web.config"
+        Xpath="//configuration/appSettings/add[@key='AppfabricCaching']/@value"
+        Value="$(AllowAppFabricCaching)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributr.WebApi\web.config"
+       Xpath="//configuration/appSettings/add[@key='MQName']/@value"
+       Value="$(MessageQueueName)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributr.WebApi\web.config"
+       Xpath="//configuration/appSettings/add[@key='MongoRoutingConnectionString']/@value"
+       Value="$(MongoRoutingConnectionString)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributr.WebApi\web.config"
+       Xpath="//configuration/appSettings/add[@key='MongoAuditingConnectionString']/@value"
+       Value="$(MongoAuditingConnectionString)"
+		  />
+        <XmlUpdate
+          Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+          XmlFileName="$(ExportDir)\Distributr.WSAPI\web.config"
+          XPath="//configuration/dataCacheClient/hosts/host[@cachePort='22233']/@name"
+          Value="$(CacheHost)" />
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="FINISHED UPDATING WS CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+    </Target>
+    <Target Name="UpdateHQConfig" >
+
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="START UPDATING HQ CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributor.HQ.Web\web.config"
+         Xpath="//configuration/appSettings/add[@key='CacheName']/@value"
+         Value="$(CacheName)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributor.HQ.Web\web.config"
+         Xpath="//configuration/appSettings/add[@key='cokeconnectionstring']/@value"
+         Value="$(MainConnectionString)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributor.HQ.Web\web.config"
+         Xpath="//configuration/appSettings/add[@key='cokecommandroutingconnectionstring']/@value"
+         Value="$(RoutingConnectionString)"
+		  />
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\Distributor.HQ.Web\web.config"
+        Xpath="//configuration/appSettings/add[@key='AppfabricCaching']/@value"
+        Value="$(AllowAppFabricCaching)"
+		  />
+		   <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\Distributor.HQ.Web\web.config"
+        Xpath="//configuration/appSettings/add[@key='DeploymentPlatform']/@value"
+        Value="Local"
+		  />
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\Distributor.HQ.Web\web.config"
+        Xpath="//configuration/appSettings/add[@key='MQName']/@value"
+        Value="$(MessageQueueName)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributor.HQ.Web\web.config"
+       Xpath="//configuration/appSettings/add[@key='MongoRoutingConnectionString']/@value"
+       Value="$(MongoRoutingConnectionString)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributor.HQ.Web\web.config"
+       Xpath="//configuration/appSettings/add[@key='MongoAuditingConnectionString']/@value"
+       Value="$(MongoAuditingConnectionString)"
+		  />
+        <XmlUpdate
+          Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+          XmlFileName="$(ExportDir)\Distributor.HQ.Web\web.config"
+          XPath="//configuration/dataCacheClient/hosts/host[@cachePort='22233']/@name"
+          Value="$(CacheHost)" />
+
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="FINISHED UPDATING HQ CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+    </Target>
+	<Target Name="UpdateAgrimanagrHQConfig" >
+
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="START UPDATING Agrimanagr HQ CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Agrimanagr.HQ\web.config"
+         Xpath="//configuration/appSettings/add[@key='CacheName']/@value"
+         Value="$(CacheName)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Agrimanagr.HQ\web.config"
+         Xpath="//configuration/appSettings/add[@key='cokeconnectionstring']/@value"
+         Value="$(MainConnectionString)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Agrimanagr.HQ\web.config"
+         Xpath="//configuration/appSettings/add[@key='cokecommandroutingconnectionstring']/@value"
+         Value="$(RoutingConnectionString)"
+		  />
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\Agrimanagr.HQ\web.config"
+        Xpath="//configuration/appSettings/add[@key='AppfabricCaching']/@value"
+        Value="$(AllowAppFabricCaching)"
+		  />
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\Agrimanagr.HQ\web.config"
+        Xpath="//configuration/appSettings/add[@key='MQName']/@value"
+        Value="$(MessageQueueName)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Agrimanagr.HQ\web.config"
+       Xpath="//configuration/appSettings/add[@key='MongoRoutingConnectionString']/@value"
+       Value="$(MongoRoutingConnectionString)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Agrimanagr.HQ\web.config"
+       Xpath="//configuration/appSettings/add[@key='MongoAuditingConnectionString']/@value"
+       Value="$(MongoAuditingConnectionString)"
+		  />
+        <XmlUpdate
+          Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+          XmlFileName="$(ExportDir)\Agrimanagr.HQ\web.config"
+          XPath="//configuration/dataCacheClient/hosts/host[@cachePort='22233']/@name"
+          Value="$(CacheHost)" />
+
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="FINISHED UPDATING Agrimanagr HQ CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+    </Target>
+    <Target Name="UpdateREBUILDDBConfig" >
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="START UPDATING REBUILDDB CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\RebuildDB\app.config"
+         Xpath="//configuration/appSettings/add[@key='CacheName']/@value"
+         Value="$(CacheName)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\RebuildDB\app.config"
+         Xpath="//configuration/appSettings/add[@key='cokeconnectionstring']/@value"
+         Value="$(MainConnectionString)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\RebuildDB\app.config"
+         Xpath="//configuration/appSettings/add[@key='routingdbconnectionstring']/@value"
+         Value="$(RoutingConnectionString)"
+		  />
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\RebuildDB\app.config"
+        Xpath="//configuration/appSettings/add[@key='AppfabricCaching']/@value"
+        Value="$(AllowAppFabricCaching)"
+		  />
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\RebuildDB\app.config"
+        Xpath="//configuration/appSettings/add[@key='directconnectionstring']/@value"
+        Value="$(DirectConnectionString)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\RebuildDB\app.config"
+         Xpath="//configuration/appSettings/add[@key='createtablesscriptlocation']/@value"
+         Value="$(DatabaseScriptLocation)"
+		  />
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="FINISHED UPDATING REBUILDDB CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+    </Target>
+    <Target Name="UpdateSubscriberConfig" >
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="START UPDATING SUBSCRIBER CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributr.BusSubscriber\app.config"
+         Xpath="//configuration/appSettings/add[@key='CacheName']/@value"
+         Value="$(CacheName)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributr.BusSubscriber\app.config"
+         Xpath="//configuration/appSettings/add[@key='cokeconnectionstring']/@value"
+         Value="$(MainConnectionString)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributr.BusSubscriber\app.config"
+         Xpath="//configuration/appSettings/add[@key='routingdbconnectionstring']/@value"
+         Value="$(RoutingConnectionString)"
+		  />
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\Distributr.BusSubscriber\app.config"
+        Xpath="//configuration/appSettings/add[@key='AppfabricCaching']/@value"
+        Value="$(AllowAppFabricCaching)"
+		  />
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\Distributr.BusSubscriber\app.config"
+        Xpath="//configuration/appSettings/add[@key='MQName']/@value"
+        Value="$(MessageQueueName)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributr.BusSubscriber\app.config"
+       Xpath="//configuration/appSettings/add[@key='MongoRoutingConnectionString']/@value"
+       Value="$(MongoRoutingConnectionString)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributr.BusSubscriber\app.config"
+       Xpath="//configuration/appSettings/add[@key='MongoAuditingConnectionString']/@value"
+       Value="$(MongoAuditingConnectionString)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributr.BusSubscriber\app.config"
+         Xpath="//configuration/appSettings/add[@key='ServiceName']/@value"
+         Value="$(ServiceName)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributr.BusSubscriber\app.config"
+       Xpath="//configuration/appSettings/add[@key='ServiceDescription']/@value"
+       Value="$(ServiceDescription)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributr.BusSubscriber\app.config"
+       Xpath="//configuration/appSettings/add[@key='ServiceDisplayName']/@value"
+       Value="$(ServiceDisplayName)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributr.BusSubscriber\app.config"
+         XPath="//configuration/dataCacheClient/hosts/host[@cachePort='22233']/@name"
+         Value="$(CacheHost)" />
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="FINISHED UPDATING SUBSCRIBER CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+    </Target>
+    <Target Name="UpdateWPFConfig" >
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="START UPDATING WPF CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\Distributr.WPF\app.config"
+        Xpath="//configuration/appSettings/add[@key='cokeconnectionstring']/@value"
+        Value="$(WPFConnectionString)"
+		  />
+        <XmlUpdate
+         Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+         XmlFileName="$(ExportDir)\Distributr.WPF\app.config"
+         Xpath="//configuration/connectionStrings/add[@name='DistributrLocalContext']/@connectionString"
+         Value="$(WPFSetupConnectionString)"
+		  />
+        <XmlUpdate
+       Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+       XmlFileName="$(ExportDir)\Distributr.WPF\app.config"
+       Xpath="//configuration/appSettings/add[@key='WSURL']/@value"
+       Value="$(WPFServerURl)"
+		  />
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="FINISHED UPDATING WPF CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+    </Target>
+    <Target Name="UpdateDataTestConfig" >
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="START UPDATING Distributr.core.data.tests CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+        <XmlUpdate
+        Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+        XmlFileName="$(ExportDir)\Distributor.Core.Data.Tests\app.config"
+        Xpath="//configuration/appSettings/add[@key='cokeconnectionstring']/@value"
+        Value="$(MainConnectionString)"
+		  />
+
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="FINISHED UPDATING Distributr.core.data.tests CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+    </Target>
+    <Target Name="UpdateIntegrationTests" >
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="START UPDATING Distributr.IntegrationTests CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+        <XmlUpdate
+            Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+            XmlFileName="$(ExportDir)\Distributr.IntegrationTests\app.config"
+            Xpath="//configuration/appSettings/add[@key='cokeconnectionstring']/@value"
+            Value="$(WPFConnectionString)"
+		  />
+        <XmlUpdate
+           Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+           XmlFileName="$(ExportDir)\Distributr.IntegrationTests\app.config"
+           Xpath="//configuration/connectionStrings/add[@name='DistributrContext']/@connectionString"
+           Value="$(WPFDirectConnectionString)"
+		  />
+		   <XmlUpdate
+           Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+           XmlFileName="$(ExportDir)\Distributr.IntegrationTests\app.config"
+           Xpath="//configuration/connectionStrings/add[@name='DistributrLocalContext']/@connectionString"
+           Value="$(WPFSetupConnectionString)"
+		  />
+        <XmlUpdate
+           Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+           XmlFileName="$(ExportDir)\Distributr.IntegrationTests\app.config"
+           Xpath="//configuration/appSettings/add[@key='WSURL']/@value"
+           Value="$(WPFServerURl)"
+		  />
+        <XmlUpdate
+            Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+            XmlFileName="$(ExportDir)\Distributr.IntegrationTests\app.config"
+            Xpath="//configuration/appSettings/add[@key='RefreshDB']/@value"
+            Value="false"
+		  />
+        <XmlUpdate
+          Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+          XmlFileName="$(ExportDir)\Distributr.IntegrationTests\app.config"
+          Xpath="//configuration/connectionStrings/add[@name='DistributrMasterData']/@connectionString"
+          Value="$(WPFMasterDataConnectionString)"
+		  />
+
+        <XmlUpdate
+             Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0"
+             XmlFileName="$(ExportDir)\Distributr.IntegrationTests\app.config"
+             Xpath="//configuration/appSettings/add[@key='ServerConnectionString']/@value"
+             Value="$(MainConnectionString)"
+		  />
+
+        <Message Text="===========================================================================" Importance="high" />
+        <Message Text="FINISHED UPDATING Distributr.IntegrationTests CONFIG" Importance="high" />
+        <Message Text="===========================================================================" Importance="high" />
+    </Target>
+    <Target Name="RefreshDatabases" >
+        <Message Text=" --------------- Refresing Distributr Databases ------------" Importance="high" />
+        <Message Text=" --------------- Drop Existing Databases ------------" Importance="high" />
+        <Message Text=" --------------- Drop $(WPFSetupDatabaseName) ------------" Importance="high" />
+        <MSBuild.ExtensionPack.Sql2012.Database TaskAction="CheckExists" DatabaseItem="$(WPFSetupDatabaseName)" MachineName="$(WPFSqlServerName)">
+            <Output TaskParameter="Exists" PropertyName="WPFSqlServerNameExists"/>
+        </MSBuild.ExtensionPack.Sql2012.Database>
+        <Message Text="$(WPFSetupDatabaseName) Database Exists: $(WPFSqlServerNameExists)"/>
+        <MSBuild.ExtensionPack.Sql2012.Database TaskAction="Delete" Condition="$(WPFSqlServerNameExists)"  DatabaseItem="$(WPFSetupDatabaseName)" MachineName="$(WPFSqlServerName)"/>
+        <!-- <MSBuild.ExtensionPack.Sql2012.Database TaskAction="Create" DatabaseItem="$(WPFSetupDatabaseName)" MachineName="$(WPFSqlServerName)" />-->
+
+        <Message Text=" --------------- Drop $(WPFDatabaseName) ------------" Importance="high" />
+        <MSBuild.ExtensionPack.Sql2012.Database TaskAction="CheckExists" DatabaseItem="$(WPFDatabaseName)" MachineName="$(WPFSqlServerName)">
+            <Output TaskParameter="Exists" PropertyName="WPFDatabaseNameExists"/>
+        </MSBuild.ExtensionPack.Sql2012.Database>
+        <Message Text="$(WPFDatabaseName) Database Exists: $(WPFDatabaseNameExists)"/>
+        <MSBuild.ExtensionPack.Sql2012.Database TaskAction="Delete" Condition="$(WPFDatabaseNameExists)"  DatabaseItem="$(WPFDatabaseName)" MachineName="$(WPFSqlServerName)"/>
+        <MSBuild.ExtensionPack.Sql2012.Database TaskAction="Create" Force="true" DatabaseItem="$(WPFDatabaseName)" MachineName="$(WPFSqlServerName)" />
+
+        <Message Text=" --------------- Drop $(DatabaseName) ------------" Importance="high" />
+        <MSBuild.ExtensionPack.Sql2012.Database TaskAction="CheckExists" DatabaseItem="$(DatabaseName)" MachineName="$(SqlServerName)">
+            <Output TaskParameter="Exists" PropertyName="DatabaseNameExists"/>
+        </MSBuild.ExtensionPack.Sql2012.Database>
+        <Message Text="$(DatabaseName) Database Exists: $(DatabaseNameExists)"/>
+        <MSBuild.ExtensionPack.Sql2012.Database TaskAction="Delete" Force="true" Condition="$(DatabaseNameExists)"  DatabaseItem="$(DatabaseName)" MachineName="$(SqlServerName)"/>
+        <MSBuild.ExtensionPack.Sql2012.Database TaskAction="Create" Force="true" DatabaseItem="$(DatabaseName)" MachineName="$(SqlServerName)" />
+
+        <Message Text=" --------------- Run create table script for $(WPFDatabaseName) ------------" Importance="high" />
+        <MSBuild.ExtensionPack.SqlServer.SqlCmd TaskAction="Execute" Server="$(WPFSqlServerName)" Database="$(WPFDatabaseName)" InputFiles="$(DatabaseScriptLocation)" />
+        <Message Text=" --------------- Run create table script for $(DatabaseName) ------------" Importance="high" />
+        <MSBuild.ExtensionPack.SqlServer.SqlCmd TaskAction="Execute" Server="$(SqlServerName)" Database="$(DatabaseName)" InputFiles="$(DatabaseScriptLocation)" />
+    </Target>
+
+</Project>

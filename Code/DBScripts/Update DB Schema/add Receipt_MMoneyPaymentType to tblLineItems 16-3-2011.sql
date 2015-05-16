@@ -1,0 +1,2 @@
+if not exists (select column_name from information_schema.columns where table_name = 'tblLineItems' and column_name = 'Receipt_MMoneyPaymentType')
+	alter table tblLineItems add Receipt_MMoneyPaymentType nvarchar(50)

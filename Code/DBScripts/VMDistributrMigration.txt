@@ -1,0 +1,53 @@
+alter table tblContact drop constraint FK_tblContact_tblMaritalStatus
+alter table tblContact drop column MaritalStatus
+alter table tblContact add MaritalStatusId int null default 0
+alter table tblContact drop constraint FK_tblContact_tblCostCentre
+
+drop table tblMaritalStatus
+
+create table tblMasterDataAllocation(
+[Id] [uniqueidentifier] NOT NULL,
+[EntityAId] [uniqueidentifier] NOT NULL,
+[EntityBId] [uniqueidentifier] NOT NULL,
+[AllocationType] [int] NOT NULL,
+[IM_DateCreated] [datetime] NOT NULL,
+[IM_DateLastUpdated] [datetime] NOT NULL,
+[IM_Status] [int] NOT NULL
+)
+
+alter table tblSettings add  AppId int;
+
+alter table tblRoutes add RegionId uniqueidentifier
+
+alter table tblOutletCategory add  Code varchar(250) null
+
+alter table tblOutletType add Code varchar(250) null
+
+CREATE TABLE tblShipToAddress(
+[Id] [uniqueidentifier] NOT NULL Primary Key,	
+[CostCentreId] [uniqueidentifier] NOT NULL,	
+[Name] [nvarchar](50) NOT NULL,
+[Description] [nvarchar](250) NULL,
+[PostalAddress] [nvarchar](250) NULL,
+[PhysicalAddress] [nvarchar](250) NULL,
+[Longitude] [decimal](18,4) NULL,
+[Latitude] [decimal](18,4) NULL,
+[IM_DateCreated] [datetime] NOT NULL,
+[IM_DateLastUpdated] [datetime] NOT NULL,
+[IM_Status] int NOT NULL
+)
+
+ALTER TABLE tblShipToAddress ADD CONSTRAINT ShipToAdress_CostCentre_FK FOREIGN KEY (CostCentreId) REFERENCES tblCostCentre(Id);
+
+alter table tblDocument add  ShipToAddress varchar(250) null;
+
+
+
+
+update tblRoutes
+set tblRoutes.RegionId = tblCostCentre.Distributor_RegionId
+from tblRoutes inner join tblCostCentre on tblRoutes.DistributorID = tblCostCentre.Id
+
+alter table tblRoutes drop constraint FK_tblRoutes_tblCostCentre;
+alter table tblRoutes drop column DistributorID;
+alter table tblRoutes add constraint FK_tblRoutes_tblRoute foreign key (RegionId) references tblRegion(Id);
