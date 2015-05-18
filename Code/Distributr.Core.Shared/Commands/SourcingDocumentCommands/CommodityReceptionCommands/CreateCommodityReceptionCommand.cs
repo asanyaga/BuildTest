@@ -52,7 +52,7 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityReceptionCo
            VehicleDepartureMileage = vehicleDepartureMileage;
            VehicleDepartureTime = vehicleDepartureTime;
        }
-       public string Description { get; set; }
+      
        public DateTime DateCreated { get; set; }
 
        public Guid DocumentRecipientCostCentreId { get; set; }

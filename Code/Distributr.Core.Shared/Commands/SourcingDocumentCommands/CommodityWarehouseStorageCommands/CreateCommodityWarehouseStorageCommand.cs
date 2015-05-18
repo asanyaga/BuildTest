@@ -10,7 +10,7 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityWarehouseSt
         }
 
        
-        public string Description { get; set; }
+      
         public DateTime DateCreated { get; set; }
 
         public Guid DocumentRecipientCostCentreId { get; set; }

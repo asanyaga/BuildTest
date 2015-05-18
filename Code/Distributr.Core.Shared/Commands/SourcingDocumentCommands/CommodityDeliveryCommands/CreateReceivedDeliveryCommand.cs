@@ -48,7 +48,7 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityDeliveryCom
        public Guid DocumentRecipientCostCentreId { get; set; }
        public Guid RouteId { get; set; }
        public Guid CentreId { get; set; }
-       public string Description { get; set; }
+    
        public DateTime DateCreated { get; set; }
 
        public DateTime? VehicleArrivalTime { get; set; }

@@ -16,8 +16,8 @@ namespace Distributr.Core.Factory.Documents.Impl
 {
    public class ReceiptFactory : BaseDocumentFactory, IReceiptFactory
     {
-       public ReceiptFactory(ICostCentreRepository costCentreRepository, IUserRepository userRepository)
-           : base(costCentreRepository, userRepository)
+       public ReceiptFactory()
+           
        {
 
        }

@@ -17,19 +17,19 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities
         public OutletVisitNote(Guid id)
             : base(id)
         {
-         
+
         }
 
-       
+
 
         public string Description { get; set; }
 
-       
 
-        private List<ReceiptLineItem> _lineItems;
+
+        //private List<ReceiptLineItem> _lineItems;
         public List<ReceiptLineItem> LineItems
         {
-            get { return _lineItems/*.Where(n => n.LineItemType == OrderLineItemType.PostConfirmation).ToList()*/; }
+            get { throw new NotImplementedException(); }
         }
 
         public decimal Total
@@ -44,9 +44,9 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities
 
         public override void Confirm()
         {
-               Status = DocumentStatus.Confirmed;
+            Status = DocumentStatus.Confirmed;
             _AddCreateCommandToExecute();
-            
+
         }
 
 
@@ -74,15 +74,15 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities
 
         protected override void _AddAddLineItemCommandToExecute<T>(T lineItem, bool isHybrid = false)
         {
-          
+
         }
 
 
         protected override void _AddConfirmCommandToExecute(bool isHybrid = false)
         {
-           
+
         }
 
-       
+
     }
 }

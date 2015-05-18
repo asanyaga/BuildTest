@@ -19,8 +19,8 @@ namespace Distributr.Core.Factory.Documents.Impl
     {
         private IProductRepository _productRepository;
 
-        public InvoiceFactory(ICostCentreRepository costCentreRepository, IUserRepository userRepository, IProductRepository productRepository) 
-            : base(costCentreRepository, userRepository)
+        public InvoiceFactory( IProductRepository productRepository) 
+            
         {
             _productRepository = productRepository;
         }

@@ -26,17 +26,17 @@ namespace Distributr.Core.Workflow.Impl.AuditLogs
         public void AuditLogEntry(string module, string action)
         {
             //TODO AJM make this work
-            return;
-            var auditlog = new AuditLog(Guid.NewGuid())
-            {
-                //ActionOwner =  _costCentreRepository.GetById(config.CostCentreId),
-                //TODO modify config to include current user id
-                //ActionUser = _userService.GetById(_configService.ViewModelParameters.CurrentUserId),
-                Module = module,
-                Action = action,
-                ActionTimeStamp = DateTime.Now
-            };
-            _auditLogService.Save(auditlog);
+            //return;
+            //var auditlog = new AuditLog(Guid.NewGuid())
+            //{
+            //    //ActionOwner =  _costCentreRepository.GetById(config.CostCentreId),
+            //    //TODO modify config to include current user id
+            //    //ActionUser = _userService.GetById(_configService.ViewModelParameters.CurrentUserId),
+            //    Module = module,
+            //    Action = action,
+            //    ActionTimeStamp = DateTime.Now
+            //};
+            //_auditLogService.Save(auditlog);
         }
     }
 }

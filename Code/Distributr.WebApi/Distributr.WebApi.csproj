@@ -141,7 +141,6 @@
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CnUMasterDataController.cs" />
-    <Compile Include="Controllers\CommandController.cs" />
     <Compile Include="Controllers\CommandRoutingController.cs" />
     <Compile Include="Controllers\CostCentreApplicationController.cs" />
     <Compile Include="Controllers\GUIDController.cs" />

@@ -41,7 +41,7 @@ namespace Distributr.Core.Data.Repository.MasterData.CostCentreRepositories
             return items.Sum(s => s.Weight);
         }
 
-        public QueryResult<CommoditySupplier> Query(QueryBase query)
+        public new QueryResult<CommoditySupplier> Query(QueryBase query)
         {
             var  q= query as QueryCommoditySupplier;
 

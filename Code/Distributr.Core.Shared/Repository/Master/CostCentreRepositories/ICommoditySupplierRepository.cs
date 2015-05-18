@@ -11,6 +11,6 @@ namespace Distributr.Core.Repository.Master.CostCentreRepositories
    public interface ICommoditySupplierRepository: ICostCentreRepository
    {
        decimal? GetCummulativeWeight(Guid supplierId, Guid commodityId);
-       QueryResult<CommoditySupplier> Query(QueryBase q);
+       new QueryResult<CommoditySupplier> Query(QueryBase q);
    }
 }

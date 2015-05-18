@@ -12,14 +12,9 @@ namespace Distributr.Core.Factory.ActivityDocuments
 {
     public class BaseActivityDocumentFactory
     {
-        private ICostCentreRepository _costCentreRepository;
-        private IUserRepository _userRepository;
-        private ICostCentreApplicationRepository _costCentreApplicationRepository;
-
-        public BaseActivityDocumentFactory(ICostCentreRepository costCentreRepository, IUserRepository userRepository)
+        public BaseActivityDocumentFactory()
         {
-            _costCentreRepository = costCentreRepository;
-            _userRepository = userRepository;
+            
         }
 
       

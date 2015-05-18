@@ -16,7 +16,6 @@ namespace Distributr.Core.Factory.SourcingDocuments
     {
         private ICostCentreRepository _costCentreRepository;
         private IUserRepository _userRepository;
-        private ICostCentreApplicationRepository _costCentreApplicationRepository;
 
         public BaseSourcingDocumentFactory(ICostCentreRepository costCentreRepository, IUserRepository userRepository)
         {

@@ -24,7 +24,7 @@ namespace Distributr.Core.Domain.Transactional.SourcingDocumentEnitities
         {
         }
 
-        public Guid Id { get; set; }
+       
         public string Warehouse { get; set; }
         public string CommoditySupplier { get; set; }
         public string Commodity { get; set; }

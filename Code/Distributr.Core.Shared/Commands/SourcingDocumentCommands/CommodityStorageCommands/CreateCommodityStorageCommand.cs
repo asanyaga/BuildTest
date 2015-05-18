@@ -43,7 +43,7 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityStorageComm
            Note = note;
            Description = description;
        }
-       public string Description { get; set; }
+     
        public DateTime DateCreated { get; set; }
 
        public Guid DocumentRecipientCostCentreId { get; set; }

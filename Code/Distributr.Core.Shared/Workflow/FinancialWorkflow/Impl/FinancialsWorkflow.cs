@@ -60,7 +60,7 @@ namespace Distributr.Core.Workflow.FinancialWorkflow.Impl
                 _accountTransactionRepository.Add(at);
                 _accountRepository.AdjustAccountBalance(costCentreId, accountType, amount);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                // _log.Error(ex);
             }

@@ -66,7 +66,7 @@ namespace Distributr.Core.Workflow.InventoryWorkflow.Impl
                 _inventoryRepository.AdjustInventoryBalance(inv1.Id, qty, (int)inventoryAdjustmentNoteType);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //_log.Error(ex);
             }

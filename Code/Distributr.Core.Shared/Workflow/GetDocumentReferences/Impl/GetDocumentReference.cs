@@ -59,7 +59,7 @@ namespace Distributr.Core.Workflow.GetDocumentReferences.Impl
         {
             try
             {
-                int sequenceId = 0;
+                //int sequenceId = 0;
 
                 DateTime dt = DateTime.Now;
                 string refRule = "{D}_{SN}_{OC}_{DT}_{TM}_{SQ}";
@@ -72,8 +72,8 @@ namespace Distributr.Core.Workflow.GetDocumentReferences.Impl
                 string DT = dt.ToString("yyyyMMdd");
                 string TM = dt.ToString("hhmmss");
                 string SN = salesmanUserName;
-                string SC = "";
-                string ON = "";
+ //               string SC = "";
+//                string ON = "";
                 string OC = "";
                 if(outletCode!=null)
                 {
@@ -237,7 +237,7 @@ namespace Distributr.Core.Workflow.GetDocumentReferences.Impl
                 string ON = "";
                 string OC = "";
                 string SQ = "";
-                int sequenceId = 0;
+                //int sequenceId = 0;
                 var salesman = _costCentreService.GetById(salesmanId);
                 var outlet = _costCentreService.GetById(outletId);
                 ON = outlet != null ? outlet.Name : "";

@@ -25,7 +25,7 @@ namespace Distributr.Core.Factory.ActivityDocuments.Impl
         private ISeasonRepository _seasonRepository;
         private ICommodityRepository _commodityRepository;
 
-        public ActivityFactory(ICostCentreRepository costCentreRepository, IUserRepository userRepository, IInfectionRepository infectionRepository, IShiftRepository shiftRepository, IServiceProviderRepository serviceProviderRepository, IProductRepository productRepository, IServiceRepository serviceRepository, ISeasonRepository seasonRepository, ICommodityRepository commodityRepository) : base(costCentreRepository, userRepository)
+        public ActivityFactory( IInfectionRepository infectionRepository, IShiftRepository shiftRepository, IServiceProviderRepository serviceProviderRepository, IProductRepository productRepository, IServiceRepository serviceRepository, ISeasonRepository seasonRepository, ICommodityRepository commodityRepository) 
         {
             _infectionRepository = infectionRepository;
             _shiftRepository = shiftRepository;
