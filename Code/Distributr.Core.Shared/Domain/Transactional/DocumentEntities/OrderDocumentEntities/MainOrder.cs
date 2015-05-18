@@ -47,7 +47,7 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities.OrderDocumentEnt
           
             foreach (var subOrder in SubOrders)
             {
-                CostCentre recepient = null;
+                //CostCentre recepient = null;
                 if (subOrder.DocumentIssuerCostCentre is DistributorSalesman)
                     subOrder.DocumentIssuerCostCentre = salesman;
                 else
