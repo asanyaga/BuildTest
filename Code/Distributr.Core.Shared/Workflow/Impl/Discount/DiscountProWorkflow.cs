@@ -147,7 +147,7 @@ namespace Distributr.Core.Workflow.Impl.Discount
                             AddDiscount(ad);
                         }
                        
-                    }catch(Exception ex)
+                    }catch(Exception)
                     {
                     }
                 }
@@ -185,7 +185,7 @@ namespace Distributr.Core.Workflow.Impl.Discount
                                                    Quantity = certainProductQty
                                                };
                     AddDiscount(ad);
-                }catch(Exception ex)
+                }catch(Exception)
                 {
                     
                 }
