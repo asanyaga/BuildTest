@@ -21,6 +21,7 @@ using Distributr.Core.Utility.Serialization;
 using Distributr.Core.Utility.Validation;
 using Distributr.Core.Workflow.Impl;
 using Distributr.DatabaseSetup;
+using Distributr.Integrations.IOC;
 using Distributr.MongoDB.Repository.Impl;
 using Distributr.WPF.Lib.Data.ExecuteCommands;
 using Distributr.WPF.Lib.Data.IOC;

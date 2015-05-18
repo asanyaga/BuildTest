@@ -15,7 +15,6 @@ using Distributr.Core.Workflow;
 using Distributr.MongoDB.CommandRouting;
 using Distributr.MongoDB.Notifications;
 using Distributr.MongoDB.Repository.Impl;
-using Distributr.WSAPI.Lib.Integrations.InventoryWorkflows;
 using Distributr.WSAPI.Lib.Retire;
 using Distributr.WSAPI.Lib.Services.CommandAudit;
 using Distributr.WSAPI.Lib.Services.Resolver;
@@ -36,6 +35,7 @@ using Distributr.WSAPI.Lib.Services.WebService.CommandDeserialization.Impl;
 using Distributr.WSAPI.Lib.ResponseBuilders.MasterData;
 using Distributr.WSAPI.Lib.ResponseBuilders.CommandRouter;
 using Distributr.WSAPI.Lib.Services.Bus.EasyNetQ;
+using Distributr.WSAPI.Lib.Workflow;
 
 namespace Distributr.WSAPI.Server.IOC
 {

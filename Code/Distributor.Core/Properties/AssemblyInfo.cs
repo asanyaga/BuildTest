@@ -48,3 +48,4 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("Distributr.DataImporter.Lib")]
 [assembly: InternalsVisibleTo("Distributr.WSAPI.Lib")]
 [assembly: InternalsVisibleTo("Distributr.WebApi.Common")]
+[assembly: InternalsVisibleTo("Distributr.Integrations")]
