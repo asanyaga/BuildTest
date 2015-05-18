@@ -9,6 +9,7 @@ namespace Distributr.Core.Data
 {
     public static class CoreResourceHelper
     {
+
         public static string GetText(string code)
         {
             IMessageSourceAccessor msa = ObjectFactory.GetInstance<IMessageSourceAccessor>();
