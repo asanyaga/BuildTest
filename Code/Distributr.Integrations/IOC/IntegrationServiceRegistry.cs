@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Distributr.Integrations.AgrimanagrImports;
 using Distributr.Integrations.AgrimanagrImports.Impl;
 using Distributr.Integrations.Imports;
 using Distributr.Integrations.Imports.Impl;
 using StructureMap.Configuration.DSL;
 
-namespace Distributr.WSAPI.Server.IOC
+namespace Distributr.Integrations.IOC
 {
     public class IntegrationServiceRegistry : Registry
     {

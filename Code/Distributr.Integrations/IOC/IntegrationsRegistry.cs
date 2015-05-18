@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using Distributr.Core.Data.Repository.Transactional.ThirdPartyIntegrationRepository;
 using Distributr.Core.Factory.Documents;
 using Distributr.Core.Factory.Documents.Impl;
-using Distributr.Core.Repository.Transactional.DocumentRepositories.InventoryRepositories;
 using Distributr.Core.Repository.Transactional.ThirdPartyIntegrationRepository;
 using Distributr.Core.Workflow;
 using Distributr.Integrations.Legacy.Integrations;
-using Distributr.Integrations.Legacy.Integrations.InventoryWorkflows;
 using Distributr.Integrations.Legacy.Integrations.MasterData;
 using Distributr.Integrations.Legacy.Integrations.MasterData.Exports;
 using Distributr.Integrations.Legacy.Integrations.MasterData.Impl;
 using Distributr.Integrations.Legacy.Integrations.Transactions;
 using Distributr.Integrations.Legacy.Integrations.Transactions.Impl;
+using Distributr.WSAPI.Lib.Workflow;
 using StructureMap.Configuration.DSL;
 
-namespace Distributr.WSAPI.Server.IOC
+namespace Distributr.Integrations.IOC
 {
     public class IntegrationsRegistry : Registry
     {

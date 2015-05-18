@@ -49,8 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IOC\BusRegistry.cs" />
-    <Compile Include="IOC\IntegrationServiceRegistry.cs" />
-    <Compile Include="IOC\IntegrationsRegistry.cs" />
     <Compile Include="IOC\MongoRegistry.cs" />
     <Compile Include="IOC\SyncRegistry.cs" />
     <Compile Include="IOC\WSAPIRegistry.cs" />
@@ -64,10 +62,6 @@
     <ProjectReference Include="..\Distributor.Core\Distributr.Core.csproj">
       <Project>{900F434E-7D81-422B-B567-1564C79CEAB3}</Project>
       <Name>Distributr.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Distributr.Integrations\Distributr.Integrations.csproj">
-      <Project>{9a287974-3bee-4bc2-be8f-ec704d05e8cb}</Project>
-      <Name>Distributr.Integrations</Name>
     </ProjectReference>
     <ProjectReference Include="..\Distributr.MongoDB\Distributr.MongoDB.csproj">
       <Project>{8267baa6-73d1-4dbb-b70a-6c7bffcd66ac}</Project>

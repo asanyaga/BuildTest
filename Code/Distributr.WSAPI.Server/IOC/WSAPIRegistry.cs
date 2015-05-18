@@ -12,7 +12,6 @@ using Distributr.Core.Utility.Mapping.impl;
 using Distributr.Core.Utility.Serialization;
 using Distributr.Core.Utility.Validation;
 using Distributr.Core.Workflow;
-using Distributr.Integrations.Legacy.Integrations.InventoryWorkflows;
 using Distributr.MongoDB.CommandRouting;
 using Distributr.MongoDB.Notifications;
 using Distributr.MongoDB.Repository.Impl;
@@ -36,6 +35,7 @@ using Distributr.WSAPI.Lib.Services.WebService.CommandDeserialization.Impl;
 using Distributr.WSAPI.Lib.ResponseBuilders.MasterData;
 using Distributr.WSAPI.Lib.ResponseBuilders.CommandRouter;
 using Distributr.WSAPI.Lib.Services.Bus.EasyNetQ;
+using Distributr.WSAPI.Lib.Workflow;
 
 namespace Distributr.WSAPI.Server.IOC
 {

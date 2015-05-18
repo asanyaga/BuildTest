@@ -122,10 +122,11 @@
     <Compile Include="Imports\ISaleProductImporterService.cs" />
     <Compile Include="Imports\ISupplierImporterService.cs" />
     <Compile Include="Imports\IVATClassImporterService.cs" />
+    <Compile Include="IOC\IntegrationServiceRegistry.cs" />
+    <Compile Include="IOC\IntegrationsRegistry.cs" />
     <Compile Include="Legacy\Integrations\DistributrIntegrationService.cs" />
     <Compile Include="Legacy\Integrations\IDistributorsImportService.cs" />
     <Compile Include="Legacy\Integrations\IDistributrIntegrationService.cs" />
-    <Compile Include="Legacy\Integrations\InventoryWorkflows\WsInventoryAdjustmentWorflow.cs" />
     <Compile Include="Legacy\Integrations\MasterData\Exports\IMasterDataExportService.cs" />
     <Compile Include="Legacy\Integrations\MasterData\Exports\MasterDataExportService.cs" />
     <Compile Include="Legacy\Integrations\MasterData\IAreaImportService.cs" />
@@ -234,6 +235,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AgrimanagrImports\Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Legacy\Integrations\InventoryWorkflows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Distributr.Core.Commands.CommandPackage;
@@ -10,11 +10,10 @@ using Distributr.WSAPI.Lib.Services.Bus;
 using Distributr.WSAPI.Lib.Services.CommandAudit;
 using Newtonsoft.Json;
 
-
 /* ----  May2015_Notes -----------
     Inventory import, see newintegrations controler
  */
-namespace Distributr.Integrations.Legacy.Integrations.InventoryWorkflows
+namespace Distributr.WSAPI.Lib.Workflow
 {
     public class WsInventoryAdjustmentWorflow : IWsInventoryAdjustmentWorflow
     {
@@ -39,20 +38,16 @@ namespace Distributr.Integrations.Legacy.Integrations.InventoryWorkflows
             if (createCommand != null)
             {
                 envelope.CommandsList.Add(new CommandEnvelopeItem(++sequence, createCommand));
-          
-
             }
             var lineItemCommands = commandsToExecute.OfType<AfterCreateCommand>();
             foreach (var _item in lineItemCommands)
             {
                 envelope.CommandsList.Add(new CommandEnvelopeItem(++sequence, _item));
-          
             }
             var co = commandsToExecute.OfType<ConfirmCommand>().First();
             if (co != null)
             {
                 envelope.CommandsList.Add(new CommandEnvelopeItem(++sequence, co));
-
             }
             
             AddToMongoDB(envelope);
@@ -68,23 +63,16 @@ namespace Distributr.Integrations.Legacy.Integrations.InventoryWorkflows
             if (createCommand != null)
             {
                 envelope.CommandsList.Add(new CommandEnvelopeItem(++sequence, createCommand));
-
-         
-
             }
             var lineItemCommands = commandsToExecute.OfType<AfterCreateCommand>();
             foreach (var _item in lineItemCommands)
             {
                 envelope.CommandsList.Add(new CommandEnvelopeItem(++sequence, _item));
-
-
             }
             var co = commandsToExecute.OfType<ConfirmCommand>().First();
             if(co !=null)
             {
-                
                 envelope.CommandsList.Add(new CommandEnvelopeItem(++sequence, co));
-                                
             }
             AddToMongoDB(envelope);
         }
@@ -97,9 +85,7 @@ namespace Distributr.Integrations.Legacy.Integrations.InventoryWorkflows
 
             var envelopeProcessingAudit = new CommandEnvelopeProcessingAudit
             {
-
                 GeneratedByCostCentreApplicationId =Guid.Empty,
-                   
 
                 DateInserted = DateTime.Now,
                 Id = envelope.Id,

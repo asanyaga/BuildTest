@@ -213,6 +213,10 @@
       <Project>{900f434e-7d81-422b-b567-1564c79ceab3}</Project>
       <Name>Distributr.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Distributr.Integrations\Distributr.Integrations.csproj">
+      <Project>{9a287974-3bee-4bc2-be8f-ec704d05e8cb}</Project>
+      <Name>Distributr.Integrations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Distributr.WebApi.Common\Distributr.WebApi.Common.csproj">
       <Project>{4179ec92-f163-4031-a8e5-ddfd8cdac878}</Project>
       <Name>Distributr.WebApi.Common</Name>
