@@ -32,11 +32,10 @@ namespace Distributr.Core.Utility.Mapping.impl
 {
     public class DeserializeJson : IDeserializeJson
     {
-        private ICommandDeserialize _commandDeserialize;
-        //ILog _logger = LogManager.GetLogger("DeserializeJson");
-        public DeserializeJson(ICommandDeserialize commandDeserialize)
+        
+        public DeserializeJson()
         {
-            _commandDeserialize = commandDeserialize;
+            
         }
 
         public ResponseMasterDataInfo DeserializeResponseMasterDataInfo(string responseMasterDataInfo)
@@ -396,48 +395,6 @@ namespace Distributr.Core.Utility.Mapping.impl
             return mbDTO;
         }
 
-        public DocumentCommandRoutingResponse DeserializeDocumentCommandRoutingResponse(string jsonString)
-        {
-            DocumentCommandRoutingResponse response = new DocumentCommandRoutingResponse();
-            JObject jo = JObject.Parse(jsonString);
-            string _commandType =(string) jo["CommandType"];
-            string _commandRouteItemId = (jo["CommandRouteItemId"]).ToString(); ;
-            string _commandJson =   jo["Command"].ToString();
-            string _errorInfo = (string) jo["ErrorInfo"];
-            response.CommandType = _commandType;
-            response.CommandRouteItemId = Int32.Parse(_commandRouteItemId);
-            response.ErrorInfo = _errorInfo;
-            try
-            {
-              //  response.Command = _commandDeserialize.DeserializeCommand(response.CommandType, _commandJson);
-            }catch
-            {
-                response.Command = null;
-                
-            }
-            return response;
-        }
-
-        public BatchDocumentCommandRoutingResponse DeserializeBatchDocumentCommandRoutingResponse(string jsonString)
-        {
-            BatchDocumentCommandRoutingResponse responce = new BatchDocumentCommandRoutingResponse();
-            JObject jo = JObject.Parse(jsonString);
-            string RoutingResponse = (jo["RoutingCommands"]).ToString();
-           
-            if (RoutingResponse!="null")
-            {
-                foreach (JObject j in jo["RoutingCommands"])
-                {
-                    responce.RoutingCommands.Add(DeserializeDocumentCommandRoutingResponse(j.ToString()));
-                }
-            }
-            string commandCount =(jo["CommandRoutingCount"]).ToString();
-            string LastcommandRouteItemId = (jo["LastCommandRouteItemId"]).ToString();
-            responce.LastCommandRouteItemId = long.Parse(LastcommandRouteItemId);
-            responce.CommandRoutingCount = int.Parse(commandCount);
-            responce.ErrorInfo = (jo["ErrorInfo"]).ToString();
-            return responce;
-
-        }
+       
     }
 }
