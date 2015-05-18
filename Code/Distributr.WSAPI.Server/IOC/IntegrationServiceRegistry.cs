@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Distributr.WSAPI.Lib.Services.AgrimanagrImports;
-using Distributr.WSAPI.Lib.Services.AgrimanagrImports.Impl;
-using Distributr.WSAPI.Lib.Services.Imports;
-using Distributr.WSAPI.Lib.Services.Imports.Impl;
+using Distributr.Integrations.AgrimanagrImports;
+using Distributr.Integrations.AgrimanagrImports.Impl;
+using Distributr.Integrations.Imports;
+using Distributr.Integrations.Imports.Impl;
 using StructureMap.Configuration.DSL;
 
 namespace Distributr.WSAPI.Server.IOC
