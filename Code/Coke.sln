@@ -79,7 +79,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrimanagr.HQ", "Agrimanagr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{58379CB4-EA9B-4632-AAEA-24B2C1397F5B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{9728067B-B1D9-4CB9-8C86-AB88B30E210C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration Tests", "Integration Tests", "{9728067B-B1D9-4CB9-8C86-AB88B30E210C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrimanagr.WPF.UI", "Agrimanagr.WPF.UI\Agrimanagr.WPF.UI.csproj", "{A9294876-9535-4BDF-9A34-71F68EA45508}"
 EndProject

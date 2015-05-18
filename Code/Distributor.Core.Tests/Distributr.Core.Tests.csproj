@@ -105,10 +105,6 @@
       <Project>{900F434E-7D81-422B-B567-1564C79CEAB3}</Project>
       <Name>Distributr.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Distributr.WPF.Lib\Distributr.WPF.Lib.csproj">
-      <Project>{d3d60175-1436-487b-98f0-1671fb5c37dc}</Project>
-      <Name>Distributr.WPF.Lib</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

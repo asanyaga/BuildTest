@@ -140,10 +140,6 @@
       <Project>{7271f6b1-35f0-4c0a-a4cb-3f10d426e37f}</Project>
       <Name>Distributr.WSAPI.Lib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Distributr.WSAPI.Server\Distributr.WSAPI.Server.csproj">
-      <Project>{40ff958b-ee1d-42ba-8678-02b6bd61ae41}</Project>
-      <Name>Distributr.WSAPI.Server</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
