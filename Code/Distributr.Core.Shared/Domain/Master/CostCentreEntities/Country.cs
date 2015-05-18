@@ -10,6 +10,7 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
     {
        public Country() : base(default(Guid)) { }
        //Test
+       //Test2
         public Country(Guid id) : base(id)
         {
             
