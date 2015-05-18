@@ -17,8 +17,8 @@ namespace Distributr.Core.Factory.Documents.Impl
     public class InventoryReceivedNoteFactory : BaseDocumentFactory, IInventoryReceivedNoteFactory
     {
         private IProductRepository _productRepository;
-        public InventoryReceivedNoteFactory(ICostCentreRepository costCentreRepository, IUserRepository userRepository, IProductRepository productRepository)
-            :base(costCentreRepository, userRepository)
+        public InventoryReceivedNoteFactory( IProductRepository productRepository)
+           
         {
             _productRepository = productRepository;
         }

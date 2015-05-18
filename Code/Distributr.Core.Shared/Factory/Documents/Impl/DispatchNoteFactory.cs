@@ -18,8 +18,8 @@ namespace Distributr.Core.Factory.Documents.Impl
     {
         private IProductRepository _productRepository;
 
-        public DispatchNoteFactory(ICostCentreRepository costCentreRepository, IUserRepository userRepository, IProductRepository productRepository)
-            : base(costCentreRepository, userRepository)
+        public DispatchNoteFactory( IProductRepository productRepository)
+           
         {
             _productRepository = productRepository;
         }

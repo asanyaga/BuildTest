@@ -59,7 +59,7 @@ namespace Distributr.Core.Workflow.GetDocumentReferences.Impl
         {
             try
             {
-                int sequenceId = 0;
+                //int sequenceId = 0;
 
                 DateTime dt = DateTime.Now;
                 string refRule = "{D}_{SN}_{OC}_{DT}_{TM}_{SQ}";

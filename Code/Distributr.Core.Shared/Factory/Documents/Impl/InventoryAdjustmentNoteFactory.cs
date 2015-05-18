@@ -19,9 +19,9 @@ namespace Distributr.Core.Factory.Documents
     public class InventoryAdjustmentNoteFactory : BaseDocumentFactory, IInventoryAdjustmentNoteFactory
     {
         private IProductRepository _productRepository;
-        public InventoryAdjustmentNoteFactory(ICostCentreRepository costCentreRepository, IUserRepository userRepository, IProductRepository productRepository
+        public InventoryAdjustmentNoteFactory( IProductRepository productRepository
                                               )
-            : base(costCentreRepository, userRepository)
+            
         {
             _productRepository = productRepository;
         }

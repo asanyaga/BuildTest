@@ -19,8 +19,8 @@ namespace Distributr.Core.Factory.Documents.Impl
     public class MainOrderFactory : BaseDocumentFactory, IMainOrderFactory
     {
         private IProductRepository _productRepository;
-        public MainOrderFactory(ICostCentreRepository costCentreRepository, IUserRepository userRepository, IProductRepository productRepository)
-            : base(costCentreRepository, userRepository)
+        public MainOrderFactory( IProductRepository productRepository)
+            
         {
             _productRepository = productRepository;
         }

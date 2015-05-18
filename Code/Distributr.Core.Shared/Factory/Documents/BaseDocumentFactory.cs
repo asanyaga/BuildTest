@@ -15,14 +15,11 @@ namespace Distributr.Core.Factory.Documents
 {
     public class BaseDocumentFactory
     {
-        private ICostCentreRepository _costCentreRepository;
-        private IUserRepository _userRepository;
-        private ICostCentreApplicationRepository _costCentreApplicationRepository;
+        
 
-        public BaseDocumentFactory(ICostCentreRepository costCentreRepository, IUserRepository userRepository)
+        public BaseDocumentFactory()
         {
-            _costCentreRepository = costCentreRepository;
-            _userRepository = userRepository;
+          
         }
 
         protected void Map(Document document, CostCentre documentIssuerCostCentre,  Guid documentIssuerCostCentreApplicationId,
