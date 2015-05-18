@@ -6,13 +6,13 @@ using Distributr.Core.Factory.Documents.Impl;
 using Distributr.Core.Repository.Transactional.DocumentRepositories.InventoryRepositories;
 using Distributr.Core.Repository.Transactional.ThirdPartyIntegrationRepository;
 using Distributr.Core.Workflow;
-using Distributr.WSAPI.Lib.Integrations;
-using Distributr.WSAPI.Lib.Integrations.InventoryWorkflows;
-using Distributr.WSAPI.Lib.Integrations.MasterData;
-using Distributr.WSAPI.Lib.Integrations.MasterData.Exports;
-using Distributr.WSAPI.Lib.Integrations.MasterData.Impl;
-using Distributr.WSAPI.Lib.Integrations.Transactions;
-using Distributr.WSAPI.Lib.Integrations.Transactions.Impl;
+using Distributr.Integrations.Legacy.Integrations;
+using Distributr.Integrations.Legacy.Integrations.InventoryWorkflows;
+using Distributr.Integrations.Legacy.Integrations.MasterData;
+using Distributr.Integrations.Legacy.Integrations.MasterData.Exports;
+using Distributr.Integrations.Legacy.Integrations.MasterData.Impl;
+using Distributr.Integrations.Legacy.Integrations.Transactions;
+using Distributr.Integrations.Legacy.Integrations.Transactions.Impl;
 using StructureMap.Configuration.DSL;
 
 namespace Distributr.WSAPI.Server.IOC

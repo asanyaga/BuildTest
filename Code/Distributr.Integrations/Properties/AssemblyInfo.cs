@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Distributr.Core")]
+[assembly: AssemblyTitle("Distributr.Integrations")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Distributr.Core")]
-[assembly: AssemblyCopyright("Copyright ©  2011")]
+[assembly: AssemblyProduct("Distributr.Integrations")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f5b5288c-7f82-4b2b-a2b9-0dbfd8e9ba96")]
+[assembly: Guid("09b1b04c-02a5-48c0-81b4-33bf0b1673b0")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,20 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.0.8")]
-[assembly: AssemblyFileVersion("2.0.0.8")]
-
-[assembly: InternalsVisibleTo("Distributr.Core.Data")]
-[assembly: InternalsVisibleTo("Distributr.HQ.Lib")]
-[assembly: InternalsVisibleTo("Distributr.WSAPI")]
-[assembly: InternalsVisibleTo("Distributr.DatabaseSetup")]
-[assembly: InternalsVisibleTo("Distributr.Reports")]
-[assembly: InternalsVisibleTo("Distributr.WPF.Lib")]
-[assembly: InternalsVisibleTo("Distributr.WPF.Lib.Impl")]
-
-[assembly: InternalsVisibleTo("Distributr.WebApi")]
-[assembly: InternalsVisibleTo("Distributr.WPF.Lib.Services")]
-[assembly: InternalsVisibleTo("Distributr.DataImporter.Lib")]
-[assembly: InternalsVisibleTo("Distributr.WSAPI.Lib")]
-[assembly: InternalsVisibleTo("Distributr.WebApi.Common")]
-[assembly: InternalsVisibleTo("Distributr.Integrations")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

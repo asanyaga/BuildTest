@@ -11,8 +11,6 @@ using Distributr.Core.Domain.Master.CommodityEntity;
 using Distributr.Core.Domain.Transactional.DocumentEntities;
 using Distributr.Core.Repository.Transactional.DocumentRepositories.IIntegrationDocumentRepository;
 using Distributr.Import.Entities;
-using Distributr.WSAPI.Lib.Integrations;
-using Distributr.WSAPI.Lib.Integrations.MasterData;
 using Distributr.WSAPI.Lib.Services.AgrimanagrImports;
 using Distributr.WSAPI.Lib.Services.CostCentreApplications;
 using Distributr.WSAPI.Lib.Services.Imports;
