@@ -9,8 +9,6 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
     public class Country : MasterEntity
     {
        public Country() : base(default(Guid)) { }
-       //Test
-       //Test3
         public Country(Guid id) : base(id)
         {
             
