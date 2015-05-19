@@ -74,9 +74,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Distributor.Core\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SquishIt.Framework">
-      <HintPath>..\..\..\..\Distributr\ReferencedAssemblies\SquishIt\SquishIt.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>

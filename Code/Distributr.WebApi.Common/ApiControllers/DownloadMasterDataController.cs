@@ -31,7 +31,6 @@ namespace Distributr.WebApi.Common.ApiControllers
         }
 
         [HttpGet]
-        [Route("GetZipped/{costCentreApplicationId}")]
         public HttpResponseMessage GetZipped(Guid costCentreApplicationId)
         {
 

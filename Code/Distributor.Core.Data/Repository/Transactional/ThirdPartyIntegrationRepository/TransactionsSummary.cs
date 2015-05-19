@@ -132,7 +132,7 @@ namespace Distributr.Core.Data.Repository.Transactional.ThirdPartyIntegrationRep
                     var month=DateTime.ParseExact(farmerQuery.Month, "MMMM", CultureInfo.CurrentCulture).Month;
                     var daysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, month);
                     from = new DateTime(DateTime.Now.Year, month, 1);
-                    to = new DateTime(DateTime.Now.Year, month, daysInMonth);//DateTime.Now;
+                    to = new DateTime(DateTime.Now.Year, month, daysInMonth);
                 }
                 else
                 {
