@@ -99,9 +99,9 @@ namespace Distributr.Core.Utility.Serialization
                 case CommandType.ConfirmCreditNote:
                     returnType = new ConfirmCreditNoteCommand(); ;
                     break;
-                case CommandType.OrderPendingDispatch:
-                    returnType = new OrderPendingDispatchCommand(); ;
-                    break;
+                //case CommandType.OrderPendingDispatch:
+                //    returnType = new OrderPendingDispatchCommand(); ;
+                //    break;
                 case CommandType.DispatchToPhone:
                     returnType = new DispatchToPhoneCommand(); ;
                     break;

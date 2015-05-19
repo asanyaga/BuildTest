@@ -106,7 +106,7 @@ namespace Distributr.Core.Data.IOC
                     Tuple.Create(typeof(ICreateDisbursementNoteCommandHandler),typeof (CreateDisbursementNoteCommandHandler)),
                     Tuple.Create(typeof(IAddDisbursementNoteLineItemCommandHandler),typeof (AddDisbursementNoteLineItemCommandHandler)),
                     Tuple.Create(typeof(IConfirmDisbursementNoteCommandHandler),typeof (ConfirmDisbursementNoteCommandHandler)),
-                    Tuple.Create(typeof(IOrderPendingDispatchCommandHandler),typeof (OrderPendingDispatchCommandHandler)),
+                    //Tuple.Create(typeof(IOrderPendingDispatchCommandHandler),typeof (OrderPendingDispatchCommandHandler)),
                     Tuple.Create(typeof(IOrderDispatchedToPhoneCommandHandler),typeof (OrderDispatchedToPhoneCommandHandler)),
                     Tuple.Create(typeof(IConfirmReceiptLineItemCommandHandler),typeof (ConfirmReceiptLineItemCommandHandler)),
                     Tuple.Create(typeof(IPaymentTrackerWorkflow),typeof (PaymentTrackerWorkflow)),

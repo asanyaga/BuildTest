@@ -148,10 +148,10 @@ namespace Distributr.WSAPI.Lib.Services.Routing.Implementation
                 //    BackOrderCommand c5 = command as BackOrderCommand;
                 //    commandRoute = GetOrderCommandRoutes(c5,commandType);
                 //    break;
-                case CommandType.OrderPendingDispatch: // "OrderPendingDispatchCommand":
-                    OrderPendingDispatchCommand c6 = command as OrderPendingDispatchCommand;
-                    commandRoute = GetOrderCommandRoutes(c6,commandType);
-                    break;
+                //case CommandType.OrderPendingDispatch: // "OrderPendingDispatchCommand":
+                //    OrderPendingDispatchCommand c6 = command as OrderPendingDispatchCommand;
+                //    commandRoute = GetOrderCommandRoutes(c6,commandType);
+                //    break;
                 case CommandType.DispatchToPhone:// "DispatchToPhoneCommand":
                     DispatchToPhoneCommand c7 = command as DispatchToPhoneCommand;
                     commandRoute = GetOrderCommandRoutes(c7,commandType);
@@ -1002,8 +1002,7 @@ namespace Distributr.WSAPI.Lib.Services.Routing.Implementation
             //}
             if ( 
                 
-                command is CloseOrderCommand || command is DispatchToPhoneCommand ||
-                command is OrderPendingDispatchCommand  )
+                command is CloseOrderCommand || command is DispatchToPhoneCommand   )
             {
                 Order doc = _orderRepository.GetById(command.DocumentId) as Order;
                 commandRouteOnRequest.CommandRouteCentres.Add(new CommandRouteOnRequestCostcentre { CostCentreId = doc.DocumentIssuerCostCentre.Id, CommandType = commandType.ToString() });

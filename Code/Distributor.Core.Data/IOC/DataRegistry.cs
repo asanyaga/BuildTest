@@ -345,7 +345,7 @@ namespace Distributr.Core.Data.IOC
                     Tuple.Create(typeof (IOrderDispatchedToPhoneCommandHandler),typeof (OrderDispatchedToPhoneCommandHandler)),
                     Tuple.Create(typeof (IMasterDataCachingInvalidator), typeof (MasterDataCachingInvalidator)),
 
-                    Tuple.Create(typeof (IOrderPendingDispatchCommandHandler),typeof (OrderPendingDispatchCommandHandler)),
+                    //uple.Create(typeof (IOrderPendingDispatchCommandHandler),typeof (OrderPendingDispatchCommandHandler)),
                     //Tuple.Create(typeof (IBackOrderCommandHandler), typeof (BackOrderCommandHandler)),
                     Tuple.Create(typeof (IResolveCommand), typeof (ResolveCommand)),
                     

@@ -26,8 +26,8 @@ namespace Distributr.Core.Commands
         CloseOrder = 107,
         //[Obsolete("Do not use")]
         //BackOrder = 108,
-        [Obsolete("Do not use")]
-        OrderPendingDispatch = 109,
+        //[Obsolete("Do not use")]
+        //OrderPendingDispatch = 109,
         [Obsolete("Do not use")]
         DispatchToPhone = 110,
 
