@@ -6,6 +6,7 @@ using Distributr.Core.Domain.Transactional.DocumentEntities;
 
 namespace Distributr.Core.Utility.MasterData
 {
+    public enum ServiceType { Cummulative=1,Other=2}
     public class QueryActivityResult
     {
         public QueryActivityResult()
@@ -247,4 +248,11 @@ namespace Distributr.Core.Utility.MasterData
         public string Name { get; set; }
     }
 
+    public class QueryFarmerDetails
+    {
+        public string Mobile { get; set; }
+        public ServiceType ServiceType { get; set; }
+        public string FarmerCode { get; set; }
+        public string Month { get; set; }
+    }
 }

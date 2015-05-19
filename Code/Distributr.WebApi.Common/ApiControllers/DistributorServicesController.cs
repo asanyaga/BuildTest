@@ -32,6 +32,7 @@ using Distributr.Core.Repository.Transactional.ThirdPartyIntegrationRepository;
 using Distributr.Core.Utility;
 using Distributr.Core.Utility.MasterData;
 using Distributr.Core.Utility.Validation;
+using Distributr.Core.Workflow.Impl.InventoryWorkFlow;
 using log4net;
 using ShipToAddress = Distributr.Core.Domain.Master.CostCentreEntities.ShipToAddress;
 
@@ -3164,6 +3165,23 @@ namespace Distributr.WebApi.ApiControllers
             return Request.CreateResponse(HttpStatusCode.OK, cummWeight);
         }
 
+        [HttpPost]
+        public HttpResponseMessage GetFarmerSummaryDetails(QueryFarmerDetails farmerQuery)
+        {
+            var serviceType = farmerQuery.ServiceType;
+            var summary = new FarmerSummaryDetail();
+            switch (serviceType)
+            {
+                case ServiceType.Cummulative:
+                    summary= _transactionsSummary.GetFarmerSummary(farmerQuery);
+                    break;
+                case ServiceType.Other:
+                    break;
+            }
+            
+
+            return Request.CreateResponse(HttpStatusCode.OK, summary);
+        }
 
         public HttpResponseMessage GetFarmerTotalCummWeightByCode(string farmerCode)
         {

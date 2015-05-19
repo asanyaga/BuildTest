@@ -794,9 +794,7 @@ namespace Distributr.WebApi.Common.App_Start
                                        defaults:
                                            new { controller = "DistributorServices", action = "vehicledelete", id = "id" });
 
-            config.Routes.MapHttpRoute(name: "WSGetFarmerTotalCummWeightByCode",
-               routeTemplate: "api/distributorservices/GetFarmerTotalCummWeightByCode/{farmercode}",
-               defaults: new { controller = "DistributorServices", action = "getfarmertotalcummweightbycode", farmercode = "farmercode" });
+          
 
             config.Routes.MapHttpRoute(name: "WSGetFarmerTotalCummWeight",
                 routeTemplate: "api/distributorservices/GetFarmerTotalCummWeight/{farmerId}",
@@ -820,6 +818,14 @@ namespace Distributr.WebApi.Common.App_Start
                 routeTemplate: "api/distributorservices/GetAllClientMembers",
                 defaults: new { controller = "DistributorServices", action = "GetAllClientMembers" });
 
+
+            config.Routes.MapHttpRoute(name: "WSGetFarmerTotalCummWeightByCode",
+             routeTemplate: "api/distributorservices/GetFarmerTotalCummWeightByCode/{farmercode}",
+             defaults: new { controller = "DistributorServices", action = "getfarmertotalcummweightbycode", farmercode = "farmercode" });
+
+            config.Routes.MapHttpRoute(name: "WSGetFarmerSummaryDetail",
+             routeTemplate: "api/distributorservices/GetFarmerSummaryDetails",
+             defaults: new { controller = "DistributorServices", action = "GetFarmerSummaryDetails"});
 
 
 
