@@ -144,10 +144,10 @@ namespace Distributr.WSAPI.Lib.Services.Routing.Implementation
                     CloseOrderCommand c4 = command as CloseOrderCommand;
                     commandRoute = GetOrderCommandRoutes(c4,commandType);
                     break;
-                case CommandType.BackOrder: // "BackOrderCommand":
-                    BackOrderCommand c5 = command as BackOrderCommand;
-                    commandRoute = GetOrderCommandRoutes(c5,commandType);
-                    break;
+                //case CommandType.BackOrder: // "BackOrderCommand":
+                //    BackOrderCommand c5 = command as BackOrderCommand;
+                //    commandRoute = GetOrderCommandRoutes(c5,commandType);
+                //    break;
                 case CommandType.OrderPendingDispatch: // "OrderPendingDispatchCommand":
                     OrderPendingDispatchCommand c6 = command as OrderPendingDispatchCommand;
                     commandRoute = GetOrderCommandRoutes(c6,commandType);
@@ -1001,7 +1001,7 @@ namespace Distributr.WSAPI.Lib.Services.Routing.Implementation
             //    commandRouteOnRequest.CommandRouteCentres.Add(new CommandRouteOnRequestCostcentre { CostCentreId = ic.IssuedOnBehalfOfCostCentreId, CommandType = commandType.ToString() });
             //}
             if ( 
-                 command is BackOrderCommand ||
+                
                 command is CloseOrderCommand || command is DispatchToPhoneCommand ||
                 command is OrderPendingDispatchCommand  )
             {

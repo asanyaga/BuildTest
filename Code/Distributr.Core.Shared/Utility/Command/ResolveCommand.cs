@@ -74,7 +74,7 @@ namespace Distributr.Core.Utility.Command
             //_items.Add(Create("ChangeOrderLineItem", CommandType.ChangeOrderLineItem, typeof(ChangeOrderLineItemCommand), typeof(IChangeOrderLineItemCommandHandler), DocumentType.Order));
            // _items.Add(Create("RemoveOrderLineItem", CommandType.RemoveOrderLineItem, typeof(RemoveOrderLineItemCommand), typeof(IRemoveOrderLineItemCommandHandler), DocumentType.Order));
             _items.Add(Create("CloseOrder", CommandType.CloseOrder, typeof(CloseOrderCommand), typeof(ICloseOrderCommandHandler), DocumentType.Order));
-            _items.Add(Create("BackOrder", CommandType.BackOrder, typeof(BackOrderCommand), typeof(IBackOrderCommandHandler), DocumentType.Order));
+            //_items.Add(Create("BackOrder", CommandType.BackOrder, typeof(BackOrderCommand), typeof(IBackOrderCommandHandler), DocumentType.Order));
             _items.Add(Create("OrderPendingDispatch", CommandType.OrderPendingDispatch, typeof(OrderPendingDispatchCommand), typeof(IOrderPendingDispatchCommandHandler), DocumentType.Order));
             _items.Add(Create("DispatchToPhone", CommandType.DispatchToPhone, typeof(DispatchToPhoneCommand), typeof(IOrderDispatchedToPhoneCommandHandler), DocumentType.Order));
 
