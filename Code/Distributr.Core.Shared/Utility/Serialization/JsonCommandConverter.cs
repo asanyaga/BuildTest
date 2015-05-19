@@ -50,9 +50,9 @@ namespace Distributr.Core.Utility.Serialization
                 //case CommandType.CreateOrder:
                 //    returnType = new CreateOrderCommand();
                 //    break;
-                case CommandType.RejectOrder:
-                    returnType = new RejectOrderCommand();
-                    break;
+                //case CommandType.RejectOrder:
+                //    returnType = new RejectOrderCommand();
+                //    break;
                 case CommandType.ChangeOrderLineItem:
                     returnType = new ChangeOrderLineItemCommand(); ;
                     break;

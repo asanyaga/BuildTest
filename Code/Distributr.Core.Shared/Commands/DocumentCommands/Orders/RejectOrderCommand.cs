@@ -3,40 +3,40 @@ using Distributr.Core.Utility.Validation;
 
 namespace Distributr.Core.Commands.DocumentCommands.Orders
 {
-    [Obsolete]
-    public class RejectOrderCommand : DocumentCommand
-    {
-        public RejectOrderCommand()
-        {
+//    [Obsolete]
+//    public class RejectOrderCommand : DocumentCommand
+//    {
+//        public RejectOrderCommand()
+//        {
             
-        }
-        public RejectOrderCommand( 
-            Guid commandId,
-            Guid documentId,
-            Guid commandGeneratedByUserId,
-            Guid commandGeneratedByCostCentreId,
-            int costCentreApplicationCommandSequenceId,
-            Guid commandGeneratedByCostCentreApplicationId,
-            string orderRejectReason,
-            Guid rejectorUserId)
-            : base(commandId, documentId, commandGeneratedByUserId,
-commandGeneratedByCostCentreId,
-costCentreApplicationCommandSequenceId,
-commandGeneratedByCostCentreApplicationId,documentId)
+//        }
+//        public RejectOrderCommand( 
+//            Guid commandId,
+//            Guid documentId,
+//            Guid commandGeneratedByUserId,
+//            Guid commandGeneratedByCostCentreId,
+//            int costCentreApplicationCommandSequenceId,
+//            Guid commandGeneratedByCostCentreApplicationId,
+//            string orderRejectReason,
+//            Guid rejectorUserId)
+//            : base(commandId, documentId, commandGeneratedByUserId,
+//commandGeneratedByCostCentreId,
+//costCentreApplicationCommandSequenceId,
+//commandGeneratedByCostCentreApplicationId,documentId)
 
-        {
-            RejectorUserId = rejectorUserId;
-            OrderRejectReason = orderRejectReason;
-        }
+//        {
+//            RejectorUserId = rejectorUserId;
+//            OrderRejectReason = orderRejectReason;
+//        }
 
-        public string OrderRejectReason { get; set; }
+//        public string OrderRejectReason { get; set; }
 
-       public Guid RejectorUserId { get; set; }
-        public override string CommandTypeRef
-        {
-            get { return CommandType.RejectOrder.ToString(); }
-        }
-    }
+//       public Guid RejectorUserId { get; set; }
+//        public override string CommandTypeRef
+//        {
+//            get { return CommandType.RejectOrder.ToString(); }
+//        }
+//    }
 
     public class RejectMainOrderCommand : DocumentCommand
     {

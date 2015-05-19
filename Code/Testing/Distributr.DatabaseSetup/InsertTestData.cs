@@ -72,7 +72,7 @@ namespace Distributr.DatabaseSetup
         ISocioEconomicStatusRepository socioEconomicStatusRepository, IClientMasterDataTrackerRepository clientMasterDataTrackerRepository,
         IDistributorRepository distributorrepository, IOutletCategoryRepository outletCategoryRepository, 
         ITerritoryRepository territoryRepository, 
-        IRejectOrderCommandHandler rejectOrderCommandHandler, IAreaRepository areaRepository,
+         IAreaRepository areaRepository,
         IContactRepository contactRepository, IAccountRepository accountRepository, IAccountTransactionRepository accountTransactionRepository,
         IInventoryRepository inventoryRepository, IInventoryTransactionRepository inventoryTransactionRepository,
         ICostCentreApplicationRepository costCentreApplicationRepository, IChannelPackagingRepository channelPackagingRepository,
@@ -131,7 +131,6 @@ namespace Distributr.DatabaseSetup
             _outletCategoryRepository = outletCategoryRepository;
             //_createOrderCommandHandler = createOrderCommandHandler;
             _territoryRepository = territoryRepository;
-            _rejectOrderCommandHandler = rejectOrderCommandHandler;
             _areaRepository = areaRepository;
             _contactRepository = contactRepository;
             _accountRepository = accountRepository;
