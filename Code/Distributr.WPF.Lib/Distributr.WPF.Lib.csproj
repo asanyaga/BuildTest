@@ -91,9 +91,6 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="siaqodb">
-      <HintPath>..\ReferencedAssemblies\siaqodb\siaqodb.dll</HintPath>
-    </Reference>
     <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
@@ -569,10 +566,6 @@
     <ProjectReference Include="..\Distributr.WPF.Lib.Services\Distributr.WPF.Lib.Services.csproj">
       <Project>{c29f45a4-3a5b-41e4-9918-a0c1ebe926cc}</Project>
       <Name>Distributr.WPF.Lib.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Distributr.WSAPI.Lib\Distributr.WSAPI.Lib.csproj">
-      <Project>{7271F6B1-35F0-4C0A-A4CB-3F10D426E37F}</Project>
-      <Name>Distributr.WSAPI.Lib</Name>
     </ProjectReference>
     <ProjectReference Include="..\PGWSAPI\PaymentGateway.WSApi.Lib\PaymentGateway.WSApi.Lib.csproj">
       <Project>{93bffffd-89ab-49cc-9233-b313c0733d2a}</Project>
