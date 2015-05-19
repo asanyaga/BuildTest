@@ -28,8 +28,8 @@ namespace Distributr.Core.Commands
         //BackOrder = 108,
         //[Obsolete("Do not use")]
         //OrderPendingDispatch = 109,
-        [Obsolete("Do not use")]
-        DispatchToPhone = 110,
+        //[Obsolete("Do not use")]
+        //DispatchToPhone = 110,
 
 
         //IAN

@@ -10,38 +10,38 @@ using log4net;
 
 namespace Distributr.Core.Data.CommandHandlers.DocumentCommandHandlers.Orders
 {
-    public class OrderDispatchedToPhoneCommandHandler : IOrderDispatchedToPhoneCommandHandler
-    {
-        private IOrderRepository _documentRepository;
-        ILog _log = LogManager.GetLogger("OrderDispatchedToPhoneCommandHandler");
+    //public class OrderDispatchedToPhoneCommandHandler : IOrderDispatchedToPhoneCommandHandler
+    //{
+    //    private IOrderRepository _documentRepository;
+    //    ILog _log = LogManager.GetLogger("OrderDispatchedToPhoneCommandHandler");
 
-        public OrderDispatchedToPhoneCommandHandler(IOrderRepository documentRepository)
-        {
-            _documentRepository = documentRepository;
-        }
+    //    public OrderDispatchedToPhoneCommandHandler(IOrderRepository documentRepository)
+    //    {
+    //        _documentRepository = documentRepository;
+    //    }
 
-        public void Execute(Commands.DocumentCommands.Orders.DispatchToPhoneCommand command)
-        {
-            _log.InfoFormat("Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
-            try
-            {
-                //check that order exists
-                bool no_Order_Exist = _documentRepository.GetById(command.DocumentId) == null;
-                if (no_Order_Exist)
-                    return;
-                //approve the order
-                Order order = _documentRepository.GetById(command.DocumentId) as Order;
-                order.DispatchedToPhone();
-                _documentRepository.Save(order);
-            }
-            catch (Exception ex)
-            {
-                _log.ErrorFormat("Error Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
-                _log.Error("OrderDispatchedToPhoneCommandHandler exception", ex);
-                throw ;
-            }
-        }
-    }
+    //    public void Execute(Commands.DocumentCommands.Orders.DispatchToPhoneCommand command)
+    //    {
+    //        _log.InfoFormat("Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
+    //        try
+    //        {
+    //            //check that order exists
+    //            bool no_Order_Exist = _documentRepository.GetById(command.DocumentId) == null;
+    //            if (no_Order_Exist)
+    //                return;
+    //            //approve the order
+    //            Order order = _documentRepository.GetById(command.DocumentId) as Order;
+    //            order.DispatchedToPhone();
+    //            _documentRepository.Save(order);
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            _log.ErrorFormat("Error Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
+    //            _log.Error("OrderDispatchedToPhoneCommandHandler exception", ex);
+    //            throw ;
+    //        }
+    //    }
+    //}
     public class OrderDispatchApprovedLineItemsCommandHandler :BaseCommandHandler, IOrderDispatchApprovedLineItemsCommandHandler
     {
         

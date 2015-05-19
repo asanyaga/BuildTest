@@ -76,7 +76,7 @@ namespace Distributr.Core.Utility.Command
             _items.Add(Create("CloseOrder", CommandType.CloseOrder, typeof(CloseOrderCommand), typeof(ICloseOrderCommandHandler), DocumentType.Order));
             //_items.Add(Create("BackOrder", CommandType.BackOrder, typeof(BackOrderCommand), typeof(IBackOrderCommandHandler), DocumentType.Order));
             //_items.Add(Create("OrderPendingDispatch", CommandType.OrderPendingDispatch, typeof(OrderPendingDispatchCommand), typeof(IOrderPendingDispatchCommandHandler), DocumentType.Order));
-            _items.Add(Create("DispatchToPhone", CommandType.DispatchToPhone, typeof(DispatchToPhoneCommand), typeof(IOrderDispatchedToPhoneCommandHandler), DocumentType.Order));
+            //_items.Add(Create("DispatchToPhone", CommandType.DispatchToPhone, typeof(DispatchToPhoneCommand), typeof(IOrderDispatchedToPhoneCommandHandler), DocumentType.Order));
 
             // ------------------ IAN --------
             _items.Add(Create("CreateInventoryAdjustmentNote", CommandType.CreateInventoryAdjustmentNote, typeof(CreateInventoryAdjustmentNoteCommand), typeof(ICreateInventoryAdjustmentNoteCommandHandler),DocumentType.InventoryAdjustmentNote));

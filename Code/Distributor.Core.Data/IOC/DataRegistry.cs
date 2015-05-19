@@ -342,7 +342,7 @@ namespace Distributr.Core.Data.IOC
 
                     Tuple.Create(typeof (IFinancialsWorkflow), typeof (FinancialsWorkflow)),
 
-                    Tuple.Create(typeof (IOrderDispatchedToPhoneCommandHandler),typeof (OrderDispatchedToPhoneCommandHandler)),
+                    //Tuple.Create(typeof (IOrderDispatchedToPhoneCommandHandler),typeof (OrderDispatchedToPhoneCommandHandler)),
                     Tuple.Create(typeof (IMasterDataCachingInvalidator), typeof (MasterDataCachingInvalidator)),
 
                     //uple.Create(typeof (IOrderPendingDispatchCommandHandler),typeof (OrderPendingDispatchCommandHandler)),
@@ -470,7 +470,7 @@ namespace Distributr.Core.Data.IOC
                     Tuple.Create(typeof (IMainOrderRepository), typeof (MainOrderRepository)),
                     Tuple.Create(typeof (IApproveOrderLineItemCommandHandler),typeof (ApproveOrderLineItemCommandHandler)),
                     Tuple.Create(typeof (IApproveMainOrderCommandHandler), typeof (ApproveMainOrderCommandHandler)),
-                    Tuple.Create(typeof (IOrderDispatchedToPhoneCommandHandler),typeof (OrderDispatchedToPhoneCommandHandler)),
+                    //Tuple.Create(typeof (IOrderDispatchedToPhoneCommandHandler),typeof (OrderDispatchedToPhoneCommandHandler)),
                     Tuple.Create(typeof (IChangeMainOrderLineItemCommandHandler),typeof (ChangeMainOrderLineItemCommandHandler)),
                     Tuple.Create(typeof (IRemoveMainOrderLineItemCommandHandler),typeof (RemoveMainOrderLineItemCommandHandler)),
                     Tuple.Create(typeof (IRejectMainOrderCommandHandler), typeof (RejectMainOrderCommandHandler)),
