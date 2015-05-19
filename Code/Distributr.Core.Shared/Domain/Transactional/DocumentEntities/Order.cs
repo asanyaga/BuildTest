@@ -311,25 +311,25 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities
 
         protected override void _AddAddLineItemCommandToExecute<T>(T lineItem, bool isHybrid = false)
         {
-            var item = lineItem as OrderLineItem;
-            var ali = new AddOrderLineItemCommand(
-                    item.Id,
-                    Id,
-                    DocumentIssuerUser.Id,
-                    DocumentIssuerCostCentre.Id,
-                    0,
-                    DocumentIssuerCostCentreApplicationId,
-                    item.LineItemSequenceNo,
-                    item.Value,
-                    item.Product.Id,
-                    item.Qty,
-                    item.LineItemVatValue,
-                    item.ProductDiscount,
-                    item.Description,
-                    (int)item.LineItemType,
-                    (int)item.DiscountType
-                    );
-            _AddCommand(ali);
+            //var item = lineItem as OrderLineItem;
+            //var ali = new AddOrderLineItemCommand(
+            //        item.Id,
+            //        Id,
+            //        DocumentIssuerUser.Id,
+            //        DocumentIssuerCostCentre.Id,
+            //        0,
+            //        DocumentIssuerCostCentreApplicationId,
+            //        item.LineItemSequenceNo,
+            //        item.Value,
+            //        item.Product.Id,
+            //        item.Qty,
+            //        item.LineItemVatValue,
+            //        item.ProductDiscount,
+            //        item.Description,
+            //        (int)item.LineItemType,
+            //        (int)item.DiscountType
+            //        );
+            //_AddCommand(ali);
         }
 
         protected override void _AddConfirmCommandToExecute(bool isHybrid = false)

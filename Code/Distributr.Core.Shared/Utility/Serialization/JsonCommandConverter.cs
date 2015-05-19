@@ -38,9 +38,9 @@ namespace Distributr.Core.Utility.Serialization
             switch (commandType)
             {
 
-                case CommandType.AddOrderLineItem:
-                    returnType = new AddOrderLineItemCommand();
-                    break;
+                //case CommandType.AddOrderLineItem:
+                //    returnType = new AddOrderLineItemCommand();
+                //    break;
                 //case CommandType.ApproveOrder:
                 //    returnType = new ApproveOrderCommand();
                 //    break;
