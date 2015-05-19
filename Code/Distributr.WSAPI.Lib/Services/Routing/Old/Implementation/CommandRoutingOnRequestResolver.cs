@@ -132,10 +132,10 @@ namespace Distributr.WSAPI.Lib.Services.Routing.Implementation
                     RemoveOrderLineItemCommand c1 = command as RemoveOrderLineItemCommand;
                     commandRoute = GetOrderCommandRoutes(c1,commandType);
                     break;
-                case CommandType.ChangeOrderLineItem: // "ChangeOrderLineItemCommand":
-                    ChangeOrderLineItemCommand c2 = command as ChangeOrderLineItemCommand;
-                    commandRoute = GetOrderCommandRoutes(c2,commandType);
-                    break;
+                //case CommandType.ChangeOrderLineItem: // "ChangeOrderLineItemCommand":
+                //    ChangeOrderLineItemCommand c2 = command as ChangeOrderLineItemCommand;
+                //    commandRoute = GetOrderCommandRoutes(c2,commandType);
+                //    break;
                 //case CommandType.ApproveOrder:// "ApproveOrderCommand":
                 //    ApproveOrderCommand c3 = command as ApproveOrderCommand;
                 //    commandRoute = GetOrderCommandRoutes(c3,commandType);
@@ -1003,7 +1003,7 @@ namespace Distributr.WSAPI.Lib.Services.Routing.Implementation
             if ( 
                  command is BackOrderCommand ||
                 command is CloseOrderCommand || command is DispatchToPhoneCommand ||
-                command is OrderPendingDispatchCommand || command is RemoveOrderLineItemCommand || command is ChangeOrderLineItemCommand)
+                command is OrderPendingDispatchCommand || command is RemoveOrderLineItemCommand )
             {
                 Order doc = _orderRepository.GetById(command.DocumentId) as Order;
                 commandRouteOnRequest.CommandRouteCentres.Add(new CommandRouteOnRequestCostcentre { CostCentreId = doc.DocumentIssuerCostCentre.Id, CommandType = commandType.ToString() });

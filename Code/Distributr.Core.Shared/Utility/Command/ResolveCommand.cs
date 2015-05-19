@@ -71,7 +71,7 @@ namespace Distributr.Core.Utility.Command
             //_items.Add(Create("AddOrderLineItem", CommandType.AddOrderLineItem, typeof(AddOrderLineItemCommand), typeof(IAddOrderLineItemCommandHandler), DocumentType.Order));
            // _items.Add(Create("ConfirmOrder", CommandType.ConfirmOrder, typeof(ConfirmOrderCommand), typeof(IConfirmOrderCommandHandler), DocumentType.Order));
             //_items.Add(Create("RejectOrder", CommandType.RejectOrder, typeof(RejectOrderCommand), typeof(IRejectOrderCommandHandler), DocumentType.Order));
-            _items.Add(Create("ChangeOrderLineItem", CommandType.ChangeOrderLineItem, typeof(ChangeOrderLineItemCommand), typeof(IChangeOrderLineItemCommandHandler), DocumentType.Order));
+            //_items.Add(Create("ChangeOrderLineItem", CommandType.ChangeOrderLineItem, typeof(ChangeOrderLineItemCommand), typeof(IChangeOrderLineItemCommandHandler), DocumentType.Order));
             _items.Add(Create("RemoveOrderLineItem", CommandType.RemoveOrderLineItem, typeof(RemoveOrderLineItemCommand), typeof(IRemoveOrderLineItemCommandHandler), DocumentType.Order));
             _items.Add(Create("CloseOrder", CommandType.CloseOrder, typeof(CloseOrderCommand), typeof(ICloseOrderCommandHandler), DocumentType.Order));
             _items.Add(Create("BackOrder", CommandType.BackOrder, typeof(BackOrderCommand), typeof(IBackOrderCommandHandler), DocumentType.Order));

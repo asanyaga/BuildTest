@@ -290,7 +290,7 @@ namespace Distributr.Core.Data.IOC
                     Tuple.Create(typeof (IDistrictRepository), typeof (DistrictRepository)),
                     Tuple.Create(typeof (ICostCentreApplicationRepository), typeof (CostCentreApplicationRepository)),
                     Tuple.Create(typeof (IOrderRepository), typeof (OrderRepository)),
-                    Tuple.Create(typeof (IChangeOrderLineItemCommandHandler), typeof (ChangeOrderLineItemCommandHandler)),
+                    //Tuple.Create(typeof (IChangeOrderLineItemCommandHandler), typeof (ChangeOrderLineItemCommandHandler)),
                     Tuple.Create(typeof (IRemoveOrderLineItemCommandHandler), typeof (RemoveOrderLineItemCommandHandler)),
                     Tuple.Create(typeof (ICreateInventoryReceivedNoteCommandHandler),typeof (CreateInventoryReceivedNoteCommandHandler)),
                     Tuple.Create(typeof (IAddInventoryReceivedNoteLineItemCommandHandler),typeof (AddInventoryReceivedNoteLineItemCommandHandler)),
