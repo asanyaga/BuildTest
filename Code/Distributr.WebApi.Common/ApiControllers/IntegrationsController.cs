@@ -8,7 +8,6 @@ using Distributr.Core.Domain.Master;
 using Distributr.Core.Domain.Transactional.DocumentEntities;
 using Distributr.Core.Domain.Transactional.ThirdPartyIntegrationEntities;
 using Distributr.Core.Utility;
-using Distributr.WSAPI.Lib.Integrations;
 using Distributr.WSAPI.Lib.Services.CostCentreApplications;
 using Distributr.WebApi.Models;
 using Newtonsoft.Json;
@@ -16,6 +15,7 @@ using log4net;
 using System.Linq;
 using Distributr.Core.ClientApp.CommandResults;
 using Distributr.Core.Utility.MasterData;
+using Distributr.Integrations.Legacy.Integrations;
 
 namespace Distributr.WebApi.ApiControllers
 {

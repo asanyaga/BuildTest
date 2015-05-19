@@ -11,6 +11,7 @@ using Distributr.Core.Data.IOC;
 using Distributr.Core.Data.Script;
 using Distributr.Core.Resources.Util;
 using Distributr.Core.Utility.Mapping.impl;
+using Distributr.Integrations.IOC;
 using Distributr.WSAPI.Lib.IOC;
 using Distributr.WSAPI.Lib.ResponseBuilders.MasterData;
 using Distributr.WSAPI.Lib.Services;

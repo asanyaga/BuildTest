@@ -5,7 +5,7 @@ using System.Web.Http;
 using Distributr.Core.ClientApp.CommandResults;
 using Distributr.Core.Domain.Transactional.DocumentEntities;
 using Distributr.Core.Repository.Transactional.DocumentRepositories.IIntegrationDocumentRepository;
-using Distributr.WSAPI.Lib.Integrations;
+using Distributr.Integrations.Legacy.Integrations;
 using Distributr.WSAPI.Lib.Services.CostCentreApplications;
 using log4net;
 using Newtonsoft.Json;

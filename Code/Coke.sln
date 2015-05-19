@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{BF77221F-092B-4A87-89BE-215CE0962F9F}"
 EndProject
@@ -79,7 +79,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrimanagr.HQ", "Agrimanagr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{58379CB4-EA9B-4632-AAEA-24B2C1397F5B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{9728067B-B1D9-4CB9-8C86-AB88B30E210C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration Tests", "Integration Tests", "{9728067B-B1D9-4CB9-8C86-AB88B30E210C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrimanagr.WPF.UI", "Agrimanagr.WPF.UI\Agrimanagr.WPF.UI.csproj", "{A9294876-9535-4BDF-9A34-71F68EA45508}"
 EndProject
@@ -96,6 +96,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributrAgrimanagrFeatures", "DistributrAgrimanagrFeatures\DistributrAgrimanagrFeatures.csproj", "{DC098509-A863-43FF-851E-0223359B0976}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit tests", "Unit tests", "{7335D163-482E-474E-B820-C1FDB7B8B57B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distributr.Integrations", "Distributr.Integrations\Distributr.Integrations.csproj", "{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -697,6 +699,26 @@ Global
 		{DC098509-A863-43FF-851E-0223359B0976}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{DC098509-A863-43FF-851E-0223359B0976}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DC098509-A863-43FF-851E-0223359B0976}.Release|x86.ActiveCfg = Release|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.dev|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.dev|Any CPU.Build.0 = Debug|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.dev|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.dev|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.dev|x86.ActiveCfg = Debug|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Kemsa|Any CPU.ActiveCfg = Release|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Kemsa|Any CPU.Build.0 = Release|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Kemsa|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Kemsa|Mixed Platforms.Build.0 = Release|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Kemsa|x86.ActiveCfg = Release|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -736,6 +758,7 @@ Global
 		{79CA1BE8-F046-4A25-BD76-61E90FAE5D39} = {BF77221F-092B-4A87-89BE-215CE0962F9F}
 		{DC098509-A863-43FF-851E-0223359B0976} = {9728067B-B1D9-4CB9-8C86-AB88B30E210C}
 		{7335D163-482E-474E-B820-C1FDB7B8B57B} = {04AC5BAF-B6A6-417D-AEE5-3E4EBFA5D7F9}
+		{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB} = {10487F6D-B3F8-43FD-81B2-C4D5F5DC4E19}
 	EndGlobalSection
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True

@@ -139,10 +139,6 @@
     <Compile Include="Util\Caching\Impl\DefaultCacheProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Distributor.Core\Distributr.Core.csproj">
-      <Project>{900f434e-7d81-422b-b567-1564c79ceab3}</Project>
-      <Name>Distributr.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PaymentGateway.WSApi.Lib\PaymentGateway.WSApi.Lib.csproj">
       <Project>{93BFFFFD-89AB-49CC-9233-B313C0733D2A}</Project>
       <Name>PaymentGateway.WSApi.Lib</Name>

@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9A287974-3BEE-4BC2-BE8F-EC704D05E8CB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Distributr.Integrations</RootNamespace>
+    <AssemblyName>Distributr.Integrations</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Distributr.Import.Entities, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Integration.Imports\Distributr.Import.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgrimanagrImports\ICommodityImporterService.cs" />
+    <Compile Include="AgrimanagrImports\ICommodityOwnerImporterService.cs" />
+    <Compile Include="AgrimanagrImports\ICommodityOwnerTypeImporterService.cs" />
+    <Compile Include="AgrimanagrImports\ICommoditySupplierImporterService.cs" />
+    <Compile Include="AgrimanagrImports\ICommodityTypeImporterService.cs" />
+    <Compile Include="AgrimanagrImports\Impl\CommodityImporterService.cs" />
+    <Compile Include="AgrimanagrImports\Impl\CommodityOwnerImporterService.cs" />
+    <Compile Include="AgrimanagrImports\Impl\CommodityOwnerTypeImporterService.cs" />
+    <Compile Include="AgrimanagrImports\Impl\CommoditySupplierImporterService.cs" />
+    <Compile Include="AgrimanagrImports\Impl\CommodityTypeImporterService.cs" />
+    <Compile Include="Imports\IAreaImporterService.cs" />
+    <Compile Include="Imports\IBankBranchImporterService.cs" />
+    <Compile Include="Imports\IBankImporterService.cs" />
+    <Compile Include="Imports\IBaseImporterService.cs" />
+    <Compile Include="Imports\ICountryImporterService.cs" />
+    <Compile Include="Imports\IDiscountGroupImporterService.cs" />
+    <Compile Include="Imports\IDistributorImporterService.cs" />
+    <Compile Include="Imports\IDistributorSalesmanImporterService.cs" />
+    <Compile Include="Imports\IInventoryImporterService.cs" />
+    <Compile Include="Imports\Impl\AreaImporterService.cs" />
+    <Compile Include="Imports\Impl\BankBranchImporterService.cs" />
+    <Compile Include="Imports\Impl\BankImporterService.cs" />
+    <Compile Include="Imports\Impl\BaseImporterService.cs" />
+    <Compile Include="Imports\Impl\CountryImporterService.cs" />
+    <Compile Include="Imports\Impl\DiscountGroupImporterService.cs" />
+    <Compile Include="Imports\Impl\DistributorImporterService.cs" />
+    <Compile Include="Imports\Impl\DistributorSalesmanImporterService.cs" />
+    <Compile Include="Imports\Impl\InventoryImporterService.cs" />
+    <Compile Include="Imports\Impl\OutletCategoryImporterService.cs" />
+    <Compile Include="Imports\Impl\OutletImporterService.cs" />
+    <Compile Include="Imports\Impl\OutletTypeImporterService.cs" />
+    <Compile Include="Imports\Impl\PricingImporterService.cs" />
+    <Compile Include="Imports\Impl\PricingTierImporterService.cs" />
+    <Compile Include="Imports\Impl\ProductBrandImporterService.cs" />
+    <Compile Include="Imports\Impl\ProductDiscountGroupImporterService.cs" />
+    <Compile Include="Imports\Impl\ProductDiscountImporterService.cs" />
+    <Compile Include="Imports\Impl\ProductFlavourImporterService.cs" />
+    <Compile Include="Imports\Impl\ProductPackagingImporterService.cs" />
+    <Compile Include="Imports\Impl\ProductPackagingTypeImporterService.cs" />
+    <Compile Include="Imports\Impl\ProductTypeImporterService.cs" />
+    <Compile Include="Imports\Impl\RegionImporterService.cs" />
+    <Compile Include="Imports\Impl\RouteImporterService.cs" />
+    <Compile Include="Imports\Impl\SaleProductImporterService.cs" />
+    <Compile Include="Imports\Impl\SupplierImporterService.cs" />
+    <Compile Include="Imports\Impl\VATClassImporterService.cs" />
+    <Compile Include="Imports\IOutletCategoryImporterService.cs" />
+    <Compile Include="Imports\IOutletImporterService.cs" />
+    <Compile Include="Imports\IOutletTypeImporterService.cs" />
+    <Compile Include="Imports\IPricingImporterService.cs" />
+    <Compile Include="Imports\IPricingTierImporterService.cs" />
+    <Compile Include="Imports\IProductBrandImporterService.cs" />
+    <Compile Include="Imports\IProductDiscountGroupImporterService.cs" />
+    <Compile Include="Imports\IProductDiscountImporterService.cs" />
+    <Compile Include="Imports\IProductFlavourImporterService.cs" />
+    <Compile Include="Imports\IProductPackagingImporterService.cs" />
+    <Compile Include="Imports\IProductPackagingTypeImporterService.cs" />
+    <Compile Include="Imports\IProductTypeImporterService.cs" />
+    <Compile Include="Imports\IRegionImporterService.cs" />
+    <Compile Include="Imports\IRouteImporterService.cs" />
+    <Compile Include="Imports\ISaleProductImporterService.cs" />
+    <Compile Include="Imports\ISupplierImporterService.cs" />
+    <Compile Include="Imports\IVATClassImporterService.cs" />
+    <Compile Include="IOC\IntegrationServiceRegistry.cs" />
+    <Compile Include="IOC\IntegrationsRegistry.cs" />
+    <Compile Include="Legacy\Integrations\DistributrIntegrationService.cs" />
+    <Compile Include="Legacy\Integrations\IDistributorsImportService.cs" />
+    <Compile Include="Legacy\Integrations\IDistributrIntegrationService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Exports\IMasterDataExportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Exports\MasterDataExportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IAreaImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IAssetCategoryImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IBankBranchImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IBankImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\ICertainValueCertainProductDiscountImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IChannelPackagingImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\ICommodityImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\ICommodityOwnerImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\ICommodityOwnerTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\ICommoditySupplierImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\ICommodityTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IContactTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\ICountryImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IDiscountGroupImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IDistrictImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IImportMasterDataService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\AreaImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\AssetCategoryImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\BankBranchImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\BankImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\CertainValueCertainProductDiscountImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\ChannelPackagingImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\CommodityImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\CommodityOwnerImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\CommodityOwnerTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\CommoditySupplierImportServic.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\CommodityTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\ContactTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\CountryImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\DiscountGroupImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\DistributorsImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\DistrictImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\OutletCategoryImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\OutletImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\OutletTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\PricingImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\PricingTierImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\ProductBrandImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\ProductFlavourImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\ProductGroupDiscountImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\ProductImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\ProductPackagingImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\ProductPackagingTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\ProductTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\PromotionDiscountImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\ProvinceImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\RegionImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\RouteImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\SalesmanImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\SaleValueDiscountImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\ShiptoAddressesImportServic.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\SupplierImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\TerritoryImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\Impl\VatClassImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IOutletCategoryImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IOutletImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IOutletTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IPricingImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IPricingTierImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IProductBrandImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IProductFlavourImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IProductGroupDiscountImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IProductImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IProductPackagingImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IProductPackagingTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IProductTypeImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IPromotionDiscountImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IProvinceImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IRegionImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IRouteImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\ISalesmanImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\ISaleValueDiscountImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IShiptoAddressesImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\ISupplierImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\ITerritoryImportService.cs" />
+    <Compile Include="Legacy\Integrations\MasterData\IVatClassImportService.cs" />
+    <Compile Include="Legacy\Integrations\Transactions\Impl\InventoryTransferService.cs" />
+    <Compile Include="Legacy\Integrations\Transactions\Impl\QuickBooksTransactionsDownloadService.cs" />
+    <Compile Include="Legacy\Integrations\Transactions\Impl\SageTransactionsExportService.cs" />
+    <Compile Include="Legacy\Integrations\Transactions\Impl\SapTransactionsService.cs" />
+    <Compile Include="Legacy\Integrations\Transactions\InventoryTransferService.cs" />
+    <Compile Include="Legacy\Integrations\Transactions\ISageTransactionsExportService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Imports\Readme.md" />
+    <None Include="Legacy\Integrations\Readme.md" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distributor.Core.Data\Distributr.Core.Data.csproj">
+      <Project>{b9ee272b-6d02-47a5-b6f6-d96cb102404e}</Project>
+      <Name>Distributr.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributor.Core\Distributr.Core.csproj">
+      <Project>{900f434e-7d81-422b-b567-1564c79ceab3}</Project>
+      <Name>Distributr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WSAPI.Lib\Distributr.WSAPI.Lib.csproj">
+      <Project>{7271f6b1-35f0-4c0a-a4cb-3f10d426e37f}</Project>
+      <Name>Distributr.WSAPI.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AgrimanagrImports\Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Legacy\Integrations\InventoryWorkflows\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
