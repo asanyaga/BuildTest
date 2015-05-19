@@ -20,8 +20,8 @@ namespace Distributr.Core.Commands
         //RejectOrder = 104,
         //[Obsolete("Do not use")]
         //ChangeOrderLineItem = 105,
-        [Obsolete("Do not use")]
-        RemoveOrderLineItem = 106,
+        //[Obsolete("Do not use")]
+        //RemoveOrderLineItem = 106,
         [Obsolete("Do not use")]
         CloseOrder = 107,
         [Obsolete("Do not use")]

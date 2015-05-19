@@ -66,9 +66,9 @@ namespace Distributr.Core.Utility.Serialization
                 case CommandType.ConfirmInventoryAdjustmentNote:
                     returnType = new ConfirmInventoryAdjustmentNoteCommand(); ;
                     break;
-                case CommandType.RemoveOrderLineItem:
-                    returnType = new RemoveOrderLineItemCommand(); ;
-                    break;
+                //case CommandType.RemoveOrderLineItem:
+                //    returnType = new RemoveOrderLineItemCommand(); ;
+                //    break;
                 //ITN
                 case CommandType.CreateInventoryTransferNote:
                     returnType = new CreateInventoryTransferNoteCommand(); ;

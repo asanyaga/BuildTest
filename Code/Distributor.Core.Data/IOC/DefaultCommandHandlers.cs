@@ -87,7 +87,7 @@ namespace Distributr.Core.Data.IOC
                     Tuple.Create(typeof(ICloseOrderCommandHandler),typeof (CloseOrderCommandHandler)),
                     //Tuple.Create(typeof(IChangeOrderLineItemCommandHandler),typeof (ChangeOrderLineItemCommandHandler)),
                     //Tuple.Create(typeof(IRejectOrderCommandHandler),typeof (RejectOrderCommandHandler)),
-                    Tuple.Create(typeof(IRemoveOrderLineItemCommandHandler),typeof (RemoveOrderLineItemCommandHandler)),
+                   // Tuple.Create(typeof(IRemoveOrderLineItemCommandHandler),typeof (RemoveOrderLineItemCommandHandler)),
                     Tuple.Create(typeof(IAddDispatchNoteLineItemCommandHandler),typeof (AddDispatchNoteLineItemCommandHandler)),
                     Tuple.Create(typeof(ICreateDispatchNoteCommandHandler),typeof (CreateDispatchNoteCommandHandler)),
                     Tuple.Create(typeof(IConfirmDispatchNoteCommandHandler),typeof (ConfirmDispatchNoteCommandHandler)),
