@@ -14,8 +14,7 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities
     public enum OrderType { DistributorPOS = 1, DistributorToProducer = 2, OutletToDistributor = 3, SalesmanToDistributor = 4}
    // public enum PaymentType { Cash = 1, MPESA = 2, Cheque = 3 }
     /// <summary>
-    /// Need to store all line items from confirmation of order.
-    /// Once confirmed then line items are cloned and marked as post confirmation
+    /// This entity is disabled but may still be used in UI scenarios
     /// </summary>
     public class Order : Document
     {
@@ -289,25 +288,25 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities
 
         protected override void _AddCreateCommandToExecute(bool isHybrid = false)
         {
-            var coc = new CreateOrderCommand(
-                Guid.NewGuid(),
-                Id,
-                DocumentIssuerUser.Id,
-                DocumentIssuerCostCentre.Id,
-                0,
-                DocumentIssuerCostCentreApplicationId,
-                DocumentReference,
-                DocumentDateIssued,
-                DateRequired,
-                IssuedOnBehalfOf.Id,
-                DocumentIssuerCostCentre.Id,
-                DocumentRecipientCostCentre.Id,
-                DocumentIssuerUser.Id,
-                (int)OrderType,
-                "",
-                SaleDiscount
-                );
-            _AddCommand(coc);
+            //var coc = new CreateOrderCommand(
+            //    Guid.NewGuid(),
+            //    Id,
+            //    DocumentIssuerUser.Id,
+            //    DocumentIssuerCostCentre.Id,
+            //    0,
+            //    DocumentIssuerCostCentreApplicationId,
+            //    DocumentReference,
+            //    DocumentDateIssued,
+            //    DateRequired,
+            //    IssuedOnBehalfOf.Id,
+            //    DocumentIssuerCostCentre.Id,
+            //    DocumentRecipientCostCentre.Id,
+            //    DocumentIssuerUser.Id,
+            //    (int)OrderType,
+            //    "",
+            //    SaleDiscount
+            //    );
+            //_AddCommand(coc);
         }
 
         protected override void _AddAddLineItemCommandToExecute<T>(T lineItem, bool isHybrid = false)

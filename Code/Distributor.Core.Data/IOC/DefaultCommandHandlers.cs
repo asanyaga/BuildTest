@@ -62,7 +62,7 @@ namespace Distributr.Core.Data.IOC
                     
                     Tuple.Create(typeof (ICreateOutletVisitNoteCommandHandler), typeof (CreateOutletVisitNoteCommandHandler)),
                   
-                    Tuple.Create(typeof (ICreateOrderCommandHandler), typeof (CreateOrderCommandHandler)),
+                   // Tuple.Create(typeof (ICreateOrderCommandHandler), typeof (CreateOrderCommandHandler)),
                     Tuple.Create(typeof(IAddOrderLineItemCommandHandler),typeof (AddOrderLineItemCommandHandler)),
                     Tuple.Create(typeof(IConfirmOrderCommandHandler),typeof (ConfirmOrderCommandHandler)),
                     Tuple.Create(typeof(ICreateInventoryAdjustmentNoteCommandHandler),typeof (CreateInventoryAdjustmentNoteCommandHandler)),
@@ -83,7 +83,7 @@ namespace Distributr.Core.Data.IOC
                     Tuple.Create(typeof(ICreatePaymentNoteCommandHandler),typeof (CreatePaymentNoteCommandHandler)),
                     Tuple.Create(typeof(IConfirmPaymentNoteCommandHandler),typeof (ConfirmPaymentNoteCommandHandler)),
                     Tuple.Create(typeof(IAddPaymentNoteLineItemCommandHandler),typeof (AddPaymentNoteLineItemCommandHandler)),
-                    Tuple.Create(typeof(IApproveOrderCommandHandler),typeof (ApproveOrderCommandHandler)),
+                    //Tuple.Create(typeof(IApproveOrderCommandHandler),typeof (ApproveOrderCommandHandler)),
                     Tuple.Create(typeof(ICloseOrderCommandHandler),typeof (CloseOrderCommandHandler)),
                     Tuple.Create(typeof(IChangeOrderLineItemCommandHandler),typeof (ChangeOrderLineItemCommandHandler)),
                     Tuple.Create(typeof(IRejectOrderCommandHandler),typeof (RejectOrderCommandHandler)),

@@ -8,10 +8,10 @@ namespace Distributr.Core.Commands
     public enum CommandType : int
     {
         //Order
-        [Obsolete("Do not use")]
-        CreateOrder = 100,
-        [Obsolete("Do not use")]
-        ApproveOrder = 101,
+        //[Obsolete("Do not use")]
+        //CreateOrder = 100,
+        //[Obsolete("Do not use")]
+        //ApproveOrder = 101,
         [Obsolete("Do not use")]
         AddOrderLineItem = 102,
         [Obsolete("Do not use")]
