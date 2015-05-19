@@ -216,6 +216,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Sale.feature</DependentUpon>
     </Compile>
+    <Compile Include="DocumentFeatures\Sale\SaleLocalSteps.cs" />
+    <Compile Include="DocumentFeatures\Sale\SaleServerSteps.cs" />
     <Compile Include="DocumentFeatures\SPO\StockistPurchaseOrder.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

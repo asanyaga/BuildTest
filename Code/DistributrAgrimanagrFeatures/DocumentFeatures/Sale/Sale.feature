@@ -1,11 +1,27 @@
 ﻿Feature: Sale
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+	In order to do a sale
+	As a user
+	I want to be able to create an order of type sale
+	Then i should be able to create an line item and add it to the sale document
+	When the sale has been confirmed
+	And i jave submitted the sale to its respective workflow
+	Then the sale should be sent asynchronuously to ther server
+	And when the sale is processed on the server, the sale should have the corrent payment amounts and line item quantities.
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+@documenthook
+Scenario: Create a local sale
+	Given I create an order of type sale
+	And I create a line item
+	When I submit the sale to its respective workflow
+	Then there should be a saved sale
+	And the sale document should have a line item
+	And there should be a corresponding order of type sale command envelope on the outgoing command queue
+
+	@documenthook
+Scenario: Create a server sale
+	Given I create an order of type sale [server]
+	And I create a sale line item [server]
+	When I submit the sale to its respective workflow [server]
+	And I trigger a server sync from hub (sale) [server]
+	Then There should be a saved sale on the server [server]
+	And the amount of the sale line item should be the same as in the hub [server]
