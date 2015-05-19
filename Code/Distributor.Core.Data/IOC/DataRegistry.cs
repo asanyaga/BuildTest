@@ -273,7 +273,7 @@ namespace Distributr.Core.Data.IOC
                     Tuple.Create(typeof (ITerritoryRepository), typeof (TerritoryRepository)),
                     Tuple.Create(typeof (IClientMasterDataTrackerRepository), typeof (ClientMasterDataTrackerRepository)),
                     //Tuple.Create(typeof (IAddOrderLineItemCommandHandler), typeof (AddOrderLineItemCommandHandler)),
-                    Tuple.Create(typeof (IConfirmOrderCommandHandler), typeof (ConfirmOrderCommandHandler)),
+                    //Tuple.Create(typeof (IConfirmOrderCommandHandler), typeof (ConfirmOrderCommandHandler)),
                     //Tuple.Create(typeof (IApproveOrderCommandHandler), typeof (ApproveOrderCommandHandler)),
                     Tuple.Create(typeof (IRejectOrderCommandHandler), typeof (RejectOrderCommandHandler)),
                     Tuple.Create(typeof (IContactRepository), typeof (ContactRepository)),

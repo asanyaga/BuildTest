@@ -44,9 +44,9 @@ namespace Distributr.Core.Utility.Serialization
                 //case CommandType.ApproveOrder:
                 //    returnType = new ApproveOrderCommand();
                 //    break;
-                case CommandType.ConfirmOrder:
-                    returnType = new ConfirmOrderCommand();
-                    break;
+                //case CommandType.ConfirmOrder:
+                //    returnType = new ConfirmOrderCommand();
+                //    break;
                 //case CommandType.CreateOrder:
                 //    returnType = new CreateOrderCommand();
                 //    break;

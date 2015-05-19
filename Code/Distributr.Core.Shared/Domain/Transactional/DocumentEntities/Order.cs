@@ -334,15 +334,15 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities
 
         protected override void _AddConfirmCommandToExecute(bool isHybrid = false)
         {
-            var co = new ConfirmOrderCommand(Guid.NewGuid(), 
-                Id,
-                DocumentIssuerUser.Id,
-                DocumentIssuerCostCentre.Id,
-                0,
-                DocumentIssuerCostCentreApplicationId, 
-                DocumentParentId
-                );
-            _AddCommand(co);
+            //var co = new ConfirmOrderCommand(Guid.NewGuid(), 
+            //    Id,
+            //    DocumentIssuerUser.Id,
+            //    DocumentIssuerCostCentre.Id,
+            //    0,
+            //    DocumentIssuerCostCentreApplicationId, 
+            //    DocumentParentId
+            //    );
+            //_AddCommand(co);
         }
 
         public List<OrderLineItem> _allLineItems()

@@ -14,8 +14,8 @@ namespace Distributr.Core.Commands
         //ApproveOrder = 101,
         //[Obsolete("Do not use")]
         //AddOrderLineItem = 102,
-        [Obsolete("Do not use")]
-        ConfirmOrder = 103,
+        //[Obsolete("Do not use")]
+        //ConfirmOrder = 103,
         [Obsolete("Do not use")]
         RejectOrder = 104,
         [Obsolete("Do not use")]
