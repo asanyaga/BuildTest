@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Distributr.Core.Data.EF;
 using Distributr.Core.Data.Utility;
 using Distributr.Core.Data.Utility.Caching;
@@ -26,13 +28,16 @@ namespace Distributr.Core.Data.Repository.MasterData.SettingsRepositories
         }
         public Guid Save(AppSettings entity, bool? isSync = null)
         {
-            //ValidationResultInfo vri = Validate(entity);
+            if (entity.Key == SettingsKeys.EnforceTransactionalWeightLimit)
+            {
+                ValidationResultInfo vri = Validate(entity);
 
-            //if (!vri.IsValid)
-            //{
-            //    _log.Debug("Settings not valid");
-            //    throw new DomainValidationException(vri, "Settings Entity Not valid");
-            //}
+                if (!vri.IsValid)
+                {
+                    _log.Debug("Settings not valid");
+                    throw new DomainValidationException(vri, "Settings Entity Not valid");
+                }
+            }
             DateTime dt = DateTime.Now;
             //tblSettings settings = _ctx.tblSettings.FirstOrDefault(n => n.Id == entity.Id);
             tblSettings settings = _ctx.tblSettings.FirstOrDefault(n => n.Key == (int)entity.Key && n.IM_Status == (int)EntityStatus.Active);
@@ -122,7 +127,7 @@ namespace Distributr.Core.Data.Repository.MasterData.SettingsRepositories
             }
             return entity; 
         }
-        
+
         public ValidationResultInfo Validate(AppSettings itemToValidate)
         {
             //cn: no validation
@@ -130,14 +135,41 @@ namespace Distributr.Core.Data.Repository.MasterData.SettingsRepositories
 
             if (itemToValidate.Key == SettingsKeys.NumberOfDecimalPlaces)
             {
-                if(int.Parse(itemToValidate.Value)<1)
+                if (int.Parse(itemToValidate.Value) < 1)
                 {
-                     vri.Results.Add(new ValidationResult("Number Of DecimalPlaces cannot be less than One"));
+                    vri.Results.Add(new ValidationResult("Number Of DecimalPlaces cannot be less than One"));
                 }
             }
-            
+
+            if (itemToValidate.Key == SettingsKeys.EnforceTransactionalWeightLimit)
+            {
+
+                var setting = this.GetByKey(SettingsKeys.EnforceTransactionalWeightLimit);
+                var val = itemToValidate.Value;
+                if (val.Trim().StartsWith("True"))
+                {
+                    StringCollection information = new StringCollection();
+                    foreach (Match match in Regex.Matches(val, @"\(([^)]*)\)"))
+                    {
+                        information.Add(match.Value);
+                    }
+                    var minValue = information[0].Trim();
+                    minValue = minValue.Replace("(", string.Empty).Replace(")", string.Empty);
+                    string maxValue = information[1].Trim();
+                    maxValue = maxValue.Replace("(", string.Empty).Replace(")", string.Empty);
+                    double mn = double.Parse(minValue);
+                    double mx = double.Parse(maxValue);
+                    if (mn > mx)
+                    {
+                        vri.Results.Add(new ValidationResult("Error! Min Weight is Greater than Max Weight"));
+                    }
+                }
+                
+               
+            }
             return vri;
         }
+
         protected override string _cacheKey
         {
             get { return "Settings-{0}"; }

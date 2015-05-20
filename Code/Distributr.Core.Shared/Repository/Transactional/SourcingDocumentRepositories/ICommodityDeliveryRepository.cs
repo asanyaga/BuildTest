@@ -11,6 +11,7 @@ namespace Distributr.Core.Repository.Transactional.SourcingDocumentRepositories
    public interface ICommodityDeliveryRepository:ISourcingDocumentRepository
    {
        List<CommodityDeliveryNote> GetAllByStatus(DocumentSourcingStatus status);
+    //   List<SourcingDocument> Query(string query);
 
    }
 }
