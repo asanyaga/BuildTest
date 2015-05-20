@@ -8,6 +8,7 @@ namespace Agrimanagr.HQ.Areas.Agrimanagr.Controllers
         // GET: /Agrimanagr/AgrMain/
 
 
+
         public ActionResult Index()
         {
             ViewBag.logged = this.User.Identity.Name.ToString();
