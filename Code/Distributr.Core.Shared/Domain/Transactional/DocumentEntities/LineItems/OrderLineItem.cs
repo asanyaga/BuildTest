@@ -8,7 +8,7 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities.LineItems
     /// <summary>
     /// Used to record when the line item was inserted. Used to extract lost sales
     /// </summary>
-    [Obsolete("To be removed")]
+    //[Obsolete("To be removed")]
     public enum OrderLineItemType 
     { 
         DuringConfirmation = 1,

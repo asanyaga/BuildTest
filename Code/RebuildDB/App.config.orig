@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="dataCacheClient" type="Microsoft.ApplicationServer.Caching.DataCacheClientSection,&#xD;&#xA;                  Microsoft.ApplicationServer.Caching.Core, Version=1.0.0.0,&#xD;&#xA;                  Culture=neutral, PublicKeyToken=31bf3856ad364e35" allowLocation="true" allowDefinition="Everywhere" />
+  </configSections>
+  <dataCacheClient>
+    <localCache isEnabled="false" />
+    <hosts>
+      <host name="VG-000740" cachePort="22233" />
+    </hosts>
+  </dataCacheClient>
+  <!--<appSettings configSource="configfiles\appsettings\jgitau_AppSettings.config" />-->
+  <appSettings>
+<<<<<<< HEAD
+    <add key="cokeconnectionstring" value="metadata=res://*/EF.CokeData.csdl|res://*/EF.CokeData.ssdl|res://*/EF.CokeData.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=cokeunittest;persist security info=True;user id=dev;password=sys;multipleactiveresultsets=True;App=EntityFramework&quot;" />
+    <add key="directconnectionstring" value="data source=.;initial catalog=cokeunittest;uid=dev;pwd=sys;" />
+    <add key="routingdbconnectionstring" value="metadata=res://*/EF.CokeCommandRouting.csdl|res://*/EF.CokeCommandRouting.ssdl|res://*/EF.CokeCommandRouting.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=commandrouting;persist security info=True;user id=dev;password=sys;multipleactiveresultsets=True;App=EntityFramework&quot;" />
+    <add key="createtablesscriptlocation" value="F:\Projects\Distributr\DBScripts\script.sql" />
+=======
+    <add key="createtablesscriptlocation" value="D:\project\distributr\DBScripts\script.sql" />
+>>>>>>> 4f2266a07b9b7ecbda3b4dc6d04e28118a95c557
+    <add key="CacheName" value="distributr" />
+    <add key="AppfabricCaching" value="false" />
+    <add key="test" value="false" />
+  </appSettings>
+  <connectionStrings>
+    <add name="cokeIIEntities" connectionString="metadata=res://*/EF.CokeData.csdl|res://*/EF.CokeData.ssdl|res://*/EF.CokeData.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=.\sqlexpress;initial catalog=cokeunittest;Integrated Security=SSPI;&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+  </startup>
+</configuration>

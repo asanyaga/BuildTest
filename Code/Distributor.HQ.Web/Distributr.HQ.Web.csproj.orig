@@ -127,6 +127,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RabbitMQ.Client.3.0.0\lib\net30\RabbitMQ.Client.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
+    <Reference Include="SquishIt.Framework">
+      <HintPath>..\..\..\Distributr\ReferencedAssemblies\SquishIt\SquishIt.Framework.dll</HintPath>
+    </Reference>
+=======
+>>>>>>> 4f2266a07b9b7ecbda3b4dc6d04e28118a95c557
     <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>

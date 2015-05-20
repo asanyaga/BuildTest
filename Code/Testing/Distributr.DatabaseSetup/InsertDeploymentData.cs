@@ -46,9 +46,9 @@ namespace Distributr.DatabaseSetup
             IProductFactory productFactory, IDistributorSalesmanRepository distributorSalesmanRepository,
             IProducerRepository producerRepository,  IDocumentFactory documentFactory,
             ISocioEconomicStatusRepository socioEconomicStatusRepository, IClientMasterDataTrackerRepository clientMasterDataTrackerRepository,
-            IDistributorRepository distributorrepository, IOutletCategoryRepository outletCategoryRepository, ICreateOrderCommandHandler createOrderCommandHandler,
-            ITerritoryRepository territoryRepository, IAddOrderLineItemCommandHandler addOrderLineItemCommandHandler, IConfirmOrderCommandHandler confirmOrderCommandHandler,
-            IApproveOrderCommandHandler approveOrderCommandHandler, IRejectOrderCommandHandler rejectOrderCommandHandler, IAreaRepository areaRepository,
+            IDistributorRepository distributorrepository, IOutletCategoryRepository outletCategoryRepository, 
+            ITerritoryRepository territoryRepository,  
+             IAreaRepository areaRepository,
             IContactRepository contactRepository, IAccountRepository accountRepository, IAccountTransactionRepository accountTransactionRepository,
             IInventoryRepository inventoryRepository, IInventoryTransactionRepository inventoryTransactionRepository,
             ICostCentreApplicationRepository costCentreApplicationRepository, IChannelPackagingRepository channelPackagingRepository,
@@ -97,12 +97,7 @@ namespace Distributr.DatabaseSetup
             _clientMasterDataTrackerRepository = clientMasterDataTrackerRepository;
             _distributorrepository = distributorrepository;
             _outletCategoryRepository = outletCategoryRepository;
-            _createOrderCommandHandler = createOrderCommandHandler;
             _territoryRepository = territoryRepository;
-            _addOrderLineItemCommandHandler = addOrderLineItemCommandHandler;
-            _confirmOrderCommandHandler = confirmOrderCommandHandler;
-            _approveOrderCommandHandler = approveOrderCommandHandler;
-            _rejectOrderCommandHandler = rejectOrderCommandHandler;
             _areaRepository = areaRepository;
             _contactRepository = contactRepository;
             _accountRepository = accountRepository;

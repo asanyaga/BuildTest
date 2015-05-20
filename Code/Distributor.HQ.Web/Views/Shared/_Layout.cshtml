@@ -3,7 +3,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>@ViewBag.Title</title>
-    @using Agrimanagr.HQ.Models        @using Distributr.HQ.Lib.Util        @using SquishIt.Framework
+    @using System.Web.Optimization    
+    @using Agrimanagr.HQ.Models        
+    @using Distributr.HQ.Lib.Util        
     @using Distributr.HQ.Lib.Helper
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <link href="@Url.Content("~/Content/styles/reset.css")" rel="stylesheet" type="text/css" />
@@ -13,35 +15,11 @@
     <link href="@Url.Content("~/content/backgrid/backgrid-filter.css")" rel="stylesheet" media="screen" />
     <link href="@Url.Content("~/content/magnific-popup.css")" rel="stylesheet" media="screen" />
     <link href="@Url.Content("~/content/toastr.min.css")" rel="stylesheet" media="screen" />
+    
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/Content/distributrscripts")
 
-    @MvcHtmlString.Create(
-            Bundle.Css()
-                .Add("~/Content/styles/main.css")
-                .Add("~/Content/styles/Site.css")
-                .Add("~/Content/styles/layout.css")
-                .Add("~/Content/styles/tabs.css")
-                .Add("~/Content/styles/main-menu.css")
-                .Add("~/Content/styles/MenuMatic.css")
-                .Add("~/Content/styles/tabs.css")
-                .Add("~/Content/styles/tables.css")
-                .Add("~/Content/themes/base/jquery-ui.css")
-                .Add("~/Content/jquery.ui.datepicker.css")
-                .ForceRelease()
-                .Render("~/Content/styles/combined_#.css"))
-
-
-    @MvcHtmlString.Create(
-            Bundle.JavaScript()
-
-                .Add("~/Content/js/jquery-1.4.2.min.js")
-                .Add("~/Content/js/jquery.tablesorter.js")
-                .Add("~/Content/js/tablesort.js")
-                .Add("~/Content/js/eye.js")
-                .Add("~/Content/js/utils.js")
-                .Add("~/Content/js/tabs.js")
-                .ForceRelease()
-                .Render("~/Content/js/combined_#.js")
-             )
+  
     <script type="text/javascript">
         $(document).ready(function () {
             $("#disabled").click(function (e) {

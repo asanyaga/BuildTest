@@ -11,42 +11,42 @@ using log4net;
 
 namespace Distributr.Core.Data.CommandHandlers.DocumentCommandHandlers.Orders
 {
-    public class CreateOrderCommandHandler : BaseCommandHandler, ICreateOrderCommandHandler
-    {
-        private CokeDataContext _cokeDataContext;
-        ILog _log = LogManager.GetLogger("CreateOrderCommandHandler");
+    //public class CreateOrderCommandHandler : BaseCommandHandler, ICreateOrderCommandHandler
+    //{
+    //    private CokeDataContext _cokeDataContext;
+    //    ILog _log = LogManager.GetLogger("CreateOrderCommandHandler");
 
-        public CreateOrderCommandHandler(CokeDataContext cokeDataContext) : base(cokeDataContext)
-        {
-            _cokeDataContext = cokeDataContext;
-        }
+    //    public CreateOrderCommandHandler(CokeDataContext cokeDataContext) : base(cokeDataContext)
+    //    {
+    //        _cokeDataContext = cokeDataContext;
+    //    }
 
-        public void Execute(CreateOrderCommand command)
-        {
-            _log.InfoFormat("Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
-            try
-            {
-                if (DocumentExists(command.DocumentId))
-                    return;
+    //    public void Execute(CreateOrderCommand command)
+    //    {
+    //        _log.InfoFormat("Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
+    //        try
+    //        {
+    //            if (DocumentExists(command.DocumentId))
+    //                return;
 
-                tblDocument doc = NewDocument(command, DocumentType.Order, command.DocumentRecipientCostCentreId);
-                doc.SaleDiscount = command.SaleDiscount;
-                doc.OrderIssuedOnBehalfOfCC = command.IssuedOnBehalfOfCostCentreId;
-                doc.OrderDateRequired = command.DateOrderRequired;
-                doc.OrderOrderTypeId = command.OrderTypeId;
+    //            tblDocument doc = NewDocument(command, DocumentType.Order, command.DocumentRecipientCostCentreId);
+    //            doc.SaleDiscount = command.SaleDiscount;
+    //            doc.OrderIssuedOnBehalfOfCC = command.IssuedOnBehalfOfCostCentreId;
+    //            doc.OrderDateRequired = command.DateOrderRequired;
+    //            doc.OrderOrderTypeId = command.OrderTypeId;
                 
-                _cokeDataContext.tblDocument.AddObject(doc);
-                _cokeDataContext.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                _log.ErrorFormat("Error Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
-                _log.Error("CreateOrderCommandHandler exception", ex);
-                throw ;
-            }
-        }
+    //            _cokeDataContext.tblDocument.AddObject(doc);
+    //            _cokeDataContext.SaveChanges();
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            _log.ErrorFormat("Error Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
+    //            _log.Error("CreateOrderCommandHandler exception", ex);
+    //            throw ;
+    //        }
+    //    }
 
-    }
+    //}
     public class CreateMainOrderCommandHandler : BaseCommandHandler, ICreateMainOrderCommandHandler
     {
         private CokeDataContext _cokeDataContext;

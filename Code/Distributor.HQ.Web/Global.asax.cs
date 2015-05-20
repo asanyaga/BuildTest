@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 using Distributr.BusSubscriber.Service;
 using Distributr.Core.Data.Script;
@@ -67,6 +68,7 @@ namespace Distributr.HQ.Web
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
             Bootstrap.Resolver();
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new RazorViewEngine());

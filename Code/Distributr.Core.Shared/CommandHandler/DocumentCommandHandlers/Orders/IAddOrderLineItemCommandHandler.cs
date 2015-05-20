@@ -7,9 +7,9 @@ using Distributr.Core.Commands.DocumentCommands.Orders;
 
 namespace Distributr.Core.CommandHandler.DocumentCommandHandlers.Orders
 {
-    public interface IAddOrderLineItemCommandHandler : ICommandHandler<AddOrderLineItemCommand>
-    {
-    }
+    //public interface IAddOrderLineItemCommandHandler : ICommandHandler<AddOrderLineItemCommand>
+    //{
+    //}
     public interface IAddMainOrderLineItemCommandHandler : ICommandHandler<AddMainOrderLineItemCommand>
     {
     }
