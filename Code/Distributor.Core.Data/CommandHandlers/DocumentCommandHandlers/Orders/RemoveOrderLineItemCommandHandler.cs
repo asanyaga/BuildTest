@@ -10,38 +10,38 @@ using log4net;
 
 namespace Distributr.Core.Data.CommandHandlers.DocumentCommandHandlers.Orders
 {
-    public class RemoveOrderLineItemCommandHandler : IRemoveOrderLineItemCommandHandler
-    {
-        private IOrderRepository _orderRepository;
-        private ILog _log = LogManager.GetLogger("RemoveOrderLineItemCommandHandler");
+    //public class RemoveOrderLineItemCommandHandler : IRemoveOrderLineItemCommandHandler
+    //{
+    //    private IOrderRepository _orderRepository;
+    //    private ILog _log = LogManager.GetLogger("RemoveOrderLineItemCommandHandler");
 
-        public RemoveOrderLineItemCommandHandler(IOrderRepository orderRepository)
-        {
-            _orderRepository = orderRepository;
-        }
+    //    public RemoveOrderLineItemCommandHandler(IOrderRepository orderRepository)
+    //    {
+    //        _orderRepository = orderRepository;
+    //    }
 
-        public void Execute(RemoveOrderLineItemCommand command)
-        {
-            _log.InfoFormat("Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
-            try
-            {
-                //check that order exists
-                bool no_Order_Exist = _orderRepository.GetById(command.DocumentId) == null;
-                if (no_Order_Exist)
-                    return;
-                //approve the order
-                Order order = _orderRepository.GetById(command.DocumentId) as Order;
-                order.RemoveLineItem(command.LineItemId);
-                _orderRepository.Save(order);
-            }
-            catch (Exception ex)
-            {
-                _log.ErrorFormat("Error Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
-                _log.Error("RemoveOrderLineItemCommandHandler exception", ex);
-                throw;
-            }
-        }
-    }
+    //    public void Execute(RemoveOrderLineItemCommand command)
+    //    {
+    //        _log.InfoFormat("Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
+    //        try
+    //        {
+    //            //check that order exists
+    //            bool no_Order_Exist = _orderRepository.GetById(command.DocumentId) == null;
+    //            if (no_Order_Exist)
+    //                return;
+    //            //approve the order
+    //            Order order = _orderRepository.GetById(command.DocumentId) as Order;
+    //            order.RemoveLineItem(command.LineItemId);
+    //            _orderRepository.Save(order);
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            _log.ErrorFormat("Error Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
+    //            _log.Error("RemoveOrderLineItemCommandHandler exception", ex);
+    //            throw;
+    //        }
+    //    }
+    //}
     public class RemoveMainOrderLineItemCommandHandler : BaseCommandHandler, IRemoveMainOrderLineItemCommandHandler
     {
 

@@ -116,50 +116,50 @@ namespace Distributr.WSAPI.Lib.Services.Routing.Implementation
 
                 //-------------- ORDERS -----------------------
 
-                case CommandType.CreateOrder: // "CreateOrderCommand":
-                    CreateOrderCommand createOrderCommand = command as CreateOrderCommand;
-                    commandRoute = GetOrderCommandRoutes(createOrderCommand,commandType);
-                    break;
-                case CommandType.AddOrderLineItem: // "AddOrderLineItemCommand":
-                    AddOrderLineItemCommand addLineItemCommand = command as AddOrderLineItemCommand;
-                    commandRoute = GetOrderCommandRoutes(addLineItemCommand,commandType);
-                    break;
-                case CommandType.ConfirmOrder: // "ConfirmOrderCommand":
-                    ConfirmOrderCommand confirmOrderCommand = command as ConfirmOrderCommand;
-                    commandRoute = GetOrderCommandRoutes(confirmOrderCommand,commandType);
-                    break;
-                case CommandType.RemoveOrderLineItem: // "RemoveOrderLineItemCommand":
-                    RemoveOrderLineItemCommand c1 = command as RemoveOrderLineItemCommand;
-                    commandRoute = GetOrderCommandRoutes(c1,commandType);
-                    break;
-                case CommandType.ChangeOrderLineItem: // "ChangeOrderLineItemCommand":
-                    ChangeOrderLineItemCommand c2 = command as ChangeOrderLineItemCommand;
-                    commandRoute = GetOrderCommandRoutes(c2,commandType);
-                    break;
-                case CommandType.ApproveOrder:// "ApproveOrderCommand":
-                    ApproveOrderCommand c3 = command as ApproveOrderCommand;
-                    commandRoute = GetOrderCommandRoutes(c3,commandType);
-                    break;
+                //case CommandType.CreateOrder: // "CreateOrderCommand":
+                //    CreateOrderCommand createOrderCommand = command as CreateOrderCommand;
+                //    commandRoute = GetOrderCommandRoutes(createOrderCommand,commandType);
+                //    break;
+                //case CommandType.AddOrderLineItem: // "AddOrderLineItemCommand":
+                //    AddOrderLineItemCommand addLineItemCommand = command as AddOrderLineItemCommand;
+                //    commandRoute = GetOrderCommandRoutes(addLineItemCommand,commandType);
+                //    break;
+                //case CommandType.ConfirmOrder: // "ConfirmOrderCommand":
+                //    ConfirmOrderCommand confirmOrderCommand = command as ConfirmOrderCommand;
+                //    commandRoute = GetOrderCommandRoutes(confirmOrderCommand,commandType);
+                //    break;
+                //case CommandType.RemoveOrderLineItem: // "RemoveOrderLineItemCommand":
+                //    RemoveOrderLineItemCommand c1 = command as RemoveOrderLineItemCommand;
+                //    commandRoute = GetOrderCommandRoutes(c1,commandType);
+                //    break;
+                //case CommandType.ChangeOrderLineItem: // "ChangeOrderLineItemCommand":
+                //    ChangeOrderLineItemCommand c2 = command as ChangeOrderLineItemCommand;
+                //    commandRoute = GetOrderCommandRoutes(c2,commandType);
+                //    break;
+                //case CommandType.ApproveOrder:// "ApproveOrderCommand":
+                //    ApproveOrderCommand c3 = command as ApproveOrderCommand;
+                //    commandRoute = GetOrderCommandRoutes(c3,commandType);
+                //    break;
                 case CommandType.CloseOrder: // "CloseOrderCommand":
                     CloseOrderCommand c4 = command as CloseOrderCommand;
                     commandRoute = GetOrderCommandRoutes(c4,commandType);
                     break;
-                case CommandType.BackOrder: // "BackOrderCommand":
-                    BackOrderCommand c5 = command as BackOrderCommand;
-                    commandRoute = GetOrderCommandRoutes(c5,commandType);
-                    break;
-                case CommandType.OrderPendingDispatch: // "OrderPendingDispatchCommand":
-                    OrderPendingDispatchCommand c6 = command as OrderPendingDispatchCommand;
-                    commandRoute = GetOrderCommandRoutes(c6,commandType);
-                    break;
-                case CommandType.DispatchToPhone:// "DispatchToPhoneCommand":
-                    DispatchToPhoneCommand c7 = command as DispatchToPhoneCommand;
-                    commandRoute = GetOrderCommandRoutes(c7,commandType);
-                    break;
-                case CommandType.RejectOrder: // "RejectOrderCommand":
-                    RejectOrderCommand c8 = command as RejectOrderCommand;
-                    commandRoute = GetOrderCommandRoutes(c8,commandType);
-                    break;
+                //case CommandType.BackOrder: // "BackOrderCommand":
+                //    BackOrderCommand c5 = command as BackOrderCommand;
+                //    commandRoute = GetOrderCommandRoutes(c5,commandType);
+                //    break;
+                //case CommandType.OrderPendingDispatch: // "OrderPendingDispatchCommand":
+                //    OrderPendingDispatchCommand c6 = command as OrderPendingDispatchCommand;
+                //    commandRoute = GetOrderCommandRoutes(c6,commandType);
+                //    break;
+                //case CommandType.DispatchToPhone:// "DispatchToPhoneCommand":
+                //    DispatchToPhoneCommand c7 = command as DispatchToPhoneCommand;
+                //    commandRoute = GetOrderCommandRoutes(c7,commandType);
+                //    break;
+                //case CommandType.RejectOrder: // "RejectOrderCommand":
+                //    RejectOrderCommand c8 = command as RejectOrderCommand;
+                //    commandRoute = GetOrderCommandRoutes(c8,commandType);
+                //    break;
                 //--------------End  ORDERS -----------------------
 
                 // ------------ Inventory Received Note -----------------------
@@ -991,19 +991,18 @@ namespace Distributr.WSAPI.Lib.Services.Routing.Implementation
         {
             var commandRouteOnRequest = new CommandRouteOnRequestDTO();
 
-            if (command is CreateOrderCommand)
-            {
-                var ic = command as CreateOrderCommand;
-                commandRouteOnRequest.RouteOnRequest.CommandType = commandType.ToString();
-                SetupCommnd(commandRouteOnRequest, ic);
-                commandRouteOnRequest.CommandRouteCentres.Add(new CommandRouteOnRequestCostcentre { CostCentreId = ic.DocumentRecipientCostCentreId, CommandType = commandType.ToString() });
-                commandRouteOnRequest.CommandRouteCentres.Add(new CommandRouteOnRequestCostcentre { CostCentreId = ic.DocumentIssuerCostCentreId, CommandType = commandType.ToString() });
-                commandRouteOnRequest.CommandRouteCentres.Add(new CommandRouteOnRequestCostcentre { CostCentreId = ic.IssuedOnBehalfOfCostCentreId, CommandType = commandType.ToString() });
-            }
-            if (command is AddOrderLineItemCommand || command is ConfirmOrderCommand ||
-                command is ApproveOrderCommand || command is BackOrderCommand ||
-                command is CloseOrderCommand || command is DispatchToPhoneCommand ||
-                command is OrderPendingDispatchCommand || command is RejectOrderCommand || command is RemoveOrderLineItemCommand || command is ChangeOrderLineItemCommand)
+            //if (command is CreateOrderCommand)
+            //{
+            //    var ic = command as CreateOrderCommand;
+            //    commandRouteOnRequest.RouteOnRequest.CommandType = commandType.ToString();
+            //    SetupCommnd(commandRouteOnRequest, ic);
+            //    commandRouteOnRequest.CommandRouteCentres.Add(new CommandRouteOnRequestCostcentre { CostCentreId = ic.DocumentRecipientCostCentreId, CommandType = commandType.ToString() });
+            //    commandRouteOnRequest.CommandRouteCentres.Add(new CommandRouteOnRequestCostcentre { CostCentreId = ic.DocumentIssuerCostCentreId, CommandType = commandType.ToString() });
+            //    commandRouteOnRequest.CommandRouteCentres.Add(new CommandRouteOnRequestCostcentre { CostCentreId = ic.IssuedOnBehalfOfCostCentreId, CommandType = commandType.ToString() });
+            //}
+            if ( 
+                
+                command is CloseOrderCommand    )
             {
                 Order doc = _orderRepository.GetById(command.DocumentId) as Order;
                 commandRouteOnRequest.CommandRouteCentres.Add(new CommandRouteOnRequestCostcentre { CostCentreId = doc.DocumentIssuerCostCentre.Id, CommandType = commandType.ToString() });

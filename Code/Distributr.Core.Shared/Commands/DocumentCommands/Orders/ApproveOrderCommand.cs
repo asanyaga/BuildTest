@@ -4,41 +4,41 @@ using Distributr.Core.Utility.Validation;
 
 namespace Distributr.Core.Commands.DocumentCommands.Orders
 {
-    [Obsolete]
-    public class ApproveOrderCommand : DocumentCommand
-    {
-        public ApproveOrderCommand()
-        {
+    //[Obsolete]
+    //public class ApproveOrderCommand : DocumentCommand
+    //{
+    //    public ApproveOrderCommand()
+    //    {
             
-        }
-        public ApproveOrderCommand( Guid commandId,
-            Guid documentId,
-            Guid commandGeneratedByUserId,
-            Guid commandGeneratedByCostCentreId,
-            int costCentreApplicationCommandSequenceId,
-            Guid commandGeneratedByCostCentreApplicationId,
-            Guid approverUserId,
-            DateTime dateApproved
-            )
-            : base(commandId, documentId, commandGeneratedByUserId,
-            commandGeneratedByCostCentreId,
-            costCentreApplicationCommandSequenceId,
-            commandGeneratedByCostCentreApplicationId,documentId)
+    //    }
+    //    public ApproveOrderCommand( Guid commandId,
+    //        Guid documentId,
+    //        Guid commandGeneratedByUserId,
+    //        Guid commandGeneratedByCostCentreId,
+    //        int costCentreApplicationCommandSequenceId,
+    //        Guid commandGeneratedByCostCentreApplicationId,
+    //        Guid approverUserId,
+    //        DateTime dateApproved
+    //        )
+    //        : base(commandId, documentId, commandGeneratedByUserId,
+    //        commandGeneratedByCostCentreId,
+    //        costCentreApplicationCommandSequenceId,
+    //        commandGeneratedByCostCentreApplicationId,documentId)
 
-        {
-            ApproverUserId = approverUserId;
-            DateApproved = dateApproved;
-        }
+    //    {
+    //        ApproverUserId = approverUserId;
+    //        DateApproved = dateApproved;
+    //    }
 
-        [Required]
-        public DateTime DateApproved { get; set;}
+    //    [Required]
+    //    public DateTime DateApproved { get; set;}
         
-         public Guid ApproverUserId { get; set; }
-        public override string CommandTypeRef
-        {
-            get { return CommandType.ApproveOrder.ToString(); }
-        }
-    }
+    //     public Guid ApproverUserId { get; set; }
+    //    public override string CommandTypeRef
+    //    {
+    //        get { return CommandType.ApproveOrder.ToString(); }
+    //    }
+    //}
     public class ApproveMainOrderCommand : ApproveCommand
     {
         public ApproveMainOrderCommand()

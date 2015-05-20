@@ -7,7 +7,7 @@ using Distributr.Core.Commands.DocumentCommands.Orders;
 
 namespace Distributr.Core.CommandHandler.DocumentCommandHandlers.Orders
 {
-    public interface IBackOrderCommandHandler : ICommandHandler<BackOrderCommand>
-    {
-    }
+    //public interface IBackOrderCommandHandler : ICommandHandler<BackOrderCommand>
+    //{
+    //}
 }

@@ -8,28 +8,28 @@ namespace Distributr.Core.Commands
     public enum CommandType : int
     {
         //Order
-        [Obsolete("Do not use")]
-        CreateOrder = 100,
-        [Obsolete("Do not use")]
-        ApproveOrder = 101,
-        [Obsolete("Do not use")]
-        AddOrderLineItem = 102,
-        [Obsolete("Do not use")]
-        ConfirmOrder = 103,
-        [Obsolete("Do not use")]
-        RejectOrder = 104,
-        [Obsolete("Do not use")]
-        ChangeOrderLineItem = 105,
-        [Obsolete("Do not use")]
-        RemoveOrderLineItem = 106,
-        [Obsolete("Do not use")]
+        //[Obsolete("Do not use")]
+        //CreateOrder = 100,
+        //[Obsolete("Do not use")]
+        //ApproveOrder = 101,
+        //[Obsolete("Do not use")]
+        //AddOrderLineItem = 102,
+        //[Obsolete("Do not use")]
+        //ConfirmOrder = 103,
+        //[Obsolete("Do not use")]
+        //RejectOrder = 104,
+        //[Obsolete("Do not use")]
+        //ChangeOrderLineItem = 105,
+        //[Obsolete("Do not use")]
+        //RemoveOrderLineItem = 106,
+        
         CloseOrder = 107,
-        [Obsolete("Do not use")]
-        BackOrder = 108,
-        [Obsolete("Do not use")]
-        OrderPendingDispatch = 109,
-        [Obsolete("Do not use")]
-        DispatchToPhone = 110,
+        //[Obsolete("Do not use")]
+        //BackOrder = 108,
+        //[Obsolete("Do not use")]
+        //OrderPendingDispatch = 109,
+        //[Obsolete("Do not use")]
+        //DispatchToPhone = 110,
 
 
         //IAN

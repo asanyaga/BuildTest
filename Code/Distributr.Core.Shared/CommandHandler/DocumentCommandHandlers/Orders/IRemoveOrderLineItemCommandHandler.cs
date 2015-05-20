@@ -7,10 +7,10 @@ using Distributr.Core.Commands.DocumentCommands.Orders;
 
 namespace Distributr.Core.CommandHandler.DocumentCommandHandlers.Orders
 {
-    [Obsolete]
-    public interface IRemoveOrderLineItemCommandHandler : ICommandHandler<RemoveOrderLineItemCommand>
-    {
-    }
+    //[Obsolete]
+    //public interface IRemoveOrderLineItemCommandHandler : ICommandHandler<RemoveOrderLineItemCommand>
+    //{
+    //}
     public interface IRemoveMainOrderLineItemCommandHandler : ICommandHandler<RemoveMainOrderLineItemCommand>
     {
     }

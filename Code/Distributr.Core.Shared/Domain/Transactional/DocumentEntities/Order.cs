@@ -14,8 +14,7 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities
     public enum OrderType { DistributorPOS = 1, DistributorToProducer = 2, OutletToDistributor = 3, SalesmanToDistributor = 4}
    // public enum PaymentType { Cash = 1, MPESA = 2, Cheque = 3 }
     /// <summary>
-    /// Need to store all line items from confirmation of order.
-    /// Once confirmed then line items are cloned and marked as post confirmation
+    /// This entity is disabled but may still be used in UI scenarios
     /// </summary>
     public class Order : Document
     {
@@ -289,61 +288,61 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities
 
         protected override void _AddCreateCommandToExecute(bool isHybrid = false)
         {
-            var coc = new CreateOrderCommand(
-                Guid.NewGuid(),
-                Id,
-                DocumentIssuerUser.Id,
-                DocumentIssuerCostCentre.Id,
-                0,
-                DocumentIssuerCostCentreApplicationId,
-                DocumentReference,
-                DocumentDateIssued,
-                DateRequired,
-                IssuedOnBehalfOf.Id,
-                DocumentIssuerCostCentre.Id,
-                DocumentRecipientCostCentre.Id,
-                DocumentIssuerUser.Id,
-                (int)OrderType,
-                "",
-                SaleDiscount
-                );
-            _AddCommand(coc);
+            //var coc = new CreateOrderCommand(
+            //    Guid.NewGuid(),
+            //    Id,
+            //    DocumentIssuerUser.Id,
+            //    DocumentIssuerCostCentre.Id,
+            //    0,
+            //    DocumentIssuerCostCentreApplicationId,
+            //    DocumentReference,
+            //    DocumentDateIssued,
+            //    DateRequired,
+            //    IssuedOnBehalfOf.Id,
+            //    DocumentIssuerCostCentre.Id,
+            //    DocumentRecipientCostCentre.Id,
+            //    DocumentIssuerUser.Id,
+            //    (int)OrderType,
+            //    "",
+            //    SaleDiscount
+            //    );
+            //_AddCommand(coc);
         }
 
         protected override void _AddAddLineItemCommandToExecute<T>(T lineItem, bool isHybrid = false)
         {
-            var item = lineItem as OrderLineItem;
-            var ali = new AddOrderLineItemCommand(
-                    item.Id,
-                    Id,
-                    DocumentIssuerUser.Id,
-                    DocumentIssuerCostCentre.Id,
-                    0,
-                    DocumentIssuerCostCentreApplicationId,
-                    item.LineItemSequenceNo,
-                    item.Value,
-                    item.Product.Id,
-                    item.Qty,
-                    item.LineItemVatValue,
-                    item.ProductDiscount,
-                    item.Description,
-                    (int)item.LineItemType,
-                    (int)item.DiscountType
-                    );
-            _AddCommand(ali);
+            //var item = lineItem as OrderLineItem;
+            //var ali = new AddOrderLineItemCommand(
+            //        item.Id,
+            //        Id,
+            //        DocumentIssuerUser.Id,
+            //        DocumentIssuerCostCentre.Id,
+            //        0,
+            //        DocumentIssuerCostCentreApplicationId,
+            //        item.LineItemSequenceNo,
+            //        item.Value,
+            //        item.Product.Id,
+            //        item.Qty,
+            //        item.LineItemVatValue,
+            //        item.ProductDiscount,
+            //        item.Description,
+            //        (int)item.LineItemType,
+            //        (int)item.DiscountType
+            //        );
+            //_AddCommand(ali);
         }
 
         protected override void _AddConfirmCommandToExecute(bool isHybrid = false)
         {
-            var co = new ConfirmOrderCommand(Guid.NewGuid(), 
-                Id,
-                DocumentIssuerUser.Id,
-                DocumentIssuerCostCentre.Id,
-                0,
-                DocumentIssuerCostCentreApplicationId, 
-                DocumentParentId
-                );
-            _AddCommand(co);
+            //var co = new ConfirmOrderCommand(Guid.NewGuid(), 
+            //    Id,
+            //    DocumentIssuerUser.Id,
+            //    DocumentIssuerCostCentre.Id,
+            //    0,
+            //    DocumentIssuerCostCentreApplicationId, 
+            //    DocumentParentId
+            //    );
+            //_AddCommand(co);
         }
 
         public List<OrderLineItem> _allLineItems()

@@ -38,24 +38,24 @@ namespace Distributr.Core.Utility.Serialization
             switch (commandType)
             {
 
-                case CommandType.AddOrderLineItem:
-                    returnType = new AddOrderLineItemCommand();
-                    break;
-                case CommandType.ApproveOrder:
-                    returnType = new ApproveOrderCommand();
-                    break;
-                case CommandType.ConfirmOrder:
-                    returnType = new ConfirmOrderCommand();
-                    break;
-                case CommandType.CreateOrder:
-                    returnType = new CreateOrderCommand();
-                    break;
-                case CommandType.RejectOrder:
-                    returnType = new RejectOrderCommand();
-                    break;
-                case CommandType.ChangeOrderLineItem:
-                    returnType = new ChangeOrderLineItemCommand(); ;
-                    break;
+                //case CommandType.AddOrderLineItem:
+                //    returnType = new AddOrderLineItemCommand();
+                //    break;
+                //case CommandType.ApproveOrder:
+                //    returnType = new ApproveOrderCommand();
+                //    break;
+                //case CommandType.ConfirmOrder:
+                //    returnType = new ConfirmOrderCommand();
+                //    break;
+                //case CommandType.CreateOrder:
+                //    returnType = new CreateOrderCommand();
+                //    break;
+                //case CommandType.RejectOrder:
+                //    returnType = new RejectOrderCommand();
+                //    break;
+                //case CommandType.ChangeOrderLineItem:
+                //    returnType = new ChangeOrderLineItemCommand(); ;
+                //    break;
                 //IAN
                 case CommandType.CreateInventoryAdjustmentNote:
                     returnType = new CreateInventoryAdjustmentNoteCommand();
@@ -66,9 +66,9 @@ namespace Distributr.Core.Utility.Serialization
                 case CommandType.ConfirmInventoryAdjustmentNote:
                     returnType = new ConfirmInventoryAdjustmentNoteCommand(); ;
                     break;
-                case CommandType.RemoveOrderLineItem:
-                    returnType = new RemoveOrderLineItemCommand(); ;
-                    break;
+                //case CommandType.RemoveOrderLineItem:
+                //    returnType = new RemoveOrderLineItemCommand(); ;
+                //    break;
                 //ITN
                 case CommandType.CreateInventoryTransferNote:
                     returnType = new CreateInventoryTransferNoteCommand(); ;
@@ -99,12 +99,12 @@ namespace Distributr.Core.Utility.Serialization
                 case CommandType.ConfirmCreditNote:
                     returnType = new ConfirmCreditNoteCommand(); ;
                     break;
-                case CommandType.OrderPendingDispatch:
-                    returnType = new OrderPendingDispatchCommand(); ;
-                    break;
-                case CommandType.DispatchToPhone:
-                    returnType = new DispatchToPhoneCommand(); ;
-                    break;
+                //case CommandType.OrderPendingDispatch:
+                //    returnType = new OrderPendingDispatchCommand(); ;
+                //    break;
+                //case CommandType.DispatchToPhone:
+                //    returnType = new DispatchToPhoneCommand(); ;
+                //    break;
                 case CommandType.CreateInventoryReceivedNote:
                     returnType = new CreateInventoryReceivedNoteCommand(); ;
                     break;

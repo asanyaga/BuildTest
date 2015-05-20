@@ -8,9 +8,9 @@ using Distributr.Core.Commands.DocumentCommands.Orders;
 
 namespace Distributr.Core.CommandHandler.DocumentCommandHandlers
 {
-    public interface ICreateOrderCommandHandler : ICommandHandler<CreateOrderCommand>
-    {
-    }
+    //public interface ICreateOrderCommandHandler : ICommandHandler<CreateOrderCommand>
+    //{
+    //}
     public interface ICreateMainOrderCommandHandler : ICommandHandler<CreateMainOrderCommand>
     {
     }
