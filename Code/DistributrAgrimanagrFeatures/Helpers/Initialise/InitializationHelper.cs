@@ -97,7 +97,7 @@ namespace DistributrAgrimanagrFeatures.Helpers.Initialise
 
         private void ReportProgress(string progress)
         {
-            TI.trace(section, progress.Replace('\n', ' '));
+            TI.trace(section + "[ProgressReporter]", progress.Replace('\n', ' '));
             SyncStatus += progress;
         }
 

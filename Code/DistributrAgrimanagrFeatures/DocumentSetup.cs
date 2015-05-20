@@ -24,8 +24,8 @@ namespace DistributrAgrimanagrFeatures
         {
             
             TI.trace("Once per namespace. Doc features Setup");
-            
-            string section = "BeforeFeature_@masterdatahook";
+
+            string section = "Setup-RunOncePerNameSpace_@DocumentSetup";
             TI.trace(section, "master data hook before feature >>>>>>>>");
 
             TI.trace(section, "======================= MasterData Setup =======================================");
