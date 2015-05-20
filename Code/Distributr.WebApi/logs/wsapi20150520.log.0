@@ -286,3 +286,5 @@ System.Web.HttpException (0x80004005): The controller for path '/favicon.ico' wa
 2015-05-20 15:48:20,189 [59] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
 2015-05-20 15:49:21,143 [59] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
 2015-05-20 15:50:22,043 [59] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
+2015-05-20 15:51:23,021 [66] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
+2015-05-20 15:52:24,623 [78] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
