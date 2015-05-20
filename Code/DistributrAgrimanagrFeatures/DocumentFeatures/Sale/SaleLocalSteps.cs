@@ -20,17 +20,17 @@ using NUnit.Framework;
 using StructureMap;
 using TechTalk.SpecFlow;
 
-namespace DistributrAgrimanagrFeatures.DocumentFeatures.PO
+namespace DistributrAgrimanagrFeatures.DocumentFeatures.Sale
 {
     [Binding]
-    public class PurchaseOrderSteps
+    public class SaleLocalSteps
     {
-        private string section = "PurchaseOrderLocalSteps";
+        private string section = "SaleLocalSteps";
         public decimal amount = 10;
         public decimal LineItemVatValue = 0.16m;
 
-        [Given(@"I create a purchase order")]
-        public void GivenICreateAPurchaseOrder()
+        [Given(@"I create an order of type sale")]
+        public void GivenICreateAnOrderOfTypeSale()
         {
             TI.trace(section, "#1");
             var testHelper = ObjectFactory.GetInstance<ScenarioTestHelper>();
@@ -54,8 +54,8 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.PO
             ScenarioContext.Current["note"] = note;
         }
 
-        [Given(@"I create a purchase order line item")]
-        public void GivenICreateAPurchaseOrderLineItem()
+        [Given(@"I create a line item")]
+        public void GivenICreateALineItem()
         {
             TI.trace(section, "#2");
             var settings = ScenarioContext.Current["settings"] as ScenarioSettings;
@@ -67,8 +67,8 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.PO
             ScenarioContext.Current["note"] = note;
         }
 
-        [When(@"I submit the purchase order to its respective workflow")]
-        public void WhenISubmitThePurchaseOrderToItsRespectiveWorkflow()
+        [When(@"I submit the sale to its respective workflow")]
+        public void WhenISubmitTheSaleToItsRespectiveWorkflow()
         {
             TI.trace(section, "#3");
             var note =
@@ -77,8 +77,8 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.PO
             testHelper.SubmitToWF(note);
         }
 
-        [Then(@"there should be a saved purchase order")]
-        public void ThenThereShouldBeASavedPurchaseOrder()
+        [Then(@"there should be a saved sale")]
+        public void ThenThereShouldBeASavedSale()
         {
             TI.trace(section, "#4");
             var testHelper = ObjectFactory.GetInstance<ScenarioTestHelper>();
@@ -87,12 +87,12 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.PO
             Assert.IsNotNull(note);
             Assert.AreEqual(settings.DocumentId, note.Id);
             Assert.AreEqual(note.DocumentType, DocumentType.Order);
-            Assert.AreEqual(note.OrderType, OrderType.DistributorToProducer);
+            Assert.AreEqual(note.OrderType, OrderType.DistributorPOS);
             ScenarioContext.Current["note"] = note;
         }
 
-        [Then(@"the purchase order should have a line item")]
-        public void ThenThePurchaseOrderShouldHaveALineItem()
+        [Then(@"the sale document should have a line item")]
+        public void ThenTheSaleDocumentShouldHaveALineItem()
         {
             TI.trace(section, "#5");
             var note =
@@ -102,8 +102,8 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.PO
             Assert.AreEqual(note.ItemSummary.FirstOrDefault().Qty, amount);
         }
 
-        [Then(@"there should be a corresponding purchase order command envelope on the outgoing command queue")]
-        public void ThenThereShouldBeACorrespondingPurchaseOrderCommandEnvelopeOnTheOutgoingCommandQueue()
+        [Then(@"there should be a corresponding order of type sale command envelope on the outgoing command queue")]
+        public void ThenThereShouldBeACorrespondingOrderOfTypeSaleCommandEnvelopeOnTheOutgoingCommandQueue()
         {
             TI.trace(section, "#6");
             var testHelper = ObjectFactory.GetInstance<ScenarioTestHelper>();
@@ -123,7 +123,7 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.PO
             {
                 DocumentId = Guid.Empty;
                 DocumentParentId = Guid.Empty;
-                OrderType = OrderType.DistributorToProducer;
+                OrderType = OrderType.DistributorPOS;
             }
             public Guid DocumentId { get; set; }
             public Guid DocumentParentId { get; set; }
@@ -184,7 +184,7 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.PO
             {
                 var cc = _costCentreRepository.GetById(localSetting.HubConfig.CostCentreId);
                 var config = localSetting.HubConfig;
-                var pn = _mainOrderFactory.Create(cc, config.CostCentreApplicationId, cc, localSetting.User, cc, localSetting.OrderType, localSetting.DocumentReference,localSetting.DocumentParentId, localSetting.ShipToAddress, localSetting.DateRequired, localSetting.SaleDiscount,
+                var pn = _mainOrderFactory.Create(cc, config.CostCentreApplicationId, cc, localSetting.User, cc, localSetting.OrderType, localSetting.DocumentReference, localSetting.DocumentParentId, localSetting.ShipToAddress, localSetting.DateRequired, localSetting.SaleDiscount,
                     "Main Order");
 
                 return pn;
