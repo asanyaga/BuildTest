@@ -58,7 +58,7 @@ namespace Distributr.WPF.Lib.Data.IOC
                  .Ctor<string>("connectionString")
                 .Is(hubConnectionString);
             exp.For<DistributrLocalContext>().Use<DistributrLocalContext>().Ctor<string>("connectionString").Is(localConnectionString);
-            exp.For<ICacheProvider>().Use(DefaultCacheProvider.GetInstance());
+            //exp.For<ICacheProvider>().Use(DefaultCacheProvider.GetInstance());
             exp.For<IDTOToEntityMapping>().Use<DTOToEntityMapping>();
 
             foreach (var item in WPFRepositoryDefaultServices.DefaultServiceList())

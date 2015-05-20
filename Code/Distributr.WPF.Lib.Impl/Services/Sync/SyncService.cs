@@ -63,14 +63,12 @@ namespace Distributr.WPF.Lib.Impl.Services.Sync
                     string entity = masterData.ToString();
                     try
                     {
-                        string t = " [TI] Master data {0} {1}";
-                        Trace.WriteLine(string.Format(t,entity,"start"));
+                        Stopwatch st = Stopwatch.StartNew();
                         bool success = await _updateMasterDataService.GetByBatchAndUpdateEntityMasterDataAsync(ccAppId, entity);
-                        Trace.WriteLine(string.Format(t, entity, "end"));
-                        
                         if (success)
                         {
-                            progress.Report("\n " + string.Format("==>  Successful update of {0}", entity));
+                            
+                            progress.Report("\n " + string.Format("==>  Successful update of {0}_ {1}ms", entity,st.ElapsedMilliseconds));
                         }
                         else
                         {

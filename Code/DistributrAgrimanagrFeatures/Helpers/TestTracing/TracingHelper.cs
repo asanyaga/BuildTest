@@ -12,12 +12,15 @@ namespace DistributrAgrimanagrFeatures.Helpers.TestTracing
 
         public static void trace(string message)
         {
-            Trace.WriteLine(string.Format("{0}_{1}", _thprefix, message));
+            string t = "_";//DateTime.Now.Ticks;
+            Trace.WriteLine(string.Format("{0}_[{2}] {1}", _thprefix, message,t));
         }
 
         public static void trace(string section, string message)
         {
-            Trace.WriteLine(string.Format("{0}_[{1}]_{2}", _thprefix, section, message));
+            string t = "_";//DateTime.Now.Ticks;
+
+            Trace.WriteLine(string.Format("{0}_[{1}]_[{3}]_{2}", _thprefix, section, message,t));
 
         }
     }
