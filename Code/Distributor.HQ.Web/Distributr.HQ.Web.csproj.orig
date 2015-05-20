@@ -1,0 +1,1859 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E3F9446-B4DF-4D2E-B014-C79524C03F88}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Distributr.HQ.Web</RootNamespace>
+    <AssemblyName>Distributr.HQ.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'dev|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Kemsa|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;KEMSA</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyNetQ, Version=0.9.2.65, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EasyNetQ.0.9.2.65\lib\net40\EasyNetQ.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Appfabric\Microsoft.ApplicationServer.Caching.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.1\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Entity.Design.Extensibility, Version=11.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Data.OData, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.1\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.1\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferencedAssemblies\Reporting\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=3.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.3.0.3.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib">
+      <HintPath>..\ReferencedAssemblies\MvcContrib\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=3.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RabbitMQ.Client.3.0.0\lib\net30\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+<<<<<<< HEAD
+    <Reference Include="SquishIt.Framework">
+      <HintPath>..\..\..\Distributr\ReferencedAssemblies\SquishIt\SquishIt.Framework.dll</HintPath>
+    </Reference>
+=======
+>>>>>>> 4f2266a07b9b7ecbda3b4dc6d04e28118a95c557
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Spatial, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Spatial.5.6.1\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BanksControllers\BankBranchController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BanksControllers\BankController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BlankController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChannelPackagings\ChannelPackagingController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Contact\ContactTypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CostCenter\ProvinceController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Discounts\ProductDiscountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DistributorTargetControllers\TargetPeriodController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DistributorTargetControllers\TargetController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\Asset\AssetCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\Asset\AssetController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\Asset\AssetStatusController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\Asset\AssetTypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\CertainValueCertainProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\CoolerControllers\CoolerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\CoolerControllers\CoolerTypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\CustomerDiscountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\DiscountGroupController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\FreeOfChargeDiscountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\MaritalStatus\MaritalStatusController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\PromotionDiscountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\ProductDiscountZController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\ProductGroupDiscountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\Regions\TerritoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\Suppliers\SupplierController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\VatClassLineItemController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Maps\MapsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MarketAuditControllers\MarketAuditController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MarketAuditControllers\OutletAuditController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Orders\ImportDistributrFile.cs" />
+    <Compile Include="Areas\Admin\Controllers\Orders\NewOrdersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Orders\PurchaseOrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OutletVisitReasonsTypeControllers\OutletVisitReasonsTypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\AddConsolidatedProductItemsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Contact\ContactController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CostCenter\AreaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CostCenter\CreateVatClassController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CostCenter\ProducerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CostCenter\ProducersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CostCenter\SocioEconomicStatusController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CostCenter\TransporterController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CostCenter\VatClassController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\CompetitorManagement\CompetitorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\CompetitorManagement\CompetitorProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\DistributorManagement\AsmManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\DistributorManagement\DistributorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\DistributorManagement\SalesRepController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\DistributorManagement\SurveyorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\outlets\OutletCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\outlets\OutletTypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\Regions\CountryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\Regions\CountryRegionController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\Regions\DistrictController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\Regions\RegionController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\ReOrderLevelController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\ListVatClassController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Orders\OrdersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\outlets\OutletController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProducerControllers\ProducerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\ProductBrandController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\ProductFlavourController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\ProductPackagingController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\ProductPackagingTypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\ProductPricingController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\ProductPricingTierController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\ProductsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\ProductTypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\ReturnablesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GlobalSettings\SaleValueDiscountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductPricing\ShellsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RouteController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Settings\RetireSettingController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Settings\SettingsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\System\AuditController.cs" />
+    <Compile Include="Areas\Admin\Controllers\System\ChangePasswordController.cs" />
+    <Compile Include="Areas\Admin\Controllers\System\ManageProducerUsersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\System\ManageUserRolesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\System\ResetDistributorPasswordController.cs" />
+    <Compile Include="Areas\Admin\Controllers\System\ResetProducerUserPasswordController.cs" />
+    <Compile Include="Areas\Admin\Controllers\System\SecurityMatrixController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Transactional\AuditLogController.cs" />
+    <Compile Include="Areas\Admin\Controllers\user\UserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Orders\ApproveOrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\user\UserGroupController.cs" />
+    <Compile Include="Areas\Admin\Models\SettingsInDetailViewModel.cs" />
+    <Compile Include="Areas\OutletManager\Controllers\OrdersControllers\DispatchedController.cs" />
+    <Compile Include="Areas\OutletManager\Controllers\OrdersControllers\PendingApprovalController.cs" />
+    <Compile Include="Areas\OutletManager\Controllers\OrdersControllers\PendingDispatchController.cs" />
+    <Compile Include="Areas\OutletManager\Controllers\OrdersControllers\OutletOrderController.cs" />
+    <Compile Include="Areas\OutletManager\Controllers\OutletHomeController.cs" />
+    <Compile Include="Areas\OutletManager\OutletManagerAreaRegistration.cs" />
+    <Compile Include="Areas\Rpt\Controllers\DiscountsController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\DistributorTargetsController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\FinancialController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\InventoryController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\InventoryReceiptController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\OrderBySubBrandController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\OrdersByBrandController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\OrdersByDistributorController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\OrdersController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\OrdersSummaryController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\OutletsController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\OutletTargetsController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\ProductCatalogController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\PurchasesByBrandController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\PurchasesByDistributorController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\PurchasesByPackagingController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\RegionalSalesController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\ReportsController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\SaleByProductPerOutletController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\SaleBySubBrandController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\SalesAndGrossProfitController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\SalesByBrandController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\SalesByDistributorController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\SalesByRetailerController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\SalesByRouteController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\SalesController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\SalesSummaryController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\SampleController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\StockMovementController.cs" />
+    <Compile Include="Areas\Rpt\Controllers\TargetsController.cs" />
+    <Compile Include="Areas\Rpt\RptAreaRegistration.cs" />
+    <Compile Include="Areas\Utilities\UtilitiesAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
+    <Compile Include="Controllers\DistributorUsersController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HQUsersController.cs" />
+    <Compile Include="Controllers\SupplierUsersController.cs" />
+    <Compile Include="DistributrReports\Dashboards.aspx.cs">
+      <DependentUpon>Dashboards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DistributrReports\Dashboards.aspx.designer.cs">
+      <DependentUpon>Dashboards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DistributrReports\Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DistributrReports\Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="IOC\Bootstrap.cs" />
+    <Compile Include="Models\AgriWebHelper.cs" />
+    <Compile Include="Models\DistributrReportServerCredentials.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="calendar\img\cal.gif" />
+    <Content Include="calendar\img\next_mon.gif" />
+    <Content Include="calendar\img\next_year.gif" />
+    <Content Include="calendar\img\no_cal.gif" />
+    <Content Include="calendar\img\pixel.gif" />
+    <Content Include="calendar\img\prev_mon.gif" />
+    <Content Include="calendar\img\prev_year.gif" />
+    <Content Include="calendar\jquery-1.5.1.js" />
+    <Content Include="calendar\jquery.ui.all.css" />
+    <Content Include="calendar\jquery.ui.core.js" />
+    <Content Include="calendar\jquery.ui.datepicker.css" />
+    <Content Include="calendar\jquery.ui.datepicker.js" />
+    <Content Include="calendar\jquery.ui.widget.js" />
+    <Content Include="Content\Agrimanager\images\arrow_down.gif" />
+    <Content Include="Content\Agrimanager\images\arrow_down_over.gif" />
+    <Content Include="Content\Agrimanager\images\arrow_right.gif" />
+    <Content Include="Content\Agrimanager\images\arrow_right_over.gif" />
+    <Content Include="Content\Agrimanager\images\breadcrumb-bg.png" />
+    <Content Include="Content\Agrimanager\images\buttons\account-over.png" />
+    <Content Include="Content\Agrimanager\images\buttons\account-up.png" />
+    <Content Include="Content\Agrimanager\images\buttons\buttons.png" />
+    <Content Include="Content\Agrimanager\images\buttons\close.gif" />
+    <Content Include="Content\Agrimanager\images\buttons\dashboard-over.png" />
+    <Content Include="Content\Agrimanager\images\buttons\dashboard-up.png" />
+    <Content Include="Content\Agrimanager\images\buttons\global-settings-over.png" />
+    <Content Include="Content\Agrimanager\images\buttons\global-settings-up.png" />
+    <Content Include="Content\Agrimanager\images\buttons\help-over.png" />
+    <Content Include="Content\Agrimanager\images\buttons\help-up.png" />
+    <Content Include="Content\Agrimanager\images\buttons\input-btn-over.png" />
+    <Content Include="Content\Agrimanager\images\buttons\input-btn-up.png" />
+    <Content Include="Content\Agrimanager\images\buttons\open.gif" />
+    <Content Include="Content\Agrimanager\images\cal.gif" />
+    <Content Include="Content\Agrimanager\images\distributr-logo.png" />
+    <Content Include="Content\Agrimanager\images\down.png" />
+    <Content Include="Content\Agrimanager\images\header-bg.png" />
+    <Content Include="Content\Agrimanager\images\icons.png" />
+    <Content Include="Content\Agrimanager\images\icons\books.png" />
+    <Content Include="Content\Agrimanager\images\icons\deliveries-pending.png" />
+    <Content Include="Content\Agrimanager\images\icons\deliveries.png" />
+    <Content Include="Content\Agrimanager\images\icons\global - Copy.png" />
+    <Content Include="Content\Agrimanager\images\icons\global.png" />
+    <Content Include="Content\Agrimanager\images\icons\icons.png" />
+    <Content Include="Content\Agrimanager\images\icons\orders-pending.png" />
+    <Content Include="Content\Agrimanager\images\icons\orders.png" />
+    <Content Include="Content\Agrimanager\images\icons\outstanding-bal.png" />
+    <Content Include="Content\Agrimanager\images\icons\products.png" />
+    <Content Include="Content\Agrimanager\images\icons\reports.png" />
+    <Content Include="Content\Agrimanager\images\icons\sprite.png" />
+    <Content Include="Content\Agrimanager\images\icons\system.png" />
+    <Content Include="Content\Agrimanager\images\images_home.png" />
+    <Content Include="Content\Agrimanager\images\left.png" />
+    <Content Include="Content\Agrimanager\images\main-menu-bg.png" />
+    <Content Include="Content\Agrimanager\images\main-panel-bg.png" />
+    <Content Include="Content\Agrimanager\images\mainHeader.png" />
+    <Content Include="Content\Agrimanager\images\quick-links-bg.png" />
+    <Content Include="Content\Agrimanager\images\result.png" />
+    <Content Include="Content\Agrimanager\images\sprite.png" />
+    <Content Include="Content\Agrimanager\images\sprite_home.png" />
+    <Content Include="Content\Agrimanager\images\sprite_home2.png" />
+    <Content Include="Content\Agrimanager\images\table\asc.gif" />
+    <Content Include="Content\Agrimanager\images\table\bg.gif" />
+    <Content Include="Content\Agrimanager\images\table\desc.gif" />
+    <Content Include="Content\Agrimanager\images\virtualcity-logo.png" />
+    <Content Include="Content\Agrimanager\jquery.ui.datepicker.css" />
+    <Content Include="Content\Agrimanager\js\combined_2E06260116CE62E19463B57AA5B64C20.js" />
+    <Content Include="Content\Agrimanager\js\combined_C31F823A5D68D3A1BC5BA5A8FDAC7331.js" />
+    <Content Include="Content\Agrimanager\js\eye.js" />
+    <Content Include="Content\Agrimanager\js\g.bar.js" />
+    <Content Include="Content\Agrimanager\js\g.pie.js" />
+    <Content Include="Content\Agrimanager\js\g.raphael.js" />
+    <Content Include="Content\Agrimanager\js\jit-yc.js" />
+    <Content Include="Content\Agrimanager\js\jquery-1.4.1.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery-1.4.2.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery-1.4.4.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery-1.6.2.min.js" />
+    <Content Include="Content\Agrimanager\js\Jquery-1.6.js" />
+    <Content Include="Content\Agrimanager\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery.datepick.js" />
+    <Content Include="Content\Agrimanager\js\jquery.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery.tablesorter.js" />
+    <Content Include="Content\Agrimanager\js\jquery.validate.min.js" />
+    <Content Include="Content\Agrimanager\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\Agrimanager\js\layout.js" />
+    <Content Include="Content\Agrimanager\js\main-menu-drop-down.js" />
+    <Content Include="Content\Agrimanager\js\MenuMatic_0.68.3.js" />
+    <Content Include="Content\Agrimanager\js\raphael.js" />
+    <Content Include="Content\Agrimanager\js\tablesort.js" />
+    <Content Include="Content\Agrimanager\js\tabs.js" />
+    <Content Include="Content\Agrimanager\js\utils.js" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\css\smoothness\jquery-ui-1.8.22.custom.css" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\Agrimanager\platform\jquery-ui\js\jquery-ui-1.8.22.custom.min.js" />
+    <Content Include="Content\Agrimanager\Site.css" />
+    <Content Include="Content\Agrimanager\styles\combined_0B4B9C8246EA5A00AC6DBCE8B0D564BD.css" />
+    <Content Include="Content\Agrimanager\styles\combined_14D05DDC43541708CDF56C6B0EBED30E.css" />
+    <Content Include="Content\Agrimanager\styles\combined_2B9B112467C3ED6756B26D99CEC6A8C6.css" />
+    <Content Include="Content\Agrimanager\styles\combined_3F1CA920CA5734332F810949284EEF28.css" />
+    <Content Include="Content\Agrimanager\styles\combined_46668D7937C182F39DB236951F8B57CD.css" />
+    <Content Include="Content\Agrimanager\styles\combined_47A6BCC2F92A3B9932A11019F2D53C86.css" />
+    <Content Include="Content\Agrimanager\styles\combined_4F56A78E8E27E0EF19D299BF9C7BBF87.css" />
+    <Content Include="Content\Agrimanager\styles\combined_53807D69B4FF9A3FC3EEAC96AFA0951E.css" />
+    <Content Include="Content\Agrimanager\styles\combined_5A30AD080FE55E1B9DFEDA606312EA2F.css" />
+    <Content Include="Content\Agrimanager\styles\combined_63746685C2ACC8D6FB4B7AF1CE3217D8.css" />
+    <Content Include="Content\Agrimanager\styles\combined_64E82CB52843678651978674B67E2F97.css" />
+    <Content Include="Content\Agrimanager\styles\combined_65889DE75BDCB88AA8292A1917516B92.css" />
+    <Content Include="Content\Agrimanager\styles\combined_7521C6296BA80E1A10CC1A66A4AEBC1D.css" />
+    <Content Include="Content\Agrimanager\styles\combined_7A49329CAB24A1729F3189A0BC96D162.css" />
+    <Content Include="Content\Agrimanager\styles\combined_8AC9114DA4B5F616196043E52BE0C585.css" />
+    <Content Include="Content\Agrimanager\styles\combined_8CF5ED3E571777BD02963BD0AAF61043.css" />
+    <Content Include="Content\Agrimanager\styles\combined_A3DDCF7C2AC9EB12638B4BD0CAE13C53.css" />
+    <Content Include="Content\Agrimanager\styles\combined_AE24583497359E7F1783088AC261BA51.css" />
+    <Content Include="Content\Agrimanager\styles\combined_B286B47A2337D0D91BACD9A59593D87B.css" />
+    <Content Include="Content\Agrimanager\styles\combined_D90A59E83A22CEBE7BA14E3AC985EE68.css" />
+    <Content Include="Content\Agrimanager\styles\combined_E440AFEADBE0FF5AB41FB673681267F3.css" />
+    <Content Include="Content\Agrimanager\styles\combined_E90FC6E36551868945C91D0E30BB2A53.css" />
+    <Content Include="Content\Agrimanager\styles\combined_FB53668CC54F0E08D9F77864B66EC2E4.css" />
+    <Content Include="Content\Agrimanager\styles\css\AreaChart.css" />
+    <Content Include="Content\Agrimanager\styles\css\BarChart.css" />
+    <Content Include="Content\Agrimanager\styles\css\base.css" />
+    <Content Include="Content\Agrimanager\styles\css\col1.png" />
+    <Content Include="Content\Agrimanager\styles\css\col2.png" />
+    <Content Include="Content\Agrimanager\styles\css\ForceDirected.css" />
+    <Content Include="Content\Agrimanager\styles\css\ForceDirected3D.css" />
+    <Content Include="Content\Agrimanager\styles\css\gradient.png" />
+    <Content Include="Content\Agrimanager\styles\css\HeatMap.css" />
+    <Content Include="Content\Agrimanager\styles\css\Hypertree.css" />
+    <Content Include="Content\Agrimanager\styles\css\Icicle.css" />
+    <Content Include="Content\Agrimanager\styles\css\Other.css" />
+    <Content Include="Content\Agrimanager\styles\css\PieChart.css" />
+    <Content Include="Content\Agrimanager\styles\css\RGraph.css" />
+    <Content Include="Content\Agrimanager\styles\css\Spacetree.css" />
+    <Content Include="Content\Agrimanager\styles\css\Sunburst.css" />
+    <Content Include="Content\Agrimanager\styles\css\TimeGraph.css" />
+    <Content Include="Content\Agrimanager\styles\css\Treemap.css" />
+    <Content Include="Content\Agrimanager\styles\datepicker.css" />
+    <Content Include="Content\Agrimanager\styles\demo-print.css" />
+    <Content Include="Content\Agrimanager\styles\demo.css" />
+    <Content Include="Content\Agrimanager\styles\jquery.datepick.css" />
+    <Content Include="Content\Agrimanager\styles\layout.css" />
+    <Content Include="Content\Agrimanager\styles\main-menu.css" />
+    <Content Include="Content\Agrimanager\styles\main.css" />
+    <Content Include="Content\Agrimanager\styles\MenuMatic.css" />
+    <Content Include="Content\Agrimanager\styles\reset.css" />
+    <Content Include="Content\Agrimanager\styles\Site.css" />
+    <Content Include="Content\Agrimanager\styles\style.css" />
+    <Content Include="Content\Agrimanager\styles\tables.css" />
+    <Content Include="Content\Agrimanager\styles\tabs.css" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Agrimanager\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Agrimanager\themes\base\jquery-ui.css" />
+    <Content Include="Content\backgrid\backgrid-filter.css" />
+    <Content Include="Content\backgrid\backgrid-paginator.css" />
+    <Content Include="Content\backgrid\backgrid.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Content\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\images\arrow_down.gif" />
+    <Content Include="Content\images\arrow_down_over.gif" />
+    <Content Include="Content\images\arrow_right.gif" />
+    <Content Include="Content\images\arrow_right_over.gif" />
+    <Content Include="Content\images\breadcrumb-bg.png" />
+    <Content Include="Content\images\buttons\account-over.png" />
+    <Content Include="Content\images\buttons\account-up.png" />
+    <Content Include="Content\images\buttons\buttons.png" />
+    <Content Include="Content\images\buttons\close.gif" />
+    <Content Include="Content\images\buttons\dashboard-over.png" />
+    <Content Include="Content\images\buttons\dashboard-up.png" />
+    <Content Include="Content\images\buttons\global-settings-over.png" />
+    <Content Include="Content\images\buttons\global-settings-up.png" />
+    <Content Include="Content\images\buttons\help-over.png" />
+    <Content Include="Content\images\buttons\help-up.png" />
+    <Content Include="Content\images\buttons\input-btn-over.png" />
+    <Content Include="Content\images\buttons\input-btn-up.png" />
+    <Content Include="Content\images\buttons\open.gif" />
+    <Content Include="Content\images\cal.gif" />
+    <Content Include="Content\images\distributr-logo-kemsa.png" />
+    <Content Include="Content\images\distributr-logo.png" />
+    <Content Include="Content\images\down.png" />
+    <Content Include="Content\images\header-bg.png" />
+    <Content Include="Content\images\icons\books.png" />
+    <Content Include="Content\images\icons\deliveries-pending.png" />
+    <Content Include="Content\images\icons\deliveries.png" />
+    <Content Include="Content\images\icons\global.png" />
+    <Content Include="Content\images\icons\icons.png" />
+    <Content Include="Content\images\icons\orders-pending.png" />
+    <Content Include="Content\images\icons\orders.png" />
+    <Content Include="Content\images\icons\outstanding-bal.png" />
+    <Content Include="Content\images\icons\products.png" />
+    <Content Include="Content\images\icons\reports.png" />
+    <Content Include="Content\images\icons\sprite.png" />
+    <Content Include="Content\images\icons\system.png" />
+    <Content Include="Content\images\images_home.png" />
+    <Content Include="Content\images\left.png" />
+    <Content Include="Content\images\main-menu-bg.png" />
+    <Content Include="Content\images\main-panel-bg.png" />
+    <Content Include="Content\images\quick-links-bg.png" />
+    <Content Include="Content\images\result.png" />
+    <Content Include="Content\images\sprite.png" />
+    <Content Include="Content\images\table\asc.gif" />
+    <Content Include="Content\images\table\bg.gif" />
+    <Content Include="Content\images\table\desc.gif" />
+    <Content Include="Content\images\virtualcity-logo.png" />
+    <Content Include="Content\jquery-ui-1.8.13.custom.css" />
+    <Content Include="Content\jquery.ui.all.css" />
+    <Content Include="Content\jquery.ui.datepicker.css" />
+    <Content Include="Content\js\eye.js" />
+    <Content Include="Content\js\jquery-1.4.2.min.js" />
+    <Content Include="Content\js\jquery-1.4.4.min.js" />
+    <Content Include="Content\js\jquery-1.6.2.min.js" />
+    <Content Include="Content\js\Jquery-1.6.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.tablesorter.js" />
+    <Content Include="Content\js\layout.js" />
+    <Content Include="Content\js\main-menu-drop-down.js" />
+    <Content Include="Content\js\MenuMatic_0.68.3.js" />
+    <Content Include="Content\js\tablesort.js" />
+    <Content Include="Content\js\tabs.js" />
+    <Content Include="Content\js\utils.js" />
+    <Content Include="Content\magnific-popup.css" />
+    <Content Include="Content\styles\datepicker.css" />
+    <Content Include="Content\styles\jquery.datepick.css" />
+    <Content Include="Content\styles\layout.css" />
+    <Content Include="Content\styles\main-menu.css" />
+    <Content Include="Content\styles\main.css" />
+    <Content Include="Content\styles\MenuMatic.css" />
+    <Content Include="Content\styles\reset.css" />
+    <Content Include="Content\styles\Site.css" />
+    <Content Include="Content\styles\style.css" />
+    <Content Include="Content\styles\tables.css" />
+    <Content Include="Content\styles\tabs.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="DistributrReports\Dashboards.aspx" />
+    <Content Include="DistributrReports\Report.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="js\app.js" />
+    <Content Include="js\apputil.js" />
+    <Content Include="js\boilerplate.js" />
+    <Content Include="js\libs\backbone\backbone-pageable.js" />
+    <Content Include="js\libs\backbone\backbone-pageable.min.js" />
+    <Content Include="js\libs\backbone\backbone.js" />
+    <Content Include="js\libs\backbone\backbone.stickit.js" />
+    <Content Include="js\libs\backgrid\backgrid-filter.js" />
+    <Content Include="js\libs\backgrid\backgrid-paginator.js" />
+    <Content Include="js\libs\backgrid\backgrid.js" />
+    <Content Include="js\libs\bootstrap\bootstrap.js" />
+    <Content Include="js\libs\bootstrap\bootstrap.min.js" />
+    <Content Include="js\libs\fullcalendar\fullcalendar.js" />
+    <Content Include="js\libs\fullcalendar\fullcalendar.min.js" />
+    <Content Include="js\libs\jquery\jquery-1.8.2.min.js" />
+    <Content Include="js\libs\jquery\jquery-1.9.1.js" />
+    <Content Include="js\libs\jquery\jquery-ui-1.10.3.custom.js" />
+    <Content Include="js\libs\jquery\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="js\libs\jquery\jquery-ui-1.8.20.js" />
+    <Content Include="js\libs\jquery\jquery-ui-1.8.20.min.js" />
+    <Content Include="js\libs\jquery\jquery-ui-1.8.24.js" />
+    <Content Include="js\libs\jquery\jquery-ui-1.8.24.min.js" />
+    <Content Include="js\libs\jquery\jquery.magnific-popup.js" />
+    <Content Include="js\libs\jquery\jquery.magnific-popup.min.js" />
+    <Content Include="js\libs\jquery\jquery.timepicker.min.js" />
+    <Content Include="js\libs\lunr\lunr.js" />
+    <Content Include="js\libs\lunr\lunr.min.js" />
+    <Content Include="js\libs\moment\moment.min.js" />
+    <Content Include="js\libs\require\require.js" />
+    <Content Include="js\libs\spin\jquery.spin.js" />
+    <Content Include="js\libs\spin\spin.min.js" />
+    <Content Include="js\libs\text\text.js" />
+    <Content Include="js\libs\toastr\toastr.min.js" />
+    <Content Include="js\libs\underscore\underscore.js" />
+    <Content Include="js\libs\util\accounting.min.js" />
+    <Content Include="js\libs\util\md5.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\router.js" />
+    <Content Include="js\templates\addupdate_purchaserorder_template.html" />
+    <Content Include="js\templates\popuplist_template.html" />
+    <Content Include="js\templates\productpopup_template.html" />
+    <Content Include="js\views\addupdatepurchaseorder.js" />
+    <Content Include="js\views\productpopup.js" />
+    <Content Include="Scripts\distributrDatePicker.js" />
+    <Content Include="Scripts\jquery.bgiframe-2.1.2.js" />
+    <Content Include="Scripts\Menu\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\Menu\menu.js" />
+    <Content Include="Scripts\Menu\stdom.js" />
+    <Content Include="Scripts\Menu\stfilter.js" />
+    <Content Include="Scripts\Menu\sthilight.js" />
+    <Content Include="Scripts\Menu\stie.js" />
+    <Content Include="Scripts\Menu\stinit.js" />
+    <Content Include="Scripts\Menu\stmenu.js" />
+    <Content Include="Scripts\Menu\stscroll.js" />
+    <Content Include="Scripts\Menu\stslip.js" />
+    <Content Include="Scripts\Menu\stwinels.js" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\SupplierUsers\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Regions\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\OutletManager\Models\" />
+    <Folder Include="Areas\Rpt\Models\" />
+    <Folder Include="Areas\Rpt\Views\Shared\" />
+    <Folder Include="Areas\Utilities\Controllers\" />
+    <Folder Include="Areas\Utilities\Models\" />
+    <Folder Include="Areas\Utilities\Views\Shared\" />
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distrbutor.ReportsServerReports\Distrbutor.ReportsServerReports.csproj">
+      <Project>{f3e2d2bd-b5fd-4f28-8850-6e835df9fe5a}</Project>
+      <Name>Distrbutor.ReportsServerReports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributor.Core.Data\Distributr.Core.Data.csproj">
+      <Project>{B9EE272B-6D02-47A5-B6F6-D96CB102404E}</Project>
+      <Name>Distributr.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributor.Core\Distributr.Core.csproj">
+      <Project>{900F434E-7D81-422B-B567-1564C79CEAB3}</Project>
+      <Name>Distributr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributor.HQ.Lib\Distributr.HQ.Lib.csproj">
+      <Project>{D2999A44-EAC9-4F84-BB28-F268E254536D}</Project>
+      <Name>Distributr.HQ.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WSAPI.Lib\Distributr.WSAPI.Lib.csproj">
+      <Project>{7271F6B1-35F0-4C0A-A4CB-3F10D426E37F}</Project>
+      <Name>Distributr.WSAPI.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distributr.WSAPI.Server\Distributr.WSAPI.Server.csproj">
+      <Project>{40FF958B-EE1D-42BA-8678-02B6BD61AE41}</Project>
+      <Name>Distributr.WSAPI.Server</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Products\ListProductBrands.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Products\DetailsProductBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Products\EditProductBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductFlavour\ProductFlavourDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductFlavour\Createflavour.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductFlavour\EditProductFlavour.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductFlavour\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPackaging\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductType\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductType\ListProductTypes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductType\DetailsProductType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductType\EditProductType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductType\CreateProductType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductBrand\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductBrand\ListProductBrands.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductBrand\DetailsProductBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductBrand\CreateProductBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductBrand\EditProductBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\UserType\ListUserTypes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\UserType\UserTypeIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\UserType\UserTypeDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\UserType\CreateUserType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\UserType\EditUserType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPackaging\ListProductPackaging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPackaging\DetailsProductPackaging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPackaging\EditProductPackaging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPackaging\CreateProductPackaging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPackagingType\ListProductPackagingType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPackagingType\CreateProductPackagingType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPackagingType\EditProductPackagingType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPackagingType\DetailsProductPackagingType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPackagingType\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Route\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Route\ListRoutes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Route\DetailsRoutes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Route\CreateRoute.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Route\EditRoute.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPricing\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPricing\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPricing\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPricing\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ProductPricing\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Distributor\EditDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Distributor\CreateDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Distributor\DistributorDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Distributor\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Distributor\ListDistributors.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Outlet\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Outlet\ListOutlets.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Outlet\CreateOutletssss.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Outlet\CreateOutlets.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Outlet\EditOutlets.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Contact\ContactDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Contact\ListContacts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Contact\CreateContact.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Contact\EditContact.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\OutletType\ListOutletTypes.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletType\EditOutletType.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletType\CreateOutletType.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletType\DetailsOutletType.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletCategory\ListOutletCategories.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletCategory\CreateOutletCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletCategory\EditOutletCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletCategory\DetailsOutletCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Transporter\CreateTransporter.cshtml" />
+    <Content Include="Areas\Admin\Views\Transporter\EditTransporter.cshtml" />
+    <Content Include="Areas\Admin\Views\Transporter\ListTransporter.cshtml" />
+    <Content Include="Areas\Admin\Views\Area\CreateArea.cshtml" />
+    <Content Include="Areas\Admin\Views\Area\DetailsArea.cshtml" />
+    <Content Include="Areas\Admin\Views\Area\EditArea.cshtml" />
+    <Content Include="Areas\Admin\Views\Area\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Area\ListAreas.cshtml" />
+    <Content Include="Areas\Admin\Views\Country\CreateCountry.cshtml" />
+    <Content Include="Areas\Admin\Views\Country\DetailsCountry.cshtml" />
+    <Content Include="Areas\Admin\Views\Country\EditCountry.cshtml" />
+    <Content Include="Areas\Admin\Views\Country\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Country\ListCountry.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPricingTier\ListProductPricingTiers.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPricingTier\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPricingTier\DetailsProductPricingTiers.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPricingTier\CreateProductPricingTier.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPricingTier\EditProductPricingTier.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Producers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Producers\ListProducer.cshtml" />
+    <Content Include="Areas\Admin\Views\Producers\EditProducer.cshtml" />
+    <Content Include="Areas\Admin\Views\Producers\CreateProducer.cshtml" />
+    <Content Include="Areas\Admin\Views\Producers\DetailsProducer.cshtml" />
+    <Content Include="Areas\Admin\Views\VATClass\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\VATClass\ListVat.cshtml" />
+    <Content Include="Areas\Admin\Views\VATClass\DetailsVat.cshtml" />
+    <Content Include="Areas\Admin\Views\VATClass\EditVat.cshtml" />
+    <Content Include="Areas\Admin\Views\VATClass\CreateVat.cshtml" />
+    <Content Include="Areas\Admin\Views\Region\CreateRegion.cshtml" />
+    <Content Include="Areas\Admin\Views\Region\DetailsRegion.cshtml" />
+    <Content Include="Areas\Admin\Views\Region\EditRegion.cshtml" />
+    <Content Include="Areas\Admin\Views\Region\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Region\ListRegion.cshtml" />
+    <Content Include="Areas\Admin\Views\VATClass\CreateVatClass.cshtml" />
+    <Content Include="Areas\Admin\Views\ListVatClass\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CreateVatClass\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CreateVatClass\CreateVatClass.cshtml" />
+    <Content Include="Areas\Admin\Views\ListVatClass\EditVat.cshtml" />
+    <Content Include="Areas\Admin\Views\ListVatClass\EditVat1.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPricing\EditProductPricing.cshtml" />
+    <Content Include="Areas\Admin\Views\Producers\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Producers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SocioEconomicStatus\List.cshtml" />
+    <Content Include="Areas\Admin\Views\SocioEconomicStatus\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SocioEconomicStatus\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SocioEconomicStatus\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\EditSaleProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\EditReturnableProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\EditConsolidatedProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\CreateConsolidatedProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\ListAllOrders.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\OrderedList.cshtml" />
+    <Content Include="Areas\Admin\Views\Producer\EditProducer.cshtml" />
+    <Content Include="Areas\Admin\Views\Producer\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout-old.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Transporter\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Transporter\DetailsTransporter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ListVatClass\CreateVat.cshtml" />
+    <Content Include="Areas\Utilities\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\ListVatClass\ListVat.cshtml" />
+    <Content Include="Areas\Admin\Views\Outlet\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Territory\CreateTerritory.cshtml" />
+    <Content Include="Areas\Admin\Views\Territory\DetailsTerritory.cshtml" />
+    <Content Include="Areas\Admin\Views\Territory\EditTerritory.cshtml" />
+    <Content Include="Areas\Admin\Views\Territory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Territory\ListTerritory.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductFlavour\ListProductFlavours.cshtml" />
+    <Content Include="Areas\Admin\Views\ListVatClass\ListVatClassLineItems.cshtml" />
+    <Content Include="Areas\Admin\Views\ListVatClass\AddVatClassLineItems.cshtml" />
+    <Content Include="Areas\Admin\Views\Blank\Blank.cshtml" />
+    <Content Include="Areas\Admin\Views\ApproveOrder\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ApproveOrder\LineItemEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\ApproveOrder\LineItemAdd.cshtml" />
+    <Content Include="Areas\Admin\Views\TargetPeriod\ListTargetPeriods.cshtml" />
+    <Content Include="Areas\Admin\Views\TargetPeriod\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TargetPeriod\CreateTargetPeriod.cshtml" />
+    <Content Include="Areas\Admin\Views\TargetPeriod\TargetPeriodDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\TargetPeriod\EditTargetPeriod.cshtml" />
+    <Content Include="Areas\Admin\Views\TargetPeriod\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TargetPeriod\ListTargetPeriods.cshtml" />
+    <Content Include="Areas\Admin\Views\Target\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Target\ListTargets.cshtml" />
+    <Content Include="Areas\Admin\Views\Target\CreateTarget.cshtml" />
+    <Content Include="Areas\Admin\Views\Target\EditTarget.cshtml" />
+    <Content Include="Areas\Admin\Views\Province\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Province\ListProvinces.cshtml" />
+    <Content Include="Areas\Admin\Views\Province\CreateProvince.cshtml" />
+    <Content Include="Areas\Admin\Views\Province\ProvinceDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Province\EditProvince.cshtml" />
+    <Content Include="Areas\Admin\Views\District\ListDistricts.cshtml" />
+    <Content Include="Areas\Admin\Views\District\CreateDistrict.cshtml" />
+    <Content Include="Areas\Admin\Views\District\EditDistrict.cshtml" />
+    <Content Include="Areas\Admin\Views\Competitor\ListCompetitors.cshtml" />
+    <Content Include="Areas\Admin\Views\Competitor\CreateCompetitor.cshtml" />
+    <Content Include="Areas\Admin\Views\Competitor\EditCompetitor.cshtml" />
+    <Content Include="Areas\Admin\Views\CoolerType\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CoolerType\ListCoolerTypes.cshtml" />
+    <Content Include="Areas\Admin\Views\CoolerType\CreateCoolerType.cshtml" />
+    <Content Include="Areas\Admin\Views\CoolerType\CoolerTypeDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\CoolerType\EditCoolerType.cshtml" />
+    <Content Include="Areas\Admin\Views\Cooler\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Cooler\ListCoolers.cshtml" />
+    <Content Include="Areas\Admin\Views\CompetitorProduct\CreateProduct.cshtml" />
+    <Content Include="ConfigFiles\chris.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ConfigFiles\chris.Debug.config">
+      <DependentUpon>chris.config</DependentUpon>
+    </Content>
+    <Content Include="ConfigFiles\chris.Release.config">
+      <DependentUpon>chris.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\CompetitorProduct\ListCompetitorProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\CompetitorProduct\EditProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Cooler\CreateCooler.cshtml" />
+    <Content Include="Areas\Admin\Views\Cooler\CoolerDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Cooler\EditCooler.cshtml" />
+    <Content Include="Areas\Admin\Views\MarketAudit\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MarketAudit\ListMarketAudits.cshtml" />
+    <Content Include="Areas\Admin\Views\MarketAudit\CreateMarketAudit.cshtml" />
+    <Content Include="Areas\Admin\Views\MarketAudit\MarketAuditDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\MarketAudit\EditMarketAudit.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletAudit\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletAudit\ListOutletAudits.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletAudit\CreateOutletAudit.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletAudit\OutletAuditDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletAudit\EditOutletAudit.cshtml" />
+    <Content Include="Areas\Admin\Views\ReOrderLevel\CreateReOrderLevel.cshtml" />
+    <Content Include="Areas\Admin\Views\ReOrderLevel\EditReOrderLevel.cshtml" />
+    <Content Include="Areas\Admin\Views\ReOrderLevel\ListReOrderLevels.cshtml" />
+    <Content Include="Areas\Admin\Views\Shells\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shells\ListShells.cshtml" />
+    <Content Include="Areas\Admin\Views\Shells\CreateShell.cshtml" />
+    <Content Include="Areas\Admin\Views\Shells\ShellDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Shells\EditShell.cshtml" />
+    <Content Include="Areas\Admin\Views\Returnables\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Returnables\ListReturnables.cshtml" />
+    <Content Include="Areas\Admin\Views\Returnables\CreateReturnables.cshtml" />
+    <Content Include="Areas\Admin\Views\Returnables\ReturnablesDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Returnables\EditReturnables.cshtml" />
+    <Content Include="Areas\Admin\Views\ChannelPackaging\ListChannelPacks.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPricing\CreatePricingLineItem.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPricing\CreatePricingItems.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPricing\ListPricingItems.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ListProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\CreateSaleProductss.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\CreateSaleProduct.cshtml" />
+    <Content Include="ConfigFiles\IP_167QA.config" />
+    <Content Include="ConfigFiles\IP_85Test.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ConfigFiles\IP_85Test.Debug.config">
+      <DependentUpon>IP_85Test.config</DependentUpon>
+    </Content>
+    <Content Include="ConfigFiles\IP_85Test.Release.config">
+      <DependentUpon>IP_85Test.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\ProductDiscount\ListDiscounts.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductDiscount\CreateDiscounts.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductDiscount\EditDiscounts.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductDiscount\ListDiscountItems.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductDiscount\CreateDiscountItems.cshtml" />
+    <Content Include="Areas\Admin\Views\SaleValueDiscount\ListSaleValueDiscounts.cshtml" />
+    <Content Include="Areas\Admin\Views\SaleValueDiscount\CreateSaleValueDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\SaleValueDiscount\EditSaleValueDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\SaleValueDiscount\SaleValueDiscountItems.cshtml" />
+    <Content Include="Areas\Admin\Views\SaleValueDiscount\CreateSaleValueDiscountItem.cshtml" />
+    <Content Include="Areas\Admin\Views\Inventory\InventoryBalances.cshtml" />
+    <Content Include="Areas\Admin\Views\Inventory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Inventory\InventoryTransactions.cshtml" />
+    <Content Include="Areas\Admin\Views\CustomerDiscount\ListCustomerDiscounts.cshtml" />
+    <Content Include="Areas\Admin\Views\CustomerDiscount\ListDiscountItems.cshtml" />
+    <Content Include="Areas\Admin\Views\CustomerDiscount\EditDiscounts.cshtml" />
+    <Content Include="Areas\Admin\Views\CustomerDiscount\CreateDiscounts.cshtml" />
+    <Content Include="Areas\Admin\Views\CustomerDiscount\CreateDiscountItems.cshtml" />
+    <Content Include="Areas\Admin\Views\Finnancial\AccountBalances.cshtml" />
+    <Content Include="Areas\Admin\Views\Finnancial\AccountTransaction.cshtml" />
+    <Content Include="Areas\Admin\Views\Transaction\GetAllTransactions.cshtml" />
+    <Content Include="Areas\Admin\Views\DiscountGroup\ListDiscountGroups.cshtml" />
+    <Content Include="Areas\Admin\Views\DiscountGroup\CreateDiscountGroup.cshtml" />
+    <Content Include="Areas\Admin\Views\DiscountGroup\EditDiscountGroup.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroupDiscount\ListProductGroupDiscounts.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroupDiscount\CreateProductGroupDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroupDiscount\EditProductGroupDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroupDiscount\ListProductGroupDiscountItems.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroupDiscount\CreateProductGroupDiscountItems.cshtml" />
+    <Content Include="Areas\Admin\Views\ApproveOrder\Web.config" />
+    <Content Include="Areas\Admin\Views\Transaction\DocumentListing.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ReportProducts.cshtml" />
+    <Content Include="ConfigFiles\SamsLocal.config" />
+    <Content Include="Areas\Admin\Views\DiscountGroup\ListProductGroupDiscounts.cshtml" />
+    <Content Include="Areas\Admin\Views\DiscountGroup\CreateProductGroupDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\CertainValueCertainProduct\ListCertainValueCertainProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\CertainValueCertainProduct\CreateCertainValueCertainProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\CertainValueCertainProduct\EditDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\CertainValueCertainProduct\ListCertainValueCertainProductItem.cshtml" />
+    <Content Include="Areas\Admin\Views\CertainValueCertainProduct\CreateCertainValueCertainProductItem.cshtml" />
+    <Content Include="Areas\Admin\Views\FreeOfChargeDiscount\List.cshtml" />
+    <Content Include="Areas\Admin\Views\PromotionDiscount\ListFOCDiscounts.cshtml" />
+    <Content Include="Areas\Admin\Views\PromotionDiscount\CreatFOCDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\PromotionDiscount\CreatFOCDiscountItem.cshtml" />
+    <Content Include="Areas\Admin\Views\PromotionDiscount\EditFOCDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\PromotionDiscount\ListFOCDiscountItems.cshtml" />
+    <Content Include="Areas\Admin\Views\FreeOfChargeDiscount\CreateEdit.cshtml" />
+    <Content Include="ConfigFiles\local2.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ConfigFiles\local2.Debug.config">
+      <DependentUpon>local2.config</DependentUpon>
+    </Content>
+    <Content Include="ConfigFiles\local2.Release.config">
+      <DependentUpon>local2.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\UserGroup\List.cshtml" />
+    <Content Include="Areas\Admin\Views\UserGroup\CreateGroup.cshtml" />
+    <Content Include="Areas\Admin\Views\UserGroup\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\UserGroup\Assign.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductBrand\ImportBrands.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPricingTier\ImportPricingTier.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPackaging\ImportProductPackaging.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPackagingType\ImportProductPackagingType.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductType\ImportProductType.cshtml" />
+    <Content Include="Areas\Admin\Views\Bank\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Bank\ListBanks.cshtml" />
+    <Content Include="Areas\Admin\Views\Bank\CreateBank.cshtml" />
+    <Content Include="Areas\Admin\Views\Bank\BankDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Bank\EditBank.cshtml" />
+    <Content Include="Areas\Admin\Views\BankBranch\ListBankBranches.cshtml" />
+    <Content Include="Areas\Admin\Views\BankBranch\CreateBankBranch.cshtml" />
+    <Content Include="Areas\Admin\Views\BankBranch\EditBankBranch.cshtml" />
+    <Content Include="Areas\Admin\Views\AuditLog\ListAuditLogs.cshtml" />
+    <Content Include="ConfigFiles\IP_85CokeTest.config" />
+    <Content Include="Areas\Admin\Views\ProductFlavour\ImportSubBrands.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ImportProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Outlet\ImportOutlets.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletType\ImportOutletType.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletCategory\ImportOutletCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\ImportOrders.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\ListSuppliers.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\CreateSupplier.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\EditSupplier.cshtml" />
+    <Content Include="ConfigFiles\local1.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ConfigFiles\local1.Debug.config">
+      <DependentUpon>local1.config</DependentUpon>
+    </Content>
+    <Content Include="ConfigFiles\local1.Release.config">
+      <DependentUpon>local1.config</DependentUpon>
+    </Content>
+    <Content Include="ConfigFiles\IP_85.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ConfigFiles\IP_85.Debug.config">
+      <DependentUpon>IP_85.config</DependentUpon>
+    </Content>
+    <Content Include="ConfigFiles\IP_85.Release.config">
+      <DependentUpon>IP_85.config</DependentUpon>
+    </Content>
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Account\ListAllUsers.cshtml" />
+    <Content Include="Views\Account\ResetHqUserPassword.cshtml" />
+    <Content Include="Views\Account\ResetDistributorUserPassword.cshtml" />
+    <Content Include="Views\Account\EditHqUsers.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
+    <Content Include="Views\Home\Index - Copy.cshtml" />
+    <Content Include="Views\Account\LogOn - Copy.cshtml" />
+    <Content Include="Views\Shared\_blankLayout.cshtml" />
+    <Content Include="Views\Account\Permission.cshtml" />
+    <Content Include="Views\Account\ImportUsers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Orders\PendingOrders.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Orders\DeliveredPurchaseOrders.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Product\CreateReturnableProduct.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\MaritalStatus\ListMaritalStatus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\MaritalStatus\CreateMaritalStatus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\MaritalStatus\EditMaritalStatus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ContactType\ListContactTypes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ContactType\AddContactType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ContactType\EditContactType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\LogOn - Copy %282%29.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Orders\ApprovedPurchaseOrders.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetType\ListAssetTypes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetType\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetType\EditAssetType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetType\CreateAssetType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetType\AssetTypeDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetStatus\CreateAssetStatus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetStatus\EditAssetStatus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetStatus\ListAssetStatus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetCategory\ListAssetCategories.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetCategory\DetailsAssetCategory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetCategory\EditAssetCategory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AssetCategory\CreateAssetCategory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Asset\ListAssets.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Asset\CreateAsset.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Asset\EditAsset.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Asset\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Settings\ListSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Settings\CreateSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Settings\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Settings\EditSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\User\AssignRoles.cshtml" />
+    <Content Include="Areas\Admin\Views\User\CreateUser.cshtml" />
+    <Content Include="Areas\Admin\Views\User\EditUser.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\ListUsers.cshtml" />
+    <Content Include="Areas\Admin\Views\User\ListUsers2.cshtml" />
+    <Content Include="Areas\Admin\Views\User\UserDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFiles\wallace.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFiles\kagiri.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFiles\qa3.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFiles\qa3.Debug.config">
+      <DependentUpon>qa3.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFiles\qa3.Release.config">
+      <DependentUpon>qa3.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\RetireSetting\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\RetireSetting\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\RetireSetting\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sample\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Discounts\FreeOfChargeByProduct.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Discounts\FreeOfChargeByDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Discounts\PromotionDiscountByDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Discounts\PromotionDiscountByProduct.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Discounts\CertainValueCertainProduct.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Targets\DistributorTargets.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Targets\OutletTargets.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Outlets\DeactivatedOutlets.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Outlets\NewOutlets.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Outlets\OutletsByCategory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Outlets\OutletsByChannel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Outlets\OutletsByDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Outlets\OutletsByTier.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\InventoryReceipt\InventoryReceiptByBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\InventoryReceipt\InventoryReceiptByDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\InventoryReceipt\InventoryReceiptBySubBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\InventoryReceipt\InventoryReceiptByPackaging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockSummary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockByDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Financial\GrossProfitByDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Financial\SalesFinancialByTier.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesSummary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesByBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesByDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesBySubBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesByProduct.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesDateException.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\PaymentSummary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Orders\OrdersSummary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Orders\OrdersByDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Orders\OrdersByBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Orders\OrdersBySubBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Orders\OrdersByProduct.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Orders\OrdersByPackaging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Orders\OrderDateException.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\PaymentSubReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockBySubBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockByPackaging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\ReorderLevel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\CloseOfDay.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\DataReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockReturns.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Reports.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesSubReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Orders\OrdersSubReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesByPackaging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockByBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockSubReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockReturnsSubReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFiles\kangethe.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Outlets\OutletsByDistributor2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Outlets\Routes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFiles\pato.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFiles\juve.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFiles\juve.Debug.config">
+      <DependentUpon>juve.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFiles\juve.Release.config">
+      <DependentUpon>juve.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockTakeReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Settings\SettingsDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesBySalesmanPerBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SaleByBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SaleSummary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SaleByDistributor2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SaleBySalesman.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SaleBySalesmanPerBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SaleDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockSummary2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockByBrand2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockByProduct2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockBySalesmanSummary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockPerSalesman.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockBySalesmanPerBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockBySalesmanPerProduct.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SaleByDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesBySalesman.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SaleSummary2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SaleBySalesmanPerBrand2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Inventory\StockBySalesmanPerBrand.cshtml" />
+    <Content Include="Areas\Rpt\Views\Inventory\StockBySalesmanPerProduct.cshtml" />
+    <Content Include="Areas\Rpt\Views\Inventory\StockBySalesmanSummary.cshtml" />
+    <Content Include="Areas\Rpt\Views\Inventory\StockPerSalesman.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\Sales\SalesSummary2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersByBrand\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersByBrand\OrderByBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersByBrand\OrdersByDistributor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersByBrand\OrdersBySalesmanPerBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersByBrand\OrdersDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersByDistributor\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersByDistributor\OrdersBySalesman.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersByDistributor\OrdersSummary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersByDistributor\OrdersBySalesmanPerBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersByDistributor\OrderDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\PurchasesByPackaging\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\PurchasesByPackaging\ProductPurchasePerPackaging.cshtml" />
+    <Content Include="Areas\Rpt\Views\OrdersSummary\OrdersByDistributor.cshtml" />
+    <Content Include="Areas\Rpt\Views\RegionalSales\SaleByCountry.cshtml" />
+    <Content Include="Areas\Rpt\Views\RegionalSales\SaleByRegion.cshtml" />
+    <Content Include="Areas\Rpt\Views\RegionalSales\SaleByDistributor.cshtml" />
+    <Content Include="Areas\Rpt\Views\RegionalSales\SaleByRoute.cshtml" />
+    <Content Include="Areas\Rpt\Views\RegionalSales\SaleBySalesmanPerBrand.cshtml" />
+    <Content Include="Areas\Rpt\Views\PurchasesByDistributor\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\PurchasesByDistributor\PurchasesByOutlet.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesSummary\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesSummary\SaleByDistributor.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesSummary\SaleBySalesman.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesSummary\SaleBySalesmanPerBrand.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesSummary\SaleDetails.cshtml" />
+    <Content Include="Areas\Rpt\Views\PurchasesByBrand\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\PurchasesByBrand\ProductPurchasesPerBrand.cshtml" />
+    <Content Include="Areas\Rpt\Views\RegionalSales\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\Discounts\TotalDiscountsByDistributor.cshtml" />
+    <Content Include="Areas\Rpt\Views\Discounts\DiscountByDistributorPerProduct.cshtml" />
+    <Content Include="Areas\Rpt\Views\Inventory\StockByDistributor2.cshtml" />
+    <Content Include="Areas\Rpt\Views\Inventory\StockByBrand3.cshtml" />
+    <Content Include="Areas\Rpt\Views\Inventory\StockByProduct3.cshtml" />
+    <Content Include="Areas\Rpt\Views\Targets\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\Targets\TargetsByRegion.cshtml" />
+    <Content Include="Areas\Rpt\Views\Targets\TargetsByRoute.cshtml" />
+    <Content Include="Areas\Rpt\Views\Targets\TargetsByDistributor.cshtml" />
+    <Content Include="Areas\Rpt\Views\Targets\TargetsByOutlet.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesAndGrossProfit\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesAndGrossProfit\DistributorSalesAndGrossProfit.cshtml" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Admin\Views\AssetCategory\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\StockMovement\GetStockByBrand.cshtml" />
+    <Content Include="Areas\Rpt\Views\StockMovement\GetStockByProduct.cshtml" />
+    <Content Include="Areas\Rpt\Views\StockMovement\GetStockSummary.cshtml" />
+    <Content Include="Areas\Rpt\Views\StockMovement\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\ProducePurchase\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\ProducePurchase\ProducePurchaseByBuyingCenter.cshtml" />
+    <Content Include="Areas\Rpt\Views\ProducePurchase\ProducePurchaseByFarmer.cshtml" />
+    <Content Include="Areas\Rpt\Views\ProducePurchase\ProducePurchaseSummary.cshtml" />
+    <Content Include="Areas\Rpt\Views\DistributorTargets\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\DistributorTargets\DistributorTargetsByRegion.cshtml" />
+    <Content Include="Areas\Rpt\Views\DistributorTargets\DistributorTargetsByDistributor.cshtml" />
+    <Content Include="Areas\Rpt\Views\OutletTargets\OutletTargetsByRoute.cshtml" />
+    <Content Include="Areas\Rpt\Views\OutletTargets\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\OutletTargets\OutletTargetsByRegion.cshtml" />
+    <Content Include="Areas\Rpt\Views\OutletTargets\OutletTargetsByDistributor.cshtml" />
+    <Content Include="Areas\Rpt\Views\OutletTargets\OutletTargetsByOutlet.cshtml" />
+    <Content Include="Areas\Rpt\Views\ProductCatalog\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\Sales\ZeroSalesReport.cshtml" />
+    <Content Include="Areas\Rpt\Views\Outlets\Outlets.cshtml" />
+    <Content Include="Areas\Rpt\Views\GroupDiscount\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\SaleBySubBrand\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\OrderBySubBrand\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ApproveOrder\Display.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesByDistributor\SaleByDistributor.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesByDistributor\SaleBySalesman.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesByDistributor\SalesBySalesmanPerBrand.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesByDistributor\SaleSummary.cshtml" />
+    <Content Include="Areas\Admin\Views\PromotionDiscount\CreateDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\SaleValueDiscount\CreateDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroupDiscount\CreateDiscount.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesByRetailer\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductDiscount\EditDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductDiscount\CreateDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\CertainValueCertainProduct\CreateDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\SaleValueDiscount\EditDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroupDiscount\EditDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\PromotionDiscount\EditDiscount.cshtml" />
+    <Content Include="Areas\Rpt\Views\SalesByRoute\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\SaleByProductPerOutlet\Index.cshtml" />
+    <Content Include="Areas\Rpt\Views\Sales\RsSaleSummaryByDate.cshtml" />
+    <Content Include="Areas\Rpt\Views\Sales\RsCloseOfDay.cshtml" />
+    <Content Include="Areas\Rpt\Views\Sales\RsLosses.cshtml" />
+    <Content Include="Areas\Rpt\Views\Sales\Reports.cshtml" />
+    <Content Include="Areas\Rpt\Views\Reports\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\ReportSetting.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductPricingTier\ListProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\Maps\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Maps\OultetGeoMapping.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\DocumentReferenceSetting.cshtml" />
+    <Content Include="Areas\Rpt\Views\Reports\Dashboard.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\NotificationSetting.cshtml" />
+    <Content Include="Areas\Admin\Views\PurchaseOrder\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletVisitReasonsType\ListOutletVisitReasonsTypes.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletVisitReasonsType\CreateOutletVisitReasonsTypes.cshtml" />
+    <Content Include="Areas\Admin\Views\OutletVisitReasonsType\EditOutletVisitReasonsType.cshtml" />
+    <Content Include="Areas\OutletManager\Views\Web.config" />
+    <Content Include="Areas\OutletManager\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\OutletManager\Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Areas\OutletManager\Views\OutletHome\Index.cshtml" />
+    <Content Include="Areas\OutletManager\Views\PendingApproval\Index.cshtml" />
+    <Content Include="Areas\OutletManager\Views\PendingDispatch\Index.cshtml" />
+    <Content Include="Areas\OutletManager\Views\Dispatched\Index.cshtml" />
+    <Content Include="Areas\OutletManager\Views\OutletOrder\Index.cshtml" />
+    <Content Include="Areas\OutletManager\Views\OutletOrder\Create.cshtml" />
+    <Content Include="Areas\OutletManager\Views\OutletOrder\ListAllOrders.cshtml" />
+    <Content Include="Areas\Admin\Views\Outlet\EditUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Outlet\AddOutletUsers.cshtml" />
+    <Content Include="Areas\OutletManager\Views\OutletOrder\OrdersPendingApproval.cshtml" />
+    <Content Include="Areas\OutletManager\Views\OutletOrder\OrdersPendingDispatch.cshtml" />
+    <Content Include="Areas\OutletManager\Views\OutletOrder\OutstandingOrders.cshtml" />
+    <Content Include="Areas\OutletManager\Views\OutletOrder\RejectedOrders.cshtml" />
+    <Content Include="Areas\OutletManager\Views\OutletOrder\DispatchedOrders.cshtml" />
+    <Content Include="Areas\OutletManager\Views\OutletOrder\OrderDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\CallprotocalSetting.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\MapUriSetting.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\ListAllOrder.cshtml" />
+    <Content Include="Areas\Admin\Views\NewOrders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NewOrders\ListAllOrders.cshtml" />
+    <None Include="Properties\DataSources\Distributr.Reports.TransactionalReports.OrdersReportItem.datasource" />
+    <Content Include="Views\Shared\_Layout_Agrimanagr.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout_Agrimanagr.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\LongDate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplate\DateTime.cshtml" />
+    <Content Include="Views\Account\RegisterCompany.cshtml" />
+    <Content Include="Views\SupplierUsers\ListAllUsers.cshtml" />
+    <Content Include="Views\SupplierUsers\Register.cshtml" />
+    <Content Include="Views\SupplierUsers\EditSupplierUser.cshtml" />
+    <Content Include="Views\SupplierUsers\Deactivate.cshtml" />
+    <Content Include="Views\SupplierUsers\Delete.cshtml" />
+    <Content Include="Views\SupplierUsers\Activate.cshtml" />
+    <Content Include="Views\SupplierUsers\AssignRoles.cshtml" />
+    <Content Include="Views\DistributorUsers\RegisterUser.cshtml" />
+    <Content Include="Views\DistributorUsers\Index.cshtml" />
+    <Content Include="Views\DistributorUsers\ListAllUsers.cshtml" />
+    <Content Include="Views\DistributorUsers\EditUser.cshtml" />
+    <Content Include="Views\DistributorUsers\AssignRoles.cshtml" />
+    <Content Include="Views\HQUsers\RegisterUser.cshtml" />
+    <Content Include="Views\HQUsers\ListAllUsers.cshtml" />
+    <Content Include="Views\HQUsers\EditUser.cshtml" />
+    <Content Include="Views\HQUsers\AssignRoles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersSummary\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersSummary\OrdersBySalesman.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersSummary\OrdersBySalesmanPerBrand.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Rpt\Views\OrdersSummary\OrdersDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>54514</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Distributr.HQ.Web</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -5,24 +5,14 @@ using DistributrAgrimanagrFeatures.Helpers.IOC;
 using DistributrAgrimanagrFeatures.Helpers.SFSteps;
 using DistributrAgrimanagrFeatures.Helpers.TestTracing;
 using Microsoft.Owin.Hosting;
-using NUnit.Framework;
 using StructureMap;
 
-namespace DistributrAgrimanagrFeatures
+namespace DistributrAgrimanagrFeatures.DocumentFeatures
 {
-    /// <summary>
-    /// Run once per namespace
-    /// Run initial setup to prepare for Masterdata tests
-    /// Clean down databases
-    /// Pull down test master data
-    /// </summary>
-    [SetUpFixture]
-    public class DocumentSetup
+    public static class SetupHelper
     {
-        [SetUp]
-        public void BeforeRun()
+        public static void SetupDatabasesPullMasterdata()
         {
-            
             TI.trace("Once per namespace. Doc features Setup");
 
             string section = "Setup-RunOncePerNameSpace_@DocumentSetup";
