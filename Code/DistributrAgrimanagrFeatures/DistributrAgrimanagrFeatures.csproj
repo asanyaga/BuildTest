@@ -170,6 +170,7 @@
     <Compile Include="DocumentFeatures\DN\DispatchNoteLocalSteps.cs" />
     <Compile Include="DocumentFeatures\DN\DispatchNoteServerSteps.cs" />
     <Compile Include="DocumentFeatures\DocumentIntegrationHooks.cs" />
+    <Compile Include="DocumentFeatures\DocumentSetup.cs" />
     <Compile Include="DocumentFeatures\IAN\IANLocalSteps.cs" />
     <Compile Include="DocumentFeatures\IAN\IANServerSteps.cs" />
     <Compile Include="DocumentFeatures\IAN\InventoryAdjustmentNote.feature.cs">
@@ -218,6 +219,7 @@
     </Compile>
     <Compile Include="DocumentFeatures\Sale\SaleLocalSteps.cs" />
     <Compile Include="DocumentFeatures\Sale\SaleServerSteps.cs" />
+    <Compile Include="Helpers\SetupHelper.cs" />
     <Compile Include="DocumentFeatures\SPO\StockistPurchaseOrder.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -225,7 +227,6 @@
     </Compile>
     <Compile Include="DocumentFeatures\SPO\StockistPurchaseOrderLocalSteps.cs" />
     <Compile Include="DocumentFeatures\SPO\StockistPurchaseOrderServerSteps.cs" />
-    <Compile Include="DocumentSetup.cs" />
     <Compile Include="Helpers\DB\ConfigurationMigrationTest.cs" />
     <Compile Include="Helpers\DB\DbSetupHelper.cs" />
     <Compile Include="Helpers\DB\DB_TestingHelper.cs" />
