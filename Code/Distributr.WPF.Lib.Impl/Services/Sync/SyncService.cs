@@ -1,6 +1,7 @@
 ﻿using Distributr.WPF.Lib.Services.Service.Sync;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,7 +63,11 @@ namespace Distributr.WPF.Lib.Impl.Services.Sync
                     string entity = masterData.ToString();
                     try
                     {
+                        string t = " [TI] Master data {0} {1}";
+                        Trace.WriteLine(string.Format(t,entity,"start"));
                         bool success = await _updateMasterDataService.GetByBatchAndUpdateEntityMasterDataAsync(ccAppId, entity);
+                        Trace.WriteLine(string.Format(t, entity, "end"));
+                        
                         if (success)
                         {
                             progress.Report("\n " + string.Format("==>  Successful update of {0}", entity));
