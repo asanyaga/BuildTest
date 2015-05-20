@@ -66,17 +66,17 @@ namespace Distributr.Core.Utility.Command
         {
             _items = new List<ResolveCommandItem>();
             //----------- Orders --------------------------
-            _items.Add(Create("CreateOrder", CommandType.CreateOrder, typeof(CreateOrderCommand), typeof(ICreateOrderCommandHandler),DocumentType.Order));
-            _items.Add(Create("ApproveOrder", CommandType.ApproveOrder, typeof(ApproveOrderCommand), typeof(IApproveOrderCommandHandler), DocumentType.Order));
-            _items.Add(Create("AddOrderLineItem", CommandType.AddOrderLineItem, typeof(AddOrderLineItemCommand), typeof(IAddOrderLineItemCommandHandler), DocumentType.Order));
-            _items.Add(Create("ConfirmOrder", CommandType.ConfirmOrder, typeof(ConfirmOrderCommand), typeof(IConfirmOrderCommandHandler), DocumentType.Order));
-            _items.Add(Create("RejectOrder", CommandType.RejectOrder, typeof(RejectOrderCommand), typeof(IRejectOrderCommandHandler), DocumentType.Order));
-            _items.Add(Create("ChangeOrderLineItem", CommandType.ChangeOrderLineItem, typeof(ChangeOrderLineItemCommand), typeof(IChangeOrderLineItemCommandHandler), DocumentType.Order));
-            _items.Add(Create("RemoveOrderLineItem", CommandType.RemoveOrderLineItem, typeof(RemoveOrderLineItemCommand), typeof(IRemoveOrderLineItemCommandHandler), DocumentType.Order));
+            //_items.Add(Create("CreateOrder", CommandType.CreateOrder, typeof(CreateOrderCommand), typeof(ICreateOrderCommandHandler),DocumentType.Order));
+            //_items.Add(Create("ApproveOrder", CommandType.ApproveOrder, typeof(ApproveOrderCommand), typeof(IApproveOrderCommandHandler), DocumentType.Order));
+            //_items.Add(Create("AddOrderLineItem", CommandType.AddOrderLineItem, typeof(AddOrderLineItemCommand), typeof(IAddOrderLineItemCommandHandler), DocumentType.Order));
+           // _items.Add(Create("ConfirmOrder", CommandType.ConfirmOrder, typeof(ConfirmOrderCommand), typeof(IConfirmOrderCommandHandler), DocumentType.Order));
+            //_items.Add(Create("RejectOrder", CommandType.RejectOrder, typeof(RejectOrderCommand), typeof(IRejectOrderCommandHandler), DocumentType.Order));
+            //_items.Add(Create("ChangeOrderLineItem", CommandType.ChangeOrderLineItem, typeof(ChangeOrderLineItemCommand), typeof(IChangeOrderLineItemCommandHandler), DocumentType.Order));
+           // _items.Add(Create("RemoveOrderLineItem", CommandType.RemoveOrderLineItem, typeof(RemoveOrderLineItemCommand), typeof(IRemoveOrderLineItemCommandHandler), DocumentType.Order));
             _items.Add(Create("CloseOrder", CommandType.CloseOrder, typeof(CloseOrderCommand), typeof(ICloseOrderCommandHandler), DocumentType.Order));
-            _items.Add(Create("BackOrder", CommandType.BackOrder, typeof(BackOrderCommand), typeof(IBackOrderCommandHandler), DocumentType.Order));
-            _items.Add(Create("OrderPendingDispatch", CommandType.OrderPendingDispatch, typeof(OrderPendingDispatchCommand), typeof(IOrderPendingDispatchCommandHandler), DocumentType.Order));
-            _items.Add(Create("DispatchToPhone", CommandType.DispatchToPhone, typeof(DispatchToPhoneCommand), typeof(IOrderDispatchedToPhoneCommandHandler), DocumentType.Order));
+            //_items.Add(Create("BackOrder", CommandType.BackOrder, typeof(BackOrderCommand), typeof(IBackOrderCommandHandler), DocumentType.Order));
+            //_items.Add(Create("OrderPendingDispatch", CommandType.OrderPendingDispatch, typeof(OrderPendingDispatchCommand), typeof(IOrderPendingDispatchCommandHandler), DocumentType.Order));
+            //_items.Add(Create("DispatchToPhone", CommandType.DispatchToPhone, typeof(DispatchToPhoneCommand), typeof(IOrderDispatchedToPhoneCommandHandler), DocumentType.Order));
 
             // ------------------ IAN --------
             _items.Add(Create("CreateInventoryAdjustmentNote", CommandType.CreateInventoryAdjustmentNote, typeof(CreateInventoryAdjustmentNoteCommand), typeof(ICreateInventoryAdjustmentNoteCommandHandler),DocumentType.InventoryAdjustmentNote));

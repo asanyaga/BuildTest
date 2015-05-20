@@ -24,8 +24,8 @@
         <CallTarget Targets="UpdateREBUILDDBConfig"/>
         <CallTarget Targets="UpdateSubscriberConfig"/>
         <CallTarget Targets="UpdateWPFConfig"/>
-        <!--<CallTarget Targets="UpdateDataTestConfig"/>-->
-        <CallTarget Targets="UpdateIntegrationTests"/>
+        <!--<CallTarget Targets="UpdateDataTestConfig"/>
+        <CallTarget Targets="UpdateIntegrationTests"/>-->
         <CallTarget Targets="UpdateWPFAgrimanagrConfig"/>
         <CallTarget Targets="UpdateCustomerSupportConfig"/>
 		<CallTarget Targets="UpdateAgrimanagrHQConfig"/>

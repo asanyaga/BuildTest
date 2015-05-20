@@ -10,40 +10,40 @@ using log4net;
 
 namespace Distributr.Core.Data.CommandHandlers.DocumentCommandHandlers.Orders
 {
-    [Obsolete]
-    public class ChangeOrderLineItemCommandHandler : IChangeOrderLineItemCommandHandler
-    {
-        private IOrderRepository _orderRepository;
-        ILog _log = LogManager.GetLogger("ChangeOrderLineItemCommandHandler");
+    //[Obsolete]
+    //public class ChangeOrderLineItemCommandHandler : IChangeOrderLineItemCommandHandler
+    //{
+    //    private IOrderRepository _orderRepository;
+    //    ILog _log = LogManager.GetLogger("ChangeOrderLineItemCommandHandler");
 
-        public ChangeOrderLineItemCommandHandler(IOrderRepository orderRepository)
-        {
-            _orderRepository = orderRepository;
-        }
+    //    public ChangeOrderLineItemCommandHandler(IOrderRepository orderRepository)
+    //    {
+    //        _orderRepository = orderRepository;
+    //    }
 
-        public void Execute(ChangeOrderLineItemCommand command)
-        {
-            _log.InfoFormat("Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
-            try
-            {
-                //check that order exists
-                bool no_Order_Exist = _orderRepository.GetById(command.DocumentId) == null;
-                if (no_Order_Exist)
-                    return;
-                //approve the order
-                Order order = _orderRepository.GetById(command.DocumentId) as Order;
-                order.ChangeLineItemQty(command.LineItemId, command.NewQuantity);
-                _orderRepository.Save(order);
+    //    public void Execute(ChangeOrderLineItemCommand command)
+    //    {
+    //        _log.InfoFormat("Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
+    //        try
+    //        {
+    //            //check that order exists
+    //            bool no_Order_Exist = _orderRepository.GetById(command.DocumentId) == null;
+    //            if (no_Order_Exist)
+    //                return;
+    //            //approve the order
+    //            Order order = _orderRepository.GetById(command.DocumentId) as Order;
+    //            order.ChangeLineItemQty(command.LineItemId, command.NewQuantity);
+    //            _orderRepository.Save(order);
 
-            }
-            catch (Exception ex)
-            {
-                _log.ErrorFormat("Error Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
-                _log.Error("ChangeOrderLineItemCommandHandler exception", ex);
-                throw ;
-            }
-        }
-    }
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            _log.ErrorFormat("Error Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
+    //            _log.Error("ChangeOrderLineItemCommandHandler exception", ex);
+    //            throw ;
+    //        }
+    //    }
+    //}
     public class ChangeMainOrderLineItemCommandHandler :BaseCommandHandler, IChangeMainOrderLineItemCommandHandler
     {
        

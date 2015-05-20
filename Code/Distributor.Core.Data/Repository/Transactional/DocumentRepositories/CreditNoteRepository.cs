@@ -29,8 +29,11 @@ namespace Distributr.Core.Data.Repository.Transactional.DocumentRepositories
 
             return tblCreditNotes.Select(Map).Select(n => n as CreditNote).ToList();
         }
-
-        public  void Save(CreditNote documentEntity)
+        /// <summary>
+        /// Used only for cancelling document
+        /// </summary>
+        /// <param name="documentEntity"></param>
+        private void Save(CreditNote documentEntity)
         {
             tblDocument docToSave = SaveDocument(documentEntity);
             CreditNote r = documentEntity as CreditNote;

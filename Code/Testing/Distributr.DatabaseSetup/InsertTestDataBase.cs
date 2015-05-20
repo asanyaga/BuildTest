@@ -94,12 +94,8 @@ namespace Distributr.DatabaseSetup
 
         protected IDistributorRepository _distributorrepository;
         protected IOutletCategoryRepository _outletCategoryRepository;//
-        protected ICreateOrderCommandHandler _createOrderCommandHandler;
+        //protected ICreateOrderCommandHandler _createOrderCommandHandler;
         protected ITerritoryRepository _territoryRepository;
-        protected IAddOrderLineItemCommandHandler _addOrderLineItemCommandHandler;
-        protected IConfirmOrderCommandHandler _confirmOrderCommandHandler;
-        protected IApproveOrderCommandHandler _approveOrderCommandHandler;
-        protected IRejectOrderCommandHandler _rejectOrderCommandHandler;
         protected IAreaRepository _areaRepository;
         protected IContactRepository _contactRepository;
         protected IAccountRepository _accountRepository;

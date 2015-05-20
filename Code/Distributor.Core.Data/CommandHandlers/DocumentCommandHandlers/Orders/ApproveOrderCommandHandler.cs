@@ -11,41 +11,41 @@ using System.Linq;
 
 namespace Distributr.Core.Data.CommandHandlers.DocumentCommandHandlers.Orders
 {
-    public class ApproveOrderCommandHandler : IApproveOrderCommandHandler
-    {
-        IOrderRepository _orderRepository;
-        IDistributorRepository _distributorReopsitory;
-        ILog _log = LogManager.GetLogger("ApproveOrderCommandHandler");
+    //public class ApproveOrderCommandHandler : IApproveOrderCommandHandler
+    //{
+    //    IOrderRepository _orderRepository;
+    //    IDistributorRepository _distributorReopsitory;
+    //    ILog _log = LogManager.GetLogger("ApproveOrderCommandHandler");
 
-        public ApproveOrderCommandHandler(IOrderRepository orderRepository, IDistributorRepository distributorReopsitory)
-        {
-            _orderRepository = orderRepository;
-            _distributorReopsitory = distributorReopsitory;
-        }
+    //    public ApproveOrderCommandHandler(IOrderRepository orderRepository, IDistributorRepository distributorReopsitory)
+    //    {
+    //        _orderRepository = orderRepository;
+    //        _distributorReopsitory = distributorReopsitory;
+    //    }
 
-        public void Execute(ApproveOrderCommand command)
-        {
-            _log.InfoFormat("Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
-            try
-            {
-                //check that order exists
-                bool no_Order_Exist = _orderRepository.GetById(command.DocumentId) == null;
-                if (no_Order_Exist)
-                    return;
-                //approve the order
-                Order order = _orderRepository.GetById(command.DocumentId) as Order;
-                order.Approve();
-                _orderRepository.Save(order);
-            }
-            catch (Exception ex)
-            {
-                _log.ErrorFormat("Error Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
-                _log.Error("ApproveOrderCommandHandler exception", ex);
-                throw ;
-            }
-        }
+    //    public void Execute(ApproveOrderCommand command)
+    //    {
+    //        _log.InfoFormat("Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
+    //        try
+    //        {
+    //            //check that order exists
+    //            bool no_Order_Exist = _orderRepository.GetById(command.DocumentId) == null;
+    //            if (no_Order_Exist)
+    //                return;
+    //            //approve the order
+    //            Order order = _orderRepository.GetById(command.DocumentId) as Order;
+    //            order.Approve();
+    //            _orderRepository.Save(order);
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            _log.ErrorFormat("Error Execute {1} - Command Id {0} ", command.CommandId, command.GetType().ToString());
+    //            _log.Error("ApproveOrderCommandHandler exception", ex);
+    //            throw ;
+    //        }
+    //    }
 
-    }
+    //}
 
     public class ApproveMainOrderCommandHandler :BaseCommandHandler, IApproveMainOrderCommandHandler
     {

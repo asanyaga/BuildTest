@@ -265,54 +265,54 @@ namespace Distributr.HQ.Lib.ViewModelBuilders.Admin.Orders.Impl
         public void SubmitOrder(Order order)
         {
             //send commands
-            Producer producer = _producerRepository.GetProducer();
-            var coc = new CreateOrderCommand(
-                Guid.NewGuid(),
-                order.Id,
-               order.DocumentIssuerUser.Id,
-               producer.Id,
-               0,
-               Guid.Empty,
-               order.DocumentReference,
-               order.DocumentDateIssued,
-               order.DateRequired,
-               order.IssuedOnBehalfOf.Id,
-               order.DocumentIssuerCostCentre.Id,
-               order.DocumentRecipientCostCentre.Id,
-               order.DocumentIssuerUser.Id,
-               (int)OrderType.OutletToDistributor,
-               order.Note,
-               order.SaleDiscount
-             );
-            coc.SendDateTime = DateTime.Now;
-            //coc.CommandCreatedDateTime = DateTime.Now;
-            _busPublisher.WrapAndPublish(coc, CommandType.CreateOrder);
+            //Producer producer = _producerRepository.GetProducer();
+            //var coc = new CreateOrderCommand(
+            //    Guid.NewGuid(),
+            //    order.Id,
+            //   order.DocumentIssuerUser.Id,
+            //   producer.Id,
+            //   0,
+            //   Guid.Empty,
+            //   order.DocumentReference,
+            //   order.DocumentDateIssued,
+            //   order.DateRequired,
+            //   order.IssuedOnBehalfOf.Id,
+            //   order.DocumentIssuerCostCentre.Id,
+            //   order.DocumentRecipientCostCentre.Id,
+            //   order.DocumentIssuerUser.Id,
+            //   (int)OrderType.OutletToDistributor,
+            //   order.Note,
+            //   order.SaleDiscount
+            // );
+            //coc.SendDateTime = DateTime.Now;
+            ////coc.CommandCreatedDateTime = DateTime.Now;
+            //_busPublisher.WrapAndPublish(coc, CommandType.CreateOrder);
 
 
-            foreach (var item in order.LineItems)
-            {
-                var ali = new AddOrderLineItemCommand(Guid.NewGuid(),
-                    order.Id,
-                    order.DocumentIssuerUser.Id,
-                order.DocumentIssuerCostCentre.Id, 0,
-                Guid.Empty,
-                item.LineItemSequenceNo,
-                item.Value,
-                item.Product.Id,
-                item.Qty, item.LineItemVatValue,
-                item.ProductDiscount, item.Description, (int)item.LineItemType, (int)item.DiscountType);
-                ali.SendDateTime = DateTime.Now;
+            //foreach (var item in order.LineItems)
+            //{
+            //    var ali = new AddOrderLineItemCommand(Guid.NewGuid(),
+            //        order.Id,
+            //        order.DocumentIssuerUser.Id,
+            //    order.DocumentIssuerCostCentre.Id, 0,
+            //    Guid.Empty,
+            //    item.LineItemSequenceNo,
+            //    item.Value,
+            //    item.Product.Id,
+            //    item.Qty, item.LineItemVatValue,
+            //    item.ProductDiscount, item.Description, (int)item.LineItemType, (int)item.DiscountType);
+            //    ali.SendDateTime = DateTime.Now;
 
-                _busPublisher.WrapAndPublish(ali, CommandType.AddOrderLineItem);
+            //    _busPublisher.WrapAndPublish(ali, CommandType.AddOrderLineItem);
 
-            }
+            //}
 
-            var co = new ConfirmOrderCommand(Guid.NewGuid(), order.Id,
-                order.DocumentIssuerUser.Id,
-                order.DocumentIssuerCostCentre.Id, 0, Guid.Empty, order.DocumentParentId
-              );
-            co.SendDateTime = DateTime.Now;
-            _busPublisher.WrapAndPublish(co, CommandType.ConfirmOrder);
+            //var co = new ConfirmOrderCommand(Guid.NewGuid(), order.Id,
+            //    order.DocumentIssuerUser.Id,
+            //    order.DocumentIssuerCostCentre.Id, 0, Guid.Empty, order.DocumentParentId
+            //  );
+            //co.SendDateTime = DateTime.Now;
+            //_busPublisher.WrapAndPublish(co, CommandType.ConfirmOrder);
 
         }
 
