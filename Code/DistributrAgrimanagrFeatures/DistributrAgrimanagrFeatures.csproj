@@ -219,6 +219,7 @@
     </Compile>
     <Compile Include="DocumentFeatures\Sale\SaleLocalSteps.cs" />
     <Compile Include="DocumentFeatures\Sale\SaleServerSteps.cs" />
+    <Compile Include="Helpers\IOC\StructureMapHelper.cs" />
     <Compile Include="Helpers\SetupHelper.cs" />
     <Compile Include="DocumentFeatures\SPO\StockistPurchaseOrder.feature.cs">
       <AutoGen>True</AutoGen>
@@ -292,7 +293,7 @@
     <Compile Include="RepositoryFixtures\MasterData\FinancialRepositoryFixtures\AccountRepositoryFixture.cs" />
     <Compile Include="RepositoryFixtures\MasterData\FinancialRepositoryFixtures\AccountTransactionRepositoryFixture.cs" />
     <Compile Include="RepositoryFixtures\MasterData\InfectionRepositoryFixture\InfectionRepositoryFixture.cs" />
-    <Compile Include="RepositoryFixtures\InitializeIocHelper.cs" />
+    <Compile Include="RepositoryFixtures\RepositorySetup.cs" />
     <Compile Include="RepositoryFixtures\MasterData\InventoryRepositoryFixture\InventoryRepositoryFixture.cs" />
     <Compile Include="RepositoryFixtures\MasterData\Market AuditRepositoryFixtures\MarketAuditRepositoryFixture.cs" />
     <Compile Include="RepositoryFixtures\MasterData\Market AuditRepositoryFixtures\OutletAuditRepositoryFixture.cs" />

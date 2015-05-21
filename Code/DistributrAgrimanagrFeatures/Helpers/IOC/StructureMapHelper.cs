@@ -4,16 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DistributrAgrimanagrFeatures.Helpers.DB;
-using DistributrAgrimanagrFeatures.Helpers.IOC;
-using NUnit.Framework;
 
-namespace DistributrAgrimanagrFeatures.RepositoryFixtures
+namespace DistributrAgrimanagrFeatures.Helpers.IOC
 {
-    [SetUpFixture]
-    public class InitializeIocHelper
+    public static class StructureMapHelper
     {
-        [SetUp]
-        public void Setup()
+        public static void InitialiseHub()
         {
             DB_TestingHelper dbTestingHelper = DefaultDbTestingHelper.GetDefaultDbTestingHelper();
             IOCHelper.InitialiseHubSliceWithStructurmapContainer(dbTestingHelper.Hub_DistributrEdmxConnection, dbTestingHelper.Hub_RoutingConnectionString, "");
