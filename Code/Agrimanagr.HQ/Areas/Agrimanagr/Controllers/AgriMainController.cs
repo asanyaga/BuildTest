@@ -9,10 +9,6 @@ namespace Agrimanagr.HQ.Areas.Agrimanagr.Controllers
 
 
 
-
-
-
-
         public ActionResult Index()
         {
             ViewBag.logged = this.User.Identity.Name.ToString();
