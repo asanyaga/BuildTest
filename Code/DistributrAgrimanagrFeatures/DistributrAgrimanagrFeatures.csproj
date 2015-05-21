@@ -166,6 +166,12 @@
     </Compile>
     <Compile Include="DocumentFeatures\CN\CreditNoteLocalSteps.cs" />
     <Compile Include="DocumentFeatures\CN\CreditNoteServerSteps.cs" />
+    <Compile Include="DocumentFeatures\CSN\CommodityStorageNote.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommodityStorageNote.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentFeatures\CSN\CommodityStorageNoteLocalSteps.cs" />
     <Compile Include="DocumentFeatures\DN\DispatchNote.feature.cs" />
     <Compile Include="DocumentFeatures\DN\DispatchNoteLocalSteps.cs" />
     <Compile Include="DocumentFeatures\DN\DispatchNoteServerSteps.cs" />
@@ -329,6 +335,10 @@
     <None Include="DocumentFeatures\CN\CreditNote.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreditNote.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\CSN\CommodityStorageNote.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CommodityStorageNote.feature.cs</LastGenOutput>
     </None>
     <None Include="DocumentFeatures\DN\DispatchNote.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
