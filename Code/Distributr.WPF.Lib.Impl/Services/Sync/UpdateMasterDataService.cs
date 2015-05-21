@@ -14,6 +14,8 @@ using Distributr.WPF.Lib.Services.Service.Utility;
 using Distributr.WPF.Lib.Services.Service.WSProxies;
 using GalaSoft.MvvmLight.Messaging;
 using log4net;
+using System.Diagnostics;
+using System.Media;
 
 namespace Distributr.WPF.Lib.Impl.Services.Sync
 {
@@ -64,25 +66,29 @@ namespace Distributr.WPF.Lib.Impl.Services.Sync
             return true;
         }
 
-    
+
 
         public async Task<bool> GetByBatchAndUpdateEntityMasterDataAsync(Guid costCentreApplicationid, string entityName)
         {
-          var syncPageSizeSetting = _settingRepository.GetByKey(GeneralSettingKey.SyncPageSize);
-          var syncPageSize = syncPageSizeSetting != null ? Convert.ToInt32(syncPageSizeSetting.SettingValue) : 10000;
+            Stopwatch s1 = Stopwatch.StartNew();
+            var syncPageSizeSetting = _settingRepository.GetByKey(GeneralSettingKey.SyncPageSize);
+            var syncPageSize = syncPageSizeSetting != null ? Convert.ToInt32(syncPageSizeSetting.SettingValue) : 10000;
 
-            Messenger.Default.Send("\tStart syncing " + entityName );
+            Messenger.Default.Send("\tStart syncing " + entityName);
             var syntracker = _configRepository.GetSync(entityName);
             bool status = true;
             var cts = new CancellationTokenSource(TimeSpan.FromMinutes(10));
-           // const int pagesize =10000;
+            // const int pagesize =10000;
             int page = 1;
             while (true)
             {
-                ResponseMasterDataInfo info = await _webApiProxy.GetEntityMasterDataAsync(costCentreApplicationid, 
+                Stopwatch s2 = Stopwatch.StartNew();
+
+                ResponseMasterDataInfo info = await _webApiProxy.GetEntityMasterDataAsync(costCentreApplicationid,
                                                      entityName, page, syncPageSize,
                                                       syntracker.LastSyncDateTime);
-                if (info == null || info.MasterData == null ||( !info.MasterData.MasterDataItems.Any() && !info.DeletedItems.Any()))
+                TraceTest("Fetch api",entityName, s2.ElapsedMilliseconds);
+                if (info == null || info.MasterData == null || (!info.MasterData.MasterDataItems.Any() && !info.DeletedItems.Any()))
                 {
                     _configRepository.SetLastSync(entityName, info.MasterData.LastSyncTimeStamp);
                     status = true;
@@ -92,9 +98,15 @@ namespace Distributr.WPF.Lib.Impl.Services.Sync
                 await Task.Run(() => _updateLocalDBService.UpdateLocalDB(info)).ConfigureAwait(false);
                 page++;
             }
+            TraceTest("Total time taken",entityName, s1.ElapsedMilliseconds);
             return status;
         }
-       
+
+        private void TraceTest(string info, string entity, long elapsedMS)
+        {
+            string logT = "[TI] UpdateMasterDataService {0}_{1}_{2}ms elapsed";
+            System.Diagnostics.Trace.WriteLine(string.Format(logT,info,entity,elapsedMS));
+        }
 
         public async Task<bool> GetAndUpdateInventoryAsync(Guid costCentreApplicationId)
         {
@@ -106,7 +118,7 @@ namespace Distributr.WPF.Lib.Impl.Services.Sync
 
             bool status = true;
             var cts = new CancellationTokenSource(TimeSpan.FromMinutes(10));
-             const int pagesize =500;
+            const int pagesize = 500;
             int page = 1;
             while (true)
             {

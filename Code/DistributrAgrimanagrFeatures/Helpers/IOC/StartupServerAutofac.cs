@@ -18,7 +18,7 @@ namespace DistributrAgrimanagrFeatures.Helpers.IOC
             Stopwatch sw = new Stopwatch();
             sw.Start();
             var configuration = new HttpConfiguration();
-            configuration.EnableSystemDiagnosticsTracing();
+            //configuration.EnableSystemDiagnosticsTracing();
             //configuration.Routes.MapHttpRoute(
             //    name: "DefaultApi",
             //    routeTemplate: "api/{controller}/{id}",

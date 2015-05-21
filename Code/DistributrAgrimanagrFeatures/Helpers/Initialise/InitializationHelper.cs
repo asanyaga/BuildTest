@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -105,7 +106,9 @@ namespace DistributrAgrimanagrFeatures.Helpers.Initialise
         public async Task<bool> SyncMasterData()
         {
             var progress = new Progress<string>(ReportProgress);
+            Stopwatch st = Stopwatch.StartNew();
             bool result = await  _syncService.UpdateMasterData(progress);
+            TI.trace(section, string.Format( "Total time taken update master data {0}", st.ElapsedMilliseconds) );
             return result;
         }
 

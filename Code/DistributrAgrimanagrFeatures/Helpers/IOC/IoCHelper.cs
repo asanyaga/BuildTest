@@ -74,6 +74,7 @@ namespace DistributrAgrimanagrFeatures.Helpers.IOC
                 //x.AddRegistry<WPFRegistry>();
                 //x.AddRegistry<RepositoryRegistry>();
                 RepositoryRegistry.ManualStructuremapSetup(x, hub_distributrsqlconnectionstring, hub_routingsqlconnectionstring);
+                x.For<ICacheProvider>().Use<StubbedCacheProvider>();
                 x.AddRegistry<ServiceRegistry>();
                 x.AddRegistry<CommandHandlerRegistry>();
                 x.AddRegistry<WorkflowRegistry>();
@@ -220,7 +221,7 @@ namespace DistributrAgrimanagrFeatures.Helpers.IOC
 
         public void Reset()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
     public class StubbedMessageSourceAccessor : IMessageSourceAccessor
