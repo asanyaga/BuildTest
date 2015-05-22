@@ -166,6 +166,12 @@
     </Compile>
     <Compile Include="DocumentFeatures\CN\CreditNoteLocalSteps.cs" />
     <Compile Include="DocumentFeatures\CN\CreditNoteServerSteps.cs" />
+    <Compile Include="DocumentFeatures\CSN\CommodityStorageNote.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommodityStorageNote.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentFeatures\CSN\CommodityStorageNoteLocalSteps.cs" />
     <Compile Include="DocumentFeatures\DN\DispatchNote.feature.cs" />
     <Compile Include="DocumentFeatures\DN\DispatchNoteLocalSteps.cs" />
     <Compile Include="DocumentFeatures\DN\DispatchNoteServerSteps.cs" />
@@ -219,6 +225,7 @@
     </Compile>
     <Compile Include="DocumentFeatures\Sale\SaleLocalSteps.cs" />
     <Compile Include="DocumentFeatures\Sale\SaleServerSteps.cs" />
+    <Compile Include="Helpers\IOC\StructureMapHelper.cs" />
     <Compile Include="Helpers\SetupHelper.cs" />
     <Compile Include="DocumentFeatures\SPO\StockistPurchaseOrder.feature.cs">
       <AutoGen>True</AutoGen>
@@ -292,7 +299,7 @@
     <Compile Include="RepositoryFixtures\MasterData\FinancialRepositoryFixtures\AccountRepositoryFixture.cs" />
     <Compile Include="RepositoryFixtures\MasterData\FinancialRepositoryFixtures\AccountTransactionRepositoryFixture.cs" />
     <Compile Include="RepositoryFixtures\MasterData\InfectionRepositoryFixture\InfectionRepositoryFixture.cs" />
-    <Compile Include="RepositoryFixtures\InitializeIocHelper.cs" />
+    <Compile Include="RepositoryFixtures\RepositorySetup.cs" />
     <Compile Include="RepositoryFixtures\MasterData\InventoryRepositoryFixture\InventoryRepositoryFixture.cs" />
     <Compile Include="RepositoryFixtures\MasterData\Market AuditRepositoryFixtures\MarketAuditRepositoryFixture.cs" />
     <Compile Include="RepositoryFixtures\MasterData\Market AuditRepositoryFixtures\OutletAuditRepositoryFixture.cs" />
@@ -328,6 +335,10 @@
     <None Include="DocumentFeatures\CN\CreditNote.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreditNote.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\CSN\CommodityStorageNote.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CommodityStorageNote.feature.cs</LastGenOutput>
     </None>
     <None Include="DocumentFeatures\DN\DispatchNote.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

@@ -1,6 +1,6 @@
 REM THIS FILE SHOULD BE RUN IN ADMIN MODE AND POWERSHELL SHOULD BE INSTALLED
 f:
-cd\Projects\Distributr\configs
+cd\Projects\Distributr-Git\Code\configs
 REM
 REM UPDATE CONFIG FILES 
 CALL jnyamu_setup.bat

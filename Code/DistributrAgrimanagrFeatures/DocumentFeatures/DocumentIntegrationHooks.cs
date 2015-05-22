@@ -7,6 +7,7 @@ using DistributrAgrimanagrFeatures.Helpers.DB;
 using DistributrAgrimanagrFeatures.Helpers.IOC;
 using DistributrAgrimanagrFeatures.Helpers.TestTracing;
 using TechTalk.SpecFlow;
+using StructureMap = DistributrAgrimanagrFeatures.Helpers.IOC.StructureMapHelper;
 
 namespace DistributrAgrimanagrFeatures.DocumentFeatures
 {
@@ -28,9 +29,7 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures
 
             TI.trace(s, "BeforeDocumentScenario #########################################");
             //STRUCTURE MAP
-            DB_TestingHelper dbTestingHelper = DefaultDbTestingHelper.GetDefaultDbTestingHelper();
-            IOCHelper.InitialiseHubSliceWithStructurmapContainer(dbTestingHelper.Hub_DistributrEdmxConnection, dbTestingHelper.Hub_RoutingConnectionString, "");
-    
+            StructureMapHelper.InitialiseHub();
         }
 
         [AfterScenario("documenthook")]
