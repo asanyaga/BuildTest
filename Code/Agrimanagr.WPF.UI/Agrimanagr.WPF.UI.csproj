@@ -1132,6 +1132,7 @@
     <Resource Include="Agrimanagr icon.ico" />
     <Resource Include="Resources\images\dropdown.jpg" />
     <Resource Include="Resources\images\dropdownnew.png" />
+    <Resource Include="Resources\images\search.png" />
     <Content Include="ScalePrinterAssetsDB.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

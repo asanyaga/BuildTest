@@ -114,10 +114,10 @@
             </Grid.ColumnDefinitions>
             <Label Content="Filter:" Grid.Column="0"/>
             <TextBox Name="txtSearch" Grid.Column="1"  Text="{Binding Path=NameSrchParam}"  Margin="2" FontSize="12" FontWeight="Normal"/>
-            <Button Name="btnHelps" Grid.Column="2" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" IsEnabled="True"  Margin="0"  ToolTip="Enter your text Search here" >
+                    <Button Name="btnHelps" Command="{Binding SearchCommand}" Grid.Column="2" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" IsEnabled="True"  Margin="0"  ToolTip="Enter your text Search here" >
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/help.png"  Height="50"  Stretch="None"/>
+                        <Image HorizontalAlignment="Left" Source="/Agrimanagr.WPF.UI;component/Resources/images/search.png"  Height="50"  Stretch="None"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>

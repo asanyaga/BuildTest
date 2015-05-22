@@ -52,6 +52,13 @@ namespace Distributr.Core.Data.Repository.Transactional.SourcingDocumentReposito
             return documents.Where(s => s.DocumentStatusId == (int)status).OrderByDescending(n => n.DocumentDate).ToList().Select(Map).OfType<CommodityDeliveryNote>().ToList();
         }
 
+       /* public List<SourcingDocument> Query(string query)
+        {
+           // DateTime dfrom = new DateTime(startDate.Year, startDate.Month, startDate.Day, 00, 00, 00, 000);
+           // DateTime dto = new DateTime(endDate.Year, endDate.Month, endDate.Day, 23, 59, 59, 999);
+            return documents.Where(s => s.IM_DateCreated >= dfrom && s.IM_DateCreated <= dto).OrderByDescending(n => n.DocumentDate).Select(Map).ToList();
+        }*/
+
         private SourcingDocument Map(tblSourcingDocument tbldoc)
         {
             SourcingDocument doc = null;
