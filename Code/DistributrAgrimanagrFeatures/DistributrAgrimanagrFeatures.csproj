@@ -198,6 +198,11 @@
     </Compile>
     <Compile Include="DocumentFeatures\ITN\InventoryTransferNoteLocalSteps.cs" />
     <Compile Include="DocumentFeatures\ITN\InventoryTransferNoteToServerSteps.cs" />
+    <Compile Include="DocumentFeatures\Order\Order.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Order.feature</DependentUpon>
+    </Compile>
     <Compile Include="DocumentFeatures\PN\PaymentNote.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -355,6 +360,10 @@
     <None Include="DocumentFeatures\ITN\InventoryTransferNote.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>InventoryTransferNote.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentFeatures\Order\Order.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Order.feature.cs</LastGenOutput>
     </None>
     <None Include="DocumentFeatures\PN\PaymentNote.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

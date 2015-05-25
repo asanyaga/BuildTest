@@ -50,7 +50,15 @@ namespace Distributr.Integrations.Imports.Impl
             {
                 try
                 {
+                    var split = deletedCode.Split('|');
+                    if (split.Length < 2)
+                        continue;
+                    string productCode = split[0];
+                    string pricingTierCode = split[1];
+
+
                     var pricingTierId = _context.tblPricingTier.Where(p => p.Code == deletedCode).Select(p => p.id).FirstOrDefault();
+                    var pricingTierId2 = _context.tblPricingTier.Where(p => p.Code == pricingTierCode).Select(p => p.id).FirstOrDefault();
 
                     var pricingTier = _productPricingTierRepository.GetById(pricingTierId);
                     if (pricingTier != null)
