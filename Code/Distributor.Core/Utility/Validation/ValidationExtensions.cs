@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Distributr.Core.Utility.Validation;
 
-namespace Distributr.Core.Data.Utility
+namespace Distributr.Core.Utility.Validation
 {
     public static class ValidationExtensions
     {

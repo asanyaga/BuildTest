@@ -52,8 +52,7 @@ namespace Distributr.Core.Tests.Validation
     {
         public ValidationResultInfo Validate(TestClass itemToValidate)
         {
-            return null;
-            //itemToValidate.BasicValidation();
+            return itemToValidate.BasicValidation();
         }
 
     }
