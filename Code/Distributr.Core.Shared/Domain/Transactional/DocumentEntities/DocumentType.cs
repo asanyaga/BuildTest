@@ -37,4 +37,10 @@ namespace Distributr.Core.Domain.Transactional.DocumentEntities
         CreateInventorySerialsPlaceholder = 98,
         RetirePlaceholder=99
     }
+
+    public enum WeighType
+    {
+        Manual = 1,
+        WeighScale = 2
+    }
 }

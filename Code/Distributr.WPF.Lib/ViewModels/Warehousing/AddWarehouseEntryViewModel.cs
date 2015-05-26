@@ -14,6 +14,7 @@ using Distributr.Core.Domain.Master.CommodityEntity;
 using Distributr.Core.Domain.Master.CostCentreEntities;
 using Distributr.Core.Domain.Master.SettingsEntities;
 using Distributr.Core.Domain.Master.UserEntities;
+using Distributr.Core.Domain.Transactional.DocumentEntities;
 using Distributr.Core.Factory.SourcingDocuments;
 using Distributr.Core.Repository.Master.CommodityOwnerRepository;
 using Distributr.Core.Repository.Master.CommodityRepositories;
@@ -29,32 +30,33 @@ using GalaSoft.MvvmLight.Command;
 
 namespace Distributr.WPF.Lib.ViewModels.Warehousing
 {
-    public class AddWarehouseEntryViewModel:DistributrViewModelBase
+    public class AddWarehouseEntryViewModel : DistributrViewModelBase
     {
         public AddWarehouseEntryViewModel()
         {
-          
+
             WeighCommand = new RelayCommand(Weigh);
             SaveCommand = new RelayCommand(Save);
+
             CancelCommand = new RelayCommand(Cancel);
             AddWarehouseEntryLoadPageCommand = new RelayCommand(LoadPage);
-            AccountSelectionChangedCommand=new RelayCommand(SelectAccount);
+            AccountSelectionChangedCommand = new RelayCommand(SelectAccount);
             FarmerSelectionChangedCommand = new RelayCommand(SelectFarmer);
             CommodityChangeCommand = new RelayCommand(SelectCommodity);
-            SelectedCommodityChangedCommand=new RelayCommand(LoadGrades);
-            GradeChangeCommand=new RelayCommand(SelectGrade);
+            SelectedCommodityChangedCommand = new RelayCommand(LoadGrades);
+            GradeChangeCommand = new RelayCommand(SelectGrade);
 
 
 
-            GradeList=new ObservableCollection<CommodityGrade>();
-            FarmersList=new ObservableCollection<CommodityOwner>();
-            CommodityList=new ObservableCollection<Commodity>();
+            GradeList = new ObservableCollection<CommodityGrade>();
+            FarmersList = new ObservableCollection<CommodityOwner>();
+            CommodityList = new ObservableCollection<Commodity>();
             LineItems = new ObservableCollection<WarehouseLineItemViewModel>();
         }
 
-     
 
-      
+
+
 
         #region Members
 
@@ -65,6 +67,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
 
         public RelayCommand AccountSelectionChangedCommand { get; set; }
         public RelayCommand FarmerSelectionChangedCommand { get; set; }
+
         public RelayCommand CommodityChangeCommand { get; set; }
         public RelayCommand SelectedCommodityChangedCommand { get; set; }
         public RelayCommand GradeChangeCommand { get; set; }
@@ -74,7 +77,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
         public ObservableCollection<CommodityOwner> FarmersList { get; set; }
         public ObservableCollection<Commodity> CommodityList { get; set; }
         public ObservableCollection<WarehouseLineItemViewModel> LineItems { get; set; }
-       
+
 
         #endregion
 
@@ -91,10 +94,10 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
                 DocumentIssuerUser = Using<IUserRepository>(cont).GetById(configService.ViewModelParameters.CurrentUserId);
 
                 DocumentIssuerCostCentre = _costCentreRepo.GetById(GetConfigParams().CostCentreId);
-                
-              }
+
+            }
             //DefaultValues();
-           
+
             GetSettings();
 
             LoadCommodities();
@@ -116,7 +119,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
 
         private void DefaultValues()
         {
-            if(System.Diagnostics.Debugger.IsAttached)
+            if (System.Diagnostics.Debugger.IsAttached)
             {
                 Notes = "Kenyan";
                 Weight = 45;
@@ -139,8 +142,9 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
             }
             if (SerialPortHelper.IsDeviceReady)
             {
-
+                WeighTypeProp = WeighType.WeighScale;
                 Weight = SerialPortHelper.Read();
+
                 using (StructureMap.IContainer c = NestedContainer)
                 {
                     var setting =
@@ -182,6 +186,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
             else if (SerialPortHelper.Init(out msg, scale.WeighScaleType, scale.Port,
                 scale.BaudRate, scale.DataBits))
             {
+                WeighTypeProp = WeighType.WeighScale;
                 Weight = SerialPortHelper.Read();
                 using (StructureMap.IContainer c = NestedContainer)
                 {
@@ -206,12 +211,12 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
                             "Weight is Less than the set Limit. Minimum Weight is {0}", mn);
                         string errGreaterThan = string.Format(
                             "Weight is Greater than the set Limit. Maximum Weight is[{0}]", mx);
-                        if (Weight < (decimal) mn)
+                        if (Weight < (decimal)mn)
                         {
                             MessageBox.Show(errLessThan, "Agrimanager", MessageBoxButton.OK, MessageBoxImage.Error);
                             return;
                         }
-                        else if (Weight > (decimal) mx)
+                        else if (Weight > (decimal)mx)
                         {
                             MessageBox.Show(errGreaterThan, "Agrimanager", MessageBoxButton.OK, MessageBoxImage.Error);
                             return;
@@ -222,10 +227,17 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
             }
             else
             {
-                AddLogEntry("Warehousing Weigh","Error- "+msg);
+                AddLogEntry("Warehousing Weigh", "Error- " + msg);
                 MessageBox.Show("The weight could not be recorded,check the audit log and make sure weighing scale is setup properly", "Agrimanagr Info", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
+        }
+
+        private void ResetWeight()
+        {
+            const int resetValue = 0;
+            Weight = resetValue;
+
         }
 
         private void Cancel()
@@ -245,6 +257,8 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
         {
             using (StructureMap.IContainer cont = NestedContainer)
             {
+                var _costCentreRepo = Using<ICostCentreRepository>(cont);
+                DocumentIssuerCostCentre = _costCentreRepo.GetById(GetConfigParams().CostCentreId);
                 docRef = Using<IGetDocumentReference>(cont)
                     .GetDocReference(docRef, DocumentIssuerCostCentre.Id,
                                      DocumentRecipientCostCentre.Id);
@@ -257,7 +271,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
             LineItems.Clear();
             string msg = "";
 
-           
+
             try
             {
 
@@ -328,50 +342,50 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
                         DateTime now = DateTime.Now;
                         var warehouseWfManager = Using<ICommodityWarehouseStorageWFManager>(c);
                         var warehouseFactory = Using<ICommodityWarehouseStorageFactory>(c);
-
+                        DocumentIssuerUser = Using<IUserRepository>(c).GetById(configService.ViewModelParameters.CurrentUserId);
 
                         var warehouseNote = warehouseFactory.Create(DocumentIssuerCostCentre, costCentreApplicationid,
                                                                     DocumentRecipientCostCentre, DocumentIssuerUser,
-                                                                    DocumentReference,Guid.Empty,SelectedFarmer.Id, DateTime.Now,
-                                                                    DateTime.Now, DriverName, RegistrationNumber,null,
+                                                                    DocumentReference, Guid.Empty, SelectedFarmer.Id, DateTime.Now,
+                                                                    DateTime.Now, DriverName, RegistrationNumber, null,
                                                                     null, null, null, Notes, Notes);
 
 
-                       
+
                         foreach (var item in LineItems)
                         {
                             var lineItem = warehouseFactory.CreateLineItem(item.Id, item.Commodity.Id,
                                                                            item.CommodityGrade.Id, Guid.Empty, null,
-                                                                           Weight, item.Description);
+                                                                           Weight, WeighTypeProp, item.Description);
                             warehouseNote.AddLineItem(lineItem);
                         }
                         warehouseNote.Confirm();
                         warehouseWfManager.SubmitChanges(warehouseNote);
-
+                        ResetWeight();
 
                         AddLogEntry("Warehouse Entry", "Created warehouse entry note " + DocumentReference);
-                       
+
                         msg = "Warehouse Entry successfully made . Transaction number: " +
                               DocumentReference;
-                       if( MessageBox.Show(msg, "Agrimanagr: Warehouse " + DocumentReference, MessageBoxButton.OK,
-                                        MessageBoxImage.Information)==MessageBoxResult.OK)
-                       {
-                           string url = "/views/warehousing/WarehouseEntryListingPage.xaml";
-                           NavigateCommand.Execute(url);
-                       }
+                        if (MessageBox.Show(msg, "Agrimanagr: Warehouse " + DocumentReference, MessageBoxButton.OK,
+                                         MessageBoxImage.Information) == MessageBoxResult.OK)
+                        {
+                            string url = "/views/warehousing/WarehouseEntryListingPage.xaml";
+                            NavigateCommand.Execute(url);
+                        }
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                
-               msg = "Error occured while saving transaction.\n" + e.Message +
-                     (e.InnerException == null ? "" : e.InnerException.Message);
-               MessageBox.Show(msg, "Agrimanagr: Warehouse Entry", MessageBoxButton.OK, MessageBoxImage.Error);
-               
+
+                msg = "Error occured while saving transaction.\n" + e.Message +
+                      (e.InnerException == null ? "" : e.InnerException.Message);
+                MessageBox.Show(msg, "Agrimanagr: Warehouse Entry", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
-        
-    }
+
+        }
 
         private bool Validate()
         {
@@ -389,7 +403,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
                                 MessageBoxImage.Exclamation);
                 isValid = false;
             }
-            if (SelectedCommodity.Name =="--Select Commodity---")
+            if (SelectedCommodity.Name == "--Select Commodity---")
             {
                 MessageBox.Show("Please select commodity", "Agrimanagr : Warehouse Error", MessageBoxButton.OK,
                                 MessageBoxImage.Exclamation);
@@ -432,7 +446,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
             }
         }
 
-       
+
 
         private void LoadFarmers(Guid supplierId)
         {
@@ -464,7 +478,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
             grades.ForEach(n => { if (GradeList.Select(q => q.Id).All(p => p != n.Id)) GradeList.Add(n); });
             if (GradeList.Count(n => n.Id != Guid.Empty) == 0)
             {
-               
+
 
                 GradeList.Add(DefaultGrade);
                 SelectedGrade = DefaultGrade;
@@ -510,7 +524,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
                 if (selected == null)
                 {
                     SelectedAccount = new CommoditySupplier(Guid.Empty) { AccountName = "--Select Account---" };
-                   
+
                     FarmerVisibility = "Collapsed";
                 }
                 else
@@ -518,9 +532,9 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
 
                     SelectedAccountName = SelectedAccount.Name;
 
-                    if(SelectedAccount.CommoditySupplierType==CommoditySupplierType.Cooperative)
+                    if (SelectedAccount.CommoditySupplierType == CommoditySupplierType.Cooperative)
                     {
-                        if (SelectedFarmer!=null && SelectedFarmer.Id != SelectedAccount.Id)
+                        if (SelectedFarmer != null && SelectedFarmer.Id != SelectedAccount.Id)
                         {
                             SelectedFarmer = new CommodityOwner(Guid.Empty) { FirstName = "--Select Farmer---" };
                             SelectedFarmerName = "--Select Farmer---";
@@ -532,7 +546,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
                         SelectedFarmer = Using<ICommodityOwnerRepository>(container).GetBySupplier(SelectedAccount.Id).FirstOrDefault();
                         FarmerVisibility = "Collapsed";
                     }
-                    
+
                 }
             }
         }
@@ -551,7 +565,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
                 }
                 else
                 {
-                    
+
                     SelectedFarmerName = SelectedFarmer.FullName;
                 }
             }
@@ -903,6 +917,29 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
             }
         }
 
+
+        public const string WeighTypePropPropertyName = "WeighType";
+        private WeighType _weighTypeProp = WeighType.Manual;
+        public WeighType WeighTypeProp
+        {
+            get
+            {
+                return (WeighType)_weighTypeProp;
+            }
+
+            set
+            {
+                if (_weighTypeProp == value)
+                {
+                    return;
+                }
+
+                RaisePropertyChanging(WeighTypePropPropertyName);
+                _weighTypeProp = value;
+                RaisePropertyChanged(WeighTypePropPropertyName);
+            }
+        }
+
         public const string DocumentIssuerUserPropertyName = "DocumentIssuerUser";
         private User _documentIssuerUser = null;
         public User DocumentIssuerUser
@@ -1016,6 +1053,6 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
 
         #endregion
 
-        
+
     }
 }

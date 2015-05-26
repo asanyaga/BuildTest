@@ -25,9 +25,17 @@ namespace Agrimanagr.WPF.UI.Views.Warehousing
             InitializeComponent();
         }
 
-        private void SaveCancelButtonsControl_Loaded(object sender, RoutedEventArgs e)
+        private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-
+            InitializeComponent();
+            btnWeigh.IsEnabled = true;
+            int val = 0;
+            txtWeight.Text = val.ToString();
         }
+
+
+
+
+
     }
 }
