@@ -68,15 +68,19 @@ namespace Distributr.Integrations.Imports.Impl
 
             foreach (var deletedCode in deletedCodes)
             {
-                
+
                 try
                 {
                     var split = deletedCode.Split('|');
-                    if(split.Length < 2)
+                    if (split.Length < 2)
                         continue;
                     string productCode = split[0];
                     string pricingTierCode = split[1];
-                    var pricingId = _context.tblPricing.Where(p => p.tblProduct.ProductCode == productCode && p.tblPricingTier.Code == pricingTierCode).Select(p => p.id).FirstOrDefault();
+                    var pricingId =
+                        _context.tblPricing.Where(
+                            p => p.tblProduct.ProductCode == productCode && p.tblPricingTier.Code == pricingTierCode)
+                            .Select(p => p.id)
+                            .FirstOrDefault();
 
                     var pricing = _productPricingRepository.GetById(pricingId);
                     if (pricing != null)
@@ -88,7 +92,7 @@ namespace Distributr.Integrations.Imports.Impl
                 {
                     _log.Error("Pricing Delete Error" + ex.ToString());
                 }
-                            }
+            }
             return new ImportResponse() { Info = "Pricing Deleted Succesfully", Status = true };
         }
 

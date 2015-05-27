@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using Distributr.Core.Domain.Master.CostCentreEntities;
 using Distributr.Core.Domain.Master.UserEntities;
 using Distributr.Core.Domain.Transactional.DocumentEntities;
 using Distributr.Core.Domain.Transactional.DocumentEntities.LineItems;
@@ -21,17 +22,16 @@ using NUnit.Framework;
 using StructureMap;
 using TechTalk.SpecFlow;
 
-namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
+namespace DistributrAgrimanagrFeatures.DocumentFeatures.Order
 {
     [Binding]
-    public class StockistPurchaseOrderServerSteps
+    public class OrderServerSteps
     {
         private string section = "StockistPurchaseOrderServerSteps";
         public decimal amount = 10;
-        public decimal LineItemVatValue = 0.16m;
 
-        [Given(@"I create a stockist purchase order \[server]")]
-        public void GivenICreateAStockistPurchaseOrderServer()
+        [Given(@"I create an order \[server]")]
+        public void GivenICreateAnOrderServer()
         {
             TI.trace(section, "#1");
             var testHelper = ObjectFactory.GetInstance<ScenarioTestHelperLocal>();
@@ -41,10 +41,10 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
             {
                 User = user,
                 HubConfig = config,
-                LineItemVatValue = LineItemVatValue,
             };
             settings.OriginalQuantity = testHelper.Quantity(settings.DocumentId);
-            settings.OriginalValue = testHelper.Value(settings.DocumentId);
+            settings.DistributorSalesman = testHelper.DistributorSalesman();
+            settings.Outlet = testHelper.Outlet();
 
             var masterDataHelper = ObjectFactory.GetInstance<MasterDataHelper>();
             var product = masterDataHelper.GetSaleProduct();
@@ -55,21 +55,21 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
             ScenarioContext.Current["note"] = note;
         }
 
-        [Given(@"I create a stockist purchase order line item \[server]")]
-        public void GivenICreateAStockistPurchaseOrderLineItemServer()
+        [Given(@"I create an order line item \[server]")]
+        public void GivenICreateAnOrderLineItemServer()
         {
             TI.trace(section, "#2");
             var settings = ScenarioContext.Current["settings"] as ScenarioSettings;
             var testHelper = ObjectFactory.GetInstance<ScenarioTestHelperLocal>();
             var note =
                 ScenarioContext.Current["note"] as MainOrder;
-            note.AddLineItem(testHelper.CreateMainOrderLineItem(settings));
+            note.AddLineItem(testHelper.CreateFOCLineItem(settings));
             note.Confirm();
             ScenarioContext.Current["note"] = note;
         }
 
-        [When(@"I submit the stockist purchase order to its respective workflow \[server]")]
-        public void WhenISubmitTheStockistPurchaseOrderToItsRespectiveWorkflowServer()
+        [When(@"I submit the order to its respective workflow \[server]")]
+        public void WhenISubmitTheOrderToItsRespectiveWorkflowServer()
         {
             TI.trace(section, "#3");
             var note =
@@ -78,8 +78,8 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
             testHelper.SubmitToWF(note);
         }
 
-        [When(@"I trigger a server sync from hub \( stockist purchase order\) \[server]")]
-        public void WhenITriggerAServerSyncFromHubStockistPurchaseOrderServer()
+        [When(@"I trigger a server sync from hub \(order\) \[server]")]
+        public void WhenITriggerAServerSyncFromHubOrderServer()
         {
             TI.trace(section, "#4");
             var testHelper = ObjectFactory.GetInstance<ScenarioTestHelperLocal>();
@@ -90,8 +90,8 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
             }
         }
 
-        [When(@"I approve the stockist purchase order in the client application \[server]")]
-        public void WhenIApproveTheStockistPurchaseOrderInTheClientApplicationServer()
+        [When(@"I approve the order in the client application \[server]")]
+        public void WhenIApproveTheOrderInTheClientApplicationServer()
         {
             TI.trace(section, "#7");
             var note =
@@ -103,20 +103,8 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
             ScenarioContext.Current["note"] = note;
         }
 
-        [Then(@"I should be able to fetch the stockist purchase order in server with a status of approved")]
-        public void ThenIShouldBeAbleToFetchTheStockistPurchaseOrderInServerWithAStatusOfApproved()
-        {
-            TI.trace(section, "#8");
-            var settings = ScenarioContext.Current["settings"] as ScenarioSettings;
-            var testHelper = ObjectFactory.GetInstance<ScenarioTestHelperLocal>();
-            var mainOrderLocal = testHelper.GetById(settings.DocumentId);
-            Assert.AreEqual(mainOrderLocal.PendingApprovalLineItems.Count, 0);
-            Assert.AreEqual(mainOrderLocal.OrderStatus, OrderStatus.Inprogress);
-        }
-
-
-        [When(@"I trigger a server sync \(stockist purchase order\) in the client application")]
-        public void WhenITriggerAServerSyncStockistPurchaseOrderInTheClientApplication()
+        [When(@"I trigger a server sync \(order\) in the client application")]
+        public void WhenITriggerAServerSyncOrderInTheClientApplication()
         {
             TI.trace(section, "#4");
             var testHelper = ObjectFactory.GetInstance<ScenarioTestHelperLocal>();
@@ -128,8 +116,8 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
             }
         }
 
-        [Then(@"There should be a saved stockist purchase order on the server \[server]")]
-        public void ThenThereShouldBeASavedStockistPurchaseOrderOnTheServerServer()
+        [Then(@"There should be a saved order on the server \[server]")]
+        public void ThenThereShouldBeASavedOrderOnTheServerServer()
         {
             TI.trace(section, "#5");
             var c = IOCHelper.ServerContainerAutofac(new[] { typeof(ScenarioTestHelperServer) });
@@ -141,25 +129,33 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
             ScenarioContext.Current["note"] = note;
         }
 
-        [Then(@"the amount of the stockist purchase order line item should be the same as in the hub \[server]")]
-        public void ThenTheAmountOfTheStockistPurchaseOrderLineItemShouldBeTheSameAsInTheHubServer()
+        [Then(@"the amount of the order line item should be the same as in the hub \[server]")]
+        public void ThenTheAmountOfTheOrderLineItemShouldBeTheSameAsInTheHubServer()
         {
             TI.trace(section, "#6");
 
             var settings = ScenarioContext.Current["settings"] as ScenarioSettings;
             var testHelper = ObjectFactory.GetInstance<ScenarioTestHelperLocal>();
-            var valueLocal = testHelper.Value(settings.DocumentId);
             var qtyLocal = testHelper.Quantity(settings.DocumentId);
             var mainOrderLocal = testHelper.GetById(settings.DocumentId);
 
             var c = IOCHelper.ServerContainerAutofac(new[] { typeof(ScenarioTestHelperServer) });
             var testHelperServer = c.Resolve<ScenarioTestHelperServer>();
-            var valueServer = testHelperServer.Value(settings.DocumentId);
             var qtyServer = testHelperServer.Quantity(settings.DocumentId);
             var mainOrderServer = testHelperServer.Get(settings.DocumentId);
 
-            Assert.AreEqual(valueLocal, valueServer);
             Assert.AreEqual(qtyLocal, qtyServer);
+        }
+
+        [Then(@"I should be able to fetch the order in server with a status of approved")]
+        public void ThenIShouldBeAbleToFetchTheOrderInServerWithAStatusOfApproved()
+        {
+            TI.trace(section, "#8");
+            var settings = ScenarioContext.Current["settings"] as ScenarioSettings;
+            var testHelper = ObjectFactory.GetInstance<ScenarioTestHelperLocal>();
+            var mainOrderLocal = testHelper.GetById(settings.DocumentId);
+            Assert.AreEqual(mainOrderLocal.PendingApprovalLineItems.Count, 0);
+            Assert.AreEqual(mainOrderLocal.OrderStatus, OrderStatus.Inprogress);
         }
 
         private class ScenarioSettings
@@ -168,7 +164,8 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
             {
                 DocumentId = Guid.Empty;
                 DocumentParentId = Guid.Empty;
-                OrderType = OrderType.DistributorToProducer;
+                OrderType = OrderType.OutletToDistributor;
+                DiscountType = DiscountType.FreeOfChargeDiscount;
             }
             public Guid DocumentId { get; set; }
             public Guid DocumentParentId { get; set; }
@@ -177,7 +174,6 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
 
             public Config HubConfig { get; set; }
 
-            public Decimal OriginalValue { get; set; }
             public Decimal OriginalQuantity { get; set; }
 
             public string DocumentReference { get; set; }
@@ -187,11 +183,15 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
 
             public decimal SaleDiscount { get; set; }
 
-            public decimal LineItemVatValue { get; set; }
-
             public Guid ProductId { get; set; }
 
+            public DistributorSalesman DistributorSalesman { get; set; }
+
+            public Outlet Outlet { get; set; }
+
             public OrderType OrderType { get; set; }
+
+            public DiscountType DiscountType { get; set; }
         }
 
         private class ScenarioTestHelperLocal
@@ -227,20 +227,30 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
                 return _userRepository.GetAll().First(m => m.Username == "Kameme");
             }
 
+            public DistributorSalesman DistributorSalesman()
+            {
+                return _costCentreRepository.GetAll().OfType<DistributorSalesman>().FirstOrDefault();
+            }
+
+            public Outlet Outlet()
+            {
+                return _costCentreRepository.GetAll().OfType<Outlet>().FirstOrDefault();
+            }
+
             public MainOrder CreateMainOrder(ScenarioSettings localSetting)
             {
                 var cc = _costCentreRepository.GetById(localSetting.HubConfig.CostCentreId);
                 var config = localSetting.HubConfig;
-                var pn = _mainOrderFactory.Create(cc, config.CostCentreApplicationId, cc, localSetting.User, cc, localSetting.OrderType, localSetting.DocumentReference, localSetting.DocumentParentId, localSetting.ShipToAddress, localSetting.DateRequired, localSetting.SaleDiscount,
+                var pn = _mainOrderFactory.Create(cc, config.CostCentreApplicationId, localSetting.DistributorSalesman, localSetting.User, localSetting.Outlet, localSetting.OrderType, localSetting.DocumentReference, localSetting.DocumentParentId, localSetting.ShipToAddress, localSetting.DateRequired, localSetting.SaleDiscount,
                     "Main Order");
 
                 return pn;
             }
 
-            public SubOrderLineItem CreateMainOrderLineItem(ScenarioSettings localSettings)
+            public SubOrderLineItem CreateFOCLineItem(ScenarioSettings localSettings)
             {
-                var lineItem = _mainOrderFactory.CreateLineItem(localSettings.ProductId, localSettings.OriginalQuantity,
-                    localSettings.OriginalValue, "Line Item 1", localSettings.LineItemVatValue);
+                var lineItem = _mainOrderFactory.CreateFOCLineItem(localSettings.ProductId, localSettings.OriginalQuantity,
+                    "Line Item 1", localSettings.DiscountType);
 
                 return lineItem;
             }
@@ -255,11 +265,6 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
                 return _mainOrderRepository.GetById(Id);
             }
 
-            public decimal Value(Guid documentId)
-            {
-                var creditNote = _mainOrderRepository.GetById(documentId);
-                return creditNote == null ? 10 : creditNote.ItemSummary.FirstOrDefault().Value;
-            }
 
             public decimal Quantity(Guid documentId)
             {
@@ -286,12 +291,6 @@ namespace DistributrAgrimanagrFeatures.DocumentFeatures.SPO
             public MainOrder Get(Guid Id)
             {
                 return _mainOrderRepository.GetById(Id);
-            }
-
-            public decimal Value(Guid documentId)
-            {
-                var creditNote = _mainOrderRepository.GetById(documentId);
-                return creditNote == null ? 10 : creditNote.ItemSummary.FirstOrDefault().Value;
             }
 
             public decimal Quantity(Guid documentId)

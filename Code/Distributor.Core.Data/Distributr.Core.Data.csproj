@@ -419,7 +419,6 @@
     <Compile Include="Utility\Caching\MasterDataCachingInvalidator.cs" />
     <Compile Include="Utility\CommandDeserialization\CommandDeserialize.cs" />
     <Compile Include="Utility\MasterDataUsage.cs" />
-    <Compile Include="Utility\ValidationExtensions.cs" />
     <Compile Include="Utility\Validation\CommandValidate.cs" />
   </ItemGroup>
   <ItemGroup>
