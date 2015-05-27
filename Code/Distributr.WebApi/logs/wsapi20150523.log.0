@@ -1,0 +1,335 @@
+2015-05-23 12:46:44,423 [7] INFO  LoginController Login attempt for hqadmin - HQAdmin
+2015-05-23 12:46:44,741 [7] INFO  CostCentreApplicationService Failed to login hqadmin
+2015-05-23 12:46:53,989 [7] INFO  LoginController Login attempt for hqadmin - HQAdmin
+2015-05-23 12:46:54,002 [7] INFO  CostCentreApplicationService Failed to login hqadmin
+2015-05-23 12:46:57,364 [7] INFO  LoginController Login attempt for hqadmin - HQAdmin
+2015-05-23 12:46:57,403 [7] INFO  CostCentreApplicationService Failed to login hqadmin
+2015-05-23 12:49:25,323 [7] INFO  LoginController Login attempt for hqadmin - HQAdmin
+2015-05-23 12:49:35,246 [7] INFO  CostCentreApplicationService Failed to login hqadmin
+2015-05-23 12:50:33,266 [7] INFO  CostCentreApplicationService Failed to login hqadmin
+2015-05-23 12:51:37,985 [9] INFO  LoginController Login attempt for john1 - HQAdmin
+2015-05-23 12:51:48,583 [9] INFO  CostCentreApplicationService Successful login for john1
+2015-05-23 12:53:10,562 [7] INFO  NewIntegrationsController Login attempt for john1 - GetNextOrder
+2015-05-23 12:53:14,824 [7] INFO  CostCentreApplicationService Successful login for john1
+2015-05-23 12:53:16,547 [7] INFO  NewIntegrationsController Login attempt for john1 - GetNextOrder
+2015-05-23 12:53:17,614 [7] INFO  CostCentreApplicationService Successful login for john1
+2015-05-23 13:00:27,021 [26] INFO  LoginController Login attempt for john1 - HQAdmin
+2015-05-23 13:00:28,223 [26] INFO  CostCentreApplicationService Successful login for john1
+2015-05-23 13:00:54,974 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:54,999 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,010 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,031 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,040 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,059 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,070 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,089 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,099 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,120 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,131 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,162 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,172 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,200 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,214 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,243 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,260 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,284 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,293 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,319 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,329 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,349 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,359 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,384 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,394 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,416 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,429 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,450 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,460 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,485 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,497 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,516 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,530 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,558 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,573 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,601 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,617 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,644 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,656 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,696 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,706 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,734 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,750 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,775 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,786 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,813 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,825 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,850 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,859 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,899 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,911 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,931 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,947 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:55,970 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:55,979 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,006 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,015 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,039 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,052 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,071 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,080 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,104 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,113 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,132 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,143 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,162 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,171 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,192 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,202 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,224 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,235 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,255 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,264 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,285 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,294 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,313 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,322 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,343 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,352 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,374 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,383 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,408 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,420 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,444 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,456 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,485 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,495 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,517 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,527 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,555 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,565 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,588 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,598 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,617 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,629 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,648 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,657 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,678 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,688 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,707 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,719 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,738 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,750 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,770 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,779 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,802 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,811 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,830 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,841 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,861 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,871 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,894 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,904 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,928 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,943 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:56,968 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:56,982 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,015 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,027 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,050 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,063 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,095 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,111 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,151 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,165 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,190 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,209 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,234 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,244 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,272 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,285 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,311 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,322 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,350 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,362 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,391 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,403 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,428 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,438 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,460 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,469 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,489 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,499 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,518 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,527 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,547 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,556 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,578 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,587 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,607 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,619 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,638 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,648 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,670 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,680 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,700 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,710 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,732 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,741 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,764 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,773 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,792 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,803 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,823 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,832 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,853 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,862 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,881 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,892 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,911 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,920 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,943 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,953 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:57,975 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:57,989 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:58,020 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:58,031 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:58,061 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:58,073 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:58,098 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:58,117 [26] INFO  HQ Saving/Updating Supplier
+2015-05-23 13:00:58,146 [26] INFO  HQ Invalidating Cache
+2015-05-23 13:00:58,292 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,515 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,525 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,537 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,547 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,564 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,575 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,585 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,596 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,610 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,621 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,635 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,646 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,660 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,671 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,683 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,694 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,709 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,721 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,731 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,741 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,754 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,764 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,774 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:00:59,783 [26] INFO  HQ Getting all suppliers
+2015-05-23 13:03:44,003 [27] INFO  HQ Validating UserASM
+2015-05-23 13:03:44,690 [27] INFO  HQ Validating UserSalesRep
+2015-05-23 13:03:44,832 [27] INFO  HQ Validating UserSurveyor
+2015-05-23 13:03:47,659 [27] INFO  HQ Validating UserRBEMBUMAINUser
+2015-05-23 13:03:48,053 [27] INFO  HQ Validating UserRBKSMMAINUser
+2015-05-23 13:03:48,320 [27] INFO  HQ Validating UserRBMSAMAINUser
+2015-05-23 13:03:48,624 [27] INFO  HQ Validating UserMAINUser
+2015-05-23 13:03:52,182 [30] INFO  HQ Validating UserEMB-VAN1
+2015-05-23 13:03:52,182 [30] INFO  HQ Validating UserEMB-VAN2
+2015-05-23 13:03:52,183 [30] INFO  HQ Validating UserEMB-VAN3
+2015-05-23 13:03:52,183 [30] INFO  HQ Validating UserKSM-VAN1
+2015-05-23 13:03:52,183 [30] INFO  HQ Validating UserKSM-VAN2
+2015-05-23 13:03:52,183 [30] INFO  HQ Validating UserKSM-VAN3
+2015-05-23 13:03:52,183 [30] INFO  HQ Validating UserKSM-VAN4
+2015-05-23 13:03:52,183 [30] INFO  HQ Validating UserMSA-VAN1
+2015-05-23 13:03:52,183 [30] INFO  HQ Validating UserMSA-VAN2
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserMSA-VAN3
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserMSA-VAN4
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserNBO-VAN1
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserNBO-VAN2
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserNBO-VAN3
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserNBO-VAN4
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserNBO-VAN5
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserNBO-VAN6
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserNBO-VAN7
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserNBO-VAN8
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserNBO-VAN9
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserNBO-VANS
+2015-05-23 13:03:52,184 [30] INFO  HQ Validating UserNB-VAN10
+2015-05-23 13:03:52,185 [30] INFO  HQ Validating UserNB-VAN11
+2015-05-23 13:03:52,185 [30] INFO  HQ Validating UserNB-VAN12
+2015-05-23 13:03:52,185 [30] INFO  HQ Validating UserNB-VAN13
+2015-05-23 13:03:52,599 [30] INFO  HQ Validating UserEMB-VAN1
+2015-05-23 13:03:52,677 [30] INFO  HQ Validating UserEMB-VAN2
+2015-05-23 13:03:52,757 [30] INFO  HQ Validating UserEMB-VAN3
+2015-05-23 13:03:52,842 [30] INFO  HQ Validating UserKSM-VAN1
+2015-05-23 13:03:52,898 [30] INFO  HQ Validating UserKSM-VAN2
+2015-05-23 13:03:52,964 [30] INFO  HQ Validating UserKSM-VAN3
+2015-05-23 13:03:53,031 [30] INFO  HQ Validating UserKSM-VAN4
+2015-05-23 13:03:53,098 [30] INFO  HQ Validating UserMSA-VAN1
+2015-05-23 13:03:53,150 [30] INFO  HQ Validating UserMSA-VAN2
+2015-05-23 13:03:53,217 [30] INFO  HQ Validating UserMSA-VAN3
+2015-05-23 13:03:53,277 [30] INFO  HQ Validating UserMSA-VAN4
+2015-05-23 13:03:53,329 [30] INFO  HQ Validating UserNBO-VAN1
+2015-05-23 13:03:53,382 [30] INFO  HQ Validating UserNBO-VAN2
+2015-05-23 13:03:53,432 [30] INFO  HQ Validating UserNBO-VAN3
+2015-05-23 13:03:53,485 [30] INFO  HQ Validating UserNBO-VAN4
+2015-05-23 13:03:53,583 [30] INFO  HQ Validating UserNBO-VAN5
+2015-05-23 13:03:53,646 [30] INFO  HQ Validating UserNBO-VAN6
+2015-05-23 13:03:53,707 [30] INFO  HQ Validating UserNBO-VAN7
+2015-05-23 13:03:53,792 [30] INFO  HQ Validating UserNBO-VAN8
+2015-05-23 13:03:53,868 [30] INFO  HQ Validating UserNBO-VAN9
+2015-05-23 13:03:53,935 [30] INFO  HQ Validating UserNBO-VANS
+2015-05-23 13:03:53,987 [30] INFO  HQ Validating UserNB-VAN10
+2015-05-23 13:03:54,042 [30] INFO  HQ Validating UserNB-VAN11
+2015-05-23 13:03:54,104 [30] INFO  HQ Validating UserNB-VAN12
+2015-05-23 13:03:54,154 [30] INFO  HQ Validating UserNB-VAN13
+2015-05-23 13:35:19,012 [9] INFO  LoginController Login attempt for hqadmin - HQAdmin
+2015-05-23 13:35:33,097 [9] INFO  CostCentreApplicationService Successful login for hqadmin
+2015-05-23 13:35:54,552 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,583 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,595 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,608 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,621 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,638 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,649 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,663 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,679 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,691 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,703 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,713 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,727 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,741 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,762 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,784 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,799 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,814 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,828 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,843 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,857 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,871 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,887 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,898 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:35:54,919 [7] INFO  HQ Getting all suppliers
+2015-05-23 13:48:02,648 [5] INFO  LoginController Login attempt for hqadmin - HQAdmin
+2015-05-23 13:48:04,560 [5] INFO  CostCentreApplicationService Successful login for hqadmin
+2015-05-23 22:22:06,071 [27] INFO  HQ Validating UserEMB-VAN1
+2015-05-23 22:22:06,707 [27] INFO  HQ Validating UserEMB-VAN2
+2015-05-23 22:22:06,707 [27] INFO  HQ Validating UserEMB-VAN3
+2015-05-23 22:22:06,708 [27] INFO  HQ Validating UserKSM-VAN1
+2015-05-23 22:22:06,708 [27] INFO  HQ Validating UserKSM-VAN2
+2015-05-23 22:22:06,708 [27] INFO  HQ Validating UserKSM-VAN3
+2015-05-23 22:22:06,708 [27] INFO  HQ Validating UserKSM-VAN4
+2015-05-23 22:22:06,708 [27] INFO  HQ Validating UserMSA-VAN1
+2015-05-23 22:22:06,709 [27] INFO  HQ Validating UserMSA-VAN2
+2015-05-23 22:22:06,709 [27] INFO  HQ Validating UserMSA-VAN3
+2015-05-23 22:22:06,709 [27] INFO  HQ Validating UserMSA-VAN4
+2015-05-23 22:22:06,709 [27] INFO  HQ Validating UserNBO-VAN1
+2015-05-23 22:22:06,709 [27] INFO  HQ Validating UserNBO-VAN2
+2015-05-23 22:22:06,709 [27] INFO  HQ Validating UserNBO-VAN3
+2015-05-23 22:22:06,710 [27] INFO  HQ Validating UserNBO-VAN4
+2015-05-23 22:22:06,710 [27] INFO  HQ Validating UserNBO-VAN5
+2015-05-23 22:22:06,710 [27] INFO  HQ Validating UserNBO-VAN6
+2015-05-23 22:22:06,710 [27] INFO  HQ Validating UserNBO-VAN7
+2015-05-23 22:22:06,710 [27] INFO  HQ Validating UserNBO-VAN8
+2015-05-23 22:22:06,711 [27] INFO  HQ Validating UserNBO-VAN9
+2015-05-23 22:22:06,711 [27] INFO  HQ Validating UserNBO-VANS
+2015-05-23 22:22:06,711 [27] INFO  HQ Validating UserNB-VAN10
+2015-05-23 22:22:06,711 [27] INFO  HQ Validating UserNB-VAN11
+2015-05-23 22:22:06,711 [27] INFO  HQ Validating UserNB-VAN12
+2015-05-23 22:22:06,711 [27] INFO  HQ Validating UserNB-VAN13
