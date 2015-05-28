@@ -132,6 +132,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utility\TransactionUtils.cs" />
+    <Compile Include="Utility\Validation\ValidationExtensions.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

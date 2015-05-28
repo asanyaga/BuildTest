@@ -111,21 +111,21 @@ namespace Distributr.Core.Data.Repository.Transactional.ThirdPartyIntegrationRep
                 if (farmer == null)
                 {
                     result.StatusCode = (int) FarmerQueryStatusCode.CodeNotFound;
-                    result.StatusDetail = string.Format("Farmer with status code \"{0}\" not found", farmerCode);
+                    result.StatusDetail = string.Format(@"Farmer with status code '{0}' not found", farmerCode);
                     result.SummaryDetail = null;
 
                     return result;
                 }
 
 
-                //if (farmerMobile != farmer.PhoneNo || farmerMobile != farmer.OfficeNo)
-                //{
-                //    result.StatusCode = (int) FarmerQueryStatusCode.NumberNotAuthenticated;
-                //    result.StatusDetail = string.Format("The number used to Query does not belong to this farmer");
-                //    result.SummaryDetail = null;
+                if (farmerMobile != farmer.PhoneNo || farmerMobile != farmer.OfficeNo)
+                {
+                    result.StatusCode = (int)FarmerQueryStatusCode.NumberNotAuthenticated;
+                    result.StatusDetail = string.Format("The number used to Query does not belong to this farmer");
+                    result.SummaryDetail = null;
 
-                //    return result;
-                //}
+                    return result;
+                }
 
                 if (farmerQuery.Month!=string.Empty)
                 {
