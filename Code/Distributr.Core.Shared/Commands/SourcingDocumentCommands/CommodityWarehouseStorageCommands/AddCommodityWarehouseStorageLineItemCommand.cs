@@ -1,5 +1,6 @@
 ﻿using System;
 using Distributr.Core.Commands.DocumentCommands;
+using Distributr.Core.Domain.Transactional.DocumentEntities;
 
 namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityWarehouseStorageCommands
 {
@@ -16,6 +17,8 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityWarehouseSt
         public Guid ContainerTypeId { get; set; }
         public Guid ParentLineItemId { get; set; }
         public decimal Weight { get; set; }
+
+        public int WeighType { get; set; }
         public decimal NoOfContainers { get; set; }
         public string Note { get; set; }
         public string ContainerNo { get; set; }

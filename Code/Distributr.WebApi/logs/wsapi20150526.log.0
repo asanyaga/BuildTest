@@ -1,0 +1,48 @@
+2015-05-26 16:40:29,387 [5] ERROR Distributr.WebApi.MvcApplication An uncaught exception occurred
+System.Web.HttpException (0x80004005): The controller for path '/favicon.ico' was not found or does not implement IController.
+   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-26 16:48:38,180 [12] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
+2015-05-26 16:49:10,955 [10] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-26 16:49:10,956 [10] INFO  CommandEnvelopeController EnvelopeId 6fd7a183-fec0-42c1-bc4d-fa4c0bb9fd86 
+2015-05-26 16:49:11,186 [10] INFO  EasyNetQBusPublisher Message for Envelopr id 6fd7a183-fec0-42c1-bc4d-fa4c0bb9fd86 published on exchange EXQDennisMQ
+2015-05-26 16:49:11,211 [10] INFO  CommandEnvelopeController EnvelopeId 6fd7a183-fec0-42c1-bc4d-fa4c0bb9fd86  Published
+2015-05-26 16:49:11,212 [10] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-26 16:49:41,836 [10] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
+2015-05-26 16:50:42,881 [15] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
+2015-05-26 16:51:43,868 [22] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
+2015-05-26 16:52:45,133 [22] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
+2015-05-26 17:03:12,304 [8] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
+2015-05-26 17:03:44,886 [15] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-26 17:03:44,888 [15] INFO  CommandEnvelopeController EnvelopeId 11e7e15b-3f52-4dbc-9667-c4e220e710b5 
+2015-05-26 17:03:45,087 [15] INFO  EasyNetQBusPublisher Message for Envelopr id 11e7e15b-3f52-4dbc-9667-c4e220e710b5 published on exchange EXQDennisMQ
+2015-05-26 17:03:45,108 [15] INFO  CommandEnvelopeController EnvelopeId 11e7e15b-3f52-4dbc-9667-c4e220e710b5  Published
+2015-05-26 17:03:45,108 [15] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-26 17:04:15,785 [10] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 47caf17f-6643-4abe-9cf7-28eeda51edb0 with batchSize : 10
+2015-05-26 17:26:29,349 [8] INFO  LoginController Login attempt for HubManager - HubManager
+2015-05-26 17:26:29,961 [8] INFO  CostCentreApplicationService Successful login for HubManager
+2015-05-26 17:26:31,700 [9] INFO  CostCentreApplicationController CreateCostCentreApplication from CCID : 112768ef-67cd-483b-b5c6-5cc836950457 with applicationdescription : Distributr-MDC-WPF-APP-20150526052631-
+2015-05-26 17:26:32,670 [9] INFO  CostCentreApplicationService Created new cost centre application id 6a7155eb-d609-4fa2-8b56-221d2ddd88f9 
+2015-05-26 18:46:02,799 [9] ERROR Distributr.WebApi.MvcApplication An uncaught exception occurred
+System.Web.HttpException (0x80004005): The controller for path '/favicon.ico' was not found or does not implement IController.
+   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-26 19:14:38,228 [8] INFO  LoginController Login attempt for HubManager - HubManager
+2015-05-26 19:14:38,877 [8] INFO  CostCentreApplicationService Successful login for HubManager
+2015-05-26 19:14:41,329 [6] INFO  CostCentreApplicationController CreateCostCentreApplication from CCID : 67139bee-f8c2-41ee-8bc4-4ae03022570f with applicationdescription : Distributr-MDC-WPF-APP-20150526071440-
+2015-05-26 19:14:42,512 [6] INFO  CostCentreApplicationService Created new cost centre application id a96f411d-ad30-490e-8d65-ab6a6b222daf 
+2015-05-26 19:43:41,932 [63] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-26 19:44:43,801 [63] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-26 19:45:45,125 [55] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10

@@ -37234,6 +37234,30 @@ namespace Distributr.Core.Data.EF
         private Nullable<global::System.Decimal> _FinalWeight;
         partial void OnFinalWeightChanging(Nullable<global::System.Decimal> value);
         partial void OnFinalWeightChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> WeighType
+        {
+            get
+            {
+                return _WeighType;
+            }
+            set
+            {
+                OnWeighTypeChanging(value);
+                ReportPropertyChanging("WeighType");
+                _WeighType = StructuralObject.SetValidValue(value, "WeighType");
+                ReportPropertyChanged("WeighType");
+                OnWeighTypeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _WeighType;
+        partial void OnWeighTypeChanging(Nullable<global::System.Int32> value);
+        partial void OnWeighTypeChanged();
 
         #endregion
 

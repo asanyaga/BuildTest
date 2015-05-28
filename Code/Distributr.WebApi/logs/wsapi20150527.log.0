@@ -1,0 +1,354 @@
+2015-05-27 09:30:36,938 [6] ERROR Distributr.WebApi.MvcApplication An uncaught exception occurred
+System.Web.HttpException (0x80004005): The controller for path '/favicon.ico' was not found or does not implement IController.
+   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-27 09:32:53,296 [10] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:33:26,299 [10] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 09:33:26,300 [10] INFO  CommandEnvelopeController EnvelopeId 4bd4d4f6-42ff-42fc-b6b0-120f1cd9ce01 
+2015-05-27 09:33:26,564 [10] INFO  EasyNetQBusPublisher Message for Envelopr id 4bd4d4f6-42ff-42fc-b6b0-120f1cd9ce01 published on exchange EXQDennisMQ
+2015-05-27 09:33:26,579 [10] INFO  CommandEnvelopeController EnvelopeId 4bd4d4f6-42ff-42fc-b6b0-120f1cd9ce01  Published
+2015-05-27 09:33:26,579 [10] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 09:33:27,111 [7] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 09:33:27,111 [7] INFO  CommandEnvelopeController EnvelopeId ebf8e97d-caa7-47f5-81dd-c11fcc98d015 
+2015-05-27 09:33:27,142 [7] INFO  EasyNetQBusPublisher Message for Envelopr id ebf8e97d-caa7-47f5-81dd-c11fcc98d015 published on exchange EXQDennisMQ
+2015-05-27 09:33:27,143 [7] INFO  CommandEnvelopeController EnvelopeId ebf8e97d-caa7-47f5-81dd-c11fcc98d015  Published
+2015-05-27 09:33:27,143 [7] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 09:33:57,673 [10] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:34:58,658 [14] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:35:59,592 [7] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:37:00,593 [21] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:38:01,706 [21] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:39:02,699 [7] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:40:03,750 [21] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:41:04,797 [20] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:42:05,862 [20] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:43:06,989 [16] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:44:08,781 [20] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:47:11,472 [29] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:47:42,579 [30] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 09:47:42,579 [30] INFO  CommandEnvelopeController EnvelopeId b3d30328-bd4c-4bdf-beea-45fe0896d550 
+2015-05-27 09:47:42,613 [30] INFO  EasyNetQBusPublisher Message for Envelopr id b3d30328-bd4c-4bdf-beea-45fe0896d550 published on exchange EXQDennisMQ
+2015-05-27 09:47:42,615 [30] INFO  CommandEnvelopeController EnvelopeId b3d30328-bd4c-4bdf-beea-45fe0896d550  Published
+2015-05-27 09:47:42,615 [30] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 09:48:13,169 [31] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:49:14,193 [37] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:50:15,163 [37] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:51:16,152 [38] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:52:17,079 [37] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:53:17,994 [42] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:54:18,972 [43] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:55:20,172 [43] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:56:21,279 [49] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:57:22,243 [48] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:58:23,219 [50] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 09:59:24,202 [50] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:00:25,193 [55] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:01:26,234 [54] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:02:27,354 [53] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:03:28,529 [56] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:04:29,500 [58] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:05:30,547 [59] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:06:31,929 [59] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:07:33,150 [56] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:08:33,994 [59] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:09:35,074 [62] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:10:36,244 [64] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:11:37,238 [67] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:12:38,309 [67] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:13:39,345 [72] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:14:40,512 [74] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:15:41,700 [67] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:16:42,780 [74] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:17:43,896 [78] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:18:44,967 [80] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:19:46,143 [80] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:20:47,147 [80] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:21:48,287 [83] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:22:49,376 [82] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:23:51,416 [81] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:24:52,619 [80] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:25:53,670 [80] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:26:54,822 [78] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:27:55,888 [83] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:28:56,983 [76] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:29:58,162 [74] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:30:59,196 [73] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:32:00,143 [71] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:33:01,169 [73] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:34:02,268 [70] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:35:03,317 [69] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:36:04,374 [67] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:37:05,392 [68] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 10:38:06,522 [68] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : a96f411d-ad30-490e-8d65-ab6a6b222daf with batchSize : 10
+2015-05-27 11:19:07,806 [7] INFO  LoginController Login attempt for HubManager - HubManager
+2015-05-27 11:19:09,458 [7] INFO  CostCentreApplicationService Successful login for HubManager
+2015-05-27 11:19:14,292 [6] INFO  CostCentreApplicationController CreateCostCentreApplication from CCID : 679d0f09-7a1c-4aa9-8145-160b1829af26 with applicationdescription : Distributr-MDC-WPF-APP-20150527111912-
+2015-05-27 11:19:16,074 [6] INFO  CostCentreApplicationService Created new cost centre application id 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 
+2015-05-27 11:23:01,461 [13] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 11:24:03,698 [13] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 11:25:04,829 [11] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 11:26:07,234 [18] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 11:26:39,059 [21] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 11:26:39,059 [21] INFO  CommandEnvelopeController EnvelopeId 6b4f67a1-9127-4e16-ad7e-3e2b1a46d2db 
+2015-05-27 11:26:39,261 [21] INFO  EasyNetQBusPublisher Message for Envelopr id 6b4f67a1-9127-4e16-ad7e-3e2b1a46d2db published on exchange EXQDennisMQ
+2015-05-27 11:26:39,275 [21] INFO  CommandEnvelopeController EnvelopeId 6b4f67a1-9127-4e16-ad7e-3e2b1a46d2db  Published
+2015-05-27 11:26:39,277 [21] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 11:27:09,895 [21] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 11:41:32,818 [54] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 11:41:32,818 [54] INFO  CommandEnvelopeController EnvelopeId 757dfd9a-1b5b-437b-a984-766c7c29a131 
+2015-05-27 11:41:32,839 [54] INFO  EasyNetQBusPublisher Message for Envelopr id 757dfd9a-1b5b-437b-a984-766c7c29a131 published on exchange EXQDennisMQ
+2015-05-27 11:41:32,840 [54] INFO  CommandEnvelopeController EnvelopeId 757dfd9a-1b5b-437b-a984-766c7c29a131  Published
+2015-05-27 11:41:32,840 [54] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 11:51:16,527 [10] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:12:02,356 [8] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:12:35,060 [8] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 12:12:35,062 [8] INFO  CommandEnvelopeController EnvelopeId 8b2e09cc-bd9e-440d-aa1d-4746aaea2e6a 
+2015-05-27 12:12:35,231 [8] INFO  EasyNetQBusPublisher Message for Envelopr id 8b2e09cc-bd9e-440d-aa1d-4746aaea2e6a published on exchange EXQDennisMQ
+2015-05-27 12:12:35,244 [8] INFO  CommandEnvelopeController EnvelopeId 8b2e09cc-bd9e-440d-aa1d-4746aaea2e6a  Published
+2015-05-27 12:12:35,245 [8] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 12:12:35,835 [6] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 12:12:35,835 [6] INFO  CommandEnvelopeController EnvelopeId d7838cc9-f353-4d9e-9cba-4c79db712e82 
+2015-05-27 12:12:35,844 [6] INFO  EasyNetQBusPublisher Message for Envelopr id d7838cc9-f353-4d9e-9cba-4c79db712e82 published on exchange EXQDennisMQ
+2015-05-27 12:12:35,845 [6] INFO  CommandEnvelopeController EnvelopeId d7838cc9-f353-4d9e-9cba-4c79db712e82  Published
+2015-05-27 12:12:35,845 [6] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 12:12:36,280 [12] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 12:12:36,280 [12] INFO  CommandEnvelopeController EnvelopeId cea838a9-3600-42ef-add3-1daa8e55c273 
+2015-05-27 12:12:36,287 [12] INFO  EasyNetQBusPublisher Message for Envelopr id cea838a9-3600-42ef-add3-1daa8e55c273 published on exchange EXQDennisMQ
+2015-05-27 12:12:36,289 [12] INFO  CommandEnvelopeController EnvelopeId cea838a9-3600-42ef-add3-1daa8e55c273  Published
+2015-05-27 12:12:36,289 [12] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 12:13:08,039 [8] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:20:29,406 [5] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:21:01,922 [5] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 12:21:01,923 [5] INFO  CommandEnvelopeController EnvelopeId 5819475a-d2da-4465-96f6-95fb873ed33a 
+2015-05-27 12:21:02,097 [5] INFO  EasyNetQBusPublisher Message for Envelopr id 5819475a-d2da-4465-96f6-95fb873ed33a published on exchange EXQDennisMQ
+2015-05-27 12:21:02,110 [5] INFO  CommandEnvelopeController EnvelopeId 5819475a-d2da-4465-96f6-95fb873ed33a  Published
+2015-05-27 12:21:02,110 [5] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 12:21:32,674 [10] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:22:33,787 [10] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:23:34,830 [13] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:24:35,804 [19] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:25:36,911 [19] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:26:37,924 [21] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:27:39,018 [20] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:28:40,114 [23] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:29:41,546 [27] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:30:42,727 [27] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:31:43,888 [27] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:32:45,026 [30] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:33:46,061 [29] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:34:47,173 [30] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:35:48,354 [30] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:36:49,412 [31] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:37:50,463 [30] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:38:51,641 [37] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : 3ce9d17c-16e1-4aa6-93a0-afd5daea4101 with batchSize : 10
+2015-05-27 12:52:49,151 [7] INFO  LoginController Login attempt for HubManager - HubManager
+2015-05-27 12:52:49,547 [7] INFO  CostCentreApplicationService Successful login for HubManager
+2015-05-27 12:52:50,544 [6] INFO  CostCentreApplicationController CreateCostCentreApplication from CCID : 3ec96829-368e-47fb-b0b2-275d0ff2cce8 with applicationdescription : Distributr-MDC-WPF-APP-20150527125250-
+2015-05-27 12:52:51,364 [6] INFO  CostCentreApplicationService Created new cost centre application id e98bdc02-768a-455c-8012-d19803c6e13c 
+2015-05-27 12:56:32,506 [10] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 13:16:48,812 [33] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 13:21:36,902 [47] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 13:21:36,903 [47] INFO  CommandEnvelopeController EnvelopeId 166fca3e-bbf4-4d70-9388-f318d92cda76 
+2015-05-27 13:21:37,068 [47] INFO  EasyNetQBusPublisher Message for Envelopr id 166fca3e-bbf4-4d70-9388-f318d92cda76 published on exchange EXQDennisMQ
+2015-05-27 13:21:37,083 [47] INFO  CommandEnvelopeController EnvelopeId 166fca3e-bbf4-4d70-9388-f318d92cda76  Published
+2015-05-27 13:21:37,084 [47] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 13:21:38,045 [44] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 13:21:38,046 [44] INFO  CommandEnvelopeController EnvelopeId dcf6f2af-89fa-4808-a0ec-527f8815d926 
+2015-05-27 13:21:38,059 [44] INFO  EasyNetQBusPublisher Message for Envelopr id dcf6f2af-89fa-4808-a0ec-527f8815d926 published on exchange EXQDennisMQ
+2015-05-27 13:21:38,060 [44] INFO  CommandEnvelopeController EnvelopeId dcf6f2af-89fa-4808-a0ec-527f8815d926  Published
+2015-05-27 13:21:38,060 [44] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 13:21:38,846 [43] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 13:21:38,846 [43] INFO  CommandEnvelopeController EnvelopeId 51309973-1b62-4e13-9511-3e76b9766c1e 
+2015-05-27 13:21:38,856 [43] INFO  EasyNetQBusPublisher Message for Envelopr id 51309973-1b62-4e13-9511-3e76b9766c1e published on exchange EXQDennisMQ
+2015-05-27 13:21:38,857 [43] INFO  CommandEnvelopeController EnvelopeId 51309973-1b62-4e13-9511-3e76b9766c1e  Published
+2015-05-27 13:21:38,857 [43] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 14:36:04,483 [11] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 14:44:47,046 [25] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 14:44:47,047 [25] INFO  CommandEnvelopeController EnvelopeId 74fbb110-ef85-4323-8d40-3c71ed83a374 
+2015-05-27 14:44:47,306 [25] INFO  EasyNetQBusPublisher Message for Envelopr id 74fbb110-ef85-4323-8d40-3c71ed83a374 published on exchange EXQDennisMQ
+2015-05-27 14:44:47,348 [25] INFO  CommandEnvelopeController EnvelopeId 74fbb110-ef85-4323-8d40-3c71ed83a374  Published
+2015-05-27 14:44:47,350 [25] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 14:44:47,977 [25] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 14:44:47,978 [25] INFO  CommandEnvelopeController EnvelopeId 031d0a05-74f2-4d81-98ba-a718356da54b 
+2015-05-27 14:44:47,990 [25] INFO  EasyNetQBusPublisher Message for Envelopr id 031d0a05-74f2-4d81-98ba-a718356da54b published on exchange EXQDennisMQ
+2015-05-27 14:44:47,991 [25] INFO  CommandEnvelopeController EnvelopeId 031d0a05-74f2-4d81-98ba-a718356da54b  Published
+2015-05-27 14:44:47,991 [25] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 14:45:18,693 [22] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:27:25,797 [8] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:27:58,327 [8] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 15:27:58,329 [8] INFO  CommandEnvelopeController EnvelopeId b3f4f34c-b777-4df4-8b4f-fb63f20d2d5c 
+2015-05-27 15:27:58,551 [8] INFO  EasyNetQBusPublisher Message for Envelopr id b3f4f34c-b777-4df4-8b4f-fb63f20d2d5c published on exchange EXQDennisMQ
+2015-05-27 15:27:58,570 [8] INFO  CommandEnvelopeController EnvelopeId b3f4f34c-b777-4df4-8b4f-fb63f20d2d5c  Published
+2015-05-27 15:27:58,571 [8] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 15:27:59,206 [5] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 15:27:59,206 [5] INFO  CommandEnvelopeController EnvelopeId aa442a84-7e63-4c1a-bf64-3ce7dc90c694 
+2015-05-27 15:27:59,216 [5] INFO  EasyNetQBusPublisher Message for Envelopr id aa442a84-7e63-4c1a-bf64-3ce7dc90c694 published on exchange EXQDennisMQ
+2015-05-27 15:27:59,217 [5] INFO  CommandEnvelopeController EnvelopeId aa442a84-7e63-4c1a-bf64-3ce7dc90c694  Published
+2015-05-27 15:27:59,217 [5] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 15:28:29,867 [7] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:29:30,995 [8] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:30:32,159 [5] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:31:33,425 [25] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:32:34,540 [25] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:33:35,698 [23] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:34:37,069 [24] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:35:38,584 [27] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:36:41,177 [30] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:37:12,300 [26] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 15:37:12,300 [26] INFO  CommandEnvelopeController EnvelopeId f909cb6e-976b-4398-84bc-756a27ce3b19 
+2015-05-27 15:37:12,314 [26] INFO  EasyNetQBusPublisher Message for Envelopr id f909cb6e-976b-4398-84bc-756a27ce3b19 published on exchange EXQDennisMQ
+2015-05-27 15:37:12,316 [26] INFO  CommandEnvelopeController EnvelopeId f909cb6e-976b-4398-84bc-756a27ce3b19  Published
+2015-05-27 15:37:12,316 [26] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 15:37:43,051 [26] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:38:44,208 [32] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:39:45,411 [32] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:40:46,556 [39] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:41:19,708 [38] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 15:41:19,709 [38] INFO  CommandEnvelopeController EnvelopeId 314ede85-cb84-4b34-af20-22aefb3ffec0 
+2015-05-27 15:41:19,722 [38] INFO  EasyNetQBusPublisher Message for Envelopr id 314ede85-cb84-4b34-af20-22aefb3ffec0 published on exchange EXQDennisMQ
+2015-05-27 15:41:19,723 [38] INFO  CommandEnvelopeController EnvelopeId 314ede85-cb84-4b34-af20-22aefb3ffec0  Published
+2015-05-27 15:41:19,723 [38] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 15:41:20,303 [39] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 15:41:20,303 [39] INFO  CommandEnvelopeController EnvelopeId b86bd7f8-55a7-4791-9f54-0c7936d1b697 
+2015-05-27 15:41:20,314 [39] INFO  EasyNetQBusPublisher Message for Envelopr id b86bd7f8-55a7-4791-9f54-0c7936d1b697 published on exchange EXQDennisMQ
+2015-05-27 15:41:20,315 [39] INFO  CommandEnvelopeController EnvelopeId b86bd7f8-55a7-4791-9f54-0c7936d1b697  Published
+2015-05-27 15:41:20,315 [39] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 15:41:50,928 [39] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:42:23,888 [37] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 15:42:23,889 [37] INFO  CommandEnvelopeController EnvelopeId d9faed57-8078-4b3a-9aa5-a17f19a50427 
+2015-05-27 15:42:23,980 [37] INFO  EasyNetQBusPublisher Message for Envelopr id d9faed57-8078-4b3a-9aa5-a17f19a50427 published on exchange EXQDennisMQ
+2015-05-27 15:42:23,981 [37] INFO  CommandEnvelopeController EnvelopeId d9faed57-8078-4b3a-9aa5-a17f19a50427  Published
+2015-05-27 15:42:23,981 [37] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 15:42:54,583 [39] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:49:24,774 [10] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:49:57,559 [7] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 15:49:57,560 [7] INFO  CommandEnvelopeController EnvelopeId 0094099f-a08c-4a5d-a709-8b262952efdd 
+2015-05-27 15:49:57,686 [7] INFO  EasyNetQBusPublisher Message for Envelopr id 0094099f-a08c-4a5d-a709-8b262952efdd published on exchange EXQDennisMQ
+2015-05-27 15:49:57,698 [7] INFO  CommandEnvelopeController EnvelopeId 0094099f-a08c-4a5d-a709-8b262952efdd  Published
+2015-05-27 15:49:57,698 [7] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 15:49:58,122 [11] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 15:49:58,122 [11] INFO  CommandEnvelopeController EnvelopeId e0a93589-f92d-4c98-8dc9-264d9602b9fb 
+2015-05-27 15:49:58,130 [11] INFO  EasyNetQBusPublisher Message for Envelopr id e0a93589-f92d-4c98-8dc9-264d9602b9fb published on exchange EXQDennisMQ
+2015-05-27 15:49:58,131 [11] INFO  CommandEnvelopeController EnvelopeId e0a93589-f92d-4c98-8dc9-264d9602b9fb  Published
+2015-05-27 15:49:58,131 [11] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 15:50:28,954 [7] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:51:02,455 [13] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 15:51:02,455 [13] INFO  CommandEnvelopeController EnvelopeId b929cc54-5820-48fc-8389-6ee4a405cb2f 
+2015-05-27 15:51:02,466 [13] INFO  EasyNetQBusPublisher Message for Envelopr id b929cc54-5820-48fc-8389-6ee4a405cb2f published on exchange EXQDennisMQ
+2015-05-27 15:51:02,468 [13] INFO  CommandEnvelopeController EnvelopeId b929cc54-5820-48fc-8389-6ee4a405cb2f  Published
+2015-05-27 15:51:02,468 [13] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 15:51:33,594 [10] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:52:04,777 [7] INFO  CommandEnvelopeController responseBasic.ResultInfo valid jsoncommand
+2015-05-27 15:52:04,777 [7] INFO  CommandEnvelopeController EnvelopeId 64f6979c-2b0a-4ca8-82ba-61ae375d0225 
+2015-05-27 15:52:04,789 [7] INFO  EasyNetQBusPublisher Message for Envelopr id 64f6979c-2b0a-4ca8-82ba-61ae375d0225 published on exchange EXQDennisMQ
+2015-05-27 15:52:04,790 [7] INFO  CommandEnvelopeController EnvelopeId 64f6979c-2b0a-4ca8-82ba-61ae375d0225  Published
+2015-05-27 15:52:04,790 [7] INFO  CommandEnvelopeController   responseBasic.Result Envelope Processed
+2015-05-27 15:52:35,399 [21] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:53:36,448 [24] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:54:37,441 [28] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:55:38,493 [27] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:56:39,484 [30] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:57:40,536 [32] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:58:41,631 [35] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 15:59:42,700 [40] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:00:43,820 [40] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:01:44,875 [42] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:02:45,897 [39] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:03:46,971 [42] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:04:47,976 [47] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:05:48,958 [51] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:06:49,949 [50] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:07:50,953 [54] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:08:52,171 [54] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:09:53,182 [58] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:10:54,242 [58] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:11:55,268 [58] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:12:56,267 [53] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:13:57,484 [64] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:14:58,773 [70] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:16:00,097 [67] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:17:01,335 [70] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:18:02,559 [69] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:19:03,941 [76] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:20:05,635 [70] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:21:06,921 [70] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:22:08,115 [84] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:23:09,110 [67] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:24:10,255 [81] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:25:11,504 [81] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:26:12,531 [88] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:27:13,583 [90] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:28:14,845 [89] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:29:15,929 [92] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:30:16,979 [97] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:31:18,313 [97] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:32:19,501 [100] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:33:20,683 [103] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:34:21,797 [101] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:35:22,865 [102] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:36:23,908 [106] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:37:24,880 [106] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:38:25,943 [107] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:39:27,207 [106] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:40:28,321 [111] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:41:29,339 [112] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:42:30,507 [115] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:43:31,557 [118] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:44:32,623 [120] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:45:33,764 [120] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:46:34,773 [123] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:47:36,205 [123] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:48:37,231 [125] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:49:38,247 [122] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:50:39,589 [120] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:51:40,674 [117] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:52:41,696 [117] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:53:42,713 [116] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:54:43,720 [114] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:55:44,945 [116] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:56:46,113 [113] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:57:47,304 [112] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:58:48,337 [110] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 16:59:49,686 [108] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:00:51,014 [109] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:01:52,285 [109] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:02:53,474 [110] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:03:54,602 [104] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:04:55,762 [104] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:05:56,900 [102] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:06:58,182 [103] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:07:59,243 [101] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:09:00,347 [100] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:10:01,341 [96] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:11:02,302 [97] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:12:03,468 [95] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:13:04,483 [97] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:14:05,487 [92] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:15:06,483 [93] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:16:07,605 [91] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:17:08,787 [93] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:18:09,802 [89] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:19:10,806 [87] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:20:11,821 [86] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:21:12,736 [86] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:22:13,858 [85] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:23:15,697 [82] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:24:16,889 [81] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:25:17,975 [81] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:26:19,231 [82] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:27:20,435 [89] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:28:21,435 [79] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:29:22,481 [89] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:30:23,454 [93] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:31:24,467 [91] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:32:25,431 [92] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:33:26,519 [95] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:34:27,671 [79] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:35:28,676 [79] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10
+2015-05-27 17:36:29,707 [79] INFO  CommandEnvelopeRoutingController GetNextDocumentCommandEnvelopes  from CCAPPId : e98bdc02-768a-455c-8012-d19803c6e13c with batchSize : 10

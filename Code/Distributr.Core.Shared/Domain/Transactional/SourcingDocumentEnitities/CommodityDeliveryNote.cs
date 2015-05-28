@@ -112,7 +112,7 @@ namespace Distributr.Core.Domain.Transactional.SourcingDocumentEnitities
               item.Id,
               DocumentIssuerUser.Id
               , DocumentIssuerCostCentre.Id, 0, DocumentIssuerCostCentreApplicationId, Id, item.ParentLineItemId,
-              item.Commodity.Id, item.CommodityGrade.Id,item.ContainerType.Id,item.ContainerNo, item.Weight, item.Description, item.Note
+              item.Commodity.Id, item.CommodityGrade.Id,item.ContainerType.Id,item.ContainerNo, item.Weight,item.WeighType, item.Description, item.Note
               );
           ic.NoOfContainers = item.NoOfContainers;
           

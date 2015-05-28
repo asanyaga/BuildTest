@@ -13,7 +13,7 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityReleaseComm
        public Guid ParentLineItemId { get; set; }
        public string ContainerNo { get; set; }
        public decimal Weight { get; set; }
-      
+       public int WeighType { get; set; }
        public string Note { get; set; }
        public override string CommandTypeRef
        {

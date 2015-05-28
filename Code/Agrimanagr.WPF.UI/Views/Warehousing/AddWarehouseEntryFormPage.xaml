@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="Add New Warehouse Entry" FontWeight="Bold" FontSize="15"/>
         <DockPanel Grid.Column="0" Grid.Row="1">
-            <Control:SaveCancelButtonsControl Margin="0,10,0,0" DockPanel.Dock="Bottom" Loaded="SaveCancelButtonsControl_Loaded"/>
+            <Control:SaveCancelButtonsControl Margin="0,10,0,0" DockPanel.Dock="Bottom" />
             <StackPanel  DockPanel.Dock="Top">
                 <Grid HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
@@ -57,15 +57,15 @@
                     <StackPanel  Orientation="Horizontal" Grid.Row="2" Grid.Column="2" Margin="15,5,0,5" >
                         <TextBox Width="200" Height="30" Text="{Binding SelectedFarmerName}"   IsReadOnly="True" Visibility="{Binding FarmerVisibility}"/>
                         <Button Margin="0,0,0,0" Command="{Binding FarmerSelectionChangedCommand}" Width="30" Height="30" Content="..." Style="{StaticResource AgriButtonStyle}" Visibility="{Binding FarmerVisibility}">
-                            
+
                         </Button>
                     </StackPanel>
-                    
+
                     <Label Name="lblCommodity" Grid.Column="1" Grid.Row="3" Content="Commodity: *" ></Label>
                     <StackPanel  Orientation="Horizontal" Grid.Row="3" Grid.Column="2" Margin="15,5,0,5" >
                         <TextBox Width="200" Height="30" Text="{Binding SelectedCommodity.Name }"  IsReadOnly="True"  />
                         <Button Margin="0,0,0,0" Command="{Binding CommodityChangeCommand}" Width="30" Height="30" Content="..." Style="{StaticResource AgriButtonStyle}">
-                           
+
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="SelectionChanged" >
                                     <cmd:EventToCommand Command="{Binding SelectedCommodityChangedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=cmbFarm}" />
@@ -73,25 +73,69 @@
                             </i:Interaction.Triggers>
                         </Button>
                     </StackPanel>
-                   
+
                     <Label Name="lblWeight" Grid.Column="1" Grid.Row="5" Content="Weight: *" ></Label>
-                    <TextBox Name="txtWeight" Grid.Column="2" Grid.Row="5" Margin="15,5,0,5" Height="30"  Width="200" HorizontalAlignment="Left" Text="{Binding Weight}" IsReadOnly="{Binding MakeWeightextBoxReadOnly}" />
+                    <!-- <TextBox Name="txtWeight" Grid.Column="2" Grid.Row="5" Margin="15,5,0,5" Height="30"  Width="200" HorizontalAlignment="Left" Text="{Binding Weight}" IsReadOnly="{Binding MakeWeightextBoxReadOnly}" />
                     <Button Grid.Row="5" Grid.Column="2" x:Name="btnWeigh" BorderBrush="Transparent" BorderThickness="0"
                                         				Background="Transparent" IsEnabled="True" Height="30" Style="{StaticResource AgriButtonStyle}" Command="{Binding WeighCommand}" 
                                                    Margin="220,10,0,0" VerticalAlignment="Top" Width="80" HorizontalAlignment="Left" Grid.ColumnSpan="2">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
                             <TextBlock Text="Weigh" FontSize="13" Margin="1"/>
                         </StackPanel>
-                    </Button>
+                    </Button>-->
+                    <StackPanel Grid.Column="2" Grid.Row="5" Width="330" Margin="19,5,100,5">
+                        <TextBox x:Name="txtWeight" Grid.Column="2" Grid.Row="5" Margin="0,5,138,5" Height="30" Text="{Binding Weight}" IsReadOnly="{Binding MakeWeightextBoxReadOnly}"/>
+                        <Button Grid.Row="5" Grid.Column="2" x:Name="btnWeigh" Content="Weigh" BorderBrush="Transparent" BorderThickness="0"
+                                        				Background="Transparent"  Height="30" Width="40" Style="{StaticResource AgriButtonStyle}" Command="{Binding WeighCommand}" 
+                                                   Margin="194,-35,96,0" VerticalAlignment="Top" Grid.ColumnSpan="2" IsEnabled="True" />
+                        <Button  x:Name="btnReset" Margin="240,-40,50,0"  Height="30" Width="40" Content="Reset" Style="{StaticResource AgriButtonStyle}" Click="btnReset_Click" >
+
+                        </Button>
+
+                        <StackPanel.Triggers>
+                            <EventTrigger RoutedEvent="TextBox.TextChanged">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="IsEnabled"
+                                            Storyboard.TargetName="btnWeigh">
+                                            <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="False"/>
+                                        </BooleanAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="IsEnabled"
+                                          Storyboard.TargetName="btnWeigh">
+                                            <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="True"/>
+                                        </BooleanAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="IsEnabled"
+                                          Storyboard.TargetName="btnWeigh">
+                                            <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="True"/>
+                                        </BooleanAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </StackPanel.Triggers>
+
+
+                    </StackPanel>
                     <Label Name="lblGrade" Grid.Column="1" Grid.Row="4" Content="Grade: *" ></Label>
                     <StackPanel  Orientation="Horizontal" Grid.Row="4" Grid.Column="2" Margin="15,5,0,5" >
                         <TextBox Width="200" Height="30" Text="{Binding SelectedGrade.Name }"  IsReadOnly="True" />
                         <Button Margin="0,0,0,0" Command="{Binding GradeChangeCommand}" Width="30" Height="30" Content="..." Style="{StaticResource AgriButtonStyle}">
-                            
+
                         </Button>
                     </StackPanel>
-                   
-                    
+
+
                     <Label Name="lblRegNo" Grid.Column="1" Grid.Row="6" Content="Vehicle Registration No. :" ></Label>
                     <TextBox Name="txtRegNo" Grid.Column="2" Grid.Row="6" Margin="15,5,0,5"  Width="200" HorizontalAlignment="Left" Height="30" Text="{Binding RegistrationNumber}"/>
                     <Label Name="lblNote" Grid.Column="1" Grid.Row="7" Content="Notes :" ></Label>
