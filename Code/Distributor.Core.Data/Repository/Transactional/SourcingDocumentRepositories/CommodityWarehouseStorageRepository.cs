@@ -109,6 +109,7 @@ namespace Distributr.Core.Data.Repository.Transactional.SourcingDocumentReposito
             item.Note = tblItem.Note;
             item.ParentLineItemId = tblItem.ParentId.HasValue ? tblItem.ParentId.Value : Guid.Empty;
             item.Weight = tblItem.Weight.HasValue ? tblItem.Weight.Value : 0;
+            item.WeighType = (int) (tblItem.WeighType.HasValue ? (WeighType) tblItem.WeighType.Value : WeighType.Manual);
             item.FinalWeight = tblItem.FinalWeight.HasValue ? tblItem.FinalWeight.Value : 0;
             if (tblItem.NoOfContainer != null) item.NoOfContainers = tblItem.NoOfContainer.Value;
             if (tblItem.LineItemStatusId != null)

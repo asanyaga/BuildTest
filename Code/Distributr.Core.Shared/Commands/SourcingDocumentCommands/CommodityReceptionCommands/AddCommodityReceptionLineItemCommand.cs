@@ -28,6 +28,7 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityReceptionCo
            Guid containerTypeId,
            string containerNo,
            decimal weight,
+            int weighType,
            string description,
            string note,
             double? longitude = null, double? latitude = null)
@@ -37,7 +38,7 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityReceptionCo
             CommodityGradeId = commodityGradeId;
             ContainerTypeId = containerTypeId;
             Weight = weight;
-            
+            weighType = weighType;
             Description = description;
             Note = note;
             DocumentLineItemId = documentItemLineId;
@@ -50,7 +51,8 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityReceptionCo
         public Guid ContainerTypeId { get; set; }
         public Guid ParentLineItemId { get; set; }
         public decimal Weight { get; set; }
-       
+        public int WeighType { get; set; }
+
         public string Note { get; set; }
         public string ContainerNo { get; set; }
         public override string CommandTypeRef

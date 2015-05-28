@@ -138,6 +138,7 @@ namespace Distributr.Core.Domain.Transactional.SourcingDocumentEnitities
                      item.ContainerType.Id,
                      item.ContainerNo,
                      item.Weight,
+                     item.WeighType,
                      item.Description,
                      item.Note
                     );

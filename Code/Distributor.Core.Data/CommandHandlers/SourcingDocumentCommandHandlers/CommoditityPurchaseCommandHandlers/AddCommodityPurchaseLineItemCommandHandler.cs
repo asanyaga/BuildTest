@@ -41,7 +41,7 @@ namespace Distributr.Core.Data.CommandHandlers.SourcingDocumentCommandHandlers.C
                     return;
                 }
                 tblSourcingDocument doc = ExistingDocument(command.DocumentId);
-                tblSourcingLineItem lineItem = NewLineItem(command.DocumentLineItemId, command.ParentLineItemId, command.DocumentId, command.CommodityId, command.CommodityGradeId, command.ContainerTypeId, command.Weight, command.Description, command.ContainerNo);
+                tblSourcingLineItem lineItem = NewLineItem(command.DocumentLineItemId, command.ParentLineItemId, command.DocumentId, command.CommodityId, command.CommodityGradeId, command.ContainerTypeId, command.Weight,command.WeighType, command.Description, command.ContainerNo);
                 lineItem.NoOfContainer = command.NoOfContainers;
                 lineItem.TareWeight = command.TareWeight;
                 doc.tblSourcingLineItem.Add(lineItem);

@@ -20,7 +20,7 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityDeliveryCom
            Guid commodityGradeId,
             Guid parentDocId,
           string containerNo,
-           decimal weight,decimal deliveredWeight,SourcingLineItemStatus sourcingLineItemStatus,
+           decimal weight, int weightype, decimal deliveredWeight, SourcingLineItemStatus sourcingLineItemStatus,
            string description,
            double? longitude = null, double? latitude = null)
             : base(commandId, documentId, commandGeneratedByUserId, commandGeneratedByCostCentreId, costCentreApplicationCommandSequenceId, commandGeneratedByCostCentreApplicationId,parentDocId,longitude, latitude)
@@ -28,6 +28,7 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityDeliveryCom
            
             CommodityGradeId = commodityGradeId;
             Weight = weight;
+            WeighType = weightype;
             Description = description;
             ContainerNo = containerNo;
             DeliveredWeight = deliveredWeight;
@@ -37,6 +38,7 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityDeliveryCom
         public Guid CommodityGradeId { get; set; }
         public Guid ContainerTypeId { get; set; }
        public decimal Weight { get; set; }
+       public int WeighType { get; set; }
         public decimal DeliveredWeight { get; set; }
        public string ContainerNo { get; set; }
         public SourcingLineItemStatus LineItemStatus { get; set; }
