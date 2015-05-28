@@ -117,7 +117,7 @@ namespace Distributr.Core.Domain.Transactional.SourcingDocumentEnitities
                   DocumentIssuerUser.Id
                   , DocumentIssuerCostCentre.Id, 0, DocumentIssuerCostCentreApplicationId,
                   item.CommodityGrade!=null?item.CommodityGrade.Id:Guid.Empty,item.ParentDocId,
-                  item.ContainerNo, item.Weight,
+                  item.ContainerNo, item.Weight,item.WeighType,
                   item.DeliveredWeight, item.LineItemStatus, item.Description
                   );
               ic.CommodityId = item.Commodity.Id;

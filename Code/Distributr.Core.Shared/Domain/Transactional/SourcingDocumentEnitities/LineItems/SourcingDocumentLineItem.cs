@@ -21,7 +21,7 @@ namespace Distributr.Core.Domain.Transactional.SourcingDocumentEnitities.LineIte
         public CommodityGrade CommodityGrade { get; set; }
         public decimal Weight { get; set; }
 
-        public WeighType WeighType { get; set; }
+        public int WeighType { get; set; }
         public string ContainerNo { get; set; }
         public ContainerType ContainerType { get; set; }
         public string Note { get; set; }

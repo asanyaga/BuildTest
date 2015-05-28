@@ -468,7 +468,7 @@
     <Content Include="Resources\OutletOrders\OutletOrdersPendingDispatch.sql" />
     <Content Include="Resources\OutletOrders\OutletOrders.sql" />
     <Content Include="Resources\OutletOrders\OutletOrdersPendingApproval.sql" />
-    <Content Include="Script\Tables\20150526\addWeighType.sql" />
+    <EmbeddedResource Include="Script\Tables\20150526\addWeighType.sql" />
     <EmbeddedResource Include="Script\Tables\20150514\AddNewDefaultAgriRolesToHqAdmin.sql" />
     <EmbeddedResource Include="Resources\Others\OtherResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>

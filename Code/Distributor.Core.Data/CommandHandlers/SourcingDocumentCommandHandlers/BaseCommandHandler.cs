@@ -102,6 +102,7 @@ namespace Distributr.Core.Data.CommandHandlers.SourcingDocumentCommandHandlers
                                            Guid gradeId,
                                             Guid containerId,
                                            decimal? weight,
+                                            int weightype,
                                            string description,
                                            string containerNo
                                           
@@ -115,6 +116,7 @@ namespace Distributr.Core.Data.CommandHandlers.SourcingDocumentCommandHandlers
                     ContainerId =containerId,
                     GradeId = gradeId,
                     Weight = weight,
+                    WeighType = weightype,
                     NoOfContainer = 0,
                     TareWeight = 0,
                     Note  = description,

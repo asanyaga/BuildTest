@@ -18,7 +18,7 @@ namespace Distributr.Core.Commands.SourcingDocumentCommands.CommodityWarehouseSt
         public Guid ParentLineItemId { get; set; }
         public decimal Weight { get; set; }
 
-        public WeighType WeighType { get; set; }
+        public int WeighType { get; set; }
         public decimal NoOfContainers { get; set; }
         public string Note { get; set; }
         public string ContainerNo { get; set; }

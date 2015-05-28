@@ -32,8 +32,9 @@ namespace Distributr.Core.Data.CommandHandlers.SourcingDocumentCommandHandlers.R
                 tblSourcingDocument doc = ExistingDocument(command.DocumentId);
                 tblSourcingLineItem lineItem = NewLineItem(
                     command.CommandId, command.PDCommandId, command.DocumentId, Guid.Empty, command.CommodityGradeId,
-                    Guid.Empty, command.DeliveredWeight, command.Description, command.ContainerNo);
+                    Guid.Empty, command.DeliveredWeight,command.WeighType, command.Description, command.ContainerNo);
                 lineItem.Weight = command.Weight;
+                lineItem.WeighType = command.WeighType;
                 lineItem.ContainerId = command.ContainerTypeId;
                 lineItem.CommodityId = command.CommodityId;
                 doc.tblSourcingLineItem.Add(lineItem);

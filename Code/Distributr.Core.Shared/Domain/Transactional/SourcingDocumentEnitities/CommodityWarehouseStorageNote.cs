@@ -174,7 +174,7 @@ namespace Distributr.Core.Domain.Transactional.SourcingDocumentEnitities
             ic.CommodityId = item.Commodity.Id;
             ic.CommodityGradeId = item.CommodityGrade != null ? item.CommodityGrade.Id : Guid.Empty;
             ic.Weight = item.Weight;
-            ic.WeighType = item.WeighType;
+            ic.WeighType = (WeighType) item.WeighType;
             ic.Description = item.Description;
             ic.Note = item.Note;
 

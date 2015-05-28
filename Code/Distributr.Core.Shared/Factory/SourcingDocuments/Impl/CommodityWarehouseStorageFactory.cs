@@ -65,7 +65,7 @@ namespace Distributr.Core.Factory.SourcingDocuments.Impl
             li.Description = description;
             li.CommodityGrade = grade;
             li.Weight = weight;
-            li.WeighType = weighType;
+            li.WeighType = (int) weighType;
             li.ContainerNo = containerNo;
             li.Note = description;
             li.ContainerType = containerType;

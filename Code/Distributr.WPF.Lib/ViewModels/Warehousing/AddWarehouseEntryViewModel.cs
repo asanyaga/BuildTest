@@ -610,6 +610,7 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
             CommodityList.Clear();
             GradeList.Clear();
             FarmerVisibility = "Collapsed";
+            WeighTypeProp = WeighType.Manual;
             // MakeWeightextBoxReadOnly = false;
         }
 
