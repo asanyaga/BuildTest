@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/standard_screen_padding"
+    android:paddingRight="@dimen/standard_screen_padding"
+    android:paddingTop="4dp">
+    <TextView
+        android:id="@+id/outlet_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff000000"
+        android:text="YAYA DUKA"
+        android:textAllCaps="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="Confirmed"
+        android:textAllCaps="true"
+        android:textColor="@color/color_action_bar_content"
+        android:background="@drawable/order_status_background"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+    <TextView
+        android:id="@+id/order_sale_reference"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.SecondaryTextSmall"
+        android:text="S100_O001_2014201510_19990"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/outlet_name" />
+    <TextView
+        android:id="@+id/date_created"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.SecondaryTextSmall"
+        android:text="2015-12-12"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/outlet_name" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layerType="software"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/date_created"
+        android:background="@drawable/route_list_horizontal_line"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

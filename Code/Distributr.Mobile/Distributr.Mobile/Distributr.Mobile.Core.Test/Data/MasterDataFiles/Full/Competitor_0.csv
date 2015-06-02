@@ -1,0 +1,2 @@
+City, ContactPerson, DateCreated, DateLastUpdated, Lattitude, Longitude, MasterId, Name, PhysicalAddress, PostalAddress, StatusId, Telephone
+'NAIROBI', 'MATENDECHERE', '2015-04-09 09:47:20', '2015-04-09 09:47:20', '234', '675', 'fab6be2c-9e9c-4597-83ef-1dd94e24ba24', 'QUENCHER', 'INDUSTRIAL AREA', '788-NAIROBI', 1, '0721345678'

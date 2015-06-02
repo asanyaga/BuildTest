@@ -1,0 +1,8 @@
+Code, ContainmentMasterId, DateCreated, DateLastUpdated, Description, MasterId, Name, ReturnableProductMasterId, StatusId
+'001', NULL, '2015-04-09 09:47:15', '2015-04-09 09:47:15', 'Fanta 300ml 24RB0', '362cd0f2-69e2-4b5e-93cd-f329d84598c0', 'Fanta 300ml 24RB0', NULL, 1
+'003', NULL, '2015-04-09 09:47:15', '2015-04-09 09:47:15', 'Krest 300ml 24RB0', '4e8a96c1-60dd-4bd5-bc99-3be976e2e302', 'Krest 300ml 24RB0', NULL, 1
+'002', NULL, '2015-04-09 09:47:16', '2015-04-09 09:47:16', 'Fantha 3007ml 245RB0', 'bd97fb88-7ce6-4a60-9694-588e47256c22', 'Fantadd 300mlll 247RB0', '211df34e-bf87-4091-9537-53a8d2397981', 1
+'002', NULL, '2015-04-09 09:47:17', '2015-04-09 09:47:17', '300ml RGBx24', 'ac0cd3ac-8eed-443d-9d7c-7fdd66e7a100', 'Coke 300ml 24RB', NULL, 1
+'003', NULL, '2015-04-09 09:47:17', '2015-04-09 09:47:17', '1500ml Dasani', 'efedc116-0708-4ed6-84a0-9fb7426f919c', '1500ml Dasani ', NULL, 1
+'004', NULL, '2015-04-09 09:47:17', '2015-04-09 09:47:17', '1L RGB', 'd3004d07-9250-4385-b7b6-450b3601ef6e', '1L RGB', NULL, 1
+'005', NULL, '2015-04-09 09:47:17', '2015-04-09 09:47:17', '300ml RGB', '7f6f07df-32c1-414d-bae7-395d4ba22f80', '300ml RGB', NULL, 1

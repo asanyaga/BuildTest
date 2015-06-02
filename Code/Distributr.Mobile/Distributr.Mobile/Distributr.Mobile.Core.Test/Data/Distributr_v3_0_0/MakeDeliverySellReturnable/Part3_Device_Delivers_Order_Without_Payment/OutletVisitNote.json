@@ -1,0 +1,39 @@
+﻿{
+  "CommandsList": [
+    {
+      "Command": {
+        "DocumentOnBehalfCostCentreId": "55e12548-0918-46ee-ac15-aba460863f89",
+        "Note": "",
+        "ReasonId": "00000000-0000-0000-0000-000000000000",
+        "DocIssuerUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+        "DocumentDateIssued": "2015-05-02T15:30:10",
+        "DocumentIssuerCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "DocumentRecipientCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+        "VersionNumber": "M-3.0.0",
+        "CommandCreatedDateTime": "2015-05-02T15:30:10",
+        "CommandGeneratedByCostCentreApplicationId": "175e1f72-268a-4903-800e-0321b61c651f",
+        "CommandGeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+        "CommandId": "6cc71117-f968-452a-a858-b006023e6234",
+        "SendDateTime": "2015-05-02T15:30:10",
+        "CommandTypeRef": "CreateOutletVisitNote",
+        "DocumentId": "e9cc45bc-4a74-46b6-8702-a7f28a62380f",
+        "DiscountType": 0,
+        "Latitude": 0.0,
+        "Longitude": 0.0,
+        "LineItemType": 0,
+        "CostCentreApplicationCommandSequenceId": 9,
+        "CommandSequence": 9
+      },
+      "Order": 1
+    }
+  ],
+  "DocumentId": "e9cc45bc-4a74-46b6-8702-a7f28a62380f",
+  "RecipientCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+  "Id": "1fee3ccb-f978-40fa-ab92-4435a8eb474e",
+  "GeneratedByCostCentreApplicationId": "175e1f72-268a-4903-800e-0321b61c651f",
+  "GeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+  "DocumentTypeId": 20,
+  "EnvelopeArrivedAtServerTick": 0,
+  "EnvelopeGeneratedTick": 1430577057870
+}

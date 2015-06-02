@@ -1,0 +1,1 @@
+﻿Classes and contracts used to execute commands - mainly for persistence of entity representation

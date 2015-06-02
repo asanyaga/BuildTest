@@ -1,0 +1,3 @@
+Amount, CostCentreId, CostCentreName, DateCreated, DateLastUpdated, Description, MasterId, StatusId, TotalReceivedAmount
+30.00, '4c243448-8e87-4454-8a87-23f6706eb3ab', 'John', '2015-04-09 12:22:25', '2015-04-09 12:22:25', 'hhh', 'a3ca771d-677c-4bbe-98f7-65dcc74ee9f6', 1, 0
+10.00, '55e12548-0918-46ee-ac15-aba460863f89', 'Kiambu Mall', '2015-04-09 12:22:25', '2015-04-09 12:22:25', '', 'ec8c50b7-e587-43d4-a91e-2ea3e6e93391', 1, 0

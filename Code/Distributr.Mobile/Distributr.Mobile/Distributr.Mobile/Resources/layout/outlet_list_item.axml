@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/route_path">
+        <View
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/route_indicator" />
+        <View
+            android:id="@+id/route_line"
+            android:layout_height="40dp"
+            android:layout_width="4dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layerType="software"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginBottom="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/route_line" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/route_path"
+        android:layout_marginLeft="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff000000"
+            android:text="EASTLEIGH SUPERMARKET"
+            android:id="@+id/outlet_name" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Town, The City, The Place, Kenya"
+            android:id="@+id/outlet_location"
+            android:textSize="12dp"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+</RelativeLayout>

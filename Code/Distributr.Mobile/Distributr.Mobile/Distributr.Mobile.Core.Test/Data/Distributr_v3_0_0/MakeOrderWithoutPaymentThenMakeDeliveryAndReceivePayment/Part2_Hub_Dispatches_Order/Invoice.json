@@ -1,0 +1,130 @@
+﻿{
+  "Envelopes": [
+    {
+      "DocumentType": "Invoice",
+      "Envelope": {
+        "Id": "d14d42a5-87ca-4979-bf25-e6d19cae9e18",
+        "DocumentId": "33a11b44-024a-4e2d-ad9d-6d283435bd28",
+        "DocumentTypeId": 5,
+        "GeneratedByCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+        "RecipientCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "GeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+        "ParentDocumentId": "b6537d37-62ac-4099-96d8-f0c65983f55d",
+        "CommandsList": [
+          {
+            "Command": {
+              "DocumentRecipientCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+              "OrderId": "b6537d37-62ac-4099-96d8-f0c65983f55d",
+              "SaleDiscount": 0.0,
+              "CommandTypeRef": "CreateInvoice",
+              "DocumentDateIssued": "2015-04-15T18:57:15.0691043+01:00",
+              "DocumentIssuerCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+              "DocIssuerUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "DocumentReference": "I_John_O003_20150415_065715_00021",
+              "ExtDocumentReference": null,
+              "VersionNumber": "H-2.0.0.8",
+              "CommandId": "17527340-4214-4fa1-82d2-dca34cbddfdc",
+              "PDCommandId": "b6537d37-62ac-4099-96d8-f0c65983f55d",
+              "DocumentId": "33a11b44-024a-4e2d-ad9d-6d283435bd28",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-04-15T18:57:15.0691043+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": null,
+              "IsSystemCommand": false
+            },
+            "Order": 1
+          },
+          {
+            "Command": {
+              "LineItemSequenceNo": 0,
+              "ValueLineItem": 22.0,
+              "ProductId": "c8a07a84-fd98-44cf-86e2-e8983dc81ed6",
+              "Qty": 2.0,
+              "LineItemVatValue": 6.6,
+              "LineItemProductDiscount": 3.0,
+              "LineItemId": "5f1243b7-188c-4f74-af6b-687e86e181fb",
+              "LineItemType": 0,
+              "DiscountType": 0,
+              "CommandTypeRef": "AddInvoiceLineItem",
+              "CommandId": "5f1243b7-188c-4f74-af6b-687e86e181fb",
+              "PDCommandId": "b6537d37-62ac-4099-96d8-f0c65983f55d",
+              "DocumentId": "33a11b44-024a-4e2d-ad9d-6d283435bd28",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-04-15T18:57:15.0691043+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": "O_john_O003_20150415_185553_00008",
+              "IsSystemCommand": false
+            },
+            "Order": 2
+          },
+          {
+            "Command": {
+              "LineItemSequenceNo": 0,
+              "ValueLineItem": 15.0,
+              "ProductId": "faa82a9a-a10f-4e24-bc8c-53739d382127",
+              "Qty": 2.0,
+              "LineItemVatValue": 0.0,
+              "LineItemProductDiscount": 0.0,
+              "LineItemId": "054a1fcf-f82e-4a6e-9624-b6659444b4bf",
+              "LineItemType": 0,
+              "DiscountType": 0,
+              "CommandTypeRef": "AddInvoiceLineItem",
+              "CommandId": "054a1fcf-f82e-4a6e-9624-b6659444b4bf",
+              "PDCommandId": "b6537d37-62ac-4099-96d8-f0c65983f55d",
+              "DocumentId": "33a11b44-024a-4e2d-ad9d-6d283435bd28",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-04-15T18:57:15.0691043+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": "O_john_O003_20150415_185553_00008",
+              "IsSystemCommand": false
+            },
+            "Order": 3
+          },
+          {
+            "Command": {
+              "CommandTypeRef": "ConfirmInvoice",
+              "CommandId": "d615f806-1d33-4b43-8cda-d018f1b4820d",
+              "PDCommandId": "b6537d37-62ac-4099-96d8-f0c65983f55d",
+              "DocumentId": "33a11b44-024a-4e2d-ad9d-6d283435bd28",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-04-15T18:57:15.0691043+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": null,
+              "IsSystemCommand": false
+            },
+            "Order": 4
+          }
+        ],
+        "EnvelopeGeneratedTick": 635647210350691043,
+        "EnvelopeArrivedAtServerTick": 635647210519948483,
+        "IsSystemEnvelope": false
+      },
+      "EnvelopeArrivedAtServerTick": 635647210519948483
+    }
+  ],
+  "ErrorInfo": "Success"
+}

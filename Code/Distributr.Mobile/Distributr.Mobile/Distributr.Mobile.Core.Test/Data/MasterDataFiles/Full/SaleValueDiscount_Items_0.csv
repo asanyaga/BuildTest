@@ -1,0 +1,2 @@
+DateCreated, DateLastUpdated, DiscountThreshold, DiscountValue, EffectiveDate, EndDate, MasterId, SaleValueDiscountMasterId, StatusId
+'2015-04-09 09:47:21', '2015-04-09 09:47:21', 1000.0000, 0.1500, '2015-03-30 09:47:21', '2015-07-08 09:47:21', 'f109b611-6043-43a7-b103-9c46094fd4ca', '0f8a61cf-b4d2-4efd-bd96-e8e109e82c98', 1

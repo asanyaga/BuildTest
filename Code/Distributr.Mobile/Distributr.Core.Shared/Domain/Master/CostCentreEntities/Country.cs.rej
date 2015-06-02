@@ -1,0 +1,9 @@
+diff a/Code/Distributr.Core.Shared/Domain/Master/CostCentreEntities/Country.cs b/Code/Distributr.Core.Shared/Domain/Master/CostCentreEntities/Country.cs	(rejected hunks)
+@@ -9,6 +9,7 @@
+     public class Country : MasterEntity
+     {
+        public Country() : base(default(Guid)) { }
++       //fjhgfs
+         public Country(Guid id) : base(id)
+         {
+             

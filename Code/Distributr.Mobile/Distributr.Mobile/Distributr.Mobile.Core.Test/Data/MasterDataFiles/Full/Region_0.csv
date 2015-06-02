@@ -1,0 +1,4 @@
+CountryMasterId, DateCreated, DateLastUpdated, Description, MasterId, Name, StatusId
+'f9b0f584-25a4-4b8a-9555-0c2a417fe495', '2015-04-09 09:47:18', '2015-04-09 09:47:18', 'Nairobi Urban Region', 'd4b958a5-9eec-4172-86ca-eb354601ef14', 'Nairobi Urban', 1
+'f9b0f584-25a4-4b8a-9555-0c2a417fe495', '2015-04-09 09:47:22', '2015-04-09 09:47:22', 'TN Dist', 'bc40c1cc-f254-4fb8-8e81-343873ba7c0c', 'Trans Nzoia', 1
+'f9b0f584-25a4-4b8a-9555-0c2a417fe495', '2015-04-09 09:47:22', '2015-04-09 09:47:22', 'Roisambu', '7e687679-fae4-4894-97bb-24cb383c5106', 'Roisambu', 1

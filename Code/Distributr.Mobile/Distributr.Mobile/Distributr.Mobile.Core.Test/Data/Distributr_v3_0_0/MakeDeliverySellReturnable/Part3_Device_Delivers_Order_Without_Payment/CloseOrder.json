@@ -1,0 +1,33 @@
+﻿{
+  "CommandsList": [
+    {
+      "Command": {
+        "isClossed": 0,
+        "CommandCreatedDateTime": "2015-05-02T15:30:09",
+        "CommandGeneratedByCostCentreApplicationId": "175e1f72-268a-4903-800e-0321b61c651f",
+        "CommandGeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+        "CommandId": "a025b0b8-7b82-4e7e-9a98-31af11129379",
+        "SendDateTime": "2015-05-02T15:30:09",
+        "CommandTypeRef": "CloseOrder",
+        "PDCommandId": "ef1a5aba-fa71-4a06-aa7c-90c6088861cf",
+        "DocumentId": "ef1a5aba-fa71-4a06-aa7c-90c6088861cf",
+        "DiscountType": 0,
+        "Latitude": 0.0,
+        "Longitude": 0.0,
+        "LineItemType": 0,
+        "CostCentreApplicationCommandSequenceId": 1,
+        "CommandSequence": 0
+      },
+      "Order": 1
+    }
+  ],
+  "RecipientCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+  "ParentDocumentId": "40916412-1df6-4668-8dd6-f29baf1b43f3",
+  "Id": "8df74937-e607-41b9-9729-acd37bbfb2ca",
+  "GeneratedByCostCentreApplicationId": "175e1f72-268a-4903-800e-0321b61c651f",
+  "GeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+  "DocumentTypeId": 1,
+  "EnvelopeArrivedAtServerTick": 0,
+  "EnvelopeGeneratedTick": 1430577057562
+}

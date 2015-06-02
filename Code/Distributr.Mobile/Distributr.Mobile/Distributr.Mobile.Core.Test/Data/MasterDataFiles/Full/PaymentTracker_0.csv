@@ -1,0 +1,2 @@
+Balance, CostcentreId, DateCreated, DateLastUpdated, MasterId, PaymentModeId, PendingConfirmBalance, StatusId
+1970.0000, '4c243448-8e87-4454-8a87-23f6706eb3ab', '0001-01-01 00:00:00', '0001-01-01 00:00:00', 'eb8187ef-b0ad-461c-964d-ea64bdf1c314', 0, 0.0000, 0

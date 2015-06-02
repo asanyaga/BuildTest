@@ -1,0 +1,7 @@
+CostCentreCode, CostCentreTypeId, DateCreated, DateLastUpdated, Latitude, Longitude, MasterId, Name, ParentCostCentreId, RouteMasterId, StatusId, TypeId, VatRegistrationNo
+'S001', 4, '2015-04-09 09:47:20', '2015-04-09 09:47:20', '', '', '4c243448-8e87-4454-8a87-23f6706eb3ab', 'John', '51a6bde4-d645-43fa-b81b-3708f87a5e6d', NULL, 1, 0, ''
+'S002', 4, '2015-04-09 09:47:20', '2015-04-09 09:47:20', '', '', 'ffbd9638-1b86-4090-b8b1-78ed8c8f91b6', 'Maina', '51a6bde4-d645-43fa-b81b-3708f87a5e6d', NULL, 1, 0, ''
+'S003', 4, '2015-04-09 09:47:20', '2015-04-09 09:47:20', '', '', 'e1b7e710-6d72-4314-9e53-f86752a3942d', 'Nzomo', '51a6bde4-d645-43fa-b81b-3708f87a5e6d', NULL, 1, 0, ''
+'S004', 4, '2015-04-09 09:47:20', '2015-04-09 09:47:20', '', '', '6a7839c2-250d-45ee-9c28-908b3fad7d42', 'Wallace', '51a6bde4-d645-43fa-b81b-3708f87a5e6d', NULL, 1, 0, ''
+'S005', 4, '2015-04-09 09:47:20', '2015-04-09 09:47:20', '', '', '29f925dc-149a-4e98-b870-0745f9b6fde2', 'Stockist', '51a6bde4-d645-43fa-b81b-3708f87a5e6d', NULL, 1, 1, ''
+'S006', 4, '2015-04-09 09:47:20', '2015-04-09 09:47:20', '', '', '12fb7e35-6c91-4fe5-a6b7-ade5cf518f9e', 'StockistSalesman', '51a6bde4-d645-43fa-b81b-3708f87a5e6d', NULL, 1, 2, ''
