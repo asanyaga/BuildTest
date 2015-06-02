@@ -71,11 +71,11 @@ A full list of overridden methods is as follows
 | OnStarted | Started      |
 | OnStopped | Stopped      |
 
-See [BaseActivity](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Mobile.Common/Core/BaseActivity.cs) and [BaseFragment](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Mobile.Common/Core/BaseFragment.cs) for more details. 
+See [BaseActivity](../../Mobile.Common/Core/BaseActivity.cs) and [BaseFragment](../../Mobile.Common/Core/BaseFragment.cs) for more details. 
 
 ### Storing Object Between Screen Changes
 
-Android does not allow you to easily pass objects between Activities or Fragments during a screen change. You can only provide primitive values in Intents and you can not use any other constructor other than the default no-args constructor. The framework in Mobile.Common allows you to store complex objects between screen changes by calling `App.Put(myObject)` and `App.Get<MyObject>()`. These objects are stored by the `BaseApplication` class which is available to all components, and is equivalent to a session cache in a web framework. To avoid leaking memory the BaseApplication class will only allow one copy of of a given type to be stored at any one time. If you call App.Put twice with the same object type, the second call will overwrite the value set by the first. You can see an example of Put/Get in [OutletFragment](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile/Outlets/OutletFragment.cs). 
+Android does not allow you to easily pass objects between Activities or Fragments during a screen change. You can only provide primitive values in Intents and you can not use any other constructor other than the default no-args constructor. The framework in Mobile.Common allows you to store complex objects between screen changes by calling `App.Put(myObject)` and `App.Get<MyObject>()`. These objects are stored by the `BaseApplication` class which is available to all components, and is equivalent to a session cache in a web framework. To avoid leaking memory the BaseApplication class will only allow one copy of of a given type to be stored at any one time. If you call App.Put twice with the same object type, the second call will overwrite the value set by the first. You can see an example of Put/Get in [OutletFragment](../../Distributr.Mobile/Outlets/OutletFragment.cs). 
 
 *Do not call Put/Get from a background service*. This feature is intended for use only by code running on the Main UI thread. We don't want multiple threads reading and writing to this storage which will cause problems and make the state difficult to reason about. 
 
@@ -83,7 +83,7 @@ Android does not allow you to easily pass objects between Activities or Fragment
 
 Most background services will be dependent on a network connection so that they can either pull or push data to the server. Mobile.Common contains code that can tell you the current state of the network and also put the calling thread to sleep until the network comes available. When the network is unavailable, the framework registers a `BroadcastReceiver` with the Android framework so that it can receive events about the state of the network. Once it receives an event to say the network is available, it wakes up any waiting threads. It also unregisters the `BroadcastReceiver` to avoid wasting resources. 
 
-The class that contains most of the code is [ConnectivityMonitor](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Mobile.Common/Core/Net/ConnectivityMonitor.cs) however, you don't need to use this class directly. Instead you can either extend [NetworkAwareService](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Sync/NetworkAwareService.cs) in Distributr.Mobile.Core or you can use the [BaseApplication](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Mobile.Common/Core/BaseApplication.cs) class which will call `ConnectivityMonitor` for you. The general pattern for using this code is as follows
+The class that contains most of the code is [ConnectivityMonitor](../../Mobile.Common/Core/Net/ConnectivityMonitor.cs) however, you don't need to use this class directly. Instead you can either extend [NetworkAwareSyncService](../Sync/NetworkAwareSyncService.cs) in Distributr.Mobile.Core or you can use the [BaseApplication](../../Mobile.Common/Core/BaseApplication.cs) class which will call `ConnectivityMonitor` for you. The general pattern for using this code is as follows
 
 ```c#
 while (hasWorkToDo)
@@ -108,7 +108,7 @@ while (hasWorkToDo)
  }
 ```
 
-To best understand this code you should check [NetworkAwareService](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Sync/NetworkAwareService.cs) and one of its decendants such as [CommandEnvelopeUploader](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Sync/Outgoing/CommandEnvelopeUploader.cs). 
+To best understand this code you should check [NetworkAwareSyncService]../Sync/NetworkAwareSyncService.cs) and one of its decendants such as [CommandEnvelopeUploader](../Sync/Outgoing/CommandEnvelopeUploader.cs). 
 
 To understand what `ConnectivityMonitor` is doing, you can follow [this link](http://developer.android.com/training/monitoring-device-state/connectivity-monitoring.html) to the Android documentation. 
 
@@ -121,7 +121,7 @@ The BaseApplication class contains an EventBus which can be used to send event m
 * BaseFragment
 * BaseIntentService
 
-The main use for this is to be able to provide updates from background services that are reflected in the UI. The above components are automatically registered and unregistered on the EventBus. If you wish to subscribe to a particular event you should define an `OnEvent(EventType event)` method in your class. The EventType must be the only parameter of the OnEvent method; it can be any type of Object. The [LoginActivity](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile/Login/LoginActivity.cs) serves as an example as this. When a User logs in for the first time the application downloads their Master Data. The background service `MasterDataDownloadService` publishes events on the EventBus to reflect the progress of the Master Data Download. All sync services use the following events
+The main use for this is to be able to provide updates from background services that are reflected in the UI. The above components are automatically registered and unregistered on the EventBus. If you wish to subscribe to a particular event you should define an `OnEvent(EventType event)` method in your class. The EventType must be the only parameter of the OnEvent method; it can be any type of Object. The [LoginActivity](../../Distributr.Mobile/Login/LoginActivity.cs) serves as an example as this. When a User logs in for the first time the application downloads their Master Data. The background service `MasterDataDownloadService` publishes events on the EventBus to reflect the progress of the Master Data Download. All sync services use the following events
 
 * SyncUpdateEvent<T>
 * SyncPausedEvent<T>
@@ -137,17 +137,17 @@ By subscribing to these events you can provide feedback to the User about the cu
  }
 ```
 
-[NetworkAwareService](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Sync/NetworkAwareService.cs) automatically publishes events for you during processing. 
+[NetworkAwareSyncService](../Sync/NetworkAwareSyncService.cs) automatically publishes events for you during processing. 
 
 ##UI Features
 
 Mobile.Common also provides support for a number of UI features which are labelled on the following screens:
 
 Screen 1:
-![alt text](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/Component%20Overview%201.png "Screen 1 ")
+![alt text](Component%20Overview%201.png "Screen 1 ")
 
 Screen 2:
-![alt text](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/Component%20Overivew%202.png "Screen 2")
+![alt text](Component%20Overivew%202.png "Screen 2")
 
 
 ###Header View
@@ -216,9 +216,9 @@ As with the other features, the Search Widget is automatically hidden when the U
 
 ##Fixed Size List Adapter 
 
-For any lists that appear in the app that are backed by tables that potentially contain a large amount of data, such a products, you should use the [FixedSizeListAdapter](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Mobile.Common/Core/Views/FixedSizeListAdapter.cs). You simply extend this adapter like you would with one of Android's built-in adapters, such as `ArrayAdapter`. This adapter will fetch enough data to fill the list/screen and also load previous and next pages, if any, on a background thread. As the User scrolls through the list, the adapter will add and remove items as necessary. This avoids running out of memory due to trying to load too much data in one go. 
+For any lists that appear in the app that are backed by tables that potentially contain a large amount of data, such a products, you should use the [FixedSizeListAdapter](../../Mobile.Common/Core/Views/FixedSizeListAdapter.cs). You simply extend this adapter like you would with one of Android's built-in adapters, such as `ArrayAdapter`. This adapter will fetch enough data to fill the list/screen and also load previous and next pages, if any, on a background thread. As the User scrolls through the list, the adapter will add and remove items as necessary. This avoids running out of memory due to trying to load too much data in one go. 
 
-You can see this feature in action in the [ProductFragment](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile/Products/ProductFragment.cs) class. 
+You can see this feature in action in the [ProductFragment](../../Distributr.Mobile/Products/ProductFragment.cs) class. 
 
 Any queries that you use with this adapter must specify an `ORDER BY` clause. The Adapter adds the correct `LIMIT` and `OFFSET` values for you, depending on the User's scroll position. 
 
@@ -254,7 +254,7 @@ We only load two columns from SaleProduct here, rather than the whole row or com
 
 ### Fragment Back Stack Management
 
-The App UI is built on Fragments rather than Activities which are heavyweight and difficult to reuse. As the User navigates from screen-to-screen, you call `BaseActivity.Show(Type fragmentTypeToShow)` which is implemented by the [FragmentHostActivity](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Mobile.Common/Core/FragmentHostActivity.cs) - the main Activity used in the app, which displays the Fragments that make up the current screen. When the User moves through the App Fragments are stacked on top of each other. When the User clicks the Back button, the last Fragment is removed from the stack, revealing the previous fragment. When the back stack contains only a single Fragment, the logout dialog is shown. 
+The App UI is built on Fragments rather than Activities which are heavyweight and difficult to reuse. As the User navigates from screen-to-screen, you call `BaseActivity.Show(Type fragmentTypeToShow)` which is implemented by the [FragmentHostActivity](../../Mobile.Common/Core/FragmentHostActivity.cs) - the main Activity used in the app, which displays the Fragments that make up the current screen. When the User moves through the App Fragments are stacked on top of each other. When the User clicks the Back button, the last Fragment is removed from the stack, revealing the previous fragment. When the back stack contains only a single Fragment, the logout dialog is shown. 
 
 Nested Fragments, Fragments that are displayed inside other Fragments are not added to the back stack (for these you call `ShowNestedFragment(containerId, fragment)` on `BaseFragment`. 
 
