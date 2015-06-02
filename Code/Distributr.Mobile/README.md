@@ -25,15 +25,15 @@ Project Structure
 
 Project Documentation
 =====================
-* [System Overview](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/SYSTEMOVERVIEW.md)
-* [Server API](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/SERVERAPI.md)
-* [Using the Android Framework inside Mobile.Common](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/MOBILECOMMON.md)
-* [Coding Guidelines](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/CODINGGUIDELINES.MD)
-* [Using SQLite Effectively](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/USINGSQLITE.md)
-* [Adding a New Feature](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/NEWFEATURE.md)
-* [Testing](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/TESTING.md)
-* [Tools](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/TOOLS.md)
-* [Definition of Done](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/DOD.md)
-* [Release Notes](https://github.com/nutshellit/VirtualCity-Distributr/blob/master/Distributr.Mobile/Distributr.Mobile.Core/Documentation/RELEASENOTES.md)
+* [System Overview](Distributr.Mobile/Distributr.Mobile.Core/Documentation/SYSTEMOVERVIEW.md)
+* [Server API](Distributr.Mobile/Distributr.Mobile.Core/Documentation/SERVERAPI.md)
+* [Using the Android Framework inside Mobile.Common](Distributr.Mobile/Distributr.Mobile.Core/Documentation/MOBILECOMMON.md)
+* [Coding Guidelines](Distributr.Mobile/Distributr.Mobile.Core/Documentation/CODINGGUIDELINES.MD)
+* [Using SQLite Effectively](Distributr.Mobile/Distributr.Mobile.Core/Documentation/USINGSQLITE.md)
+* [Adding a New Feature](Distributr.Mobile/Distributr.Mobile.Core/Documentation/NEWFEATURE.md)
+* [Testing](Distributr.Mobile/Distributr.Mobile.Core/Documentation/TESTING.md)
+* [Tools](Distributr.Mobile/Distributr.Mobile.Core/Documentation/TOOLS.md)
+* [Definition of Done](Distributr.Mobile/Distributr.Mobile.Core/Documentation/Documentation/DOD.md)
+* [Release Notes](Distributr.Mobile/Distributr.Mobile.Core/Documentation/RELEASENOTES.md)
 
 
