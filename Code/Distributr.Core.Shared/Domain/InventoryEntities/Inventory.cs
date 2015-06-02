@@ -4,6 +4,7 @@ using Distributr.Core.Domain.Master.CommodityEntities;
 using Distributr.Core.Domain.Master.CostCentreEntities;
 using Distributr.Core.Domain.Master.ProductEntities;
 #if __MOBILE__
+using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
 #endif
 
@@ -19,19 +20,18 @@ namespace Distributr.Core.Domain.InventoryEntities
             : base(id, dateCreated, dateLastUpdated, isActive)
         { }
     #if __MOBILE__
-        [ForeignKey(typeof(Warehouse))]
+        //[ForeignKey(typeof(Warehouse))]
         public Guid WarehouseMasterID { get; set; }
 
-        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+        [Ignore]
     #endif     
         public Warehouse Warehouse { get; set; }
 
 
     #if __MOBILE__
-        [ForeignKey(typeof(Product))]
         public Guid ProductMasterID { get; set; }
 
-        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+        [Ignore]
     #endif
         public Product Product { get; set; }
         public decimal Balance { get; set; }

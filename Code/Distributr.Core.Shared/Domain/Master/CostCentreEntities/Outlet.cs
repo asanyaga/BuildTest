@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Distributr.Core.Domain.Master.UserEntities;
 using Distributr.Core.Domain.Master.ProductEntities;
+using Distributr.Core.Domain.Master.UserEntities;
+
+
 #if __MOBILE__
 using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
@@ -39,7 +41,7 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
         [ForeignKey(typeof(Route))]
         public Guid RouteMasterId { get; set; }
 
-        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+       [Ignore]
     #endif
         [Required(ErrorMessage="Route is a required field!")]
         public Route Route { get; set; }
@@ -117,12 +119,12 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
         public DiscountGroup DiscountGroup { get; set; }
 
        #if __MOBILE__
-       [Ignore]
+       [OneToMany(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
        #endif
         public List<ShipToAddress> ShipToAddresses 
         {
             get { return _shipToAddresses; }
-            private set { _shipToAddresses = value; }
+            set { _shipToAddresses = value; }
         }
         
 
@@ -137,6 +139,9 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
 #if !SILVERLIGHT
    [Serializable]
 #endif
+    #if __MOBILE__
+    [Table("OutletShipTo")]
+    #endif
     public class ShipToAddress : MasterEntity
     {
         public ShipToAddress() : base(default(Guid)) { }

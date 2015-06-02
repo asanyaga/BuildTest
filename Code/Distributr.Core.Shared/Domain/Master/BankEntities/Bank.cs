@@ -1,6 +1,9 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+#if __MOBILE__ 
+using SQLiteNetExtensions.Attributes;
+#endif
 
 namespace Distributr.Core.Domain.Master.BankEntities
 {
@@ -18,6 +21,10 @@ namespace Distributr.Core.Domain.Master.BankEntities
         [Required(ErrorMessage = "Code is a Required Field!")]
        public string Code { get; set; }
        public string Description { get; set; }
-      
+
+    #if __MOBILE__ 
+       [OneToMany(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+       public List<BankBranch> Branches { get; set; }
+    #endif
    }
 }

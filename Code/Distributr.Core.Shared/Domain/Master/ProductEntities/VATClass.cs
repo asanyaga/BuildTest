@@ -12,6 +12,9 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 #if !SILVERLIGHT
    [Serializable]
 #endif
+#if __MOBILE__
+   [Table("VatClass")]
+#endif
     public class VATClass : MasterEntity
     {
          public VATClass() : base(default(Guid)) { }
@@ -41,9 +44,9 @@ namespace Distributr.Core.Domain.Master.ProductEntities
         public DateTime CurrentEffectiveDate { get { return LatestVatClassItem().EffectiveDate; } }
 
     #if __MOBILE__
-            [OneToMany(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+        [OneToMany(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
     #endif
-        public IList<VATClassItem> VATClassItems { get; internal set; }
+        public List<VATClassItem> VATClassItems { get; set; }
 
        private decimal VatRate()
        {
@@ -81,7 +84,7 @@ namespace Distributr.Core.Domain.Master.ProductEntities
    [Serializable]
 #endif
     #if __MOBILE__
-        [Table("VATClassItems")]
+        [Table("VatClassItems")]
     #endif
         public class VATClassItem : MasterEntity
         {
@@ -101,6 +104,10 @@ namespace Distributr.Core.Domain.Master.ProductEntities
             public decimal Rate { get; set; }
             public DateTime EffectiveDate { get; set; }
 
+    #if __MOBILE__
+            [ForeignKey(typeof (VATClass))]
+            public Guid VatClassMasterId { get; set; }
+    #endif
         }
     }
 }

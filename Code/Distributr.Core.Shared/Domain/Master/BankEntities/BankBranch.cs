@@ -23,7 +23,7 @@ namespace Distributr.Core.Domain.Master.BankEntities
     #if __MOBILE__
        [ForeignKey(typeof(Bank))]
         public Guid BankMasterId { get; set; }
-        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+        [ManyToOne()]
     #endif
         [Required(ErrorMessage = "Bank is a Required Field!")]
        public Bank Bank { get; set; }

@@ -27,7 +27,7 @@ namespace Distributr.Core.Domain.Master
        #if __MOBILE__
         [PrimaryKey, Column("MasterId")]
        #endif
-       public Guid Id { get; set; }
+       public virtual Guid Id { get; set; }
 
         #if __MOBILE__
             [Column("DateCreated")]

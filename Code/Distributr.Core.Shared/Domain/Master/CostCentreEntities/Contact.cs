@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 #if __MOBILE__
+using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
 #endif
 
@@ -46,15 +47,31 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
        [RegularExpression( "^[a-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9-]+(\\.[a-z0-9]+)*\\.([a-z]{2,4})$" , ErrorMessage = "Invalid email format." )]
        public string Email { get; set; }
        public string ChildrenNames { get; set; }
-       
-       public ContactClassification ContactClassification { get; set; }
+    
     #if __MOBILE__
+        [Column("ContactClassificationId")]
+    #endif
+       public ContactClassification ContactClassification { get; set; }
+
+    #if __MOBILE__
+       [ForeignKey(typeof(ContactType))]
+        public Guid ContactTypeMasterId { get; set; }
+
        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
     #endif
        public ContactType ContactType { get; set; }
-       
+
+
+    #if __MOBILE__
+       [ForeignKey(typeof(DistributorSalesman))]
+    #endif
        public Guid ContactOwnerMasterId { get; set; }
+       
        public ContactOwnerType ContactOwnerType { get; set; }
+
+    #if __MOBILE__
+        [Column("MaritalStatusMasterId")]
+    #endif
        public MaritalStatas MStatus { get; set; }
    }
 }

@@ -52,9 +52,9 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
         [Required(ErrorMessage="Name is required")]
         public  string Name { get; set; }
         public string CostCentreCode { get; set; }
-    #if __MOBILE__
-        [OneToMany(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
-    #endif        
+    #if __MOBILE__        
+       [Ignore]
+    #endif
         public List<Contact> Contact { get; set; }
 
     #if __MOBILE__

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 #if __MOBILE__
+using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
 #endif
 
@@ -65,6 +66,9 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 #if !SILVERLIGHT
    [Serializable]
 #endif
+    #if __MOBILE__
+   [Table("SaleValueDiscountItems")]
+    #endif
         public class SaleValueDiscountItem : MasterEntity
         {
             public SaleValueDiscountItem() : base(default(Guid)) { }
@@ -82,12 +86,15 @@ namespace Distributr.Core.Domain.Master.ProductEntities
             public decimal DiscountThreshold { get; set; }
             public decimal DiscountValue { get; set; }
             public DateTime EffectiveDate { get; set; }
-        #if __MOBILE__
-            [ForeignKey((typeof(SaleValueDiscount)))]
-        #endif
             public Guid LineItemId { get; set; }
             public EntityStatus IsActive { get; set; }
             public DateTime EndDate { get; set; }
+
+            #if __MOBILE__
+            [ForeignKey(typeof(SaleValueDiscount))]            
+            public Guid SaleValueDiscountMasterId { get; set; }
+            #endif
+
         }
     }
 }

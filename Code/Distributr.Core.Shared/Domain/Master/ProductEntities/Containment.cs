@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 #if __MOBILE__
+using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
 #endif
 
@@ -27,6 +28,10 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 
         [Required(ErrorMessage = "Containment quantity is a required field")]
         public int Quantity { get; set; }
+
+#if __MOBILE__
+        [Ignore]
+#endif
         [Required(ErrorMessage = "Returnable product is a required field")]
         public ProductRef ProductRef { get; set; }
     #if __MOBILE__

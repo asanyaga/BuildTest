@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+#if __MOBILE__
+using SQLite.Net.Attributes;
+#endif
 using System.ComponentModel.DataAnnotations;
 
 namespace Distributr.Core.Domain.Master.OutletVisitReasonsTypeEntities
@@ -24,11 +23,10 @@ namespace Distributr.Core.Domain.Master.OutletVisitReasonsTypeEntities
         public string Name { get; set; }
        
         public string Description { get; set; }
+
+    #if __MOBILE__
+        [Column("OutletVisitActionId")]
+    #endif
         public OutletVisitAction OutletVisitAction { get; set; }
-
-
-
-
-
     }
 }

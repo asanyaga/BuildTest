@@ -62,7 +62,10 @@ namespace Distributr.Core.Domain.Master.ProductEntities
         public List<CertainValueCertainProductDiscountItem> CertainValueCertainProductDiscountItems { get; set; }
 #if !SILVERLIGHT
    [Serializable]
-#endif      
+#endif  
+       #if __MOBILE__
+        [Table("CertainValueCertainProductDiscountItems")]
+       #endif
        public class CertainValueCertainProductDiscountItem : MasterEntity
         {
             public CertainValueCertainProductDiscountItem() : base(default(Guid)) { }
@@ -76,14 +79,25 @@ namespace Distributr.Core.Domain.Master.ProductEntities
            
             public decimal CertainValue { get; set; }
         #if __MOBILE__
+            [ForeignKey(typeof(Product))]
+            public Guid ProductMasterId { get; set; }
+
             [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+            public Product ProductToDiscount { get; set; }
+
+            [Ignore]
         #endif
             public ProductRef Product { get; set; }
+
+
             public int Quantity { get; set; }
             public DateTime EffectiveDate { get; set; }
+
         #if __MOBILE__
             [ForeignKey(typeof(CertainValueCertainProductDiscount))]
+            public Guid CertainValueCertainProductDiscountId {get; set; }
         #endif
+
             public Guid LineItemId { get; set; }
             public EntityStatus IsActive { get; set; }
             public DateTime EndDate { get; set; }

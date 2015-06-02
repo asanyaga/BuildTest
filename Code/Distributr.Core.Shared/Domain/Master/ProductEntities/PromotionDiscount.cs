@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
+#if __MOBILE__
+using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
+#endif
 namespace Distributr.Core.Domain.Master.ProductEntities
 {
 #if !SILVERLIGHT
@@ -23,7 +25,19 @@ namespace Distributr.Core.Domain.Master.ProductEntities
         {
             PromotionDiscountItems = promotionDiscountItems;
         }
+    #if __MOBILE__
+        [ForeignKey(typeof(Product))]
+        public Guid ProductMasterId { get; set; }
+
+        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+        public Product Product { get; set; }
+        [Ignore]
+    #endif
         public ProductRef ProductRef { get; set; }
+
+    #if __MOBILE__
+        [Ignore]
+    #endif
         public ProductPricingTier Tier { get; set; }
 
        public DateTime CurrentEffectiveDate
@@ -45,7 +59,9 @@ namespace Distributr.Core.Domain.Master.ProductEntities
                           : DateTime.Parse("01-jan-1900");
            }
        }
-
+    #if __MOBILE__
+        [Ignore]
+    #endif
        public ProductRef CurrentFreeOfChargeProduct { get { return LatestDiscountItem() != null ? LatestDiscountItem().FreeOfChargeProduct : null; } }
         public int CurrentFreeOfChargeQuantity { get { return LatestDiscountItem() !=null ? LatestDiscountItem().FreeOfChargeQuantity : 0; } }
         public int CurrentParentProductQuantity { get { return  LatestDiscountItem() !=null ? LatestDiscountItem().ParentProductQuantity : 0; } }
@@ -77,12 +93,17 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 
             return latest;
         }
-
+    #if __MOBILE__
+        [OneToMany(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+    #endif
         public List<PromotionDiscountItem> PromotionDiscountItems { get; set; }
 
 #if !SILVERLIGHT
    [Serializable]
 #endif
+    #if __MOBILE__
+        [Table("PromotionDiscountItems")]
+    #endif
         public class PromotionDiscountItem : MasterEntity
         {
             public PromotionDiscountItem(Guid id)
@@ -93,13 +114,35 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 
            
             public int ParentProductQuantity { get; set; }
+        #if __MOBILE__
+            [ForeignKey(typeof(Product))]
+            public Guid ProductMasterId { get; set; }
+
+            [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+            public Product ProductToDiscount { get; set; }
+
+            [Ignore]
+        #endif
             public ProductRef FreeOfChargeProduct { get; set; }
+       #if __MOBILE__
+            [Column("FreeQuantity")]
+        #endif
             public int FreeOfChargeQuantity { get; set; }
             public DateTime EffectiveDate { get; set; }
             public decimal DiscountRate { get; set; }
             public Guid LineItemId { get; set; }
             public EntityStatus IsActive { get; set; }
             public DateTime EndDate { get; set; }
+
+        #if __MOBILE__
+            public int ParentQuantity { get; set; }
+        #endif            
+
+        #if __MOBILE__
+            [ForeignKey(typeof(PromotionDiscount))]
+            public Guid PromotionDiscountMasterId { get; set; }
+        #endif
+
         }
     }
 }

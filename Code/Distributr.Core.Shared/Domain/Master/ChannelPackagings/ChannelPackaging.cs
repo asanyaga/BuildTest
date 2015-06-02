@@ -24,11 +24,17 @@ namespace Distributr.Core.Domain.Master.ChannelPackagings
        { }
 
     #if __MOBILE__
+       [ForeignKey(typeof(ProductPackaging))]
+       public Guid ProductPackagingMasterId { get; set; }
+       
        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
     #endif
        public ProductPackaging Packaging { get; set; }
 
     #if __MOBILE__
+       [ForeignKey(typeof(OutletType))]
+       public Guid OutletTypeMasterId { get; set; }
+
        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
     #endif
        public OutletType OutletType { get; set; }

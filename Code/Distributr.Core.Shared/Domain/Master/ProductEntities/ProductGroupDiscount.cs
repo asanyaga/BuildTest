@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 #if __MOBILE__
+using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
 #endif
 
@@ -24,6 +25,9 @@ namespace Distributr.Core.Domain.Master.ProductEntities
        }
 
     #if __MOBILE__
+       [ForeignKey(typeof(DiscountGroup))]
+       public Guid DiscountGroupMasterId { get; set; }
+
         [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
     #endif
        public DiscountGroup GroupDiscount { get; set; }
@@ -35,6 +39,14 @@ namespace Distributr.Core.Domain.Master.ProductEntities
        }
      
        public decimal DiscountRate { get; set; }
+
+#if __MOBILE__       
+       public Guid LineItemId { get; set; }
+
+       public Guid ProductMasterId { get; set; }
+
+       [Ignore]
+#endif
        [Required]
        public ProductRef Product { get; set; }
          [Required]

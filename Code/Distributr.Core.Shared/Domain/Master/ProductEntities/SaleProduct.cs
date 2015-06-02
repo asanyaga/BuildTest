@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Distributr.Core.Domain.InventoryEntities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 #if __MOBILE__
 using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
 #endif
-
 
 namespace Distributr.Core.Domain.Master.ProductEntities
 {
@@ -25,12 +25,17 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 
     #if __MOBILE__
         [Column("ContainerCapacity")]    
-        public int Capacity { get; set; }
+        public int ContainerCapacity { get; set; }
 
+        [ForeignKey(typeof(ReturnableProduct))]
         public Guid ReturnableContainerMasterId { get; set; }
+
+       [OneToOne("ReturnableContainerMasterId", CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+        public ReturnableProduct ReturnableContainer { get; set; }
     #endif
 
     #if __MOBILE__
+       [ForeignKey(typeof(ProductType))]
         public Guid ProductTypeMasterId { get; set; }
 
         [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
@@ -40,9 +45,10 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 
 
     #if __MOBILE__
+        [ForeignKey(typeof(ReturnableProduct))]
         public Guid ReturnableProductMasterId { get; set; }
 
-        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+        [OneToOne("ReturnableProductMasterId", CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
     #endif
         //Added by Sam
        public ReturnableProduct ReturnableProduct { get; set; }

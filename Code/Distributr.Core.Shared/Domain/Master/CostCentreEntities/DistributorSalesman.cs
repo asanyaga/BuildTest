@@ -31,8 +31,20 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
         [OneToMany(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
     #endif
         public List<SalesmanRoute> Routes { get; set; }
+    
+    #if __MOBILE__
+       [Column("TypeId")]
+    #endif
         public DistributorSalesmanType Type { get; set; }
 
+    #if __MOBILE__
+        [ForeignKey(typeof(Route))]
+        public Guid RouteMasterId { get; set; }
+
+        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+        public Route Route { get; set; }
+    #endif
+        
        
     }
 #if !SILVERLIGHT
@@ -58,7 +70,7 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
         [ForeignKey(typeof(DistributorSalesman))]
         public Guid DistributorSalesmanMasterId { get; set; }
 
-        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+        [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
         public DistributorSalesman DistributorSalesman { get; set; }
 
         [Ignore]
@@ -98,5 +110,8 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
     #endif
        public CostCentreRef DistributorSalesmanRef { get; set; }
 
+    #if __MOBILE__
+       public bool Assigned { get; set; }
+    #endif
    }    
 }

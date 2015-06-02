@@ -89,19 +89,21 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 
     #if __MOBILE__
         [ForeignKey(typeof(VATClass))]
-        public Guid VATClassMasterId { get; set; }
+        public Guid VatClassMasterId { get; set; }
 
         [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
     #endif
         public VATClass VATClass { get; set; }
-        [Required(ErrorMessage = "Product ExFactoryPrice Is Required")]
+       
+       
+       [Required(ErrorMessage = "Product ExFactoryPrice Is Required")]
         public decimal ExFactoryPrice { get; set; }
 
     #if __MOBILE__
         [OneToMany(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
     #endif
-        public List<ProductPricing> ProductPricings { get; set; }
-
+       public List<ProductPricing> ProductPricings { get; set; }
+    
     #if __MOBILE__
         [OneToMany(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
     #endif
@@ -109,7 +111,7 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 
         public virtual decimal TotalExFactoryValue(ProductPricingTier tier)
         {
-                            
+            
             var ppc = ProductPricings.Where(n => n.Tier.Id == tier.Id);
             if (ppc == null)
                 throw new ArgumentException("Product is not available at this tier");
@@ -128,7 +130,6 @@ namespace Distributr.Core.Domain.Master.ProductEntities
             var items = ppc.Where(n => n.CurrentEffectiveDate < DateTime.Now)
                .OrderByDescending(n => n._DateCreated)
                .ThenByDescending(n => n.CurrentEffectiveDate);
-
             return items.First() !=null?items.First().CurrentSellingPrice:0;
         }
        

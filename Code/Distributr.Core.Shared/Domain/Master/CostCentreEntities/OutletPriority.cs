@@ -23,7 +23,13 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
         }
 
     #if __MOBILE__
-           [Ignore]
+        [ForeignKey(typeof(Outlet))]
+        public Guid OutletMasterId { get; set; }
+
+        [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
+        public Outlet OutletRef { get; set; }
+
+        [Ignore]
     #endif
         [Required(ErrorMessage = "Outlet is a Required Field!")]
         public CostCentreRef Outlet { get; set; }

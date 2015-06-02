@@ -114,6 +114,9 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 #if !SILVERLIGHT
         [Serializable]
 #endif
+    #if __MOBILE__
+        [Table("ProductDiscountItems")]
+    #endif
         public class ProductDiscountItem : MasterEntity
         {
             public ProductDiscountItem() : base(default(Guid)) { }
@@ -129,15 +132,18 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 
             public decimal DiscountRate { get; set; }
             public DateTime EffectiveDate { get; set; }
-        #if __MOBILE__
-            [ForeignKey(typeof(ProductDiscount))]
-        #endif
+
             public Guid LineItemId { get; set; }
             public EntityStatus IsActive { get; set; }
             public DateTime EndDate { get; set; }
 
             public decimal Quantity { get; set; }
             public bool IsByQuantity { get; set; }
+
+        #if __MOBILE__
+            [ForeignKey(typeof(ProductDiscount))]
+            public Guid ProductDiscountMasterId { get; set; }
+        #endif
         }
     }
 

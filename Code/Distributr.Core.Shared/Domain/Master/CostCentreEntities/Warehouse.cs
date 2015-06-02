@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Distributr.Core.Domain.Value;
 
 namespace Distributr.Core.Domain.Master.CostCentreEntities
 {
@@ -20,6 +16,12 @@ namespace Distributr.Core.Domain.Master.CostCentreEntities
         public Warehouse(Guid id, DateTime dateCreated, DateTime dateLastUpdated, EntityStatus isActive)
             : base(id, dateCreated, dateLastUpdated, isActive)
         { }
+
+    #if __MOBILE__
+        public string Longitude { get; set; }
+        public string Latitude { get; set; }
+        public string VatRegistrationNo { get; set; }
+    #endif
 
     }
 }

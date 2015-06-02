@@ -11,6 +11,9 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 #if !SILVERLIGHT
    [Serializable]
 #endif
+#if __MOBILE__
+    [Table("Pricing")]
+#endif
     // creating a base class
     public class ProductPricing : MasterEntity
     {
@@ -48,9 +51,33 @@ namespace Distributr.Core.Domain.Master.ProductEntities
     #endif
         public ProductPricingTier Tier { get; set; }
 
-        public virtual decimal CurrentExFactory { get { return LatestProductPricingItem().ExFactoryRate; } }
-        public virtual decimal CurrentSellingPrice { get { return LatestProductPricingItem().SellingPrice; } }
-        public virtual DateTime CurrentEffectiveDate { get { return LatestProductPricingItem().EffectiveDate; } }
+    #if __MOBILE__
+        [Column("ExFactoryRate")]
+        public virtual decimal CurrentExFactory { get { return LatestProductPricingItem().ExFactoryRate; } set{} }
+    #else 
+       public virtual decimal CurrentExFactory { get { return LatestProductPricingItem().ExFactoryRate; } }
+    #endif
+
+
+    #if __MOBILE__
+        [Column("SellingPrice")]
+        public virtual decimal CurrentSellingPrice { get { return LatestProductPricingItem().SellingPrice; } set{} }
+    #else 
+       public decimal CurrentSellingPrice { get { return LatestProductPricingItem().SellingPrice; } }
+    #endif
+
+
+    #if __MOBILE__
+        [Column("EffectiveDate")]
+        public DateTime CurrentEffectiveDate { get { return LatestProductPricingItem().EffectiveDate; } set{} }
+    #else
+       public DateTime CurrentEffectiveDate { get { return LatestProductPricingItem().EffectiveDate; } }
+    #endif
+
+
+    #if __MOBILE__
+        public Guid LineItemId { get; set; }
+    #endif
 
         private ProductPricingItem LatestProductPricingItem()
         {
@@ -59,10 +86,11 @@ namespace Distributr.Core.Domain.Master.ProductEntities
                 .ThenByDescending(n => n.EffectiveDate);
             return items.ToList().First();
         }
+
        #if __MOBILE__
          [OneToMany(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
         #endif
-        public IList<ProductPricingItem> ProductPricingItems { get; set; }
+        public List<ProductPricingItem> ProductPricingItems { get; set; }
 
 #if !SILVERLIGHT
    [Serializable]
