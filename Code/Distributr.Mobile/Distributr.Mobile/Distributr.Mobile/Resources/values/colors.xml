@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  
+  
+  <drawable name="color_alternate_action">@color/color_alternate_action</drawable>
+  <drawable name="color_accent_dark">@color/color_accent_dark</drawable>
+  <!-- Material Theme Colors 
+  <item name="color_primary" type="color">#FF2C2C2C</item>
+  <item name="color_accent" type="color">#FF00FFCC</item>
+  
+  2E3138
+  -->                                                
+  <item name="color_primary" type="color">#FF2A2D34</item>
+  <item name="color_primary_dark" type="color">#FF191B1F</item>
+
+  <item name="color_background" type="color">#FFFDFDF4</item>  
+  <item name="color_background_dark" type="color">@color/color_primary</item>
+  
+  <item name="color_accent" type="color">#FF19ECC1</item>
+  <item name="color_accent_dark" type="color">#FF14BD9A</item>
+
+  <item name="color_error" type="color">#FFFF3333</item>
+  
+  <item name="color_alternate_action" type="color">#FFFF4081</item>
+
+  <item name="sync_paused_color" type="color">#FFFFA500</item>
+  
+  <item name="transparent" type="color">#00000000</item>
+
+  <item name="color_primary_text" type="color">#FF000000</item>
+  <item name="color_secondary_text" type="color">#FF797779</item>
+  <item name="color_action_bar_content" type="color">#FFFFFFFF</item>
+  <item name="color_action_bar_content_30_opacity" type="color">#4DFFFFFF</item>
+
+  <item name="color_action" type="color">@color/color_accent</item>
+  <item name="color_action_pressed" type="color">@color/color_accent</item>
+  <item name="color_action_shadow" type="color">@color/color_accent_dark</item>
+
+  <item name="color_side_panel" type="color">@color/color_primary_dark</item>
+  <item name="color_side_panel_darker" type="color">#FF1A1A1A</item>
+  
+  <item name="color_receive_payment_confirmed" type="color">#FF19A3D1</item>
+ 
+</resources>

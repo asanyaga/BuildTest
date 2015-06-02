@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/side_panel_sync_inbound_label_text"
+            android:layout_margin="16dp"
+            android:textColor="#66FFFFFF" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@color/color_side_panel_darker">
+            <include
+                layout="@layout/side_panel_sync_widget"
+                android:id="@+id/inbound_transactions_sync" />
+        <!--Spacer only-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:minHeight="16dp" />
+            <include
+                layout="@layout/side_panel_sync_widget"
+                android:id="@+id/inbound_masterdata_sync" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/side_panel_sync_outbound_label_text"
+            android:layout_margin="16dp"
+            android:textColor="#66FFFFFF" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@color/color_side_panel_darker">
+            <include
+                layout="@layout/side_panel_sync_widget"
+                android:id="@+id/outbound_transactions_sync" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

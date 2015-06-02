@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Distributr.Mobile.SidePanel.Sync.SyncWidget xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Transactions"
+        android:textSize="12sp"
+        android:textColor="@color/color_action_bar_content"
+        android:alpha="0.8"
+        android:id="@+id/sync_type_label"
+        android:layout_marginLeft="16dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/color_action"
+            android:src="@drawable/ic_sync_white"
+            android:id="@+id/sync_now_button"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="8dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:id="@+id/sync_status_indicator"
+            android:background="@drawable/sync_view_inactive"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/side_panel_sync_status_inactive"
+                android:textColor="@color/color_action_bar_content"
+                android:id="@+id/sync_status_message"
+                android:textSize="12sp"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.FormFieldHeadTextStyle"
+        android:text=""
+        android:textSize="10dp"
+        android:id="@+id/last_update_time"
+        android:layout_marginLeft="16dp"
+        android:textColor="@color/color_secondary_text" />
+</Distributr.Mobile.SidePanel.Sync.SyncWidget>
