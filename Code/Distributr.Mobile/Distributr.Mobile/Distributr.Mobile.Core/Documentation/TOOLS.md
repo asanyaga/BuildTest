@@ -56,4 +56,4 @@ This is the configuration that you should use for a release when targeting a rea
 
 ###Android Monitor
 
-Android Monitor provides a way to view Log Cat messages as well as bunch of other features which are useful for debigging, such as view threads, generating a heap dump and monitor memory and CPU. You can launch Android monitor from <sdk home>/tools/monotor.bat
+Android Monitor provides a way to view Log Cat messages as well as bunch of other features which are useful for debigging, such as view threads, generating a heap dump and monitor memory and CPU. You can launch Android monitor from `<sdk home>/tools/monotor.bat`
