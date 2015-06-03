@@ -46,7 +46,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <AndroidSupportedAbis>x86_64</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
     <DefineConstants>__MOBILE__</DefineConstants>
     <DebugType>full</DebugType>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
@@ -80,7 +80,7 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <BundleAssemblies>False</BundleAssemblies>
     <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-    <AndroidSupportedAbis>x86</AndroidSupportedAbis>
+    <AndroidSupportedAbis>x86_64</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
     <Debugger>Xamarin</Debugger>
