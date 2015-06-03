@@ -31,7 +31,8 @@ BEGIN
 	AND convert(nvarchar(26),doc.DocumentDate,23) between @startDate and @endDate
 	--and  ((@startDate is null or @endDate is null) or doc.DocumentDate between @startDate and  @endDate)
 	and  (@hubId is null  or cc.Id=@hubId)
-	and  (@clerkId is null  or (doc.DocumentIssuerCostCentreId=@clerkId or doc.DocumentRecipientCostCentreId=@clerkId))
+	--and  (@clerkId is null  or (doc.DocumentIssuerCostCentreId=@clerkId or doc.DocumentRecipientCostCentreId=@clerkId))
+	and  (@clerkId is null  or (doc.DocumentIssuerUserId=@clerkId or doc.DocumentRecipientCostCentreId=@clerkId))
 	Group by doc.DocumentDate, doc.DocumentReference,doc.CommodityOwnerId,
 	cc.parentcostcentreId,cc.name
 	
