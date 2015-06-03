@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Distributr.Mobile.Products.ProductSelector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+  <LinearLayout
+      android:layout_height="wrap_content"
+      android:layout_width="match_parent"
+      android:orientation="vertical"
+      android:padding="8dp">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/product_selector_description"
+            android:textAllCaps="true"
+            android:id="@+id/description_title"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/product_selector_available"
+            android:textAllCaps="true"
+            android:id="@+id/stock_title"
+            android:layout_marginRight="8dp" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/product_selector_required"
+            android:textAllCaps="true"
+            android:layout_gravity="right|end"
+            android:textAlignment="gravity"
+            android:id="@+id/quantity_title" />
+    </LinearLayout>
+      <LinearLayout
+          android:layout_height="wrap_content"
+          android:layout_width="match_parent"
+          android:id="@+id/items"
+          android:orientation="vertical" />
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/color_alternate_action"
+            android:textAlignment="gravity"
+            android:id="@+id/error_message" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/product_selector_done_button_text"
+            android:id="@+id/done" />
+    </LinearLayout>
+  </LinearLayout>
+</Distributr.Mobile.Products.ProductSelector>

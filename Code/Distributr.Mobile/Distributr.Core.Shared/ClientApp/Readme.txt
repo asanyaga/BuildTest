@@ -1,0 +1,1 @@
+﻿Classes and contracts utilised in client applications only

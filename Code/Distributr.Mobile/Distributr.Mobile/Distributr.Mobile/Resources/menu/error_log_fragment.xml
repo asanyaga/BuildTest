@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <item android:id="@+id/resolve_all_errors"
+      android:icon="@null"
+      android:title="@string/resolve_all_errors"
+      app:showAsAction="never" />
+</menu> 

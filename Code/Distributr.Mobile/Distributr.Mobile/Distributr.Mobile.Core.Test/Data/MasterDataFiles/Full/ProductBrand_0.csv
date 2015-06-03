@@ -1,0 +1,6 @@
+Code, DateCreated, DateLastUpdated, Description, MasterId, Name, StatusId, SupplierMasterId
+'1002', '2015-04-09 09:47:15', '2015-04-09 09:47:15', 'Bibo Groupd', 'd26b48fc-2173-448e-b6a4-b603032b4163', 'Bibo Groupd', 1, '44542d6c-3bfd-4a38-83ef-26ce2606f009'
+'002', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Bibo Group', '43ed665a-41f5-4ba7-8535-cd6327f98fcd', 'Bibo Group', 1, '44542d6c-3bfd-4a38-83ef-26ce2606f009'
+'007', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Fanta Group', '01eb5833-d1c5-4c0d-afa5-09236ad6a69a', 'Fanta Group', 1, '44542d6c-3bfd-4a38-83ef-26ce2606f009'
+'005', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Colas Group', 'b521dd60-1cf3-42bb-a5a9-0d0f794a3d16', 'Colas Group', 1, '44542d6c-3bfd-4a38-83ef-26ce2606f009'
+'030', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Dasani Group', 'a97bfe3a-217b-49f6-ab96-88113ae4a517', 'Dasani Group', 1, '44542d6c-3bfd-4a38-83ef-26ce2606f009'

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/receive_payment_confirmed_payment_background"
+    android:orientation="horizontal"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
+    <TextView
+        android:id="@+id/payment_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="48dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:textSize="@dimen/secondary_text_size"
+        android:textStyle="bold"
+        android:textAlignment="gravity"
+        android:gravity="left|start"
+        android:textColor="@color/color_action_bar_content" />
+    <TextView
+        android:id="@+id/payment_reference"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/secondary_text_size"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/color_action_bar_content"
+        android:text="" />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#6619A3D1"
+        android:layout_marginRight="6dp" />
+    <ImageView
+        android:id="@+id/payment_action"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:padding="4dp"
+        android:layout_gravity="center_vertical"
+        android:textAlignment="gravity"
+        android:src="@drawable/ic_check"
+        android:gravity="right|end" />
+</LinearLayout>

@@ -1,0 +1,43 @@
+﻿{
+  "Envelopes": [
+    {
+      "DocumentType": "Order",
+      "Envelope": {
+        "Id": "8b0bc6a7-f069-4cc4-b53a-87e15fc9371d",
+        "DocumentId": "ef1a5aba-fa71-4a06-aa7c-90c6088861cf",
+        "DocumentTypeId": 1,
+        "GeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "RecipientCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+        "GeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+        "ParentDocumentId": "ef1a5aba-fa71-4a06-aa7c-90c6088861cf",
+        "CommandsList": [
+          {
+            "Command": {
+              "CommandTypeRef": "OrderDispatchApprovedLineItems",
+              "CommandId": "f6d58974-3901-451c-b0e9-6122ac9ed6bb",
+              "PDCommandId": "ef1a5aba-fa71-4a06-aa7c-90c6088861cf",
+              "DocumentId": "ef1a5aba-fa71-4a06-aa7c-90c6088861cf",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-05-02T15:19:26.4946342+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": null,
+              "IsSystemCommand": false
+            },
+            "Order": 1
+          }
+        ],
+        "EnvelopeGeneratedTick": 635661767664946342,
+        "EnvelopeArrivedAtServerTick": 635661767910087590,
+        "IsSystemEnvelope": false
+      },
+      "EnvelopeArrivedAtServerTick": 635661767910087590
+    }
+  ],
+  "ErrorInfo": "Success"
+}

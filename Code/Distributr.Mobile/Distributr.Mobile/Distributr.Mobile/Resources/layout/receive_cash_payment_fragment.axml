@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:divider="@drawable/empty_divider_8dp"
+            android:id="@+id/existing_payments" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="@dimen/receive_payment_form_horizontal_margin"
+            android:layout_marginRight="@dimen/receive_payment_form_horizontal_margin"
+            android:id="@+id/payment_form"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/existing_payments">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/payment_amount_title"
+                android:text="@string/receive_payment_amount_text"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/standard_text_view_adjustment_padding"
+                style="@style/AppTheme.FormFieldHeadTextStyle" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/payment_amount"
+                android:text="0"
+                android:textSize="@dimen/list_item_text_size"
+                android:textColor="@color/color_action"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="@dimen/standard_vertical_field_spacing" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/change_due_title"
+                android:textStyle="bold"
+                android:text="@string/receive_payment_change_due_text"
+                android:layout_marginLeft="@dimen/standard_text_view_adjustment_padding"
+                style="@style/AppTheme.FormFieldHeadTextStyle" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/change_due"
+                android:layout_marginLeft="@dimen/standard_text_view_adjustment_padding"
+                android:textSize="@dimen/list_item_text_size"
+                android:text="0"
+                android:textColor="@color/color_action"
+                android:layout_gravity="right|end" />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

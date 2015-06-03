@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingLeft="@dimen/standard_screen_padding"
+    android:paddingRight="@dimen/standard_screen_padding">
+    <TextView
+        android:id="@+id/basket_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="50dp"
+        android:paddingRight="8dp"
+        android:textSize="@dimen/secondary_text_size"
+        android:textAlignment="gravity"
+        android:gravity="left|start"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/color_secondary_text" />
+    <TextView
+        android:id="@+id/product_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/secondary_text_size"
+        android:layout_weight="1"
+        android:paddingLeft="8dp"
+        android:singleLine="false"
+        android:paddingRight="8dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/color_primary_text"
+        android:text="Coca Cola 500ml" />
+    <TextView
+        android:id="@+id/item_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="30dp"
+        android:textSize="@dimen/secondary_text_size"
+        android:textAlignment="gravity"
+        android:gravity="right|end"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/color_secondary_text"
+        android:text="$66565" />
+</LinearLayout>

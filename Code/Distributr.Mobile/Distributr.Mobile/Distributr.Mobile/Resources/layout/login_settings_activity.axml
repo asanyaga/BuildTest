@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/standard_screen_padding"
+    android:background="@color/color_background">
+    <TextView
+        android:id="@+id/title"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standard_vertical_field_spacing"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/color_primary_text"
+        android:text="@string/login_settings_screen_title" />
+    <TextView
+        android:id="@+id/login_url_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        style="@style/AppTheme.FormFieldHeadTextStyle"
+        android:layout_marginTop="@dimen/standard_vertical_field_spacing"
+        android:paddingLeft="2dp"
+        android:text="@string/login_settings_server_url_field_title" />
+    <EditText
+        android:id="@+id/server_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_url_title"
+        android:textColor="@color/color_primary_text"
+        android:text="http://192.168.1.103/qa3_ws/api/" />
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/standard_action_button_size"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/login_settings_save_button_text"
+        android:onClick="Save"
+        android:layout_marginBottom="24dp" />
+</RelativeLayout>

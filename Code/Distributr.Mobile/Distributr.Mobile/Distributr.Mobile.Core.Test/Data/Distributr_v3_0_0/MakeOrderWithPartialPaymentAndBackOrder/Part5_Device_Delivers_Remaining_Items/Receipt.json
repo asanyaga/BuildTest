@@ -1,0 +1,89 @@
+﻿{
+  "CommandsList": [
+    {
+      "Command": {
+        "InvoiceId": "82c907a5-4b5b-4a53-b6b2-0a866ec3dbf8",
+        "DocIssuerUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+        "DocumentDateIssued": "2015-05-02T14:44:52",
+        "DocumentIssuerCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "DocumentRecipientCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+        "DocumentReference": "R_john_O003_20150502_144452_00011",
+        "VersionNumber": "M-3.0.0",
+        "CommandCreatedDateTime": "2015-05-02T14:44:52",
+        "CommandGeneratedByCostCentreApplicationId": "175e1f72-268a-4903-800e-0321b61c651f",
+        "CommandGeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+        "CommandId": "11715d61-ffab-4e83-bd01-1a4474200ff1",
+        "SendDateTime": "2015-05-02T14:44:52",
+        "CommandTypeRef": "CreateReceipt",
+        "PDCommandId": "3928f84c-e04f-4a57-ba35-4fdbf328da97",
+        "DocumentId": "0c331d89-0501-4816-be09-ca29fd6b9bbb",
+        "DiscountType": 0,
+        "Latitude": 0.0,
+        "Longitude": 0.0,
+        "LineItemType": 0,
+        "CostCentreApplicationCommandSequenceId": 0,
+        "CommandSequence": 56
+      },
+      "Order": 1
+    },
+    {
+      "Command": {
+        "Description": "Cash",
+        "InvoiceId": "82c907a5-4b5b-4a53-b6b2-0a866ec3dbf8",
+        "LineItemId": "4a3524b6-9db0-468d-b3ab-43df3019738a",
+        "LineItemVatValue": 0.0,
+        "Value": 47.0,
+        "LineItemSequenceNo": 1,
+        "Qty": 0,
+        "PaymentTypeId": 1,
+        "CommandCreatedDateTime": "2015-05-02T14:44:52",
+        "CommandGeneratedByCostCentreApplicationId": "175e1f72-268a-4903-800e-0321b61c651f",
+        "CommandGeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+        "CommandId": "7a5f66bc-352d-42b0-a827-04332211b607",
+        "SendDateTime": "2015-05-02T14:44:52",
+        "CommandTypeRef": "AddReceiptLineItem",
+        "PDCommandId": "3928f84c-e04f-4a57-ba35-4fdbf328da97",
+        "DocumentId": "0c331d89-0501-4816-be09-ca29fd6b9bbb",
+        "DiscountType": 0,
+        "Latitude": 0.0,
+        "Longitude": 0.0,
+        "LineItemType": 2,
+        "CostCentreApplicationCommandSequenceId": 1,
+        "CommandSequence": 57
+      },
+      "Order": 2
+    },
+    {
+      "Command": {
+        "isConfirmed": 1,
+        "CommandCreatedDateTime": "2015-05-02T14:44:52",
+        "CommandGeneratedByCostCentreApplicationId": "175e1f72-268a-4903-800e-0321b61c651f",
+        "CommandGeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+        "CommandId": "5dbde907-0c7c-41e3-8586-33fa4ce90ef7",
+        "SendDateTime": "2015-05-02T14:44:52",
+        "CommandTypeRef": "ConfirmReceipt",
+        "PDCommandId": "3928f84c-e04f-4a57-ba35-4fdbf328da97",
+        "DocumentId": "0c331d89-0501-4816-be09-ca29fd6b9bbb",
+        "DiscountType": 0,
+        "Latitude": 0.0,
+        "Longitude": 0.0,
+        "LineItemType": 0,
+        "CostCentreApplicationCommandSequenceId": 2,
+        "CommandSequence": 58
+      },
+      "Order": 3
+    }
+  ],
+  "DocumentId": "0c331d89-0501-4816-be09-ca29fd6b9bbb",
+  "RecipientCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+  "ParentDocumentId": "3928f84c-e04f-4a57-ba35-4fdbf328da97",
+  "Id": "42a5e140-a697-4240-b86b-dc4624062c4d",
+  "GeneratedByCostCentreApplicationId": "175e1f72-268a-4903-800e-0321b61c651f",
+  "GeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+  "DocumentTypeId": 8,
+  "EnvelopeArrivedAtServerTick": 0,
+  "EnvelopeGeneratedTick": 1430574293888
+}

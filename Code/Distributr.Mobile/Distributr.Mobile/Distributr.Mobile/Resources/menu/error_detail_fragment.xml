@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <item android:id="@+id/resolve_error"
+      android:icon="@null"
+      android:title="@string/resolve_error"
+      app:showAsAction="never" />
+  
+  <item android:id="@+id/email_error"
+        android:icon="@null"
+        android:title="@string/email_error_detail"
+        app:showAsAction="never" />
+</menu> 

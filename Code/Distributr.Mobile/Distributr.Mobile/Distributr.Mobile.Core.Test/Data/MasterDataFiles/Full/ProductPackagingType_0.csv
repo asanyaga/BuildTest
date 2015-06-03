@@ -1,0 +1,5 @@
+Code, DateCreated, DateLastUpdated, Description, MasterId, Name, StatusId
+'001', '2015-04-09 09:47:15', '2015-04-09 09:47:15', 'Bottles', '65ef86a3-68ab-4f35-add8-97add0e68d71', 'Bottles', 1
+'002', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Bottle', 'd9ca8539-0d5c-428e-bfd6-0c3fdf909d39', 'Bottle', 1
+'003', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Can', 'dcd8add5-6ad9-42d0-a676-a12fff93771e', 'Can', 1
+'003', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Tetra', '229aec01-96fa-4e18-abfe-2fabe66ac78c', 'Tetra', 1

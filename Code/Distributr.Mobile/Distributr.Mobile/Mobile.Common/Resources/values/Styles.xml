@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!-- Dialog Style-->
+  <!-- Dialog Style-->
+  <style name="AppTheme.AlertDialog" parent="@android:style/Theme.Dialog">
+    <item name="android:windowBackground">@color/color_background</item>
+    <item name="android:textColorPrimary">@color/color_primary_text</item>
+    <item name="android:textColorSecondary">@color/color_secondary_text</item>
+    <item name="android:colorControlNormal">@color/color_action_bar_content</item>
+  </style>
+</resources>
