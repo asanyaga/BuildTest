@@ -9,7 +9,7 @@ You should read through the [advanced section](http://developer.xamarin.com/guid
 
 Below is a list of emulator configurations that you can use during development and development testing. As well as the emulator, you should run the app on a at least one real device before completing a feature. 
 
-####Developement Emulator:
+####Development Emulator:
 
 This is my default emulator which I use on a day-to-day basis. It is optimised to be responsive a the expense of running a slightly different config than a production Android device (it uses X86 CPU instead of ARM). It also runs Android Lollipop (v21) which is the highest OS version will need to support for a while.  
 
