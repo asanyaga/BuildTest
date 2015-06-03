@@ -33,3 +33,19 @@ emulating the ARM CPUs.
 
 ![alt text](sdk_manager_hax.png "HAX App")
 
+###Visutal Studio Configuration
+
+Visual Studio's configuration files are checked in to the repository so these options should already be set when you open the project. To access these settings in Visual Studio you can click on BUILD > 
+
+####Development Configuration
+
+![alt text](development_packaging.png "Packaging")
+![alt text](development_linking.png "Linking")
+![alt text](development_advanced.png "Advanced")
+
+**Note** in the advanced config that x86_64 is checked. This means we are targeting a 64 Bit CPU (for a 64 bit workstation). This matches the CPU/ABI config from the development emulator above. It is only appropriate for development. 
+
+
+
+
+
