@@ -11,7 +11,7 @@ Below is a list of emulator configurations that you can use during development a
 
 ####Developement Emulator:
 
-This is my default emaultor which I use on a day-to-day basis. It is optimised to be responsive a the expense of running a slightly differen config than a production Android device (it uses X86 CPU instead of ARM). It also runs Android Lollipop (v21) which is the highest OS version will need to support for a while.  
+This is my default emulator which I use on a day-to-day basis. It is optimised to be responsive a the expense of running a slightly different config than a production Android device (it uses X86 CPU instead of ARM). It also runs Android Lollipop (v21) which is the highest OS version will need to support for a while.  
 
 ![alt text](avd_config.png "Emulator Config")
 
@@ -30,12 +30,12 @@ This emulator is closer to a production device as it emulates an ARM CPU. It has
 
 #### Installing HAX Optimistation
 
-You can insall a small tool from Intel (if you are running an Intel chip on your workstation). You do this through the SDK Manager as shown below. Once downloaded it will be stored in <sdk home>\extras\intel\Hardware_Accelerated_Execution_Manager. Double click the installer and follow the instructions. You may also need to change a setting in your BIOS to enable this optimisation. With HAX installed, you can run Android emulators with the Intel Atom CPU and they will be a lot quicker than 
+You can install a small tool from Intel (if you are running an Intel chip on your workstation). You do this through the SDK Manager as shown below. Once downloaded it will be stored in <sdk home>\extras\intel\Hardware_Accelerated_Execution_Manager. Double click the installer and follow the instructions. You may also need to change a setting in your BIOS to enable this optimisation. With HAX installed, you can run Android emulators with the Intel Atom CPU and they will be a lot quicker than 
 emulating the ARM CPUs. 
 
 ![alt text](sdk_manager_hax.png "HAX App")
 
-###Visutal Studio Configuration
+###Visual Studio Configuration
 
 Visual Studio's configuration files are checked in to the repository so these options should already be set when you open the project. To access these settings in Visual Studio you can click on PROJECT > Distributr.Mobile Properties
 
@@ -49,9 +49,11 @@ Visual Studio's configuration files are checked in to the repository so these op
 
 ####Release Configuration
 
-This is the configuration that you should use for a release when targeting a real Android device (and the one that we will use on the continuos integration server). The packaging and linking are the same as above, but note the supported architecture is now armeabi-v7a. This is the only architecture that should be checked. Any other included architectures will increase the APK file size. In future we may also need to check arm64-v8a which will be used by devices with 64-bit CPUs (currently only the nexus 9 uses a 64-bit CPU though they will be more common in future). 
+This is the configuration that you should use for a release when targeting a real Android device (and the one that we will use on the continuous integration server). The packaging and linking are the same as above, but note the supported architecture is now armeabi-v7a. This is the only architecture that should be checked. Any other included architectures will increase the APK file size. In future we may also need to check arm64-v8a which will be used by devices with 64-bit CPUs (currently only the nexus 9 uses a 64-bit CPU though they will be more common in future). 
 
 ![alt text](release_advanced.png "Advanced")
 
 
+###Android Monitor
 
+Android Monitor provides a way to view Log Cat messages as well as bunch of other features which are useful for debigging, such as view threads, generating a heap dump and monitor memory and CPU. You can launch Android monitor from <sdk home>/tools/monotor.bat
