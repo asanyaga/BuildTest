@@ -42,7 +42,7 @@ namespace Distributr.Core.Domain.Master.UserEntities
         public string Password { get; set; }
 
         public string PIN { get; set; }
-
+        public int PassChange { get; set; }
         public string TillNumber { get; set; }
 
         
