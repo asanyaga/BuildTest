@@ -27,6 +27,8 @@ Global
 		Debug|x86 = Debug|x86
 		dev|Any CPU = dev|Any CPU
 		dev|x86 = dev|x86
+		development|Any CPU = development|Any CPU
+		development|x86 = development|x86
 		Kemsa|Any CPU = Kemsa|Any CPU
 		Kemsa|x86 = Kemsa|x86
 		Release|Any CPU = Release|Any CPU
@@ -43,6 +45,10 @@ Global
 		{BB112942-8ABD-4C73-BD57-2FD0BC9298C9}.dev|Any CPU.Deploy.0 = Release|Any CPU
 		{BB112942-8ABD-4C73-BD57-2FD0BC9298C9}.dev|x86.ActiveCfg = Debug|Any CPU
 		{BB112942-8ABD-4C73-BD57-2FD0BC9298C9}.dev|x86.Build.0 = Debug|Any CPU
+		{BB112942-8ABD-4C73-BD57-2FD0BC9298C9}.development|Any CPU.ActiveCfg = development|Any CPU
+		{BB112942-8ABD-4C73-BD57-2FD0BC9298C9}.development|Any CPU.Build.0 = development|Any CPU
+		{BB112942-8ABD-4C73-BD57-2FD0BC9298C9}.development|Any CPU.Deploy.0 = development|Any CPU
+		{BB112942-8ABD-4C73-BD57-2FD0BC9298C9}.development|x86.ActiveCfg = development|Any CPU
 		{BB112942-8ABD-4C73-BD57-2FD0BC9298C9}.Kemsa|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB112942-8ABD-4C73-BD57-2FD0BC9298C9}.Kemsa|Any CPU.Build.0 = Debug|Any CPU
 		{BB112942-8ABD-4C73-BD57-2FD0BC9298C9}.Kemsa|x86.ActiveCfg = Debug|Any CPU
@@ -60,6 +66,9 @@ Global
 		{41112F0B-89FE-4726-9C6C-09ECEA4F9B61}.dev|Any CPU.Build.0 = Release|Any CPU
 		{41112F0B-89FE-4726-9C6C-09ECEA4F9B61}.dev|x86.ActiveCfg = Debug|Any CPU
 		{41112F0B-89FE-4726-9C6C-09ECEA4F9B61}.dev|x86.Build.0 = Debug|Any CPU
+		{41112F0B-89FE-4726-9C6C-09ECEA4F9B61}.development|Any CPU.ActiveCfg = Release|Any CPU
+		{41112F0B-89FE-4726-9C6C-09ECEA4F9B61}.development|Any CPU.Build.0 = Release|Any CPU
+		{41112F0B-89FE-4726-9C6C-09ECEA4F9B61}.development|x86.ActiveCfg = Debug|Any CPU
 		{41112F0B-89FE-4726-9C6C-09ECEA4F9B61}.Kemsa|Any CPU.ActiveCfg = Debug|Any CPU
 		{41112F0B-89FE-4726-9C6C-09ECEA4F9B61}.Kemsa|Any CPU.Build.0 = Debug|Any CPU
 		{41112F0B-89FE-4726-9C6C-09ECEA4F9B61}.Kemsa|x86.ActiveCfg = Debug|Any CPU
@@ -76,6 +85,9 @@ Global
 		{21EC8F35-B260-4999-A518-286577880948}.dev|Any CPU.Build.0 = Release|Any CPU
 		{21EC8F35-B260-4999-A518-286577880948}.dev|x86.ActiveCfg = Debug|Any CPU
 		{21EC8F35-B260-4999-A518-286577880948}.dev|x86.Build.0 = Debug|Any CPU
+		{21EC8F35-B260-4999-A518-286577880948}.development|Any CPU.ActiveCfg = Release|Any CPU
+		{21EC8F35-B260-4999-A518-286577880948}.development|Any CPU.Build.0 = Release|Any CPU
+		{21EC8F35-B260-4999-A518-286577880948}.development|x86.ActiveCfg = Debug|Any CPU
 		{21EC8F35-B260-4999-A518-286577880948}.Kemsa|Any CPU.ActiveCfg = Debug|Any CPU
 		{21EC8F35-B260-4999-A518-286577880948}.Kemsa|Any CPU.Build.0 = Debug|Any CPU
 		{21EC8F35-B260-4999-A518-286577880948}.Kemsa|x86.ActiveCfg = Debug|Any CPU
