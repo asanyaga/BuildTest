@@ -73,7 +73,41 @@ namespace Mobile.Common.Core
 
         private DownloadStatusUpdate CreateFailureUpdate(int reason)
         {
-            return new DownloadStatusUpdate("Failed", failed: true);
+            var reasonText = "Unknown error";
+
+            switch ((DownloadError)reason)
+            {
+                case DownloadError.CannotResume:
+                    reasonText = "Can not resume download. Please try again";
+                    break;
+                case DownloadError.DeviceNotFound:
+                    reasonText = "SD Card unavailable or not mounted";
+                    break;
+                case DownloadError.FileAlreadyExists:
+                    reasonText = "A file with the same name already exists";
+                    break;
+                case DownloadError.FileError:
+                    reasonText = "Unable to store file";
+                    break;
+                case DownloadError.HttpDataError:
+                    reasonText = "Error when communciation with server (HTTP Error)";
+                    break;
+                case DownloadError.InsufficientSpace:
+                    reasonText = "Can not complete download due to insuffienct space";
+                    break;
+                case DownloadError.TooManyRedirects:
+                    reasonText = "Server is incorrectly configured (too many redirects)";
+                    break;
+                case DownloadError.UnhandledHttpCode:
+                    reasonText = "Server responded with an invalid HTTP code";
+                    break;
+                case DownloadError.Unknown:
+                    break;
+            }
+
+            Console.WriteLine("Received error code during download {0} - {1}", reason, reasonText);
+
+            return new DownloadStatusUpdate(reasonText, failed: true);
         }
 
         public abstract void OnStatusUpdate(DownloadStatusUpdate statud);
