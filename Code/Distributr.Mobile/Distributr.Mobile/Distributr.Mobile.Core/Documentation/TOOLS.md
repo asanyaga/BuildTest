@@ -37,7 +37,7 @@ emulating the ARM CPUs.
 
 ###Visutal Studio Configuration
 
-Visual Studio's configuration files are checked in to the repository so these options should already be set when you open the project. To access these settings in Visual Studio you can click on BUILD > 
+Visual Studio's configuration files are checked in to the repository so these options should already be set when you open the project. To access these settings in Visual Studio you can click on PROJECT > Distributr.Mobile Properties
 
 ####Development Configuration
 
