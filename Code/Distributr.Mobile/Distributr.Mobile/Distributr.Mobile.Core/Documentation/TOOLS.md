@@ -3,6 +3,8 @@ Tools
 
 In this section you can find details about various tools that are used during the development process. To work with the app you will need to know how to setup Android Emulators and also how to configure your IDE. 
 
+You should read through the [advanced section](http://developer.xamarin.com/guides/android/advanced_topics/) on the Xamarin website to help you understand the build process and configuration options mentioned below. 
+
 ### Android Virtual Device (Emulator) Configuration
 
 Below is a list of emulator configurations that you can use during development and development testing. As well as the emulator, you should run the app on a at least one real device before completing a feature. 
@@ -47,7 +49,7 @@ Visual Studio's configuration files are checked in to the repository so these op
 
 ####Release Configuration
 
-This is the configuration that you should use for a release when targeting a real Android device. The packaging and linking are the same as above, but note the supported architecture is now armeabi-v7a. This is the only architecture that should be checked. Any other included architectures will increase the APK file size. In future we may also need to check arm64-v8a which will be used by devices with 64-bit CPU (currently only the nexus 9 uses a 64-bit CPU though they will be more common in future). 
+This is the configuration that you should use for a release when targeting a real Android device (and the one that we will use on the continuos integration server). The packaging and linking are the same as above, but note the supported architecture is now armeabi-v7a. This is the only architecture that should be checked. Any other included architectures will increase the APK file size. In future we may also need to check arm64-v8a which will be used by devices with 64-bit CPUs (currently only the nexus 9 uses a 64-bit CPU though they will be more common in future). 
 
 ![alt text](release_advanced.png "Advanced")
 
