@@ -45,7 +45,11 @@ Visual Studio's configuration files are checked in to the repository so these op
 
 **Note** in the advanced config that x86_64 is checked. This means we are targeting a 64 Bit CPU (for a 64 bit workstation). This matches the CPU/ABI config from the development emulator above. It is only appropriate for development. 
 
+####Release Configuration
 
+This is the configuration that you should use for a release when targeting a real Android device. The packaging and linking are the same as above, but note the supported architecture is now armeabi-v7a. This is the only architecture that should be checked. Any other included architectures will increase the APK file size. In future we may also need to check arm64-v8a which will be used by devices with 64-bit CPU (currently only the nexus 9 uses a 64-bit CPU though they will be more common in future). 
+
+![alt text](release_advanced.png "Advanced")
 
 
 
