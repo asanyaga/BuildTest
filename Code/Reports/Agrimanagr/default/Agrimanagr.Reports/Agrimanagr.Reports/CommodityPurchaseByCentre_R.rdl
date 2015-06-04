@@ -1034,7 +1034,7 @@
           <Value>=Today().AddDays((-1*Today().Day)+1)</Value>
         </Values>
       </DefaultValue>
-      <Prompt>start Date</Prompt>
+      <Prompt>Start Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="endDate">
       <DataType>DateTime</DataType>
@@ -1043,7 +1043,7 @@
           <Value>=Today()</Value>
         </Values>
       </DefaultValue>
-      <Prompt>end Date</Prompt>
+      <Prompt>End Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="hubId">
       <DataType>String</DataType>
