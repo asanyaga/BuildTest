@@ -1,0 +1,2 @@
+CostCentre, DateCreated, DateLastUpdated, GroupMasterId, MasterId, Mobile, Password, PIN, StatusId, TillNumber, Username, UserTypeId
+'4c243448-8e87-4454-8a87-23f6706eb3ab', '2015-04-09 09:47:20', '2015-04-09 09:47:20', 'd28d807c-94bc-4b41-bc5c-51b3213b29cc', '4ad1ee7d-a1e8-4876-9de9-a4cee99288e6', '32323', '25d55ad283aa400af464c76d713c07ad', '989d2e13-eda8-4b88-8350-036b2f76bb2f', 1, '', 'John', 3

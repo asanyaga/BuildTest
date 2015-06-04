@@ -59,6 +59,7 @@ namespace Distributr.Core.Data.Repository.Transactional.SourcingDocumentReposito
                 LineItemStatus = tblItem.LineItemStatusId.HasValue ? (SourcingLineItemStatus)tblItem.LineItemStatusId : SourcingLineItemStatus.Confirmed,
                 ContainerType =tblItem.ContainerId.HasValue? _containerTypeRepository.GetById(tblItem.ContainerId.Value):null,
                 Weight = tblItem.Weight.HasValue ? tblItem.Weight.Value : 0,
+                WeighType = (int) (tblItem.WeighType.HasValue ? (WeighType)tblItem.WeighType.Value : WeighType.Manual),
             };
         }
 

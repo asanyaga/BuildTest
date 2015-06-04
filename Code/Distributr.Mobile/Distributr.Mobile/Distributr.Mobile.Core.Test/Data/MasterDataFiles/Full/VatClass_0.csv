@@ -1,0 +1,3 @@
+DateCreated, DateLastUpdated, MasterId, Name, StatusId, VatClass
+'2015-04-09 09:47:11', '2015-04-09 09:47:11', '06b50c25-b332-424e-8776-b73a0f49d269', 'Vat 1', 1, 'Class 1'
+'2015-04-09 09:47:19', '2015-04-09 09:47:19', 'f42d40a7-9f9d-463c-9155-3894858c02df', 'Vat 2', 1, 'Class 2'

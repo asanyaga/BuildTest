@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  <!-- Global Standards -->
+  <dimen name="standard_screen_padding">16dp</dimen>
+  <dimen name="standard_vertical_field_spacing">16dp</dimen>
+  <dimen name="standard_list_item_divider_size">1dp</dimen>
+  <dimen name="standard_action_button_text_size">18dp</dimen>
+  <dimen name="standard_action_button_size">44dp</dimen>
+  
+  <!-- Makes TextViews line-up with EditTexts in forms -->
+  <dimen name="standard_text_view_adjustment_padding">6dp</dimen>  
+
+  <!-- Login Screen -->
+  <dimen name="logo_horizontal_margin">48dp</dimen>
+  <dimen name="logo_vertical_margin">72dp</dimen>
+
+  <!-- Receive Payment Screens-->
+  <dimen name="receive_payment_form_horizontal_margin">48dp</dimen>
+
+  <dimen name="list_item_text_size">18sp</dimen>
+  <dimen name="secondary_text_size">14sp</dimen>
+</resources>

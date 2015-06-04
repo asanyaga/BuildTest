@@ -1,0 +1,2 @@
+BrandMasterId, CompetitorMasterId, DateCreated, DateLastUpdated, FlavourMasterId, MasterId, PackagingMasterId, PackagingTypeMasterId, ProductDescription, ProductName, ProductTypeMasterId, StatusId
+'43ed665a-41f5-4ba7-8535-cd6327f98fcd', 'fab6be2c-9e9c-4597-83ef-1dd94e24ba24', '2015-04-09 09:47:21', '2015-04-09 09:47:21', 'ff38a591-fd0e-451a-94d1-3365dbf0ccc0', 'c836cb0f-cee2-4715-91b8-775fff2e4c37', 'ac0cd3ac-8eed-443d-9d7c-7fdd66e7a100', 'd9ca8539-0d5c-428e-bfd6-0c3fdf909d39', 'HIGHLANDS', 'JUICE', '9a25b79b-27a0-4b4c-9505-fb199a68db7d', 1

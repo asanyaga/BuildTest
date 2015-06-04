@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/amount_due"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="64dp"
+        android:textAlignment="gravity"
+        android:gravity="center"
+        android:text="875"
+        android:textColor="@color/color_accent" />
+    <TextView
+        android:id="@+id/amount_due_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/amount_due"
+        android:layout_alignBaseline="@+id/amount_due"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:text="KSH"
+        android:textColor="@color/color_accent" />
+</RelativeLayout>

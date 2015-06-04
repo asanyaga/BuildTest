@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  <string name="app_name">Distributr</string>
+  
+  <!-- Login Screen -->
+  <string name="login_screen_login_button_text">Authenticate</string>
+  <string name="login_screen_username_hint">Username</string>
+  <string name="login_screen_password_hint">Password</string>
+
+  <!-- Login Settings Screen -->
+  <string name="login_settings_screen_title">Login Settings</string>
+  <string name="login_settings_server_url_field_title">Server Address</string>
+  <string name="login_settings_save_button_text">Done</string>
+  
+  <!-- Product Selector Dialog -->
+  <string name="product_selector_title">Select Quantity</string>
+
+  <!-- Routes Screen -->
+  <string name="routes_screen_title">Routes</string>
+  <string name="routes_screen_by_name_title">By Name</string>
+  <string name="routes_screen_by_visit_day_title">By Visit Day</string>
+  
+  <!-- Make Sale Screens-->
+  <string name="sort_by_balance_desc">Stock: High to Low</string>
+  <string name="sort_by_balance_asc">Stock: Low to High</string>
+  <string name="make_sale">Make Sale</string>
+  <string name="make_sale_description">Sell goods from your inventory</string>
+
+  <!-- Make Order Screens-->
+  <string name="sort_by_name_asc">Name: Ascending</string>
+  <string name="sort_by_name_desc">Name: Descending</string>
+  <string name="make_order">Make Order</string>
+  <string name="make_order_description">Sell goods to be delivered at a later date</string>
+
+  <!-- Make Delivery -->
+  <string name="make_delivery">Make Delivery</string>
+  <string name="make_delivery_description">Delivery goods from a previous order</string>
+  
+  <!-- Stock Take -->
+  <string name="stock_take">Stock Take</string>
+  <string name="stock_take_description">Perform a stock take of the Outlet\&#39;s inventory</string>
+
+  <!--Product Selector -->
+  <string name="product_selector_description">Description</string>
+  <string name="product_selector_available">Avail.</string>
+  <string name="product_selector_required">Req.</string>
+  <string name="product_selector_done_button_text">DONE</string>  
+  <string name="product_selector_insufficient_stock">Insufficient stock</string>
+  
+  <!-- Receive Payment Screens-->
+  <string name="receive_payment_amount_text">Payment Amount</string>
+  <string name="receive_payment_amount_due_text">Amount Due</string>
+  <string name="receive_payment_change_due_text">Change Due</string>
+  <string name="receive_payment_currency_code_text">KSH</string>
+  <string name="receive_payment_bank_text">Payment Bank</string>
+  <string name="receive_payment_bank_branch_text">Payment Bank Branch</string>
+  <string name="receive_payment_due_date_text">Due Date (YYYY-MM-DD)</string>
+  <string name="receive_payment_cheque_number_text">Cheque Number</string>
+
+  <!-- Payment Confirmation Screen -->
+  <string name="payment_confirmation_screen_title">Confirm Payment</string>
+  <string name="payment_confirmation_button_text">Confirm Payment</string>
+  <!-- Make a payment for <b>{0} KSH</b>   -->
+  <string name="payment_confirmation_text">Make a payment for &lt;b&gt;{0} KSH&lt;/b&gt; </string>
+
+  <!-- Make Sale Confrimation Screen-->
+  <string name="make_sale_confirmation_confirm_button_text">Confirm Sale</string>
+  <string name="make_sale_confirmation_choose_address_text">Add Delivery Address?</string>
+
+  <!--Summary Screen -->
+  <string name="view_items">View Items</string>
+  <string name="no_address_specified">No address specified</string>
+  <string name="summary_screen_amount_due">Amount Due</string>
+  <string name="summary_screen_payments">Payments</string>
+  <string name="summary_screen_discounts">Discounts</string>
+  <string name="summary_screen_tax">Tax</string>
+  <string name="summary_screen_total">Total</string>
+  <string name="summary_screen_total_inc_tax">Total inc Tax</string>
+
+
+  <!-- Error Log-->
+  <string name="error_log_title_text">Error Log</string>
+  <string name="error_log_download">DOWNLOAD</string>
+  <string name="error_log_upload">UPLOAD</string>  
+  
+  <!-- Error Detail -->
+  <string name="error_detail_title_text">Error Detail</string>
+  <string name="error_detail_error_date_title">ERROR DATE</string>
+  <string name="error_detail_error_document_id_title">ERROR ID</string>
+  <string name="error_detail_error_details_title">ERROR DETAILS</string>
+  <string name="email_error_detail">Report Error</string>
+  <string name="resolve_error">Replay Transaction</string>
+  <string name="email_all_error_details">Report All Errors</string>
+  <string name="resolve_all_errors">Replay All Transactions</string>
+  
+  
+  <!-- Side Panel-->
+  <string name="side_panel_navigation_label_text">NAVIGATION</string>
+  <string name="side_panel_sync_inbound_label_text">INBOUND</string>
+  <string name="side_panel_sync_outbound_label_text">OUTBOUND</string>
+  <string name="side_panel_sync_status_inactive">Inactive</string>
+  <string name="side_panel_sync_transactions_label_text">Transactions</string>
+
+
+  <!--Order History -->
+  <string name="order_status">ORDER STATUS</string>
+  <string name="payment_status">PAYMENTS</string>
+  <string name="creation_date">CREATION DATE</string>  
+  <string name="start_date">Start Date</string>
+  <string name="end_date">End Date</string>
+  <string name="order_history">Order History</string>
+
+  <string name="sort">Sort</string>
+  <string name="filter">Filter</string>
+  <string name="apply">Apply</string>
+  
+  <string name="map">View on map</string>
+  <string name="receive_payment">Receive Payment</string>
+  <string name="receive_cash">Receive Cash</string>
+  <string name="receive_cheque">Receive Cheque</string>
+  <string name="cash">Cash</string>
+  <string name="cheque">Cheque</string>
+  <string name="mmoney">M-Money</string>
+  <string name="summary">Summary</string>
+  <string name="all">All</string>
+  <string name="mandatory">Mandatory</string>
+  <string name="confirm">Confirm</string>
+  <string name="promotion">Promotion</string>
+</resources>

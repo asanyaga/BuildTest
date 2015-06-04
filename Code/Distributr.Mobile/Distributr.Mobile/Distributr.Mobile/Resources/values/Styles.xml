@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+  <!-- No ActionBar or StatusBar Theme used by Login/Login Settings screens-->
+  <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <item name="android:windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="colorControlActivated">@color/color_accent</item>
+    <item name="colorControlHighlight">@color/color_accent</item>
+    <item name="android:buttonStyle">@style/AppTheme.ActionButton</item>
+    <item name="colorPrimary">@color/color_primary</item>
+    <item name="colorPrimaryDark">@color/color_primary_dark</item>
+    <item name="colorAccent">@color/color_accent</item>
+
+  </style>
+
+  <style name="Widget.AppTheme.ActionBar" parent="Widget.AppCompat.ActionBar">
+    <item name="android:background">@color/color_primary</item>
+    <item name="theme">@style/ThemeOverlay.AppTheme.ActionBar</item>
+    <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+  </style>
+
+   
+  <style name="ThemeOverlay.AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
+    <item name="android:textColorPrimary">@color/color_action_bar_content</item>
+    <item name="android:textStyle">bold</item>
+  </style>
+
+  <style name="AppTheme.OverlayToolbar" parent="AppTheme.Base">
+    <item name="android:windowActionBarOverlay">true</item>
+    <item name="windowActionBarOverlay">true</item>
+  </style>
+
+  <!-- Main Application theme-->
+  <style name="AppTheme" parent="AppTheme.Base" />
+
+  <style name="AppTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">   
+    <item name="android:windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    
+    <item name="android:homeAsUpIndicator">@drawable/ic_action_sort</item>
+    <item name="colorPrimary">@color/color_primary</item>
+    <item name="colorPrimaryDark">@color/color_primary_dark</item>
+    <item name="colorAccent">@color/color_accent</item>
+
+    <item name="colorControlActivated">@color/color_accent</item>
+    <item name="colorControlHighlight">@color/color_accent</item>
+    <item name="colorControlNormal">@color/color_action_bar_content</item>
+    
+    <item name="android:buttonStyle">@style/AppTheme.ActionButton</item>    
+    <item name="android:actionBarTheme">@style/AppTheme.ActionBar</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/AppTheme.SpinnerText</item>
+  </style>
+
+  <style name="AppTheme.SpinnerText" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+    <item name="android:textAppearance">@style/AppTheme.SpinnerTextStyle</item>
+  </style>
+
+  <style name="AppTheme.SpinnerTextStyle" parent="@android:style/Widget">
+    <item name="android:textColor">@color/color_action_bar_content</item>
+  </style>
+  
+  <style name="AppTheme.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+    <item name="android:titleTextStyle">@style/AppTheme.ActionBar.Text</item>
+    <item name="colorControlNormal">@color/color_action_bar_content</item>
+  </style>
+  
+  <style name="AppTheme.ActionBar.Text" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+    <item name="android:textColor">@color/color_action_bar_content</item>
+    <item name="android:textStyle">bold</item>    
+  </style>
+
+  <!-- Text Styles used across the App-->
+
+  <style name="AppTheme.BaseTextStyle" parent="@android:style/TextAppearance.Small">
+    <item name="android:textSize">14sp</item>
+    <item name="android:fontFamily">sans-serif</item>
+    <item name="android:textColor">@color/color_primary_text</item>
+  </style>
+  
+  <style name="AppTheme.FormFieldHeadTextStyle" parent="AppTheme.BaseTextStyle">
+    <item name="android:textColor">@color/color_secondary_text</item>
+  </style>
+
+  <style name="AppTheme.PrimaryTextNormal" parent="AppTheme.BaseTextStyle">
+  </style>
+
+  <style name="AppTheme.SecondaryTextNormal" parent="AppTheme.BaseTextStyle">
+    <item name="android:textColor">@color/color_secondary_text</item>
+  </style>
+
+  <style name="AppTheme.PrimaryTextExtraLarge" parent="AppTheme.PrimaryTextNormal">
+    <item name="android:textSize">20sp</item>
+  </style>
+
+  <style name="AppTheme.PrimaryTextLarge" parent="AppTheme.PrimaryTextNormal">
+    <item name="android:textSize">18sp</item>
+  </style>  
+  
+  <style name="AppTheme.SecondaryTextLarge" parent="AppTheme.SecondaryTextNormal">
+    <item name="android:textSize">18sp</item>
+  </style>
+
+  <style name="AppTheme.SecondaryTextSmall" parent="AppTheme.BaseTextStyle">
+    <item name="android:textSize">12sp</item>
+    <item name="android:textColor">@color/color_secondary_text</item>
+  </style>
+
+  <style name="AppTheme.ConfirmationScreenTitle" parent="@android:style/TextAppearance.Small">
+    <item name="android:textSize">24sp</item>
+    <item name="android:fontFamily">sans-serif</item>
+    <item name="android:textColor">@color/color_action_bar_content</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textAlignment">gravity</item>
+  </style>
+
+  <style name="AppTheme.ConfirmationScreenAddressText" parent="@android:style/TextAppearance.Small">
+    <item name="android:textSize">14sp</item>
+    <item name="android:fontFamily">sans-serif</item>
+    <item name="android:textColor">@color/color_action_bar_content</item>
+  </style>
+
+  <!-- Dialog Style-->
+  <style name="AppTheme.AlertDialog" parent="@android:style/Theme.Dialog">    
+    <item name="android:windowBackground">@color/color_background</item>
+    <item name="android:textColorPrimary">@color/color_primary_text</item>
+    <item name="android:textColorSecondary">@color/color_secondary_text</item>
+  </style>
+
+  <!-- Main Application Button Style-->
+  <style name="AppTheme.ActionButton" parent="@android:style/Widget.Button">
+    <item name="android:gravity">center_vertical|center_horizontal</item>
+    <item name="android:textColor">@color/color_action_bar_content</item>
+    <item name="android:textSize">@dimen/standard_action_button_text_size</item>
+    <item name="android:paddingTop">8dp</item>
+    <item name="android:paddingLeft">16dp</item>
+    <item name="android:paddingRight">16dp</item>
+    <item name="android:paddingBottom">8dp</item>
+    <item name="android:background">@drawable/action_button</item>
+    <item name="android:focusable">true</item>
+    <item name="android:clickable">true</item>
+  </style>
+
+  <!-- Main Application Dark Button Style-->
+  <style name="AppTheme.ActionButtonDark" parent="AppTheme.ActionButton">
+    <item name="android:background">@drawable/action_button_dark</item>
+  </style>
+
+</resources>

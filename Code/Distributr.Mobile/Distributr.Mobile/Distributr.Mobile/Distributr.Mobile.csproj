@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{BB112942-8ABD-4C73-BD57-2FD0BC9298C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Distributr.Mobile</RootNamespace>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AssemblyName>Distributr.Mobile</AssemblyName>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <NuGetPackageImportStamp>08b8c962</NuGetPackageImportStamp>
+    <AndroidLinkSkip />
+    <AndroidStoreUncompressedFileExtensions />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;__MOBILE__</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="BeforeBuild" />
+      </CustomCommands>
+    </CustomCommands>
+    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <MandroidI18n>
+    </MandroidI18n>
+    <Debugger>Xamarin</Debugger>
+    <DevInstrumentationEnabled>True</DevInstrumentationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
+    <DefineConstants>__MOBILE__</DefineConstants>
+    <DebugType>full</DebugType>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <MandroidI18n>
+    </MandroidI18n>
+    <Debugger>Microsoft</Debugger>
+    <DevInstrumentationEnabled>False</DevInstrumentationEnabled>
+    <AndroidLinkSkip />
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <BundleAssemblies>False</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+    <AndroidStoreUncompressedFileExtensions />
+    <AotAssemblies>False</AotAssemblies>
+    <EnableLLVM>False</EnableLLVM>
+    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+    <EnableProguard>False</EnableProguard>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'development|AnyCPU'">
+    <OutputPath>bin\development\</OutputPath>
+    <DefineConstants>__MOBILE__</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkSkip />
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <BundleAssemblies>False</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+    <AndroidSupportedAbis>x86_64</AndroidSupportedAbis>
+    <AndroidStoreUncompressedFileExtensions />
+    <MandroidI18n />
+    <Debugger>Xamarin</Debugger>
+    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+    <DevInstrumentationEnabled>True</DevInstrumentationEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.3.1.4.143\lib\portable-win+net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Export" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net">
+      <HintPath>..\packages\SQLite.Net-PCL.2.5.1\lib\portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Platform.XamarinAndroid">
+      <HintPath>..\packages\SQLite.Net.Platform.XamarinAndroid.2.5.1\lib\MonoAndroid\SQLite.Net.Platform.XamarinAndroid.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="SQLiteNetExtensions">
+      <HintPath>..\packages\SQLiteNetExtensions.1.2.5\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\SQLiteNetExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.21.0.3.0\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.21.0.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\MonoAndroid\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Android">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\MonoAndroid\AutoMapper.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\AndroidFileSystem.cs" />
+    <Compile Include="Data\SqliteDataSource.cs" />
+    <Compile Include="ErrorLog\ErrorDetailFragment.cs" />
+    <Compile Include="ErrorLog\ErrorLogEntryListAdapter.cs" />
+    <Compile Include="ErrorLog\ErrorLogFragment.cs" />
+    <Compile Include="MakeDelivery\MakeDeliveryForOutletFragment.cs" />
+    <Compile Include="MakeDelivery\MakeDeliverySummaryFragment.cs" />
+    <Compile Include="MakeOrder\MakeOrderFragment.cs" />
+    <Compile Include="MakeOrder\MakeOrderSummaryFragment.cs" />
+    <Compile Include="MakeSale\MakeSaleFragment.cs" />
+    <Compile Include="OrderSale\BaseMakeOrderOrSaleFragment.cs" />
+    <Compile Include="MakeSale\MakeSaleSummaryFragment.cs" />
+    <Compile Include="Net\ConnectivityMonitor.cs" />
+    <Compile Include="OrderSale\OrderFilterDialog.cs" />
+    <Compile Include="OrderSale\OrderHistoryListAdapter.cs" />
+    <Compile Include="OrderSale\OrderHistoryFragment.cs" />
+    <Compile Include="Payments\BasePaymentFragment.cs" />
+    <Compile Include="Products\ProductFragment.cs" />
+    <Compile Include="Products\ProductSelector.cs" />
+    <Compile Include="Routes\BaseRoutesFragment.cs" />
+    <Compile Include="Routes\RoutesByNameFragment.cs" />
+    <Compile Include="Routes\RoutesByVisitDayFragment.cs" />
+    <Compile Include="SidePanel\NavigationListAdapter.cs" />
+    <Compile Include="SidePanel\SidePanelFragment.cs" />
+    <Compile Include="SidePanel\SidePanelNavigationFragment.cs" />
+    <Compile Include="SidePanel\SidePanelSettingsFragment.cs" />
+    <Compile Include="SidePanel\Sync\SidePanelSyncFragment.cs" />
+    <Compile Include="SidePanel\Sync\SyncWidget.cs" />
+    <Compile Include="Summary\DeliveryAddressDialog.cs" />
+    <Compile Include="Summary\DeliveryAddressListItem.cs" />
+    <Compile Include="Summary\ReadOnlySummaryFragment.cs" />
+    <Compile Include="Summary\SummaryConfirmationOverlayView.cs" />
+    <Compile Include="Sync\Incoming\CommandEnvelopeDownloadService.cs" />
+    <Compile Include="Sync\Incoming\MasterDataDownloadService.cs" />
+    <Compile Include="MakeDelivery\MakeDeliveryFragment.cs" />
+    <Compile Include="Payments\ReceiveCashPaymentFragment.cs" />
+    <Compile Include="Payments\ReceiveChequePaymentFragment.cs" />
+    <Compile Include="Payments\ReceivePaymentFragment.cs" />
+    <Compile Include="Summary\BaseSummaryFragment.cs" />
+    <Compile Include="Products\ProductsListAdapter.cs" />
+    <Compile Include="Products\ProductSelectorDialog.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="ApplicationModule.cs" />
+    <Compile Include="DistributrApplication.cs" />
+    <Compile Include="Login\LoginActivity.cs" />
+    <Compile Include="Login\Settings\LoginSettingsActivity.cs" />
+    <Compile Include="Routes\RoutetListAdapter.cs" />
+    <Compile Include="Outlets\OutletActionListAdapter.cs" />
+    <Compile Include="Routes\RoutesFragment.cs" />
+    <Compile Include="Outlets\OutletFragment.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="StockTake\StockTakeFragment.cs" />
+    <Compile Include="Sync\Outgoing\CommandEnvelopeUploadService.cs" />
+    <Compile Include="Util\ZipStreamProcessorWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Releases\Distributr.v0.1.apk" />
+    <None Include="Resources\AboutResources.txt" />
+    <AndroidResource Include="Resources\values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\layout\login_settings_activity.axml" />
+    <AndroidResource Include="Resources\anim\slide_in.xml" />
+    <AndroidResource Include="Resources\anim\slide_out.xml" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="App.config" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="packages.config" />
+    <AndroidResource Include="Resources\anim\slide_out_back.xml" />
+    <AndroidResource Include="Resources\anim\slide_in_back.xml" />
+    <AndroidResource Include="Resources\values\Colors.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\Styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_shopping_cart.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_shopping_cart.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_shopping_cart.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_shopping_cart.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_error.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_error.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_error.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_error.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_email.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_email.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_email.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_email.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_fab_accept.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_fab_accept.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_fab_accept.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_fab_accept.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_map.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_map.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_map.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_map.png" />
+    <AndroidResource Include="Resources\drawable-xxXhdpi\ic_map.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_routes.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_routes.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_routes.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_routes.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_check.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_check.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_check.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_check.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_shopping_basket.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_shopping_basket.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_shopping_basket.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_shopping_basket.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_hamburger.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_hamburger.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_hamburger.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_hamburger.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_adjust.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_adjust.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_adjust.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_adjust.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_payment.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_payment.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_payment.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_payment.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_sort.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_sort.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_sort.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_sort.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_van.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_van.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_van.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_van.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_backspace.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_backspace.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_backspace.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_backspace.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_directions.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_directions.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_directions.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_directions.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_chevron_right.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_chevron_right.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_chevron_right.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_chevron_right.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_login_settings.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_login_settings.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_login_settings.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_login_settings.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_login_user.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_login_user.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_login_user.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_login_user.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_login_password.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_login_password.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_login_password.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_login_password.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_manage_outlet.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_manage_outlet.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_manage_outlet.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_manage_outlet.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_settings.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_settings.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_settings.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_settings.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_take_stock.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_take_stock.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_take_stock.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_take_stock.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_recent_orders.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_recent_orders.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_recent_orders.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_recent_orders.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_close.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_close.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_close.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_close.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_filter.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_filter.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_filter.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_filter.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_settings_grey.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_settings_grey.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_grey.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_settings_grey.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_settings_white.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_settings_white.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_white.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_settings_white.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_sync_grey.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_sync_grey.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_sync_grey.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_sync_grey.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_sync_white.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_sync_white.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_sync_white.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_sync_white.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_list_grey.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_list_grey.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_list_grey.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_list_grey.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_list_white.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_list_white.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_list_white.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_list_white.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\map.png" />
+    <AndroidResource Include="Resources\values-v21\Styles.xml" />
+    <AndroidResource Include="Resources\layout\outlet_list_item.axml" />
+    <AndroidResource Include="Resources\layout\outlet_action_list_item.axml" />
+    <AndroidResource Include="Resources\layout\make_sale_fragment.axml" />
+    <AndroidResource Include="Resources\layout\outlet_fragment.axml" />
+    <AndroidResource Include="Resources\layout\routes_fragment.axml" />
+    <AndroidResource Include="Resources\layout\main_activity.axml" />
+    <AndroidResource Include="Resources\layout\login_activity.axml" />
+    <AndroidResource Include="Resources\layout\toolbar.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\make_order_fragment.axml" />
+    <AndroidResource Include="Resources\layout\stock_take_fragment.axml" />
+    <AndroidResource Include="Resources\layout\product_list_item.axml" />
+    <AndroidResource Include="Resources\layout\product_item_selector.axml" />
+    <AndroidResource Include="Resources\layout\product_item_selector_list_item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\product_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\product_items_menu_item.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\Dimens.xml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\base_summary_fragment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\base_summary_list_item.axml" />
+    <AndroidResource Include="Resources\layout\base_summary_summary_list_item.axml" />
+    <AndroidResource Include="Resources\layout\base_summary_view_spacer.axml" />
+    <AndroidResource Include="Resources\layout\receive_payment_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\receive_cash_payment_fragment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\receive_cheque_payment_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\receive_payment_amount_due.axml" />
+    <AndroidResource Include="Resources\layout\bank_spinner_item.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\base_summary_confirmation_screen.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\route_type_dropdown_item.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\base_routes_fragment.axml" />
+    <AndroidResource Include="Resources\layout\order_history_list_item.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\order_history_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\side_panel_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\side_panel_navigation_fragment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\side_panel_navigation_list_item.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\side_panel_sync_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\side_panel_settings_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\receive_payment_confirmed_payment_item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\product_list_header.axml" />
+    <AndroidResource Include="Resources\layout\receive_payment_new_payment_item.axml" />
+    <AndroidResource Include="Resources\layout\order_filter_dialog.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\order_filter_dialog_checkbox.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\side_panel_sync_widget.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\error_log_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\error_log_list_item.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\error_detail_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <Import Project="..\Distributr.Mobile.Core\Distributr.Mobile.Core.projitems" Label="Shared" Condition="Exists('..\Distributr.Mobile.Core\Distributr.Mobile.Core.projitems')" />
+  <Import Project="..\..\Distributr.Core.Shared\Distributr.Core.Shared.projitems" Label="Shared" Condition="Exists('..\..\Distributr.Core.Shared\Distributr.Core.Shared.projitems')" />
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Mobile.Common\Mobile.Common.csproj">
+      <Project>{41112F0B-89FE-4726-9C6C-09ECEA4F9B61}</Project>
+      <Name>Mobile.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="xamandroidsupportv7appcompat">
+      <Version>21.0.3.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\login_button_progress_clip.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\product_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\base_summary_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\action_button.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\action_button_dark_pressed.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\action_button_normal.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\receive_payment_existing_payment_background.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\empty_divider_8dp.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\make_sale_fragment_sort_popup_menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\make_order_fragment_sort_popup_menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\order_history_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\receive_payment_confirmed_payment_background.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\route_indicator.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\route_line.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\route_list_horizontal_line.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\outlet_action_background.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\outlet_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\order_status_background.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\action_button_dark.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\action_button_dark_normal.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\action_button_pressed.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\sync_view_inactive.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\error_detail_fragment.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\error_log_fragment.xml" />
+  </ItemGroup>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+</Project>

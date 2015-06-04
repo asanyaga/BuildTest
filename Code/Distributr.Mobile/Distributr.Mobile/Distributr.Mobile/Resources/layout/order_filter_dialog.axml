@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
+  <LinearLayout 
+      android:layout_height="match_parent"
+      android:layout_width="wrap_content"
+      android:minWidth="200dp"
+      android:layout_margin="16dp"
+      android:orientation="vertical">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/order_status"
+          android:id="@+id/order_status"
+          android:layout_marginBottom="8dp" />
+      <LinearLayout
+          android:id="@+id/order_statuses"
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/creation_date"
+          android:layout_marginTop="8dp"
+          android:layout_marginBottom="8dp" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/start_date"
+          android:textColor="@color/color_accent"
+          android:text="2015-05-01"
+          android:textStyle="bold"
+          android:padding="8dp" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/end_date"
+          android:text="2015-05-13"
+          android:textColor="@color/color_accent"
+          android:textStyle="bold"
+          android:padding="8dp" />
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/apply"
+          android:id="@+id/apply" />
+  </LinearLayout>
+</ScrollView>

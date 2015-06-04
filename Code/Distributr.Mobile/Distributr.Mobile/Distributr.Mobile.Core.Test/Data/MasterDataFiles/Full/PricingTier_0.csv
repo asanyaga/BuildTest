@@ -1,0 +1,4 @@
+Code, DateCreated, DateLastUpdated, Description, MasterId, Name, StatusId
+'Code', '2015-04-09 09:47:14', '2015-04-09 09:47:14', 'Description', '37d1ee55-3eea-464e-a798-c2ef988b1789', 'Tier 1', 1
+'002', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Tier 2', '8159782e-2b9f-420e-a0ae-94bd7a6634f2', 'Tier 2', 1
+'003', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Tier 3', '33477e8d-b243-44fb-a39d-fb4dd548a0e9', 'Tier 3', 1

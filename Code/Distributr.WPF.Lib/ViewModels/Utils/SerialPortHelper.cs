@@ -11,7 +11,7 @@ using Distributr.Core.Utility;
 
 namespace Distributr.WPF.Lib.ViewModels.Utils
 {
-    public static class SerialPortHelper 
+    public static class SerialPortHelper
     {
 
         private static WeighScaleType scaletype;
@@ -26,7 +26,7 @@ namespace Distributr.WPF.Lib.ViewModels.Utils
         private static string _portError;
         private static int _dataBits;
         private static bool _isDeviceReady;
-      
+
 
         public static bool IsDeviceReady
         {
@@ -43,20 +43,20 @@ namespace Distributr.WPF.Lib.ViewModels.Utils
 
 
                 var weight = Task.Run(delegate
-                                      {
+                {
 
-                                          return Weigh();
-                                      });
+                    return Weigh();
+                });
                 return weight.Result;
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error reading from device,verify configuration\nDetails:" + ex.Message, "Agrimanagr Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                // MessageBox.Show("Error reading from device,ver1`ify configuration\nDetails:" + ex.Message, "Agrimanagr Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return 0;
             }
         }
-     
+
         private static decimal Weigh()
         {
 
@@ -64,19 +64,23 @@ namespace Distributr.WPF.Lib.ViewModels.Utils
             try
             {
                 string line = "";
-               
+
 
                 int buffersize = _serialPort.ReadBufferSize;
                 byte[] buffer = new byte[buffersize];
-              
-                _serialPort.Read(buffer, 0, buffersize);
+
+                for (int i = 0; i < 3; i++)
+                {
+                    _serialPort.Read(buffer, 0, buffersize);
+                }
+
                 line = System.Text.Encoding.UTF8.GetString(buffer);
 
                 //split string based on the = sign which is used by the weighing scale Display to separate readings
                 string[] values;
                 switch (scaletype)
                 {
-                   
+
                     case WeighScaleType.Octagon:
                     case WeighScaleType.HangingScale:
                     case WeighScaleType.EndelDR150:
@@ -99,16 +103,16 @@ namespace Distributr.WPF.Lib.ViewModels.Utils
                     default:
                         values = line.Split('=');
                         break;
-                        
+
                 }
-               
+
                 //Pick the send array value which will always be accurate since it will alwys be between two = signs
                 line = values.Length < 2 ? values[0] : values[values.Length - 3];
                 //Remove any unwanted characters to leave decimals only
                 line = Regex.Replace(line, @"[^\d\.]", "");
                 //reverse string to get the correct reading. The display sends the readings in the reverse order
                 switch (scaletype)
-                {              
+                {
                     case WeighScaleType.Octagon:
                     case WeighScaleType.GSC:
                     case WeighScaleType.EndelDR150:
@@ -116,14 +120,14 @@ namespace Distributr.WPF.Lib.ViewModels.Utils
                     case WeighScaleType.EndelBWS:
                     case WeighScaleType.BAYKONAS:
                     case WeighScaleType.Crane:
-                        line =line;
+                        line = line;
                         break;
                     default:
                         line = ReverseString(line);
                         break;
 
                 }
-               
+
                 //Remove leading zeros
                 var converted = line.Split(new char[] { '.' });
                 if (converted.Length > 2)
@@ -163,7 +167,7 @@ namespace Distributr.WPF.Lib.ViewModels.Utils
             return 0;
         }
 
-      
+
         public static bool Close()
         {
             if (_serialPort == null)
@@ -179,7 +183,7 @@ namespace Distributr.WPF.Lib.ViewModels.Utils
             return true;
         }
 
-       
+
         private static string ReverseString(string s)
         {
             char[] arr = s.ToCharArray();
@@ -187,18 +191,18 @@ namespace Distributr.WPF.Lib.ViewModels.Utils
             return new string(arr);
         }
 
-       
 
-        public static bool Init(out string message,WeighScaleType weighScaleType, string port, int baudRate, int dataBits = 8)
+
+        public static bool Init(out string message, WeighScaleType weighScaleType, string port, int baudRate, int dataBits = 8)
         {
             message = "";
             scaletype = weighScaleType;
-            _serialPort= new SerialPort();
+            _serialPort = new SerialPort();
             if (!_serialPort.IsOpen)
             {
                 _serialPort.PortName = port;
                 _serialPort.BaudRate = baudRate;
-               // _serialPort.Handshake = HandShake;
+                // _serialPort.Handshake = HandShake;
                 _serialPort.DataBits = dataBits;
                 _serialPort.Parity = Parity.None;
                 _serialPort.StopBits = StopBits.One;
@@ -216,14 +220,14 @@ namespace Distributr.WPF.Lib.ViewModels.Utils
 
                     _isDeviceReady = false;
 
-                   message="Serial Port Error\nDetails:" + ioEx.Message;
+                    message = "Serial Port Error\nDetails:" + ioEx.Message;
                 }
                 catch (ObjectDisposedException odEx) // This catch is optional
                 {
 
                     _isDeviceReady = false;
 
-                    message="Serial Port Error\nDetails:" + odEx.Message;
+                    message = "Serial Port Error\nDetails:" + odEx.Message;
 
 
                 }
@@ -231,11 +235,11 @@ namespace Distributr.WPF.Lib.ViewModels.Utils
                 {
                     _isDeviceReady = false;
 
-                     message="Serial Port Error\nDetails:" + exception.Message;
+                    message = "Serial Port Error\nDetails:" + exception.Message;
 
                 }
             }
-            
+
             return _isDeviceReady;
         }
     }

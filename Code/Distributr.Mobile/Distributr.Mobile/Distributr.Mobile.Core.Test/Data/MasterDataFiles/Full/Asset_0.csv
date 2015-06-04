@@ -1,0 +1,2 @@
+AssetCategoryMasterId, AssetNo, AssetStatusMasterId, AssetTypeMasterId, Capacity, Code, DateCreated, DateLastUpdated, MasterId, Name, SerialNo, StatusId
+'e2c79e1a-b731-4cf4-84b4-eec03b3cfde5', 'AN098977', '149a16e0-188a-4a4a-ad00-80a16e9bd8ee', 'eedad206-295b-47e2-b467-19acde807a96', '300L', 'C8689', '2015-04-09 09:47:20', '2015-04-09 09:47:20', 'fac2520c-a014-46e6-abdc-113929c3e7e9', 'AN098977', 'SN987656', 1

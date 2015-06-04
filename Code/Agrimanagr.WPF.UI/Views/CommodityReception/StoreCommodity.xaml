@@ -131,6 +131,7 @@
                                                     <DataGridTemplateColumn.CellTemplate>
                                                         <DataTemplate>
                                                             <CheckBox x:Name="chkbxSelectCommodity" Margin="2" IsChecked="{Binding IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                                            <!--<CheckBox IsEnabled="{Binding IsCheckable, Mode=TwoWay}" IsChecked="{Binding IsChecked, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />-->
                                                         </DataTemplate>
                                                     </DataGridTemplateColumn.CellTemplate>
                                                 </DataGridTemplateColumn>
@@ -152,6 +153,7 @@
 
                     <StackPanel Grid.Column="2" Margin="0,160,0,19" >
                         <UtilityViews:AssignmentsButtonsControl></UtilityViews:AssignmentsButtonsControl>
+                        <!--<UtilityViews:SingleAssignmentsButtonsControl></UtilityViews:SingleAssignmentsButtonsControl>-->
                     </StackPanel>
 
                     <GroupBox Margin="5,81,5,5" MinHeight="445"  Grid.Column="3" BorderBrush="#999999" BorderThickness="1"

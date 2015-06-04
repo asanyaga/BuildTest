@@ -1,0 +1,101 @@
+﻿{
+  "Envelopes": [
+    {
+      "DocumentType": "Receipt",
+      "Envelope": {
+        "Id": "fc90f879-38b7-4869-9413-adba66320d2b",
+        "DocumentId": "9ff8606e-10fc-4c53-a467-eff9d6dbdb62",
+        "DocumentTypeId": 8,
+        "GeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "RecipientCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+        "GeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+        "ParentDocumentId": "ef1a5aba-fa71-4a06-aa7c-90c6088861cf",
+        "CommandsList": [
+          {
+            "Command": {
+              "DocumentRecipientCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+              "InvoiceId": "0448a946-c8db-4dd0-a9e4-1f1c3b58b63f",
+              "PaymentDocId": "00000000-0000-0000-0000-000000000000",
+              "CommandTypeRef": "CreateReceipt",
+              "DocumentDateIssued": "2015-05-02T15:04:24.405455+01:00",
+              "DocumentIssuerCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+              "DocIssuerUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "DocumentReference": "R_John_O004_20150502_030424_00024",
+              "ExtDocumentReference": null,
+              "VersionNumber": "H-2.0.0.8",
+              "CommandId": "a048d14a-5f64-48de-a6f7-4c4a0fc7ce85",
+              "PDCommandId": "ef1a5aba-fa71-4a06-aa7c-90c6088861cf",
+              "DocumentId": "9ff8606e-10fc-4c53-a467-eff9d6dbdb62",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-05-02T15:04:24.405455+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": null,
+              "IsSystemCommand": false
+            },
+            "Order": 1
+          },
+          {
+            "Command": {
+              "LineItemSequenceNo": 0,
+              "LineItemId": "848c4e0c-7d82-48a2-b19e-0fcd45cfb389",
+              "Value": 1187.0,
+              "PaymentDocLineItemId": "00000000-0000-0000-0000-000000000000",
+              "PaymentTypeId": 1,
+              "PaymentTypeReference": null,
+              "LineItemType": 2,
+              "MMoneyPaymentType": null,
+              "NotificationId": null,
+              "CommandTypeRef": "AddReceiptLineItem",
+              "CommandId": "848c4e0c-7d82-48a2-b19e-0fcd45cfb389",
+              "PDCommandId": "ef1a5aba-fa71-4a06-aa7c-90c6088861cf",
+              "DocumentId": "9ff8606e-10fc-4c53-a467-eff9d6dbdb62",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-05-02T15:04:24.405455+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": "Description",
+              "IsSystemCommand": false
+            },
+            "Order": 2
+          },
+          {
+            "Command": {
+              "CommandTypeRef": "ConfirmReceipt",
+              "CommandId": "8440f4da-4177-47be-aa68-1908ef967fbb",
+              "PDCommandId": "ef1a5aba-fa71-4a06-aa7c-90c6088861cf",
+              "DocumentId": "9ff8606e-10fc-4c53-a467-eff9d6dbdb62",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-05-02T15:04:24.405455+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": null,
+              "IsSystemCommand": false
+            },
+            "Order": 3
+          }
+        ],
+        "EnvelopeGeneratedTick": 635661758644054550,
+        "EnvelopeArrivedAtServerTick": 635661758898280918,
+        "IsSystemEnvelope": false
+      },
+      "EnvelopeArrivedAtServerTick": 635661758898280918
+    }
+  ],
+  "ErrorInfo": "Success"
+}

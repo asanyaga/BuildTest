@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.PrimaryTextLarge"
+        android:id="@+id/order_sale_reference"
+        android:text="S100_O001_2014201510_19990"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.SecondaryTextSmall"
+        android:text="Yaya Duka"
+        android:id="@+id/outlet_name"
+        android:layout_below="@+id/order_reference"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp" />
+</RelativeLayout>

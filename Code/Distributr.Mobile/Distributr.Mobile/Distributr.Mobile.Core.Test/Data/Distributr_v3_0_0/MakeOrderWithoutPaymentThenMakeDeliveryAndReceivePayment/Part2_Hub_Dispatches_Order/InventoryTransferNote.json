@@ -1,0 +1,118 @@
+﻿{
+  "Envelopes": [
+    {
+      "DocumentType": "InventoryTransferNote",
+      "Envelope": {
+        "Id": "b7efa038-7f0a-4da1-a22c-2ad6ef58a056",
+        "DocumentId": "b75b9676-0f0f-456e-946b-ccbef5a531b0",
+        "DocumentTypeId": 4,
+        "GeneratedByCostCentreId": "53c69073-d408-487f-aa2e-195533d0400d",
+        "RecipientCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "GeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+        "ParentDocumentId": "b6537d37-62ac-4099-96d8-f0c65983f55d",
+        "CommandsList": [
+          {
+            "Command": {
+              "InventoryTransferNoteIssuedOnBehalfOfUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "IssuedOnBehalfOfCostCentreId": "53c69073-d408-487f-aa2e-195533d0400d",
+              "DocumentRecipientCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+              "CommandTypeRef": "CreateInventoryTransferNote",
+              "DocumentDateIssued": "2015-04-15T18:57:22.7293459+01:00",
+              "DocumentIssuerCostCentreId": "53c69073-d408-487f-aa2e-195533d0400d",
+              "DocIssuerUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "DocumentReference": "O_john_O003_20150415_185553_00008",
+              "ExtDocumentReference": null,
+              "VersionNumber": "H-2.0.0.8",
+              "CommandId": "553eb6ea-9ae2-4eeb-b838-eec84c93cd36",
+              "PDCommandId": "b6537d37-62ac-4099-96d8-f0c65983f55d",
+              "DocumentId": "b75b9676-0f0f-456e-946b-ccbef5a531b0",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "53c69073-d408-487f-aa2e-195533d0400d",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-04-15T18:57:22.7293459+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": null,
+              "IsSystemCommand": false
+            },
+            "Order": 1
+          },
+          {
+            "Command": {
+              "LineItemSequenceNo": 1,
+              "ProductId": "c8a07a84-fd98-44cf-86e2-e8983dc81ed6",
+              "Qty": 2.0,
+              "CommandTypeRef": "AddInventoryTransferNoteLineItem",
+              "CommandId": "7a1de207-94cd-4c43-b400-b1baf7453bfb",
+              "PDCommandId": "b75b9676-0f0f-456e-946b-ccbef5a531b0",
+              "DocumentId": "b75b9676-0f0f-456e-946b-ccbef5a531b0",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "53c69073-d408-487f-aa2e-195533d0400d",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-04-15T18:57:22.7293459+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": null,
+              "IsSystemCommand": false
+            },
+            "Order": 2
+          },
+          {
+            "Command": {
+              "LineItemSequenceNo": 1,
+              "ProductId": "faa82a9a-a10f-4e24-bc8c-53739d382127",
+              "Qty": 2.0,
+              "CommandTypeRef": "AddInventoryTransferNoteLineItem",
+              "CommandId": "f162551d-1b41-463f-bd2d-1d4383d2e609",
+              "PDCommandId": "b75b9676-0f0f-456e-946b-ccbef5a531b0",
+              "DocumentId": "b75b9676-0f0f-456e-946b-ccbef5a531b0",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "53c69073-d408-487f-aa2e-195533d0400d",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-04-15T18:57:22.7293459+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": null,
+              "IsSystemCommand": false
+            },
+            "Order": 3
+          },
+          {
+            "Command": {
+              "CommandTypeRef": "ConfirmInventoryTransferNote",
+              "CommandId": "81aaf403-d128-4edc-86b6-16e06118dd15",
+              "PDCommandId": "b75b9676-0f0f-456e-946b-ccbef5a531b0",
+              "DocumentId": "b75b9676-0f0f-456e-946b-ccbef5a531b0",
+              "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+              "CommandGeneratedByCostCentreId": "53c69073-d408-487f-aa2e-195533d0400d",
+              "CostCentreApplicationCommandSequenceId": 0,
+              "CommandGeneratedByCostCentreApplicationId": "c60f5426-c165-4649-bfc6-a0f8ef552612",
+              "SendDateTime": "0001-01-01T00:00:00",
+              "CommandSequence": 0,
+              "CommandCreatedDateTime": "2015-04-15T18:57:22.7293459+01:00",
+              "Longitude": null,
+              "Latitude": null,
+              "Description": null,
+              "IsSystemCommand": false
+            },
+            "Order": 4
+          }
+        ],
+        "EnvelopeGeneratedTick": 635647210427293459,
+        "EnvelopeArrivedAtServerTick": 635647210521751075,
+        "IsSystemEnvelope": false
+      },
+      "EnvelopeArrivedAtServerTick": 635647210521751075
+    }
+  ],
+  "ErrorInfo": "Success"
+}

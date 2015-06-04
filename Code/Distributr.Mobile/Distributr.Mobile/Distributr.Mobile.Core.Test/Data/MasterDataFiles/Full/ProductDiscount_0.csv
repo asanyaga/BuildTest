@@ -1,0 +1,3 @@
+DateCreated, DateLastUpdated, MasterId, ProductMasterId, StatusId, TierMasterId
+'2015-04-09 09:47:21', '2015-04-09 09:47:21', 'a4e47e8f-496b-494f-8152-f460b1ea549a', '2e6da9bf-e67c-47b7-ac58-0d7608b0c5a5', 1, '37d1ee55-3eea-464e-a798-c2ef988b1789'
+'2015-04-09 09:47:21', '2015-04-09 09:47:21', 'e6d0af92-b31b-41c5-95ee-1b43935db003', 'c8a07a84-fd98-44cf-86e2-e8983dc81ed6', 1, '37d1ee55-3eea-464e-a798-c2ef988b1789'

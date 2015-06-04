@@ -6,6 +6,7 @@ namespace Distributr.Core.Repository.Transactional.SourcingDocumentRepositories
 {
     public interface IReceivedDeliveryRepository : ISourcingDocumentRepository
     {
+        ReceivedDeliveryNote GetPendingStorageById(Guid receivedNoteId);
         List<ReceivedDeliveryNote> GetPendingStorage();
     }
 }

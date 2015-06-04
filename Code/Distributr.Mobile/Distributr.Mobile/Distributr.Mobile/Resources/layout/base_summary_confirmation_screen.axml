@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Distributr.Mobile.Summary.SummaryConfirmationOverlayView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/page_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standard_screen_padding"
+        android:layout_marginBottom="@dimen/standard_screen_padding"
+        android:layout_gravity="center"
+        style="@style/AppTheme.ConfirmationScreenTitle"
+        android:textSize="48sp"
+        android:gravity="center" />
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/confirmation_items"
+            android:layout_marginRight="@dimen/standard_screen_padding"
+            android:layout_marginLeft="@dimen/standard_screen_padding" />
+    </ScrollView>
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/standard_action_button_size"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center|bottom"
+        style="@style/AppTheme.ActionButtonDark"
+        android:layout_marginBottom="64dp"
+        android:text="@string/confirm"
+        android:textColor="@color/color_action_bar_content"
+        android:textStyle="bold"
+        android:textSize="@dimen/standard_action_button_text_size"
+        android:background="@drawable/action_button_dark" />
+</Distributr.Mobile.Summary.SummaryConfirmationOverlayView>

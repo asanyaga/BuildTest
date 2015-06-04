@@ -35,10 +35,10 @@ SELECT cntry.id as CountryId,cntry.Name as CountryName,
 	   SUM(saleItems.Quantity) TotalQty,
 	   CAST(ROUND((SUM(saleItems.Quantity) / retunablePack.Capacity),1) AS INT) NoOfCrates,
 	   CAST((SUM(saleItems.Quantity) % retunablePack.Capacity) AS INT)  ExtraBottle,  
-	   ROUND(((saleItems.Quantity)*(saleItems.Value + saleItems.Vat)) +  (saleItems.ProductDiscount*saleItems.Quantity) ,2,1) as GrossAmount,
-	   dbo.udf_D_RoundOff((saleItems.Quantity*saleItems.Value)) as NetRoundOff,
-	   ROUND((saleItems.Quantity*saleItems.Value),2,1) as NetTruncate,
-	   dbo.udf_D_RoundOff(((saleItems.Quantity)*(saleItems.Value + saleItems.Vat))) as GrossRoundOff
+	   ROUND((SUM((saleItems.Quantity)*(saleItems.Value + saleItems.Vat))) +  SUM((saleItems.ProductDiscount*saleItems.Quantity)) ,2,1) as GrossAmount,
+	   dbo.udf_D_RoundOff(SUM((saleItems.Quantity*saleItems.Value))) as NetRoundOff,
+	   ROUND(SUM((saleItems.Quantity*saleItems.Value)),2,1) as NetTruncate,
+	   dbo.udf_D_RoundOff((SUM((saleItems.Quantity)*(saleItems.Value + saleItems.Vat)))+ SUM((saleItems.ProductDiscount*saleItems.Quantity))) as GrossRoundOff
 
 FROM  dbo.tblDocument sale
  JOIN dbo.tblLineItems saleItems ON sale.Id = saleItems.DocumentID
@@ -84,6 +84,6 @@ GROUP BY CountryId,CountryName,
 
   
 
--- EXEC [dbo].[sp_D_CrateSales_PerRegion] @startDate='2014-11-01',@endDate='2015-02-06',@countryId=' ALL',@regionId=' ALL'
+-- EXEC [dbo].[sp_D_CrateSales_PerRegion] @startDate='2015-05-01',@endDate='2015-05-12',@countryId=' ALL',@regionId=' ALL'
 
 GO

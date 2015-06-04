@@ -1509,6 +1509,7 @@
           <Property Name="LineItemStatusId" Type="int" />
           <Property Name="NoOfContainer" Type="decimal" Precision="16" Scale="2" />
           <Property Name="FinalWeight" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WeighType" Type="int" />
         </EntityType>
         <EntityType Name="tblSupplier">
           <Key>
@@ -5791,6 +5792,7 @@ FROM [dbo].[test] AS [test]</DefiningQuery>
           <Property Name="NoOfContainer" Type="Decimal" Precision="16" Scale="2" />
           <Property Name="FinalWeight" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="tblSourcingDocument" Relationship="cokeIIModel.SourcingLineItem_SourcingDocument_FK" FromRole="tblSourcingLineItem" ToRole="tblSourcingDocument" />
+          <Property Name="WeighType" Type="Int32" />
         </EntityType>
         <EntityType Name="tblSupplier">
           <Key>
@@ -8859,6 +8861,7 @@ FROM [dbo].[test] AS [test]</DefiningQuery>
           <EntitySetMapping Name="tblSourcingLineItem">
             <EntityTypeMapping TypeName="cokeIIModel.tblSourcingLineItem">
               <MappingFragment StoreEntitySet="tblSourcingLineItem">
+                <ScalarProperty Name="WeighType" ColumnName="WeighType" />
                 <ScalarProperty Name="FinalWeight" ColumnName="FinalWeight" />
                 <ScalarProperty Name="NoOfContainer" ColumnName="NoOfContainer" />
                 <ScalarProperty Name="LineItemStatusId" ColumnName="LineItemStatusId" />

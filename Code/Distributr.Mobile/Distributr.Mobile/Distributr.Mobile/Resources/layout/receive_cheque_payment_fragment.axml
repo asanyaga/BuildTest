@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="@dimen/receive_payment_form_horizontal_margin"
+            android:layout_marginRight="@dimen/receive_payment_form_horizontal_margin"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:divider="@drawable/empty_divider_8dp"
+            android:id="@+id/existing_payments" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/payment_form"
+            android:layout_marginLeft="@dimen/receive_payment_form_horizontal_margin"
+            android:layout_marginRight="@dimen/receive_payment_form_horizontal_margin"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/existing_payments">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/payment_amount_title"
+                android:textStyle="bold"
+                android:text="@string/receive_payment_amount_text"
+                android:layout_marginLeft="@dimen/standard_text_view_adjustment_padding"
+                style="@style/AppTheme.FormFieldHeadTextStyle" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/payment_amount"
+                android:textAlignment="gravity"
+                android:textSize="@dimen/list_item_text_size"
+                android:textColor="@color/color_action"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="@dimen/standard_vertical_field_spacing"
+                android:nextFocusDown="@+id/payment_bank" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/receive_payment_bank_text"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/standard_text_view_adjustment_padding"
+                style="@style/AppTheme.FormFieldHeadTextStyle" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/payment_bank"
+                android:textAlignment="gravity"
+                android:textSize="@dimen/list_item_text_size"
+                android:layout_marginLeft="6dp"
+                android:layout_marginBottom="@dimen/standard_vertical_field_spacing"
+                android:textColor="@color/color_action"
+                android:nextFocusDown="@+id/payment_bank_bank" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/receive_payment_bank_branch_text"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/standard_text_view_adjustment_padding"
+                style="@style/AppTheme.FormFieldHeadTextStyle" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/payment_bank_branch"
+                android:textAlignment="gravity"
+                android:textSize="@dimen/list_item_text_size"
+                android:layout_marginLeft="6dp"
+                android:layout_marginBottom="@dimen/standard_vertical_field_spacing"
+                android:textColor="@color/color_action"
+                android:nextFocusDown="@+id/due_date" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/receive_payment_due_date_text"
+                android:layout_marginLeft="@dimen/standard_text_view_adjustment_padding"
+                style="@style/AppTheme.FormFieldHeadTextStyle" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/due_date"
+                android:textAlignment="gravity"
+                android:textSize="@dimen/list_item_text_size"
+                android:inputType="date"
+                android:nextFocusDown="@+id/cheque_number"
+                android:layout_marginBottom="@dimen/standard_vertical_field_spacing"
+                android:textColor="@color/color_action" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/receive_payment_cheque_number_text"
+                android:layout_marginLeft="@dimen/standard_text_view_adjustment_padding"
+                style="@style/AppTheme.FormFieldHeadTextStyle" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cheque_number"
+                android:textAlignment="gravity"
+                android:inputType="phone"
+                android:textSize="@dimen/list_item_text_size"
+                android:text=""
+                android:layout_marginBottom="@dimen/standard_vertical_field_spacing"
+                android:textColor="@color/color_action" />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

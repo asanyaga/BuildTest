@@ -1,0 +1,44 @@
+﻿{
+  "Id": "611f26ea-e507-4268-992d-40cbc62e64e0",
+  "DocumentId": "0a67ad04-d836-4791-85dd-531b3827a2b0",
+  "DocumentTypeId": 20,
+  "GeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+  "RecipientCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+  "GeneratedByCostCentreApplicationId": "c384b0e6-2bf8-44d7-bfc0-84efeacf20d8",
+  "ParentDocumentId": "00000000-0000-0000-0000-000000000000",
+  "CommandsList": [
+    {
+      "Command": {
+        "DocumentRecipientCostCentreId": "51a6bde4-d645-43fa-b81b-3708f87a5e6d",
+        "DocumentOnBehalfCostCentreId": "cc9028d4-2cc4-406f-9a06-6df025b0144e",
+        "ReasonId": "00000000-0000-0000-0000-000000000000",
+        "Note": "",
+        "CommandTypeRef": "CreateOutletVisitNote",
+        "DocumentDateIssued": "2015-04-15T19:04:14",
+        "DocumentIssuerCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "DocIssuerUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+        "DocumentReference": null,
+        "ExtDocumentReference": null,
+        "VersionNumber": "M-3.0.0",
+        "CommandId": "c3a9394f-c0ef-4641-895c-eb3f96fdab40",
+        "PDCommandId": "00000000-0000-0000-0000-000000000000",
+        "DocumentId": "0a67ad04-d836-4791-85dd-531b3827a2b0",
+        "CommandGeneratedByUserId": "4ad1ee7d-a1e8-4876-9de9-a4cee99288e6",
+        "CommandGeneratedByCostCentreId": "4c243448-8e87-4454-8a87-23f6706eb3ab",
+        "CostCentreApplicationCommandSequenceId": 3,
+        "CommandGeneratedByCostCentreApplicationId": "c384b0e6-2bf8-44d7-bfc0-84efeacf20d8",
+        "SendDateTime": "2015-04-15T19:04:14",
+        "CommandSequence": 3,
+        "CommandCreatedDateTime": "2015-04-15T19:04:14",
+        "Longitude": 0.0,
+        "Latitude": 0.0,
+        "Description": null,
+        "IsSystemCommand": false
+      },
+      "Order": 1
+    }
+  ],
+  "EnvelopeGeneratedTick": 1429121068090,
+  "EnvelopeArrivedAtServerTick": 635647214165499667,
+  "IsSystemEnvelope": false
+}

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{CCCDF0B6-EFF7-4696-9D66-7DEA55BCBA0F}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Distributr.Mobile.Core</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Core\DependencyContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\BaseRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DatabaseSequence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DataModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IFileSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\MasterDataUpdater.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\References\ReferenceGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Transactor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Envelopes\BaseEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Envelopes\IEnvelopeContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Envelopes\IEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Envelopes\ILocalCommandEnvelopeRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Envelopes\IncomingEnvelopeLog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Envelopes\IncomingEnvelopeLogRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Envelopes\LocalCommandEnvelope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Envelopes\LocalCommandEnvelopeRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ErrorLog\ErrorLogEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\Bug.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\ILoginRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LoginRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LoginWorkflow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\ILoginClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LoginClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LoginModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\Settings\LoginSettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\Settings\LoginSettingsRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Database.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DatabaseConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeDelivery\DeliveryProcessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeDelivery\MakeDeliveryModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeDelivery\DeliveryEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeOrder\MakeOrderEnvelopeContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeOrder\MakeOrderModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeOrder\MakeOrderProductWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeOrder\OrderProcessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeOrder\OrderEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeSale\MakeSaleEnvelopeContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeSale\SaleEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeSale\SaleProcessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeSale\MakeSaleProductWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Net\HttpParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\BaseProductLineItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\Delivery.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\EnvelopeBuilders\CloseOrderEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\EnvelopeBuilders\CreditNoteEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\EnvelopeBuilders\DispatchNoteEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\EnvelopeBuilders\ExternalDocRefEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\EnvelopeBuilders\InventoryAdjustmentNoteEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\EnvelopeBuilders\InvoiceEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\EnvelopeBuilders\MainOrderEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\EnvelopeBuilders\PaymentNoteEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\EnvelopeBuilders\ReceiptEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\IOrderRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\Order.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\BaseOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\OrderFilter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\OrderOrSale.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\OrderRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\OrderSaleEnvelopeContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\Payment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\ProductLineItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\ReturnableProductLineItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderSale\Sale.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Outlets\IOutletRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Outlets\OutletRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Outlets\OutletsModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Outlets\OutletVisitNoteEnvelopeBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Payments\PaymentProcessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Payments\PaymentsModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Payments\BankRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Products\ISaleProductRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Products\ProductWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Products\InventoryRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Products\ProductsModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Products\SaleProductRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Incoming\CommandEnvelopeDownloadClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Incoming\CommandEnvelopeDownloader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Incoming\DownloadEnvelopeRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Incoming\DownloadEnvelopesResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Incoming\IncomingCommandEnvelopeProcessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Incoming\IncomingCommandHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\NetworkAwareSyncService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Outgoing\CommandEnvelopeUploadClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Outgoing\CommandEnvelopeUploader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Outgoing\ICommandEnvelopeUploadClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Outgoing\OutgoingCommandEnvelopeRouter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\Outgoing\UploadEnvelopeResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\SyncCompletedEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\SyncFailedEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\SyncLog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\SyncLogRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\SyncModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\SyncPausedEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\SyncStatusWatcher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sync\SyncUpdateEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\IZipStreamProcessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\Result.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Net\Timeouts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LastLoggedInUser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Routes\IRoutesRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Routes\RoutesRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Routes\RoutesModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MakeSale\MakeSaleModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Net\IConnectivityMonitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Routes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Documentation\avd_config.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Documentation\background_foreground.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Documentation\Component Overivew 2.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Documentation\Component Overview.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Documentation\sdk_manager_hax.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Documentation\System Overview.png" />
+  </ItemGroup>
+</Project>

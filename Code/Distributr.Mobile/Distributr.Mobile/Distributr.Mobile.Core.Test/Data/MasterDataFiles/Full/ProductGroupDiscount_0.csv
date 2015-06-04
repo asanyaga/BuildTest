@@ -1,0 +1,2 @@
+DateCreated, DateLastUpdated, DiscountGroupMasterId, DiscountRate, EffectiveDate, EndDate, IsByQuantity, LineItemId, MasterId, ProductMasterId, Quantity, StatusId
+'2015-04-09 09:47:21', '2015-04-09 09:47:21', '3c46108e-8a52-44cc-9fcf-d50a320334e3', 0.2000, '2015-03-30 09:47:21', '2015-07-08 09:47:21', 0, NULL, 'e217920a-8039-44f2-9eef-15d25758ccee', 'c8a07a84-fd98-44cf-86e2-e8983dc81ed6', 0.0000, 1

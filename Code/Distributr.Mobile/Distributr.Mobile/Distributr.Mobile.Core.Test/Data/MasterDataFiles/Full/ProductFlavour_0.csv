@@ -1,0 +1,7 @@
+Code, DateCreated, DateLastUpdated, Description, MasterId, Name, ProductBrandMasterId, StatusId
+'1106', '2015-04-09 09:47:15', '2015-04-09 09:47:15', 'Fanta Passion ', '5b4c4b24-d5ee-47f1-add4-ced642842860', 'Fanta Passion', 'd26b48fc-2173-448e-b6a4-b603032b4163', 1
+'1107', '2015-04-09 09:47:15', '2015-04-09 09:47:15', 'Krest', 'b99c1a21-a83c-42b2-83b3-bb01a45a90b0', 'Krest', 'd26b48fc-2173-448e-b6a4-b603032b4163', 1
+'006', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Fanta Black Currant', 'ff38a591-fd0e-451a-94d1-3365dbf0ccc0', 'Fanta Black Currant', '43ed665a-41f5-4ba7-8535-cd6327f98fcd', 1
+'014', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Fanta Citrus ', 'd6475989-8ecc-4f03-b0c3-fd3ae16d1040', 'Fanta Citrus ', '01eb5833-d1c5-4c0d-afa5-09236ad6a69a', 1
+'016', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Coca Cola', '21644c9e-94d6-4046-b9fc-e3caedb75506', 'Coca Cola ', 'b521dd60-1cf3-42bb-a5a9-0d0f794a3d16', 1
+'074', '2015-04-09 09:47:17', '2015-04-09 09:47:17', 'Dasani Still', 'e17d4575-7698-489a-ad9e-60885ae15f18', 'Dasani Still', 'a97bfe3a-217b-49f6-ab96-88113ae4a517', 1

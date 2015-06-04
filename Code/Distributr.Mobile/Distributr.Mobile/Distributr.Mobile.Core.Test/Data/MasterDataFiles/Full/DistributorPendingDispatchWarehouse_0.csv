@@ -1,0 +1,2 @@
+CostCentreCode, CostCentreTypeId, DateCreated, DateLastUpdated, Latitude, Longitude, MasterId, Name, ParentCostCentreId, StatusId, VatRegistrationNo
+'', 6, '2015-04-09 09:47:19', '2015-04-09 09:47:19', '', '', '53c69073-d408-487f-aa2e-195533d0400d', 'Test name Pending Dispatch Warehouse', '51a6bde4-d645-43fa-b81b-3708f87a5e6d', 1, ''
