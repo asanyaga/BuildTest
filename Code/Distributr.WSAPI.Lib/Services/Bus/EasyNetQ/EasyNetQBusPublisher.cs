@@ -81,6 +81,7 @@ namespace Distributr.WSAPI.Lib.Services.Bus.EasyNetQ
                 _log.Error("Signal complete failed ", ex );
             }
 
+
         }
 
         public void Publish(EnvelopeBusMessage busMessage)

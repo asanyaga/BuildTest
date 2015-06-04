@@ -244,7 +244,7 @@ namespace Distributr.Core.Data.Repository.MasterData.SuppliersRepositories
         public ValidationResultInfo Validate(Supplier itemToValidate)
         {
             ValidationResultInfo vri = itemToValidate.BasicValidation();
-            if (itemToValidate._Status == EntityStatus.Inactive || itemToValidate._Status != EntityStatus.Deleted)
+            if (itemToValidate._Status == EntityStatus.Inactive || itemToValidate._Status == EntityStatus.Deleted)
                 return vri;
             if (itemToValidate.Id == Guid.Empty)
                 vri.Results.Add(new ValidationResult("Enter Valid  Guid ID"));
@@ -258,8 +258,18 @@ namespace Distributr.Core.Data.Repository.MasterData.SuppliersRepositories
                 .Where(s => s.id != itemToValidate.Id)
                 .Where(p => p.Name.ToLower() == itemToValidate.Name.ToLower())
                 .Any();
+
             if (hasDuplicateName)
                 vri.Results.Add(new ValidationResult(CoreResourceHelper.GetText("hq.supplier.validation.dupsupplier")));
+
+            bool hasDuplicateCode= _ctx.tblSupplier
+               .Where(s => s.id != itemToValidate.Id)
+               .Where(p => p.Code.ToLower() == itemToValidate.Code.ToLower())
+               .Any();
+
+            if (hasDuplicateCode)
+                vri.Results.Add(new ValidationResult(CoreResourceHelper.GetText("hq.supplier.validation.dupsupplier.code")));
+
             return vri;
         }
         
