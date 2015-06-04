@@ -13,6 +13,11 @@ namespace Distributr.Mobile.MakeDelivery
             SetTitle(Resource.String.make_delivery);            
         }
 
+        protected override View SetupEmptyView(View parent)
+        {
+            return parent.FindViewById<View>(Resource.Id.empty_deliveries);
+        }
+
         protected override void HandleItemClicked(OrderOrSale orderOrSale)
         {
             var sale = Resolve<SaleRepository>().GetById(orderOrSale.OrderSaleId);

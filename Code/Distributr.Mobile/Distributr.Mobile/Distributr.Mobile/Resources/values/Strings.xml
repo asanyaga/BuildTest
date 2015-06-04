@@ -29,11 +29,13 @@
   <string name="sort_by_name_desc">Name: Descending</string>
   <string name="make_order">Make Order</string>
   <string name="make_order_description">Sell goods to be delivered at a later date</string>
+  <string name="make_order_empty_list">You no have orders at the moment</string>
 
   <!-- Make Delivery -->
   <string name="make_delivery">Make Delivery</string>
   <string name="make_delivery_description">Delivery goods from a previous order</string>
-  
+  <string name="make_delivery_empty_list">You have no deliveries at the moment</string>
+
   <!-- Stock Take -->
   <string name="stock_take">Stock Take</string>
   <string name="stock_take_description">Perform a stock take of the Outlet\&#39;s inventory</string>

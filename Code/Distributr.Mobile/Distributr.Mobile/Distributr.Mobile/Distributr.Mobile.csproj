@@ -145,6 +145,7 @@
     <Compile Include="Payments\BasePaymentFragment.cs" />
     <Compile Include="Products\ProductFragment.cs" />
     <Compile Include="Products\ProductSelector.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Routes\BaseRoutesFragment.cs" />
     <Compile Include="Routes\RoutesByNameFragment.cs" />
     <Compile Include="Routes\RoutesByVisitDayFragment.cs" />
@@ -167,7 +168,6 @@
     <Compile Include="Summary\BaseSummaryFragment.cs" />
     <Compile Include="Products\ProductsListAdapter.cs" />
     <Compile Include="Products\ProductSelectorDialog.cs" />
-    <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="ApplicationModule.cs" />
     <Compile Include="DistributrApplication.cs" />
     <Compile Include="Login\LoginActivity.cs" />
@@ -225,6 +225,16 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_map.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_map.png" />
     <AndroidResource Include="Resources\drawable-xxXhdpi\ic_map.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_van_large.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_van_large.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_van_large.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_van_large.png" />
+    <AndroidResource Include="Resources\drawable-xxXhdpi\ic_van_large.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_shopping_basket_large.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_shopping_basket_large.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_shopping_basket_large.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_shopping_basket_large.png" />
+    <AndroidResource Include="Resources\drawable-xxXhdpi\ic_shopping_basket_large.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_routes.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_routes.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_routes.png" />
@@ -430,6 +440,15 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\error_detail_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\make_delivery_empty_list_view.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\make_order_empty_list_view.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\layout1.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
