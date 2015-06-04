@@ -9,7 +9,7 @@ namespace Distributr.Mobile.MakeOrder
         public MakeOrderModule()
         {
             For<OrderProcessor>().Use<OrderProcessor>();
-            For<IOrderRepository>().Use<OrderRepository>();
+            For<ISaleRepository>().Use<SaleRepository>();
         }
     }
 }

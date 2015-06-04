@@ -15,13 +15,12 @@ namespace Distributr.Mobile.Core.Test.OrderSale
         {
             //Given 
             var saleAndContext = AFullyPaidCashSaleAndContext();
-            var order = saleAndContext.Order;
+            var order = saleAndContext.Sale;
             var context = saleAndContext.Context;
 
             var builder = new SaleEnvelopeBuilder(order, new InvoiceEnvelopeBuilder(context));
 
             //When 
-            order.ApproveNewLineItems();
             var result = builder.Build();
 
             //Then

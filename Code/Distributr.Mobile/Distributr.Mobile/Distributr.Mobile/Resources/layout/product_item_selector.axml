@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Distributr.Mobile.Products.ProductSelector xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
-    android:layout_width="match_parent">
+    android:layout_width="wrap_content">
   <LinearLayout
       android:layout_height="wrap_content"
       android:layout_width="match_parent"
       android:orientation="vertical"
+      android:minWidth="300dp"
       android:padding="8dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dasani Water 300ml x64 200"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:id="@+id/title"
+        android:textColor="@color/color_accent"
+        android:padding="8dp"
+            />
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -15,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/product_selector_description"
+            android:text="@string/product_selector_unit_type"
             android:textAllCaps="true"
             android:id="@+id/description_title"
             android:layout_weight="1" />
@@ -24,7 +35,8 @@
             android:layout_height="wrap_content"
             android:text="@string/product_selector_available"
             android:textAllCaps="true"
-            android:id="@+id/stock_title"
+            android:id="@+id/available_title"
+            android:visibility="invisible"
             android:layout_marginRight="8dp" />
         <TextView
             android:layout_width="100dp"
@@ -35,17 +47,24 @@
             android:textAlignment="gravity"
             android:id="@+id/quantity_title" />
     </LinearLayout>
-      <LinearLayout
-          android:layout_height="wrap_content"
-          android:layout_width="match_parent"
-          android:id="@+id/items"
-          android:orientation="vertical" />
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/items"
+        android:orientation="vertical" />
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:padding="8dp">
-        <TextView
+      <CheckBox
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/product_selector_sell_returnables"
+          android:id="@+id/sell_returnables"
+          android:visibility="invisible"
+          android:checked="false"/>
+      <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

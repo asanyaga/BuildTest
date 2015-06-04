@@ -6,32 +6,30 @@ using Distributr.Mobile.Core.Envelopes;
 using Distributr.Mobile.Core.MakeOrder;
 using Distributr.Mobile.Core.MakeSale;
 using Distributr.Mobile.Core.OrderSale;
-using Distributr.Mobile.Core.Products;
 using Distributr.Mobile.Login;
 
 namespace Distributr.Mobile.Core.Test.OrderSale
 {
-
     public class OrderAndContext
     {
-        public OrderAndContext(Order order, IEnvelopeContext context)
+        public OrderAndContext(Sale order, IEnvelopeContext context)
         {
-            Order = order;
+            Sale = order;
             Context = context;
         }
 
-        public Order Order { get; private set; }
+        public Sale Sale { get; private set; }
         public IEnvelopeContext Context { get; private set; }
     }
 
     public abstract class OrderSaleContextBuilder
     {
-        protected OrderSaleContextBuilder(Outlet outlet, CostCentre costCentre, User user, Order order, Bank bank, BankBranch bankBranch)
+        protected OrderSaleContextBuilder(Outlet outlet, CostCentre costCentre, User user, Sale sale, Bank bank, BankBranch bankBranch)
         {
             Outlet = outlet;
             CostCentre = costCentre;
             User = user;
-            Order = order;
+            Sale = sale;
             Bank = bank;
             BankBranch = bankBranch;
         }
@@ -39,27 +37,27 @@ namespace Distributr.Mobile.Core.Test.OrderSale
         public Outlet Outlet { get; set; }
         public CostCentre CostCentre { get; set; }
         public User User { get; set; }
-        public Order Order { get; set; }
+        public Sale Sale { get; set; }
         public Bank Bank { get; set; }
         public BankBranch BankBranch { get; set; }
 
 
-        public abstract OrderSaleContextBuilder AddLineItem(SaleProduct product, decimal eachQuantity, decimal caseQuantity, decimal eachReturnableQuantity = 0, decimal caseReturnableQuantity = 0);
+        public abstract OrderSaleContextBuilder AddLineItem(SaleProduct product, decimal quantity, bool sellReturnables = false);
 
         public virtual OrderSaleContextBuilder PaidInfFullByCash()
         {
-            return WithCashPayment(Order.TotalValueIncludingVat, "full cash payment");
+            return WithCashPayment(Sale.TotalValueIncludingVat, "full cash payment");
         }
 
         public virtual OrderSaleContextBuilder WithCashPayment(decimal amount, string reference = "cash payment")
         {
-            Order.AddCashPayment(reference, amount);
+            Sale.AddCashPayment(reference, amount);
             return this;
         }
 
         public virtual OrderSaleContextBuilder PaidInFullByCheque()
         {
-            return WithChequePayment(Order.TotalValueIncludingVat);
+            return WithChequePayment(Sale.TotalValueIncludingVat);
         }
 
         public virtual OrderSaleContextBuilder WithChequePayment(decimal amount,  string chequeNumber = "12345678")
@@ -69,7 +67,7 @@ namespace Distributr.Mobile.Core.Test.OrderSale
 
         public virtual OrderSaleContextBuilder WithChequePayment(decimal amount, Bank bank, BankBranch bankBranch,  string chequeNumber = "12345678")
         {
-            Order.AddChequePayment(chequeNumber, amount, bank, bankBranch, DateTime.Now);
+            Sale.AddChequePayment(chequeNumber, amount, bank, bankBranch, DateTime.Now);
             return this;
         }
 
@@ -79,56 +77,40 @@ namespace Distributr.Mobile.Core.Test.OrderSale
     public class OrderAndContextBuilder : OrderSaleContextBuilder
     {
 
-        public OrderAndContextBuilder(Outlet outlet, CostCentre costCentre, User user, Order order, Bank bank, BankBranch bankBranch)
-            : base(outlet, costCentre, user, order, bank, bankBranch)
+        public OrderAndContextBuilder(Outlet outlet, CostCentre costCentre, User user, Sale sale, Bank bank, BankBranch bankBranch)
+            : base(outlet, costCentre, user, sale, bank, bankBranch)
         {
         }
 
-        public override OrderSaleContextBuilder AddLineItem(SaleProduct product, decimal eachQuantity, decimal caseQuantity, decimal eachReturnableQuantity = 0, decimal caseReturnableQuantity = 0)
+        public override OrderSaleContextBuilder AddLineItem(SaleProduct product, decimal quantity, bool sellReturnables = false)
         {
-            var wrapper = new ProductWrapper()
-            {
-                SaleProduct = product,
-                EachQuantity = eachQuantity,
-                CaseQuantity = caseQuantity,
-            };
             //Returnables are included automatically for all orders
-            Order.AddOrUpdateOrderLineItem(wrapper);
+            Sale.AddItem(product, quantity, quantity, sellReturnables);
             return this;
         }
 
         public override OrderAndContext Build()
         {
-            return new OrderAndContext(Order, new MakeOrderEnvelopeContext(100, Outlet, User, CostCentre, Order));
+            return new OrderAndContext(Sale, new MakeOrderEnvelopeContext(100, Outlet, User, CostCentre, Sale));
         }
     }
 
     public class SaleAndContextBuilder : OrderSaleContextBuilder
     {
-        public SaleAndContextBuilder(Outlet outlet, CostCentre costCentre, User user, Order order, Bank bank, BankBranch bankBranch)
-            : base(outlet, costCentre, user, order, bank, bankBranch)
+        public SaleAndContextBuilder(Outlet outlet, CostCentre costCentre, User user, Sale sale, Bank bank, BankBranch bankBranch)
+            : base(outlet, costCentre, user, sale, bank, bankBranch)
         {
         }
 
-        public override OrderSaleContextBuilder AddLineItem(SaleProduct product, decimal eachQuantity, decimal caseQuantity, decimal eachReturnableQuantity = 0, decimal caseReturnableQuantity = 0)
-        {
-            var wrapper = new ProductWrapper()
-            {
-                SaleProduct = product,
-                EachQuantity = eachQuantity,
-                CaseQuantity = caseQuantity,
-                EachReturnableQuantity = eachReturnableQuantity,
-                CaseReturnableQuantity = caseReturnableQuantity
-            };
-         
-            Order.AddOrUpdateSaleLineItem(wrapper);
-            
+        public override OrderSaleContextBuilder AddLineItem(SaleProduct product, decimal quantity, bool sellReturnables = false)
+        {         
+            Sale.AddItem(product, quantity, quantity, sellReturnables);            
             return this;            
         }
 
         public override OrderAndContext Build()
         {
-            return new OrderAndContext(Order, new MakeSaleEnvelopeContext(100, Outlet, User, CostCentre, Order));
+            return new OrderAndContext(Sale, new MakeSaleEnvelopeContext(100, Outlet, User, CostCentre, Sale));
         }
     }
 }

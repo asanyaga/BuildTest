@@ -1,4 +1,5 @@
-﻿using Distributr.Core.Commands.DocumentCommands;
+﻿using System;
+using Distributr.Core.Commands.DocumentCommands;
 using Distributr.Core.Commands.DocumentCommands.CreditNotes;
 using Distributr.Core.Domain.Transactional.DocumentEntities;
 using Distributr.Mobile.Core.Envelopes;
@@ -36,10 +37,10 @@ namespace Distributr.Mobile.Core.OrderSale.EnvelopeBuilders
 
         protected override void ProcessLineItem(BaseProductLineItem item, decimal quantity)
         {
-            var returnableItem = item as ReturnableProductLineItem;
+            var returnableItem = item as ReturnableLineItem;
             if (returnableItem == null) return;
 
-            var creditNoteQuantity = returnableItem.ApprovedQuantity - returnableItem.SaleQuantity;
+            var creditNoteQuantity = returnableItem.Quantity - quantity;
 
             if (creditNoteQuantity == 0) return;
 

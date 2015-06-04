@@ -85,7 +85,7 @@ namespace Distributr.Mobile.OrderSale
 
         protected virtual void HandleItemClicked(OrderOrSale orderOrSale)
         {
-            var sale = Resolve<OrderRepository>().GetById(orderOrSale.OrderSaleId);
+            var sale = Resolve<SaleRepository>().GetById(orderOrSale.OrderSaleId);
             App.Put(sale);
             if (sale.ProcessingStatus == ProcessingStatus.Deliverable)
             {

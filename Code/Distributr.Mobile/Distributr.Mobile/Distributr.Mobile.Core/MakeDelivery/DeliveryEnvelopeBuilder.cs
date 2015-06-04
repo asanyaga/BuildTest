@@ -20,7 +20,7 @@ namespace Distributr.Mobile.Core.MakeDelivery
         {
             Order.ApprovedLineItems.ForEach(lineItem =>
             {
-                RootBuilder.Handle(lineItem, lineItem.ApprovedQuantity);
+                RootBuilder.Handle(lineItem, lineItem.SaleQuantity);
             });
             Order.NewPayments.ForEach(payment =>
             {

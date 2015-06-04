@@ -13,22 +13,21 @@ namespace Distributr.Mobile.Core.MakeDelivery
     public class DeliveryProcessor
     {
         private readonly Database database;
-        private readonly OrderRepository orderRepository;
+        private readonly SaleRepository saleRepository;
         private readonly IOutgoingCommandEnvelopeRouter envelopeRouter;
         private readonly IInventoryRepository inventoryRepository;
 
-        public DeliveryProcessor(Database database, IOutgoingCommandEnvelopeRouter envelopeRouter, OrderRepository orderRepository, IInventoryRepository inventoryRepository)
+        public DeliveryProcessor(Database database, IOutgoingCommandEnvelopeRouter envelopeRouter, SaleRepository saleRepository, IInventoryRepository inventoryRepository)
         {
             this.database = database;
             this.envelopeRouter = envelopeRouter;
-            this.orderRepository = orderRepository;
+            this.saleRepository = saleRepository;
             this.inventoryRepository = inventoryRepository;
         }
 
-        public Result<object> Process(Order order, IEnvelopeContext context)
+        public Result<object> Process(Sale sale, IEnvelopeContext context)
         {
-
-            var envelopeBuilder = new DeliveryEnvelopeBuilder(order,
+            var envelopeBuilder = new DeliveryEnvelopeBuilder(sale,
                 new CloseOrderEnvelopeBuilder(context,
                 new DispatchNoteEnvelopeBuilder(context,
                 new PaymentNoteEnvelopeBuilder(context,
@@ -40,11 +39,10 @@ namespace Distributr.Mobile.Core.MakeDelivery
             return new Transactor(database).Transact(() =>
             {
                 envelopeBuilder.Build().ForEach(e => envelopeRouter.RouteCommandEnvelope(e));
-                order.ConfirmApprovedLineItems();
-                order.ConfirmNewPayments();
+                sale.ConfirmNewPayments();
 
-                order.ProcessingStatus = order.HasNoBackorderItems ? ProcessingStatus.Confirmed : ProcessingStatus.PartiallyFulfilled;
-                orderRepository.Save(order);
+                sale.ProcessingStatus = sale.HasNoBackorderItems ? ProcessingStatus.Confirmed : ProcessingStatus.PartiallyFulfilled;
+                saleRepository.Save(sale);
             });
         }
     }

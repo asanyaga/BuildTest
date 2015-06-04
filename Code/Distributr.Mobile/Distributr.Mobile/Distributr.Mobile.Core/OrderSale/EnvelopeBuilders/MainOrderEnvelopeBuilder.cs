@@ -20,6 +20,7 @@ namespace Distributr.Mobile.Core.OrderSale.EnvelopeBuilders
 
         protected override void ProcessLineItem(BaseProductLineItem item, decimal quantity)
         {
+            if (quantity < 1) return;
             var command = InitCommand(new AddMainOrderLineItemCommand());
             
             command.CommandId = item.Id;

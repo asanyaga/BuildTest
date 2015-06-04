@@ -16,13 +16,12 @@ namespace Distributr.Mobile.Core.Test.OrderSale
         {
             //Given
             var orderAndContext = AFullyPaidCashSaleAndContext();
-            var order = orderAndContext.Order;
+            var order = orderAndContext.Sale;
             var context = orderAndContext.Context;
 
             var builder = new SaleEnvelopeBuilder(order, new MainOrderEnvelopeBuilder(context));
 
             //When 
-            order.ApproveNewLineItems();
             var result = builder.Build();
             
             //Then
@@ -54,13 +53,12 @@ namespace Distributr.Mobile.Core.Test.OrderSale
         {
             //Given
             var orderAndContext = AnOrderWithItemAndReturnable();
-            var order = orderAndContext.Order;
+            var order = orderAndContext.Sale;
             var context = orderAndContext.Context;
 
             var builder = new OrderEnvelopeBuilder(order, new MainOrderEnvelopeBuilder(context));
 
             //When
-            order.ApproveNewLineItems();
             var result = builder.Build();
 
             //Then
@@ -74,7 +72,7 @@ namespace Distributr.Mobile.Core.Test.OrderSale
             var addMainOrderLineItems = documentCommands.OfType<AddMainOrderLineItemCommand>().ToList();
 
             CheckOrderLineCommand(order.LineItems[0], addMainOrderLineItems[0]);
-            CheckOrderLineCommand(order.LineItems[0].ItemReturnable, addMainOrderLineItems[1]);
+            CheckOrderLineCommand(order.ReturnableLineItems[0], addMainOrderLineItems[1]);
 
         }
 

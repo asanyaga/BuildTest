@@ -19,13 +19,13 @@ namespace Distributr.Mobile.Summary
 {
     public abstract class BaseSummaryFragment : BaseFragment<User>
     {
-        protected Order Order;
+        protected Sale Order;
         private ViewGroup container;
 
         public override void CreateChildViews(View parent, Bundle bundle)
         {
             SetTitle(Resource.String.summary);
-            Order = App.Get<Order>();
+            Order = App.Get<Sale>();
 
             container = parent.FindViewById<ViewGroup>(Resource.Id.container);
 
@@ -59,6 +59,7 @@ namespace Distributr.Mobile.Summary
         {            
             var addressText = parent.FindViewById<TextView>(Resource.Id.outlet_address);
             addressText.PaintFlags = addressText.PaintFlags | PaintFlags.UnderlineText;
+            addressText.SetTextColor(Resources.GetColor(Resource.Color.color_accent));
             addressText.Text = GetAddress();
 
             var addresses = new List<DeliveryAddressListItem>();
@@ -154,13 +155,15 @@ namespace Distributr.Mobile.Summary
                 var productName = layout.FindViewById<TextView>(Resource.Id.product_name);
                 var total = layout.FindViewById<TextView>(Resource.Id.item_total);
 
-                quantity.Text = lineItem.SaleQuantity.ToString();
+                quantity.Text = lineItem.Quantity.ToString();
+
                 productName.Text = lineItem.Description;
                 total.Text = lineItem.Value.ToString();
 
                 container.AddView(layout);
             }
         }
+
 
         protected virtual void SetupProductLineItem(ProductLineItem productLine, TextView quantity)
         {
@@ -228,7 +231,7 @@ namespace Distributr.Mobile.Summary
 
         protected override void Resumed()
         {
-            Order = App.Get<Order>();
+            Order = App.Get<Sale>();
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

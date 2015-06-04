@@ -3,8 +3,8 @@ using Distributr.Core.Repository;
 
 namespace Distributr.Mobile.Core.OrderSale
 {
-    public interface IOrderRepository : IRepositoryMaster<Order>
+    public interface ISaleRepository : IRepositoryMaster<Sale>
     {
-        Order FindById(Guid id);
+        Sale FindById(Guid id);
     }
 }

@@ -12,7 +12,7 @@ namespace Distributr.Mobile.Core.Test.OrderSale
         {
             //Given
             var orderAndContext = AFullyPaidCashSaleAndContext();
-            var sale = orderAndContext.Order;
+            var sale = orderAndContext.Sale;
             var context = orderAndContext.Context;
 
             var builder = new SaleEnvelopeBuilder(sale, new OutletVisitNoteEnvelopeBuilder(context));

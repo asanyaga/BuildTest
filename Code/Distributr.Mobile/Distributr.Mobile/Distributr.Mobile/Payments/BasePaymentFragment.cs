@@ -21,7 +21,7 @@ namespace Distributr.Mobile.Payments
 
         public override void CreateChildViews(View parent, Bundle bundle)
         {
-            Order = App.Get<Order>();
+            Order = App.Get<Sale>();
             SetupPaymentViews(parent);
             
             var headerContent = Inflate(Resource.Layout.receive_payment_amount_due);

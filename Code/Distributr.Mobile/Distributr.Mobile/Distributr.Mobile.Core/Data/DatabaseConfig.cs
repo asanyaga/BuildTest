@@ -134,7 +134,7 @@ namespace Distributr.Mobile.Data
             typeof (Order),
             typeof (Payment),
             typeof (ProductLineItem),
-            typeof (ReturnableProductLineItem),
+            typeof (ReturnableLineItem),
             typeof (LocalCommandEnvelope),
             typeof (DatabaseSequence),
             typeof (IncomingEnvelopeLog),

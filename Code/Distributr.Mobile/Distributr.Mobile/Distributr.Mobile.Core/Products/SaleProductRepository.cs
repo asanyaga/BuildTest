@@ -1,10 +1,15 @@
 ﻿using System;
 using Distributr.Core.Domain.Master.ProductEntities;
-using Distributr.Mobile.Core.Products;
+using Distributr.Core.Repository;
 using Distributr.Mobile.Data;
 
 namespace Distributr.Mobile.Core.Test
 {
+    public interface ISaleProductRepository : IRepositoryMaster<SaleProduct>
+    {
+        SaleProduct FindById(Guid id);
+    }
+
     public class SaleProductRepository : BaseRepository<SaleProduct>, ISaleProductRepository
     {
         private readonly Database database;

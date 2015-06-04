@@ -4,20 +4,19 @@ using Distributr.Core.Domain.Master.BankEntities;
 using Distributr.Core.Domain.Master.CostCentreEntities;
 using Distributr.Core.Domain.Master.ProductEntities;
 using Distributr.Mobile.Core.OrderSale;
-using Distributr.Mobile.Core.Products;
 using Moq;
 
 namespace Distributr.Mobile.Core.Test.OrderSale
 {
     public class MockOrderBuilder
     {
-        private Order Order { get; set; }
-        private readonly BankBranch bankBranch = new BankBranch() { Code = "EFG" };
-        private readonly Bank bank = new Bank() { Code = "ABC" };
+        private Sale Order { get; set; }
+        public static readonly BankBranch BankBranch = new BankBranch() { Code = "EFG" };
+        public static readonly Bank Bank = new Bank() { Code = "ABC", Branches = new List<BankBranch>(){BankBranch}};
 
         public MockOrderBuilder()
         {
-            Order = new Order(Guid.NewGuid(), new Outlet());
+            Order = new Sale(Guid.NewGuid(), new Outlet());
         }
 
         public static SaleProduct AProductWithPrice(decimal price)
@@ -58,29 +57,31 @@ namespace Distributr.Mobile.Core.Test.OrderSale
             return vatClass;
         }
 
-        public MockOrderBuilder WithLineItem(decimal price = 30m, decimal vatRate = 0.10m, decimal caseQuantity = 0m,
-            decimal eachQuantity = 1m, decimal eachReturnableQuantity = 0, decimal caseReturnableQuantity = 0)
+        public MockOrderBuilder WithSaleLineItem(decimal price = 30m, decimal vatRate = 0.10m, decimal quantity = 1, bool sellReturnables = false)
         {
             var aProduct = AProductWithPrice(price);
             aProduct.VATClass = AVatClassWithRate(vatRate);
-            var wrapper = new ProductWrapper()
-            {
-                SaleProduct = aProduct, 
-                EachQuantity = eachQuantity, 
-                CaseQuantity = caseQuantity, 
-                EachReturnableQuantity = eachReturnableQuantity, 
-                CaseReturnableQuantity = caseReturnableQuantity
-            };
 
-            Order.AddOrUpdateSaleLineItem(wrapper);            
+            Order.AddItem(aProduct, quantity, quantity, sellReturnables);
+
+            return this;            
+        }
+
+        public MockOrderBuilder WithOrderLineItem(decimal price = 30m, decimal vatRate = 0.10m, decimal quantity = 1)
+        {
+            var aProduct = AProductWithPrice(price);
+            aProduct.VATClass = AVatClassWithRate(vatRate);
+
+            Order.AddItem(aProduct, quantity);
+
             return this;
         }
 
         public MockOrderBuilder WithChequePayment(string chequeNumber = "00000001", string bankCode = "ABCD", string bankBranchCode = "EFGH", decimal amount = 1m)
         {
-            bank.Code = bankCode;
-            bankBranch.Code = bankBranchCode;
-            Order.AddChequePayment(chequeNumber, amount, bank, bankBranch, DateTime.Now);
+            Bank.Code = bankCode;
+            BankBranch.Code = bankBranchCode;
+            Order.AddChequePayment(chequeNumber, amount, Bank, BankBranch, DateTime.Now);
             return this;
         }
 
@@ -90,7 +91,7 @@ namespace Distributr.Mobile.Core.Test.OrderSale
             return this;
         }
 
-        public Order Build()
+        public Sale Build()
         {
             return Order;
         }

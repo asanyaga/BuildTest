@@ -13,19 +13,19 @@ namespace Distributr.Mobile.Core.Payments
     public class PaymentProcessor
     {
         private readonly Database database;
-        private readonly OrderRepository orderRepository;
+        private readonly SaleRepository saleRepository;
         private readonly IOutgoingCommandEnvelopeRouter envelopeRouter;
 
-        public PaymentProcessor(Database database, IOutgoingCommandEnvelopeRouter envelopeRouter, OrderRepository orderRepository)
+        public PaymentProcessor(Database database, IOutgoingCommandEnvelopeRouter envelopeRouter, SaleRepository saleRepository)
         {
             this.database = database;
             this.envelopeRouter = envelopeRouter;
-            this.orderRepository = orderRepository;
+            this.saleRepository = saleRepository;
         }
 
-        public Result<object> Process(Order order, IEnvelopeContext context)
+        public Result<object> Process(Sale sale, IEnvelopeContext context)
         {
-            var envelopeBuilder = new DeliveryEnvelopeBuilder(order,
+            var envelopeBuilder = new DeliveryEnvelopeBuilder(sale,
                 new PaymentNoteEnvelopeBuilder(context,
                 new ReceiptEnvelopeBuilder(context,
                 new OutletVisitNoteEnvelopeBuilder(context))));
@@ -33,8 +33,8 @@ namespace Distributr.Mobile.Core.Payments
             return new Transactor(database).Transact(() =>
             {
                 envelopeBuilder.Build().ForEach(e => envelopeRouter.RouteCommandEnvelope(e));
-                order.ConfirmNewPayments();
-                orderRepository.Save(order);
+                sale.ConfirmNewPayments();
+                saleRepository.Save(sale);
             });
         }
     }

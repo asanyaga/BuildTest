@@ -14,13 +14,11 @@ namespace Distributr.Mobile.MakeSale
 {
     public class MakeSaleSummaryFragment : BaseSummaryFragment
     {
-        private InventoryRepository inventoryRepository;
         private SaleProcessor saleProcessor;
 
         public override void CreateChildViews(View parent, Bundle bundle)
         {
             base.CreateChildViews(parent, bundle);
-            inventoryRepository = Resolve<InventoryRepository>();
             saleProcessor = Resolve<SaleProcessor>();
         }
 
@@ -45,20 +43,13 @@ namespace Distributr.Mobile.MakeSale
         protected override void ShowProductEditor(ProductLineItem lineItem)
         {
             var dialog = new ProductSelectorDialog(Activity);
-            dialog.ItemStateChanged += delegate(ProductWrapper productWrapper)
+            dialog.ItemStateChanged += delegate(ProductDetails productWrapper)
             {
-                Order.AddOrUpdateSaleLineItem(productWrapper);
+                MakeSaleFragment.AdjustSale(Order, productWrapper);
                 ApplyOrder();
             };
 
-            var product = Order.ItemAsProductWrapper(lineItem.Product.Id);
-
-            product.MaxEachReturnableQuantity =
-                inventoryRepository.GetBalanceForProduct(lineItem.Product.ReturnableProductMasterId);
-            product.MaxCaseReturnableQuantity =
-                inventoryRepository.GetBalanceForProduct(lineItem.Product.ReturnableContainerMasterId);
-
-            dialog.Show(product);              
+            dialog.Show(new ProductDetails(lineItem), allowSellReturnables: true, showAvailable: true);
         }
     }
 }

@@ -14,22 +14,21 @@ namespace Distributr.Mobile.Core.MakeSale
     {
         private readonly Database database;
         private readonly IOutgoingCommandEnvelopeRouter envelopeRouter;
-        private readonly OrderRepository orderRepository;
+        private readonly SaleRepository saleRepository;
         private readonly InventoryRepository inventoryRepository;
 
-        public SaleProcessor(Database database, IOutgoingCommandEnvelopeRouter envelopeRouter, OrderRepository orderRepository, InventoryRepository inventoryRepository)
+        public SaleProcessor(Database database, IOutgoingCommandEnvelopeRouter envelopeRouter, SaleRepository saleRepository, InventoryRepository inventoryRepository)
         {
             this.database = database;
             this.envelopeRouter = envelopeRouter;
-            this.orderRepository = orderRepository;
+            this.saleRepository = saleRepository;
             this.inventoryRepository = inventoryRepository;
         }
 
-        public Result<object> Process(Order order, IEnvelopeContext context)
+        public Result<object> Process(Sale sale, IEnvelopeContext context)
         {
-            order.ApproveNewLineItems();
 
-            var envelopeBuilder = new SaleEnvelopeBuilder(order,
+            var envelopeBuilder = new SaleEnvelopeBuilder(sale,
                 new MainOrderEnvelopeBuilder(context,
                 new CloseOrderEnvelopeBuilder(context,
                 new ExternalDocRefEnvelopeBuilder(context,
@@ -43,12 +42,11 @@ namespace Distributr.Mobile.Core.MakeSale
             return new Transactor(database).Transact(() =>
             {
                 envelopeBuilder.Build().ForEach(e => envelopeRouter.RouteCommandEnvelope(e));
-                inventoryRepository.AdjustInventoryForSale(order);
-                order.OrderReference = context.OrderSaleReference();
-                order.ConfirmAllLineItems();
-                order.ConfirmNewPayments();
-                order.ProcessingStatus = ProcessingStatus.Confirmed;
-                orderRepository.Save(order);
+                inventoryRepository.AdjustInventoryForSale(sale);
+                sale.OrderReference = context.OrderSaleReference();
+                sale.ConfirmNewPayments();
+                sale.ProcessingStatus = ProcessingStatus.Confirmed;
+                saleRepository.Save(sale);
             });
         }
     }

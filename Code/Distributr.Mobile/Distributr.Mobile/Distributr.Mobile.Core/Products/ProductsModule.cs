@@ -9,6 +9,7 @@ namespace Distributr.Mobile.Core.Products
         {
             For<ISaleProductRepository>().Use<SaleProductRepository>();
             For<IInventoryRepository>().Use<InventoryRepository>();
+            For<IReturnableProductRepository>().Use<ReturnableProductRepository>();
         }
     }
 }
