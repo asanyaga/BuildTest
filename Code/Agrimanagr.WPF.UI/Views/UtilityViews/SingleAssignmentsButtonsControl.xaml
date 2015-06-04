@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Agrimanagr.WPF.UI.Views.UtilityViews.SingleAssignmentsButtonsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" >
+    <Grid Width="60">
+        <StackPanel>
+            
+            <Button Name="btnSingleFw" Style="{StaticResource NormalButtonSyle}" Margin="2" Command="{Binding Path=AssignSelectedCommand}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="1">
+                    <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/forwardbtnone.png"  Height="50"  Stretch="None"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btnSingleBack" Style="{StaticResource NormalButtonSyle}" Margin="2" Command="{Binding Path=UnassignSelectedCommand}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="1">
+                    <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/backbtnone.png"  Height="50"  Stretch="None"/>
+                </StackPanel>
+            </Button>
+            
+        </StackPanel>
+
+    </Grid>
+</UserControl>

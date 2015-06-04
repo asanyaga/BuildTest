@@ -42,8 +42,10 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityReception
             ItemsToStore = new List<Guid>();
 
             AssignAllCommand = new RelayCommand(AssignAll);
+            //AssignSelectedCommand = new RelayCommand(AssignAll);
             AssignSelectedCommand = new RelayCommand(AssignSelected);
             UnassignAllCommand = new RelayCommand(UnAssignAll);
+            //UnassignSelectedCommand = new RelayCommand(UnAssignAll);
             UnassignSelectedCommand = new RelayCommand(UnassignSelected);
             StorageCommodityPageLoadedCommand = new RelayCommand(LoadStorageWindow);
             CompleteStorageCommand = new RelayCommand(StoreItems);
@@ -282,6 +284,7 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityReception
             SelectedStore = null;
             SelectedLoadedDocument = null;
             LoadedDocumentsTotalWeight = 0;
+            ItemsToStoreTotalWeight = 0;
             SearchText = string.Empty;
 
             LoadedDocuments.Clear();
@@ -290,6 +293,7 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityReception
             LineItemsToStoreList.Clear();
             StoreList.Clear();
             ItemsToStore.Clear();
+            
         }
 
         public void GetItemsToStore(List<Guid> items)
@@ -333,11 +337,19 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityReception
 
         private void LoadStorageWindow()
         {
-            
-            foreach (var documentId in ItemsToStore)
+            using (StructureMap.IContainer c = NestedContainer)
             {
-                LoadedDocuments.Add(
-                    GetEntityById(typeof(ReceivedDeliveryNote), documentId) as ReceivedDeliveryNote);
+                foreach (var documentId in ItemsToStore)
+                {
+                    LoadedDocuments.Add(GetEntityById(typeof (ReceivedDeliveryNote), documentId) as ReceivedDeliveryNote);
+
+                    //var doc = Using<IReceivedDeliveryRepository>(c).GetPendingStorageById(documentId) as ReceivedDeliveryNote;
+                    
+                   
+                    //LoadedDocuments.Add(doc);
+
+
+                }
             }
             if(LoadedDocuments.Any())
             {
@@ -365,7 +377,7 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityReception
             {
                 using (StructureMap.IContainer c = NestedContainer)
                 {
-                    var doc = Using<IReceivedDeliveryRepository>(c).GetById(item.Id) as ReceivedDeliveryNote;
+                    var doc = Using<IReceivedDeliveryRepository>(c).GetPendingStorageById(item.Id) as ReceivedDeliveryNote;
                     if (doc != null)
                         foreach (var lineitem in doc.LineItems.Where(p=>p.LineItemStatus !=SourcingLineItemStatus.Stored))
                         {

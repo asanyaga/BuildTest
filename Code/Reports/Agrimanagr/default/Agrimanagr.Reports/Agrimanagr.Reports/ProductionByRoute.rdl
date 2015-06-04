@@ -1208,7 +1208,7 @@
           <Value>=Today.AddDays(1-Today.Day)</Value>
         </Values>
       </DefaultValue>
-      <Prompt>start Date</Prompt>
+      <Prompt>Start Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="endDate">
       <DataType>DateTime</DataType>
@@ -1217,7 +1217,7 @@
           <Value>=Today.AddDays(1-Today.Day).AddMonths(1).AddDays(-1)</Value>
         </Values>
       </DefaultValue>
-      <Prompt>end Date</Prompt>
+      <Prompt>End Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="hubId">
       <DataType>String</DataType>

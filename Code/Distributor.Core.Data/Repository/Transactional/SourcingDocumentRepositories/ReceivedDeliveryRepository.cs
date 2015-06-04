@@ -52,6 +52,19 @@ namespace Distributr.Core.Data.Repository.Transactional.SourcingDocumentReposito
             return doc;
         }
 
+        private ReceivedDeliveryNote MapPendingStorage(tblSourcingDocument tbldoc)
+        {
+            ReceivedDeliveryNote doc = null;
+            doc = PrivateConstruct<ReceivedDeliveryNote>(tbldoc.Id);
+            doc.DisableAddCommands();
+            var receivedDeliveryNote = doc as ReceivedDeliveryNote;
+            tbldoc.tblSourcingLineItem.Where(x => x.LineItemStatusId != (int)SourcingLineItemStatus.Stored).Select(MapLineItem).ToList().ForEach(s => receivedDeliveryNote.AddLineItem(s));
+            doc = receivedDeliveryNote;
+            _Map(tbldoc, doc);
+            doc.EnableAddCommands();
+            return doc;
+        }
+
         private ReceivedDeliveryLineItem MapLineItem(tblSourcingLineItem tblItem)
         {
             var item = new ReceivedDeliveryLineItem(tblItem.Id);
@@ -87,6 +100,16 @@ namespace Distributr.Core.Data.Repository.Transactional.SourcingDocumentReposito
             throw new NotImplementedException();
         }
 
+        public ReceivedDeliveryNote GetPendingStorageById(Guid receivedNoteId)
+        {
+            _log.DebugFormat("Getting Pending Storage by Id:{0}", receivedNoteId);
+            tblSourcingDocument tbldoc = documents.FirstOrDefault(n => n.Id == receivedNoteId);
+            if (tbldoc == null)
+                return null;
+            ReceivedDeliveryNote ord = MapPendingStorage(tbldoc);
+            return ord;
+        }
+
         public List<ReceivedDeliveryNote> GetPendingStorage()
         {
             //&& p.tblSourcingLineItem.Any(s => s.LineItemStatusId.Value != (int) SourcingLineItemStatus.Stored)
@@ -94,7 +117,8 @@ namespace Distributr.Core.Data.Repository.Transactional.SourcingDocumentReposito
                 p =>
                 p.DocumentStatusId == (int)DocumentSourcingStatus.Confirmed && p.tblSourcingLineItem.Any(s =>!s.LineItemStatusId.HasValue || s.LineItemStatusId.Value != (int)SourcingLineItemStatus.Stored))
                 .OrderByDescending(n => n.DocumentDate);
-          var  viewdata=   receptionNotes  .ToList().Select(Map);
+
+          var  viewdata=   receptionNotes  .ToList().Select(MapPendingStorage);
 
           return viewdata.OfType<ReceivedDeliveryNote>().ToList();
         }

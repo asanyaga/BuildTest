@@ -1331,6 +1331,7 @@ hq.supplier.description = Description
 hq.supplier.code = Code
 hq.supplier.validation.error = Failed to validate Supplier
 hq.supplier.validation.dupsupplier = Duplicate supplier name found
+hq.supplier.validation.dupsupplier.code = Duplicate Supplier Code found
 
 # supplier Listing
 hq.supplier.listing.title = ListSuppliers
