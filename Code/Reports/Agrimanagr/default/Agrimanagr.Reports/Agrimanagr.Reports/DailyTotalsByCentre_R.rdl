@@ -287,14 +287,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="CentreWeight">
+                    <Textbox Name="ReceiptWeight">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!CentreWeight.Value)</Value>
+                              <Value>=Sum(Fields!ReceiptWeight.Value)</Value>
                               <Style>
                                 <Format>n2</Format>
                               </Style>
@@ -305,7 +305,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>CentreWeight</rd:DefaultName>
+                      <rd:DefaultName>ReceiptWeight</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -464,7 +464,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatPercent(sum(Fields!CAA.Value) / sum(Fields!CentreWeight.Value))</Value>
+                              <Value>=FormatPercent(sum(Fields!CAA.Value) / sum(Fields!ReceiptWeight.Value))</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -494,14 +494,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox50">
+                    <Textbox Name="ReceiptWeight1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!CentreWeight.Value)</Value>
+                              <Value>=Sum(Fields!ReceiptWeight.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
@@ -513,7 +513,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox50</rd:DefaultName>
+                      <rd:DefaultName>ReceiptWeight1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -676,7 +676,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatPercent(sum(Fields!CAA.Value) / sum(Fields!CentreWeight.Value))</Value>
+                              <Value>=FormatPercent(sum(Fields!CAA.Value) / sum(Fields!ReceiptWeight.Value))</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -760,25 +760,25 @@
             <TablixMember>
               <Group Name="Centre">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!Centre.Value</GroupExpression>
+                  <GroupExpression>=Fields!ClerkName.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!Centre.Value</Value>
+                  <Value>=Fields!CentreName.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
                 <Size>2.32952in</Size>
                 <CellContents>
-                  <Textbox Name="Centre">
+                  <Textbox Name="CentreName">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!Centre.Value</Value>
+                            <Value>=Fields!CentreName.Value</Value>
                             <Style>
                               <FontWeight>Bold</FontWeight>
                             </Style>
@@ -787,7 +787,7 @@
                         <Style />
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Centre</rd:DefaultName>
+                    <rd:DefaultName>CentreName</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -1202,94 +1202,89 @@
       <Query>
         <DataSourceName>Master</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@StartDate">
+          <QueryParameter Name="@startDate">
             <Value>=Parameters!StartDate.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@EndDate">
+          <QueryParameter Name="@endDate">
             <Value>=Parameters!EndDate.Value</Value>
           </QueryParameter>
           <QueryParameter Name="@hubId">
             <Value>=Parameters!hubId.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@CentreId">
+          <QueryParameter Name="@centreId">
             <Value>=Parameters!CentreId.Value</Value>
           </QueryParameter>
           <QueryParameter Name="@routeId">
             <Value>=Parameters!routeId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@clerkId">
+            <Value>=Parameters!clerkId.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>SP_A_DailyToTalsByCentre_R</CommandText>
       </Query>
       <Fields>
-        <Field Name="docRef">
-          <DataField>docRef</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="docId">
-          <DataField>docId</DataField>
-          <rd:TypeName>System.Guid</rd:TypeName>
-        </Field>
-        <Field Name="DocumentTypeId">
-          <DataField>DocumentTypeId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="CentreWeight">
-          <DataField>CentreWeight</DataField>
+        <Field Name="ReceiptWeight">
+          <DataField>ReceiptWeight</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="LorryWeight">
           <DataField>LorryWeight</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="RouteName">
+          <DataField>RouteName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="FactoryWeight">
           <DataField>FactoryWeight</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="hubId">
-          <DataField>hubId</DataField>
-          <rd:TypeName>System.Guid</rd:TypeName>
-        </Field>
-        <Field Name="Hub">
-          <DataField>Hub</DataField>
+        <Field Name="CentreName">
+          <DataField>CentreName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CostCentreType">
-          <DataField>CostCentreType</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Weight">
-          <DataField>Weight</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Guid</rd:TypeName>
+        </Field>
+        <Field Name="ClerkName">
+          <DataField>ClerkName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="RouteID">
-          <DataField>RouteID</DataField>
+          <DataField>RouteId</DataField>
           <rd:TypeName>System.Guid</rd:TypeName>
         </Field>
-        <Field Name="Route">
-          <DataField>Route</DataField>
+        <Field Name="ClerkId">
+          <DataField>ClerkId</DataField>
+          <rd:TypeName>System.Guid</rd:TypeName>
+        </Field>
+        <Field Name="ClerkCode">
+          <DataField>ClerkCode</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DeliveryDate">
-          <DataField>DeliveryDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+        <Field Name="PurchaseDate">
+          <DataField>PurchaseDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CentreId">
           <DataField>CentreId</DataField>
           <rd:TypeName>System.Guid</rd:TypeName>
         </Field>
         <Field Name="VarianceBA">
-          <Value>=Fields!LorryWeight.Value - Fields!CentreWeight.Value</Value>
-        </Field>
-        <Field Name="Centre">
-          <DataField>Centre</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <Value>=Fields!LorryWeight.Value - Fields!ReceiptWeight.Value</Value>
         </Field>
         <Field Name="VarianceCA">
-          <Value>=Fields!FactoryWeight.Value - Fields!CentreWeight.Value</Value>
+          <Value>=Fields!FactoryWeight.Value - Fields!ReceiptWeight.Value</Value>
         </Field>
         <Field Name="CAA">
-          <Value>=abs(Fields!FactoryWeight.Value - Fields!CentreWeight.Value)</Value>
+          <Value>=abs(Fields!FactoryWeight.Value - Fields!ReceiptWeight.Value)</Value>
         </Field>
       </Fields>
     </DataSet>
@@ -1416,6 +1411,12 @@
           <LabelField>name</LabelField>
         </DataSetReference>
       </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="clerkId">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Clerk Id</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

@@ -862,13 +862,13 @@
     <ReportParameter Name="startDate">
       <DataType>DateTime</DataType>
       <Nullable>true</Nullable>
-      <Prompt>start Date</Prompt>
+      <Prompt>Start Date</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="endDate">
       <DataType>DateTime</DataType>
       <Nullable>true</Nullable>
-      <Prompt>end Date</Prompt>
+      <Prompt>End Date</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="documentId">

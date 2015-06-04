@@ -1271,7 +1271,7 @@
           <Value>=Today().AddDays((-1*Today().Day)+1)</Value>
         </Values>
       </DefaultValue>
-      <Prompt>start Date</Prompt>
+      <Prompt>Start Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="endDate">
       <DataType>DateTime</DataType>
