@@ -123,6 +123,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Documentation\background_foreground.png" />
     <Content Include="$(MSBuildThisFileDirectory)Documentation\Component Overivew 2.png" />
     <Content Include="$(MSBuildThisFileDirectory)Documentation\Component Overview.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Documentation\sdk_manager_hax.png" />
     <Content Include="$(MSBuildThisFileDirectory)Documentation\System Overview.png" />
   </ItemGroup>
 </Project>
