@@ -1,0 +1,7 @@
+﻿1 Make Delivery Sell Returnables
+2 Make Order Hub Adds Items
+3 Make Order Without Payment Then Make Delivery and Receive Payment
+4 Make Order With Partial Payment and Back Order
+5 Make Sale Pay by Cash
+6 Make Sale Pay by Cheque
+7 Make Sale with Note and Ship To Address and Sell Returnables
