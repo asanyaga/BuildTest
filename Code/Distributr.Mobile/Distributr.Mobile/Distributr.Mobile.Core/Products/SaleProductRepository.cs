@@ -19,7 +19,6 @@ namespace Distributr.Mobile.Core.Test
             this.database = database;
         }
 
-
         public SaleProduct FindById(Guid id)
         {
             if (database.Find<SaleProduct>(id) != null)
@@ -27,7 +26,6 @@ namespace Distributr.Mobile.Core.Test
                 //Load complete object graph
                 return GetById(id);
             }
-
             return default(SaleProduct);
         }
     }

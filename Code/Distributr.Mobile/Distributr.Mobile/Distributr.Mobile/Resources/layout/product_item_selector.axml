@@ -6,8 +6,7 @@
       android:layout_height="wrap_content"
       android:layout_width="match_parent"
       android:orientation="vertical"
-      android:minWidth="300dp"
-      android:padding="8dp">
+      android:minWidth="300dp">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,9 +14,14 @@
         android:textAllCaps="true"
         android:textSize="18sp"
         android:id="@+id/title"
-        android:textColor="@color/color_accent"
-        android:padding="8dp"
-            />
+        android:textAlignment="gravity"
+        android:gravity="center"
+        android:background="@color/color_primary_dark"
+        android:textColor="@color/color_action_bar_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"/>
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"

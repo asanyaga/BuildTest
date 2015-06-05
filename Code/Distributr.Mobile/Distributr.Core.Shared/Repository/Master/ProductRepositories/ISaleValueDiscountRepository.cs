@@ -14,7 +14,7 @@ namespace Distributr.Core.Repository.Master.ProductRepositories
         SaleValueDiscount GetByAmount(decimal Amount, Guid tier);
        
         void DeactivateLineItem(Guid lineItemId);
-        SaleValueDiscount GetCurrentDiscount(decimal Amount, Guid tier);
+        SaleValueDiscount GetCurrentDiscount(decimal amount, Guid tierId);
 
         QueryResult<SaleValueDiscount> Query(QueryStandard q);
     }

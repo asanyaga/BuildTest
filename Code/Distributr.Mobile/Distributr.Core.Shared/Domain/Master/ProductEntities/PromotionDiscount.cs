@@ -12,6 +12,12 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 #endif
    public class PromotionDiscount:MasterEntity
     {
+
+       public PromotionDiscount(): base(default(Guid))
+       {
+           
+       }
+
         public PromotionDiscount(Guid id) : base(id)
         {
             PromotionDiscountItems = new List<PromotionDiscountItem>();

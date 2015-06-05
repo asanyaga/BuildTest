@@ -44,7 +44,6 @@ namespace Distributr.Mobile.Core.Sync.Incoming
             {
                 // We ignore the CreateMainOrderCommand when the order already exists. 
                 // The Hub sends a CreateMainOrderCommand when it can not fulfil the complete order (i.e. back order)
-                // See remark on AddMainOrderLineItemCommand also.
                 return;
             }
 
@@ -119,14 +118,14 @@ namespace Distributr.Mobile.Core.Sync.Incoming
             var order = GetOrder();
             if (order == null) return;
 
-            var existing = order.Payments.Find(p => p.PaymentReference == command.Description);
+            var existing = order.Payments.Find(p => p.PaymentReference == command.PaymentTypeReference);
             if (existing != null) return;
 
             var payment = new Payment(order.Id)
             {
                 PaymentStatus = PaymentStatus.Confirmed,
                 PaymentMode = (PaymentMode) command.LineItemType,
-                PaymentReference = command.Description,
+                PaymentReference = command.PaymentTypeReference,
                 Amount = command.Value
             };
             order.Payments.Add(payment);

@@ -17,6 +17,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\MasterDataUpdater.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\References\ReferenceGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Transactor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discounts\CertainValueCertainProductDiscountRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discounts\CostCentreRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discounts\DiscountsModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discounts\FreeOfChargeDiscountRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discounts\ProductDiscountGroupRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discounts\ProductDiscountRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discounts\ProductPricingTierRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discounts\ProductRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discounts\PromotionDiscountRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discounts\SaleDiscounter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discounts\SaleValueDiscountRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Envelopes\BaseEnvelopeBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Envelopes\IEnvelopeContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Envelopes\IEnvelopeBuilder.cs" />
