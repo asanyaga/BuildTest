@@ -42,8 +42,10 @@
 
   <!--Product Selector -->
   <string name="product_selector_unit_type">Unit</string>
-  <string name="product_selector_available">Avail.</string>
-  <string name="product_selector_required">Req.</string>
+  <string name="product_selector_available">STOCK</string>
+  <string name="product_selector_required">Required</string>
+  <string name="product_selector_case_quantity">Case Quantity</string>
+  <string name="product_selector_each_quantity">Each Quantity</string>
   <string name="product_selector_done_button_text">DONE</string>
   <string name="product_selector_sell_returnables">Sell Returnables</string>
   <string name="product_selector_insufficient_stock">Insufficient stock</string>

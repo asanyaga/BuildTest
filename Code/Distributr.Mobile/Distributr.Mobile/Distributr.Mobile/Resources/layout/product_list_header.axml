@@ -18,13 +18,4 @@
         android:textSize="14sp"
         android:textColor="#FF000000"
         android:text="DESCRIPTION" />
-    <TextView
-        android:id="@+id/stock_title"
-        android:layout_width="48dp"
-        android:layout_height="wrap_content"
-        android:textAlignment="gravity"
-        android:gravity="right|end"
-        android:text="STOCK"
-        android:textSize="14sp"
-        android:textColor="#FF000000" />
 </LinearLayout>

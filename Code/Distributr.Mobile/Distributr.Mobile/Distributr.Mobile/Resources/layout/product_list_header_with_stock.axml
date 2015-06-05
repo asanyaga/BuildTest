@@ -3,26 +3,28 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingTop="4dp"
-    android:paddingBottom="4dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
     android:paddingLeft="@dimen/standard_screen_padding"
     android:paddingRight="@dimen/standard_screen_padding">
     <TextView
-        android:id="@+id/product_name"
+        android:id="@+id/description_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:textAlignment="gravity"
+        android:gravity="left|start"
         android:singleLine="true"
-        android:textAllCaps="true"
         android:textSize="14sp"
-        android:textColor="@color/color_secondary_text"
-        android:text="Coca Cola 500ml" />
+        android:textColor="#FF000000"
+        android:text="DESCRIPTION" />
     <TextView
-        android:id="@+id/stock_count"
+        android:id="@+id/stock_title"
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:textAlignment="gravity"
         android:gravity="right|end"
+        android:text="STOCK"
         android:textSize="14sp"
-        android:textColor="@color/color_accent" />
+        android:textColor="#FF000000" />
 </LinearLayout>

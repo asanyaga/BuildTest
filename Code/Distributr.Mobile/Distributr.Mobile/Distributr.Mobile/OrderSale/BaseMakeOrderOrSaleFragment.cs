@@ -95,5 +95,10 @@ namespace Distributr.Mobile.OrderSale
         protected virtual void ShowSortOptions()
         {
         }
+
+        protected override int GetItemIconResourceId()
+        {
+            return Resource.Drawable.ic_action_shopping_basket;
+        }
     }
 }

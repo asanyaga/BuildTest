@@ -32,7 +32,8 @@ namespace Distributr.Mobile.Products
         private void SetupProductsList(View parent)
         {
             var productList = parent.FindViewById<ListView>(Resource.Id.products_list);
-            productList.AddHeaderView(Inflate(Resource.Layout.product_list_header), null, false);
+            var headerView = GetHeaderView();
+            productList.AddHeaderView(headerView, null, false);
             productListAdapter = new ProductsListAdapter<P>(Activity);
 
             productList.Adapter = productListAdapter;
@@ -47,7 +48,9 @@ namespace Distributr.Mobile.Products
             ApplyQuery(GetInitialQuery());
         }
 
+        protected abstract View GetHeaderView();
         protected abstract void ShowProductSelector(ProductDetails productDetails);
+        protected abstract int GetItemIconResourceId();
 
         protected void UpdateItemCount(int count)
         {
@@ -66,13 +69,14 @@ namespace Distributr.Mobile.Products
             itemCount = layout.FindViewById<TextView>(Resource.Id.item_count);
 
             var icon = layout.FindViewById<ImageButton>(Resource.Id.view_items);
+            icon.SetImageResource(GetItemIconResourceId());
+
             icon.Click += delegate
             {
                 OnSummaryIconClicked();
             };
 
             item.SetActionView(layout);
-        }
-        
+        }        
     }
 }

@@ -6,12 +6,12 @@ using Distributr.Mobile.Routes;
 using Mobile.Common.Core;
 using Android.Content.PM;
 using Distributr.Mobile.SidePanel;
-using Mobile.Common.Core.Views;
 
 namespace Distributr.Mobile
 {
     [Activity(Label = "MainActivity", WindowSoftInputMode = SoftInput.AdjustPan,
         Theme = "@style/AppTheme",
+        LaunchMode = LaunchMode.SingleInstance,
         ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
     public class MainActivity : FragmentHostActivity<User>
     {

@@ -57,6 +57,11 @@ namespace Distributr.Mobile.MakeOrder
             return ProductDetails.AllProductsByNameAscending;
         }
 
+        protected override View GetHeaderView()
+        {
+            return Inflate(Resource.Layout.product_list_header);
+        }
+
         protected override void ShowProductSelector(ProductDetails productDetails)
         {
             var completeProduct = LoadCompleteProduct(productDetails);

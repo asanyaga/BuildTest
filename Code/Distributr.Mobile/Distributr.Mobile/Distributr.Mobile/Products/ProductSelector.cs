@@ -54,7 +54,7 @@ namespace Distributr.Mobile.Products
         {
             var view = Inflate(Context, Resource.Layout.product_item_selector_list_item, null);
 
-            view.FindViewById<TextView>(Resource.Id.description).Text = "Each";
+            view.FindViewById<TextView>(Resource.Id.description).Text = Resources.GetString(Resource.String.product_selector_each_quantity);
             view.FindViewById<TextView>(Resource.Id.price).Text = productDetails.Price.ToString("G29");
 
             eachQuantity = view.FindViewById<TextView>(Resource.Id.quantity);
@@ -80,7 +80,7 @@ namespace Distributr.Mobile.Products
             var view = Inflate(Context, Resource.Layout.product_item_selector_list_item, null);
 
             view.FindViewById<TextView>(Resource.Id.price).Text = productDetails.CasePrice.ToString("G29");
-            view.FindViewById<TextView>(Resource.Id.description).Text = "Case";
+            view.FindViewById<TextView>(Resource.Id.description).Text = Resources.GetString(Resource.String.product_selector_case_quantity);
 
             caseQuantity = view.FindViewById<TextView>(Resource.Id.quantity);
 

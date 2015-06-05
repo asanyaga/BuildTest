@@ -51,7 +51,6 @@ namespace Distributr.Mobile.Payments
 
         protected virtual void ApplySale()
         {            
-            //Remove trailing zeroes
             AmountDueText.Text = Order.BalanceOutstanding.ToString("G29");
             Amount = Order.BalanceOutstanding;
 

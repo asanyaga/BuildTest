@@ -451,6 +451,7 @@
     <AndroidResource Include="Resources\layout\layout1.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\product_list_header_with_stock.axml" />
   </ItemGroup>
   <Import Project="..\Distributr.Mobile.Core\Distributr.Mobile.Core.projitems" Label="Shared" Condition="Exists('..\Distributr.Mobile.Core\Distributr.Mobile.Core.projitems')" />
   <Import Project="..\..\Distributr.Core.Shared\Distributr.Core.Shared.projitems" Label="Shared" Condition="Exists('..\..\Distributr.Core.Shared\Distributr.Core.Shared.projitems')" />
