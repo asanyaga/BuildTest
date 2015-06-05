@@ -112,7 +112,7 @@ namespace Distributr.Mobile.Core.Test.Support
         public OrderSaleContextBuilder AnOrderAndContextBuilder()
         {
             var outlet = AnOutlet();
-            var order = new Order(Guid.NewGuid(), outlet);
+            var order = new Sale(Guid.NewGuid(), outlet);
             var bank = ABank();
             return new OrderAndContextBuilder(outlet, AUsersCostCentre(), AUser(), order, bank, bank.Branches.First());
         }
@@ -120,9 +120,9 @@ namespace Distributr.Mobile.Core.Test.Support
         public OrderSaleContextBuilder AnSaleAndContextBuilder()
         {
             var outlet = AnOutlet();
-            var order = new Order(Guid.NewGuid(), outlet);
+            var sale = new Sale(Guid.NewGuid(), outlet);
             var bank = ABank();
-            return new SaleAndContextBuilder(outlet, AUsersCostCentre(), AUser(), order, bank, bank.Branches.First());
+            return new SaleAndContextBuilder(outlet, AUsersCostCentre(), AUser(), sale, bank, bank.Branches.First());
         }
 
         public OrderSaleContextBuilder AnUnpaidOrderForOneItem()
@@ -132,7 +132,7 @@ namespace Distributr.Mobile.Core.Test.Support
             var aProduct = Database.GetWithChildren<SaleProduct>(inventoryProduct.ProductMasterID, recursive: true);
 
             return AnOrderAndContextBuilder()
-                .AddLineItem(aProduct, 1, 0);
+                .AddLineItem(aProduct, 1);
         }
 
         public OrderSaleContextBuilder AnUnpaidOrderForTwoItems()
@@ -141,7 +141,7 @@ namespace Distributr.Mobile.Core.Test.Support
             var anotherProduct = Database.GetWithChildren<SaleProduct>(anotherInventoryProduct.ProductMasterID, recursive: true);
 
             return AnUnpaidOrderForOneItem()
-                .AddLineItem(anotherProduct, 1, 0);
+                .AddLineItem(anotherProduct, 1);
         }
 
         public OrderSaleContextBuilder AFullyPaidCashOrderForOneItem()
@@ -155,7 +155,7 @@ namespace Distributr.Mobile.Core.Test.Support
             var aProduct = Database.GetWithChildren<SaleProduct>(anInventoryProduct.ProductMasterID, recursive: true);
 
             return AnSaleAndContextBuilder()
-                .AddLineItem(aProduct, 1, 0);
+                .AddLineItem(aProduct, 1);
         }
 
         public OrderSaleContextBuilder AnUnpaidSaleForTwoItems()
@@ -164,7 +164,7 @@ namespace Distributr.Mobile.Core.Test.Support
             var anotherProduct = Database.GetWithChildren<SaleProduct>(anotherInventoryProduct.ProductMasterID, recursive: true);
 
             return AnUnpaidSaleForOneItem()
-                .AddLineItem(anotherProduct, 1, 0);
+                .AddLineItem(anotherProduct, 1);
         }
 
         public OrderSaleContextBuilder ASaleFullyPaidByChequeWithOneItem()

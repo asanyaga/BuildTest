@@ -18,7 +18,7 @@ namespace Distributr.Mobile.Core.Test.OrderSale
         {
             //Given 
             var saleAndContext = AFullyPaidCashSaleAndContext();
-            var order = saleAndContext.Order;
+            var order = saleAndContext.Sale;
             var context = saleAndContext.Context;
             var invtentoryRepository = new Mock<IInventoryRepository>();
             
@@ -29,7 +29,6 @@ namespace Distributr.Mobile.Core.Test.OrderSale
             var builder = new SaleEnvelopeBuilder(order, new InventoryAdjustmentNoteEnvelopeBuilder(context, invtentoryRepository.Object));
 
             //When 
-            order.ApproveNewLineItems();
             var result = builder.Build();
 
             //Then

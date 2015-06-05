@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Distributr.Core.Commands.CommandPackage;
 using Distributr.Core.Commands.DocumentCommands;
 using Distributr.Core.Commands.DocumentCommands.Orders;
+using Distributr.Core.Domain.Master.BankEntities;
 using Distributr.Core.Domain.Master.CostCentreEntities;
-using Distributr.Core.Domain.Master.ProductEntities;
 using Distributr.Core.Domain.Transactional;
 using Distributr.Core.Domain.Transactional.DocumentEntities;
 using Distributr.Mobile.Core.Envelopes;
-using Distributr.Mobile.Core.MakeOrder;
-using Distributr.Mobile.Core.MakeSale;
-using Distributr.Mobile.Core.Products;
+using Distributr.Mobile.Core.OrderSale;
 using Distributr.Mobile.Login;
-using Moq;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using Order = Distributr.Mobile.Core.OrderSale.Order;
@@ -21,40 +19,6 @@ namespace Distributr.Mobile.Core.Test.OrderSale
 {
     public class BaseEnvelopeBuilderTest
     {
-        public static Mock<SaleProduct> AProductWithPrice(decimal price)
-        {
-            var product = new Mock<SaleProduct>();
-            product.Object.Id = Guid.NewGuid();
-
-            product.Setup(p => p.ProductPrice(It.IsAny<ProductPricingTier>()))
-                .Returns(price);
-
-            return product;
-        }
-
-        public static Mock<ReturnableProduct> AReturnableProductWithPrice(decimal price)
-        {
-            var returnable = new Mock<ReturnableProduct>();
-            returnable.Object.Id = Guid.NewGuid();
-            returnable.Object.Description = "returnable prodct";
-
-            returnable.Setup(p => p.ProductPrice(It.IsAny<ProductPricingTier>()))
-                .Returns(price);
-
-            return returnable;
-        }
-
-        public static VATClass AVatClassWithRate(decimal rate)
-        {
-            var vatClassItem = new VATClass.VATClassItem()
-            {
-                EffectiveDate = DateTime.Now.AddDays(-1),
-                Rate = rate
-            };
-            var vatClass = new VATClass { VATClassItems = new List<VATClass.VATClassItem>() { vatClassItem } };
-
-            return vatClass;
-        }
 
         public static User AUser()
         {
@@ -85,60 +49,41 @@ namespace Distributr.Mobile.Core.Test.OrderSale
 
         public static OrderAndContext AnOrderWithItemAndReturnable()
         {
-            var returnable = AReturnableProductWithPrice(0.15m).Object;
-            returnable.VATClass = AVatClassWithRate(0);
+            var product = MockOrderBuilder.AProductWithPrice(1.5m);
+            product.VATClass = MockOrderBuilder.AVatClassWithRate(0.10m);
 
-            var product = AProductWithPrice(1.5m).Object;
-            product.VATClass = AVatClassWithRate(0.10m);
-            product.ReturnableProduct = returnable;
-            product.ReturnableProductMasterId = returnable.Id;
-
-            var saleAndContext = AnOrderAndContextWithNoItems();
-            var sale = saleAndContext.Order;
-
-            
-            sale.AddOrUpdateOrderLineItem(new ProductWrapper() {SaleProduct = product, EachQuantity = 1});
-
-            return saleAndContext;
+            return AnOrderAndContextWithNoItems()
+                .AddLineItem(product, 1)
+                .Build();
         }
 
         public static OrderAndContext AFullyPaidCashSaleAndContext()
         {
-            var product = AProductWithPrice(1.5m).Object;
-            product.VATClass = AVatClassWithRate(0.10m);
+            var product = MockOrderBuilder.AProductWithPrice(1.5m);
+            product.VATClass = MockOrderBuilder.AVatClassWithRate(0.10m);
 
-            var saleAndContext = ASaleAndContextWithNoItems();
-            var sale = saleAndContext.Order;
+            var saleAndContext =  ASaleAndContextWithNoItems()
+            .AddLineItem(product, 1, sellReturnables: true);
 
-            sale.AddOrUpdateSaleLineItem(new ProductWrapper() { SaleProduct = product, EachQuantity = 1, MaxEachQuantity = 1});
-            sale.AddCashPayment("My Ref", sale.TotalValueIncludingVat);
-
-            return saleAndContext;
+            saleAndContext.WithCashPayment(saleAndContext.Sale.BalanceOutstanding);
+           
+            return saleAndContext.Build();
         }
 
-        public static OrderAndContext AnOrderAndContextWithNoItems()
+        public static OrderAndContextBuilder AnOrderAndContextWithNoItems()
         {
             var outlet = AnOutlet();
-            var costCentre = ADistributorSalesman();
-            var user = AUser();
-
-            var order = new Order(Guid.NewGuid(), outlet);
-            var context = new MakeOrderEnvelopeContext(1, outlet, user, costCentre, order);
-
-            return new OrderAndContext (order, context);
+            var order = new Sale(Guid.NewGuid(), outlet);
+            var bank = MockOrderBuilder.Bank;
+            return new OrderAndContextBuilder(AnOutlet(), ADistributorSalesman(), AUser(), order, bank, bank.Branches.First());
         }
 
-        public static OrderAndContext ASaleAndContextWithNoItems()
-        { 
+        public static SaleAndContextBuilder ASaleAndContextWithNoItems()
+        {
             var outlet = AnOutlet();
-            var costCentre = ADistributorSalesman();
-            var user = AUser();
-
-            var sale = new Order(Guid.NewGuid(), outlet);
-            sale.OrderType = OrderType.DistributorPOS;
-            var context = new MakeSaleEnvelopeContext(1, outlet, user, costCentre, sale);
-
-            return new OrderAndContext(sale, context);            
+            var order = new Sale(Guid.NewGuid(), outlet) {OrderType = OrderType.DistributorPOS};
+            var bank = MockOrderBuilder.Bank;
+            return new SaleAndContextBuilder(AnOutlet(), ADistributorSalesman(), AUser(), order, bank, bank.Branches.First());
         }
 
         public static List<DocumentCommand> ExtractDocumentCommands(List<CommandEnvelope> envelopes)

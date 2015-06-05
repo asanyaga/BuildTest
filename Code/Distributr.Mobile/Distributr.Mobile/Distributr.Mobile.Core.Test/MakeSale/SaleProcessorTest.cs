@@ -30,7 +30,7 @@ namespace Distributr.Mobile.Core.Test.MakeSale
         {
             //Given             
             var saleAndContext = AFullyPaidCashSaleWithTwoItems().Build();
-            var sale = saleAndContext.Order;
+            var sale = saleAndContext.Sale;
             var context = saleAndContext.Context;
             var inventoryProductBalance = AnInventoryProduct().Balance;
             var anotherInventoryProductBalance = AnotherInventoryProduct().Balance;
@@ -97,7 +97,7 @@ namespace Distributr.Mobile.Core.Test.MakeSale
         {
             //Given             
             var saleAndContext = ASaleFullyPaidByChequeWithOneItem().Build();
-            var sale = saleAndContext.Order;
+            var sale = saleAndContext.Sale;
             var context = saleAndContext.Context;
 
             var saleProcessor = Resolve<SaleProcessor>();

@@ -18,7 +18,7 @@ namespace Distributr.Mobile.Core.Test.MakeOrder
         {
             //Given 
             var orderAndContext = AnUnpaidOrderForTwoItems().Build();
-            var order = orderAndContext.Order;
+            var order = orderAndContext.Sale;
             var context = orderAndContext.Context;
 
             var orderProcessor = Resolve<OrderProcessor>();
@@ -55,7 +55,7 @@ namespace Distributr.Mobile.Core.Test.MakeOrder
         {
             //Given 
             var orderAndContext = AFullyPaidCashOrderForOneItem().Build();
-            var order = orderAndContext.Order;
+            var order = orderAndContext.Sale;
             var context = orderAndContext.Context;
             
             var orderProcessor = Resolve<OrderProcessor>();

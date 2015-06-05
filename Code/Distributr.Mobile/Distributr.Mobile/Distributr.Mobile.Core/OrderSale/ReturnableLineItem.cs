@@ -4,25 +4,16 @@ using SQLiteNetExtensions.Attributes;
 
 namespace Distributr.Mobile.Core.OrderSale
 {
-    public class ReturnableProductLineItem : BaseProductLineItem
+    public class ReturnableLineItem : BaseProductLineItem
     {
-        public ReturnableProductLineItem()
-            : base(default(Guid))
+        public ReturnableLineItem()            
         {
         }
 
-        public ReturnableProductLineItem(Guid saleMasterId)
-            : base(Guid.NewGuid())
+        public ReturnableLineItem(Guid lineItemId, Guid saleMasterId) : base(lineItemId, saleMasterId)
         {
             SaleMasterId = saleMasterId;
         }
-
-        public override string Description
-        {
-            get { return Product.Description; }
-        }
-
-        public override decimal SaleQuantity { get; set; }
 
         [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
         public ReturnableProduct Product { get; set; }
@@ -33,6 +24,11 @@ namespace Distributr.Mobile.Core.OrderSale
         public override decimal ProductDiscount
         {
             get { return 0; }
+        }
+
+        public override string Description
+        {
+            get { return Product.Description; }
         }
     }
 }

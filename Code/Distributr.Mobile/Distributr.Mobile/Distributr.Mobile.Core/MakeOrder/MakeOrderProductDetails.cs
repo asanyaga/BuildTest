@@ -2,7 +2,7 @@
 
 namespace Distributr.Mobile.Core.MakeOrder
 {
-    public class MakeOrderProductWrapper : ProductWrapper
+    public class MakeOrderProductDetails : ProductDetails
     {
         public static string ProductSearch(string searchText)
         {

@@ -3,16 +3,15 @@ using Android.Views;
 using Android.Widget;
 using Distributr.Core.Domain.Transactional.DocumentEntities;
 using Distributr.Mobile.Core.MakeOrder;
+using Distributr.Mobile.Core.OrderSale;
 using Distributr.Mobile.Core.Products;
 using Distributr.Mobile.OrderSale;
 using Distributr.Mobile.Products;
 
 namespace Distributr.Mobile.MakeOrder
 {
-    public class MakeOrderFragment : BaseMakeOrderOrSaleFragment<MakeOrderProductWrapper>
+    public class MakeOrderFragment : BaseMakeOrderOrSaleFragment<MakeOrderProductDetails>
     {
-        public const int MaxQuantity = 99999;
-
         public override void CreateChildViews(View parent, Bundle bundle)
         {
             base.CreateChildViews(parent, bundle);
@@ -20,36 +19,32 @@ namespace Distributr.Mobile.MakeOrder
             Order.OrderType = OrderType.OutletToDistributor;
         }
 
-        protected override void HandleProductChanged(ProductWrapper productWrapper)
+        protected override void HandleProductChanged(ProductDetails productDetails)
         {
-            Order.AddOrUpdateOrderLineItem(productWrapper);
+            AdjustOrder(Order, productDetails);
             UpdateItemCount(Order.LineItems.Count);
         }
 
-        protected override ProductWrapper LoadCompleteProduct(ProductWrapper productWrapper)
+        public static void AdjustOrder(Sale order, ProductDetails productDetails)
         {
-            ProductWrapper completeProduct;
-
-            if (Order.ContainsProduct(productWrapper.MasterId))
+            if (productDetails.IsRemoved() && !productDetails.IsNew)
             {
-                completeProduct = Order.ItemAsProductWrapper(productWrapper.MasterId);
+                order.RemoveItem(productDetails.LineItem.Id, true);
             }
-            else
+            else if (productDetails.IsNew)
             {
-                completeProduct = base.LoadCompleteProduct(productWrapper);
+                order.AddItem(productDetails.SaleProduct, productDetails.Quantity);
             }
-            
-            completeProduct.MaxCaseQuantity = MaxQuantity;
-            completeProduct.MaxEachQuantity = MaxQuantity;
-            completeProduct.MaxEachReturnableQuantity = MaxQuantity;
-            completeProduct.MaxCaseReturnableQuantity = MaxQuantity;
-
-            return completeProduct;
+            else if (productDetails.HasQuantityChanged)
+            {
+                order.RemoveItem(productDetails.LineItem.Id, true);
+                order.AddItem(productDetails.SaleProduct, productDetails.Quantity);
+            }
         }
 
         protected override void OnSearch(string text)
         {
-            ApplyQuery(MakeOrderProductWrapper.ProductSearch(text));
+            ApplyQuery(MakeOrderProductDetails.ProductSearch(text));
         }
 
         protected override void OnSummaryIconClicked()
@@ -59,16 +54,15 @@ namespace Distributr.Mobile.MakeOrder
 
         protected override string GetInitialQuery()
         {
-            return ProductWrapper.AllProductsByNameAscending;
+            return ProductDetails.AllProductsByNameAscending;
         }
 
-
-        protected override void ShowProductSelector(ProductWrapper productWrapper)
+        protected override void ShowProductSelector(ProductDetails productDetails)
         {
-            var completeProduct = LoadCompleteProduct(productWrapper);
+            var completeProduct = LoadCompleteProduct(productDetails);
             var selector = new ProductSelectorDialog(Activity);
             selector.ItemStateChanged += HandleProductChanged;
-            selector.Show(completeProduct, displayReturnables:false);
+            selector.Show(completeProduct, allowSellReturnables:false);
         }
 
         protected override void ShowSortOptions()
@@ -81,10 +75,10 @@ namespace Distributr.Mobile.MakeOrder
                 switch (args.Item.ItemId)
                 {
                     case Resource.Id.sort_by_name_asc:
-                        ApplyQuery(ProductWrapper.AllProductsByNameAscending);
+                        ApplyQuery(ProductDetails.AllProductsByNameAscending);
                         break;
                     case Resource.Id.sort_by_name_desc:
-                        ApplyQuery(ProductWrapper.AllProductsByNameDescending);
+                        ApplyQuery(ProductDetails.AllProductsByNameDescending);
                         break;
                 }
             };

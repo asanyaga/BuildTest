@@ -45,20 +45,13 @@ namespace Distributr.Mobile.MakeOrder
         protected override void ShowProductEditor(ProductLineItem lineItem)
         {
             var dialog = new ProductSelectorDialog(Activity);
-            dialog.ItemStateChanged += delegate(ProductWrapper productWrapper)
+
+            dialog.ItemStateChanged += delegate(ProductDetails productDetails)
             {
-                Order.AddOrUpdateOrderLineItem(productWrapper);
+                MakeOrderFragment.AdjustOrder(Order, productDetails);
                 ApplyOrder();
             };
-
-            var product = Order.ItemAsProductWrapper(lineItem.Product.Id);
-
-            product.MaxEachQuantity = MakeOrderFragment.MaxQuantity;
-            product.MaxEachReturnableQuantity = MakeOrderFragment.MaxQuantity;
-            product.MaxCaseQuantity = MakeOrderFragment.MaxQuantity;
-            product.MaxCaseReturnableQuantity = MakeOrderFragment.MaxQuantity;
-
-            dialog.Show(product, displayReturnables: false);            
+            dialog.Show(new ProductDetails(lineItem));
         }
     }
 }

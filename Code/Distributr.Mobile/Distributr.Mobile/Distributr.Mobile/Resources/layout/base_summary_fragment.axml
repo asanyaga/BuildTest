@@ -2,63 +2,60 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="match_parent">
-  <LinearLayout
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:paddingBottom="@dimen/standard_screen_padding"
-      android:orientation="vertical">  
-  <LinearLayout
-        android:id="@+id/header"
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/standard_screen_padding"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/outlet_name"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/list_item_text_size"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:layout_marginTop="@dimen/standard_screen_padding"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="@dimen/standard_screen_padding"
-            android:layout_marginRight="@dimen/standard_screen_padding"
-            android:fontFamily="sans-serif-light"
-            android:textColor="@color/color_primary_text"
-             />
-        <TextView
-            android:id="@+id/outlet_address"
-            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/standard_screen_padding"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/outlet_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/list_item_text_size"
+                android:textAlignment="gravity"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/standard_screen_padding"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="@dimen/standard_screen_padding"
+                android:layout_marginRight="@dimen/standard_screen_padding"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/color_primary_text" />
+            <TextView
+                android:id="@+id/outlet_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/secondary_text_size"
+                android:textAlignment="gravity"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="@dimen/standard_screen_padding"
+                android:layout_marginRight="@dimen/standard_screen_padding"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/color_secondary_text" />
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/secondary_text_size"
+                android:textAlignment="gravity"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/standard_screen_padding"
+                android:layout_marginLeft="@dimen/standard_screen_padding"
+                android:layout_marginRight="@dimen/standard_screen_padding"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/color_secondary_text"
+                android:text="12/05/2015 14:47" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/secondary_text_size"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="@dimen/standard_screen_padding"
-            android:layout_marginRight="@dimen/standard_screen_padding"
-            android:fontFamily="sans-serif-light"
-            android:textColor="@color/color_accent"
-             />
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/secondary_text_size"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:layout_marginBottom="@dimen/standard_screen_padding"
-            android:layout_marginLeft="@dimen/standard_screen_padding"
-            android:layout_marginRight="@dimen/standard_screen_padding"
-            android:fontFamily="sans-serif-light"
-            android:textColor="@color/color_secondary_text"
-            android:text="12/05/2015 14:47" />
+            android:orientation="vertical" />
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/container"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    </LinearLayout>
-  </LinearLayout>
-  </ScrollView>
+</ScrollView>

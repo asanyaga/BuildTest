@@ -31,6 +31,8 @@ namespace Distributr.Mobile.OrderSale
         private void SetupViews(View parent)
         {
             var listView = parent.FindViewById<ListView>(Resource.Id.order_sale_list);
+            listView.EmptyView = SetupEmptyView(parent);
+
             listView.Adapter = orderHistoryListAdapter = new OrderHistoryListAdapter(Activity);
             listView.SetOnScrollListener(orderHistoryListAdapter);
             listView.ItemClick += delegate(object sender, AdapterView.ItemClickEventArgs args)
@@ -42,6 +44,11 @@ namespace Distributr.Mobile.OrderSale
             orderFilterDialog.OnApply += ApplyFilter;
 
             ApplyQuery(GetInitialQuery());
+        }
+
+        protected virtual View SetupEmptyView(View parent)
+        {
+            return parent.FindViewById<View>(Resource.Id.empty_orders);
         }
 
         protected override void Resumed()
@@ -65,7 +72,6 @@ namespace Distributr.Mobile.OrderSale
             });
         }
 
-
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
@@ -85,7 +91,7 @@ namespace Distributr.Mobile.OrderSale
 
         protected virtual void HandleItemClicked(OrderOrSale orderOrSale)
         {
-            var sale = Resolve<OrderRepository>().GetById(orderOrSale.OrderSaleId);
+            var sale = Resolve<SaleRepository>().GetById(orderOrSale.OrderSaleId);
             App.Put(sale);
             if (sale.ProcessingStatus == ProcessingStatus.Deliverable)
             {

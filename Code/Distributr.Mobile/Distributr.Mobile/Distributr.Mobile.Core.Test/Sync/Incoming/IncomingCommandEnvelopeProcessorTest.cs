@@ -73,7 +73,7 @@ namespace Distributr.Mobile.Core.Test.Sync.Incoming
         public void CanDownloadEnvelopesWhenHubDispatchesUnpaidOrderWithTwoLineItems()
         {          
             //Given             
-            var sale = AnUnpaidSaleForTwoItems().Build().Order;
+            var sale = AnUnpaidSaleForTwoItems().Build().Sale;
             sale.ProcessingStatus = ProcessingStatus.Submitted;
 
             Database.InsertOrReplaceWithChildren(sale, recursive: true);
