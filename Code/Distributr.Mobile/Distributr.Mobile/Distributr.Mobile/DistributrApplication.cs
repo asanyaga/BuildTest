@@ -88,9 +88,9 @@ namespace Distributr.Mobile.Core
             loginSyncComplete = true;
             if (User.IsNewUser)
             {
-                UpdateLastLoggedInUser();
-                User = UpdateLocalUser();
                 User.IsNewUser = false;
+                User = UpdateLocalUser();
+                UpdateLastLoggedInUser();
             }
         }
 

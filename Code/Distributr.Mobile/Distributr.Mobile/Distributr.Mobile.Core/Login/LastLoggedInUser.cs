@@ -2,7 +2,7 @@
 {
     public class LastLoggedInUser
     {
-        public string LastUser { get; set; }
+        public string Username { get; set; }
         public string CostCentreApplicationId { get; set; }
     }
 }

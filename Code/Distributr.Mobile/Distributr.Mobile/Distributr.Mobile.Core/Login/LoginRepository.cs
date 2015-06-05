@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Distributr.Mobile.Data;
 
 namespace Distributr.Mobile.Login
@@ -14,7 +15,7 @@ namespace Distributr.Mobile.Login
 
         public User FindUser(string username)
         {
-            return database.GetAll<User>().FirstOrDefault(user => (user.Username == username));
+            return database.GetAll<User>().FirstOrDefault(user => (String.Equals(user.Username, username, StringComparison.CurrentCultureIgnoreCase)));
         }
 
         public LastLoggedInUser GetLastUser()
@@ -27,7 +28,7 @@ namespace Distributr.Mobile.Login
             database.DeleteAll<LastLoggedInUser>();
             var last = new LastLoggedInUser
             {
-                LastUser = username,
+                Username = username,
                 CostCentreApplicationId = costCentreApplicationId
             };
             database.Insert(last);

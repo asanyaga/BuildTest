@@ -98,13 +98,13 @@ namespace Distributr.Mobile.Core.Test.Login
             var loginWorkflow = Resolve<LoginWorkflow>();
             var loginRepository = Resolve<LoginRepository>();
             loginRepository.SetLastUser("last user", "cost centre application id");
-            Assert.AreEqual("last user", loginRepository.GetLastUser().LastUser, "last user");
+            Assert.AreEqual("last user", loginRepository.GetLastUser().Username, "last user");
 
             //When
             var result = loginWorkflow.Login(user.Username, Password).Result;
 
             //Then
-            Assert.AreEqual(string.Empty, loginRepository.GetLastUser().LastUser, "last user");
+            Assert.AreEqual(string.Empty, loginRepository.GetLastUser().Username, "last user");
         }
 
     }
