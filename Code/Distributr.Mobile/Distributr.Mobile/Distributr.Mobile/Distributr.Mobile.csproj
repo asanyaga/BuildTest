@@ -230,6 +230,11 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_van_large.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_van_large.png" />
     <AndroidResource Include="Resources\drawable-xxXhdpi\ic_van_large.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_inventory_large.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_inventory_large.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_inventory_large.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_inventory_large.png" />
+    <AndroidResource Include="Resources\drawable-xxXhdpi\ic_inventory_large.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_shopping_basket_large.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_shopping_basket_large.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_shopping_basket_large.png" />
@@ -452,6 +457,7 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\product_list_header_with_stock.axml" />
+    <AndroidResource Include="Resources\layout\product_list_empty_view.axml" />
   </ItemGroup>
   <Import Project="..\Distributr.Mobile.Core\Distributr.Mobile.Core.projitems" Label="Shared" Condition="Exists('..\Distributr.Mobile.Core\Distributr.Mobile.Core.projitems')" />
   <Import Project="..\..\Distributr.Core.Shared\Distributr.Core.Shared.projitems" Label="Shared" Condition="Exists('..\..\Distributr.Core.Shared\Distributr.Core.Shared.projitems')" />
