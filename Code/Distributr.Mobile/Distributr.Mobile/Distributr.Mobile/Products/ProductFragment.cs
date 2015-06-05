@@ -33,6 +33,7 @@ namespace Distributr.Mobile.Products
         {
             var productList = parent.FindViewById<ListView>(Resource.Id.products_list);
             var headerView = GetHeaderView();
+            productList.EmptyView = SetupEmptyView(parent);
             productList.AddHeaderView(headerView, null, false);
             productListAdapter = new ProductsListAdapter<P>(Activity);
 
@@ -46,6 +47,11 @@ namespace Distributr.Mobile.Products
             productList.SetOnScrollListener(productListAdapter);
 
             ApplyQuery(GetInitialQuery());
+        }
+
+        protected virtual View SetupEmptyView(View parent)
+        {
+            return default(View);
         }
 
         protected abstract View GetHeaderView();
