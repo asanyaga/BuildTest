@@ -30,14 +30,14 @@ namespace Distributr.Mobile.Core.Products
             InsertProduct("g");
             InsertProduct("z");
 
-            var result = Database.Query<ProductWrapper>(ProductWrapper.AllProductsByNameAscending);
+            var result = Database.Query<ProductDetails>(ProductDetails.AllProductsByNameAscending);
 
             Assert.AreEqual(3, result.Count, "count");
             Assert.AreEqual("a", result[0].Description, "first description");
             Assert.AreEqual("g", result[1].Description, "second description");
             Assert.AreEqual("z", result[2].Description, "third description");
 
-            result = Database.Query<ProductWrapper>(ProductWrapper.AllProductsByNameDescending);
+            result = Database.Query<ProductDetails>(ProductDetails.AllProductsByNameDescending);
 
             Assert.AreEqual(3, result.Count, "count");                       
             Assert.AreEqual("z", result[0].Description, "first description");
@@ -52,14 +52,14 @@ namespace Distributr.Mobile.Core.Products
             InsertProduct("2", 2);
             InsertProduct("3", 3);
 
-            var result = Database.Query<ProductWrapper>(ProductWrapper.InventoryProductsByBalanceAscending);
+            var result = Database.Query<ProductDetails>(ProductDetails.InventoryProductsByBalanceAscending);
 
             Assert.AreEqual(3, result.Count, "count");    
             Assert.AreEqual("1", result[0].Description, "first description");
             Assert.AreEqual("2", result[1].Description, "second description");
             Assert.AreEqual("3", result[2].Description, "third description");
            
-            result = Database.Query<ProductWrapper>(ProductWrapper.InventoryProductsByBalanceDescending);
+            result = Database.Query<ProductDetails>(ProductDetails.InventoryProductsByBalanceDescending);
 
             Assert.AreEqual(3, result.Count, "count");    
             Assert.AreEqual("3", result[0].Description, "first description");

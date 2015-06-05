@@ -8,7 +8,7 @@ using Mobile.Common.Core;
 
 namespace Distributr.Mobile.Products
 {
-    public abstract class ProductFragment<P> : TabbedFragment<User> where P : ProductWrapper, new()
+    public abstract class ProductFragment<P> : TabbedFragment<User> where P : ProductDetails, new()
     {
         private TextView itemCount;
         private ProductsListAdapter<P> productListAdapter;
@@ -19,8 +19,8 @@ namespace Distributr.Mobile.Products
             SetupSearch();
         }
 
-        protected abstract ProductWrapper LoadCompleteProduct(ProductWrapper productWrapper);
-        protected abstract void HandleProductChanged(ProductWrapper productWrapper);
+        protected abstract ProductDetails LoadCompleteProduct(ProductDetails productDetails);
+        protected abstract void HandleProductChanged(ProductDetails productDetails);
         protected abstract string GetInitialQuery();
         protected abstract void OnSummaryIconClicked();
 
@@ -47,7 +47,7 @@ namespace Distributr.Mobile.Products
             ApplyQuery(GetInitialQuery());
         }
 
-        protected abstract void ShowProductSelector(ProductWrapper productWrapper);
+        protected abstract void ShowProductSelector(ProductDetails productDetails);
 
         protected void UpdateItemCount(int count)
         {

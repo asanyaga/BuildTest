@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Distributr.Core.Commands.DocumentCommands.DispatchNotes;
+using Distributr.Core.Domain.Transactional.DocumentEntities;
 using Distributr.Mobile.Core.MakeSale;
 using Distributr.Mobile.Core.OrderSale;
 using Distributr.Mobile.Core.OrderSale.EnvelopeBuilders;
@@ -17,13 +18,12 @@ namespace Distributr.Mobile.Core.Test.OrderSale
         {
             //Given
             var saleAndContext = AFullyPaidCashSaleAndContext();
-            var order = saleAndContext.Order;
+            var order = saleAndContext.Sale;
             var context = saleAndContext.Context;
 
             var builder = new SaleEnvelopeBuilder(order, new DispatchNoteEnvelopeBuilder(context));
 
             //When 
-            order.ApproveNewLineItems();
             var result = builder.Build();
 
             Console.WriteLine(JsonConvert.SerializeObject(result[0], Formatting.Indented));
@@ -35,6 +35,7 @@ namespace Distributr.Mobile.Core.Test.OrderSale
             //Check CreateDispatchNote 
             var createDispatchNote = documentCommands.OfType<CreateDispatchNoteCommand>().First();
             Assert.AreEqual(context.ParentDocumentId, createDispatchNote.OrderId, "Order Id");
+            Assert.AreEqual(2, createDispatchNote.DispatchNoteType, "DispatchNote Type");
 
             var addDispatchNoteLineItems = documentCommands.OfType<AddDispatchNoteLineItemCommand>().ToList();
 

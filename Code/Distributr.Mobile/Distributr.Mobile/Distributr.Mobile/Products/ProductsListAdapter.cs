@@ -9,7 +9,7 @@ using Mobile.Common.Core.Views;
 
 namespace Distributr.Mobile.Products
 {
-    public class ProductsListAdapter<T> : FixedSizeListAdapter<T> where T : ProductWrapper, new()  
+    public class ProductsListAdapter<T> : FixedSizeListAdapter<T> where T : ProductDetails, new()  
     {
         private readonly Context context;
 
@@ -45,7 +45,7 @@ namespace Distributr.Mobile.Products
 
             holder.Name.Text = product.Description;
 
-            var saleProduct = product as MakeSaleProductWrapper;
+            var saleProduct = product as MakeSaleProductDetails;
 
             if (saleProduct != null)
             {

@@ -16,7 +16,7 @@ namespace Distributr.Mobile.Core.Test.OrderSale
         {
             //Given
             var saleAndContext = AFullyPaidCashSaleAndContext();
-            var sale = saleAndContext.Order;
+            var sale = saleAndContext.Sale;
             var context = saleAndContext.Context;
 
             var builder = new SaleEnvelopeBuilder(sale, new ReceiptEnvelopeBuilder(context));

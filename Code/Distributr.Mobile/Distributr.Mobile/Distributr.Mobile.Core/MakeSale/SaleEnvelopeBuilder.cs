@@ -18,9 +18,9 @@ namespace Distributr.Mobile.Core.MakeSale
 
         public List<CommandEnvelope> Build()
         {
-            Order.AllItems.ForEach(lineItem =>
+            Order.AllInvoiceItems.ForEach(lineItem =>
             {
-                RootBuilder.Handle(lineItem, lineItem.ApprovedQuantity);
+                RootBuilder.Handle(lineItem, lineItem.SaleQuantity);
             });
             Order.Payments.ForEach(payment =>
             {

@@ -6,7 +6,7 @@ using Distributr.Mobile.Core.Products;
 
 namespace Distributr.Mobile.Products
 {
-    public delegate void EventHandler(ProductWrapper productWrapper);
+    public delegate void EventHandler(ProductDetails productDetails);
 
     public class ProductSelectorDialog : Dialog
     {
@@ -14,21 +14,20 @@ namespace Distributr.Mobile.Products
 
         public ProductSelectorDialog(Context context) : base(new ContextThemeWrapper(context, Resource.Style.AppTheme))
         {
-            
+            RequestWindowFeature((int)WindowFeatures.NoTitle);
         }
 
-        public void Show(ProductWrapper productWrapper, bool displayReturnables = true, bool editProducts = true)
+        public void Show(ProductDetails productDetails, bool allowSellReturnables = false, bool showAvailable = false, bool editProducts = true)
         {
-            RequestWindowFeature((int) WindowFeatures.NoTitle);
             var selector = (ProductSelector) LayoutInflater.Inflate(Resource.Layout.product_item_selector, null);
             var done = selector.FindViewById<Button>(Resource.Id.done);
             done.Click += delegate
             {
-                if (IsValid(productWrapper))
+                if (productDetails.IsValid)
                 {
                     selector.ShowError("");
                     Dismiss();
-                    ItemStateChanged(productWrapper);
+                    ItemStateChanged(productDetails);
                 }
                 else
                 {
@@ -36,19 +35,9 @@ namespace Distributr.Mobile.Products
                 }
             };
 
-            selector.DisplayProduct(productWrapper, displayReturnables, editProducts);
+            selector.DisplayProduct(productDetails, allowSellReturnables,showAvailable, editProducts);
             SetContentView(selector);                        
             Show();
-        }
-
-        private bool IsValid(ProductWrapper productWrapper)
-        {
-            var totalQuantity = productWrapper.EachQuantity +
-                                (productWrapper.SaleProduct.ContainerCapacity*productWrapper.CaseQuantity);
-
-            return (totalQuantity <= productWrapper.MaxQuantity) &&
-                        (productWrapper.CaseReturnableQuantity <= productWrapper.MaxCaseReturnableQuantity) &&
-                        (productWrapper.EachReturnableQuantity <= productWrapper.MaxEachReturnableQuantity);
         }
     }
 }

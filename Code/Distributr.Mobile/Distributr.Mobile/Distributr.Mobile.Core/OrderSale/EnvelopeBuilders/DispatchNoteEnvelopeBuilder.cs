@@ -38,7 +38,7 @@ namespace Distributr.Mobile.Core.OrderSale.EnvelopeBuilders
 
         protected override void ProcessLineItem(BaseProductLineItem item, decimal quantity)
         {
-            var returnableItem = item as ReturnableProductLineItem;
+            var returnableItem = item as ReturnableLineItem;
 
             if (returnableItem != null)
             {

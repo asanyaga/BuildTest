@@ -13,9 +13,6 @@
   <string name="login_settings_server_url_field_title">Server Address</string>
   <string name="login_settings_save_button_text">Done</string>
   
-  <!-- Product Selector Dialog -->
-  <string name="product_selector_title">Select Quantity</string>
-
   <!-- Routes Screen -->
   <string name="routes_screen_title">Routes</string>
   <string name="routes_screen_by_name_title">By Name</string>
@@ -32,20 +29,23 @@
   <string name="sort_by_name_desc">Name: Descending</string>
   <string name="make_order">Make Order</string>
   <string name="make_order_description">Sell goods to be delivered at a later date</string>
+  <string name="make_order_empty_list">You no have orders at the moment</string>
 
   <!-- Make Delivery -->
   <string name="make_delivery">Make Delivery</string>
   <string name="make_delivery_description">Delivery goods from a previous order</string>
-  
+  <string name="make_delivery_empty_list">You have no deliveries at the moment</string>
+
   <!-- Stock Take -->
   <string name="stock_take">Stock Take</string>
   <string name="stock_take_description">Perform a stock take of the Outlet\&#39;s inventory</string>
 
   <!--Product Selector -->
-  <string name="product_selector_description">Description</string>
+  <string name="product_selector_unit_type">Unit</string>
   <string name="product_selector_available">Avail.</string>
   <string name="product_selector_required">Req.</string>
-  <string name="product_selector_done_button_text">DONE</string>  
+  <string name="product_selector_done_button_text">DONE</string>
+  <string name="product_selector_sell_returnables">Sell Returnables</string>
   <string name="product_selector_insufficient_stock">Insufficient stock</string>
   
   <!-- Receive Payment Screens-->

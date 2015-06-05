@@ -10,23 +10,21 @@ namespace Distributr.Mobile.Core.Test.MakeDelivery
 {
     public class DeliveryProcessorTest : WithFullDatabaseTest
     {
-
         [Test]
         public void CanMakeADeliveryForOneItemAndSellReturnableReceivingCashPayment()
         {
             //Given 
             var orderAndContext = AnOrderAndContextBuilder()
-                .AddLineItem(ASaleProduct(), 1, 0, eachReturnableQuantity:1)
+                .AddLineItem(ASaleProduct(), 1, sellReturnables:true)
                 .Build();
 
-            var order = orderAndContext.Order;
+            var order = orderAndContext.Sale;
             var context = orderAndContext.Context;
             
-            order.ApproveNewLineItems();
-            order.LineItems[0].ItemReturnable.SaleQuantity = 1;
+            order.AllItems.ForEach(i => i.LineItemStatus = LineItemStatus.Approved);
+            order.ReturnableLineItems[0].SaleQuantity = 1;
             order.AddCashPayment("cash reference", order.TotalValueIncludingVat);            
             
-
             var deliveryProcessor = Resolve<DeliveryProcessor>();
 
             //When 
@@ -68,14 +66,15 @@ namespace Distributr.Mobile.Core.Test.MakeDelivery
         {
             //Given 
             var orderAndContext = AnUnpaidOrderForTwoItems().Build();
-            var order = orderAndContext.Order;
+            var order = orderAndContext.Sale;
             var context = orderAndContext.Context;
 
             var deliveryProcessor = Resolve<DeliveryProcessor>();
             //This step is normally perform by IncomingCommandHandleron on receiving the dispatched order from the Hub
             var item1 = order.LineItems[0];
-            item1.ApprovedQuantity = item1.ItemReturnable.ApprovedQuantity = item1.Quantity;
-            item1.LineItemStatus = item1.ItemReturnable.LineItemStatus = LineItemStatus.Approved;
+            item1.LineItemStatus = LineItemStatus.Approved;
+            item1.SaleQuantity = item1.Quantity;
+            order.ReturnableLineItems[0].LineItemStatus = LineItemStatus.Approved;
 
             //When
             var result = deliveryProcessor.Process(order, context);

@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Distributr.Core.Commands.DocumentCommands.AdjustmentNotes;
+using Distributr.Core.Commands.DocumentCommands.DispatchNotes;
 using Distributr.Core.Commands.DocumentCommands.InventoryTransferNotes;
 using Distributr.Core.Commands.DocumentCommands.Invoices;
 using Distributr.Core.Commands.DocumentCommands.Orders;
@@ -10,27 +11,30 @@ using Distributr.Core.Domain.Transactional;
 using Distributr.Mobile.Core.OrderSale;
 using Distributr.Mobile.Core.Outlets;
 using Distributr.Mobile.Core.Products;
+using Distributr.Mobile.Core.Test;
+using Order = Distributr.Mobile.Core.OrderSale.Order;
 
 namespace Distributr.Mobile.Core.Sync.Incoming
 {    
     public class IncomingCommandHandler
     {
-        private readonly IOrderRepository orderRepository;
+        private readonly ISaleRepository saleRepository;
         private readonly IOutletRepository outletRepository;
         private readonly ISaleProductRepository saleProductRepository;
         private readonly IInventoryRepository inventoryRepository;
+        private readonly IReturnableProductRepository returnableProductRepository;
 
-        private Order currentOrder;
-        private bool orderRebuiltFromCommands;
+        private Sale currentSale;
         private Guid? currentParentGuid;
-        private ProductLineItem lastItem;
+        private int currentDispatchNoteType;
 
-        public IncomingCommandHandler(IOrderRepository orderRepository, IOutletRepository outletRepository, ISaleProductRepository saleProductRepository, IInventoryRepository inventoryRepository)
+        public IncomingCommandHandler(ISaleRepository saleRepository, IOutletRepository outletRepository, ISaleProductRepository saleProductRepository, IInventoryRepository inventoryRepository, IReturnableProductRepository returnableProductRepository)
         {
-            this.orderRepository = orderRepository;
+            this.saleRepository = saleRepository;
             this.outletRepository = outletRepository;
             this.saleProductRepository = saleProductRepository;
             this.inventoryRepository = inventoryRepository;
+            this.returnableProductRepository = returnableProductRepository;
         }
 
         public void Handle(CreateMainOrderCommand command)
@@ -44,7 +48,7 @@ namespace Distributr.Mobile.Core.Sync.Incoming
                 return;
             }
 
-            currentOrder = new Order(command.PDCommandId, outletRepository.GetById(command.IssuedOnBehalfOfCostCentreId))
+            currentSale = new Sale(command.PDCommandId, outletRepository.GetById(command.IssuedOnBehalfOfCostCentreId))
             {
                 ShipToAddress = command.ShipToAddress,
                 SaleDiscount = command.SaleDiscount,
@@ -53,7 +57,6 @@ namespace Distributr.Mobile.Core.Sync.Incoming
                 ProcessingStatus = ProcessingStatus.Submitted,
                 _DateCreated = command.DocumentDateIssued,
             };
-            orderRebuiltFromCommands = true;
         }
 
         public void Handle(ApproveOrderLineItemCommand command)
@@ -63,8 +66,9 @@ namespace Distributr.Mobile.Core.Sync.Incoming
             
             if (approvedItem != null)
             {
-                approvedItem.ApprovedQuantity = command.ApprovedQuantity;
                 approvedItem.LineItemStatus = LineItemStatus.Approved;
+                if (approvedItem is ReturnableLineItem) return;
+                approvedItem.SaleQuantity = command.ApprovedQuantity;
             }
             else
             {
@@ -85,7 +89,6 @@ namespace Distributr.Mobile.Core.Sync.Incoming
                 //Product will be null for returnable items 
                 if (product == null )
                 {
-                    if (lastItem == null) return;
                     item = AddReturnableLineItem(order, command);
                 }
                 else
@@ -93,50 +96,28 @@ namespace Distributr.Mobile.Core.Sync.Incoming
                     item = AddProductLineItem(order, product, command);
                 }
 
-                if (item == null) return;
-                item.ApprovedQuantity = command.Qty;
-                item.LineItemStatus = LineItemStatus.Approved;
+                item.Quantity = command.Qty;
             }
         }
 
         private BaseProductLineItem AddProductLineItem(Order order, SaleProduct product, AddMainOrderLineItemCommand command)
         {
-            var item = order.AddLineItem(
-                command.CommandId,
-                product,
-                command.Qty,
-                command.Qty,
-                0,
-                0,
-                command.ValueLineItem,
-                command.LineItemVatValue / command.ValueLineItem);
+            var vatRate = command.LineItemVatValue/command.ValueLineItem;
 
-            lastItem = item;
-            return item;
+            return order.AddItem(command.CommandId, product, product.Id, command.Qty, command.ValueLineItem, vatRate);
         }
 
         private BaseProductLineItem AddReturnableLineItem(Order order, AddMainOrderLineItemCommand command)
         {
-            var rerturnableItem = order.CreateReturnableLineItem(null, command.ProductId, command.ValueLineItem, command.Qty, command.Qty);
-
-            var item = order.LineItems.Find(l => l.Id == lastItem.Id);
-
-            if (item.Product.ReturnableProductMasterId == command.ProductId)
-            {
-                item.ItemReturnable = rerturnableItem;
-            }
-            else
-            {
-                item.ContainerReturnable = rerturnableItem;
-            }
-
+            var returnableProduct = returnableProductRepository.GetById(command.ProductId);
+            var rerturnableItem = order.AddReturnableItem(command.CommandId, returnableProduct, command.ProductId, command.Qty, command.ValueLineItem);
             return rerturnableItem;
         }
 
         public void Handle(AddReceiptLineItemCommand command)
         {
             var order = GetOrder();
-            if (order == null || !orderRebuiltFromCommands) return;
+            if (order == null) return;
 
             var existing = order.Payments.Find(p => p.PaymentReference == command.Description);
             if (existing != null) return;
@@ -179,6 +160,25 @@ namespace Distributr.Mobile.Core.Sync.Incoming
             if (order != null)
             {
                 order.ProcessingStatus = ProcessingStatus.Confirmed;
+            }
+        }
+
+        public void Handle(CreateDispatchNoteCommand command)
+        {
+            currentDispatchNoteType = command.DispatchNoteType;
+        }
+
+        public void Handle(AddDispatchNoteLineItemCommand command)
+        {
+            if (currentDispatchNoteType != 2) return;
+            
+            var order = GetOrder();
+            if (order != null)
+            {
+                var item = order.ReturnableLineItems.Find(r => r.ProductMasterId == command.ProductId && r.Quantity == command.Qty);
+                if (item == null) return;
+                item.SaleQuantity = command.Qty;
+                item.LineItemStatus = LineItemStatus.Approved;
             }
         }
 
@@ -231,24 +231,22 @@ namespace Distributr.Mobile.Core.Sync.Incoming
 
         public Order GetOrder()
         {
-            return currentOrder ?? (currentOrder = orderRepository.FindById(currentParentGuid.GetValueOrDefault()));
+            return currentSale ?? (currentSale = saleRepository.FindById(currentParentGuid.GetValueOrDefault()));
         }
-
 
         public void Save()
         {
-            if (currentOrder != null)
+            if (currentSale != null)
             {
-                orderRepository.Save(currentOrder);
+                saleRepository.Save(currentSale);
             }
         }
 
         public void Init(Guid parentDoucmentGuid)
         {
             currentParentGuid = parentDoucmentGuid;
-            currentOrder = null;
-            orderRebuiltFromCommands = false;
-            lastItem = null;            
+            currentDispatchNoteType = -1;
+            currentSale = null;
         }
     }
 }

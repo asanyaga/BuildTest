@@ -10,15 +10,15 @@ using Mobile.Common.Core;
 
 namespace Distributr.Mobile.OrderSale
 {
-    public abstract class BaseMakeOrderOrSaleFragment<P> : ProductFragment<P> where P : ProductWrapper, new()
+    public abstract class BaseMakeOrderOrSaleFragment<P> : ProductFragment<P> where P : ProductDetails, new()
     {
         protected InventoryRepository InventoryRepository;
         private SaleProductRepository saleProductRepository;
-        protected Order Order;
+        protected Sale Order;
 
         public override void Created(Bundle bundle)
         {
-            Order = new Order(Guid.NewGuid(), App.Get<Outlet>());
+            Order = new Sale(Guid.NewGuid(), App.Get<Outlet>());
             App.Put(Order);
             InventoryRepository = Resolve<InventoryRepository>();
         }
@@ -45,16 +45,22 @@ namespace Distributr.Mobile.OrderSale
             });
         }
 
-        protected override ProductWrapper LoadCompleteProduct(ProductWrapper productWrapper)
+        protected override ProductDetails LoadCompleteProduct(ProductDetails productDetails)
         {
-            var saleProduct = saleProductRepository.GetById(productWrapper.MasterId);
-            var tier = Order.Outlet.OutletProductPricingTier;
-            productWrapper.Price = saleProduct.ProductPrice(tier);
-            productWrapper.SaleProduct = saleProduct;
-            productWrapper.EachReturnablePrice = saleProduct.ReturnableProduct.ProductPrice(tier);
-            productWrapper.CaseReturnablePrice = saleProduct.ReturnableContainer.ProductPrice(tier);
+            var existingItem = Order.FindLineItem(productDetails.MasterId);
+            if (existingItem != null)
+            {
+                return new ProductDetails(existingItem);         
+            }
 
-            return productWrapper;
+            var saleProduct = saleProductRepository.GetById(productDetails.MasterId);
+            
+            var tier = Order.Outlet.OutletProductPricingTier;
+
+            productDetails.Price = saleProduct.ProductPrice(tier);
+            productDetails.SaleProduct = saleProduct;
+
+            return productDetails;
         }
 
         protected override void Paused()

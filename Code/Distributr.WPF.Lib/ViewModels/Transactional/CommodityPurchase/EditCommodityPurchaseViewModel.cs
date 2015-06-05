@@ -1206,6 +1206,7 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityPurchase
                             MessageBox.Show("Select a commody first");
                             return;
                         }
+                        LoadGrades();
                         SelectedGrade = Using<IAgrimanagrComboPopUp>(container).ShowDlg(sender) as CommodityGrade;
 
                     }

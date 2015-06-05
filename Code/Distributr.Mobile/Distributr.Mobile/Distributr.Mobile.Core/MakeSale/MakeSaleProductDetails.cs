@@ -2,7 +2,7 @@
 
 namespace Distributr.Mobile.Core.MakeSale
 {
-    public class MakeSaleProductWrapper : ProductWrapper
+    public class MakeSaleProductDetails : ProductDetails
     {
         public static string InventoryProductSearch(string searchText)
         {

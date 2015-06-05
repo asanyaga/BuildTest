@@ -14,12 +14,14 @@
             android:text="Coke 300ML"
             android:id="@+id/description"
             android:singleLine="false"
+            android:textColor="@color/color_accent"
             android:layout_weight="1" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="99999"
             android:id="@+id/available"
+            android:visibility="invisible"
             android:layout_marginRight="8dp" />
         <EditText
             android:layout_width="100dp"
@@ -37,7 +39,7 @@
             android:text="27"
             android:id="@+id/price"
             android:layout_marginRight="8dp"
-            android:textColor="@color/color_accent"
+            android:textColor="@color/color_primary_text"
             android:singleLine="false" />
         <TextView
             android:layout_width="wrap_content"

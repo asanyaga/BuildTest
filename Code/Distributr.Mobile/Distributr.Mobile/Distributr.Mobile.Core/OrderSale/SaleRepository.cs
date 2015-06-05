@@ -3,22 +3,22 @@ using Distributr.Mobile.Data;
 
 namespace Distributr.Mobile.Core.OrderSale
 {
-    public class OrderRepository : BaseRepository<Order>, IOrderRepository
+    public class SaleRepository : BaseRepository<Sale>, ISaleRepository
     {
         private readonly Database database;
 
-        public OrderRepository(Database database) : base(database)
+        public SaleRepository(Database database) : base(database)
         {
             this.database = database;
         }
 
-        public Order FindById(Guid id)
+        public Sale FindById(Guid id)
         {
-            if (database.Find<Order>(id) != null)
+            if (database.Find<Sale>(id) != null)
             {
                 return GetById(id);
             }
-            return default(Order);
+            return default(Sale);
         }
     }
 }
