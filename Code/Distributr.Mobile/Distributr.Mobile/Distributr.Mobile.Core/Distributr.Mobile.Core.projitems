@@ -136,4 +136,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Documentation\sdk_manager_hax.png" />
     <Content Include="$(MSBuildThisFileDirectory)Documentation\System Overview.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Documentation\DISTRIBUTR DISCOUNTS.docx" />
+  </ItemGroup>
 </Project>

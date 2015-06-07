@@ -25,7 +25,7 @@ namespace Distributr.Mobile.Core.Discounts
                 .Where(
                     p =>
                         p.ProductMasterId == productId && p.DiscountGroupMasterId == groupId && p.Quantity <= quantity &&
-                        p._Status == EntityStatus.Active && p.EffectiveDate.Date <= discountdate &&
+                        p._Status == EntityStatus.Active && p.EffectiveDate <= discountdate &&
                         p.EndDate >= discountdate)
                 .OrderByDescending(p => p.Quantity)
                 .ThenByDescending(p => p.EffectiveDate)

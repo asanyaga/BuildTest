@@ -23,7 +23,7 @@
   <string name="sort_by_balance_asc">Stock: Low to High</string>
   <string name="make_sale">Make Sale</string>
   <string name="make_sale_description">Sell goods from your inventory</string>
-  <string name="make_sale_empty_inventory">You have no stock at the moment</string>
+  <string name="make_sale_empty_inventory">No stock found</string>
 
 
   <!-- Make Order Screens-->
@@ -31,12 +31,12 @@
   <string name="sort_by_name_desc">Name: Descending</string>
   <string name="make_order">Make Order</string>
   <string name="make_order_description">Sell goods to be delivered at a later date</string>
-  <string name="make_order_empty_list">You have no orders at the moment</string>
+  <string name="make_order_empty_list">No orders found</string>
 
   <!-- Make Delivery -->
   <string name="make_delivery">Make Delivery</string>
   <string name="make_delivery_description">Delivery goods from a previous order</string>
-  <string name="make_delivery_empty_list">You have no deliveries at the moment</string>
+  <string name="make_delivery_empty_list">No deliveries found</string>
 
   <!-- Stock Take -->
   <string name="stock_take">Stock Take</string>

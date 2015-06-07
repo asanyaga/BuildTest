@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Distributr.Core.Domain.Master;
 using Distributr.Core.Domain.Master.ProductEntities;
 using Distributr.Core.Repository.Master.ProductRepositories;
 using Distributr.Core.Utility.MasterData;

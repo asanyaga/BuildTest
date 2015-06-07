@@ -75,20 +75,12 @@ namespace Distributr.Core.Domain.Master.ProductEntities
 
             public CertainValueCertainProductDiscountItem(Guid id, DateTime dateCreated, DateTime dateLastUpdated, EntityStatus isActive)
                 : base(id, dateCreated, dateLastUpdated, isActive) { }
-
            
             public decimal CertainValue { get; set; }
         #if __MOBILE__
-            [ForeignKey(typeof(Product))]
-            public Guid ProductMasterId { get; set; }
-
-            [OneToOne(CascadeOperations = CascadeOperation.CascadeRead | CascadeOperation.CascadeInsert)]
-            public Product ProductToDiscount { get; set; }
-
             [Ignore]
         #endif
             public ProductRef Product { get; set; }
-
 
             public int Quantity { get; set; }
             public DateTime EffectiveDate { get; set; }

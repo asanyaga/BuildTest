@@ -17,13 +17,15 @@ namespace Distributr.Mobile.Core.Discounts
 
         public CertainValueCertainProductDiscount GetByAmount(decimal amount)
         {
-            return database.Table<CertainValueCertainProductDiscount>()
+            var item = database.Table<CertainValueCertainProductDiscount.CertainValueCertainProductDiscountItem>()
                 .Where(
                     c =>
-                        amount >= c.InitialValue && c.CurrentEffectiveDate.Date <= DateTime.Now.Date &&
-                        c.CurrentEndDate >= DateTime.Now.Date)
-                .OrderByDescending(c => c.InitialValue)
+                        amount >= c.CertainValue && c.EffectiveDate <= DateTime.Now &&
+                        c.EndDate >= DateTime.Now)
+                .OrderByDescending(c => c.CertainValue)
                 .FirstOrDefault();
+            
+            return item != null ? GetById(item.CertainValueCertainProductDiscountId) : default(CertainValueCertainProductDiscount);
         }
 
         // 

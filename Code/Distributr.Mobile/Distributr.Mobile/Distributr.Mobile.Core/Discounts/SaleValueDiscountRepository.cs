@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using Distributr.Core.Domain.Master.ProductEntities;
 using Distributr.Core.Repository.Master.ProductRepositories;
 using Distributr.Core.Utility.MasterData;
 using Distributr.Mobile.Data;
+using SQLiteNetExtensions.Extensions;
 
 namespace Distributr.Mobile.Core.Discounts
 {
@@ -17,13 +19,9 @@ namespace Distributr.Mobile.Core.Discounts
 
         public SaleValueDiscount GetCurrentDiscount(decimal amount, Guid tierId)
         {
-            return database.Table<SaleValueDiscount>()
-                .Where(
-                    s =>
-                        s.TierMasterId == tierId && s.CurrentSaleValue <= amount &&
-                        s.CurrentEffectiveDate.Date <= DateTime.Now.Date && s.CurrentEndDate.Date >= DateTime.Now.Date)
-                .OrderBy(o => o.CurrentSaleValue)
-                .FirstOrDefault();
+            var discount = database.GetAllWithChildren<SaleValueDiscount>(s => s.TierMasterId == tierId).FirstOrDefault();
+            if (discount == null) return default(SaleValueDiscount);
+            return discount.GetPercentageDiscount(amount) > 0 ? discount : default(SaleValueDiscount);
         }
 
         // 

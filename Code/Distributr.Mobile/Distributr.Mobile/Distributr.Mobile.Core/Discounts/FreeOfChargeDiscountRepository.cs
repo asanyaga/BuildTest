@@ -18,11 +18,8 @@ namespace Distributr.Mobile.Core.Discounts
         public bool IsProductFreeOfCharge(Guid productId)
         {
             return database.Table<FreeOfChargeDiscount>()
-                .Where(
-                    a =>
-                        a.ProductRef.ProductId == productId && a.StartDate.Date <= DateTime.Now.Date &&
-                        a.EndDate.Date >= DateTime.Now.Date)
-                .Count() > 0;
+                .Count(a => a.ProductRefMasterId == productId && a.StartDate <= DateTime.Now &&
+                            a.EndDate >= DateTime.Now) > 0;
         }
 
         // 
