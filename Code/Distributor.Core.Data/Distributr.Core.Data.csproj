@@ -452,6 +452,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="log4net.xml" />
+    <Content Include="Resources\Order\PurchaseOrdersPendingDispatch.sql" />
     <Content Include="Resources\Others\GetNextDocRef.sql" />
     <Content Include="Resources\IntegrationResources\SaleOrderPendingExport.sql">
       <Generator>ResXFileCodeGenerator</Generator>
