@@ -3683,6 +3683,7 @@ sl.invoice.cn.grid.col.amount = Amount
 sl.invoice.receipt.grid.col.reference = Receipt Reference
 sl.invoice.receipt.grid.col.date = Receipt Date
 sl.invoice.receipt.grid.col.paid = Amount Paid
+sl.invoice.order.outletname=Customer Name:
 
 #SL Issue Inventory
 sl.issueInventory.salesman_lbl = Salesman:
