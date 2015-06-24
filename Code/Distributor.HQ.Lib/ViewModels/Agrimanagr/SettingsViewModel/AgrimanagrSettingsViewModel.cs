@@ -69,6 +69,16 @@ namespace Distributr.HQ.Lib.ViewModels.Agrimanagr.SettingsViewModel
 
         [Display(Name="Show Container Number")]
         public bool ShowContainerNumber { get; set; }
+
+        [Display(Name = "Show Farm Activities")]
+        public bool ShowFarmActivities { get; set; }
+
+        [Display(Name = "Show Warehouse Receipt")]
+        public bool ShowWarehouseReceipt { get; set; }
+
+        
+        [Display(Name = "Enforce Hide Farm on Phone")]
+        public bool EnforceHideFarmOnPhone { get; set; }
     }
 
     public class AgrimanagrReportSettingViewModel
