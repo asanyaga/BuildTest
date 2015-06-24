@@ -73,7 +73,14 @@ Global Settings &gt; Settings
     </td>
 </tr>
 
- <tr>
+<tr>
+    <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.ShowContainerNumber)</strong></td>
+    <td>
+        <span class="text-box-cshtml"> @Html.EditorFor(model => model.ShowContainerNumber)</span>
+        <span class="inline-error">  @Html.ValidationMessageFor(model => model.ShowContainerNumber)</span>
+    </td>
+</tr>
+    <tr>
     <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.WeighingContainerForStorage)</strong></td>
     <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.WeighingContainerForStorage)</span> 
         <span class="inline-error">  @Html.ValidationMessageFor(model => model.WeighingContainerForStorage)</span> 

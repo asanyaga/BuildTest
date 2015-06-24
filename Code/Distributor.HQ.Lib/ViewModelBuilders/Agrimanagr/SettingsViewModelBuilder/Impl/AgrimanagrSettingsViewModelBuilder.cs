@@ -364,6 +364,9 @@ namespace Distributr.HQ.Lib.ViewModelBuilders.Agrimanagr.SettingsViewModelBuilde
                         model.MinimumWeightLimit = mn;
                         model.MaximumWeightLimit = mx;
                         break;
+                    case SettingsKeys.ShowContainerNumber:
+                        model.ShowContainerNumber = Boolean.Parse(appSetting.Value);
+                        break;
                 }
             }
 
@@ -394,6 +397,7 @@ namespace Distributr.HQ.Lib.ViewModelBuilders.Agrimanagr.SettingsViewModelBuilde
             settingenums.Add(SettingsKeys.EnforcePasswordChange);
             settingenums.Add(SettingsKeys.EnforceGps);
             settingenums.Add(SettingsKeys.EnforceTransactionalWeightLimit);
+            settingenums.Add(SettingsKeys.ShowContainerNumber);
 
             var items = new List<AppSettings>();
             foreach (var settingenum in settingenums)
@@ -483,6 +487,9 @@ namespace Distributr.HQ.Lib.ViewModelBuilders.Agrimanagr.SettingsViewModelBuilde
                             setting.Value = model.EnforceTransactionalWeightLimit + "," + "Min:(" + 0.0 + ")," + "Max:(" + 0.0 + ")";
                         }
                       
+                        break;
+                    case SettingsKeys.ShowContainerNumber:
+                        setting.Value = model.ShowContainerNumber.ToString();
                         break;
                 }
                 if (!items.Any(p => p.Key == setting.Key))

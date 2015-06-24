@@ -65,6 +65,7 @@ namespace Distributr.Core.Domain.Master.SettingsEntities
         EnforceGps = 125,
         EnforcePasswordChange = 126,
         EnforceTransactionalWeightLimit =127,
+        ShowContainerNumber=128,
 
         //call protocal
         CallProtocalAllProduct=32,
