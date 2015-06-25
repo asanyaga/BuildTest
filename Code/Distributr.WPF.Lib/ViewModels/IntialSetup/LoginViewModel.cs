@@ -380,7 +380,7 @@ namespace Distributr.WPF.Lib.ViewModels.IntialSetup
 
             //Overrides
             if (userRights.IsAdministrator)
-                return IsAdministrator();
+                return IsAdministrator(user);
 
             userRights.IsFinanceHandler = user.UserRoles.Contains(((int)UserRole.FinanceHandler).ToString());
 
@@ -516,19 +516,19 @@ namespace Distributr.WPF.Lib.ViewModels.IntialSetup
             return userRights;
         }
 
-        private UserRights IsAdministrator()
+        private UserRights IsAdministrator(User user)
         {
             UserRights userRights = null;
             if (GetConfigParams().AppId == Core.VirtualCityApp.Agrimanagr)
             {
-                var settings = ObjectFactory.GetInstance<ISettingsRepository>();
-
+                
                 userRights = new UserRights
                 {
-                    CanViewActivities = true,
                     CanViewAdmin = true,
                     CanViewCommodity = true,
-                    CanViewWarehouse = true,
+                    CanViewWarehouse = ViewAgriModules(user, AgriUserRole.RoleViewWarehouse, SettingsKeys.ShowWarehouseReceipt),
+                    CanViewActivities = ViewAgriModules(user, AgriUserRole.RoleViewActivities, SettingsKeys.ShowFarmActivities),
+                    
                 };
             }
             if (GetConfigParams().AppId == Core.VirtualCityApp.Ditributr)
@@ -624,7 +624,7 @@ namespace Distributr.WPF.Lib.ViewModels.IntialSetup
 
             bool result = false;
 
-            var canViewModuleSetting = settings.GetByKey(settingKey) != null ? settings.GetByKey(SettingsKeys.ShowFarmActivities).Value : null;
+            var canViewModuleSetting = settings.GetByKey(settingKey) != null ? settings.GetByKey(settingKey).Value : null;
             var canViewModuleRight = user.UserRoles.Contains(((int)role).ToString());
 
             if (canViewModuleSetting == null || Convert.ToBoolean(canViewModuleSetting)==false)

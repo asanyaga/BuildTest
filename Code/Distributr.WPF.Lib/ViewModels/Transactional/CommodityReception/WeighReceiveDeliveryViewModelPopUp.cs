@@ -220,10 +220,15 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityReception
         private void LoadCommodity()
         {
             CommodityLookUpList.Clear();
-            CommodityLookUpList.Add(new Commodity(Guid.Empty)
+            var commodites = Using<ICommodityRepository>(NestedContainer).GetAll().OrderBy(s => s.Name);
+            if (commodites.Count() > 1)
             {
-                Name = "--Select Commodity--",
-            });
+                CommodityLookUpList.Add(new Commodity(Guid.Empty)
+                {
+                    Name = "--Select Commodity--",
+                });
+            }
+
             using (var c = NestedContainer)
             {
                 foreach (var item in Using<ICommodityRepository>(c).GetAll().OrderBy(s=>s.Name))
@@ -232,6 +237,8 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityReception
                 }
             }
             SelectedCommodity = CommodityLookUpList.FirstOrDefault();
+
+            LoadGrade();
         }
         private void LoadContainerType()
         {
@@ -252,21 +259,29 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityReception
         private void LoadGrade()
         {
             GradeLookUpList.Clear();
-            GradeLookUpList.Add(new CommodityGrade(Guid.Empty)
-            {
-                Name = "--Select Grade--",
-            });
+           
             using (var c = NestedContainer)
             {
                 if (SelectedCommodity != null && SelectedCommodity.Id != Guid.Empty)
                 {
-                    foreach (var item in Using<ICommodityRepository>(c).GetAllGradeByCommodityId(SelectedCommodity.Id).OrderBy(s=>s.Name))
+                    var grades =Using<ICommodityRepository>(c)
+                            .GetAllGradeByCommodityId(SelectedCommodity.Id)
+                            .OrderBy(s => s.Name);
+                    if (grades.Count() > 1)
+                    {
+                        GradeLookUpList.Add(new CommodityGrade(Guid.Empty)
+                        {
+                            Name = "--Select Grade--",
+                        }); 
+                    }
+                    foreach (var item in grades)
                     {
                         GradeLookUpList.Add(item);
                     }
                 }
             }
-            //Grade = GradeLookUpList.FirstOrDefault();
+            Grade = GradeLookUpList.FirstOrDefault();
+            GradeTo = GradeLookUpList.FirstOrDefault();
         }
 
         private void Cancel()
