@@ -24,7 +24,7 @@
                                                   FontWeight="Normal" RowDetailsVisibilityMode="Visible" MinHeight="200"  >
                     <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ContainerNo}" IsReadOnly="True" Header="Container No \Batch No" Width="120" />
-                <DataGridTextColumn Binding="{Binding ContainerType.Name}" IsReadOnly="True" Header="Container" Width="120" />
+                <DataGridTextColumn Binding="{Binding ContainerType.Name}" IsReadOnly="True" Header="Container\Bag" Width="120" />
                         <DataGridTextColumn Binding="{Binding Commodity.Name}" IsReadOnly="True" Header="Commodity" Width="150" />
                 <!--<DataGridTextColumn Binding="{Binding GrossWeight}" IsReadOnly="True" Header="Gross Weight(kg)" Width="100"  Visibility="{Binding ShowTareWeight}"/>
                 <DataGridTextColumn Binding="{Binding ContainerType.TareWeight}" IsReadOnly="True" Header="Tare Weight (Kg)" Width="100" Visibility="{Binding ShowTareWeight}"/>-->

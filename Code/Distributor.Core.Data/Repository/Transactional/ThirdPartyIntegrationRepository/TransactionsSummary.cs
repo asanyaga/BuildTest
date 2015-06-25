@@ -100,7 +100,7 @@ namespace Distributr.Core.Data.Repository.Transactional.ThirdPartyIntegrationRep
             {
                
 
-                var farmerCode = farmerQuery.FarmerCode;
+                var farmerCode = farmerQuery.FarmerCode.Trim();
                 var farmerMobile = farmerQuery.Mobile;
                 DateTime to;
                 DateTime from;
@@ -161,6 +161,9 @@ namespace Distributr.Core.Data.Repository.Transactional.ThirdPartyIntegrationRep
 
                 var dto = items.Select(Map).ToList();
 
+                result.FarmerCode = farmer.Code;
+                result.FarmerName = string.Format("{0} {1} {2}", farmer.FirstName, farmer.LastName, farmer.Surname);
+                result.AsAtDate = to.ToString("g");
                 result.StatusCode = (int) FarmerQueryStatusCode.Success;
                 result.StatusDetail = "Succesful";
                 result.SummaryDetail = dto;
