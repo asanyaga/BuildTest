@@ -253,13 +253,13 @@
       <Options>
         <OutputPath>bin\Release</OutputPath>
         <TargetServerVersion>SSRS2008R2</TargetServerVersion>
-        <TargetServerURL>http://peterkangethe/ReportServer_MSSQLSERVER12</TargetServerURL>
-        <TargetFolder>Test/Agrimanagr.Reports</TargetFolder>
-        <TargetDataSourceFolder>Test/Data Sources</TargetDataSourceFolder>
+        <TargetServerURL>http://localhost:88/reportserver</TargetServerURL>
+        <TargetFolder>agri/Agrimanagr.Reports</TargetFolder>
+        <TargetDataSourceFolder>agri/Data Sources</TargetDataSourceFolder>
         <OverwriteDataSources>true</OverwriteDataSources>
-        <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+        <TargetDatasetFolder>agri/Datasets</TargetDatasetFolder>
         <OverwriteDatasets>true</OverwriteDatasets>
-        <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+        <TargetReportPartFolder>agri/Report Parts</TargetReportPartFolder>
         <StartItem>CommodityReceptionByFactory_R.rdl</StartItem>
       </Options>
     </Configuration>

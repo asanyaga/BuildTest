@@ -49,6 +49,16 @@ namespace Distributr.Mobile.MakeSale
             }
         }
 
+        protected override View GetHeaderView()
+        {
+            return Inflate(Resource.Layout.product_list_header_with_stock);
+        }
+
+        protected override View SetupEmptyView(View parent)
+        {
+            return parent.FindViewById<View>(Resource.Id.empty_inventory);
+        }
+
         protected override void OnSummaryIconClicked()
         {
             Activity.Show(typeof(MakeSaleSummaryFragment));

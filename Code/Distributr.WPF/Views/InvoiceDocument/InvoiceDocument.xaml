@@ -53,6 +53,7 @@
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
@@ -111,7 +112,14 @@
                                 <TextBlock x:Name="txtInvoiceDate" Text="{Binding InvoiceDate}" Width="410" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </Border>
-                        <Border Grid.Row="5" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1" Margin="0,5,0,5">
+                        <Border  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1" Margin="0,5,94,5">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,-1,0">
+                                <Label x:Name="lblOultetName" Content="Invoice No:" Margin="5,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                <TextBlock x:Name="txtOutletName" Text="{Binding OutletName}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Row="6" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1" Margin="0,5,0,5">
                             <TextBlock x:Name="txtWithThanks" Text="With Thanks. This is your Invoice. Please revert to the undersigned with any queries." TextAlignment="Center"/>
                         </Border>
                         <!--<Border Grid.Row="6" Grid.RowSpan="3" BorderThickness="1" CornerRadius="8" BorderBrush="Black">-->
@@ -126,7 +134,7 @@
                             </DataGrid.Columns>
                         </DataGrid>
                         <!--</Border>-->
-                        <Grid Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,0,20" HorizontalAlignment="Right">
+                        <Grid Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,0,20" HorizontalAlignment="Right">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -147,7 +155,7 @@
                             <TextBlock Grid.Row="3" Grid.Column="1" x:Name="txtTotalVGross" Text="{Binding TotalGross,Converter={StaticResource AmountDecimalConverter}}" Margin="0,0,10,0" Width="124"  TextAlignment="Right"  HorizontalAlignment="Right"/>
                         </Grid>
 
-                        <StackPanel Grid.Row="8" Grid.ColumnSpan="3" >
+                        <StackPanel Grid.Row="9" Grid.ColumnSpan="3" >
                             <TextBlock x:Name="txtInvoiceDeductions" Text="Invoice Deductions"/>
                             <DataGrid x:Name="dgCreditNoteLineItems" AutoGenerateColumns="False" ItemsSource="{Binding Path=InvoiceDeductions}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0">
                                 <DataGrid.Columns>
@@ -177,7 +185,7 @@
                             </Grid>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,10,0,0">
+                        <StackPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,10,0,0">
                             <TextBlock x:Name="txtPaymentInfo" Text="Payment Information"/>
                             <DataGrid x:Name="dgReceipts" AutoGenerateColumns="False" ItemsSource="{Binding Path=InvoicePaymentInfo, Mode=TwoWay}" Margin="0,10,0,0">
                                 <DataGrid.Columns>
@@ -205,16 +213,16 @@
                             </Grid>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="10" Grid.Column="0" Orientation="Horizontal" Margin="0,0,0,0">
+                        <StackPanel Grid.Row="11" Grid.Column="0" Orientation="Horizontal" Margin="0,0,0,0">
                             <Label x:Name="lblCreditTerms" Content="Credit Terms:"/>
                             <TextBlock x:Name="txtCreditTerms" Text="{Binding CreditTerms}" Width="100" />
                         </StackPanel>
-                        <Label x:Name="lblWithThanks" Grid.Row="10" Grid.Column="2"  Content="With Thanks and Kind Regards"/>
-                        <StackPanel Grid.Row="11" Grid.Column="0" Orientation="Horizontal" Margin="0,5,0,0">
+                        <Label x:Name="lblWithThanks" Grid.Row="12" Grid.Column="2"  Content="With Thanks and Kind Regards"/>
+                        <StackPanel Grid.Row="12" Grid.Column="0" Orientation="Horizontal" Margin="0,5,0,0">
                             <Label x:Name="lblCheqPayableTo" Content="Cheque Payable To:" Height="26" VerticalAlignment="Bottom"/>
                             <TextBlock x:Name="txtChequePayableTo" Text="{Binding CompanyName}" Width="121" Padding="5,5,0,0" />
                         </StackPanel>
-                        <StackPanel Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,15,0,0">
+                        <StackPanel Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,15,0,0">
                             <Label x:Name="lblPreparedBy" Content="Prepared By:"/>
                             <TextBlock x:Name="txtPreparedBy" Text="{Binding PreparedByUserName}" Width="150" Margin="5,0,0,0"/>
                             <Label x:Name="lblPreparedDate" Content="Date:" Margin="50,0,0,0"/>
@@ -222,7 +230,7 @@
                             <Label x:Name="lblPreparedSignature" Content="Signature:" Margin="50,0,0,0"/>
                             <TextBlock x:Name="txtPreparedSignature" Text="____________________" Width="100" Margin="5,0,0,0"/>
                         </StackPanel>
-                        <TextBlock Grid.Row="13" Grid.Column="0" Text="{Binding PreparedByJobTitle}" FontWeight="Bold"/>
+                        <TextBlock Grid.Row="14" Grid.Column="0" Text="{Binding PreparedByJobTitle}" FontWeight="Bold"/>
                         <StackPanel Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,15,0,0">
                             <Label x:Name="lblApprovedBy" Content="Approved By:"/>
                             <TextBlock x:Name="txtApprovedBy" Text="____________________" Width="150" Margin="5,0,0,0"/>

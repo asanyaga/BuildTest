@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Android.OS;
-using Android.Text;
 using Android.Views;
 using Android.Widget;
 using Distributr.Mobile.Core.MakeOrder;

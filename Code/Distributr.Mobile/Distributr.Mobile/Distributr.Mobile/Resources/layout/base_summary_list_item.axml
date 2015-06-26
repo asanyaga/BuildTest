@@ -25,6 +25,7 @@
         android:textSize="@dimen/secondary_text_size"
         android:layout_weight="1"
         android:paddingLeft="8dp"
+        android:textAllCaps="true"
         android:singleLine="false"
         android:paddingRight="8dp"
         android:fontFamily="sans-serif-light"

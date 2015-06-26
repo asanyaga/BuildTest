@@ -63,6 +63,7 @@ namespace Distributr.WPF.UI.Views.InvoiceDocument
             lblApprovedBy.Content = _messageResolver.GetText("sl.invoice.approvedby");
             lblApprovedDate.Content = _messageResolver.GetText("sl.invoice.approvedby.date");
             lblApproverSignature.Content = _messageResolver.GetText("sl.invoice.approvedby.signature");
+            lblOultetName.Content = _messageResolver.GetText("sl.invoice.order.outletname");
 
             //grid gdInvoiceLineItems
             colInvDescription.Header = _messageResolver.GetText("sl.invoice.invoicelineitems.grid.col.description");

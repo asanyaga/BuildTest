@@ -97,6 +97,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ReferenceGeneratorTest.cs" />
+    <Compile Include="Discounts\CertainValueCertainProductDiscountRepositoryTest.cs" />
+    <Compile Include="Discounts\FreeOfChargeDiscountRepositoryTest.cs" />
+    <Compile Include="Discounts\ProductDiscountGroupRepositoryTest.cs" />
+    <Compile Include="Discounts\SaleValueDiscountRepositoryTest.cs" />
     <Compile Include="MakeDelivery\DeliveryProcessorTest.cs" />
     <Compile Include="MakeOrder\OrderProcessorTest.cs" />
     <Compile Include="OrderSale\DeliveryTest.cs" />

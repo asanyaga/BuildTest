@@ -62,7 +62,7 @@ namespace Distributr.Mobile.Core.OrderSale
         public Guid InvoiceId { get; set; }
 
 
-        //Values are raised to nearest full shlling
+        //Values are raised to nearest full shilling
         public decimal TotalValueIncludingVat
         {
             get { return Math.Ceiling(AllInvoiceItems.Sum(item => item.TotalLineItemValueInculudingVat)); }

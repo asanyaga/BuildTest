@@ -228,6 +228,13 @@ namespace Mobile.Common
             anim.Start();
         }
 
+        protected void HideOverlayView()
+        {
+            var overlay = Activity.FindViewById<View>(Resource.Id.fab_overlay_content);
+            Activity.Window.ClearFlags(WindowManagerFlags.Fullscreen);
+            overlay.Visibility = ViewStates.Invisible;
+        }
+
         // Fragments can host other fragments. When you add a fragment using this method
         // it does not go onto the Back Stack, which is what you usually want for fragments in a tabbed 
         // layout. See http://developer.android.com/training/implementing-navigation/temporal.html
@@ -256,8 +263,6 @@ namespace Mobile.Common
                 Activity.RemoveTabs();
             }
             Activity.ResetState(ResetState);
-//            var search = Activity.FindViewById<EditText>(Resource.Id.search_widget);
-//            search.Visibility = ViewStates.Gone;
         }
 
         //Used to identify fragments on the Back Stack
@@ -290,13 +295,6 @@ namespace Mobile.Common
                 return true;
             }
             return false;
-        }
-
-        protected void HideOverlayView()
-        {
-            var overlay = Activity.FindViewById<View>(Resource.Id.fab_overlay_content);
-            Activity.Window.ClearFlags(WindowManagerFlags.Fullscreen);
-            overlay.Visibility = ViewStates.Invisible;            
         }
 
         protected void SetupSearch()

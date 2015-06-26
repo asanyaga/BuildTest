@@ -2361,6 +2361,7 @@ hq.comptormgt = Competitor Management
 hq.distmgt = Distributor Management
 hq.sysmgt = System Management
 hq.settings = Settings
+
 hq.retiresetting = Retire Settings
 hq.gsettings = Global Settings
 hq.comptormgt = Competitor Management
@@ -2378,6 +2379,7 @@ hq.bankmgt = Bank Management
 hq.bbranchmgt = BankBranch Management
 hq.cpacs = Channel Packs
 hq.settings = Settings
+hq.managementSettings=Management & Settings
 hq.prodandpricing Products And Pricing
 hq.pac = Packaging
 hq.pactypes = Packaging Types
@@ -3683,6 +3685,7 @@ sl.invoice.cn.grid.col.amount = Amount
 sl.invoice.receipt.grid.col.reference = Receipt Reference
 sl.invoice.receipt.grid.col.date = Receipt Date
 sl.invoice.receipt.grid.col.paid = Amount Paid
+sl.invoice.order.outletname=Customer Name:
 
 #SL Issue Inventory
 sl.issueInventory.salesman_lbl = Salesman:

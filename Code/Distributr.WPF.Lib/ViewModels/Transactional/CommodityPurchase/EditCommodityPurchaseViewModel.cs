@@ -1184,9 +1184,12 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityPurchase
                 }
 
             }
+           LoadGrades();
         }
 
-       private void DropDownOpened(object sender)
+        
+
+        private void DropDownOpened(object sender)
         {
             var comboBox = sender as ComboBox;
             switch (comboBox.Name)

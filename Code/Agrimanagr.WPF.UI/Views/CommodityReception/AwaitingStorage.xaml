@@ -178,7 +178,7 @@
                                 <DataTemplate>
                                      <ItemsControl >
                                     <Hyperlink  Command="{Binding DataContext.StoreSingleItemCommand, ElementName=dgAwaitingStorage,Mode=TwoWay}" CommandParameter="{Binding}" >
-                                        <TextBlock Text="Store" />
+                                        <TextBlock Text="Store/Process" />
                                     </Hyperlink>
                                     </ItemsControl>
                                 </DataTemplate>

@@ -19,7 +19,7 @@ namespace Distributr.Core.Repository
         void SetAsDeleted(T entity);
 
         
-        T GetById(Guid Id, bool includeDeactivated = false);
+        T GetById(Guid id, bool includeDeactivated = false);
       
         IEnumerable<T> GetAll(bool includeDeactivated=false);
        

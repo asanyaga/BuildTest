@@ -32,7 +32,8 @@
             <!-- end of div#header -->
             <div id="main-panel">
                 <ul id="nav2">
-                    <li><a href="@Url.Content("~/Agrimanagr")" id="dashboard-btn"><span class="img-replace">@Html.GetText("hq.dboard")</span></a></li>
+                    <li><a href="@Url.Content("~/AgrimanagrRpt/ReportsDashboard/ReportView?reportName=DashBoard&reporturi=Agrimanagr.Reports/DB_Agrimanagr_Main")" id="dashboard-btn"><span class="img-replace">@Html.GetText("hq.dboard")</span></a></li>
+                    @*<li><a href="@Url.Content("~/Agrimanagr")" id="dashboard-btn"><span class="img-replace">@Html.GetText("hq.dboard")</span></a></li>*@
                 </ul>
                 <!-- BEGIN Menu -->
                 <div style="position: absolute; right: 5px;">
@@ -81,6 +82,9 @@
                                 </li>
                                 <li>
                                     <a href="@Url.Content("~/Agrimanagr/Settings/Settings")">@Html.GetText("hq.settings")</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Content("~/Agrimanagr/AgriMain/Index")">@Html.GetText("hq.managementSettings")</a>
                                 </li>
                             </ul>
                         </li>

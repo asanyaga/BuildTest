@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.App;
+using Android.Content.PM;
 using Android.Content.Res;
 using Android.Graphics.Drawables;
 using Android.OS;
@@ -19,6 +20,7 @@ namespace Distributr.Mobile.Login
 {
     [Activity(Label = "Distributr", MainLauncher = true, Icon = "@drawable/icon",
         Theme = "@style/Theme.AppCompat.Light.NoActionBar.FullScreen", 
+        LaunchMode = LaunchMode.SingleInstance,
         ConfigurationChanges=ConfigChanges.Orientation | ConfigChanges.ScreenSize)
     ]
     public class LoginActivity : BaseActivity<User>

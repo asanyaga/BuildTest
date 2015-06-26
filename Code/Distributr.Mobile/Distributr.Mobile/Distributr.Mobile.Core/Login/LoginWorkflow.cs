@@ -68,7 +68,7 @@ namespace Distributr.Mobile.Login
         private bool IsNewUser(string username)
         {
             var lastUser = loginRepository.GetLastUser();
-            if (lastUser.LastUser != username)
+            if (!(String.Equals(lastUser.Username, username, StringComparison.CurrentCultureIgnoreCase)))
             {
                 loginRepository.SetLastUser(String.Empty, String.Empty);
                 return true;

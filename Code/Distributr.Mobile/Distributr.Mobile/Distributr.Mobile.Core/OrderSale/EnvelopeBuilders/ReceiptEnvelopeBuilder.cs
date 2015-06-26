@@ -50,7 +50,7 @@ namespace Distributr.Mobile.Core.OrderSale.EnvelopeBuilders
             command.Value = payment.Amount;
             command.PaymentTypeId = (int) PaymentNoteType.Availabe;
             command.LineItemId = Guid.NewGuid();
-            command.LineItemType = 2; //(int) payment.PaymentMode;
+            command.LineItemType = 2; //;
             command.Description = payment.PaymentReference;
             command.LineItemSequenceNo = Commands.Count + 1;
 

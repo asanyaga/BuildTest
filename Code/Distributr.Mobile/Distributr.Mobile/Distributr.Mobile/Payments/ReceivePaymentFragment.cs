@@ -36,8 +36,7 @@ namespace Distributr.Mobile.Payments
             AddTab(new TabModel(Resources.GetString(Resource.String.mmoney))
             {
                 OnTabSelected = () => { ShowNestedFragment(viewId, receiveChequeFragment); }
-            }
-            );
+            });
         }
     }
 }

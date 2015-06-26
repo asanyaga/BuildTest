@@ -1240,13 +1240,13 @@
       <Options>
         <OutputPath>bin\Release</OutputPath>
         <TargetServerVersion>SSRS2008R2</TargetServerVersion>
-        <TargetServerURL>http://reportsvm.cloudapp.net/ReportServer_SQLEXPRESS</TargetServerURL>
+        <TargetServerURL>http://localhost:88/reportserver</TargetServerURL>
         <TargetFolder>Test/DistributrReports</TargetFolder>
         <TargetDataSourceFolder>Test/Data Sources</TargetDataSourceFolder>
         <OverwriteDataSources>true</OverwriteDataSources>
-        <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+        <TargetDatasetFolder>Test/Datasets</TargetDatasetFolder>
         <OverwriteDatasets>true</OverwriteDatasets>
-        <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+        <TargetReportPartFolder>Test/Report Parts</TargetReportPartFolder>
         <StartItem>StockByProductType.rdl</StartItem>
       </Options>
     </Configuration>

@@ -11,7 +11,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Coke 300ML"
+            android:text="each"
+            android:textAllCaps="true"
             android:id="@+id/description"
             android:singleLine="false"
             android:textColor="@color/color_accent"
@@ -38,12 +39,13 @@
             android:layout_height="wrap_content"
             android:text="27"
             android:id="@+id/price"
+            style="@style/AppTheme.SecondaryTextSmall"
             android:layout_marginRight="8dp"
-            android:textColor="@color/color_primary_text"
             android:singleLine="false" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/AppTheme.SecondaryTextSmall"
             android:text="KSH"
             android:layout_marginRight="8dp" />
     </LinearLayout>

@@ -73,7 +73,32 @@ Global Settings &gt; Settings
     </td>
 </tr>
 
- <tr>
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.HideContainerNumber)</strong></td>
+        <td>
+            <span class="text-box-cshtml"> @Html.EditorFor(model => model.HideContainerNumber)</span>
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.HideContainerNumber)</span>
+        </td>
+    </tr>
+    
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.ShowFarmActivities)</strong></td>
+        <td>
+            <span class="text-box-cshtml"> @Html.EditorFor(model => model.ShowFarmActivities)</span>
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.ShowFarmActivities)</span>
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.ShowWarehouseReceipt)</strong></td>
+        <td>
+            <span class="text-box-cshtml"> @Html.EditorFor(model => model.ShowWarehouseReceipt)</span>
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.ShowWarehouseReceipt)</span>
+        </td>
+    </tr>
+
+    <tr>
     <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.WeighingContainerForStorage)</strong></td>
     <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.WeighingContainerForStorage)</span> 
         <span class="inline-error">  @Html.ValidationMessageFor(model => model.WeighingContainerForStorage)</span> 
@@ -90,7 +115,15 @@ Global Settings &gt; Settings
         <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.EnforceWeighingOnReception)</span> 
             <span class="inline-error">  @Html.ValidationMessageFor(model => model.EnforceWeighingOnReception)</span> 
         </td>
-    </tr> 
+    </tr>
+    <tr>
+        <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.EnforceHideFarmOnPhone)</strong></td>
+        <td>
+            <span class="text-box-cshtml"> @Html.EditorFor(model => model.EnforceHideFarmOnPhone)</span>
+            <span class="inline-error">  @Html.ValidationMessageFor(model => model.EnforceHideFarmOnPhone)</span>
+        </td>
+    </tr>
+     
     <tr>
     <td style="padding-top:5px;"><strong>@Html.LabelFor(model => model.NotificationOnWeighing)</strong></td>
     <td><span class="text-box-cshtml"> @Html.EditorFor(model => model.NotificationOnWeighing)</span> 

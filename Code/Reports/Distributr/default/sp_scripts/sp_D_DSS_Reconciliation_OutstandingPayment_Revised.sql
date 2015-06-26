@@ -44,7 +44,7 @@ DECLARE @OutPaymentTable TABLE(
   );
   
   INSERT @OutPaymentTable
-SELECT   sales.Id,
+SELECT   sales.Id, 
                    sales.DocumentReference  as SaleRef, 
                    sales.DocumentDateIssued as SaleDate,
                    outlet.Cost_Centre_Code as CustomerCode ,
@@ -101,7 +101,7 @@ GROUP BY SaleId,SaleRef,SaleDate,CustomerCode,CustomerName,DistributorName,Sales
 HAVING (SUM(NetValue) > SUM(ReceivedValue))
 --ORDER BY SaleDate DESC
 
--- Exec [dbo].[sp_D_DSS_Reconciliation_OutstandingPayment_Revised] @startDate = '2014-01-01',@endDate='2014-12-12', @salesmanId = 'ALL',@outletId = 'ALL',@distributorId='ALL',@routeId='ALL'
+-- Exec [dbo].[sp_D_DSS_Reconciliation_OutstandingPayment_Revised] @startDate = '2014-01-01',@endDate='2015-12-12', @salesmanId = 'ALL',@outletId = 'ALL',@distributorId='ALL',@routeId='ALL'
 
 
 GO

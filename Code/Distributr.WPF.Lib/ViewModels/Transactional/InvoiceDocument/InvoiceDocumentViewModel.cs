@@ -172,6 +172,26 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.InvoiceDocument
             }
         }
 
+        public const string OutletNamePropertyName = "OutletName";
+        private string _outletName = "";
+
+        public string OutletName
+        {
+            get { return _outletName; }
+
+            set
+            {
+                if (_outletName == value)
+                {
+                    return;
+                }
+
+                var oldValue = _outletName;
+                _outletName = value;
+                RaisePropertyChanged(OutletNamePropertyName);
+            }
+        }
+
         public const string InvoiceDatePropertyName = "InvoiceDate";
         private string _invoiceDate = DateTime.Now.ToString("dd-MMM-yyyy");
 
@@ -830,6 +850,9 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.InvoiceDocument
                 InvoiceRecipientCompanyName = TheInvoice.DocumentRecipientCostCentre.Name;
 
                 TotalVat = TheInvoice.TotalVat.ToString("N2");
+
+                var orderDoc = Using<IMainOrderRepository>(c).GetById(OrderId);
+                OutletName = orderDoc.IssuedOnBehalfOf != null ? orderDoc.IssuedOnBehalfOf.Name : "";
                 //TotalGross = pricingService.GetTotalGross(TheInvoice.TotalGross).ToString("N2");
                 var invoiceGross =(TheInvoice.LineItems.Sum(x => x.LineItemTotal.GetTruncatedValue())).GetTotalGross();
                 TotalGross = invoiceGross.ToString("N2");

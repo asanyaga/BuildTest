@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Distributr.Mobile.Core.Data;
+using Distributr.Mobile.Core.Discounts;
 using Distributr.Mobile.Core.Outlets;
 using Distributr.Mobile.Core.Payments;
 using Distributr.Mobile.Core.Products;
@@ -27,6 +28,7 @@ namespace Distributr.Mobile.Core
             new ProductsModule(),
             new SyncModule(),
             new MakeSaleModule(),
+            new DiscountsModule(),
             new MakeOrderModule(),
             new MakeDeliveryModule()
         };

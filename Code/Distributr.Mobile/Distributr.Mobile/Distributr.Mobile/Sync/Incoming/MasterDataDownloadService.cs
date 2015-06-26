@@ -111,8 +111,11 @@ namespace Distributr.Mobile.Sync.Incoming
             {
                 if (e.Status == WebExceptionStatus.ProtocolError) 
                 {
-                    //The web service exists but it doesn't support the method we used (head)
-                    return true;
+                    if (((HttpWebResponse)e.Response).StatusCode == HttpStatusCode.MethodNotAllowed)
+                    {
+                        //The web service exists but it doesn't support the method we used (head), which is expected
+                        return true;
+                    }
                 }
                 Console.WriteLine(e);
                 return false;
