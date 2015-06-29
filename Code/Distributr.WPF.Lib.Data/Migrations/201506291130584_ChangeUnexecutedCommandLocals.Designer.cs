@@ -5,13 +5,13 @@ namespace Distributr.WPF.Lib.Data.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class AddChangesMigration : IMigrationMetadata
+    public sealed partial class ChangeUnexecutedCommandLocals : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddChangesMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeUnexecutedCommandLocals));
         
         string IMigrationMetadata.Id
         {
-            get { return "201506251414122_AddChangesMigration"; }
+            get { return "201506291130584_ChangeUnexecutedCommandLocals"; }
         }
         
         string IMigrationMetadata.Source

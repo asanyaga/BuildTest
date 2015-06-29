@@ -109,9 +109,9 @@
     <Compile Include="IOC\WPFDefaultServices\WPFRepositoryDefaultServices.cs" />
     <Compile Include="IOC\WPFRegistry.cs" />
     <Compile Include="Migrations\201502111232432_testmig1.cs" />
-    <Compile Include="Migrations\201506251414122_AddChangesMigration.cs" />
-    <Compile Include="Migrations\201506251414122_AddChangesMigration.Designer.cs">
-      <DependentUpon>201506251414122_AddChangesMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201506291130584_ChangeUnexecutedCommandLocals.cs" />
+    <Compile Include="Migrations\201506291130584_ChangeUnexecutedCommandLocals.Designer.cs">
+      <DependentUpon>201506291130584_ChangeUnexecutedCommandLocals.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,8 +200,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506251414122_AddChangesMigration.resx">
-      <DependentUpon>201506251414122_AddChangesMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506291130584_ChangeUnexecutedCommandLocals.resx">
+      <DependentUpon>201506291130584_ChangeUnexecutedCommandLocals.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

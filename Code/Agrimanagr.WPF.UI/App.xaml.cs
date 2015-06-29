@@ -36,9 +36,9 @@ namespace Agrimanagr.WPF.UI
         { 
             this.DispatcherUnhandledException += new DispatcherUnhandledExceptionEventHandler(App_DispatcherUnhandledException);
             _logger.Info("Application starting");
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DistributrLocalContextAuto, ConfigurationMigritation>());
+           
             Initializer.Init();
-            DistributrDataHelper.Migrate();
+            
 
            
             ObjectFactory.Configure(x => x.For<IEditContactModal>().Use<AddUserContactsModal>());
@@ -55,7 +55,15 @@ namespace Agrimanagr.WPF.UI
             //IStoreCommodityPopUp
             
            
+            
+
+           
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DistributrLocalContextAuto, ConfigurationMigritation>());
+
+            DistributrDataHelper.Migrate();
+
             AppIdSetup();
+
             CultureInfo ci = CultureInfo.CreateSpecificCulture("en-GB");
              ci.DateTimeFormat.ShortDatePattern = "dd-MMM-yyyy";
             Thread.CurrentThread.CurrentCulture = ci;
@@ -63,6 +71,7 @@ namespace Agrimanagr.WPF.UI
         }
 
         private static void AppIdSetup()
+        
         {
             using (var c = ObjectFactory.Container.GetNestedContainer())
             {
