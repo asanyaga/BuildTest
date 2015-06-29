@@ -1,6 +1,6 @@
 REM THIS FILE SHOULD BE RUN IN ADMIN MODE AND POWERSHELL SHOULD BE INSTALLED
 C:
-cd \Users\bmwasi\Documents\GitHub\Distributr\Code\configs
+cd \Users\bmwasi\Documents\GitHub\Agrimanagr-Forked\Code\configs
 REM
 REM UPDATE CONFIG FILES 
 CALL mwasi.bat

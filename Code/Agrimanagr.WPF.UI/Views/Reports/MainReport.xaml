@@ -14,54 +14,60 @@
                 <DockPanel>
                     <Label Content="Reports"/>
                     <StackPanel Margin="0,30,0,0" Orientation="Horizontal">
-                        
-                        <GroupBox   Width="260" Header="Commodity Purchase">
+
+                        <GroupBox   Width="260" Header="Purchase">
                             <StackPanel  Margin="0,10,0,0">
                                 <TextBlock  Margin="10,5,0,0" >
-                                     <Hyperlink  Click="CommodityPurchaseSummary_click" >Commodity Purchase By Factory</Hyperlink>
+                                     <Hyperlink  Click="CommodityPurchaseSummary_click" >Purchase By Factory</Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
-                                    <Hyperlink Click="commodityPurchaseRouteSummary_click" >Commodity Purchase by Route </Hyperlink>
+                                    <Hyperlink Click="commodityPurchaseRouteSummary_click" >Purchase by Route </Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
-                                    <Hyperlink Click="commodityPurchaseCentre_click" >Commodity Purchase by Centre</Hyperlink>
+                                    <Hyperlink Click="commodityPurchaseCentre_click" >Purchase by Centre</Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
-                                    <Hyperlink Click="commodityPurchaseFarmer_click" >Commodity Purchase by Farmer</Hyperlink>
+                                    <Hyperlink Click="commodityPurchaseFarmer_click" >Purchase by Farmer</Hyperlink>
+                                </TextBlock>
+                                <TextBlock Margin="10,5,0,0" >
+                                    <Hyperlink Click="commodityPurchaseException_click" >Purchase by Date Exception</Hyperlink>
                                 </TextBlock>
 
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox  Header="Commodity Delivery" Width="257">
+                        <GroupBox  Header="Delivery" Width="257">
                             <StackPanel Margin="0,10,0,0">
                                 <TextBlock Margin="10,5,0,0">
-                                    <Hyperlink Tag="CommodityDeliverySummary" Click="CommodityDeliverySummary_click" >Commodity Delivery Summary</Hyperlink>
+                                    <Hyperlink Tag="CommodityDeliverySummary" Click="CommodityDeliverySummary_click" >Delivery Summary</Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
-                                    <Hyperlink Click="commodityDeliveryRoute_click" >Commodity Delivery By Route </Hyperlink>
+                                    <Hyperlink Click="commodityDeliveryRoute_click" >Delivery By Route </Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
-                                    <Hyperlink Click="commodityDeliveryCentre_click" >Commodity Delivery By Centre</Hyperlink>
+                                    <Hyperlink Click="commodityDeliveryCentre_click" >Delivery By Centre</Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
-                                    <Hyperlink Click="commodityDeliveryDriver_click" >Commodity Delivery By Driver</Hyperlink>
+                                    <Hyperlink Click="commodityDeliveryDriver_click" >Delivery By Driver</Hyperlink>
+                                </TextBlock>
+                                <TextBlock Margin="10,5,0,0" >
+                                    <Hyperlink Click="commodityDeliveryException_click" >Delivery By Date Exception</Hyperlink>
                                 </TextBlock>
 
                                 <TextBlock Margin="10,5,0,0">
-                                    
+
                                 </TextBlock>
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox  Header="Commodity Reception" Width="264">
+                        <GroupBox  Header="Reception" Width="264">
                             <StackPanel Margin="0,10,0,0">
                                 <TextBlock Margin="10,5,0,0">
-                                    <Hyperlink Tag="CommodityReceptionSummary" Click="CommodityReceptionSummary_click" >Commodity Reception Summary</Hyperlink>
+                                    <Hyperlink Tag="CommodityReceptionSummary" Click="CommodityReceptionSummary_click" >Reception Summary</Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
-                                    <Hyperlink Click="commodityReceptionRoute_click" >Commodity Reception By Route </Hyperlink>
+                                    <Hyperlink Click="commodityReceptionRoute_click" >Reception By Route </Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
-                                    <Hyperlink Click="commodityReceptionCentre_click" >Commodity Reception By Centre</Hyperlink>
+                                    <Hyperlink Click="commodityReceptionCentre_click" >Reception By Centre</Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0">
 
@@ -108,7 +114,7 @@
                                     <Hyperlink Click="GainsLossesPerClerkClick" >Gains/Losses Per Field Clerk</Hyperlink>
                                 </TextBlock>-->
                                 <TextBlock Margin="10,5,0,0" >
-                                    <Hyperlink Click="CommodityInventorybyStore_click" >Commodity Inventory by Store</Hyperlink>
+                                    <Hyperlink Click="CommodityInventorybyStore_click" >Inventory by Store</Hyperlink>
                                 </TextBlock>
                             </StackPanel>
                         </GroupBox>
@@ -136,10 +142,10 @@
 
 
                     </StackPanel>
-                </DockPanel> 
-              
+                </DockPanel>
+
             </TabItem>
         </TabControl>
-       
+
     </Grid>
 </Page>
