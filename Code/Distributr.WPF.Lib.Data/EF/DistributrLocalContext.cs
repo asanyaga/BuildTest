@@ -16,7 +16,6 @@ namespace Distributr.WPF.Lib.Data.EF
     {
         public DistributrLocalContext(string connectionString) : base(connectionString)
         {
-          
         }
 
         private ILog _logger = LogManager.GetLogger("DistributrLocalContext");

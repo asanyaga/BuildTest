@@ -1,5 +1,6 @@
 
 using System.Configuration;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using Distributr.WPF.Lib.Data.EF;
@@ -25,11 +26,18 @@ namespace Distributr.WPF.Lib.Data.Migrations
            AutomaticMigrationsEnabled = false;
            AutomaticMigrationDataLossAllowed = true;
            //migrator.Configuration.AutomaticMigrationsEnabled
-            if (migrator.GetPendingMigrations().Any())
-            {
-                //_pendingMigrations = true;
-                migrator.Update();
-            }
+
+           var configuration = ConfigurationManager.ConnectionStrings["DistributrLocalContext"].ConnectionString;
+           if (Database.Exists(configuration))
+           {
+               if (migrator.GetPendingMigrations().Any())
+               {
+                   //_pendingMigrations = true;
+                   migrator.Update();
+               }
+           }
+
+            
           
         }
 

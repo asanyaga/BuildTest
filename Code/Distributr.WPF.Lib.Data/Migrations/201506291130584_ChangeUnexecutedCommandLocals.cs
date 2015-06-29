@@ -3,7 +3,7 @@ namespace Distributr.WPF.Lib.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddChangesMigration : DbMigration
+    public partial class ChangeUnexecutedCommandLocals : DbMigration
     {
         public override void Up()
         {
