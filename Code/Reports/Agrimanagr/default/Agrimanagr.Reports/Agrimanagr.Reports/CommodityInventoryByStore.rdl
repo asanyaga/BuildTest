@@ -1058,10 +1058,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.51042in</Height>
+        <Height>1.89584in</Height>
         <Style />
       </Body>
-      <Width>9.89582in</Width>
+      <Width>8.04165in</Width>
       <Page>
         <PageHeader>
           <Height>0.54166in</Height>
@@ -1075,7 +1075,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>   Commodity Inventory By Stores</Value>
+                      <Value>Inventory By Stores</Value>
                       <Style>
                         <FontFamily>Cambria</FontFamily>
                         <FontSize>20pt</FontSize>

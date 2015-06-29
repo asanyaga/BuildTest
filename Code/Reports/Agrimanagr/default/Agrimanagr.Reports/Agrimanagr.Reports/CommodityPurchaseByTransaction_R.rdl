@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Commodity Purchase By Transaction</Value>
+                <Value>Purchase By Transaction</Value>
                 <Style>
                   <FontFamily>Cambria</FontFamily>
                   <FontSize>20pt</FontSize>
@@ -835,7 +835,7 @@
     <Height>2.60292in</Height>
     <Style />
   </Body>
-  <Width>8.36458in</Width>
+  <Width>7.42708in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

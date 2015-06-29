@@ -308,9 +308,9 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="Centre">
+              <Group Name="CentreId">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!Centre.Value</GroupExpression>
+                  <GroupExpression>=Fields!CentreId.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
@@ -865,7 +865,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>3.78125in</Height>
+    <Height>2.55208in</Height>
     <Style />
   </Body>
   <Width>8.3125in</Width>

@@ -399,7 +399,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Commodity Reception By Transaction Details</Value>
+                <Value>Reception By Transaction Details</Value>
                 <Style>
                   <FontFamily>Cambria</FontFamily>
                   <FontSize>20pt</FontSize>
@@ -747,10 +747,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>3.23958in</Height>
+    <Height>2.17708in</Height>
     <Style />
   </Body>
-  <Width>7.6875in</Width>
+  <Width>7.35417in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
