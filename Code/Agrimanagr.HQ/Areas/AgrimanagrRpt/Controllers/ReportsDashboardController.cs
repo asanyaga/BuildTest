@@ -17,6 +17,12 @@ namespace Agrimanagr.HQ.Areas.AgrimanagrRpt.Controllers
         }
         public ActionResult ReportView(string reporturi, string reportName)
         {
+            var firstCharacter = reporturi[0];
+            if (firstCharacter != '/')
+            {
+                reporturi = string.Concat("/", reporturi);
+            }
+            
             @ViewBag.reporturi = reporturi;
             @ViewBag.ReportName = reportName;
             return View();
