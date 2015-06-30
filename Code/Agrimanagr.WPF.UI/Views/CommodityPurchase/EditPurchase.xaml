@@ -171,11 +171,11 @@
                                                 </i:Interaction.Triggers>
                                             </ComboBox>
                                         <TextBlock Margin="20,0,0,0" HorizontalAlignment="Right">
-                                               <Label Grid.Row="2" Content="Weighing Container:" FontSize="13" Height="28" FontWeight="Normal" Width="128"/>
+                                               <Label Grid.Row="2" Content="Weighing Container:" FontSize="13" Height="28" FontWeight="Normal" Width="128" Visibility="{Binding WeighingContainerVisibility}"/>
                                                <ComboBox Grid.Row="2" Grid.Column="1"  x:Name="cmbWeighingContainer"
                                         						HorizontalAlignment="Left" DisplayMemberPath="Name" ItemsSource="{Binding WeighingContainerList,Mode=TwoWay}"
                                         						SelectedItem="{Binding SelectedWeighingContainer, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" SelectedValuePath="Name" Width="200" MinWidth="170" StaysOpenOnEdit="False"
-                                        						 Margin="15,0,0,0" Height="28">
+                                        						 Margin="15,0,0,0" Height="28" Visibility="{Binding WeighingContainerVisibility}">
                                                                  <i:Interaction.Triggers>
                             <i:EventTrigger EventName="DropDownOpened" >
                                 <cmd:EventToCommand Command="{Binding DropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=cmbWeighingContainer}"/>
@@ -226,23 +226,23 @@
                                         				
                                         				<TextBox  Width="193" Height="28" Text="{Binding ContainerNo}" HorizontalAlignment="Left" Margin="10,0,0,0" HorizontalContentAlignment="Right"/>
                                         </TextBlock>
-                                        <TextBlock Margin="20,0,0,0"  HorizontalAlignment="Right" Visibility="{Binding StorageContainerVisibility}">
-                                        					<Label Grid.Row="6"  Content="Storage Container:" 
-                                                                   Height="28" FontWeight="Normal" FontSize="13" Width="128"/>
-                                        			        <ComboBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" x:Name="cmbStorageContainer" Margin="15,0,0,0"
-                                        						HorizontalAlignment="Left" DisplayMemberPath="Name" ItemsSource="{Binding StorageContainerList,Mode=TwoWay}"
-                                        						SelectedItem="{Binding SelectedStorageContainer, Mode=TwoWay, NotifyOnValidationError=True, 
-                                                                ValidatesOnExceptions=True}" 
-                                                                SelectedValuePath="Name" Width="191" Height="28" StaysOpenOnEdit="False" Visibility="{Binding StorageContainerVisibility}">
-                                                                <i:Interaction.Triggers>
-                                                                    <i:EventTrigger EventName="DropDownOpened" >
-                                                                        <cmd:EventToCommand Command="{Binding DropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=cmbStorageContainer}" />
-                                                                    </i:EventTrigger>
-                                                                </i:Interaction.Triggers> 
+                                        <TextBlock Margin="20,0,0,0"  HorizontalAlignment="Right" Visibility="{Binding StorageContainerVisibility}"><InlineUIContainer>
+                                        		<Label Grid.Row="6"  Content="Storage Container:" 
+                                        			Height="28" FontWeight="Normal" FontSize="13" Width="128"/>
+                                        	</InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                        		<ComboBox x:Name="cmbStorageContainer" Margin="15,0,0,0"
+                                        			HorizontalAlignment="Left" DisplayMemberPath="Name" ItemsSource="{Binding StorageContainerList, Mode=TwoWay}"
+                                        			SelectedItem="{Binding SelectedStorageContainer, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                        			SelectedValuePath="Name" Width="191" Height="28" StaysOpenOnEdit="False" Visibility="{Binding StorageContainerVisibility}">
+                                        			<i:Interaction.Triggers>
+                                        				<i:EventTrigger EventName="DropDownOpened" >
+                                        					<cmd:EventToCommand Command="{Binding DropDownOpenedCommand, Mode=TwoWay}"  CommandParameter="{Binding ElementName=cmbStorageContainer}" />
+                                        				</i:EventTrigger>
+                                        			</i:Interaction.Triggers> 
                                                                 
-                                                            </ComboBox>
+                                        		</ComboBox>
 
-                                        </TextBlock>
+                                        	</InlineUIContainer></TextBlock>
                                     </StackPanel>
                                       <DockPanel Grid.Row="6" Grid.ColumnSpan="4" Margin="0,5,0,0" Width="958" HorizontalAlignment="Left">
                                             <Button  Width="100" Height="30" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Style="{StaticResource AgriButtonStyle}" Command="{Binding AddLineItemCommand}" Margin="0,3,0,3" HorizontalAlignment="Left">

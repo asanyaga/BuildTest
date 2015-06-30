@@ -850,6 +850,29 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityPurchase
                 RaisePropertyChanged(GradeVisibilityPropertyName);
             }
         }
+
+        public const string WeighingContainerVisibilityPropertyName = "WeighingContainerVisibility";
+        private Visibility _weighingContainerVisibility = Visibility.Visible;
+        public Visibility WeighingContainerVisibility
+        {
+            get
+            {
+                return _weighingContainerVisibility;
+            }
+
+            set
+            {
+                if (_weighingContainerVisibility == value)
+                {
+                    return;
+                }
+
+                RaisePropertyChanging(WeighingContainerVisibilityPropertyName);
+                _weighingContainerVisibility = value;
+                RaisePropertyChanged(WeighingContainerVisibilityPropertyName);
+            }
+        }
+
         public const string ShowNoOfContainersPropertyName = "ShowNoOfContainers";
         private Visibility _showNoOfContainers = Visibility.Visible;
         public Visibility ShowNoOfContainers
@@ -1070,6 +1093,8 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityPurchase
                 var weighingContainerForStorage = settingsRepository.GetByKey(SettingsKeys.WeighingContainerForStorage);
                 if (weighingContainerForStorage != null && !string.IsNullOrEmpty(weighingContainerForStorage.Value))
                     Boolean.TryParse(weighingContainerForStorage.Value, out _isUsingWeighingContainerForStorage);
+
+               
 
                 var showDeliveredBy = true;
                 var showDeliveredByValue = settingsRepository.GetByKey(SettingsKeys.ShowDeliveredBy);
@@ -1343,6 +1368,13 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityPurchase
                                          WeighingContainerList.Add(n);
                                  });
             }
+
+            if (WeighingContainerList.Count(n => n.Id != Guid.Empty) == 1)
+            {
+                WeighingContainerVisibility = Visibility.Collapsed;
+                SelectedWeighingContainer = WeighingContainerList.FirstOrDefault(n => n.Id != Guid.Empty);
+            }
+           
         }
 
         void LoadStorageContainers()
@@ -1375,6 +1407,12 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityPurchase
                                                                                                      p => p != n.Id))
                                                                                              StorageContainerList.Add(n);
                                                                                      });
+            }
+
+            if (StorageContainerList.Count(n => n.Id != Guid.Empty) == 1)
+            {
+                StorageContainerVisibility = Visibility.Collapsed;
+                SelectedWeighingContainer = StorageContainerList.FirstOrDefault(n => n.Id != Guid.Empty);
             }
         }
 
