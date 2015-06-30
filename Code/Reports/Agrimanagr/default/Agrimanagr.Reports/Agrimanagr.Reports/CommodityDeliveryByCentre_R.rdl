@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Commodity Delivery By Centre</Value>
+                <Value>Delivery By Centre</Value>
                 <Style>
                   <FontFamily>Cambria</FontFamily>
                   <FontSize>20pt</FontSize>
@@ -211,9 +211,9 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="Centre">
+              <Group Name="CentreId">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!Centre.Value</GroupExpression>
+                  <GroupExpression>=Fields!CentreId.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
@@ -795,10 +795,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.67708in</Height>
+    <Height>2.38541in</Height>
     <Style />
   </Body>
-  <Width>8.92708in</Width>
+  <Width>7.41666in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

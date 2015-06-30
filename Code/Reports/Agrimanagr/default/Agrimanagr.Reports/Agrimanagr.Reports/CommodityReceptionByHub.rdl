@@ -556,9 +556,9 @@
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Hub">
+                  <Group Name="HubId">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Hub.Value</GroupExpression>
+                      <GroupExpression>=Fields!HubId.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
@@ -680,10 +680,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2in</Height>
+        <Height>1.47917in</Height>
         <Style />
       </Body>
-      <Width>7.78124in</Width>
+      <Width>7.55207in</Width>
       <Page>
         <PageHeader>
           <Height>0.51042in</Height>

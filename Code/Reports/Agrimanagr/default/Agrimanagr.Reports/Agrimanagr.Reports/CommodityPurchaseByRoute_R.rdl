@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Commodity Purchase By Route</Value>
+                <Value>Purchase By Route</Value>
                 <Style>
                   <FontFamily>Cambria</FontFamily>
                   <FontSize>20pt</FontSize>
@@ -826,10 +826,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.81125in</Height>
+    <Height>2.48833in</Height>
     <Style />
   </Body>
-  <Width>8.36458in</Width>
+  <Width>7.41666in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

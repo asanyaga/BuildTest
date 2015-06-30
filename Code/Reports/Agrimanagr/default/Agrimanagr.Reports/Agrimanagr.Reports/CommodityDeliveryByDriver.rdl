@@ -791,9 +791,9 @@
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="driverName">
+                  <Group Name="driverId">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!driverName.Value</GroupExpression>
+                      <GroupExpression>=Fields!driverId.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
@@ -895,7 +895,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.05035in</Height>
+        <Height>1.73785in</Height>
         <Style />
       </Body>
       <Width>7.59375in</Width>

@@ -853,9 +853,9 @@
                   <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="CentreName">
+                  <Group Name="CentreId">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!CentreName.Value</GroupExpression>
+                      <GroupExpression>=Fields!CentreId.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
@@ -1283,10 +1283,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2in</Height>
+        <Height>1.65625in</Height>
         <Style />
       </Body>
-      <Width>10.56771in</Width>
+      <Width>10.41146in</Width>
       <Page>
         <PageHeader>
           <Height>0.54166in</Height>

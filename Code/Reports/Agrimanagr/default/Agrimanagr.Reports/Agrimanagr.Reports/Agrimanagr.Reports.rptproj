@@ -138,6 +138,10 @@
       <FullPath>CommodityPurchaseByTransactionDetails_R.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>CommodityPurchaseException.rdl</Name>
+      <FullPath>CommodityPurchaseException.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>CommodityReceptionByCentre.rdl</Name>
       <FullPath>CommodityReceptionByCentre.rdl</FullPath>
     </ProjectItem>
@@ -244,6 +248,10 @@
     <ProjectItem>
       <Name>TransactionsByCentre.rdl</Name>
       <FullPath>TransactionsByCentre.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CommodityDeliveryException.rdl</Name>
+      <FullPath>CommodityDeliveryException.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>

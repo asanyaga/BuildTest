@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Commodity Delivery By Route</Value>
+                <Value>Delivery By Route</Value>
                 <Style>
                   <FontFamily>Cambria</FontFamily>
                   <FontSize>20pt</FontSize>
@@ -801,7 +801,7 @@
     <Height>2.67708in</Height>
     <Style />
   </Body>
-  <Width>8.92708in</Width>
+  <Width>7.5in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

@@ -519,9 +519,9 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="Surname">
+              <Group Name="FarmerId">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!Surname.Value</GroupExpression>
+                  <GroupExpression>=Fields!FarmerId.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
@@ -1263,10 +1263,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>3.375in</Height>
+    <Height>2.52083in</Height>
     <Style />
   </Body>
-  <Width>10.53552in</Width>
+  <Width>9.05635in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

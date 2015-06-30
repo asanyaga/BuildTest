@@ -31,7 +31,7 @@ BEGIN
 	and  (@centreId is null  or doc.centreid=@centreId)
 	and  (@ownerId is null  or doc.commodityOwnerId=@ownerId)
 	Group by  doc.DocumentDate,doc.id,doc.documentReference
-	ORDER BY doc.DocumentDate ASC
+	ORDER BY doc.DocumentDate DESC
 
 END;
 --EXEC sp_A_CommodityPurchaseByTransaction @startDate = '10-Jan-2013', @endDate = '10-Dec-2013',@routeid='    '
