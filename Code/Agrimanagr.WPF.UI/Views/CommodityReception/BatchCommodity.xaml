@@ -116,7 +116,7 @@
                                                         </DataTemplate>
                                                     </DataGridTemplateColumn.CellTemplate>
                                                 </DataGridTemplateColumn>
-                                                <DataGridTextColumn Binding="{Binding ContainerName }" IsReadOnly="True" Header="Container Id" Width="100" />
+                                                <DataGridTextColumn Binding="{Binding ContainerName }" IsReadOnly="True" Header="Container\Bag Id" Width="120" />
                                                 <DataGridTextColumn Binding="{Binding CommodityName}" IsReadOnly="True" Header="Commodity" Width="150" />
                                                 <DataGridTextColumn Binding="{Binding MeasuredWeight}" IsReadOnly="True" Header="Weight" Width="100" />
                                                 <DataGridTextColumn Binding="{Binding GradeName}" IsReadOnly="True" Header="Grade" Width="120" />
@@ -181,7 +181,7 @@
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTextColumn Binding="{Binding ContainerName}" IsReadOnly="True" Header="Container Id" Width="95" />
+                                    <DataGridTextColumn Binding="{Binding ContainerName}" IsReadOnly="True" Header="Container\Bag Id" Width="115" />
                                     <DataGridTextColumn Binding="{Binding CommodityName}" IsReadOnly="True" Header="Commodity" Width="115" />
                                     <DataGridTextColumn Binding="{Binding MeasuredWeight}" IsReadOnly="True" Header="Weight" Width="60" />
                                     <DataGridTextColumn Binding="{Binding GradeName}" IsReadOnly="True" Header="Grade" Width="60" />

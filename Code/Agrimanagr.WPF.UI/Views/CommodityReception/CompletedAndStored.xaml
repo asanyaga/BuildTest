@@ -148,7 +148,7 @@
                         <DataGridTextColumn Binding="{Binding DateIssued, StringFormat={}\{0:dd-MMM-yyyy hh:mm\}}" IsReadOnly="True" Header="Date Issued" Width="Auto"  />
                         <DataGridTextColumn Binding="{Binding ClerkName}" IsReadOnly="True" Header="Clerk" Width="Auto" />
                         <DataGridTextColumn Binding="{Binding NetWeight}" IsReadOnly="True" Header="Total Net Weight" Width="Auto" />
-                        <DataGridTextColumn Binding="{Binding NoOfContainers}" IsReadOnly="True" Header="No. Containers" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding NoOfContainers}" IsReadOnly="True" Header="No. Containers\Bags" Width="Auto" />
                         <DataGridTextColumn Binding="{Binding DocumentId}" IsReadOnly="True" Header="Id" Visibility="Hidden" />
                     </DataGrid.Columns>
                 </DataGrid>

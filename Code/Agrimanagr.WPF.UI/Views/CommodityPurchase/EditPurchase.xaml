@@ -272,13 +272,13 @@
                                                    HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Auto"   VerticalAlignment="Stretch" 
                                       VerticalScrollBarVisibility="Auto" FontWeight="Normal" RowDetailsVisibilityMode="Visible" >
                                        <DataGrid.Columns>
-                                        <DataGridTextColumn Binding="{Binding ContainerType.Name}" IsReadOnly="True" Header="Container Id" Width="auto" />
+                                        <DataGridTextColumn Binding="{Binding ContainerType.Name}" IsReadOnly="True" Header="Container\Bag Id" Width="auto" />
                                         <DataGridTextColumn Binding="{Binding Commodity.Name}" IsReadOnly="True" Header="Commodity" Width="auto" />
                                 <DataGridTextColumn Binding="{Binding GrossWeight}" IsReadOnly="True" Header="Gross Weight(kg)" Width="auto" />
                                 <DataGridTextColumn Binding="{Binding TareWeight}" IsReadOnly="True" Header="Tare Weight (Kg)" Width="auto" />
                                 <DataGridTextColumn Binding="{Binding NetWeight}" IsReadOnly="True" Header="Net Weight (Kg)" Width="auto" />
                                 <DataGridTextColumn Binding="{Binding CommodityGrade.Name}" IsReadOnly="True" Header="Grade" Width="auto" />
-                                        <DataGridTextColumn Binding="{Binding NoOfContainers}" IsReadOnly="True" Header="No. Containers" Width="110" />
+                                        <DataGridTextColumn Binding="{Binding NoOfContainers}" IsReadOnly="True" Header="No. Containers\Bags" Width="140" />
                                         <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="140" Header="Action" >
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
