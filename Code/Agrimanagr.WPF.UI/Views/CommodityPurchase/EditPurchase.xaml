@@ -278,7 +278,7 @@
                                 <DataGridTextColumn Binding="{Binding TareWeight}" IsReadOnly="True" Header="Tare Weight (Kg)" Width="auto" />
                                 <DataGridTextColumn Binding="{Binding NetWeight}" IsReadOnly="True" Header="Net Weight (Kg)" Width="auto" />
                                 <DataGridTextColumn Binding="{Binding CommodityGrade.Name}" IsReadOnly="True" Header="Grade" Width="auto" />
-                                        <DataGridTextColumn Binding="{Binding NoOfContainers}" IsReadOnly="True" Header="No. of Containers\Bags" Width="150" />
+                                        <DataGridTextColumn Binding="{Binding NoOfContainers}" IsReadOnly="True" Header="No. Containers\Bags" Width="140" />
                                         <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="140" Header="Action" >
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
