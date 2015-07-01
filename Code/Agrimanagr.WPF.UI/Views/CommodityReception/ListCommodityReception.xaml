@@ -191,7 +191,7 @@
                                     <DataGridTextColumn Binding="{Binding DeliveredBy}" IsReadOnly="True" Header="Delivered By" />
                                     <DataGridTextColumn Binding="{Binding DocumentRecipentCC}" IsReadOnly="True" Header="Doc Recipient" Width="Auto" />
                                     <DataGridTextColumn Binding="{Binding TotalWeight}" IsReadOnly="True" Header="Total Net Weight" Width="Auto" />
-                                    <DataGridTextColumn Binding="{Binding NumberOfContainers}" IsReadOnly="True" Header="No. Containers" Width="Auto" />
+                                    <DataGridTextColumn Binding="{Binding NumberOfContainers}" IsReadOnly="True" Header="No. Containers\Bags" Width="Auto" />
                                     <DataGridTextColumn Binding="{Binding DocumentId}" IsReadOnly="True" Header="Id" Visibility="Hidden" />
                                     <DataGridTextColumn Binding="{Binding DocumentType}" IsReadOnly="True" Header="Doc Type" Width="Auto" />
 
@@ -329,7 +329,7 @@
                                 <DataGridTextColumn Binding="{Binding DeliveredBy}" IsReadOnly="True" Header="Delivered By" />
                                 <DataGridTextColumn Binding="{Binding DocumentRecipentCC}" IsReadOnly="True" Header="Doc Recipient" Width="Auto" />
                                 <DataGridTextColumn Binding="{Binding TotalWeight}" IsReadOnly="True" Header="Total Net Weight" Width="Auto" />
-                                <DataGridTextColumn Binding="{Binding NumberOfContainers}" IsReadOnly="True" Header="No. Containers" Width="Auto" />
+                                <DataGridTextColumn Binding="{Binding NumberOfContainers}" IsReadOnly="True" Header="No. Containers\Bags" Width="Auto" />
                                 <DataGridTextColumn Binding="{Binding DocumentId}" IsReadOnly="True" Header="Id" Visibility="Hidden" />
                                 <DataGridTextColumn Binding="{Binding DocumentType}" IsReadOnly="True" Header="Doc Type" Width="Auto" />
 
@@ -426,7 +426,7 @@
                                 <DataGridTextColumn Binding="{Binding CommodityProducer}" IsReadOnly="True" Header="Store" />
                                 <DataGridTextColumn Binding="{Binding DocumentRecipentCC}" IsReadOnly="True" Header="Doc Recipient" Width="Auto" />
                                 <DataGridTextColumn Binding="{Binding TotalWeight}" IsReadOnly="True" Header="Total Net Weight" Width="Auto" />
-                                <DataGridTextColumn Binding="{Binding NumberOfContainers}" IsReadOnly="True" Header="No. Containers" Width="Auto" />
+                                <DataGridTextColumn Binding="{Binding NumberOfContainers}" IsReadOnly="True" Header="No. Containers\Bags" Width="Auto" />
                                 <DataGridTextColumn Binding="{Binding DocumentId}" IsReadOnly="True" Header="Id" Visibility="Hidden" />
                                 <DataGridTextColumn Binding="{Binding DocumentType}" IsReadOnly="True" Header="Doc Type" Width="Auto" />
                             </DataGrid.Columns>
