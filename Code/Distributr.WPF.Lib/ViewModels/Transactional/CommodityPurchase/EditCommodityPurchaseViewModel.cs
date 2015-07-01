@@ -1412,7 +1412,7 @@ namespace Distributr.WPF.Lib.ViewModels.Transactional.CommodityPurchase
             if (StorageContainerList.Count(n => n.Id != Guid.Empty) == 1)
             {
                 StorageContainerVisibility = Visibility.Collapsed;
-                SelectedWeighingContainer = StorageContainerList.FirstOrDefault(n => n.Id != Guid.Empty);
+                SelectedStorageContainer = StorageContainerList.FirstOrDefault(n => n.Id != Guid.Empty);
             }
         }
 
