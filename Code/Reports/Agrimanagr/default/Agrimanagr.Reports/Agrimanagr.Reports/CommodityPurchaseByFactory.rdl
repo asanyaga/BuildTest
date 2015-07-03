@@ -665,10 +665,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2in</Height>
+        <Height>1.52083in</Height>
         <Style />
       </Body>
-      <Width>8.20833in</Width>
+      <Width>7.28125in</Width>
       <Page>
         <PageHeader>
           <Height>0.83333in</Height>

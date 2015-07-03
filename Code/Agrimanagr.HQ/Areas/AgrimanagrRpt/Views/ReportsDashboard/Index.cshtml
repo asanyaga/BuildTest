@@ -5,87 +5,101 @@
 <h2 id="breadcrumb-holder">Reports Dashboard</h2>
 
 <div id="main-content-housing">
-<div id="homepage-dashboard">
-    <fieldset>
-        <legend>Reports </legend>
-        <div class="home-item">
-            <span class="icons global"></span>
-            <h2 class="dash-headers ">Commodity Purchase</h2>
-            <ul>
-                <li>@Html.ActionLink("Commodity Purchase By Factory","ReportView",new {reportName="Commodity Purchase By Factory", reporturi="/agrimanagr.reports/CommodityPurchaseByFactory_R"})</li>
-                <li>@Html.ActionLink("Commodity Purchase By Route", "ReportView", new { reportName = "Commodity Purchase By Route", reporturi = "/agrimanagr.reports/CommodityPurchaseByRoute_R" })</li>
-                <li>@Html.ActionLink("Commodity Purchase By Centre", "ReportView", new { reportName = "Commodity Purchase By Centre", reporturi = "/agrimanagr.reports/CommodityPurchaseByCentre_R" })</li>
-                <li>@Html.ActionLink("Commodity Purchase By Farmer", "ReportView", new { reportName = "Commodity Purchase By Farmer", reporturi = "/agrimanagr.reports/CommodityPurchaseByFarmer_R" })</li>
-                <li>@Html.ActionLink("Commodity Purchase By Transaction", "ReportView", new { reportName = "Commodity Purchase By Transaction", reporturi = "/agrimanagr.reports/CommodityPurchaseByTransaction_R" })</li>
-            </ul>
-        </div>
-        <div class="home-item">
-            <span class="icons global"></span>
-            <h2 class="dash-headers ">Commodity Delivery</h2>
-             <ul>
-                <li>@Html.ActionLink("Commodity Delivery By Factory", "ReportView", new { reportName = "Commodity Delivery By Factory", reporturi = "/agrimanagr.reports/CommodityDeliveryByFactory_R" })</li>
-                <li>@Html.ActionLink("Commodity Delivery By Route", "ReportView", new { reportName = "Commodity Delivery By Route", reporturi = "/agrimanagr.reports/CommodityDeliveryByRoute_R" })</li>
-                <li>@Html.ActionLink("Commodity Delivery By Centre", "ReportView", new { reportName = "Commodity Delivery By Centre", reporturi = "/agrimanagr.reports/CommodityDeliveryByCentre_R" })</li>
-                <li>@Html.ActionLink("Commodity Delivery By Driver", "ReportView", new { reportName = "Commodity Delivery By Driver", reporturi = "/agrimanagr.reports/CommodityDeliveryByDriver_R" })</li>
-                <li>@Html.ActionLink("Commodity Delivery By Transaction", "ReportView", new { reportName = "Commodity Delivery By Transaction", reporturi = "/agrimanagr.reports/CommodityDeliveryByTransaction_R" })</li>
-            </ul>
-        </div>
-        <div class="home-item">
-            <span class="icons global"></span>
-            <h2 class="dash-headers ">Commodity Reception</h2>
-             <ul>
-                <li>@Html.ActionLink("Commodity Reception By Factory", "ReportView", new { reportName = "Commodity Reception By Factory", reporturi = "/agrimanagr.reports/CommodityReceptionByFactory_R" })</li>
-                <li>@Html.ActionLink("Commodity Reception By Route", "ReportView", new { reportName = "Commodity Reception By Route", reporturi = "/agrimanagr.reports/CommodityReceptionByRoute_R" })</li>
-                <li>@Html.ActionLink("Commodity Reception By Centre", "ReportView", new { reportName = "Commodity Reception By Centre", reporturi = "/agrimanagr.reports/CommodityReceptionByCentre_R" })</li>
-                <li>@Html.ActionLink("Commodity Reception By Transaction", "ReportView", new { reportName = "Commodity Reception By Transaction", reporturi = "/agrimanagr.reports/CommodityReceptionByTransaction_R" })</li>
-            </ul>
-        </div>
-         <br class="clear-left" />
-        <div class="home-item">
-            <span class="icons global"></span>
-            <h2 class="dash-headers ">Analytical Reports</h2>
-            <ul>
-               
-                <li>@Html.ActionLink("Production By Route", "ReportView", new { reportName = "Production By Route", reporturi = "/agrimanagr.reports/ProductionByRoute" })</li>
-                <li>@Html.ActionLink("Production By Centre", "ReportView", new { reportName = "Production By Centre", reporturi = "/agrimanagr.reports/ProductionByCentre" })</li>
-                <li>@Html.ActionLink("Close Of Day", "ReportView", new { reportName = "Close Of Day", reporturi = "/agrimanagr.reports/CloseOfDay_R" })</li>
-                <li>@Html.ActionLink("Collection By Buying/Collection Centre", "ReportView", new { reportName = "Collection By Buying/Collection Centre", reporturi = "/Agrimanagr.Reports/CommodityCollectionByCentre" })</li>
-                <li>@Html.ActionLink("Collection By Driver", "ReportView", new { reportName = "Collection By Driver", reporturi = "/Agrimanagr.Reports/CommodityCollectionByDrivers" })</li>
-                @*<li>@Html.ActionLink("Farmer Delivery","ReportView",new { reporturi="/Agrimanagr.Reports/DeliverieByFarmer"})</li>*@
-                <li>@Html.ActionLink("Daily Totals By Route", "ReportView", new { reportName = "Daily Totals By Route", reporturi = "/Agrimanagr.Reports/DailyTotalsByRoute_R1" })</li>
-                <li>@Html.ActionLink("Daily Totals By Centre", "ReportView", new { reportName = "Daily Totals By Centre", reporturi = "/Agrimanagr.Reports/DailyTotalsByCentre_R1" })</li>
-                <li>@Html.ActionLink("DashBoard", "ReportView", new { reportName = "DashBoard", reporturi = "/Agrimanagr.Reports/DB_Agrimanagr_Main" })</li>
+    <div id="homepage-dashboard">
+        <fieldset>
+            <legend>Reports </legend>
+            <div class="home-item">
+                <span class="icons global"></span>
+                <h2 class="dash-headers ">Purchase</h2>
+                <ul>
+                    <li>@Html.ActionLink("Purchase By Factory", "ReportView", new { reportName = "Purchase By Factory", reporturi = "/agrimanagr.reports/CommodityPurchaseByFactory_R" })</li>
+                    <li>@Html.ActionLink("Purchase By Route", "ReportView", new { reportName = "Purchase By Route", reporturi = "/agrimanagr.reports/CommodityPurchaseByRoute_R" })</li>
+                    <li>@Html.ActionLink("Purchase By Centre", "ReportView", new { reportName = "Purchase By Centre", reporturi = "/agrimanagr.reports/CommodityPurchaseByCentre_R" })</li>
+                    <li>@Html.ActionLink("Purchase By Farmer", "ReportView", new { reportName = "Purchase By Farmer", reporturi = "/agrimanagr.reports/CommodityPurchaseByFarmer_R" })</li>
+                    <li>@Html.ActionLink("Purchase By Transaction", "ReportView", new { reportName = "Purchase By Transaction", reporturi = "/agrimanagr.reports/CommodityPurchaseByTransaction_R" })</li>
+                    <li>@Html.ActionLink("Purchase By Date Exception", "ReportView", new { reportName = "Purchase Exception", reporturi = "/agrimanagr.reports/CommodityPurchaseException" })</li>
+                </ul>
+            </div>
+            <div class="home-item">
+                <span class="icons global"></span>
+                <h2 class="dash-headers ">Commodity Delivery</h2>
+                <ul>
+                    <li>@Html.ActionLink("Delivery By Factory", "ReportView", new { reportName = "Delivery By Factory", reporturi = "/agrimanagr.reports/CommodityDeliveryByFactory_R" })</li>
+                    <li>@Html.ActionLink("Delivery By Route", "ReportView", new { reportName = "Delivery By Route", reporturi = "/agrimanagr.reports/CommodityDeliveryByRoute_R" })</li>
+                    <li>@Html.ActionLink("Delivery By Centre", "ReportView", new { reportName = "Delivery By Centre", reporturi = "/agrimanagr.reports/CommodityDeliveryByCentre_R" })</li>
+                    <li>@Html.ActionLink("Delivery By Driver", "ReportView", new { reportName = "Delivery By Driver", reporturi = "/agrimanagr.reports/CommodityDeliveryByDriver_R" })</li>
+                    <li>@Html.ActionLink("Delivery By Transaction", "ReportView", new { reportName = "Delivery By Transaction", reporturi = "/agrimanagr.reports/CommodityDeliveryByTransaction_R" })</li>
+                    <li>@Html.ActionLink("Delivery By Date Exception", "ReportView", new { reportName = "Delivery Exception", reporturi = "/agrimanagr.reports/CommodityDeliveryException" })</li>
+                </ul>
+            </div>
+            <div class="home-item">
+                <span class="icons global"></span>
+                <h2 class="dash-headers ">Commodity Reception</h2>
+                <ul>
+                    <li>@Html.ActionLink("Reception By Factory", "ReportView", new { reportName = "Reception By Factory", reporturi = "/agrimanagr.reports/CommodityReceptionByFactory_R" })</li>
+                    <li>@Html.ActionLink("Reception By Route", "ReportView", new { reportName = "Reception By Route", reporturi = "/agrimanagr.reports/CommodityReceptionByRoute_R" })</li>
+                    <li>@Html.ActionLink("Reception By Centre", "ReportView", new { reportName = "Reception By Centre", reporturi = "/agrimanagr.reports/CommodityReceptionByCentre_R" })</li>
+                    <li>@Html.ActionLink("Reception By Transaction", "ReportView", new { reportName = "Reception By Transaction", reporturi = "/agrimanagr.reports/CommodityReceptionByTransaction_R" })</li>
+                </ul>
+            </div>
+            <br class="clear-left" />
+            <div class="home-item">
+                <span class="icons global"></span>
+                <h2 class="dash-headers ">Analytical Reports</h2>
+                <ul>
+
+                    <li>@Html.ActionLink("Production By Route", "ReportView", new { reportName = "Production By Route", reporturi = "/agrimanagr.reports/ProductionByRoute" })</li>
+                    <li>@Html.ActionLink("Production By Centre", "ReportView", new { reportName = "Production By Centre", reporturi = "/agrimanagr.reports/ProductionByCentre" })</li>
+                    <li>@Html.ActionLink("Close Of Day", "ReportView", new { reportName = "Close Of Day", reporturi = "/agrimanagr.reports/CloseOfDay_R" })</li>
+                    <li>@Html.ActionLink("Collection By Buying/Collection Centre", "ReportView", new { reportName = "Collection By Buying/Collection Centre", reporturi = "/Agrimanagr.Reports/CommodityCollectionByCentre" })</li>
+                    <li>@Html.ActionLink("Collection By Driver", "ReportView", new { reportName = "Collection By Driver", reporturi = "/Agrimanagr.Reports/CommodityCollectionByDrivers" })</li>
+                    @*<li>@Html.ActionLink("Farmer Delivery","ReportView",new { reporturi="/Agrimanagr.Reports/DeliverieByFarmer"})</li>*@
+                    <li>@Html.ActionLink("Daily Totals By Route", "ReportView", new { reportName = "Daily Totals By Route", reporturi = "/Agrimanagr.Reports/DailyTotalsByRoute_R1" })</li>
+                    <li>@Html.ActionLink("Daily Totals By Centre", "ReportView", new { reportName = "Daily Totals By Centre", reporturi = "/Agrimanagr.Reports/DailyTotalsByCentre_R1" })</li>
+                    <li>@Html.ActionLink("DashBoard", "ReportView", new { reportName = "DashBoard", reporturi = "/Agrimanagr.Reports/DB_Agrimanagr_Main" })</li>
 
 
-            </ul>
-             
-        </div>
-        <div class="home-item">
-            <span class="icons global"></span>
-            <h2 class="dash-headers ">Transactional Reports</h2>
-            <ul>
-                
-                <li>@Html.ActionLink("Transaction By Centre", "ReportView", new { reportName = "Transaction By Centre", reporturi = "/Agrimanagr.Reports/TransactionsByCentre" })</li>
-                <li>@Html.ActionLink("Transaction By Clerk", "ReportView", new { reportName = "Transaction By Clerk", reporturi = "/Agrimanagr.Reports/TransactionByClerk" })</li>
-                <li>@Html.ActionLink("Transaction By Farmer", "ReportView", new { reportName = "Transaction By Farmer", reporturi = "/Agrimanagr.Reports/TransactionByFarmer" })</li>
-                <li>@Html.ActionLink("Gains/Losses By Clerk", "ReportView", new { reportName = "Gains/Losses By Clerk", reporturi = "/Agrimanagr.Reports/GainsLossesPerFieldClerk" })</li>
+                </ul>
+
+            </div>
+            <div class="home-item">
+                <span class="icons global"></span>
+                <h2 class="dash-headers ">Transactional Reports</h2>
+                <ul>
+
+                    <li>@Html.ActionLink("Transaction By Centre", "ReportView", new { reportName = "Transaction By Centre", reporturi = "/Agrimanagr.Reports/TransactionsByCentre" })</li>
+                    <li>@Html.ActionLink("Transaction By Clerk", "ReportView", new { reportName = "Transaction By Clerk", reporturi = "/Agrimanagr.Reports/TransactionByClerk" })</li>
+                    <li>@Html.ActionLink("Transaction By Farmer", "ReportView", new { reportName = "Transaction By Farmer", reporturi = "/Agrimanagr.Reports/TransactionByFarmer" })</li>
+                    <li>@Html.ActionLink("Gains/Losses By Clerk", "ReportView", new { reportName = "Gains/Losses By Clerk", reporturi = "/Agrimanagr.Reports/GainsLossesPerFieldClerk" })</li>
 
 
-            </ul>
-        </div>
-        
-         <div class="home-item">
-            <span class="icons global"></span>
-            <h2 class="dash-headers ">Inventory Reports</h2>
-             <ul>
-                 
-                 <li>@Html.ActionLink("Commodity Inventory by Store", "ReportView", new { reportName = "Commodity Inventory by Store", reporturi = "/Agrimanagr.Reports/CommodityInventoryByStore" })</li>
+                </ul>
+            </div>
 
-             </ul>
-        </div>
-        
+            <div class="home-item">
+                <span class="icons global"></span>
+                <h2 class="dash-headers ">Inventory Reports</h2>
+                <ul>
 
+                    <li>@Html.ActionLink("Inventory by Store", "ReportView", new { reportName = "Inventory by Store", reporturi = "/Agrimanagr.Reports/CommodityInventoryByStore" })</li>
 
-    </fieldset>
-</div>
+                </ul>
+            </div>
+            
+            <div class="home-item">
+                <span class="icons global"></span>
+                <h2 class="dash-headers ">Farm Activity Reports</h2>
+                <ul>
+
+                    <li>@Html.ActionLink("Activity by Product details Summary", "ReportView", new { reportName = "Activity by Product details Summary", reporturi = "/Agrimanagr.Reports/ActivityByProductSummary" })</li>
+                    <li>@Html.ActionLink("Commodity Producer Services details summary", "ReportView", new { reportName = "Commodity Producer Services details summary", reporturi = "/Agrimanagr.Reports/CommodityProducerServicesDetailsSummary" })</li>
+                    <li>@Html.ActionLink("Infections details summary", "ReportView", new { reportName = "Infections details summary", reporturi = "/Agrimanagr.Reports/InfectionDetailsSummary" })</li>
+                    <li>@Html.ActionLink("Season details summary", "ReportView", new { reportName = "Season details summary", reporturi = "/Agrimanagr.Reports/SeasonsDetailsSummary" })</li>
+                    <li>@Html.ActionLink("Service Provider details summary", "ReportView", new { reportName = "Service Provider details summary", reporturi = "/Agrimanagr.Reports/ServiceProviderDetailsSummary" })</li>
+                    <li>@Html.ActionLink("Shift details summary", "ReportView", new { reportName = "Shift details summary", reporturi = "/Agrimanagr.Reports/ShiftDetailsSummary" })</li>
+                </ul>
+            </div>
+
+        </fieldset>
+    </div>
 </div>

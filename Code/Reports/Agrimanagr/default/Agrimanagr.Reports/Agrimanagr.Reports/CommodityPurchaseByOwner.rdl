@@ -413,15 +413,39 @@
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember>
-                  <KeepWithGroup>After</KeepWithGroup>
+                  <Group Name="commodityOwnerId">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!commodityOwnerId.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!commodityowner.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="commodityowner">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!commodityowner.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!commodityowner.Value</Value>
+                        </SortExpression>
+                      </SortExpressions>
+                      <TablixMembers>
+                        <TablixMember>
+                          <Group Name="Details" />
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                  </TablixMembers>
                 </TablixMember>
-                <TablixMember>
-                  <Group Name="Details" />
-                </TablixMember>
-                <TablixMember>
-                  <KeepWithGroup>Before</KeepWithGroup>
-                </TablixMember>
+                <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>data</DataSetName>
@@ -907,10 +931,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2in</Height>
+        <Height>1.73958in</Height>
         <Style />
       </Body>
-      <Width>7.45833in</Width>
+      <Width>7.64063in</Width>
       <Page>
         <PageHeader>
           <Height>0.51042in</Height>

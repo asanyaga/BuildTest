@@ -30,7 +30,8 @@ namespace Agrimanagr.HQ.Controllers
             {
                 return RedirectToAction("ChangePassword", "Account");
             }
-            return RedirectToAction("Index", new {area="Agrimanagr",controller="AgriMain"});
+            //return RedirectToAction("Index", new {area="Agrimanagr",controller="AgriMain"});
+            return RedirectToAction("ReportView", new { area = "AgrimanagrRpt", controller = "ReportsDashboard", reportName = "DashBoard", reporturi = "/Agrimanagr.Reports/DB_Agrimanagr_Main" });
         }
 
         //

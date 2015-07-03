@@ -30,7 +30,7 @@
                                 <TabItem.Header>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
                                         <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png" Stretch="Fill" Width="30" Margin="0"/>
-                                        <TextBlock Text="2. Awaiting Storage" FontSize="13" Margin="2"></TextBlock>
+                                        <TextBlock Text="2. Received" FontSize="13" Margin="2"></TextBlock>
                                     </StackPanel>
                                 </TabItem.Header>
                             </TabItem>
@@ -38,7 +38,7 @@
                                 <TabItem.Header>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
                                         <Image Source="/Agrimanagr.WPF.UI;component/Resources/images/Agrimanagr icon.png" Stretch="Fill" Width="30" Margin="0"/>
-                                        <TextBlock Text="3. Storage complete" FontSize="13" Margin="2"></TextBlock>
+                                        <TextBlock Text="3. Complete" FontSize="13" Margin="2"></TextBlock>
                                     </StackPanel>
                                 </TabItem.Header>
                             </TabItem>

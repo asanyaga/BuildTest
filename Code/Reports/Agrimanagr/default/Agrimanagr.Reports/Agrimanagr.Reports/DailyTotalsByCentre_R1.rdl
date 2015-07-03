@@ -25,7 +25,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Height>0.38542in</Height>
-        <Width>10.51958in</Width>
+        <Width>9.90502in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -684,7 +684,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>2.76321in</Size>
+                <Size>2.14867in</Size>
                 <CellContents>
                   <Textbox Name="Textbox8">
                     <CanGrow>true</CanGrow>
@@ -724,9 +724,9 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="CentreName">
+              <Group Name="CentreId">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!CentreName.Value</GroupExpression>
+                  <GroupExpression>=Fields!CentreIds.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
@@ -735,7 +735,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.76321in</Size>
+                <Size>2.14867in</Size>
                 <CellContents>
                   <Textbox Name="CentreName1">
                     <CanGrow>true</CanGrow>
@@ -765,6 +765,7 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
+                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -773,7 +774,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>2.76321in</Size>
+                <Size>2.14867in</Size>
                 <CellContents>
                   <Textbox Name="Textbox18">
                     <CanGrow>true</CanGrow>
@@ -815,7 +816,7 @@
         <Top>1.40292in</Top>
         <Left>0.125in</Left>
         <Height>0.75in</Height>
-        <Width>10.39456in</Width>
+        <Width>9.78002in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -833,7 +834,7 @@
               <Width>2.59865in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.59865in</Width>
+              <Width>1.98407in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.59865in</Width>
@@ -1290,7 +1291,7 @@
         <Top>0.65708in</Top>
         <Left>0.125in</Left>
         <Height>0.75in</Height>
-        <Width>10.3946in</Width>
+        <Width>9.78002in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1299,10 +1300,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.6875in</Height>
+    <Height>2.28125in</Height>
     <Style />
   </Body>
-  <Width>11.03125in</Width>
+  <Width>10.05208in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

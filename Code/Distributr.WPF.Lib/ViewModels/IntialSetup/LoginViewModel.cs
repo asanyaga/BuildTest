@@ -28,6 +28,7 @@ namespace Distributr.WPF.Lib.ViewModels.IntialSetup
         private IAutoSyncService _autoSyncService;
         private static string _userName;
        
+       
         public LoginViewModel()
         {
            
@@ -379,7 +380,7 @@ namespace Distributr.WPF.Lib.ViewModels.IntialSetup
 
             //Overrides
             if (userRights.IsAdministrator)
-                return IsAdministrator();
+                return IsAdministrator(user);
 
             userRights.IsFinanceHandler = user.UserRoles.Contains(((int)UserRole.FinanceHandler).ToString());
 
@@ -489,28 +490,45 @@ namespace Distributr.WPF.Lib.ViewModels.IntialSetup
 
             //userRights.CanViewAdminMenu = 
 
-            #region AgrimanagrUserRights
+            #region AgrimanagrUserRights&Settings
 
-            userRights.CanViewActivities = user.UserRoles.Contains(((int) AgriUserRole.RoleViewActivities).ToString());
+            //var settings = ObjectFactory.GetInstance<ISettingsRepository>();
+
+            //var canviewActivitiesSetting = settings.GetByKey(SettingsKeys.ShowFarmActivities)!=null ? settings.GetByKey(SettingsKeys.ShowFarmActivities).Value:null;
+            //var canViewWarehouse = settings.GetByKey(SettingsKeys.ShowWarehouseReceipt)!=null?settings.GetByKey(SettingsKeys.ShowWarehouseReceipt).Value:null;
+
+            //var canviewActivitesRights = user.UserRoles.Contains(((int)AgriUserRole.RoleViewActivities).ToString());
+
+            //var canviewWarehouseRights = user.UserRoles.Contains(((int)AgriUserRole.RoleViewWarehouse).ToString());
+
+            //userRights.CanViewActivities = canviewActivitesRights;
+            //userRights.CanViewWarehouse = canviewWarehouseRights;
+
+            userRights.CanViewActivities = ViewAgriModules(user, AgriUserRole.RoleViewActivities,SettingsKeys.ShowFarmActivities);
+            userRights.CanViewWarehouse = ViewAgriModules(user, AgriUserRole.RoleViewWarehouse, SettingsKeys.ShowWarehouseReceipt);
+
+
+
             userRights.CanViewAdmin = user.UserRoles.Contains(((int)AgriUserRole.RoleViewAdmin).ToString());
             userRights.CanViewCommodity = user.UserRoles.Contains(((int)AgriUserRole.RoleViewCommodity).ToString());
-            userRights.CanViewWarehouse = user.UserRoles.Contains(((int)AgriUserRole.RoleViewWarehouse).ToString());
             #endregion
 
             return userRights;
         }
 
-        private UserRights IsAdministrator()
+        private UserRights IsAdministrator(User user)
         {
             UserRights userRights = null;
             if (GetConfigParams().AppId == Core.VirtualCityApp.Agrimanagr)
             {
+                
                 userRights = new UserRights
                 {
-                    CanViewActivities = true,
                     CanViewAdmin = true,
                     CanViewCommodity = true,
-                    CanViewWarehouse = true,
+                    CanViewWarehouse = ViewAgriModules(user, AgriUserRole.RoleViewWarehouse, SettingsKeys.ShowWarehouseReceipt),
+                    CanViewActivities = ViewAgriModules(user, AgriUserRole.RoleViewActivities, SettingsKeys.ShowFarmActivities),
+                    
                 };
             }
             if (GetConfigParams().AppId == Core.VirtualCityApp.Ditributr)
@@ -599,6 +617,35 @@ namespace Distributr.WPF.Lib.ViewModels.IntialSetup
             return userRights;
         }
 
+
+        private bool ViewAgriModules(User user,AgriUserRole role,SettingsKeys settingKey)
+        {
+            var settings = ObjectFactory.GetInstance<ISettingsRepository>();
+
+            bool result = false;
+
+            var canViewModuleSetting = settings.GetByKey(settingKey) != null ? settings.GetByKey(settingKey).Value : null;
+            var canViewModuleRight = user.UserRoles.Contains(((int)role).ToString());
+
+            if (canViewModuleSetting == null || Convert.ToBoolean(canViewModuleSetting)==false)
+            {
+                result = false;
+                //return result;
+            }
+            if (canViewModuleSetting != null && Convert.ToBoolean(canViewModuleSetting))
+            {   
+                result = true;
+                if (!canViewModuleRight)
+                    result = false;
+
+            }
+
+
+
+            return result;
+
+
+        }
         private void CleanDB()
         {
             using (NestedServices n = GetNestedServices())

@@ -34,7 +34,7 @@ namespace Agrimanagr.WPF.UI.Views.Reports
 
         private void ViewReport_Click(object sender, RoutedEventArgs e)
         {
-            Hyperlink hyperlink = (Hyperlink) sender;
+            Hyperlink hyperlink = (Hyperlink)sender;
             NavigationService.Navigate(new Uri("views/reports/ReportView.xaml?" + hyperlink.Tag, UriKind.Relative));
         }
 
@@ -49,7 +49,7 @@ namespace Agrimanagr.WPF.UI.Views.Reports
             var reportViewer = new ReportViewer();
             reportViewer.ProcessingMode = ProcessingMode.Remote;
 
-           
+
             string url = "";
             string password = "";
             string username = "";
@@ -66,7 +66,7 @@ namespace Agrimanagr.WPF.UI.Views.Reports
                 if (reportUrl != null)
                 {
                     url = reportUrl.SettingValue;
-                   
+
                 }
                 GeneralSetting reportfolder = settingrepo.GetByKey(GeneralSettingKey.ReportFolder);
                 if (reportfolder != null)
@@ -85,12 +85,13 @@ namespace Agrimanagr.WPF.UI.Views.Reports
             {
                 ReportParameter hubidparam = new ReportParameter("hubId", hubid.ToString(), false);
                 reportViewer.ServerReport.SetParameters(new ReportParameter[] { hubidparam });
-            }catch
+            }
+            catch
             {
-                
+
             }
             //ReportParameter hubidparam = new ReportParameter("hubId", "E6834108-4BA7-4A1A-98CA-9DD4DF8D68E2", false);
-           
+
             reportViewer.Drillthrough += DrillthroughEventHandler;
             //reportViewer.ServerReport.IsDrillthroughReport = true;
             reportViewer.ServerReport.Refresh();
@@ -122,11 +123,11 @@ namespace Agrimanagr.WPF.UI.Views.Reports
             }
 
             ReportParameter hubidparam = new ReportParameter("hubId", hubid.ToString(), false);
-           // ReportParameter hubidparam = new ReportParameter("hubId", "E6834108-4BA7-4A1A-98CA-9DD4DF8D68E2", false);
+            // ReportParameter hubidparam = new ReportParameter("hubId", "E6834108-4BA7-4A1A-98CA-9DD4DF8D68E2", false);
 
             try
             {
-                report.SetParameters(new ReportParameter[] {hubidparam});
+                report.SetParameters(new ReportParameter[] { hubidparam });
             }
             catch (Exception ex)
             {
@@ -147,26 +148,30 @@ namespace Agrimanagr.WPF.UI.Views.Reports
 
         private void commodityPurchaseRouteSummary_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Purchase By Route", "/Agrimanagr.Reports/CommodityPurchaseByRoute_R");  
+            RenderReport("Purchase By Route", "/Agrimanagr.Reports/CommodityPurchaseByRoute_R");
         }
 
         private void commodityPurchaseCentre_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Purchase By Centre", "/Agrimanagr.Reports/CommodityPurchaseByCentre_R");         
+            RenderReport("Purchase By Centre", "/Agrimanagr.Reports/CommodityPurchaseByCentre_R");
         }
 
         private void commodityPurchaseFarmer_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Purchase By Farmer ", "/Agrimanagr.Reports/CommodityPurchaseByFarmer_R"); 
+            RenderReport("Purchase By Farmer ", "/Agrimanagr.Reports/CommodityPurchaseByFarmer_R");
+        }
+        private void commodityPurchaseException_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Purchase by Date Exception", "/Agrimanagr.Reports/CommodityPurchaseException");
         }
 
         private void productionbycentre_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Production By Centre ", "/Agrimanagr.Reports/ProductionByCentre"); 
+            RenderReport("Production By Centre ", "/Agrimanagr.Reports/ProductionByCentre");
         }
         private void productionbyroute_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Production By Route ", "/Agrimanagr.Reports/ProductionByRoute"); 
+            RenderReport("Production By Route ", "/Agrimanagr.Reports/ProductionByRoute");
         }
 
         private void CloseOfDay_click(object sender, RoutedEventArgs e)
@@ -195,45 +200,50 @@ namespace Agrimanagr.WPF.UI.Views.Reports
         }
         #endregion
 
-        #region Commodity Delivery Reports
+        #region Delivery Reports
 
         private void CommodityDeliverySummary_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Delivery Summary", "/Agrimanagr.Reports/CommodityDeliveryByFactory_R");
+            RenderReport("Delivery Summary", "/Agrimanagr.Reports/CommodityDeliveryByFactory_R");
         }
 
         private void commodityDeliveryRoute_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Delivery By Route", "/Agrimanagr.Reports/CommodityDeliveryByRoute_R");
+            RenderReport("Delivery By Route", "/Agrimanagr.Reports/CommodityDeliveryByRoute_R");
         }
 
         private void commodityDeliveryCentre_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Delivery By Centre", "/Agrimanagr.Reports/CommodityDeliveryByCentre_R");
+            RenderReport("Delivery By Centre", "/Agrimanagr.Reports/CommodityDeliveryByCentre_R");
         }
 
         private void commodityDeliveryDriver_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Delivery By Farmer ", "/Agrimanagr.Reports/CommodityDeliveryByDriver_R");
+            RenderReport("Delivery By Farmer ", "/Agrimanagr.Reports/CommodityDeliveryByDriver_R");
+        }
+
+        private void commodityDeliveryException_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Delivery By Date Exception ", "/Agrimanagr.Reports/CommodityDeliveryException");
         }
 
         #endregion
 
-        #region Commodity Reception Reports
+        #region Reception Reports
 
         private void CommodityReceptionSummary_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Reception Summary", "/Agrimanagr.Reports/CommodityReceptionByFactory_R");
+            RenderReport("Reception Summary", "/Agrimanagr.Reports/CommodityReceptionByFactory_R");
         }
 
         private void commodityReceptionRoute_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Reception By Route", "/Agrimanagr.Reports/CommodityReceptionByRoute_R");
+            RenderReport("Reception By Route", "/Agrimanagr.Reports/CommodityReceptionByRoute_R");
         }
 
         private void commodityReceptionCentre_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Reception By Centre", "/Agrimanagr.Reports/CommodityReceptionByCentre_R");
+            RenderReport("Reception By Centre", "/Agrimanagr.Reports/CommodityReceptionByCentre_R");
         }
 
         #endregion
@@ -248,6 +258,32 @@ namespace Agrimanagr.WPF.UI.Views.Reports
             RenderReport("Daily Totals By Centre ", "/Agrimanagr.Reports/DailyTotalsByCentre");
         }
         #endregion
+        #region Farm Activity Reports
+        private void ActivityByProductSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Activity By Product Summary ", "/Agrimanagr.Reports/ActivityByProductSummary");
+        }
+        private void CommodityProducerServicesDetailsSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Commodity Producer Services Details Summary ", "/Agrimanagr.Reports/CommodityProducerServicesDetailsSummary");
+        }
+        private void InfectionDetailsSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Commodity Producer Services Details Summary ", "/Agrimanagr.Reports/InfectionDetailsSummary");
+        }
+        private void SeasonsDetailsSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Seasons Details Summary ", "/Agrimanagr.Reports/SeasonsDetailsSummary");
+        }
+        private void ServiceProviderDetailsSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Commodity Producer Services Details Summary ", "/Agrimanagr.Reports/ServiceProviderDetailsSummary");
+        }
+        private void ShiftDetailsSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Shift Details Summary ", "/Agrimanagr.Reports/ShiftDetailsSummary");
+        }
+        #endregion
 
         private void GainsLossesPerClerkClick(object sender, RoutedEventArgs e)
         {
@@ -256,7 +292,7 @@ namespace Agrimanagr.WPF.UI.Views.Reports
 
         private void FarmerDeliveliesClick(object sender, RoutedEventArgs e)
         {
-            RenderReport("Farmer Deliveries ", "/Agrimanagr.Reports/OwnerDeliveryReport");   
+            RenderReport("Farmer Deliveries ", "/Agrimanagr.Reports/OwnerDeliveryReport");
         }
 
         private void TransactionbyFarmerClick(object sender, RoutedEventArgs e)
@@ -266,7 +302,7 @@ namespace Agrimanagr.WPF.UI.Views.Reports
 
         private void CommodityInventorybyStore_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Inventory  by Store ", "/Agrimanagr.Reports/CommodityInventoryByStore");   
+            RenderReport("Inventory  by Store ", "/Agrimanagr.Reports/CommodityInventoryByStore");
         }
     }
 }

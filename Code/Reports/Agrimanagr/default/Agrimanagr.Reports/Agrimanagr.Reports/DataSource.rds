@@ -2,7 +2,8 @@
 <RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DataSource">
   <ConnectionProperties>
     <Extension>SQL</Extension>
-    <ConnectString>Data Source=10.0.0.14;Initial Catalog=ag3</ConnectString>
+    <ConnectString>Data Source=.;Initial Catalog=agrihq</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
   </ConnectionProperties>
   <DataSourceID>19c05321-5a86-459b-b523-f16f2e992338</DataSourceID>
 </RptDataSource>

@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Commodity Purchase By Factory</Value>
+                <Value>Purchase By Factory</Value>
                 <Style>
                   <FontFamily>Cambria</FontFamily>
                   <FontSize>20pt</FontSize>
@@ -233,7 +233,7 @@
             <TablixMember>
               <Group Name="Hub">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!Hub.Value</GroupExpression>
+                  <GroupExpression>=Fields!HubId.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
@@ -302,6 +302,7 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
+                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -830,10 +831,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.81125in</Height>
+    <Height>2.4675in</Height>
     <Style />
   </Body>
-  <Width>8.36458in</Width>
+  <Width>7.39583in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

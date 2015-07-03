@@ -771,19 +771,29 @@
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember>
-                  <KeepWithGroup>After</KeepWithGroup>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="Details1">
+                  <Group Name="driverId">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!driverName.Value</GroupExpression>
+                      <GroupExpression>=Fields!driverId.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!driverName.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="Details1">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!driverName.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                    </TablixMember>
+                  </TablixMembers>
                 </TablixMember>
-                <TablixMember>
-                  <KeepWithGroup>Before</KeepWithGroup>
-                </TablixMember>
+                <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>data</DataSetName>
@@ -799,10 +809,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.09375in</Height>
+        <Height>1.6875in</Height>
         <Style />
       </Body>
-      <Width>8.0625in</Width>
+      <Width>8.79165in</Width>
       <Page>
         <PageHeader>
           <Height>0.52083in</Height>

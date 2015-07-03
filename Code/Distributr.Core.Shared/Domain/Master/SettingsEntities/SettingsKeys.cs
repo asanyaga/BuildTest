@@ -65,6 +65,10 @@ namespace Distributr.Core.Domain.Master.SettingsEntities
         EnforceGps = 125,
         EnforcePasswordChange = 126,
         EnforceTransactionalWeightLimit =127,
+        HideContainerNumber=128,
+        ShowFarmActivities=129,
+        ShowWarehouseReceipt=130,
+        EnforceHideFarmOnPhone= 131,
 
         //call protocal
         CallProtocalAllProduct=32,

@@ -364,6 +364,19 @@ namespace Distributr.HQ.Lib.ViewModelBuilders.Agrimanagr.SettingsViewModelBuilde
                         model.MinimumWeightLimit = mn;
                         model.MaximumWeightLimit = mx;
                         break;
+                    case SettingsKeys.HideContainerNumber:
+                        model.HideContainerNumber = Boolean.Parse(appSetting.Value);
+                        break;
+                    case SettingsKeys.ShowFarmActivities:
+                        model.ShowFarmActivities = Boolean.Parse(appSetting.Value);
+                        break;
+                    case SettingsKeys.ShowWarehouseReceipt:
+                        model.ShowWarehouseReceipt = Boolean.Parse(appSetting.Value);
+                        break;
+
+                    case SettingsKeys.EnforceHideFarmOnPhone:
+                        model.EnforceHideFarmOnPhone = Boolean.Parse(appSetting.Value);
+                        break;
                 }
             }
 
@@ -394,6 +407,10 @@ namespace Distributr.HQ.Lib.ViewModelBuilders.Agrimanagr.SettingsViewModelBuilde
             settingenums.Add(SettingsKeys.EnforcePasswordChange);
             settingenums.Add(SettingsKeys.EnforceGps);
             settingenums.Add(SettingsKeys.EnforceTransactionalWeightLimit);
+            settingenums.Add(SettingsKeys.HideContainerNumber);
+            settingenums.Add(SettingsKeys.ShowWarehouseReceipt);
+            settingenums.Add(SettingsKeys.ShowFarmActivities);
+            settingenums.Add(SettingsKeys.EnforceHideFarmOnPhone);
 
             var items = new List<AppSettings>();
             foreach (var settingenum in settingenums)
@@ -483,6 +500,18 @@ namespace Distributr.HQ.Lib.ViewModelBuilders.Agrimanagr.SettingsViewModelBuilde
                             setting.Value = model.EnforceTransactionalWeightLimit + "," + "Min:(" + 0.0 + ")," + "Max:(" + 0.0 + ")";
                         }
                       
+                        break;
+                    case SettingsKeys.HideContainerNumber:
+                        setting.Value = model.HideContainerNumber.ToString();
+                        break;
+                    case SettingsKeys.ShowFarmActivities:
+                        setting.Value = model.ShowFarmActivities.ToString();
+                        break;
+                    case SettingsKeys.ShowWarehouseReceipt:
+                        setting.Value = model.ShowWarehouseReceipt.ToString();
+                        break;
+                    case SettingsKeys.EnforceHideFarmOnPhone:
+                        setting.Value = model.EnforceHideFarmOnPhone.ToString();
                         break;
                 }
                 if (!items.Any(p => p.Key == setting.Key))

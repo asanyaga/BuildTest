@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.64497in</Width>
+              <Width>1.4783in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.64497in</Width>
+              <Width>1.57205in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.56424in</Width>
@@ -21,7 +21,7 @@
               <Width>1.43924in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.875in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -815,7 +815,7 @@
         <Top>0.75in</Top>
         <Left>0.125in</Left>
         <Height>0.75in</Height>
-        <Width>10.58336in</Width>
+        <Width>10.21878in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -826,13 +826,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.64583in</Width>
+              <Width>2.28908in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.64583in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.64583in</Width>
+              <Width>2.20833in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.64583in</Width>
@@ -1141,7 +1141,7 @@
         <Top>0.25in</Top>
         <Left>0.125in</Left>
         <Height>0.5in</Height>
-        <Width>10.58332in</Width>
+        <Width>9.78907in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1150,14 +1150,14 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>5.0625in</Height>
+    <Height>1.60417in</Height>
     <Style>
       <Border>
         <Style>None</Style>
       </Border>
     </Style>
   </Body>
-  <Width>10.98962in</Width>
+  <Width>10.48962in</Width>
   <Page>
     <PageHeader>
       <Height>0.45833in</Height>
@@ -1189,7 +1189,7 @@
           <Top>0.125in</Top>
           <Left>0.125in</Left>
           <Height>0.3125in</Height>
-          <Width>10.58333in</Width>
+          <Width>10.21878in</Width>
           <Style>
             <Border>
               <Style>None</Style>

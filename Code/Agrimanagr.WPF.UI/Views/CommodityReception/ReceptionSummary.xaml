@@ -58,7 +58,7 @@
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Binding="{Binding CommodityName}" IsReadOnly="True" Header="Commodity" Width="120*" CanUserResize="True"/>
                                         <DataGridTextColumn Binding="{Binding GradeName}" IsReadOnly="True" Header="Grade"  Width="120"/>
-                                        <DataGridTextColumn Binding="{Binding ContainerName}" IsReadOnly="True" Header="Container Id" Width="180" />
+                                        <DataGridTextColumn Binding="{Binding ContainerName}" IsReadOnly="True" Header="Container\Bag Id" Width="180" />
                                         <DataGridTextColumn Binding="{Binding MeasuredWeight}" IsReadOnly="True" Header="Weight" Width="120" />
                                         <DataGridTextColumn Binding="{Binding Id}" IsReadOnly="True" Header="Id" Visibility="Hidden" />
                                     </DataGrid.Columns>

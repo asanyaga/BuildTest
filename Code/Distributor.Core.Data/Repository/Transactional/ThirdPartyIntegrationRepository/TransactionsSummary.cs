@@ -100,7 +100,7 @@ namespace Distributr.Core.Data.Repository.Transactional.ThirdPartyIntegrationRep
             {
                
 
-                var farmerCode = farmerQuery.FarmerCode;
+                var farmerCode = farmerQuery.FarmerCode.Trim();
                 var farmerMobile = farmerQuery.Mobile;
                 DateTime to;
                 DateTime from;
@@ -147,7 +147,7 @@ namespace Distributr.Core.Data.Repository.Transactional.ThirdPartyIntegrationRep
                     n => n.CommodityOwnerId == farmerId &&
                          n.DocumentTypeId == (int) DocumentType.CommodityPurchaseNote &&
                          n.DocumentStatusId == (int) DocumentSourcingStatus.Confirmed &&
-                         n.DocumentDate >= from && n.DocumentDate <= to);
+                         n.DocumentDate >= from && n.DocumentDate <= to).OrderByDescending(p=>p.DocumentDate);
 
                 var farmerLineItems = farmerCommPurchaseNotes.SelectMany(n => n.tblSourcingLineItem);
                 var items = farmerLineItems.GroupBy(n => n.CommodityId)
@@ -161,6 +161,13 @@ namespace Distributr.Core.Data.Repository.Transactional.ThirdPartyIntegrationRep
 
                 var dto = items.Select(Map).ToList();
 
+                var latestDocumentDate = farmerCommPurchaseNotes.Select(p => p.DocumentDate).FirstOrDefault();
+
+                var asAtDate = farmerCommPurchaseNotes.Count() >1 ? latestDocumentDate : to;
+
+                result.FarmerCode = farmer.Code;
+                result.FarmerName = string.Format("{0} {1} {2}", farmer.FirstName, farmer.LastName, farmer.Surname);
+                result.AsAtDate = asAtDate.ToString("g");
                 result.StatusCode = (int) FarmerQueryStatusCode.Success;
                 result.StatusDetail = "Succesful";
                 result.SummaryDetail = dto;

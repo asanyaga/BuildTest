@@ -66,6 +66,19 @@ namespace Distributr.HQ.Lib.ViewModels.Agrimanagr.SettingsViewModel
 
         [Display(Name = "MaximumWeightLimit")]
         public double MaximumWeightLimit { get; set; }
+
+        [Display(Name="Hide Container Number")]
+        public bool HideContainerNumber { get; set; }
+
+        [Display(Name = "Show Farm Activities")]
+        public bool ShowFarmActivities { get; set; }
+
+        [Display(Name = "Show Warehouse Receipt")]
+        public bool ShowWarehouseReceipt { get; set; }
+
+        
+        [Display(Name = "Enforce Hide Farm on Phone")]
+        public bool EnforceHideFarmOnPhone { get; set; }
     }
 
     public class AgrimanagrReportSettingViewModel

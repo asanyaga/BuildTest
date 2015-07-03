@@ -158,8 +158,8 @@
                         <DataGridTextColumn Binding="{Binding VehicleRegNo}" IsReadOnly="True" Header="VehicleRegNo" />
                         <DataGridTextColumn Binding="{Binding NetWeight}" IsReadOnly="True" Header="Total Net Weight" Width="Auto" />
                         <DataGridTextColumn Binding="{Binding GrossWeight}" IsReadOnly="True" Header="Total Gross Weight" Width="Auto" />
-                        <DataGridTextColumn Binding="{Binding NoOfContainers}" IsReadOnly="True" Header="No. Containers" Width="Auto" />
-                        <DataGridTextColumn Binding="{Binding TareWeight}" IsReadOnly="True" Header="Container Tare Weight" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding NoOfContainers}" IsReadOnly="True" Header="No. Containers\Bags" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding TareWeight}" IsReadOnly="True" Header="Tare Weight" Width="Auto" />
 
                  <DataGridTemplateColumn CanUserReorder="False" CanUserResize="True" CanUserSort="False" Width="Auto" Header="Action">
                             <DataGridTemplateColumn.CellTemplate>
