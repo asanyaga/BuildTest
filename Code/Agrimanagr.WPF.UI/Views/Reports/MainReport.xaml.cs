@@ -258,6 +258,32 @@ namespace Agrimanagr.WPF.UI.Views.Reports
             RenderReport("Daily Totals By Centre ", "/Agrimanagr.Reports/DailyTotalsByCentre");
         }
         #endregion
+        #region Farm Activity Reports
+        private void ActivityByProductSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Activity By Product Summary ", "/Agrimanagr.Reports/ActivityByProductSummary");
+        }
+        private void CommodityProducerServicesDetailsSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Commodity Producer Services Details Summary ", "/Agrimanagr.Reports/CommodityProducerServicesDetailsSummary");
+        }
+        private void InfectionDetailsSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Commodity Producer Services Details Summary ", "/Agrimanagr.Reports/InfectionDetailsSummary");
+        }
+        private void SeasonsDetailsSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Seasons Details Summary ", "/Agrimanagr.Reports/SeasonsDetailsSummary");
+        }
+        private void ServiceProviderDetailsSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Commodity Producer Services Details Summary ", "/Agrimanagr.Reports/ServiceProviderDetailsSummary");
+        }
+        private void ShiftDetailsSummary_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Shift Details Summary ", "/Agrimanagr.Reports/ShiftDetailsSummary");
+        }
+        #endregion
 
         private void GainsLossesPerClerkClick(object sender, RoutedEventArgs e)
         {

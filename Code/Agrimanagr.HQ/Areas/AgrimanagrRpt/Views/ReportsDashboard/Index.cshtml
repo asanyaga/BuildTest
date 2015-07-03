@@ -85,8 +85,20 @@
 
                 </ul>
             </div>
+            
+            <div class="home-item">
+                <span class="icons global"></span>
+                <h2 class="dash-headers ">Farm Activity Reports</h2>
+                <ul>
 
-
+                    <li>@Html.ActionLink("Activity by Product details Summary", "ReportView", new { reportName = "Activity by Product details Summary", reporturi = "/Agrimanagr.Reports/ActivityByProductSummary" })</li>
+                    <li>@Html.ActionLink("Commodity Producer Services details summary", "ReportView", new { reportName = "Commodity Producer Services details summary", reporturi = "/Agrimanagr.Reports/CommodityProducerServicesDetailsSummary" })</li>
+                    <li>@Html.ActionLink("Infections details summary", "ReportView", new { reportName = "Infections details summary", reporturi = "/Agrimanagr.Reports/InfectionDetailsSummary" })</li>
+                    <li>@Html.ActionLink("Season details summary", "ReportView", new { reportName = "Season details summary", reporturi = "/Agrimanagr.Reports/SeasonsDetailsSummary" })</li>
+                    <li>@Html.ActionLink("Service Provider details summary", "ReportView", new { reportName = "Service Provider details summary", reporturi = "/Agrimanagr.Reports/ServiceProviderDetailsSummary" })</li>
+                    <li>@Html.ActionLink("Shift details summary", "ReportView", new { reportName = "Shift details summary", reporturi = "/Agrimanagr.Reports/ShiftDetailsSummary" })</li>
+                </ul>
+            </div>
 
         </fieldset>
     </div>

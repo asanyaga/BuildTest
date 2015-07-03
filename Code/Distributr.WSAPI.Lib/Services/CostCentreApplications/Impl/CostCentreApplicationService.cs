@@ -130,6 +130,7 @@ namespace Distributr.WSAPI.Lib.Services.CostCentreApplications.Impl
                 _log.InfoFormat("Successful login for {0}", username);
                 string userty = user.UserType.ToString();
                 if (userty.Equals(userType))
+                    
                     return new CostCentreLoginResponse() { CostCentreId = user.CostCentre, ErrorInfo = "Success" };
                 //return new CostCentreLoginResponse() { CostCentreId = user.CostCentre, ErrorInfo = "Please enter a valid Username and Password.\nInvalid account type detected." };
             }
