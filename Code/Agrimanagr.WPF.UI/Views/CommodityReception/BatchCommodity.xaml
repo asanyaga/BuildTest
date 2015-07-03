@@ -116,7 +116,11 @@
                                                         </DataTemplate>
                                                     </DataGridTemplateColumn.CellTemplate>
                                                 </DataGridTemplateColumn>
+<<<<<<< HEAD
                                                 <DataGridTextColumn Binding="{Binding ContainerName }" IsReadOnly="True" Header="Container\Bag Id" Width="100" />
+=======
+                                                <DataGridTextColumn Binding="{Binding ContainerName }" IsReadOnly="True" Header="Container\Bag Id" Width="120" />
+>>>>>>> origin/master
                                                 <DataGridTextColumn Binding="{Binding CommodityName}" IsReadOnly="True" Header="Commodity" Width="150" />
                                                 <DataGridTextColumn Binding="{Binding MeasuredWeight}" IsReadOnly="True" Header="Weight" Width="100" />
                                                 <DataGridTextColumn Binding="{Binding GradeName}" IsReadOnly="True" Header="Grade" Width="120" />
