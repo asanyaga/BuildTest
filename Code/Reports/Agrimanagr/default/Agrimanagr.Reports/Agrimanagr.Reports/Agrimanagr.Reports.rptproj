@@ -82,6 +82,10 @@
       <FullPath>CommodityDeliveryByTransactionDetails_R1.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>CommodityDeliveryException.rdl</Name>
+      <FullPath>CommodityDeliveryException.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>CommodityDeliveryTransactionDetails.rdl</Name>
       <FullPath>CommodityDeliveryTransactionDetails.rdl</FullPath>
     </ProjectItem>
@@ -250,8 +254,28 @@
       <FullPath>TransactionsByCentre.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>CommodityDeliveryException.rdl</Name>
-      <FullPath>CommodityDeliveryException.rdl</FullPath>
+      <Name>ActivityByProductSummary.rdl</Name>
+      <FullPath>ActivityByProductSummary.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CommodityProducerServicesDetailsSummary.rdl</Name>
+      <FullPath>CommodityProducerServicesDetailsSummary.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>InfectionDetailsSummary.rdl</Name>
+      <FullPath>InfectionDetailsSummary.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SeasonsDetailsSummary.rdl</Name>
+      <FullPath>SeasonsDetailsSummary.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ServiceProviderDetailsSummary.rdl</Name>
+      <FullPath>ServiceProviderDetailsSummary.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ShiftDetailsSummary.rdl</Name>
+      <FullPath>ShiftDetailsSummary.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>

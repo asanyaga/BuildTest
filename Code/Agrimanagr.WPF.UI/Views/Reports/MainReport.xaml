@@ -15,7 +15,7 @@
                     <Label Content="Reports"/>
                     <StackPanel Margin="0,30,0,0" Orientation="Horizontal">
 
-                        <GroupBox   Width="260" Header="Purchase">
+                        <GroupBox   Width="230" Header="Purchase">
                             <StackPanel  Margin="0,10,0,0">
                                 <TextBlock  Margin="10,5,0,0" >
                                      <Hyperlink  Click="CommodityPurchaseSummary_click" >Purchase By Factory</Hyperlink>
@@ -35,7 +35,7 @@
 
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox  Header="Delivery" Width="257">
+                        <GroupBox  Header="Delivery" Width="230">
                             <StackPanel Margin="0,10,0,0">
                                 <TextBlock Margin="10,5,0,0">
                                     <Hyperlink Tag="CommodityDeliverySummary" Click="CommodityDeliverySummary_click" >Delivery Summary</Hyperlink>
@@ -58,7 +58,7 @@
                                 </TextBlock>
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox  Header="Reception" Width="264">
+                        <GroupBox  Header="Reception" Width="210">
                             <StackPanel Margin="0,10,0,0">
                                 <TextBlock Margin="10,5,0,0">
                                     <Hyperlink Tag="CommodityReceptionSummary" Click="CommodityReceptionSummary_click" >Reception Summary</Hyperlink>
@@ -75,7 +75,7 @@
                             </StackPanel>
 
                         </GroupBox>
-                        <GroupBox  Header="Analytical Reports" Width="266">
+                        <GroupBox  Header="Analytical Reports" Width="230">
                             <StackPanel Margin="0,10,0,0">
                                 <TextBlock Margin="10,5,0,0">
                                     <Hyperlink Click="productionbyroute_click" >Production By Route</Hyperlink>
@@ -119,7 +119,7 @@
                             </StackPanel>
                         </GroupBox>
 
-                        <GroupBox  Header="Transactional Reports" Width="300">
+                        <GroupBox  Header="Transactional Reports" Width="250">
                             <StackPanel Margin="0,10,0,0">
                                 <TextBlock Margin="10,5,0,0" >
                                     <Hyperlink Click="TransactionByCentreClick" >Transaction by Centre</Hyperlink>
@@ -132,6 +132,32 @@
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
                                     <Hyperlink Click="GainsLossesPerClerkClick" >Gains/Losses Per Field Clerk</Hyperlink>
+                                </TextBlock>
+
+                                <TextBlock Margin="10,5,0,0">
+
+                                </TextBlock>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox  Header="Farm Activity Reports" Width="250">
+                            <StackPanel Margin="0,10,0,0">
+                                <TextBlock Margin="10,5,0,0" >
+                                    <Hyperlink Click="ActivityByProductSummary_click" >Activity By Product Summary</Hyperlink>
+                                </TextBlock>
+                                <TextBlock Margin="10,5,0,0" >
+                                    <Hyperlink Click="CommodityProducerServicesDetailsSummary_click" >Commodity Producer Services Details Summary</Hyperlink>
+                                </TextBlock>
+                                <TextBlock Margin="10,5,0,0" >
+                                    <Hyperlink Click="InfectionDetailsSummary_click" >Infection Details Summary</Hyperlink>
+                                </TextBlock>
+                                <TextBlock Margin="10,5,0,0" >
+                                    <Hyperlink Click="SeasonsDetailsSummary_click" >Seasons Details Summary</Hyperlink>
+                                </TextBlock>
+                                <TextBlock Margin="10,5,0,0" >
+                                    <Hyperlink Click="ServiceProviderDetailsSummary_click" >Service Provider Details Summary</Hyperlink>
+                                </TextBlock>
+                                <TextBlock Margin="10,5,0,0" >
+                                    <Hyperlink Click="ShiftDetailsSummary_click" >Shift Details Summary</Hyperlink>
                                 </TextBlock>
 
                                 <TextBlock Margin="10,5,0,0">
