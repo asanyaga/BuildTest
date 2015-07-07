@@ -1476,6 +1476,8 @@
           <Property Name="VehicleDepartureMileage" Type="decimal" Precision="18" Scale="2" />
           <Property Name="VehicleArrivalTime" Type="datetime" />
           <Property Name="VehicleDepartureTime" Type="datetime" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
         </EntityType>
         <EntityType Name="tblSourcingInventory">
           <Key>
@@ -5758,6 +5760,8 @@ FROM [dbo].[test] AS [test]</DefiningQuery>
           <Property Name="VehicleArrivalTime" Type="DateTime" Precision="3" />
           <Property Name="VehicleDepartureTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tblSourcingLineItem" Relationship="cokeIIModel.SourcingLineItem_SourcingDocument_FK" FromRole="tblSourcingDocument" ToRole="tblSourcingLineItem" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
         </EntityType>
         <EntityType Name="tblSourcingInventory">
           <Key>
@@ -8810,6 +8814,8 @@ FROM [dbo].[test] AS [test]</DefiningQuery>
           <EntitySetMapping Name="tblSourcingDocument">
             <EntityTypeMapping TypeName="cokeIIModel.tblSourcingDocument">
               <MappingFragment StoreEntitySet="tblSourcingDocument">
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
                 <ScalarProperty Name="VehicleDepartureTime" ColumnName="VehicleDepartureTime" />
                 <ScalarProperty Name="VehicleArrivalTime" ColumnName="VehicleArrivalTime" />
                 <ScalarProperty Name="VehicleDepartureMileage" ColumnName="VehicleDepartureMileage" />
@@ -9070,7 +9076,7 @@ FROM [dbo].[test] AS [test]</DefiningQuery>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <edmx:Diagram Name="CokeData" ZoomLevel="106">
+      <edmx:Diagram Name="CokeData" ZoomLevel="88">
         <edmx:EntityTypeShape EntityType="cokeIIModel.C_dsMigration" Width="1.5" PointX="5.75" PointY="0.75" />
         <edmx:EntityTypeShape EntityType="cokeIIModel.tblAccount" Width="1.5" PointX="8.25" PointY="40.25" />
         <edmx:EntityTypeShape EntityType="cokeIIModel.tblAccountTransaction" Width="1.5" PointX="10.5" PointY="40.125" />
