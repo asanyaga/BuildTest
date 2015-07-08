@@ -9076,7 +9076,7 @@ FROM [dbo].[test] AS [test]</DefiningQuery>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <edmx:Diagram Name="CokeData" ZoomLevel="88">
+      <edmx:Diagram Name="CokeData" ZoomLevel="71">
         <edmx:EntityTypeShape EntityType="cokeIIModel.C_dsMigration" Width="1.5" PointX="5.75" PointY="0.75" />
         <edmx:EntityTypeShape EntityType="cokeIIModel.tblAccount" Width="1.5" PointX="8.25" PointY="40.25" />
         <edmx:EntityTypeShape EntityType="cokeIIModel.tblAccountTransaction" Width="1.5" PointX="10.5" PointY="40.125" />
