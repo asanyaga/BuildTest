@@ -31,6 +31,8 @@ namespace Distributr.Core.Data.CommandHandlers.SourcingDocumentCommandHandlers.C
                 doc.VehicleArrivalTime = command.VehicleArrivalTime;
                 doc.VehicleDepartureMileage = command.VehicleDepartureMileage;
                 doc.VehicleDepartureTime = command.VehicleDepartureTime;
+                doc.Latitude = command.Latitude;
+                doc.Longitude = command.Longitude;
                 _context.tblSourcingDocument.AddObject(doc);
                 _context.SaveChanges();
 
