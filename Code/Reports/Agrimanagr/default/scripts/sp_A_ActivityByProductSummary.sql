@@ -24,7 +24,7 @@ if  @FarmId='ALL'  begin set @FarmId='%' end
 if  @ActivityId='ALL'  begin set @ActivityId='%' end
 if  @ClerkId='ALL'  begin set @ClerkId='%' end
 
-SELECT	dbo.tblActivityDocument.Id AS ActivityId,
+SELECT	DISTINCT dbo.tblActivityDocument.Id AS ActivityId,
 		dbo.tblActivityDocument.ActivityReference,
 		dbo.tblActivityDocument.ActivityDate,
 		dbo.tblActivityType.Name AS ActivityName, 
@@ -37,10 +37,10 @@ SELECT	dbo.tblActivityDocument.Id AS ActivityId,
 		dbo.tblProductPackagingType.name AS PackagingType,
 		dbo.tblVATClass.Name AS VATClass,
 		dbo.tblActivityInputLineItem.Quantity,
-		dbo.tblProduct.ExFactoryPrice,
-		dbo.tblCostCentre.Name AS ServiceSupplier,
-		(dbo.tblCommodityOwner.FirstName + ' ' + dbo.tblCommodityOwner.Surname) as FarmerName,
-		dbo.tblCommodityProducer.Name AS Farm
+		dbo.tblProduct.ExFactoryPrice
+		--dbo.tblCostCentre.Name AS ServiceSupplier,
+		--(dbo.tblCommodityOwner.FirstName + ' ' + dbo.tblCommodityOwner.Surname) as FarmerName,
+		--dbo.tblCommodityProducer.Name AS Farm
 
 FROM	dbo.tblActivityDocument 
 		INNER JOIN dbo.tblActivityType ON dbo.tblActivityDocument.ActivityTypeId = dbo.tblActivityType.Id 
@@ -54,19 +54,19 @@ FROM	dbo.tblActivityDocument
 		INNER JOIN dbo.tblProductPackaging ON dbo.tblProduct.PackagingId = dbo.tblProductPackaging.Id
 		INNER JOIN dbo.tblProductPackagingType ON dbo.tblProduct.PackagingTypeId = dbo.tblProductPackagingType.id
 		INNER JOIN dbo.tblVATClass ON dbo.tblProduct.VatClassId = dbo.tblVATClass.id
-		INNER JOIN dbo.tblCostCentre ON dbo.tblCostCentre.ParentCostCentreId = dbo.tblActivityDocument.hubId
+		INNER JOIN dbo.tblCostCentre ON dbo.tblCostCentre.Id = dbo.tblActivityDocument.CommoditySupplierId
 		INNER JOIN dbo.tblCommodityOwner ON dbo.tblCostCentre.Id = dbo.tblCommodityOwner.CostCentreId
 		INNER JOIN dbo.tblCommodityProducer ON dbo.tblActivityDocument.CommodityProducerId = dbo.tblCommodityProducer.Id
 		INNER JOIN dbo.tblUsers ON dbo.tblActivityDocument.ClerkId = dbo.tblUsers.CostCenterId
 
-WHERE	tblCostCentre.CostCentreType2 =1
-		AND(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startDate AND @endDate)   
+WHERE	--tblCostCentre.CostCentreType2 =1
+		(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startDate AND @endDate)   
         AND(CONVERT(NVARCHAR(50),dbo.tblCostCentre.Id) LIKE ISNULL(@HubId, N'%'))             
         AND(CONVERT(NVARCHAR(50),dbo.tblActivityDocument.RouteID) LIKE ISNULL(@RouteId, N'%'))  
         AND(CONVERT(NVARCHAR(50),dbo.tblActivityDocument.CentreId) LIKE ISNULL(@CentreId, N'%'))
         AND(CONVERT(NVARCHAR(50),dbo.tblCommodityOwner.Id) LIKE ISNULL(@FarmerId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblCommodityProducer.Id) LIKE ISNULL(@FarmId, N'%'))
-		AND(CONVERT(NVARCHAR(50),dbo.tblActivityDocument.Id) LIKE ISNULL(@ActivityId, N'%'))
+		AND(CONVERT(NVARCHAR(50),dbo.tblActivityType.Id) LIKE ISNULL(@ActivityId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblUsers.Id) LIKE ISNULL(@ClerkId, N'%'))
 
 ORDER BY tblActivityDocument.ActivityDate DESC
