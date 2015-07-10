@@ -145,7 +145,7 @@
                                     <Hyperlink Click="ActivityByProductSummary_click" >Activity By Product Summary</Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
-                                    <Hyperlink Click="CommodityProducerServicesDetailsSummary_click" >Commodity Producer Services Details Summary</Hyperlink>
+                                    <Hyperlink Click="CommodityProducerServicesDetailsSummary_click" >Producer Services Details Summary</Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
                                     <Hyperlink Click="InfectionDetailsSummary_click" >Infection Details Summary</Hyperlink>

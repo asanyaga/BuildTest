@@ -265,7 +265,7 @@ namespace Agrimanagr.WPF.UI.Views.Reports
         }
         private void CommodityProducerServicesDetailsSummary_click(object sender, RoutedEventArgs e)
         {
-            RenderReport("Commodity Producer Services Details Summary ", "/Agrimanagr.Reports/CommodityProducerServicesDetailsSummary");
+            RenderReport("Producer Services Details Summary ", "/Agrimanagr.Reports/CommodityProducerServicesDetailsSummary");
         }
         private void InfectionDetailsSummary_click(object sender, RoutedEventArgs e)
         {
