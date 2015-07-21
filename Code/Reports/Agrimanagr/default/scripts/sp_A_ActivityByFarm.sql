@@ -28,7 +28,8 @@ if  @ClerkId='ALL'  begin set @ClerkId='%' end
 SELECT	DISTINCT dbo.tblActivityDocument.Id AS ActivityId,
 		dbo.tblActivityDocument.ActivityReference,
 		dbo.tblActivityDocument.ActivityDate,
-		dbo.tblActivityType.Name AS ActivityName, 
+		dbo.tblActivityType.Name AS ActivityName,
+		1 AS NoOfActivities, 
 		dbo.tblSupplier.Name AS SupplierName,
 		dbo.tblProductType.name AS ProductName,
 		dbo.tblProductBrand.name AS ProductBrand,
@@ -72,14 +73,33 @@ WHERE	(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startD
 		AND(CONVERT(NVARCHAR(50),dbo.tblCommodityProducer.Id) LIKE ISNULL(@FarmId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblActivityType.Id) LIKE ISNULL(@ActivityId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblUsers.Id) LIKE ISNULL(@ClerkId, N'%'))
+
+GROUP BY dbo.tblActivityDocument.Id,
+		dbo.tblActivityDocument.ActivityReference,
+		dbo.tblActivityDocument.ActivityDate,
+		dbo.tblActivityType.Name, 
+		dbo.tblSupplier.Name,
+		dbo.tblProductType.name,
+		dbo.tblProductBrand.name,
+		dbo.tblProductFlavour.name,
+		tblProductType_1.name, 
+		dbo.tblProductPackaging.Name,
+		dbo.tblProductPackagingType.name,
+		dbo.tblVATClass.Name,
+		dbo.tblActivityInputLineItem.Quantity,
+		dbo.tblProduct.ExFactoryPrice,
+		hub.Name,
+		dbo.tblRoutes.Name,
+		dbo.tblCostCentre.Name,
+		dbo.tblCommodityOwner.FirstName,dbo.tblCommodityOwner.Surname,
+		dbo.tblCommodityProducer.Name,
+		dbo.tblUsers.UserName
 )
 
-SELECT Farm,ActivityName,COUNT(ActivityName) AS NoOfActivities
+SELECT Farm,ActivityName,SUM(NoOfActivities) AS NoOfActivities
 FROM Activity_CTE
 
-GROUP BY Farm,ActivityName,ActivityDate
-
-ORDER BY ActivityDate DESC
+GROUP BY Farm,ActivityName
 
 -- EXEC sp_A_ActivityByFarm @StartDate='2014-01-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
 					 

@@ -1,7 +1,7 @@
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_ActivityByFarmer')
-   exec('CREATE PROCEDURE [sp_A_ActivityByFarmer] AS BEGIN SET NOCOUNT ON; END')
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_ActivityByCentre')
+   exec('CREATE PROCEDURE [sp_A_ActivityByCentre] AS BEGIN SET NOCOUNT ON; END')
 GO
-Alter PROCEDURE sp_A_ActivityByFarmer
+Alter PROCEDURE sp_A_ActivityByCentre
 (
 @StartDate AS DATE,
 @EndDate AS DATE,
@@ -41,7 +41,7 @@ SELECT	DISTINCT dbo.tblActivityDocument.Id AS ActivityId,
 		dbo.tblActivityInputLineItem.Quantity,
 		dbo.tblProduct.ExFactoryPrice,
 		hub.Name AS Factory,
-		dbo.tblRoutes.Name AS RouteName,
+		dbo.tblCentre.Name AS CentreName,
 		dbo.tblCostCentre.Name AS ServiceSupplier,
 		(dbo.tblCommodityOwner.FirstName + ' ' + dbo.tblCommodityOwner.Surname) as FarmerName,
 		dbo.tblCommodityProducer.Name AS Farm
@@ -60,7 +60,7 @@ FROM	dbo.tblActivityDocument
 		INNER JOIN dbo.tblVATClass ON dbo.tblProduct.VatClassId = dbo.tblVATClass.id
 		INNER JOIN dbo.tblCostCentre ON dbo.tblCostCentre.Id = dbo.tblActivityDocument.CommoditySupplierId
 		INNER JOIN dbo.tblCostCentre AS hub ON dbo.tblCostCentre.ParentCostCentreId = hub.Id
-		INNER JOIN dbo.tblRoutes ON dbo.tblActivityDocument.RouteId = dbo.tblRoutes.RouteID
+		INNER JOIN dbo.tblCentre ON dbo.tblActivityDocument.CentreId = dbo.tblCentre.Id
 		INNER JOIN dbo.tblCommodityOwner ON dbo.tblCostCentre.Id = dbo.tblCommodityOwner.CostCentreId
 		INNER JOIN dbo.tblCommodityProducer ON dbo.tblActivityDocument.CommodityProducerId = dbo.tblCommodityProducer.Id
 		INNER JOIN dbo.tblUsers ON dbo.tblActivityDocument.ClerkId = dbo.tblUsers.CostCenterId
@@ -89,17 +89,17 @@ GROUP BY dbo.tblActivityDocument.Id,
 		dbo.tblActivityInputLineItem.Quantity,
 		dbo.tblProduct.ExFactoryPrice,
 		hub.Name,
-		dbo.tblRoutes.Name,
+		dbo.tblCentre.Name,
 		dbo.tblCostCentre.Name,
 		dbo.tblCommodityOwner.FirstName,dbo.tblCommodityOwner.Surname,
 		dbo.tblCommodityProducer.Name,
 		dbo.tblUsers.UserName
 )
 
-SELECT FarmerName,ActivityName,SUM(NoOfActivities) AS NoOfActivities
+SELECT CentreName,ActivityName,SUM(NoOfActivities) AS NoOfActivities
 FROM Activity_CTE
 
-GROUP BY FarmerName,ActivityName
+GROUP BY CentreName,ActivityName
 
--- EXEC sp_A_ActivityByFarmer @StartDate='2014-01-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
+-- EXEC sp_A_ActivityByCentre @StartDate='2014-01-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
 					 

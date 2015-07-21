@@ -10,6 +10,10 @@
   <DataSets />
   <Reports>
     <ProjectItem>
+      <Name>ActivityByProductSummary.rdl</Name>
+      <FullPath>ActivityByProductSummary.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>CloseOfDay.rdl</Name>
       <FullPath>CloseOfDay.rdl</FullPath>
     </ProjectItem>
@@ -92,6 +96,10 @@
     <ProjectItem>
       <Name>CommodityInventoryByStore.rdl</Name>
       <FullPath>CommodityInventoryByStore.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CommodityProducerServicesDetailsSummary.rdl</Name>
+      <FullPath>CommodityProducerServicesDetailsSummary.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>CommodityPurchaseByCentre.rdl</Name>
@@ -226,6 +234,10 @@
       <FullPath>GainsLossesPerFieldClerk.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>InfectionDetailsSummary.rdl</Name>
+      <FullPath>InfectionDetailsSummary.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>OwnerDeliveryReport.rdl</Name>
       <FullPath>OwnerDeliveryReport.rdl</FullPath>
     </ProjectItem>
@@ -242,6 +254,18 @@
       <FullPath>ProductionByRoute.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>SeasonsDetailsSummary.rdl</Name>
+      <FullPath>SeasonsDetailsSummary.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ServiceProviderDetailsSummary.rdl</Name>
+      <FullPath>ServiceProviderDetailsSummary.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ShiftDetailsSummary.rdl</Name>
+      <FullPath>ShiftDetailsSummary.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>TransactionByClerk.rdl</Name>
       <FullPath>TransactionByClerk.rdl</FullPath>
     </ProjectItem>
@@ -254,28 +278,32 @@
       <FullPath>TransactionsByCentre.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>ActivityByProductSummary.rdl</Name>
-      <FullPath>ActivityByProductSummary.rdl</FullPath>
+      <Name>ActivityByClerk.rdl</Name>
+      <FullPath>ActivityByClerk.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>CommodityProducerServicesDetailsSummary.rdl</Name>
-      <FullPath>CommodityProducerServicesDetailsSummary.rdl</FullPath>
+      <Name>ActivityByFactory.rdl</Name>
+      <FullPath>ActivityByFactory.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>InfectionDetailsSummary.rdl</Name>
-      <FullPath>InfectionDetailsSummary.rdl</FullPath>
+      <Name>ActivityByFarm.rdl</Name>
+      <FullPath>ActivityByFarm.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>SeasonsDetailsSummary.rdl</Name>
-      <FullPath>SeasonsDetailsSummary.rdl</FullPath>
+      <Name>ActivityByFarmer.rdl</Name>
+      <FullPath>ActivityByFarmer.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>ServiceProviderDetailsSummary.rdl</Name>
-      <FullPath>ServiceProviderDetailsSummary.rdl</FullPath>
+      <Name>ActivityByRoute.rdl</Name>
+      <FullPath>ActivityByRoute.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>ShiftDetailsSummary.rdl</Name>
-      <FullPath>ShiftDetailsSummary.rdl</FullPath>
+      <Name>ActivityByTransaction.rdl</Name>
+      <FullPath>ActivityByTransaction.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ActivityByCentre.rdl</Name>
+      <FullPath>ActivityByCentre.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>
