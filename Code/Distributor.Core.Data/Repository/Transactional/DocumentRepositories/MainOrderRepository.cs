@@ -6,6 +6,7 @@ using System.Data.Objects;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Distributr.Core.Data.EF;
@@ -511,13 +512,14 @@ namespace Distributr.Core.Data.Repository.Transactional.DocumentRepositories
             //orders = GetPendingDispatch(orders,startDate,endDate).Where(s => s.DocumentStatusId != (int) DocumentStatus.Closed);
 
             string sql = string.Format(Resources.MainOrderResource.PurchaseOrdersPendingDispatch, startDate.ToString("yyyy-MM-dd HH:mm:ss"), endDate.ToString("yyyy-MM-dd HH:mm:ss"));
-
+            
             var data = _ctx.ExecuteStoreQuery<Guid>(sql).ToList();
 
             var pendingOrders = orders.Where(s => data.Contains(s.Id)).Where(s => s.DocumentStatusId != (int)DocumentStatus.Closed);
-
+            
             orders = pendingOrders.AsQueryable();
            
+            
             return orders.ToList().Select(s => MapSummary(s, false)).ToList();
         }
 
@@ -690,7 +692,7 @@ namespace Distributr.Core.Data.Repository.Transactional.DocumentRepositories
         {
             
             string sql = string.Format(Resources.MainOrderResource.PendingDispatch, startDate.ToString("yyyy-MM-dd HH:mm:ss"), endDate.ToString("yyyy-MM-dd HH:mm:ss"));
-            //_ctx.CommandTimeout = 120;
+            _ctx.CommandTimeout = 120;
            var data = _ctx.ExecuteStoreQuery<Guid>(sql).ToList();
             int input = 2;
            

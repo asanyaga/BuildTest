@@ -1,7 +1,7 @@
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_ActivityByProductSummary')
-   exec('CREATE PROCEDURE [sp_A_ActivityByProductSummary] AS BEGIN SET NOCOUNT ON; END')
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_ActivityByFactory')
+   exec('CREATE PROCEDURE [sp_A_ActivityByFactory] AS BEGIN SET NOCOUNT ON; END')
 GO
-Alter PROCEDURE sp_A_ActivityByProductSummary
+Alter PROCEDURE sp_A_ActivityByFactory
 (
 @StartDate AS DATE,
 @EndDate AS DATE,
@@ -24,6 +24,7 @@ if  @FarmId='ALL'  begin set @FarmId='%' end
 if  @ActivityId='ALL'  begin set @ActivityId='%' end
 if  @ClerkId='ALL'  begin set @ClerkId='%' end
 
+;WITH Activity_CTE AS(
 SELECT	DISTINCT dbo.tblActivityDocument.Id AS ActivityId,
 		dbo.tblActivityDocument.ActivityReference,
 		dbo.tblActivityDocument.ActivityDate,
@@ -37,10 +38,11 @@ SELECT	DISTINCT dbo.tblActivityDocument.Id AS ActivityId,
 		dbo.tblProductPackagingType.name AS PackagingType,
 		dbo.tblVATClass.Name AS VATClass,
 		dbo.tblActivityInputLineItem.Quantity,
-		dbo.tblProduct.ExFactoryPrice
-		--dbo.tblCostCentre.Name AS ServiceSupplier,
-		--(dbo.tblCommodityOwner.FirstName + ' ' + dbo.tblCommodityOwner.Surname) as FarmerName,
-		--dbo.tblCommodityProducer.Name AS Farm
+		dbo.tblProduct.ExFactoryPrice,
+		hub.Name AS Factory,
+		dbo.tblCostCentre.Name AS ServiceSupplier,
+		(dbo.tblCommodityOwner.FirstName + ' ' + dbo.tblCommodityOwner.Surname) as FarmerName,
+		dbo.tblCommodityProducer.Name AS Farm
 
 FROM	dbo.tblActivityDocument 
 		INNER JOIN dbo.tblActivityType ON dbo.tblActivityDocument.ActivityTypeId = dbo.tblActivityType.Id 
@@ -60,8 +62,7 @@ FROM	dbo.tblActivityDocument
 		INNER JOIN dbo.tblCommodityProducer ON dbo.tblActivityDocument.CommodityProducerId = dbo.tblCommodityProducer.Id
 		INNER JOIN dbo.tblUsers ON dbo.tblActivityDocument.ClerkId = dbo.tblUsers.CostCenterId
 
-WHERE	--tblCostCentre.CostCentreType2 =1
-		(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startDate AND @endDate)   
+WHERE	(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startDate AND @endDate)   
         AND(CONVERT(NVARCHAR(50),hub.Id) LIKE ISNULL(@HubId, N'%'))             
         AND(CONVERT(NVARCHAR(50),dbo.tblActivityDocument.RouteID) LIKE ISNULL(@RouteId, N'%'))  
         AND(CONVERT(NVARCHAR(50),dbo.tblActivityDocument.CentreId) LIKE ISNULL(@CentreId, N'%'))
@@ -69,9 +70,12 @@ WHERE	--tblCostCentre.CostCentreType2 =1
 		AND(CONVERT(NVARCHAR(50),dbo.tblCommodityProducer.Id) LIKE ISNULL(@FarmId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblActivityType.Id) LIKE ISNULL(@ActivityId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblUsers.Id) LIKE ISNULL(@ClerkId, N'%'))
+)
 
-ORDER BY tblActivityDocument.ActivityDate DESC
+SELECT Factory,ActivityName,Farm
+FROM Activity_CTE
 
+ORDER BY ActivityDate DESC
 
--- EXEC sp_A_ActivityByProductSummary @StartDate='2014-01-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
+-- EXEC sp_A_ActivityByFactory @StartDate='2014-01-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
 					 

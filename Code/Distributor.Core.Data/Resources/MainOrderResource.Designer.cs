@@ -156,7 +156,7 @@ namespace Distributr.Core.Data.Resources {
         ///   Looks up a localized string similar to  Select Distinct o.OrderParentId
         /// from [tblDocument] as o 
         /// join tblLineItems items on items.DocumentID=o.Id 
-        ///  where o.DocumentTypeId=1 and o.OrderOrderTypeId=2 and o.DocumentDateIssued between &apos;{0}&apos; and &apos;{1}&apos;
+        /// where o.DocumentDateIssued between &apos;{0}&apos; and &apos;{1}&apos;
         /// and items.LineItemStatusId=3.
         /// </summary>
         internal static string PurchaseOrdersPendingDispatch {

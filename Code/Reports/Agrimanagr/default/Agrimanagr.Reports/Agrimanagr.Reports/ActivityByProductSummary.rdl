@@ -1586,18 +1586,6 @@
           <DataField>ExFactoryPrice</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="ServiceSupplier">
-          <DataField>ServiceSupplier</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="FarmerName">
-          <DataField>FarmerName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Farm">
-          <DataField>Farm</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
     </DataSet>
     <DataSet Name="dsHub">

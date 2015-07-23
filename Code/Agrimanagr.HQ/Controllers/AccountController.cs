@@ -32,6 +32,8 @@ namespace Agrimanagr.HQ.Areas.Agrimanagr.Controllers
         private IUserViewModelBuilder _userViewModelBuilder;
         private IApplicationSetupViewModelBuilder _applicationSetupViewModelBuilder;
         private FileInfo fi = null;
+
+
         public AccountController(IUserRepository userRepository, IUserViewModelBuilder userViewModelBuilder,IAuditLogViewModelBuilder auditLogViewModelBuilder, IApplicationSetupViewModelBuilder applicationSetupViewModelBuilder)
         {
             _userRepository = userRepository;

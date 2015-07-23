@@ -1,7 +1,7 @@
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_ActivityByProductSummary')
-   exec('CREATE PROCEDURE [sp_A_ActivityByProductSummary] AS BEGIN SET NOCOUNT ON; END')
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_ActivityByCentre')
+   exec('CREATE PROCEDURE [sp_A_ActivityByCentre] AS BEGIN SET NOCOUNT ON; END')
 GO
-Alter PROCEDURE sp_A_ActivityByProductSummary
+Alter PROCEDURE sp_A_ActivityByCentre
 (
 @StartDate AS DATE,
 @EndDate AS DATE,
@@ -24,10 +24,12 @@ if  @FarmId='ALL'  begin set @FarmId='%' end
 if  @ActivityId='ALL'  begin set @ActivityId='%' end
 if  @ClerkId='ALL'  begin set @ClerkId='%' end
 
+;WITH Activity_CTE AS(
 SELECT	DISTINCT dbo.tblActivityDocument.Id AS ActivityId,
 		dbo.tblActivityDocument.ActivityReference,
 		dbo.tblActivityDocument.ActivityDate,
-		dbo.tblActivityType.Name AS ActivityName, 
+		dbo.tblActivityType.Name AS ActivityName,
+		1 AS NoOfActivities, 
 		dbo.tblSupplier.Name AS SupplierName,
 		dbo.tblProductType.name AS ProductName,
 		dbo.tblProductBrand.name AS ProductBrand,
@@ -37,10 +39,12 @@ SELECT	DISTINCT dbo.tblActivityDocument.Id AS ActivityId,
 		dbo.tblProductPackagingType.name AS PackagingType,
 		dbo.tblVATClass.Name AS VATClass,
 		dbo.tblActivityInputLineItem.Quantity,
-		dbo.tblProduct.ExFactoryPrice
-		--dbo.tblCostCentre.Name AS ServiceSupplier,
-		--(dbo.tblCommodityOwner.FirstName + ' ' + dbo.tblCommodityOwner.Surname) as FarmerName,
-		--dbo.tblCommodityProducer.Name AS Farm
+		dbo.tblProduct.ExFactoryPrice,
+		hub.Name AS Factory,
+		dbo.tblCentre.Name AS CentreName,
+		dbo.tblCostCentre.Name AS ServiceSupplier,
+		(dbo.tblCommodityOwner.FirstName + ' ' + dbo.tblCommodityOwner.Surname) as FarmerName,
+		dbo.tblCommodityProducer.Name AS Farm
 
 FROM	dbo.tblActivityDocument 
 		INNER JOIN dbo.tblActivityType ON dbo.tblActivityDocument.ActivityTypeId = dbo.tblActivityType.Id 
@@ -56,12 +60,12 @@ FROM	dbo.tblActivityDocument
 		INNER JOIN dbo.tblVATClass ON dbo.tblProduct.VatClassId = dbo.tblVATClass.id
 		INNER JOIN dbo.tblCostCentre ON dbo.tblCostCentre.Id = dbo.tblActivityDocument.CommoditySupplierId
 		INNER JOIN dbo.tblCostCentre AS hub ON dbo.tblCostCentre.ParentCostCentreId = hub.Id
+		INNER JOIN dbo.tblCentre ON dbo.tblActivityDocument.CentreId = dbo.tblCentre.Id
 		INNER JOIN dbo.tblCommodityOwner ON dbo.tblCostCentre.Id = dbo.tblCommodityOwner.CostCentreId
 		INNER JOIN dbo.tblCommodityProducer ON dbo.tblActivityDocument.CommodityProducerId = dbo.tblCommodityProducer.Id
 		INNER JOIN dbo.tblUsers ON dbo.tblActivityDocument.ClerkId = dbo.tblUsers.CostCenterId
 
-WHERE	--tblCostCentre.CostCentreType2 =1
-		(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startDate AND @endDate)   
+WHERE	(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startDate AND @endDate)   
         AND(CONVERT(NVARCHAR(50),hub.Id) LIKE ISNULL(@HubId, N'%'))             
         AND(CONVERT(NVARCHAR(50),dbo.tblActivityDocument.RouteID) LIKE ISNULL(@RouteId, N'%'))  
         AND(CONVERT(NVARCHAR(50),dbo.tblActivityDocument.CentreId) LIKE ISNULL(@CentreId, N'%'))
@@ -70,8 +74,32 @@ WHERE	--tblCostCentre.CostCentreType2 =1
 		AND(CONVERT(NVARCHAR(50),dbo.tblActivityType.Id) LIKE ISNULL(@ActivityId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblUsers.Id) LIKE ISNULL(@ClerkId, N'%'))
 
-ORDER BY tblActivityDocument.ActivityDate DESC
+GROUP BY dbo.tblActivityDocument.Id,
+		dbo.tblActivityDocument.ActivityReference,
+		dbo.tblActivityDocument.ActivityDate,
+		dbo.tblActivityType.Name, 
+		dbo.tblSupplier.Name,
+		dbo.tblProductType.name,
+		dbo.tblProductBrand.name,
+		dbo.tblProductFlavour.name,
+		tblProductType_1.name, 
+		dbo.tblProductPackaging.Name,
+		dbo.tblProductPackagingType.name,
+		dbo.tblVATClass.Name,
+		dbo.tblActivityInputLineItem.Quantity,
+		dbo.tblProduct.ExFactoryPrice,
+		hub.Name,
+		dbo.tblCentre.Name,
+		dbo.tblCostCentre.Name,
+		dbo.tblCommodityOwner.FirstName,dbo.tblCommodityOwner.Surname,
+		dbo.tblCommodityProducer.Name,
+		dbo.tblUsers.UserName
+)
 
+SELECT CentreName,ActivityName,SUM(NoOfActivities) AS NoOfActivities
+FROM Activity_CTE
 
--- EXEC sp_A_ActivityByProductSummary @StartDate='2014-01-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
+GROUP BY CentreName,ActivityName
+
+-- EXEC sp_A_ActivityByCentre @StartDate='2014-01-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
 					 

@@ -352,6 +352,8 @@ namespace Distributr.WPF.Lib.ViewModels.Warehousing
 
 
 
+
+
                         foreach (var item in LineItems)
                         {
                             var lineItem = warehouseFactory.CreateLineItem(item.Id, item.Commodity.Id,

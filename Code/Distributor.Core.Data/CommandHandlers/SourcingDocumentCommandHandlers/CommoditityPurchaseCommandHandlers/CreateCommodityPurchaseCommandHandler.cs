@@ -37,6 +37,9 @@ namespace Distributr.Core.Data.CommandHandlers.SourcingDocumentCommandHandlers.C
                 doc.DeliveredBy = command.DeliveredBy;
                 doc.CentreId = command.CentreId;
                 doc.RouteId = command.RouteId;
+                doc.Latitude = command.Latitude;
+                doc.Longitude = command.Longitude;
+
                 _context.tblSourcingDocument.AddObject(doc);
                 _context.SaveChanges();
 
