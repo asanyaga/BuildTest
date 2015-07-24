@@ -10,8 +10,36 @@
   <DataSets />
   <Reports>
     <ProjectItem>
+      <Name>ActivityByCentre.rdl</Name>
+      <FullPath>ActivityByCentre.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ActivityByClerk.rdl</Name>
+      <FullPath>ActivityByClerk.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ActivityByFactory.rdl</Name>
+      <FullPath>ActivityByFactory.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ActivityByFarm.rdl</Name>
+      <FullPath>ActivityByFarm.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ActivityByFarmer.rdl</Name>
+      <FullPath>ActivityByFarmer.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>ActivityByProductSummary.rdl</Name>
       <FullPath>ActivityByProductSummary.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ActivityByRoute.rdl</Name>
+      <FullPath>ActivityByRoute.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ActivityByTransaction.rdl</Name>
+      <FullPath>ActivityByTransaction.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>CloseOfDay.rdl</Name>
@@ -278,32 +306,32 @@
       <FullPath>TransactionsByCentre.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>ActivityByClerk.rdl</Name>
-      <FullPath>ActivityByClerk.rdl</FullPath>
+      <Name>DepositorByTransaction.rdl</Name>
+      <FullPath>DepositorByTransaction.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>ActivityByFactory.rdl</Name>
-      <FullPath>ActivityByFactory.rdl</FullPath>
+      <Name>DepositorsByCountry.rdl</Name>
+      <FullPath>DepositorsByCountry.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>ActivityByFarm.rdl</Name>
-      <FullPath>ActivityByFarm.rdl</FullPath>
+      <Name>DepositorsByLocation.rdl</Name>
+      <FullPath>DepositorsByLocation.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>ActivityByFarmer.rdl</Name>
-      <FullPath>ActivityByFarmer.rdl</FullPath>
+      <Name>DepositorsByWarehouse.rdl</Name>
+      <FullPath>DepositorsByWarehouse.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>ActivityByRoute.rdl</Name>
-      <FullPath>ActivityByRoute.rdl</FullPath>
+      <Name>DepositorTransactionDetails.rdl</Name>
+      <FullPath>DepositorTransactionDetails.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>ActivityByTransaction.rdl</Name>
-      <FullPath>ActivityByTransaction.rdl</FullPath>
+      <Name>WarehouseReception.rdl</Name>
+      <FullPath>WarehouseReception.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>ActivityByCentre.rdl</Name>
-      <FullPath>ActivityByCentre.rdl</FullPath>
+      <Name>WarehouseReceptionTransactionDetails.rdl</Name>
+      <FullPath>WarehouseReceptionTransactionDetails.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>
