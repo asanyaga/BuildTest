@@ -1,7 +1,7 @@
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_SeasonDetailsSummary')
-   exec('CREATE PROCEDURE [sp_A_SeasonDetailsSummary] AS BEGIN SET NOCOUNT ON; END')
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_ServiceProviderByRoute')
+   exec('CREATE PROCEDURE [sp_A_ServiceProviderByRoute] AS BEGIN SET NOCOUNT ON; END')
 GO
-Alter PROCEDURE sp_A_SeasonDetailsSummary
+Alter PROCEDURE sp_A_ServiceProviderByRoute
 (
 @StartDate AS DATE,
 @EndDate AS DATE,
@@ -23,25 +23,33 @@ if  @FarmerId='ALL'  begin set @FarmerId='%' end
 if  @FarmId='ALL'  begin set @FarmId='%' end
 if  @ActivityId='ALL'  begin set @ActivityId='%' end
 if  @ClerkId='ALL'  begin set @ClerkId='%' end
-
+;WITH Service_CTE AS (
 SELECT	DISTINCT dbo.tblActivityDocument.Id AS ActivityId,
 		dbo.tblActivityDocument.ActivityReference,
+		hub.Name AS Factory,
+		1 AS NoOfActivities,
 		dbo.tblActivityType.Name AS ActivityName,
-		dbo.tblSeason.Name AS Season, 
-		--(dbo.tblCommodityOwner.FirstName + ' ' + dbo.tblCommodityOwner.Surname) as FarmerName,
-		--dbo.tblCommodityProducer.Name AS Farm,
+		dbo.tblServiceProvider.Name AS ServiceProvideName, 
+		dbo.tblService.Name AS Service,
+		tblCentre.Name AS CentreName,
+		tblRoutes.Name As RouteName,
 		dbo.tblActivityDocument.ActivityDate AS TimeStamp
 
-FROM	dbo.tblActivityDocument 
-		INNER JOIN dbo.tblActivityType ON dbo.tblActivityDocument.ActivityTypeId = dbo.tblActivityType.Id 
-		INNER JOIN dbo.tblSeason ON dbo.tblActivityDocument.SeasonId = dbo.tblSeason.id
+FROM	dbo.tblActivityDocument
+		INNER JOIN dbo.tblActivityType ON dbo.tblActivityDocument.ActivityTypeId = dbo.tblActivityType.Id
+		INNER JOIN dbo.tblActivityServiceLineItem ON dbo.tblActivityDocument.Id = dbo.tblActivityServiceLineItem.ActivityId
+		INNER JOIN dbo.tblServiceProvider ON dbo.tblActivityServiceLineItem.ServiceProviderId = dbo.tblServiceProvider.id
+		INNER JOIN dbo.tblService ON dbo.tblActivityServiceLineItem.ServiceId = dbo.tblService.id
 		INNER JOIN dbo.tblCostCentre ON dbo.tblCostCentre.Id = dbo.tblActivityDocument.CommoditySupplierId
 		INNER JOIN dbo.tblCostCentre AS hub ON dbo.tblCostCentre.ParentCostCentreId = hub.Id
 		INNER JOIN dbo.tblCommodityOwner ON dbo.tblCostCentre.Id = dbo.tblCommodityOwner.CostCentreId
 		INNER JOIN dbo.tblCommodityProducer ON dbo.tblActivityDocument.CommodityProducerId = dbo.tblCommodityProducer.Id
 		INNER JOIN dbo.tblUsers ON dbo.tblActivityDocument.ClerkId = dbo.tblUsers.CostCenterId
+		INNER JOIN dbo.tblCentre ON dbo.tblActivityDocument.CentreId = dbo.tblCentre.Id
+		INNER JOIN dbo.tblRoutes ON dbo.tblActivityDocument.RouteId = dbo.tblRoutes.RouteID
 
-WHERE	(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startDate AND @endDate)   
+WHERE	--tblCostCentre.CostCentreType2 =1
+		(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startDate AND @endDate)   
         AND(CONVERT(NVARCHAR(50),hub.Id) LIKE ISNULL(@hubId, N'%'))             
         AND(CONVERT(NVARCHAR(50),dbo.tblActivityDocument.RouteID) LIKE ISNULL(@routeId, N'%'))  
         AND(CONVERT(NVARCHAR(50),dbo.tblActivityDocument.CentreId) LIKE ISNULL(@centreId, N'%'))
@@ -50,8 +58,10 @@ WHERE	(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startD
 		AND(CONVERT(NVARCHAR(50),dbo.tblActivityType.Id) LIKE ISNULL(@ActivityId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblUsers.Id) LIKE ISNULL(@ClerkId, N'%'))
 
-ORDER BY tblActivityDocument.ActivityDate DESC
+)
+SELECT RouteName,ServiceProvideName,SUM(NoOfActivities) AS NoOfActivities
+FROM Service_CTE
+GROUP BY RouteName,ServiceProvideName
 
+-- EXEC sp_A_ServiceProviderByRoute @StartDate='2015-06-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
 
--- EXEC sp_A_SeasonDetailsSummary @StartDate='2015-01-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
-					 

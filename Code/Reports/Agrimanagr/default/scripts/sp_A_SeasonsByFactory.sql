@@ -1,7 +1,7 @@
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_SeasonDetailsSummary')
-   exec('CREATE PROCEDURE [sp_A_SeasonDetailsSummary] AS BEGIN SET NOCOUNT ON; END')
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_SeasonsByFactory')
+   exec('CREATE PROCEDURE [sp_A_SeasonsByFactory] AS BEGIN SET NOCOUNT ON; END')
 GO
-Alter PROCEDURE sp_A_SeasonDetailsSummary
+Alter PROCEDURE sp_A_SeasonsByFactory
 (
 @StartDate AS DATE,
 @EndDate AS DATE,
@@ -24,12 +24,15 @@ if  @FarmId='ALL'  begin set @FarmId='%' end
 if  @ActivityId='ALL'  begin set @ActivityId='%' end
 if  @ClerkId='ALL'  begin set @ClerkId='%' end
 
+;WITH Seasons_CTE AS (
 SELECT	DISTINCT dbo.tblActivityDocument.Id AS ActivityId,
 		dbo.tblActivityDocument.ActivityReference,
 		dbo.tblActivityType.Name AS ActivityName,
 		dbo.tblSeason.Name AS Season, 
 		--(dbo.tblCommodityOwner.FirstName + ' ' + dbo.tblCommodityOwner.Surname) as FarmerName,
 		--dbo.tblCommodityProducer.Name AS Farm,
+		1 AS NoOfActivities,
+		hub.Name AS Factory,
 		dbo.tblActivityDocument.ActivityDate AS TimeStamp
 
 FROM	dbo.tblActivityDocument 
@@ -50,8 +53,11 @@ WHERE	(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startD
 		AND(CONVERT(NVARCHAR(50),dbo.tblActivityType.Id) LIKE ISNULL(@ActivityId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblUsers.Id) LIKE ISNULL(@ClerkId, N'%'))
 
-ORDER BY tblActivityDocument.ActivityDate DESC
+)
+SELECT Factory,ActivityName,Season,SUM(NoOfActivities) AS NoOfActivities
+FROM Seasons_CTE
+GROUP BY Factory,ActivityName,Season
 
 
--- EXEC sp_A_SeasonDetailsSummary @StartDate='2015-01-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
+-- EXEC sp_A_SeasonsByFactory @StartDate='2015-01-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
 					 
