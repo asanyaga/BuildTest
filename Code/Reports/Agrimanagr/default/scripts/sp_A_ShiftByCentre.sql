@@ -61,9 +61,9 @@ WHERE	--tblCostCentre.CostCentreType2 =1
 		AND(CONVERT(NVARCHAR(50),dbo.tblActivityType.Id) LIKE ISNULL(@ActivityId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblUsers.Id) LIKE ISNULL(@ClerkId, N'%'))
 )
-SELECT CentreName,ShiftName, SUM(NoOfActivities) AS NoOfActivities
+SELECT CentreName,ActivityName,ShiftName, SUM(NoOfActivities) AS NoOfActivities
 FROM Shift_CTE
-GROUP BY CentreName,ShiftName
+GROUP BY CentreName,ActivityName,ShiftName
 
 -- EXEC sp_A_ShiftByCentre @StartDate='2015-06-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
 

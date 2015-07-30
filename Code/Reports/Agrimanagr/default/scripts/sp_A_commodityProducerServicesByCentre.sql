@@ -1,7 +1,7 @@
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_ShiftByFactory')
-   exec('CREATE PROCEDURE [sp_A_ShiftByFactory] AS BEGIN SET NOCOUNT ON; END')
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_A_commodityProducerServicesByCentre')
+   exec('CREATE PROCEDURE [sp_A_commodityProducerServicesByCentre] AS BEGIN SET NOCOUNT ON; END')
 GO
-Alter PROCEDURE sp_A_ShiftByFactory
+Alter PROCEDURE sp_A_commodityProducerServicesByCentre
 (
 @StartDate AS DATE,
 @EndDate AS DATE,
@@ -23,15 +23,17 @@ if  @FarmerId='ALL'  begin set @FarmerId='%' end
 if  @FarmId='ALL'  begin set @FarmId='%' end
 if  @ActivityId='ALL'  begin set @ActivityId='%' end
 if  @ClerkId='ALL'  begin set @ClerkId='%' end
-;WITH Shift_CTE AS (
+
+;WITH Producer_CTE AS(
 SELECT	DISTINCT dbo.tblActivityDocument.Id AS ActivityId,
 		dbo.tblActivityDocument.ActivityReference,
 		dbo.tblActivityType.Name AS ActivityName,
 		dbo.tblService.Name AS Service,
-		dbo.tblShift.Name AS ShiftName,
-		Hub.Name AS Factory,
+		dbo.tblService.Cost,
+		hub.Name as Factory,
+		dbo.tblActivityDocument.ActivityDate AS TimeStamp,
 		1 AS NoOfActivities,
-		dbo.tblActivityDocument.ActivityDate AS TimeStamp
+		tblCentre.Name AS Centre
 
 FROM	dbo.tblActivityDocument
 		INNER JOIN dbo.tblActivityType ON dbo.tblActivityDocument.ActivityTypeId = dbo.tblActivityType.Id
@@ -43,7 +45,7 @@ FROM	dbo.tblActivityDocument
 		INNER JOIN dbo.tblCommodityOwner ON dbo.tblCostCentre.Id = dbo.tblCommodityOwner.CostCentreId
 		INNER JOIN dbo.tblCommodityProducer ON dbo.tblActivityDocument.CommodityProducerId = dbo.tblCommodityProducer.Id
 		INNER JOIN dbo.tblUsers ON dbo.tblActivityDocument.ClerkId = dbo.tblUsers.CostCenterId
-		INNER JOIN dbo.tblShift ON dbo.tblActivityServiceLineItem.ShiftId = dbo.tblShift.id
+		INNER JOIN dbo.tblCentre ON dbo.tblActivityDocument.CentreId = dbo.tblCentre.Id
 
 WHERE	--tblCostCentre.CostCentreType2 =1
 		(CONVERT(VARCHAR(26),tblActivityDocument.ActivityDate,23)  BETWEEN @startDate AND @endDate)   
@@ -54,10 +56,13 @@ WHERE	--tblCostCentre.CostCentreType2 =1
 		AND(CONVERT(NVARCHAR(50),dbo.tblCommodityProducer.Id) LIKE ISNULL(@farmId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblActivityType.Id) LIKE ISNULL(@ActivityId, N'%'))
 		AND(CONVERT(NVARCHAR(50),dbo.tblUsers.Id) LIKE ISNULL(@ClerkId, N'%'))
-)
-SELECT Factory,ActivityName,ShiftName, SUM(NoOfActivities) AS NoOfActivities
-FROM Shift_CTE
-GROUP BY Factory,ActivityName,ShiftName
 
--- EXEC sp_A_ShiftByFactory @StartDate='2015-06-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
+)
+
+SELECT Centre,ActivityName,Service,SUM(Cost) AS Cost,SUM(NoOfActivities) AS NoOfActivities
+FROM Producer_CTE
+
+GROUP BY Centre,ActivityName,Service
+
+-- EXEC sp_A_commodityProducerServicesByCentre @StartDate='2015-06-01',@EndDate='2015-07-15',@HubId='ALL',@RouteId='ALL',@CentreId='ALL',@FarmerId='ALL',@FarmId='ALL',@ActivityId='ALL',@ClerkId='ALL'
 
