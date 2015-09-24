@@ -25,8 +25,8 @@ if  @centreId='ALL'  begin set @centreId='%' end
 if  @farmerId='ALL'  begin set @farmerId='%' end
 
 
-
-SELECT				  dbo.tblCostCentre.Id AS HubId,
+;With Shift_CTE AS (
+SELECT	TOP 100 PERCENT		  dbo.tblCostCentre.Id AS HubId,
                       dbo.tblRoutes.RouteID AS RouteId,
                       dbo.tblRoutes.Name AS [Route],
 					  dbo.tblCentre.Name AS BuyingCentre,
@@ -34,9 +34,10 @@ SELECT				  dbo.tblCostCentre.Id AS HubId,
                       dbo.tblCommodityOwner.Surname,
                       dbo.tblCommodityOwner.FirstName,
                       dbo.tblCommodityOwner.Code AS FarmerCode,
-                      dbo.tblSourcingLineItem.Weight,
-					  CONVERT(VARCHAR(10),tblSourcingDocument.DocumentDate,101) as [Date],
-					  RIGHT(CONVERT(VARCHAR,tblSourcingDocument.DocumentDate,100),7) as [Time]
+                      convert(varchar,dbo.tblSourcingLineItem.[Weight]) [Weight],
+					  REPLACE(CONVERT(CHAR(10),tblSourcingDocument.DocumentDate, 103), '/', '') as [Date],
+					  REPLACE(RIGHT(CONVERT(VARCHAR,tblSourcingDocument.DocumentDate,100),7),':', '') as [Time]
+
                       
 FROM         dbo.tblSourcingLineItem INNER JOIN
                       dbo.tblSourcingDocument ON dbo.tblSourcingLineItem.DocumentId = dbo.tblSourcingDocument.Id INNER JOIN
@@ -50,4 +51,10 @@ WHERE     (dbo.tblSourcingDocument.DocumentTypeId = 13) AND (dbo.tblCostCentre.C
            AND(CONVERT(NVARCHAR(50),dbo.tblRoutes.RouteID) LIKE ISNULL(@routeId, N'%'))  
            AND(CONVERT(NVARCHAR(50),dbo.tblCentre.Id) LIKE ISNULL(@centreId, N'%'))
            AND(CONVERT(NVARCHAR(50), dbo.tblCommodityOwner.Id) LIKE ISNULL(@farmerId, N'%'))
+		   
 ORDER BY dbo.tblSourcingDocument.DocumentDate DESC
+)
+SELECT (FarmerCode+'   '+[Date]+''+[Route]+' '+BuyingCentre+'      '+[Weight]+'   '+[Time])AS ReportData FROM Shift_CTE
+
+--  exec [SP_A_CommodityPurchaseByShift] @startDate='2015-06-01', @endDate='2015-06-26', @hubId='ALL', @routeId='ALL', @centreId='ALL', @farmerId='ALL'
+
