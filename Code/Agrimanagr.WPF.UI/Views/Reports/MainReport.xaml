@@ -30,6 +30,9 @@
                                     <Hyperlink Click="commodityPurchaseFarmer_click" >Purchase by Farmer</Hyperlink>
                                 </TextBlock>
                                 <TextBlock Margin="10,5,0,0" >
+                                         <Hyperlink Click="commodityPurchaseShift_click" >Purchase by Shift</Hyperlink>
+                                </TextBlock>
+                                <TextBlock Margin="10,5,0,0" >
                                     <Hyperlink Click="commodityPurchaseException_click" >Purchase by Date Exception</Hyperlink>
                                 </TextBlock>
 

@@ -160,6 +160,12 @@ namespace Agrimanagr.WPF.UI.Views.Reports
         {
             RenderReport("Purchase By Farmer ", "/Agrimanagr.Reports/CommodityPurchaseByFarmer_R");
         }
+
+
+        private void commodityPurchaseShift_click(object sender, RoutedEventArgs e)
+        {
+            RenderReport("Purchase By Shift", "/agrimanagr.reports/CommodityPurchaseByShift");
+        }
         private void commodityPurchaseException_click(object sender, RoutedEventArgs e)
         {
             RenderReport("Purchase by Date Exception", "/Agrimanagr.Reports/CommodityPurchaseException");

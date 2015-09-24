@@ -453,6 +453,10 @@
       <Name>ShiftByTransaction.rdl</Name>
       <FullPath>ShiftByTransaction.rdl</FullPath>
     </ProjectItem>
+	<ProjectItem>
+      <Name>CommodityPurchaseByShift.rdl</Name>
+      <FullPath>CommodityPurchaseByShift.rdl</FullPath>
+    </ProjectItem>
   </Reports>
   <Configurations>
     <Configuration>
