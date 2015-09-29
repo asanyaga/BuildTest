@@ -36,7 +36,8 @@ SELECT	TOP 100 PERCENT		  dbo.tblCostCentre.Id AS HubId,
                       dbo.tblCommodityOwner.Code AS FarmerCode,
                       convert(varchar,dbo.tblSourcingLineItem.[Weight]) [Weight],
 					  REPLACE(CONVERT(CHAR(10),tblSourcingDocument.DocumentDate, 103), '/', '') as [Date],
-					  REPLACE(RIGHT(CONVERT(VARCHAR,tblSourcingDocument.DocumentDate,100),7),':', '') as [Time]
+					  tblSourcingLineItem.ContainerNo,
+					  CASE WHEN DATEPART(HOUR,tblSourcingDocument.DocumentDate) > =12 THEN 'PM' ELSE 'AM' END as [Time]
 
                       
 FROM         dbo.tblSourcingLineItem INNER JOIN
@@ -54,7 +55,7 @@ WHERE     (dbo.tblSourcingDocument.DocumentTypeId = 13) AND (dbo.tblCostCentre.C
 		   
 ORDER BY dbo.tblSourcingDocument.DocumentDate DESC
 )
-SELECT (FarmerCode+'   '+[Date]+''+[Route]+' '+BuyingCentre+'      '+[Weight]+'   '+[Time])AS ReportData FROM Shift_CTE
+SELECT FarmerCode,[Date],[Route],BuyingCentre,[Weight],ContainerNo,[Time] FROM Shift_CTE
 
 --  exec [SP_A_CommodityPurchaseByShift] @startDate='2015-06-01', @endDate='2015-06-26', @hubId='ALL', @routeId='ALL', @centreId='ALL', @farmerId='ALL'
 

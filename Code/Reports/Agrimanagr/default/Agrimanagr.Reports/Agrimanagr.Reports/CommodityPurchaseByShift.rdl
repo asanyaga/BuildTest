@@ -36,8 +36,32 @@
         <CommandText>SP_A_CommodityPurchaseByShift</CommandText>
       </Query>
       <Fields>
-        <Field Name="ReportData">
-          <DataField>ReportData</DataField>
+        <Field Name="FarmerCode">
+          <DataField>FarmerCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Date">
+          <DataField>Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Route">
+          <DataField>Route</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BuyingCentre">
+          <DataField>BuyingCentre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Weight">
+          <DataField>Weight</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContainerNo">
+          <DataField>ContainerNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Time">
+          <DataField>Time</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -105,7 +129,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>8.265in</Width>
+                  <Width>4.24417in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -114,21 +138,23 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ReportData">
+                        <Textbox Name="FarmerCode">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ReportData.Value</Value>
+                                  <Value>=Lset(Fields!FarmerCode.Value,7)+Lset(Fields!Date.Value,8)+Lset(Fields!Route.Value,2)+Rset(Fields!BuyingCentre.Value,3)+Rset(Fields!Weight.Value,10)+Rset(Fields!ContainerNo.Value,4)+Rset(Fields!Time.Value,2)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>ReportData</rd:DefaultName>
+                          <rd:DefaultName>FarmerCode</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -162,7 +188,7 @@
             <Top>0.15625in</Top>
             <Left>0.125in</Left>
             <Height>0.25in</Height>
-            <Width>8.265in</Width>
+            <Width>4.24417in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -170,10 +196,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.64459in</Height>
+        <Height>0.55084in</Height>
         <Style />
       </Body>
-      <Width>8.39in</Width>
+      <Width>4.43167in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
