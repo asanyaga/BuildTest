@@ -35,7 +35,7 @@ SELECT	TOP 100 PERCENT		  dbo.tblCostCentre.Id AS HubId,
                       dbo.tblCommodityOwner.FirstName,
                       dbo.tblCommodityOwner.Code AS FarmerCode,
                       convert(varchar,dbo.tblSourcingLineItem.[Weight]) [Weight],
-					  REPLACE(CONVERT(CHAR(10),tblSourcingDocument.DocumentDate, 103), '/', '') as [Date],
+					  REPLACE(CONVERT(CHAR(10),tblSourcingDocument.DocumentDate, 101), '/', '') as [Date],
 					  tblSourcingLineItem.ContainerNo,
 					  CASE WHEN DATEPART(HOUR,tblSourcingDocument.DocumentDate) > =12 THEN 'PM' ELSE 'AM' END as [Time]
 
